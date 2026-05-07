@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 import { Search, X, ShoppingBag, FileText, BookOpen, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { products, type ProductData } from "@/data/productData";

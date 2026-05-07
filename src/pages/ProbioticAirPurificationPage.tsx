@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { SectionLabel } from "@/components/ui/section-label";
 import {
   Accordion,

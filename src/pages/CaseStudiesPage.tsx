@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 const RelatedTopics = lazy(() => import("@/components/RelatedTopics").then(m => ({ default: m.RelatedTopics })));
 const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").then(m => ({ default: m.ContentProductCTA })));
 

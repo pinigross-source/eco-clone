@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "@tanstack/react-router";
 
 const AFFILIATE_STORAGE_KEY = "eb_affiliate_ref";
 const AFFILIATE_EXPIRY_KEY = "eb_affiliate_ref_expiry";

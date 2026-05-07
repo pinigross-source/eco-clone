@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useStripeCartStore } from "@/stores/stripeCartStore";
 import { Loader2, Phone } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 import { Input } from "@/components/ui/input";
 import { getAffiliateRef } from "@/hooks/useAffiliateTracking";
 

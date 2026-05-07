@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "@tanstack/react-router";
 import type { User } from "@supabase/supabase-js";
 import { LifestyleHero } from "@/components/LifestyleHero";
 import heroRegistrationLifestyle from "@/assets/hero-registration-lifestyle.jpg";

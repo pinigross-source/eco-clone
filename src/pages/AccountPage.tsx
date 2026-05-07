@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { ChangePasswordSection } from "@/components/account/ChangePasswordSection";
 import { resolveTier, getTierFeatures } from "@/lib/subscription-tiers";
 import { SubscriberBadge, WarrantyBadge } from "@/components/subscriber/SubscriberComponents";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";

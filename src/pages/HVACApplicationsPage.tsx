@@ -1,7 +1,7 @@
 import { SEOHead } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { RelatedTopics } from "@/components/RelatedTopics";
 import { SectionLabel } from "@/components/ui/section-label";
 import { Building2, AlertCircle, Cog, BarChart3, Layers } from "lucide-react";

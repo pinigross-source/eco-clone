@@ -22,7 +22,7 @@ import {
   Gift,
   Loader2
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { useGoogleReCaptcha, GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";

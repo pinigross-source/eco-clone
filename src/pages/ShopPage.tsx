@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { SEOHead, makeProductJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { lazy, Suspense } from "react";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));

@@ -2,7 +2,7 @@ import { SEOHead, organizationJsonLd, makeBreadcrumbJsonLd } from "@/components/
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { RelatedTopics } from "@/components/RelatedTopics";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { BookOpen } from "lucide-react";
 import { useState, useMemo } from "react";

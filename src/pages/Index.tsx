@@ -1,5 +1,5 @@
 import { useEffect, lazy, Suspense } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "@tanstack/react-router";
 import { SEOHead, organizationJsonLd, websiteJsonLd, homepageFaqJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
