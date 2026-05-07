@@ -1,12 +1,10 @@
-import { Check, X, ArrowRight, Star, ShoppingCart } from "lucide-react";
+import { Check, X, Star, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "@/lib/link";
 import { motion } from "framer-motion";
-import { toast } from "sonner";
 import { useState } from "react";
-import { useStripeCartStore } from "@/stores/stripeCartStore";
-import { getProductBySlug } from "@/lib/stripe-products";
+import { shopifyProductUrl } from "@/lib/shopify";
 
 import biologicMini from "@/assets/biologic-mini-nobg-new.avif";
 import biotica800 from "@/assets/biotica800-hero.avif";
