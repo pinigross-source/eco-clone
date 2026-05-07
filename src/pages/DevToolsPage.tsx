@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/SEOHead";
 import { shopifyUrl } from "@/lib/shopify";
 import { supabase } from "@/integrations/supabase/client";
+import { pingShopify } from "@/server/shopify-ping.functions";
+
 
 function Row({ title, description, action }: { title: string; description: string; action: React.ReactNode }) {
   return (
@@ -20,6 +22,26 @@ function Row({ title, description, action }: { title: string; description: strin
 
 export default function DevToolsPage() {
   const [status, setStatus] = useState<string | null>(null);
+  const [shopifyStatus, setShopifyStatus] = useState<string | null>(null);
+  const [shopifyChecking, setShopifyChecking] = useState(false);
+
+  const checkShopify = async () => {
+    setShopifyChecking(true);
+    setShopifyStatus(null);
+    try {
+      const res = await pingShopify();
+      if (res.ok) {
+        setShopifyStatus(`✅ Connected to "${res.shop}" (${res.domain}) — ${res.currency}`);
+      } else {
+        setShopifyStatus(`❌ ${res.error}`);
+      }
+    } catch (e) {
+      setShopifyStatus(`❌ ${e instanceof Error ? e.message : String(e)}`);
+    } finally {
+      setShopifyChecking(false);
+    }
+  };
+
 
   const clearLocal = () => {
     try {
@@ -112,7 +134,23 @@ export default function DevToolsPage() {
               </Button>
             }
           />
+          <Row
+            title="Test Shopify Storefront API"
+            description="Pings the Storefront API to verify the token + domain are configured."
+            action={
+              <Button onClick={checkShopify} disabled={shopifyChecking} variant="outline">
+                {shopifyChecking ? "Checking…" : "Run check"}
+              </Button>
+            }
+          />
         </section>
+
+        {shopifyStatus && (
+          <div className="mt-4 rounded-md border border-border bg-muted p-3 text-sm">
+            {shopifyStatus}
+          </div>
+        )}
+
 
         <section className="mt-10">
           <h2 className="mb-3 text-lg font-semibold text-foreground">Environment</h2>
