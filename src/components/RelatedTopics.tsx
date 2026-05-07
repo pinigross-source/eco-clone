@@ -29,7 +29,7 @@ export interface RelatedLink {
 
 const allLinks: RelatedLink[] = [
   { label: "How It Works", href: "/how-it-works", icon: Lightbulb, description: "The science behind probiotic purification" },
-  { label: "Benefits", href: "/benefits", icon: Heart, description: "Health advantages for your family" },
+  { label: "Benefits", href: "/health-benefits", icon: Heart, description: "Health advantages for your family" },
   { label: "Probiotic Air Purification", href: "/probiotic-air-purification", icon: Wind, description: "Our core technology explained" },
   { label: "Mold & Allergen Reduction", href: "/mold-and-allergens", icon: Bug, description: "Combat mold, dander, and dust mites" },
   { label: "HVAC Applications", href: "/hvac-applications", icon: Building2, description: "Whole-building probiotic treatment" },
@@ -46,8 +46,8 @@ const allLinks: RelatedLink[] = [
   { label: "About", href: "/about", icon: Users, description: "Our mission and story" },
   { label: "Support", href: "/support", icon: LifeBuoy, description: "Get help from our team" },
   { label: "Glossary", href: "/glossary", icon: GraduationCap, description: "Key terms and definitions" },
-  { label: "BetterAir → EnviroBiotics", href: "/betterair-to-envirobiotics", icon: Users, description: "Our rebrand explained" },
-  { label: "EnviroBiotics vs HEPA", href: "/compare/envirobiotics-vs-hepa", icon: Wind, description: "Probiotic vs filter comparison" },
+  { label: "BetterAir → EnviroBiotics", href: "/betterair-rebrand", icon: Users, description: "Our rebrand explained" },
+  { label: "EnviroBiotics vs HEPA", href: "/compare/hepa", icon: Wind, description: "Probiotic vs filter comparison" },
   { label: "EnviroBiotics vs UV-C", href: "/compare/envirobiotics-vs-uvc", icon: Lightbulb, description: "Safety and effectiveness compared" },
   { label: "EnviroBiotics vs Chemical Fresheners", href: "/compare/envirobiotics-vs-chemical-fresheners", icon: FlaskConical, description: "Natural vs chemical odor removal" },
   { label: "EnviroBiotics vs Bio Healing", href: "/compare/envirobiotics-vs-bio-healing", icon: ShieldCheck, description: "Certification and technology comparison" },

@@ -109,7 +109,7 @@ const ResearchCard = ({ item }: { item: ResearchItem }) => {
   if (isCaseStudy) {
     return (
       <Link
-        to={`/case-study/${item.slug}`}
+        to={`/case-studies/${item.slug}`}
         className="group block bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
       >
         {cardContent}

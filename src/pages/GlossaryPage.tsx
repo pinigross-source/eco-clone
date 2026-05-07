@@ -23,7 +23,7 @@ const glossaryTerms: GlossaryTerm[] = [
     extendedDescription: "Common indoor allergens include dust mite fecal proteins (Der p 1, Der f 1), pet dander proteins (Fel d 1 from cats, Can f 1 from dogs), mold spores, cockroach fragments, and pollen. These particles settle on surfaces and become airborne when disturbed. Environmental probiotics help reduce allergen levels by enzymatically breaking down allergenic proteins on surfaces.",
     relatedLinks: [
       { label: "Mold & Allergen Reduction", url: "/mold-and-allergens" },
-      { label: "Health Benefits", url: "/benefits" },
+      { label: "Health Benefits", url: "/health-benefits" },
     ],
   },
   {
@@ -133,7 +133,7 @@ const glossaryTerms: GlossaryTerm[] = [
     extendedDescription: "The EPA estimates indoor air can be 2–5× more polluted than outdoor air. Poor IAQ contributes to allergies, asthma, headaches, fatigue, and long-term respiratory disease. Sources of indoor air pollution include VOCs from building materials, biological contaminants (mold, bacteria, dust mite allergens), and particulate matter from cooking and pets. Improving IAQ requires addressing both airborne particles and surface-level contamination — which is why EnviroBiotics treats the entire indoor environment, not just filtered air.",
     relatedLinks: [
       { label: "Education Center", url: "/education" },
-      { label: "Health Benefits", url: "/benefits" },
+      { label: "Health Benefits", url: "/health-benefits" },
     ],
   },
   {
@@ -222,7 +222,7 @@ const glossaryTerms: GlossaryTerm[] = [
     extendedDescription: "VOCs include formaldehyde, benzene, toluene, and hundreds of other compounds found in indoor environments. Sources include new furniture, paint, adhesives, cleaning sprays, and even air fresheners. Long-term exposure to elevated VOC levels can cause headaches, nausea, and damage to liver, kidney, and central nervous system. While HEPA filters cannot capture gaseous VOCs, reducing the overall biological load on surfaces through probiotic treatment helps improve overall indoor environmental quality.",
     relatedLinks: [
       { label: "Education Center", url: "/education" },
-      { label: "Indoor Air Quality", url: "/benefits" },
+      { label: "Indoor Air Quality", url: "/health-benefits" },
     ],
   },
 ];

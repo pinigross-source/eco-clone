@@ -242,7 +242,7 @@ const CompareChemicalFreshenersPage = () => {
         <RelatedTopics
           currentPath="/compare/envirobiotics-vs-chemical-fresheners"
           links={[
-            { label: "vs HEPA Purifiers", href: "/compare/envirobiotics-vs-hepa" },
+            { label: "vs HEPA Purifiers", href: "/compare/hepa" },
             { label: "vs UV-C Purifiers", href: "/compare/envirobiotics-vs-uvc" },
             { label: "Safety & Certifications", href: "/safety" },
             { label: "Probiotic Air Purification Hub", href: "/probiotic-air-purification" },

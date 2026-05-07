@@ -30,7 +30,7 @@ const BetterAirRebrandPage = () => {
       organizationJsonLd,
       makeBreadcrumbJsonLd([
         { name: "Home", url: "/" },
-        { name: "BetterAir is Now EnviroBiotics", url: "/betterair-to-envirobiotics" },
+        { name: "BetterAir is Now EnviroBiotics", url: "/betterair-rebrand" },
       ]),
       {
         "@type": "FAQPage",
@@ -77,7 +77,7 @@ const BetterAirRebrandPage = () => {
       <SEOHead
         title="BetterAir Is Now EnviroBiotics | Same Technology, New Name"
         description="BetterAir has rebranded to EnviroBiotics. Same probiotic air and surface purification technology, same team, same certifications. Learn about our evolution from BetterAir to EnviroBiotics."
-        path="/betterair-to-envirobiotics"
+        path="/betterair-rebrand"
         keywords="BetterAir, Better Air, BetterAir probiotic, BetterAir air purifier, EnviroBiotics, betterair.com, betterair probiotic air purifier, BetterAir rebranding, environmental probiotics"
         jsonLd={jsonLd}
       />
@@ -244,7 +244,7 @@ const BetterAirRebrandPage = () => {
           </div>
         </ScrollReveal>
 
-        <RelatedTopics currentPath="/betterair-to-envirobiotics" />
+        <RelatedTopics currentPath="/betterair-rebrand" />
       </main>
       <Footer />
     </div>

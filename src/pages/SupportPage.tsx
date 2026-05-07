@@ -42,7 +42,7 @@ const supportOptions = [
     title: "Product Registration",
     description: "Register your device for warranty coverage and exclusive benefits.",
     action: "Register Now",
-    href: "/register",
+    href: "/product-registration",
   },
   {
     icon: MessageCircle,

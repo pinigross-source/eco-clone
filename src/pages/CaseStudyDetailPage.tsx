@@ -52,7 +52,7 @@ const CaseStudyDetailPage = () => {
       <SEOHead
         title={`${caseStudy.title} | Case Study`}
         description={caseStudy.description}
-        path={`/case-study/${slug}`}
+        path={`/case-studies/${slug}`}
         type="article"
       />
       <Navbar />
@@ -335,7 +335,7 @@ const CaseStudyDetailPage = () => {
                 {relatedStudies.map((study) => (
                   <StaggerItem key={study.slug}>
                     <Link 
-                      to={`/case-study/${study.slug}`}
+                      to={`/case-studies/${study.slug}`}
                       className="group flex gap-4 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
                     >
                       <div className="w-32 md:w-48 shrink-0">

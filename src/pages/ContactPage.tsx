@@ -151,7 +151,7 @@ const ContactPage = () => {
                     <a href="/warranty-policy" className="text-primary hover:underline">Shipping, Returns & Warranty →</a>
                   </li>
                   <li>
-                    <a href="/register" className="text-primary hover:underline">Register Your Product →</a>
+                    <a href="/product-registration" className="text-primary hover:underline">Register Your Product →</a>
                   </li>
                   <li>
                     <a href="/orders" className="text-primary hover:underline">Track Your Order →</a>
