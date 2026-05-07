@@ -53,17 +53,17 @@ export const SafetySection = () => {
           {/* Right image (mobile-first order) */}
           <ScrollReveal variant="fadeRight" delay={0.2} className="order-first lg:order-last">
             <div className="relative rounded-[1.75rem] sm:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-foreground/5 bg-foreground/5">
-              <div className="relative w-full aspect-[3/4]">
+              <div className="relative w-full aspect-[3/4] bg-foreground/10">
                 <iframe
                   ref={videoRef}
                   src="https://player.vimeo.com/video/1187060240?background=1&autoplay=1&loop=1&muted=1&autopause=0&controls=0&playsinline=1&title=0&byline=0&portrait=0&dnt=1&api=1"
-                  className="absolute inset-0 w-full h-full block"
+                  className={`absolute inset-0 w-full h-full block transition-opacity duration-700 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
                   style={{ filter: "brightness(1.7) contrast(1.02) saturate(1.08)" }}
                   frameBorder={0}
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
                   title="Safety & Science"
-                  loading="lazy"
+                  loading="eager"
                 />
               </div>
               {/* Mobile: glass eyebrow chip */}
