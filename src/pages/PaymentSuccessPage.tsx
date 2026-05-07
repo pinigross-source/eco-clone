@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { useSearchParams } from "@/lib/router-compat";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";

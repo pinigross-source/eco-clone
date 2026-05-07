@@ -2,7 +2,7 @@ import { SEOHead, organizationJsonLd, makeBreadcrumbJsonLd } from "@/components/
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { RelatedTopics } from "@/components/RelatedTopics";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { ArrowRight, CheckCircle2, ShieldCheck, Repeat, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";

@@ -1,7 +1,7 @@
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { RelatedTopics } from "@/components/RelatedTopics";
 import { SectionLabel } from "@/components/ui/section-label";
 import { Check, X, Shield, Wind, Microscope, Leaf, ShoppingBag } from "lucide-react";

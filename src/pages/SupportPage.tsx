@@ -28,7 +28,7 @@ import { useGoogleReCaptcha, GoogleReCaptchaProvider } from "react-google-recapt
 import { supabase } from "@/integrations/supabase/client";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { RelatedTopics } from "@/components/RelatedTopics";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import biologicMiniImg from "@/assets/biologic-mini-nobg-new.avif";
 import biotica800Img from "@/assets/shop/biotica-800.png";
 import ba2080Img from "@/assets/shop/ba2080.png";

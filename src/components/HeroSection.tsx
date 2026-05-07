@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { ArrowRight } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
 import { Button } from "@/components/ui/button";

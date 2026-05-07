@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { SectionLabel } from "@/components/ui/section-label";
 import { BookOpen, Shield, Microscope, FlaskConical, ArrowRight, Beaker, Bug, PawPrint, Wind, Scale, FileText, Building2, Award, MessageCircleQuestion } from "lucide-react";
 import {

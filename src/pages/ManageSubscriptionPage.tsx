@@ -19,7 +19,8 @@ import {
   CheckCircle2,
   ExternalLink
 } from "lucide-react";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 

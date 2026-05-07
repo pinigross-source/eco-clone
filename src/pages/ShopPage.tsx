@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { SEOHead, makeProductJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
-import { Link, useLocation } from "@tanstack/react-router";
+import { useLocation } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { useSearchParams } from "@/lib/router-compat";
 import { Navbar } from "@/components/Navbar";
 import { lazy, Suspense } from "react";

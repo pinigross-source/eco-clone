@@ -1,5 +1,5 @@
 import { ShieldCheck, FlaskConical, Star, ArrowRight } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import fdaGrasBadge from "@/assets/fda-gras-badge.jpg";
 import epaBadge from "@/assets/epa-badge.png";
 import madeSafeLogo from "@/assets/made-safe-logo.avif";

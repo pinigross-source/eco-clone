@@ -1,5 +1,5 @@
 import { ShieldCheck, FlaskConical, PawPrint, ArrowUpRight, Phone, Mail, Clock, BookOpen, Video, Microscope, FileText, ClipboardList } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import logo from "@/assets/logo.avif";
 
 const exploreLinks = [

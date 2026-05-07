@@ -1,5 +1,5 @@
 import { useState, useCallback, lazy, Suspense } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { Navbar } from "@/components/Navbar";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const ScrollReveal = lazy(() => import("@/components/ui/scroll-reveal").then(m => ({ default: m.ScrollReveal })));

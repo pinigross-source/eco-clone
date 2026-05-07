@@ -19,7 +19,7 @@ import {
   ShoppingCart
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { StripeProductCard } from "@/components/shop/StripeProductCard";
 import { getSubscriptions } from "@/lib/stripe-products";
 

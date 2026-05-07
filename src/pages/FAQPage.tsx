@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { RelatedTopics } from "@/components/RelatedTopics";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";

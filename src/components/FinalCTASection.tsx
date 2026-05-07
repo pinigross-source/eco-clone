@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { trackEvent } from "@/lib/tracking";
 

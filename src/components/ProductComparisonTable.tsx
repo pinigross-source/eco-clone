@@ -1,7 +1,7 @@
 import { Check, X, ArrowRight, Star, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useState } from "react";

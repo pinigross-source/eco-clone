@@ -1,7 +1,7 @@
 import { SEOHead } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { RelatedTopics } from "@/components/RelatedTopics";
 import { SectionLabel } from "@/components/ui/section-label";
 import { BedDouble, Sofa, CookingPot, Building2, HeartPulse } from "lucide-react";

@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Shield, Crown, Lock } from "lucide-react";
 import { type TierFeatures, type SubscriptionTier } from "@/lib/subscription-tiers";
 import { type ReactNode } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 
 interface SubscriberBadgeProps {
   tier: SubscriptionTier;

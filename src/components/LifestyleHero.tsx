@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 

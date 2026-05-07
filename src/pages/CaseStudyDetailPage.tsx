@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useParams, Link } from "@tanstack/react-router";
+import { useParams } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { Navigate } from "@/lib/router-compat";
 import { SEOHead } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 // Render inline markdown: **bold** and [link text](/path)
