@@ -353,7 +353,7 @@ export function AffiliateManagementSection() {
     setPayoutProcessing(true);
     try {
       // Create a paid commission record
-      const { error: comErr } = await supabase.from("commissions").insert({
+      const { error: comErr } = await (supabase as any).from("commissions").insert({
         affiliate_id: payoutAffiliate.id,
         amount,
         status: "paid",

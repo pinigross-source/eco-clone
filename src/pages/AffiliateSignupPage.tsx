@@ -103,7 +103,7 @@ function AffiliateSignupPageInner() {
       // Even if email sending fails, still try to insert
       // Insert affiliate record
       const { data: { session: currentSession } } = await supabase.auth.getSession();
-      const { error: insertError } = await supabase.from("affiliates").insert({
+      const { error: insertError } = await (supabase as any).from("affiliates").insert({
         first_name: result.data.firstName,
         last_name: result.data.lastName,
         email: result.data.email.toLowerCase(),

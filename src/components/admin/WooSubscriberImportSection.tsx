@@ -131,7 +131,7 @@ export function WooSubscriberImportSection() {
     const errors: string[] = [];
 
     for (const row of valid) {
-      const { error } = await supabase.from("woo_subscriptions").upsert(
+      const { error } = await (supabase as any).from("woo_subscriptions").upsert(
         {
           email: row.email.toLowerCase().trim(),
           product_name: row.product_name,

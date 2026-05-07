@@ -179,7 +179,7 @@ export function ProductCatalogSection({ isAdmin }: { isAdmin: boolean }) {
     }
 
     // Log the change
-    await supabase.from("inventory_logs").insert({
+    await (supabase as any).from("inventory_logs").insert({
       product_id: adjustProduct.id,
       change_quantity: change,
       previous_quantity: adjustProduct.stock_quantity,
