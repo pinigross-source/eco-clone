@@ -76,7 +76,7 @@ export function resolveShopifyUrl(to: string): string | null {
     return shopifyUrl("/account/orders", "orders");
   }
   if (pathOnly === "/subscribe" || pathOnly === "/subscription") {
-    return shopifyUrl("/collections/subscriptions", "subscribe");
+    return shopifyUrl("/collections/subscribe-save", "subscribe");
   }
   if (pathOnly === "/pro-subscription") {
     return shopifyUrl("/collections/pro-subscriptions", "pro-subscribe");

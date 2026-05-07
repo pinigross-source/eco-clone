@@ -4,7 +4,7 @@ import { shopifyUrl } from "@/lib/shopify";
 
 function SubRedirect() {
   useEffect(() => {
-    window.location.replace(shopifyUrl("/collections/subscriptions", "subscribe"));
+    window.location.replace(shopifyUrl("/collections/subscribe-save", "subscribe"));
   }, []);
   return (
     <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
