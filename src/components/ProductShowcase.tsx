@@ -40,7 +40,7 @@ const products = [
   {
     id: 4,
     name: "E-Biotic Pro",
-    slug: "ebiotic-pro",
+    slug: "e-biotic-pro",
     tagline: "For larger spaces",
     coverage: "25,000 sq ft",
     description: "Commercial-strength HVAC-connected protection for buildings and facilities.",
