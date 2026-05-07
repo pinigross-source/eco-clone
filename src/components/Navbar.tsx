@@ -4,11 +4,22 @@ import { Menu, X, ArrowRight, User, Sparkles, ChevronDown, Home, Fan, Beaker, La
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/tracking";
+import { shopifyCart } from "@/lib/shopify";
 // Use public path to avoid bundling; preloaded in index.html
 const logo = "/assets/logo.avif";
 
 const NavbarSearch = lazy(() => import("./NavbarSearch").then(m => ({ default: m.NavbarSearch })));
-const StripeCartDrawer = lazy(() => import("@/components/shop/StripeCartDrawer").then(m => ({ default: m.StripeCartDrawer })));
+
+const ShopifyCartLink = () => (
+  <a
+    href={shopifyCart()}
+    aria-label="Open cart on Shopify"
+    title="Cart"
+    className="w-10 h-10 rounded-xl flex items-center justify-center bg-muted/50 hover:bg-muted transition-colors hover:scale-105 active:scale-95"
+  >
+    <ShoppingCart className="w-5 h-5 text-foreground/80" />
+  </a>
+);
 
 type NavItem = {
   label: string;
