@@ -37,7 +37,7 @@ import {
 
 const CaseStudyDetailPage = () => {
   const [contactOpen, setContactOpen] = useState(false);
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams({ strict: false }) as { slug?: string };
   const caseStudy = slug ? getCaseStudyBySlug(slug) : undefined;
   const relatedStudies = slug ? getRelatedCaseStudies(slug) : [];
 

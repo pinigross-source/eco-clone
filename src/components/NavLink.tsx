@@ -22,7 +22,7 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
       <Link
         ref={ref}
         to={to as never}
-        className={cn(className, isActive && activeClassName, isActive && pendingClassName) as string}
+        className={[className, isActive && activeClassName, isActive && pendingClassName].filter(Boolean).join(" ")}
         {...(props as Record<string, unknown>)}
       />
     );

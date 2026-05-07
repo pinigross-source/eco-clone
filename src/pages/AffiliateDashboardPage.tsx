@@ -110,30 +110,31 @@ export default function AffiliateDashboardPage() {
       }
 
       // 7: Use aggregate view for totals instead of client-side computation
+      const sb = supabase as any;
       const [refRes, comRes, statsRes] = await Promise.all([
-        supabase
+        sb
           .from("referrals_affiliate_view")
           .select("id, affiliate_id, created_at, referral_type, amount, amount_cents, status, converted, conversion_date, order_id, order_number, customer_name")
           .eq("affiliate_id", affData.id)
           .order("created_at", { ascending: false })
           .limit(50),
-        supabase
+        sb
           .from("commissions")
           .select("*")
           .eq("affiliate_id", affData.id)
           .order("created_at", { ascending: false })
           .limit(50),
-        supabase
+        sb
           .from("affiliate_stats")
           .select("*")
           .eq("affiliate_id", affData.id)
           .maybeSingle(),
       ]);
 
-      const refs = (refRes.data || []) as any;
+      const refs = (refRes.data || []) as any[];
       const comms = (comRes.data || []).map((c: any) => {
         // Enrich commissions with order info from matching referral
-        const matchRef = c.referral_id ? refs.find((r) => r.id === c.referral_id) : null;
+        const matchRef = c.referral_id ? refs.find((r: any) => r.id === c.referral_id) : null;
         return {
           ...c,
           order_number: matchRef?.order_number || null,
@@ -143,7 +144,7 @@ export default function AffiliateDashboardPage() {
       setReferrals(refs);
       setCommissions(comms);
 
-      const stats = statsRes.data;
+      const stats: any = statsRes.data;
       setAffiliate({
         ...affData,
         total_earnings: Number(stats?.total_earnings) || 0,
