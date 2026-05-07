@@ -29,10 +29,19 @@ export const HeroSection = () => {
       } catch {}
     };
     window.addEventListener("message", onMessage);
-    // Fallback: reveal after 2.5s even if events don't fire
-    const fallback = setTimeout(() => setVideoLoaded(true), 2500);
+    const onLoad = () => {
+      // Kick off Vimeo player API handshake
+      post("ping");
+      post("addEventListener", "play");
+      post("addEventListener", "playing");
+      post("play");
+    };
+    iframe.addEventListener("load", onLoad);
+    // Fallback: reveal after 1.5s even if events don't fire
+    const fallback = setTimeout(() => setVideoLoaded(true), 1500);
     return () => {
       window.removeEventListener("message", onMessage);
+      iframe.removeEventListener("load", onLoad);
       clearTimeout(fallback);
     };
   }, []);
