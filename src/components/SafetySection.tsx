@@ -16,6 +16,7 @@ const stats = [
 
 export const SafetySection = () => {
   const videoRef = useRef<HTMLIFrameElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     const iframe = videoRef.current;
@@ -24,21 +25,25 @@ export const SafetySection = () => {
       iframe.contentWindow?.postMessage(JSON.stringify({ method, value }), "*");
     };
     const onMessage = (e: MessageEvent) => {
-      if (typeof e.data !== "string" || !e.data.includes("ready")) return;
+      if (typeof e.data !== "string") return;
       try {
         const data = JSON.parse(e.data);
         if (data.event === "ready") {
+          send("addEventListener", "play");
+          send("addEventListener", "playing");
           send("setPlaybackRate", 0.08);
+          send("play");
+        }
+        if (data.event === "play" || data.event === "playing") {
+          setVideoLoaded(true);
         }
       } catch {}
     };
     window.addEventListener("message", onMessage);
-    // Trigger ready handshake
-    const onLoad = () => send("ping");
-    iframe.addEventListener("load", onLoad);
+    const fallback = setTimeout(() => setVideoLoaded(true), 2500);
     return () => {
       window.removeEventListener("message", onMessage);
-      iframe.removeEventListener("load", onLoad);
+      clearTimeout(fallback);
     };
   }, []);
   return (
