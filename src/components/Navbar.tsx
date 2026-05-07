@@ -82,12 +82,8 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
       <Link
         to={item.href}
         className={cn(
-          "relative px-4 xl:px-5 py-2.5 text-[15px] xl:text-base transition-all duration-300 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
-          scrolled
-            ? cn("hover:text-foreground hover:bg-muted/50", item.bold ? "font-bold text-primary" : "font-medium text-muted-foreground")
-            : useLight
-              ? cn("hover:text-white hover:bg-white/10", item.bold ? "font-bold text-white" : "font-medium text-white/85")
-              : cn("hover:text-foreground hover:bg-muted/50", item.bold ? "font-bold text-foreground" : "font-medium text-muted-foreground")
+          "relative px-4 xl:px-5 py-2.5 text-base xl:text-lg transition-all duration-300 flex items-center gap-1.5 rounded-lg whitespace-nowrap hover:bg-white/10",
+          item.bold ? "font-bold text-white" : "font-medium text-white"
         )}
       >
         {item.label}
