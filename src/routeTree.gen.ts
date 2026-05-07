@@ -31,6 +31,7 @@ import { Route as OrderHistoryRouteImport } from './routes/order-history'
 import { Route as NurseryRouteImport } from './routes/nursery'
 import { Route as MoldAndAllergensRouteImport } from './routes/mold-and-allergens'
 import { Route as ManageSubscriptionRouteImport } from './routes/manage-subscription'
+import { Route as LinkCheckRouteImport } from './routes/link-check'
 import { Route as HvacApplicationsRouteImport } from './routes/hvac-applications'
 import { Route as HvacRouteImport } from './routes/hvac'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
@@ -174,6 +175,11 @@ const MoldAndAllergensRoute = MoldAndAllergensRouteImport.update({
 const ManageSubscriptionRoute = ManageSubscriptionRouteImport.update({
   id: '/manage-subscription',
   path: '/manage-subscription',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LinkCheckRoute = LinkCheckRouteImport.update({
+  id: '/link-check',
+  path: '/link-check',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HvacApplicationsRoute = HvacApplicationsRouteImport.update({
@@ -368,6 +374,7 @@ export interface FileRoutesByFullPath {
   '/how-it-works': typeof HowItWorksRoute
   '/hvac': typeof HvacRoute
   '/hvac-applications': typeof HvacApplicationsRoute
+  '/link-check': typeof LinkCheckRoute
   '/manage-subscription': typeof ManageSubscriptionRoute
   '/mold-and-allergens': typeof MoldAndAllergensRoute
   '/nursery': typeof NurseryRoute
@@ -425,6 +432,7 @@ export interface FileRoutesByTo {
   '/how-it-works': typeof HowItWorksRoute
   '/hvac': typeof HvacRoute
   '/hvac-applications': typeof HvacApplicationsRoute
+  '/link-check': typeof LinkCheckRoute
   '/manage-subscription': typeof ManageSubscriptionRoute
   '/mold-and-allergens': typeof MoldAndAllergensRoute
   '/nursery': typeof NurseryRoute
@@ -483,6 +491,7 @@ export interface FileRoutesById {
   '/how-it-works': typeof HowItWorksRoute
   '/hvac': typeof HvacRoute
   '/hvac-applications': typeof HvacApplicationsRoute
+  '/link-check': typeof LinkCheckRoute
   '/manage-subscription': typeof ManageSubscriptionRoute
   '/mold-and-allergens': typeof MoldAndAllergensRoute
   '/nursery': typeof NurseryRoute
@@ -542,6 +551,7 @@ export interface FileRouteTypes {
     | '/how-it-works'
     | '/hvac'
     | '/hvac-applications'
+    | '/link-check'
     | '/manage-subscription'
     | '/mold-and-allergens'
     | '/nursery'
@@ -599,6 +609,7 @@ export interface FileRouteTypes {
     | '/how-it-works'
     | '/hvac'
     | '/hvac-applications'
+    | '/link-check'
     | '/manage-subscription'
     | '/mold-and-allergens'
     | '/nursery'
@@ -656,6 +667,7 @@ export interface FileRouteTypes {
     | '/how-it-works'
     | '/hvac'
     | '/hvac-applications'
+    | '/link-check'
     | '/manage-subscription'
     | '/mold-and-allergens'
     | '/nursery'
@@ -714,6 +726,7 @@ export interface RootRouteChildren {
   HowItWorksRoute: typeof HowItWorksRoute
   HvacRoute: typeof HvacRoute
   HvacApplicationsRoute: typeof HvacApplicationsRoute
+  LinkCheckRoute: typeof LinkCheckRoute
   ManageSubscriptionRoute: typeof ManageSubscriptionRoute
   MoldAndAllergensRoute: typeof MoldAndAllergensRoute
   NurseryRoute: typeof NurseryRoute
@@ -898,6 +911,13 @@ declare module '@tanstack/react-router' {
       path: '/manage-subscription'
       fullPath: '/manage-subscription'
       preLoaderRoute: typeof ManageSubscriptionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/link-check': {
+      id: '/link-check'
+      path: '/link-check'
+      fullPath: '/link-check'
+      preLoaderRoute: typeof LinkCheckRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hvac-applications': {
@@ -1193,6 +1213,7 @@ const rootRouteChildren: RootRouteChildren = {
   HowItWorksRoute: HowItWorksRoute,
   HvacRoute: HvacRoute,
   HvacApplicationsRoute: HvacApplicationsRoute,
+  LinkCheckRoute: LinkCheckRoute,
   ManageSubscriptionRoute: ManageSubscriptionRoute,
   MoldAndAllergensRoute: MoldAndAllergensRoute,
   NurseryRoute: NurseryRoute,
@@ -1225,3 +1246,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
