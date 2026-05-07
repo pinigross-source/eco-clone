@@ -25,6 +25,26 @@ export default function DevToolsPage() {
   const [status, setStatus] = useState<string | null>(null);
   const [shopifyStatus, setShopifyStatus] = useState<string | null>(null);
   const [shopifyChecking, setShopifyChecking] = useState(false);
+  const [tokenStatus, setTokenStatus] = useState<string | null>(null);
+  const [tokenChecking, setTokenChecking] = useState(false);
+
+  const checkToken = async () => {
+    setTokenChecking(true);
+    setTokenStatus(null);
+    try {
+      const res = await inspectShopifyToken();
+      if (res.ok) {
+        setTokenStatus(`✅ ${res.message} — ${res.preview}`);
+      } else {
+        setTokenStatus(`❌ ${res.error}${"preview" in res && res.preview ? ` — ${res.preview}` : ""}`);
+      }
+    } catch (e) {
+      setTokenStatus(`❌ ${e instanceof Error ? e.message : String(e)}`);
+    } finally {
+      setTokenChecking(false);
+    }
+  };
+
 
   const checkShopify = async () => {
     setShopifyChecking(true);
