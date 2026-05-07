@@ -89,8 +89,6 @@ export const HeroSection = () => {
 
             <a
               href="https://shop.envirobiotics.com/"
-              target="_blank"
-              rel="noopener noreferrer"
               onClick={() => trackEvent("click_buy_now_hero")}
               className="w-full sm:w-auto"
             >
