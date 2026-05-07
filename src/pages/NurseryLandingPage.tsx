@@ -37,6 +37,10 @@ const NurseryLandingPage = () => {
     window.location.href = SHOPIFY_BUY_URL;
   };
 
+  const scrollToCTA = () => {
+    document.getElementById("nursery-cta")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const formatPrice = (cents: number) => `$${(cents / 100).toFixed(2)}`;
 
   return (
