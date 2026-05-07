@@ -5,33 +5,34 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold tracking-[-0.01em] ring-offset-background transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary-button text-white hover:bg-primary-button-hover shadow-md hover:shadow-lg hover:shadow-primary/20",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border-2 border-border bg-background hover:bg-muted hover:border-primary/30 text-foreground",
-        "outline-light": "border-2 border-white/30 bg-transparent hover:bg-white/10 hover:border-white/50 text-white",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-muted hover:text-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-primary-button text-white shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:bg-primary-button-hover transform hover:-translate-y-0.5 active:translate-y-0",
-        "hero-outline": "border-2 border-primary/30 bg-background/80 backdrop-blur-sm hover:bg-primary-soft hover:border-primary text-foreground font-semibold",
-        premium: "bg-gradient-to-r from-primary-button to-primary-glow text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transform hover:-translate-y-0.5",
-        glass: "bg-background/60 backdrop-blur-md border border-border/50 text-foreground hover:bg-background/80 hover:border-primary/30",
-        // Impact theme variants
-        impact: "bg-foreground text-background rounded-full hover:bg-foreground/90 shadow-none font-semibold tracking-[-0.01em]",
-        "impact-outline": "bg-transparent border-2 border-foreground/20 text-foreground rounded-full hover:bg-foreground/5 hover:border-foreground/40 font-semibold tracking-[-0.01em]",
-        "impact-light": "bg-white text-black rounded-full hover:bg-white/90 shadow-none font-semibold tracking-[-0.01em]",
+        // Sonos-style: solid black pill, no heavy shadow, subtle hover
+        default: "bg-foreground text-background hover:bg-foreground/90 shadow-none",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-none",
+        outline: "border border-foreground/20 bg-transparent text-foreground hover:bg-foreground/5 hover:border-foreground/40 shadow-none",
+        "outline-light": "border border-white/40 bg-transparent text-white hover:bg-white/10 hover:border-white shadow-none",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-none",
+        ghost: "hover:bg-foreground/5 hover:text-foreground rounded-full",
+        link: "text-foreground underline-offset-4 hover:underline rounded-none",
+        // Hero kept as primary brand pill but flatter, no transform
+        hero: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-none",
+        "hero-outline": "border border-foreground/20 bg-transparent text-foreground hover:bg-foreground/5 hover:border-foreground/40 shadow-none",
+        premium: "bg-foreground text-background hover:bg-foreground/90 shadow-none",
+        glass: "bg-background/70 backdrop-blur-md border border-border/50 text-foreground hover:bg-background/90",
+        // Impact theme variants — already Sonos-aligned
+        impact: "bg-foreground text-background hover:bg-foreground/90 shadow-none",
+        "impact-outline": "bg-transparent border border-foreground/20 text-foreground hover:bg-foreground/5 hover:border-foreground/40 shadow-none",
+        "impact-light": "bg-white text-black hover:bg-white/90 shadow-none",
       },
       size: {
         default: "h-11 px-6 py-2",
-        sm: "h-9 rounded-md px-4 text-xs",
-        lg: "h-13 rounded-xl px-8 text-base",
-        xl: "h-14 rounded-xl px-10 text-base font-bold",
+        sm: "h-9 px-4 text-xs",
+        lg: "h-12 px-8 text-base",
+        xl: "h-14 px-10 text-base font-bold",
         icon: "h-10 w-10",
-        // Impact sizes
         "impact-md": "h-12 px-7 py-3 text-[15px]",
         "impact-lg": "h-14 px-9 py-4 text-base",
       },
