@@ -156,6 +156,20 @@ export default function DevToolsPage() {
             }
           />
           <Row
+            title="Verify Storefront token format"
+            description="Checks that SHOPIFY_STOREFRONT_TOKEN looks like a Storefront token (32-char hex), not an Admin token (shpat_…). No network call."
+            action={
+              <Button onClick={checkToken} disabled={tokenChecking} variant="outline">
+                {tokenChecking ? "Checking…" : "Verify token"}
+              </Button>
+            }
+          />
+          {tokenStatus && (
+            <div className="rounded-md border border-border bg-muted p-3 text-sm">
+              {tokenStatus}
+            </div>
+          )}
+          <Row
             title="Test Shopify Storefront API"
             description="Pings the Storefront API to verify the token + domain are configured."
             action={
