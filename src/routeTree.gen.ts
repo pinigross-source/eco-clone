@@ -39,6 +39,7 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EmbedRouteImport } from './routes/embed'
 import { Route as EducationRouteImport } from './routes/education'
 import { Route as DormRouteImport } from './routes/dorm'
+import { Route as DevToolsRouteImport } from './routes/dev-tools'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompetitiveExclusionRouteImport } from './routes/competitive-exclusion'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
@@ -211,6 +212,11 @@ const DormRoute = DormRouteImport.update({
   path: '/dorm',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DevToolsRoute = DevToolsRouteImport.update({
+  id: '/dev-tools',
+  path: '/dev-tools',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -326,6 +332,7 @@ export interface FileRoutesByFullPath {
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/competitive-exclusion': typeof CompetitiveExclusionRoute
   '/contact': typeof ContactRoute
+  '/dev-tools': typeof DevToolsRoute
   '/dorm': typeof DormRoute
   '/education': typeof EducationRoute
   '/embed': typeof EmbedRoute
@@ -378,6 +385,7 @@ export interface FileRoutesByTo {
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/competitive-exclusion': typeof CompetitiveExclusionRoute
   '/contact': typeof ContactRoute
+  '/dev-tools': typeof DevToolsRoute
   '/dorm': typeof DormRoute
   '/education': typeof EducationRoute
   '/embed': typeof EmbedRoute
@@ -431,6 +439,7 @@ export interface FileRoutesById {
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/competitive-exclusion': typeof CompetitiveExclusionRoute
   '/contact': typeof ContactRoute
+  '/dev-tools': typeof DevToolsRoute
   '/dorm': typeof DormRoute
   '/education': typeof EducationRoute
   '/embed': typeof EmbedRoute
@@ -485,6 +494,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/competitive-exclusion'
     | '/contact'
+    | '/dev-tools'
     | '/dorm'
     | '/education'
     | '/embed'
@@ -537,6 +547,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/competitive-exclusion'
     | '/contact'
+    | '/dev-tools'
     | '/dorm'
     | '/education'
     | '/embed'
@@ -589,6 +600,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/competitive-exclusion'
     | '/contact'
+    | '/dev-tools'
     | '/dorm'
     | '/education'
     | '/embed'
@@ -642,6 +654,7 @@ export interface RootRouteChildren {
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   CompetitiveExclusionRoute: typeof CompetitiveExclusionRoute
   ContactRoute: typeof ContactRoute
+  DevToolsRoute: typeof DevToolsRoute
   DormRoute: typeof DormRoute
   EducationRoute: typeof EducationRoute
   EmbedRoute: typeof EmbedRoute
@@ -892,6 +905,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DormRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dev-tools': {
+      id: '/dev-tools'
+      path: '/dev-tools'
+      fullPath: '/dev-tools'
+      preLoaderRoute: typeof DevToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -1070,6 +1090,7 @@ const rootRouteChildren: RootRouteChildren = {
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   CompetitiveExclusionRoute: CompetitiveExclusionRoute,
   ContactRoute: ContactRoute,
+  DevToolsRoute: DevToolsRoute,
   DormRoute: DormRoute,
   EducationRoute: EducationRoute,
   EmbedRoute: EmbedRoute,
