@@ -33,6 +33,7 @@ export function Link(props: LinkProps) {
       <a
         {...anchorProps}
         href={externalUrl}
+        target="_top"
         onClick={handleClick}
       >
         {children}
