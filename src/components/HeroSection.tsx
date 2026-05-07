@@ -29,10 +29,19 @@ export const HeroSection = () => {
       } catch {}
     };
     window.addEventListener("message", onMessage);
-    // Fallback: reveal after 2.5s even if events don't fire
-    const fallback = setTimeout(() => setVideoLoaded(true), 2500);
+    const onLoad = () => {
+      // Kick off Vimeo player API handshake
+      post("ping");
+      post("addEventListener", "play");
+      post("addEventListener", "playing");
+      post("play");
+    };
+    iframe.addEventListener("load", onLoad);
+    // Fallback: reveal after 1.5s even if events don't fire
+    const fallback = setTimeout(() => setVideoLoaded(true), 1500);
     return () => {
       window.removeEventListener("message", onMessage);
+      iframe.removeEventListener("load", onLoad);
       clearTimeout(fallback);
     };
   }, []);
@@ -137,7 +146,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-[4] h-24 bg-gradient-to-t from-background to-transparent" />
+      
     </section>
   );
 };
