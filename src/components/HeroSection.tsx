@@ -51,7 +51,7 @@ export const HeroSection = () => {
         }}
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-12 pt-20 sm:px-10 sm:pb-20 sm:pt-32 lg:px-16 lg:pb-24">
+      <div className="container relative z-10 pb-12 pt-24 sm:pb-20 sm:pt-32 lg:pb-24">
         <div className="max-w-3xl text-left">
           <h1
             className="mb-4 font-display font-bold tracking-[-0.04em] text-[2.65rem] leading-[1.05] sm:mb-8 sm:text-[clamp(2.8rem,9.5vw,6.5rem)] sm:tracking-[-0.03em] sm:leading-[1.02]"
