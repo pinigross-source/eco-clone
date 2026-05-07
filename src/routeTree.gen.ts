@@ -18,7 +18,6 @@ import { Route as SubscribeRouteImport } from './routes/subscribe'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SafetyRouteImport } from './routes/safety'
-import { Route as RoomSolutionsRouteImport } from './routes/room-solutions'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as ProofAndTrustRouteImport } from './routes/proof-and-trust'
 import { Route as ProductUseCasesRouteImport } from './routes/product-use-cases'
@@ -109,11 +108,6 @@ const ShopRoute = ShopRouteImport.update({
 const SafetyRoute = SafetyRouteImport.update({
   id: '/safety',
   path: '/safety',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RoomSolutionsRoute = RoomSolutionsRouteImport.update({
-  id: '/room-solutions',
-  path: '/room-solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResearchRoute = ResearchRouteImport.update({
@@ -387,7 +381,6 @@ export interface FileRoutesByFullPath {
   '/product-use-cases': typeof ProductUseCasesRoute
   '/proof-and-trust': typeof ProofAndTrustRoute
   '/research': typeof ResearchRoute
-  '/room-solutions': typeof RoomSolutionsRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
   '/solutions': typeof SolutionsRouteWithChildren
@@ -445,7 +438,6 @@ export interface FileRoutesByTo {
   '/product-use-cases': typeof ProductUseCasesRoute
   '/proof-and-trust': typeof ProofAndTrustRoute
   '/research': typeof ResearchRoute
-  '/room-solutions': typeof RoomSolutionsRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
   '/solutions': typeof SolutionsRouteWithChildren
@@ -504,7 +496,6 @@ export interface FileRoutesById {
   '/product-use-cases': typeof ProductUseCasesRoute
   '/proof-and-trust': typeof ProofAndTrustRoute
   '/research': typeof ResearchRoute
-  '/room-solutions': typeof RoomSolutionsRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
   '/solutions': typeof SolutionsRouteWithChildren
@@ -564,7 +555,6 @@ export interface FileRouteTypes {
     | '/product-use-cases'
     | '/proof-and-trust'
     | '/research'
-    | '/room-solutions'
     | '/safety'
     | '/shop'
     | '/solutions'
@@ -622,7 +612,6 @@ export interface FileRouteTypes {
     | '/product-use-cases'
     | '/proof-and-trust'
     | '/research'
-    | '/room-solutions'
     | '/safety'
     | '/shop'
     | '/solutions'
@@ -680,7 +669,6 @@ export interface FileRouteTypes {
     | '/product-use-cases'
     | '/proof-and-trust'
     | '/research'
-    | '/room-solutions'
     | '/safety'
     | '/shop'
     | '/solutions'
@@ -739,7 +727,6 @@ export interface RootRouteChildren {
   ProductUseCasesRoute: typeof ProductUseCasesRoute
   ProofAndTrustRoute: typeof ProofAndTrustRoute
   ResearchRoute: typeof ResearchRoute
-  RoomSolutionsRoute: typeof RoomSolutionsRoute
   SafetyRoute: typeof SafetyRoute
   ShopRoute: typeof ShopRoute
   SolutionsRoute: typeof SolutionsRouteWithChildren
@@ -820,13 +807,6 @@ declare module '@tanstack/react-router' {
       path: '/safety'
       fullPath: '/safety'
       preLoaderRoute: typeof SafetyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/room-solutions': {
-      id: '/room-solutions'
-      path: '/room-solutions'
-      fullPath: '/room-solutions'
-      preLoaderRoute: typeof RoomSolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/research': {
@@ -1226,7 +1206,6 @@ const rootRouteChildren: RootRouteChildren = {
   ProductUseCasesRoute: ProductUseCasesRoute,
   ProofAndTrustRoute: ProofAndTrustRoute,
   ResearchRoute: ResearchRoute,
-  RoomSolutionsRoute: RoomSolutionsRoute,
   SafetyRoute: SafetyRoute,
   ShopRoute: ShopRoute,
   SolutionsRoute: SolutionsRouteWithChildren,
@@ -1246,3 +1225,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
