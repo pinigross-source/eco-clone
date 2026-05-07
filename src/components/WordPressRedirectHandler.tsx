@@ -93,14 +93,12 @@ const REDIRECT_MAP: Record<string, string> = {
   "/videos-2": "/videos",
   "/media": "/videos",
   "/register-product": "/product-registration",
-  "/product-registration": "/product-registration",
   "/warranty": "/product-registration",
   "/safety-certifications": "/safety",
   "/certifications": "/safety",
   "/affiliate-account": "/affiliate-signup",
   "/affiliate-registration": "/affiliate-signup",
   "/affiliate-reset-password": "/auth",
-  "/affiliate-signup": "/affiliate-signup",
   "/resources": "/education",
 
   // ── Old WP pages still being crawled (404 batch Apr 2026) ──
@@ -154,7 +152,6 @@ const REDIRECT_MAP: Record<string, string> = {
   "/reducing-dust-accumulation": "/health-benefits#reducing-dust",
   "/enhancing-overall-health": "/health-benefits#enhancing-health",
   "/asthma-and-allergies-prevention": "/health-benefits#asthma-prevention",
-  "/health-benefits": "/health-benefits",
 };
 
 // WordPress category/tag/date patterns
