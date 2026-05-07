@@ -259,7 +259,7 @@ export const Navbar = () => {
           {/* Mobile: Cart on right */}
           <div className="lg:hidden absolute right-4 z-20 flex items-center gap-1.5">
             <Suspense fallback={null}><NavbarSearch /></Suspense>
-            <Suspense fallback={null}><StripeCartDrawer /></Suspense>
+            <ShopifyCartLink />
           </div>
 
           {/* Desktop Navigation */}
@@ -281,7 +281,7 @@ export const Navbar = () => {
                 <User className={cn("w-5 h-5", scrolled || !useLight ? (session ? "text-primary" : "text-muted-foreground") : "text-white/80")} />
               </div>
             </Link>
-            <Suspense fallback={null}><StripeCartDrawer /></Suspense>
+            <ShopifyCartLink />
           </div>
         </div>
       </header>
