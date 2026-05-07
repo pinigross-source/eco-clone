@@ -37,7 +37,7 @@ const navLinks: NavItem[] = [
       { label: "BioLogic Mini", href: "/product/biologic-mini", icon: Home, desc: "Portable room protection" },
       { label: "Biotica 800", href: "/product/biotica-800", icon: Layers, desc: "Medium-coverage device" },
       { label: "BA-2080", href: "/product/ba-2080", icon: Beaker, desc: "Advanced air & surface" },
-      { label: "E-Biotic Pro (HVAC)", href: "/product/ebiotic-pro", icon: Fan, desc: "Whole-home via HVAC" },
+      { label: "E-Biotic Pro (HVAC)", href: "/hvac", icon: Fan, desc: "Whole-home via HVAC — contact us" },
     ],
   },
   {
