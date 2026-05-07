@@ -87,7 +87,13 @@ export const HeroSection = () => {
               </Button>
             </Link>
 
-            <Link to="/shop" onClick={() => trackEvent("click_buy_now_hero")} className="w-full sm:w-auto">
+            <a
+              href="https://shop.envirobiotics.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("click_buy_now_hero")}
+              className="w-full sm:w-auto"
+            >
               <Button
                 variant="impact-light"
                 size="impact-md"
@@ -95,7 +101,7 @@ export const HeroSection = () => {
               >
                 Buy now
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
