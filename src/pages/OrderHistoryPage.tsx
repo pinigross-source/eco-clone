@@ -66,7 +66,7 @@ export default function OrderHistoryPage() {
       const { data: { session } } = await supabase.auth.getSession();
       
       if (!session) {
-        navigate("/auth?redirect=/orders");
+        navigate({ to: "/auth?redirect=/orders" });
         return;
       }
 

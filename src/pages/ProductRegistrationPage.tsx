@@ -101,7 +101,7 @@ const ProductRegistrationPage = () => {
         description: "Please sign in to register your product.",
         variant: "destructive",
       });
-      navigate("/auth?redirect=/product-registration");
+      navigate({ to: "/auth?redirect=/product-registration" });
       return;
     }
 

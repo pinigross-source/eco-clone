@@ -35,7 +35,7 @@ const AffiliateRedirectPage = ({ defaultDest }: { defaultDest?: string }) => {
 
       const code = data?.[0]?.referral_code;
       if (code) {
-        navigate(`${dest}?ref=${code}`, { replace: true });
+        navigate({ to: `${dest}?ref=${code}`, replace: true });
       } else {
         navigate(dest, { replace: true });
       }

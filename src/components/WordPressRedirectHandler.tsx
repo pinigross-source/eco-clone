@@ -215,7 +215,7 @@ export const WordPressRedirectHandler = () => {
     // Handle ?p=123 WordPress numeric post IDs → send to homepage
     const params = new URLSearchParams(location.search);
     if (params.has("p") || params.has("page_id")) {
-      navigate("/", { replace: true });
+      navigate({ to: "/", replace: true });
       return;
     }
   }, [location.pathname, location.search, navigate]);

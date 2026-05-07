@@ -86,7 +86,7 @@ export default function AuthPage() {
           return;
         }
         if (session?.user && !shouldShowReset) {
-          navigate("/");
+          navigate({ to: "/" });
         }
       }
     );
@@ -121,7 +121,7 @@ export default function AuthPage() {
 
       const { data: { session } } = await supabase.auth.getSession();
       if (session?.user && !shouldShowReset) {
-        navigate("/");
+        navigate({ to: "/" });
       }
     };
 
@@ -203,7 +203,7 @@ export default function AuthPage() {
         }
 
         toast.success("Welcome back!");
-        navigate("/");
+        navigate({ to: "/" });
       } else {
         const { data, error } = await supabase.functions.invoke("custom-signup", {
           body: {
@@ -268,7 +268,7 @@ export default function AuthPage() {
       }
 
       toast.success("Password updated successfully! Redirecting...");
-      setTimeout(() => navigate("/"), 1500);
+      setTimeout(() => navigate({ to: "/" }), 1500);
     } catch {
       setInlineError("An unexpected error occurred. Please try again.");
     } finally {

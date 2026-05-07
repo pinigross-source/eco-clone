@@ -107,7 +107,7 @@ export default function AccountPage() {
         setSession(session);
         setUser(session?.user ?? null);
         if (!session?.user) {
-          navigate("/auth");
+          navigate({ to: "/auth" });
         }
       }
     );
@@ -116,7 +116,7 @@ export default function AccountPage() {
       setSession(session);
       setUser(session?.user ?? null);
       if (!session?.user) {
-        navigate("/auth");
+        navigate({ to: "/auth" });
       } else {
         fetchProfile(session.user.id);
         fetchOrders(session.user.id);
@@ -335,7 +335,7 @@ export default function AccountPage() {
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     toast.success("Signed out successfully");
-    navigate("/");
+    navigate({ to: "/" });
   };
 
   if (loading) {
@@ -370,7 +370,7 @@ export default function AccountPage() {
                 {isAffiliate && (
                   <Button 
                     variant="outline" 
-                    onClick={() => navigate("/affiliate")}
+                    onClick={() => navigate({ to: "/affiliate" })}
                     className="w-fit"
                   >
                     <TrendingUp className="w-4 h-4 mr-2" />
@@ -380,7 +380,7 @@ export default function AccountPage() {
                 {isAdminOrManager && (
                   <Button 
                     variant="outline" 
-                    onClick={() => navigate("/admin")}
+                    onClick={() => navigate({ to: "/admin" })}
                     className="w-fit"
                   >
                     <Shield className="w-4 h-4 mr-2" />
@@ -540,7 +540,7 @@ export default function AccountPage() {
                       <p className="text-muted-foreground mb-6 max-w-sm mx-auto">
                         When you make a purchase, your order history will appear here.
                       </p>
-                      <Button onClick={() => navigate("/shop")}>
+                      <Button onClick={() => navigate({ to: "/shop" })}>
                         Browse Products
                       </Button>
                     </div>
@@ -750,7 +750,7 @@ export default function AccountPage() {
                           Manage Subscriptions
                         </Button>
                         <Button 
-                          onClick={() => navigate("/shop")}
+                          onClick={() => navigate({ to: "/shop" })}
                           className="flex-1"
                         >
                           <Sparkles className="w-4 h-4 mr-2" />
@@ -767,7 +767,7 @@ export default function AccountPage() {
                       <p className="text-muted-foreground mb-6 max-w-sm mx-auto">
                         Subscribe to automatic refills and save 5% on every order + get lifetime warranty!
                       </p>
-                      <Button onClick={() => navigate("/shop")}>
+                      <Button onClick={() => navigate({ to: "/shop" })}>
                         Start a Subscription
                       </Button>
                     </div>

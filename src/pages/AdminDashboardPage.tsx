@@ -142,7 +142,7 @@ export default function AdminDashboardPage() {
     const { data: { session } } = await supabase.auth.getSession();
     
     if (!session) {
-      navigate("/auth?redirect=/admin");
+      navigate({ to: "/auth?redirect=/admin" });
       return;
     }
 
@@ -155,7 +155,7 @@ export default function AdminDashboardPage() {
 
     if (error || !roles || roles.length === 0) {
       toast.error("Access denied. Admin or Store Manager privileges required.");
-      navigate("/");
+      navigate({ to: "/" });
       return;
     }
 

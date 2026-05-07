@@ -69,7 +69,7 @@ export default function AffiliateDashboardPage() {
     const init = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.user) {
-        navigate("/auth");
+        navigate({ to: "/auth" });
         return;
       }
       await fetchAffiliateData(session.user.id, session.user.email ?? "");
@@ -204,10 +204,10 @@ export default function AffiliateDashboardPage() {
               You don't have an affiliate account yet. Contact us to join our affiliate program.
             </p>
             <div className="flex gap-3 justify-center">
-              <Button variant="outline" onClick={() => navigate("/account")}>
+              <Button variant="outline" onClick={() => navigate({ to: "/account" })}>
                 <ArrowLeft className="w-4 h-4 mr-2" /> Back to Account
               </Button>
-              <Button onClick={() => navigate("/support")}>Contact Us</Button>
+              <Button onClick={() => navigate({ to: "/support" })}>Contact Us</Button>
             </div>
           </div>
         </main>
@@ -226,7 +226,7 @@ export default function AffiliateDashboardPage() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Button variant="ghost" size="sm" onClick={() => navigate("/account")} className="p-0 h-auto">
+                  <Button variant="ghost" size="sm" onClick={() => navigate({ to: "/account" })} className="p-0 h-auto">
                     <ArrowLeft className="w-4 h-4 mr-1" /> Account
                   </Button>
                 </div>

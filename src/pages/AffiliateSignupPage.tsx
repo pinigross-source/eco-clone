@@ -157,7 +157,7 @@ function AffiliateSignupPageInner() {
                 We'll review your application and get back to you within 1 to 2 business days.
                 Once approved, you'll receive access to your affiliate dashboard.
               </p>
-              <Button onClick={() => navigate("/")}>Back to Home</Button>
+              <Button onClick={() => navigate({ to: "/" })}>Back to Home</Button>
             </motion.div>
           </div>
         </main>

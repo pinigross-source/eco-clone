@@ -96,7 +96,7 @@ export const PayPalCheckoutButton = ({ phone }: PayPalCheckoutButtonProps) => {
               if (captureData?.status === "COMPLETED") {
                 toast.success("Payment successful!");
                 clearCart();
-                navigate(`/payment-success?provider=paypal&paypal_order_id=${captureData.id}`);
+                navigate({ to: `/payment-success?provider=paypal&paypal_order_id=${captureData.id}` });
               } else {
                 toast.error("Payment was not completed. Please try again.");
               }
