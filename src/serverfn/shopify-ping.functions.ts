@@ -7,7 +7,7 @@ import { createServerFn } from "@tanstack/react-start";
  */
 export const pingShopify = createServerFn({ method: "GET" }).handler(async () => {
   const rawDomain = process.env.SHOPIFY_STORE_DOMAIN;
-  const token = process.env.SHOPIFY_STOREFRONT_TOKEN;
+  const token = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN || process.env.SHOPIFY_STOREFRONT_TOKEN;
   if (!rawDomain || !token) {
     return { ok: false as const, error: "Missing SHOPIFY_STORE_DOMAIN or SHOPIFY_STOREFRONT_TOKEN" };
   }

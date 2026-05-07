@@ -6,7 +6,7 @@ import { createServerFn } from "@tanstack/react-start";
  * Admin tokens start with "shpat_" and will NOT work with the Storefront API.
  */
 export const inspectShopifyToken = createServerFn({ method: "GET" }).handler(async () => {
-  const raw = process.env.SHOPIFY_STOREFRONT_TOKEN;
+  const raw = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN || process.env.SHOPIFY_STOREFRONT_TOKEN;
   if (!raw) {
     return { ok: false as const, error: "SHOPIFY_STOREFRONT_TOKEN is not set." };
   }

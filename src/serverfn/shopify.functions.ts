@@ -5,7 +5,7 @@ const STOREFRONT_API_VERSION = "2024-10";
 
 function getShopifyConfig() {
   const domain = process.env.SHOPIFY_STORE_DOMAIN;
-  const token = process.env.SHOPIFY_STOREFRONT_TOKEN;
+  const token = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN || process.env.SHOPIFY_STOREFRONT_TOKEN;
   if (!domain || !token) {
     throw new Error(
       "Shopify Storefront not configured. Missing SHOPIFY_STORE_DOMAIN or SHOPIFY_STOREFRONT_TOKEN.",
