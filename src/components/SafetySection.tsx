@@ -53,7 +53,7 @@ export const SafetySection = () => {
                   ref={videoRef}
                   src="https://player.vimeo.com/video/1187060240?background=1&autoplay=1&loop=1&muted=1&autopause=0&controls=0&playsinline=1&title=0&byline=0&portrait=0&dnt=1&api=1"
                   className="absolute inset-0 w-full h-full block"
-                  style={{ filter: "brightness(1.35) contrast(1.05) saturate(1.05)" }}
+                  style={{ filter: "brightness(1.7) contrast(1.02) saturate(1.08)" }}
                   frameBorder={0}
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
