@@ -31,6 +31,7 @@ export const HeroSection = () => {
             border: "none",
             width: "max(100vw, 177.78vh)",
             height: "max(100vh, 56.25vw)",
+            filter: "brightness(1.25) contrast(1.05) saturate(1.05)",
           }}
         />
       </div>
@@ -39,14 +40,14 @@ export const HeroSection = () => {
         className="absolute inset-0 z-[3] sm:hidden"
         style={{
           background:
-            "linear-gradient(180deg, hsl(var(--foreground) / 0.25) 0%, hsl(var(--foreground) / 0.5) 50%, hsl(var(--foreground) / 0.9) 100%)",
+            "linear-gradient(180deg, hsl(var(--foreground) / 0.1) 0%, hsl(var(--foreground) / 0.28) 55%, hsl(var(--foreground) / 0.7) 100%)",
         }}
       />
       <div
         className="absolute inset-0 z-[3] hidden sm:block"
         style={{
           background:
-            "linear-gradient(180deg, hsl(var(--foreground) / 0.12) 0%, hsl(var(--foreground) / 0.3) 42%, hsl(var(--foreground) / 0.82) 100%)",
+            "linear-gradient(180deg, hsl(var(--foreground) / 0.04) 0%, hsl(var(--foreground) / 0.15) 45%, hsl(var(--foreground) / 0.6) 100%)",
         }}
       />
 
