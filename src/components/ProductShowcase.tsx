@@ -2,6 +2,7 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { Link } from "@/lib/link";
 
 import biotica800 from "@/assets/biotica800-hero.avif";
 import biologicMini from "@/assets/biologic-mini-nobg-new.avif";
@@ -12,6 +13,7 @@ const products = [
   {
     id: 1,
     name: "BioLogic Mini",
+    slug: "biologic-mini",
     tagline: "Single room",
     coverage: "300 sq ft",
     description: "Compact and rechargeable. Perfect for travel, offices, or any small space.",
@@ -20,6 +22,7 @@ const products = [
   {
     id: 2,
     name: "Biotica 800",
+    slug: "biotica-800",
     tagline: "Best for Most Spaces",
     coverage: "800 sq ft",
     description: "Full-room coverage with continuous surface protection for large living spaces.",
@@ -28,6 +31,7 @@ const products = [
   {
     id: 3,
     name: "BA 2080",
+    slug: "ba-2080",
     tagline: "Hybrid Technology",
     coverage: "2,600 sq ft",
     description: "Probiotic and advanced HEPA combined for ultimate purification in large spaces.",
@@ -36,6 +40,7 @@ const products = [
   {
     id: 4,
     name: "E-Biotic Pro",
+    slug: "e-biotic-pro",
     tagline: "For larger spaces",
     coverage: "25,000 sq ft",
     description: "Commercial-strength HVAC-connected protection for buildings and facilities.",
@@ -147,10 +152,10 @@ export const ProductShowcase = () => {
                   </Button>
                 ) : (
                   <Button variant="hero" size="lg" className="group" asChild>
-                    <a href="#solutions">
+                    <Link to={`/product/${activeProduct.slug}`}>
                       Shop Now
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </Link>
                   </Button>
                 )}
                 <Button variant="outline" size="lg" asChild>
