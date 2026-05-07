@@ -503,23 +503,7 @@ const NurseryLandingPage = () => {
           </div>
         </section>
 
-        {/* Subscription Upsell Modal — same as shop */}
-        <SubscriptionUpsellModal
-          isOpen={showUpsellModal}
-          onClose={() => setShowUpsellModal(false)}
-          device={{
-            id: BIOLOGIC_MINI_PRODUCT.id,
-            name: BIOLOGIC_MINI_PRODUCT.name,
-            description: "Cordless probiotic air & surface purifier",
-            priceId: BIOLOGIC_MINI_PRODUCT.priceId,
-            price: BIOLOGIC_MINI_PRODUCT.price,
-            image: BIOLOGIC_MINI_PRODUCT.image,
-            category: "device" as const,
-            shippingCost: 895,
-          }}
-          deviceQuantity={quantity}
-          onSkip={handleSkipUpsell}
-        />
+        {/* Subscription upsell modal removed — checkout now happens on Shopify */}
 
         {/* ═══════════════════════ 10. SOCIAL PROOF — Reinforce After Price ═══════════════════════ */}
         <section className="py-10 md:py-14 bg-muted/30">
@@ -634,9 +618,6 @@ const NurseryLandingPage = () => {
           </div>
         )}
 
-        <Suspense fallback={null}>
-          <StripeCartDrawer />
-        </Suspense>
       </div>
     </>
   );
