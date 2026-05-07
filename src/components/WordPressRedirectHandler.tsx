@@ -185,14 +185,14 @@ export const WordPressRedirectHandler = () => {
 
     // Check exact matches first
     if (REDIRECT_MAP[path]) {
-      navigate(REDIRECT_MAP[path], { replace: true });
+      navigate({ to: REDIRECT_MAP[path] as never, replace: true });
       return;
     }
 
     // Check lowercase version
     const lowerPath = path.toLowerCase();
     if (REDIRECT_MAP[lowerPath]) {
-      navigate(REDIRECT_MAP[lowerPath], { replace: true });
+      navigate({ to: REDIRECT_MAP[lowerPath] as never, replace: true });
       return;
     }
 
@@ -207,7 +207,7 @@ export const WordPressRedirectHandler = () => {
         if (match[2]) {
           resolvedTarget = resolvedTarget.replace("$2", match[2]);
         }
-        navigate(resolvedTarget, { replace: true });
+        navigate({ to: resolvedTarget as never, replace: true });
         return;
       }
     }

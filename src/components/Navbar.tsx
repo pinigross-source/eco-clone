@@ -55,7 +55,7 @@ const storeDropdown: NavItem = {
 // Desktop dropdown component
 const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: boolean; useLight: boolean }) => {
   const [open, setOpen] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const handleEnter = useCallback(() => {
     clearTimeout(timeoutRef.current);

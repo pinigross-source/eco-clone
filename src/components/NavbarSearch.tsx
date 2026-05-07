@@ -107,7 +107,7 @@ export const NavbarSearch = () => {
       setOpen(false);
       setQuery("");
       const [path, hash] = href.split("#");
-      navigate(path || href);
+      navigate({ to: (path || href) as never });
       if (hash) {
         // Retry scroll to handle lazy-loaded sections
         let attempts = 0;
