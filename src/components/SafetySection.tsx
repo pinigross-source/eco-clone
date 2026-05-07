@@ -1,5 +1,5 @@
 import { ShieldCheck, Users, Heart } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 
 const safetyPoints = [
