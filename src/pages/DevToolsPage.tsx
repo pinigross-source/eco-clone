@@ -6,6 +6,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { shopifyUrl } from "@/lib/shopify";
 import { supabase } from "@/integrations/supabase/client";
 import { pingShopify } from "@/serverfn/shopify-ping.functions";
+import { inspectShopifyToken } from "@/serverfn/shopify-token-check.functions";
 
 
 function Row({ title, description, action }: { title: string; description: string; action: React.ReactNode }) {
@@ -24,6 +25,26 @@ export default function DevToolsPage() {
   const [status, setStatus] = useState<string | null>(null);
   const [shopifyStatus, setShopifyStatus] = useState<string | null>(null);
   const [shopifyChecking, setShopifyChecking] = useState(false);
+  const [tokenStatus, setTokenStatus] = useState<string | null>(null);
+  const [tokenChecking, setTokenChecking] = useState(false);
+
+  const checkToken = async () => {
+    setTokenChecking(true);
+    setTokenStatus(null);
+    try {
+      const res = await inspectShopifyToken();
+      if (res.ok) {
+        setTokenStatus(`✅ ${res.message} — ${res.preview}`);
+      } else {
+        setTokenStatus(`❌ ${res.error}${"preview" in res && res.preview ? ` — ${res.preview}` : ""}`);
+      }
+    } catch (e) {
+      setTokenStatus(`❌ ${e instanceof Error ? e.message : String(e)}`);
+    } finally {
+      setTokenChecking(false);
+    }
+  };
+
 
   const checkShopify = async () => {
     setShopifyChecking(true);
@@ -134,6 +155,20 @@ export default function DevToolsPage() {
               </Button>
             }
           />
+          <Row
+            title="Verify Storefront token format"
+            description="Checks that SHOPIFY_STOREFRONT_TOKEN looks like a Storefront token (32-char hex), not an Admin token (shpat_…). No network call."
+            action={
+              <Button onClick={checkToken} disabled={tokenChecking} variant="outline">
+                {tokenChecking ? "Checking…" : "Verify token"}
+              </Button>
+            }
+          />
+          {tokenStatus && (
+            <div className="rounded-md border border-border bg-muted p-3 text-sm">
+              {tokenStatus}
+            </div>
+          )}
           <Row
             title="Test Shopify Storefront API"
             description="Pings the Storefront API to verify the token + domain are configured."
