@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "@/lib/link";
 import { ArrowRight } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
@@ -6,6 +6,36 @@ import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+    const post = (method: string, value?: unknown) => {
+      iframe.contentWindow?.postMessage(JSON.stringify({ method, value }), "*");
+    };
+    const onMessage = (e: MessageEvent) => {
+      if (typeof e.data !== "string") return;
+      try {
+        const data = JSON.parse(e.data);
+        if (data.event === "ready") {
+          post("addEventListener", "play");
+          post("addEventListener", "playing");
+          post("play");
+        }
+        if (data.event === "play" || data.event === "playing") {
+          setVideoLoaded(true);
+        }
+      } catch {}
+    };
+    window.addEventListener("message", onMessage);
+    // Fallback: reveal after 2.5s even if events don't fire
+    const fallback = setTimeout(() => setVideoLoaded(true), 2500);
+    return () => {
+      window.removeEventListener("message", onMessage);
+      clearTimeout(fallback);
+    };
+  }, []);
 
   return (
     <section className="hero-dark-section relative flex min-h-[100dvh] w-full flex-col justify-end overflow-hidden">
@@ -22,10 +52,11 @@ export const HeroSection = () => {
 
       <div className="absolute inset-0 z-[2] overflow-hidden">
         <iframe
-          src="https://player.vimeo.com/video/1121439167?background=1&autoplay=1&loop=1&muted=1&quality=auto"
+          ref={iframeRef}
+          src="https://player.vimeo.com/video/1121439167?background=1&autoplay=1&loop=1&muted=1&playsinline=1&quality=auto&dnt=1&api=1"
           title="EnviroBiotics hero background"
-          allow="autoplay; fullscreen"
-          onLoad={() => setVideoLoaded(true)}
+          allow="autoplay; fullscreen; picture-in-picture"
+          loading="eager"
           className={`pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-700 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
           style={{
             border: "none",
