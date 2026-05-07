@@ -152,10 +152,10 @@ export const ProductShowcase = () => {
                   </Button>
                 ) : (
                   <Button variant="hero" size="lg" className="group" asChild>
-                    <a href="#solutions">
+                    <Link to="/product/$slug" params={{ slug: activeProduct.slug }}>
                       Shop Now
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </Link>
                   </Button>
                 )}
                 <Button variant="outline" size="lg" asChild>
