@@ -1,6 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Page from "@/pages/ManageSubscriptionPage";
+import { useEffect } from "react";
+import { shopifyAccount } from "@/lib/shopify";
+
+function ManageSubRedirect() {
+  useEffect(() => {
+    window.location.replace(shopifyAccount("manage-subscription"));
+  }, []);
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
+      <p className="text-sm text-muted-foreground">Redirecting to your account…</p>
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/manage-subscription")({
-  component: Page,
+  component: ManageSubRedirect,
 });

@@ -1,6 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Page from "@/pages/OrderHistoryPage";
+import { useEffect } from "react";
+import { shopifyUrl } from "@/lib/shopify";
+
+function OrderRedirect() {
+  useEffect(() => {
+    window.location.replace(shopifyUrl("/account/orders", "orders"));
+  }, []);
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
+      <p className="text-sm text-muted-foreground">Redirecting to your orders…</p>
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/order-history")({
-  component: Page,
+  component: OrderRedirect,
 });

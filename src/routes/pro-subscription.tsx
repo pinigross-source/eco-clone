@@ -1,6 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Page from "@/pages/ProSubPage";
+import { useEffect } from "react";
+import { shopifyUrl } from "@/lib/shopify";
+
+function ProSubRedirect() {
+  useEffect(() => {
+    window.location.replace(shopifyUrl("/collections/pro-subscriptions", "pro-subscribe"));
+  }, []);
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
+      <p className="text-sm text-muted-foreground">Redirecting to subscriptions…</p>
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/pro-subscription")({
-  component: Page,
+  component: ProSubRedirect,
 });
