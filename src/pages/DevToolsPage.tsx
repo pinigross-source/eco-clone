@@ -134,7 +134,23 @@ export default function DevToolsPage() {
               </Button>
             }
           />
+          <Row
+            title="Test Shopify Storefront API"
+            description="Pings the Storefront API to verify the token + domain are configured."
+            action={
+              <Button onClick={checkShopify} disabled={shopifyChecking} variant="outline">
+                {shopifyChecking ? "Checking…" : "Run check"}
+              </Button>
+            }
+          />
         </section>
+
+        {shopifyStatus && (
+          <div className="mt-4 rounded-md border border-border bg-muted p-3 text-sm">
+            {shopifyStatus}
+          </div>
+        )}
+
 
         <section className="mt-10">
           <h2 className="mb-3 text-lg font-semibold text-foreground">Environment</h2>
