@@ -3,7 +3,7 @@ import {
   getShopifyProduct,
   getShopifyProducts,
   getShopifyInventory,
-} from "@/server/shopify.functions";
+} from "@/serverfn/shopify.functions";
 
 export function useShopifyProduct(handle: string | undefined) {
   return useQuery({
