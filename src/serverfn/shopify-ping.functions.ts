@@ -6,13 +6,19 @@ import { createServerFn } from "@tanstack/react-start";
  * are wired up correctly.
  */
 export const pingShopify = createServerFn({ method: "GET" }).handler(async () => {
-  const domain = process.env.SHOPIFY_STORE_DOMAIN;
+  const rawDomain = process.env.SHOPIFY_STORE_DOMAIN;
   const token = process.env.SHOPIFY_STOREFRONT_TOKEN;
-  if (!domain || !token) {
+  if (!rawDomain || !token) {
     return { ok: false as const, error: "Missing SHOPIFY_STORE_DOMAIN or SHOPIFY_STOREFRONT_TOKEN" };
   }
+  // Normalize: strip protocol, trailing slash, paths, whitespace
+  const domain = rawDomain.trim().replace(/^https?:\/\//i, "").replace(/\/.*$/, "").replace(/\/$/, "");
+  if (!domain.endsWith(".myshopify.com")) {
+    return { ok: false as const, error: `Domain "${domain}" must be the *.myshopify.com domain (find it in Shopify Admin → Settings → Domains).` };
+  }
+  const url = `https://${domain}/api/2024-10/graphql.json`;
   try {
-    const res = await fetch(`https://${domain}/api/2024-10/graphql.json`, {
+    const res = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
