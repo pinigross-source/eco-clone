@@ -73,7 +73,7 @@ export const ExitIntentPopup = ({ onEmailCapture }: ExitIntentPopupProps) => {
 
     setIsSubmitting(true);
     try {
-      onEmailCapture(email.trim());
+      onEmailCapture?.(email.trim());
       toast.success("We'll save your cart and send you a reminder!");
       setIsOpen(false);
     } catch {
