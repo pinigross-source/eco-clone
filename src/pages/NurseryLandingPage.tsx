@@ -1,12 +1,7 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ShieldCheck, Check, Star, ArrowRight, Baby, Wind, Sparkles, Clock, RefreshCw, Heart, Volume2, Lock, X, Droplets, Fan, Zap, ChevronDown, Package, AlertTriangle, Gift, Loader2, ShoppingCart, Truck } from "lucide-react";
-import { SubscriptionUpsellModal, hasMatchingSubscription } from "@/components/shop/SubscriptionUpsellModal";
 import { SEOHead } from "@/components/SEOHead";
-import { useStripeCartStore } from "@/stores/stripeCartStore";
-import { supabase } from "@/integrations/supabase/client";
-import { invokeCheckout } from "@/lib/checkout";
-import { toast } from "sonner";
 import biologicMiniImg from "@/assets/shop/biologic-mini.png";
 import nurseryLifestyle1 from "@/assets/mother-child-moment.avif";
 import nurseryLifestyle2 from "@/assets/nursery-lifestyle-2.avif";
@@ -14,32 +9,19 @@ import ptpaAward from "@/assets/ptpa-award.png";
 import madeSafeLogo from "@/assets/made-safe-logo.png";
 import stripeLogo from "@/assets/stripe-logo.svg";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { shopifyProductUrl } from "@/lib/shopify";
 
-const StripeCartDrawer = lazy(() => import("@/components/shop/StripeCartDrawer").then(m => ({ default: m.StripeCartDrawer })));
-
-const BIOLOGIC_MINI_PRICE_ID = "price_1SnLU1G13Yn1allNVof7RjMj";
 const BIOLOGIC_MINI_PRODUCT = {
-  id: "prod_TkrCDIiOr0kg1A",
   name: "BioLogic Mini",
-  priceId: BIOLOGIC_MINI_PRICE_ID,
   price: 9800,
   image: biologicMiniImg,
 };
-
-const CARE_PLAN = {
-  id: "prod_TmgdfsJfvJcYqq",
-  name: "Nursery Care Plan",
-  priceId: "price_1Sp7GOG13Yn1allN2veSDeBn",
-  price: 3610,
-  originalPrice: 3800,
-};
+const SHOPIFY_BUY_URL = shopifyProductUrl("biologic-mini", "nursery");
 
 const NurseryLandingPage = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [showSticky, setShowSticky] = useState(false);
-  const [showUpsellModal, setShowUpsellModal] = useState(false);
   const [quantity, setQuantity] = useState(1);
-  const addItem = useStripeCartStore((s) => s.addItem);
+  const isLoading = false;
 
   useEffect(() => {
     const onScroll = () => setShowSticky(window.scrollY > 600);
@@ -48,49 +30,11 @@ const NurseryLandingPage = () => {
   }, []);
 
   const handleBuyNow = () => {
-    // Always show the upsell modal (same as shop behavior)
-    setShowUpsellModal(true);
-  };
-
-  const handleSkipUpsell = async () => {
-    setShowUpsellModal(false);
-    setIsLoading(true);
-    try {
-      const { data, error } = await invokeCheckout({
-          priceId: BIOLOGIC_MINI_PRICE_ID,
-          mode: "payment",
-          quantity,
-        });
-      if (error) throw error;
-      if (data?.url) window.location.href = data.url;
-    } catch {
-      toast.error("Something went wrong. Please try again.");
-    } finally {
-      setIsLoading(false);
-      setQuantity(1);
-    }
+    window.location.href = SHOPIFY_BUY_URL;
   };
 
   const handleAddToCart = () => {
-    addItem({
-      id: BIOLOGIC_MINI_PRODUCT.id,
-      name: BIOLOGIC_MINI_PRODUCT.name,
-      description: "Cordless probiotic air and surface purifier",
-      priceId: BIOLOGIC_MINI_PRODUCT.priceId,
-      price: BIOLOGIC_MINI_PRODUCT.price,
-      image: BIOLOGIC_MINI_PRODUCT.image,
-      category: "device" as const,
-      shippingCost: 895,
-    }, quantity);
-    toast.success("BioLogic Mini added to cart", {
-      description: `${quantity > 1 ? `${quantity}x ` : ''}BioLogic Mini`,
-      position: "top-center",
-    });
-    setQuantity(1);
-  };
-
-  const scrollToCTA = () => {
-    document.getElementById("nursery-cta")?.scrollIntoView({ behavior: "smooth" });
+    window.location.href = SHOPIFY_BUY_URL;
   };
 
   const formatPrice = (cents: number) => `$${(cents / 100).toFixed(2)}`;
