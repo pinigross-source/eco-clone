@@ -203,7 +203,7 @@ export function ProductCatalogSection({ isAdmin }: { isAdmin: boolean }) {
       .eq("product_id", product.id)
       .order("created_at", { ascending: false })
       .limit(50);
-    setLogs((data as InventoryLog[]) || []);
+    setLogs((data as unknown as ) || []);
     setLogsLoading(false);
   };
 

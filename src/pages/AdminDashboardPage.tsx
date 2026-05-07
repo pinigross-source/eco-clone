@@ -151,7 +151,7 @@ export default function AdminDashboardPage() {
       .from("user_roles")
       .select("role")
       .eq("user_id", session.user.id)
-      .in("role", ["admin", "store_manager"]);
+      .in("role", ["admin", "store_manager" as any]);
 
     if (error || !roles || roles.length === 0) {
       toast.error("Access denied. Admin or Store Manager privileges required.");

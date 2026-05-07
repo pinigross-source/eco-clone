@@ -74,7 +74,7 @@ const ProductDetailPage = () => {
   const [showUpsellModal, setShowUpsellModal] = useState(false);
   const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
   const [isSubscriptionLoading, setIsSubscriptionLoading] = useState(false);
-  const heroCTARef = useRef<HTMLDivElement>(null);
+  const heroCTARef = useRef<HTMLDivElement | null>(null);
   
   const subscriptions = getSubscriptions();
   const matchingSubscriptionId = slug ? DEVICE_SLUG_TO_SUBSCRIPTION[slug] : undefined;

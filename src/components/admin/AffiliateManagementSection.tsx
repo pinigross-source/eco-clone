@@ -155,7 +155,7 @@ export function AffiliateManagementSection() {
 
       if (affRes.error) throw affRes.error;
 
-      const allCommissions = (comRes.data || []) as Commission[];
+      const allCommissions = (comRes.data || []) as unknown as ;
       setCommissions(allCommissions);
 
       // Build a lookup from the stats view
@@ -172,9 +172,9 @@ export function AffiliateManagementSection() {
         const stats = statsMap.get(a.id) || { total_earnings: 0, total_paid: 0, total_referrals: 0 };
         return {
           ...a,
-          total_earnings: stats.total_earnings,
-          total_paid: stats.total_paid,
-          total_referrals: stats.total_referrals,
+          total_earnings: (stats as any).total_earnings,
+          total_paid: (stats as any).total_paid,
+          total_referrals: (stats as any).total_referrals,
         };
       });
 
@@ -264,7 +264,7 @@ export function AffiliateManagementSection() {
         };
       });
 
-      setAffiliateCommissions(enriched as Commission[]);
+      setAffiliateCommissions(enriched as unknown as );
     } catch (err) {
       console.error("Error loading affiliate commission details:", err);
       toast.error("Failed to load commission details");

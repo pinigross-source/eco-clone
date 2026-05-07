@@ -135,7 +135,7 @@ export default function AccountPage() {
       .from("user_roles")
       .select("role")
       .eq("user_id", userId)
-      .in("role", ["admin", "store_manager"]);
+      .in("role", ["admin", "store_manager" as any]);
     setIsAdminOrManager(!!(data && data.length > 0));
   };
 

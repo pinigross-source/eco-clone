@@ -130,7 +130,7 @@ export default function AffiliateDashboardPage() {
           .maybeSingle(),
       ]);
 
-      const refs = (refRes.data || []) as Referral[];
+      const refs = (refRes.data || []) as unknown as ;
       const comms = (comRes.data || []).map((c: any) => {
         // Enrich commissions with order info from matching referral
         const matchRef = c.referral_id ? refs.find((r) => r.id === c.referral_id) : null;
@@ -139,7 +139,7 @@ export default function AffiliateDashboardPage() {
           order_number: matchRef?.order_number || null,
           customer_name: matchRef?.customer_name || null,
         };
-      }) as Commission[];
+      }) as unknown as ;
       setReferrals(refs);
       setCommissions(comms);
 
@@ -149,7 +149,7 @@ export default function AffiliateDashboardPage() {
         total_earnings: Number(stats?.total_earnings) || 0,
         total_paid: Number(stats?.total_paid) || 0,
         total_referrals: Number(stats?.total_referrals) || 0,
-      } as AffiliateData);
+      } as unknown as );
     } catch (err) {
       console.error("Error loading affiliate data:", err);
     } finally {
