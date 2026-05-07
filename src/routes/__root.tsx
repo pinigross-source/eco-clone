@@ -72,6 +72,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "robots", content: "noindex, nofollow, noarchive, nosnippet, noimageindex" },
+      { name: "googlebot", content: "noindex, nofollow" },
       { title: "Enviro_test" },
       { name: "description", content: "Eco Clone replicates the functionality of enviro-clean.lovable.app without using Shopify." },
       { name: "author", content: "Lovable" },
