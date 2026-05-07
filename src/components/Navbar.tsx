@@ -100,17 +100,17 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
       <Link
         to={item.href}
         className={cn(
-          "relative px-4 xl:px-5 py-2.5 text-[15px] xl:text-base transition-all duration-300 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+          "relative px-4 xl:px-5 py-2.5 text-base xl:text-lg transition-all duration-300 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
           item.bold ? "font-bold" : "font-medium",
           item.bold
             ? (scrolled || !useLight
               ? "text-primary hover:text-primary/80"
               : "text-[#ff8036] hover:text-[#ffA060]")
             : scrolled
-              ? (open ? "text-foreground bg-muted/50" : "text-muted-foreground hover:text-foreground hover:bg-muted/50")
+              ? (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
               : useLight
-                ? (open ? "text-white bg-white/10" : "text-white/85 hover:text-white hover:bg-white/10")
-                : (open ? "text-foreground bg-muted/50" : "text-muted-foreground hover:text-foreground hover:bg-muted/50")
+                ? (open ? "text-white bg-white/10" : "text-white hover:text-white hover:bg-white/10")
+                : (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
         )}
       >
         {item.label}
