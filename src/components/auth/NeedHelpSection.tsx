@@ -12,7 +12,7 @@ export function NeedHelpSection() {
       </div>
       <div className="flex justify-center">
         <a
-          href="/shop"
+          href="https://shop.envirobiotics.com/collections/all"
           className="text-xs text-muted-foreground hover:text-foreground inline-flex items-center gap-1 transition-colors"
         >
           <ShoppingBag className="w-3 h-3" />

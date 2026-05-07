@@ -172,7 +172,7 @@ const HowItWorksPage = () => {
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href="/shop"
+                    href="https://shop.envirobiotics.com/collections/all"
                     className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-white/95"
                   >
                     Explore Solutions
@@ -528,7 +528,7 @@ const HowItWorksPage = () => {
 
                 <div className="pt-5 flex flex-col sm:flex-row gap-3">
                   <a
-                    href="/shop"
+                    href="https://shop.envirobiotics.com/collections/all"
                     className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-foreground/90"
                   >
                     Explore Solutions

@@ -83,7 +83,10 @@ const ProductDetailPage = () => {
     : undefined;
 
   if (!product) {
-    return <Navigate to="/shop" replace />;
+    if (typeof window !== "undefined") {
+      window.location.replace("https://shop.envirobiotics.com/collections/all");
+    }
+    return null;
   }
 
   const handleAddToCart = () => {

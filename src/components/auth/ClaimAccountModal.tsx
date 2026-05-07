@@ -243,7 +243,7 @@ export function ClaimAccountModal({ open, onOpenChange }: Props) {
               </Button>
 
               <div className="flex flex-col items-center gap-2 text-sm pt-1">
-                <a href="/shop" className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1 transition-colors">
+                <a href="https://shop.envirobiotics.com/collections/all" className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1 transition-colors">
                   <ShoppingBag className="w-3 h-3" />
                   Continue shopping
                 </a>

@@ -28,7 +28,7 @@ const PRODUCT_MAP: Record<string, string> = {
   "ebiotic-pro": "/products/e-biotic-pro",
 };
 
-function resolveShopifyUrl(to: string): string | null {
+export function resolveShopifyUrl(to: string): string | null {
   // Strip query/hash for matching
   const [pathOnly] = to.split(/[?#]/);
 
