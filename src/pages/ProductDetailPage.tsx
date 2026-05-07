@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { invokeCheckout } from "@/lib/checkout";
-import { useParams, Navigate, Link } from "@tanstack/react-router";
+import { useParams, Link } from "@tanstack/react-router";
+import { Navigate } from "@/lib/router-compat";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { MiniLifestyleGallery } from "@/components/product/MiniLifestyleGallery";

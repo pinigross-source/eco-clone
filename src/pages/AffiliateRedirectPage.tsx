@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { useParams, useNavigate, useSearchParams } from "@tanstack/react-router";
+import { useParams, useNavigate } from "@tanstack/react-router";
+import { useSearchParams } from "@/lib/router-compat";
 import { supabase } from "@/integrations/supabase/client";
 
 /**

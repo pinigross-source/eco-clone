@@ -1,4 +1,5 @@
-import { useParams, Link, Navigate } from "@tanstack/react-router";
+import { useParams, Link } from "@tanstack/react-router";
+import { Navigate } from "@/lib/router-compat";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";

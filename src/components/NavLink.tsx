@@ -1,22 +1,28 @@
-import { NavLink as RouterNavLink, NavLinkProps } from "@tanstack/react-router";
+// Compat NavLink — react-router-dom-style activeClassName API on top of TanStack Link.
+import { Link, useRouterState } from "@tanstack/react-router";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
-interface NavLinkCompatProps extends Omit<NavLinkProps, "className"> {
+interface NavLinkCompatProps {
+  to: string;
   className?: string;
   activeClassName?: string;
   pendingClassName?: string;
+  end?: boolean;
+  children?: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  [key: string]: unknown;
 }
 
 const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
-  ({ className, activeClassName, pendingClassName, to, ...props }, ref) => {
+  ({ className, activeClassName, pendingClassName, to, end, ...props }, ref) => {
+    const pathname = useRouterState({ select: (s) => s.location.pathname });
+    const isActive = end ? pathname === to : pathname === to || pathname.startsWith(to + "/");
     return (
-      <RouterNavLink
+      <Link
         ref={ref}
-        to={to}
-        className={({ isActive, isPending }) =>
-          cn(className, isActive && activeClassName, isPending && pendingClassName)
-        }
+        to={to as never}
+        className={cn(className, isActive && activeClassName, isActive && pendingClassName)}
         {...props}
       />
     );
