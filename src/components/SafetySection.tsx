@@ -1,5 +1,5 @@
 import { ShieldCheck, Users, Heart } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 
 const safetyPoints = [
@@ -16,6 +16,7 @@ const stats = [
 
 export const SafetySection = () => {
   const videoRef = useRef<HTMLIFrameElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     const iframe = videoRef.current;
@@ -24,21 +25,25 @@ export const SafetySection = () => {
       iframe.contentWindow?.postMessage(JSON.stringify({ method, value }), "*");
     };
     const onMessage = (e: MessageEvent) => {
-      if (typeof e.data !== "string" || !e.data.includes("ready")) return;
+      if (typeof e.data !== "string") return;
       try {
         const data = JSON.parse(e.data);
         if (data.event === "ready") {
+          send("addEventListener", "play");
+          send("addEventListener", "playing");
           send("setPlaybackRate", 0.08);
+          send("play");
+        }
+        if (data.event === "play" || data.event === "playing") {
+          setVideoLoaded(true);
         }
       } catch {}
     };
     window.addEventListener("message", onMessage);
-    // Trigger ready handshake
-    const onLoad = () => send("ping");
-    iframe.addEventListener("load", onLoad);
+    const fallback = setTimeout(() => setVideoLoaded(true), 2500);
     return () => {
       window.removeEventListener("message", onMessage);
-      iframe.removeEventListener("load", onLoad);
+      clearTimeout(fallback);
     };
   }, []);
   return (
@@ -48,17 +53,17 @@ export const SafetySection = () => {
           {/* Right image (mobile-first order) */}
           <ScrollReveal variant="fadeRight" delay={0.2} className="order-first lg:order-last">
             <div className="relative rounded-[1.75rem] sm:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-foreground/5 bg-foreground/5">
-              <div className="relative w-full aspect-[3/4]">
+              <div className="relative w-full aspect-[3/4] bg-foreground/10">
                 <iframe
                   ref={videoRef}
                   src="https://player.vimeo.com/video/1187060240?background=1&autoplay=1&loop=1&muted=1&autopause=0&controls=0&playsinline=1&title=0&byline=0&portrait=0&dnt=1&api=1"
-                  className="absolute inset-0 w-full h-full block"
+                  className={`absolute inset-0 w-full h-full block transition-opacity duration-700 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
                   style={{ filter: "brightness(1.7) contrast(1.02) saturate(1.08)" }}
                   frameBorder={0}
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
                   title="Safety & Science"
-                  loading="lazy"
+                  loading="eager"
                 />
               </div>
               {/* Mobile: glass eyebrow chip */}
