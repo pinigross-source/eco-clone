@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Link } from "@/lib/link";
 import { SectionLabel } from "@/components/ui/section-label";
 import {
@@ -17,7 +18,6 @@ import {
 import { Button } from "@/components/ui/button";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
-const ScrollReveal = lazy(() => import("@/components/ui/scroll-reveal").then(m => ({ default: m.ScrollReveal })));
 const RelatedTopics = lazy(() => import("@/components/RelatedTopics").then(m => ({ default: m.RelatedTopics })));
 
 /* ─── JSON-LD schema ─────────────────────────────────────── */

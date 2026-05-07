@@ -1,10 +1,8 @@
 import { useState, lazy, Suspense } from "react";
 import { Link } from "@/lib/link";
 import { Navbar } from "@/components/Navbar";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
-const ScrollReveal = lazy(() => import("@/components/ui/scroll-reveal").then(m => ({ default: m.ScrollReveal })));
-const StaggerContainer = lazy(() => import("@/components/ui/scroll-reveal").then(m => ({ default: m.StaggerContainer })));
-const StaggerItem = lazy(() => import("@/components/ui/scroll-reveal").then(m => ({ default: m.StaggerItem })));
 import { ExternalLink, ArrowRight, FileText, Download, Microscope, Building2 } from "lucide-react";
 import { ContactFormDialog } from "@/components/ContactFormDialog";
 import { 

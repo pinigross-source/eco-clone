@@ -2,11 +2,9 @@ import { useState, lazy, Suspense } from "react";
 import { SprayCan, Grid2X2, ShieldCheck, Repeat, Leaf, Home, Shield, HeartPulse, Gauge, Building2, Check, ArrowRight, Play, Sparkles, AlertTriangle, Wind, Zap } from "lucide-react";
 
 const ActiveDefenseToggle = lazy(() => import("@/components/hero/ActiveDefenseToggle").then(m => ({ default: m.ActiveDefenseToggle })));
-const ScrollReveal = lazy(() => import("@/components/ui/scroll-reveal").then(m => ({ default: m.ScrollReveal })));
-const StaggerContainer = lazy(() => import("@/components/ui/scroll-reveal").then(m => ({ default: m.StaggerContainer })));
-const StaggerItem = lazy(() => import("@/components/ui/scroll-reveal").then(m => ({ default: m.StaggerItem })));
 import { SectionLabel } from "@/components/ui/section-label";
 import { Navbar } from "@/components/Navbar";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
