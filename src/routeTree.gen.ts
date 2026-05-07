@@ -14,6 +14,7 @@ import { Route as VideosRouteImport } from './routes/videos'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as SubscriptionRouteImport } from './routes/subscription'
+import { Route as SubscribeRouteImport } from './routes/subscribe'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SafetyRouteImport } from './routes/safety'
@@ -26,6 +27,7 @@ import { Route as ProbioticAirPurificationRouteImport } from './routes/probiotic
 import { Route as ProSubscriptionRouteImport } from './routes/pro-subscription'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PaymentSuccessRouteImport } from './routes/payment-success'
+import { Route as OrdersRouteImport } from './routes/orders'
 import { Route as OrderHistoryRouteImport } from './routes/order-history'
 import { Route as NurseryRouteImport } from './routes/nursery'
 import { Route as MoldAndAllergensRouteImport } from './routes/mold-and-allergens'
@@ -42,7 +44,9 @@ import { Route as DormRouteImport } from './routes/dorm'
 import { Route as DevToolsRouteImport } from './routes/dev-tools'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompetitiveExclusionRouteImport } from './routes/competitive-exclusion'
+import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as CartRouteImport } from './routes/cart'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BetterairRebrandRouteImport } from './routes/betterair-rebrand'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -84,6 +88,11 @@ const SupportRoute = SupportRouteImport.update({
 const SubscriptionRoute = SubscriptionRouteImport.update({
   id: '/subscription',
   path: '/subscription',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubscribeRoute = SubscribeRouteImport.update({
+  id: '/subscribe',
+  path: '/subscribe',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SolutionsRoute = SolutionsRouteImport.update({
@@ -145,6 +154,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const PaymentSuccessRoute = PaymentSuccessRouteImport.update({
   id: '/payment-success',
   path: '/payment-success',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdersRoute = OrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OrderHistoryRoute = OrderHistoryRouteImport.update({
@@ -227,9 +241,19 @@ const CompetitiveExclusionRoute = CompetitiveExclusionRouteImport.update({
   path: '/competitive-exclusion',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CaseStudiesRoute = CaseStudiesRouteImport.update({
   id: '/case-studies',
   path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -329,7 +353,9 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
   '/blog': typeof BlogRouteWithChildren
+  '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
+  '/checkout': typeof CheckoutRoute
   '/competitive-exclusion': typeof CompetitiveExclusionRoute
   '/contact': typeof ContactRoute
   '/dev-tools': typeof DevToolsRoute
@@ -346,6 +372,7 @@ export interface FileRoutesByFullPath {
   '/mold-and-allergens': typeof MoldAndAllergensRoute
   '/nursery': typeof NurseryRoute
   '/order-history': typeof OrderHistoryRoute
+  '/orders': typeof OrdersRoute
   '/payment-success': typeof PaymentSuccessRoute
   '/privacy': typeof PrivacyRoute
   '/pro-subscription': typeof ProSubscriptionRoute
@@ -358,6 +385,7 @@ export interface FileRoutesByFullPath {
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
   '/solutions': typeof SolutionsRoute
+  '/subscribe': typeof SubscribeRoute
   '/subscription': typeof SubscriptionRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
@@ -382,7 +410,9 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
   '/blog': typeof BlogRouteWithChildren
+  '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
+  '/checkout': typeof CheckoutRoute
   '/competitive-exclusion': typeof CompetitiveExclusionRoute
   '/contact': typeof ContactRoute
   '/dev-tools': typeof DevToolsRoute
@@ -399,6 +429,7 @@ export interface FileRoutesByTo {
   '/mold-and-allergens': typeof MoldAndAllergensRoute
   '/nursery': typeof NurseryRoute
   '/order-history': typeof OrderHistoryRoute
+  '/orders': typeof OrdersRoute
   '/payment-success': typeof PaymentSuccessRoute
   '/privacy': typeof PrivacyRoute
   '/pro-subscription': typeof ProSubscriptionRoute
@@ -411,6 +442,7 @@ export interface FileRoutesByTo {
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
   '/solutions': typeof SolutionsRoute
+  '/subscribe': typeof SubscribeRoute
   '/subscription': typeof SubscriptionRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
@@ -436,7 +468,9 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
   '/blog': typeof BlogRouteWithChildren
+  '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
+  '/checkout': typeof CheckoutRoute
   '/competitive-exclusion': typeof CompetitiveExclusionRoute
   '/contact': typeof ContactRoute
   '/dev-tools': typeof DevToolsRoute
@@ -453,6 +487,7 @@ export interface FileRoutesById {
   '/mold-and-allergens': typeof MoldAndAllergensRoute
   '/nursery': typeof NurseryRoute
   '/order-history': typeof OrderHistoryRoute
+  '/orders': typeof OrdersRoute
   '/payment-success': typeof PaymentSuccessRoute
   '/privacy': typeof PrivacyRoute
   '/pro-subscription': typeof ProSubscriptionRoute
@@ -465,6 +500,7 @@ export interface FileRoutesById {
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
   '/solutions': typeof SolutionsRoute
+  '/subscribe': typeof SubscribeRoute
   '/subscription': typeof SubscriptionRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
@@ -491,7 +527,9 @@ export interface FileRouteTypes {
     | '/auth'
     | '/betterair-rebrand'
     | '/blog'
+    | '/cart'
     | '/case-studies'
+    | '/checkout'
     | '/competitive-exclusion'
     | '/contact'
     | '/dev-tools'
@@ -508,6 +546,7 @@ export interface FileRouteTypes {
     | '/mold-and-allergens'
     | '/nursery'
     | '/order-history'
+    | '/orders'
     | '/payment-success'
     | '/privacy'
     | '/pro-subscription'
@@ -520,6 +559,7 @@ export interface FileRouteTypes {
     | '/safety'
     | '/shop'
     | '/solutions'
+    | '/subscribe'
     | '/subscription'
     | '/support'
     | '/terms'
@@ -544,7 +584,9 @@ export interface FileRouteTypes {
     | '/auth'
     | '/betterair-rebrand'
     | '/blog'
+    | '/cart'
     | '/case-studies'
+    | '/checkout'
     | '/competitive-exclusion'
     | '/contact'
     | '/dev-tools'
@@ -561,6 +603,7 @@ export interface FileRouteTypes {
     | '/mold-and-allergens'
     | '/nursery'
     | '/order-history'
+    | '/orders'
     | '/payment-success'
     | '/privacy'
     | '/pro-subscription'
@@ -573,6 +616,7 @@ export interface FileRouteTypes {
     | '/safety'
     | '/shop'
     | '/solutions'
+    | '/subscribe'
     | '/subscription'
     | '/support'
     | '/terms'
@@ -597,7 +641,9 @@ export interface FileRouteTypes {
     | '/auth'
     | '/betterair-rebrand'
     | '/blog'
+    | '/cart'
     | '/case-studies'
+    | '/checkout'
     | '/competitive-exclusion'
     | '/contact'
     | '/dev-tools'
@@ -614,6 +660,7 @@ export interface FileRouteTypes {
     | '/mold-and-allergens'
     | '/nursery'
     | '/order-history'
+    | '/orders'
     | '/payment-success'
     | '/privacy'
     | '/pro-subscription'
@@ -626,6 +673,7 @@ export interface FileRouteTypes {
     | '/safety'
     | '/shop'
     | '/solutions'
+    | '/subscribe'
     | '/subscription'
     | '/support'
     | '/terms'
@@ -651,7 +699,9 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   BetterairRebrandRoute: typeof BetterairRebrandRoute
   BlogRoute: typeof BlogRouteWithChildren
+  CartRoute: typeof CartRoute
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
+  CheckoutRoute: typeof CheckoutRoute
   CompetitiveExclusionRoute: typeof CompetitiveExclusionRoute
   ContactRoute: typeof ContactRoute
   DevToolsRoute: typeof DevToolsRoute
@@ -668,6 +718,7 @@ export interface RootRouteChildren {
   MoldAndAllergensRoute: typeof MoldAndAllergensRoute
   NurseryRoute: typeof NurseryRoute
   OrderHistoryRoute: typeof OrderHistoryRoute
+  OrdersRoute: typeof OrdersRoute
   PaymentSuccessRoute: typeof PaymentSuccessRoute
   PrivacyRoute: typeof PrivacyRoute
   ProSubscriptionRoute: typeof ProSubscriptionRoute
@@ -680,6 +731,7 @@ export interface RootRouteChildren {
   SafetyRoute: typeof SafetyRoute
   ShopRoute: typeof ShopRoute
   SolutionsRoute: typeof SolutionsRoute
+  SubscribeRoute: typeof SubscribeRoute
   SubscriptionRoute: typeof SubscriptionRoute
   SupportRoute: typeof SupportRoute
   TermsRoute: typeof TermsRoute
@@ -728,6 +780,13 @@ declare module '@tanstack/react-router' {
       path: '/subscription'
       fullPath: '/subscription'
       preLoaderRoute: typeof SubscriptionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subscribe': {
+      id: '/subscribe'
+      path: '/subscribe'
+      fullPath: '/subscribe'
+      preLoaderRoute: typeof SubscribeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solutions': {
@@ -812,6 +871,13 @@ declare module '@tanstack/react-router' {
       path: '/payment-success'
       fullPath: '/payment-success'
       preLoaderRoute: typeof PaymentSuccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orders': {
+      id: '/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof OrdersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/order-history': {
@@ -926,11 +992,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompetitiveExclusionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/case-studies': {
       id: '/case-studies'
       path: '/case-studies'
       fullPath: '/case-studies'
       preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -1087,7 +1167,9 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   BetterairRebrandRoute: BetterairRebrandRoute,
   BlogRoute: BlogRouteWithChildren,
+  CartRoute: CartRoute,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
+  CheckoutRoute: CheckoutRoute,
   CompetitiveExclusionRoute: CompetitiveExclusionRoute,
   ContactRoute: ContactRoute,
   DevToolsRoute: DevToolsRoute,
@@ -1104,6 +1186,7 @@ const rootRouteChildren: RootRouteChildren = {
   MoldAndAllergensRoute: MoldAndAllergensRoute,
   NurseryRoute: NurseryRoute,
   OrderHistoryRoute: OrderHistoryRoute,
+  OrdersRoute: OrdersRoute,
   PaymentSuccessRoute: PaymentSuccessRoute,
   PrivacyRoute: PrivacyRoute,
   ProSubscriptionRoute: ProSubscriptionRoute,
@@ -1116,6 +1199,7 @@ const rootRouteChildren: RootRouteChildren = {
   SafetyRoute: SafetyRoute,
   ShopRoute: ShopRoute,
   SolutionsRoute: SolutionsRoute,
+  SubscribeRoute: SubscribeRoute,
   SubscriptionRoute: SubscriptionRoute,
   SupportRoute: SupportRoute,
   TermsRoute: TermsRoute,
@@ -1131,13 +1215,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
