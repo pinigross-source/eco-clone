@@ -1,12 +1,10 @@
-import { Check, X, ArrowRight, Star, ShoppingCart } from "lucide-react";
+import { Check, X, Star, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "@/lib/link";
 import { motion } from "framer-motion";
-import { toast } from "sonner";
 import { useState } from "react";
-import { useStripeCartStore } from "@/stores/stripeCartStore";
-import { getProductBySlug } from "@/lib/stripe-products";
+import { shopifyProductUrl } from "@/lib/shopify";
 
 import biologicMini from "@/assets/biologic-mini-nobg-new.avif";
 import biotica800 from "@/assets/biotica800-hero.avif";
@@ -111,35 +109,19 @@ const FeatureCheck = ({ value }: { value: boolean }) => (
 
 const AddToCartButton = ({
   slug,
-  productName,
   size = "sm",
 }: {
   slug: string;
-  productName: string;
+  productName?: string;
   size?: "sm" | "default" | "lg";
-}) => {
-  const addItem = useStripeCartStore((state) => state.addItem);
-
-  const handleAddToCart = () => {
-    const product = getProductBySlug(slug);
-    if (product) {
-      addItem(product, 1);
-      toast.success("Added to cart", {
-        description: productName,
-        position: "top-center",
-      });
-    } else {
-      toast.error("Product not found");
-    }
-  };
-
-  return (
-    <Button variant="hero" size={size} onClick={handleAddToCart}>
+}) => (
+  <Button variant="hero" size={size} asChild>
+    <a href={shopifyProductUrl(slug, "compare")}>
       <ShoppingCart className="mr-1 h-3 w-3" />
       Buy
-    </Button>
-  );
-};
+    </a>
+  </Button>
+);
 
 const getSpecValue = (product: ComparisonProduct, key: string): string | boolean => {
   if (key === "_probioticTech" || key === "_madeSafe") return true;

@@ -1,12 +1,9 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Loader2, Play, ShoppingCart } from "lucide-react";
-import { SubscriptionUpsellModal } from "@/components/shop/SubscriptionUpsellModal";
 import { SEOHead } from "@/components/SEOHead";
-import { useStripeCartStore } from "@/stores/stripeCartStore";
-import { invokeCheckout } from "@/lib/checkout";
-import { toast } from "sonner";
 import { trackEvent } from "@/lib/tracking";
+import { shopifyProductUrl } from "@/lib/shopify";
 import {
   Accordion,
   AccordionContent,
@@ -32,20 +29,14 @@ import readingImg from "@/assets/dorm/dorm-student-reading.jpg";
 import dropoffImg from "@/assets/dorm/dorm-parent-dropoff.avif";
 import studyingImg from "@/assets/dorm/dorm-students-studying.jpg";
 
-const StripeCartDrawer = lazy(() =>
-  import("@/components/shop/StripeCartDrawer").then((m) => ({ default: m.StripeCartDrawer }))
-);
-
-const BIOLOGIC_MINI_PRICE_ID = "price_1SnLU1G13Yn1allNVof7RjMj";
 const BIOLOGIC_MINI_PRODUCT = {
-  id: "prod_TkrCDIiOr0kg1A",
   name: "BioLogic Mini",
   description: "Cordless probiotic air and surface device for dorm rooms",
-  priceId: BIOLOGIC_MINI_PRICE_ID,
   price: 9800,
   image: biologicMiniImg,
   category: "device" as const,
 };
+const SHOPIFY_BUY_URL = shopifyProductUrl("biologic-mini", "dorm");
 
 /* ---------- Reveal-on-scroll wrapper (no framer-motion) ---------- */
 const Reveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
@@ -123,10 +114,8 @@ const VideoPlayer = ({ src, poster, title }: { src: string; poster: string; titl
 };
 
 const DormLandingPage = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [showUpsellModal, setShowUpsellModal] = useState(false);
   const [showSticky, setShowSticky] = useState(false);
-  const addItem = useStripeCartStore((s) => s.addItem);
+  const isLoading = false;
 
   useEffect(() => {
     const onScroll = () => setShowSticky(window.scrollY > 700);
@@ -136,38 +125,11 @@ const DormLandingPage = () => {
 
   const handleBuyNow = () => {
     trackEvent("click_buy_dorm_landing");
-    setShowUpsellModal(true);
-  };
-
-  const handleSkipUpsell = async () => {
-    setShowUpsellModal(false);
-    setIsLoading(true);
-    try {
-      const { data, error } = await invokeCheckout({
-        priceId: BIOLOGIC_MINI_PRICE_ID,
-        mode: "payment",
-        quantity: 1,
-      });
-      if (error) throw error;
-      if (data?.url) window.location.href = data.url;
-    } catch {
-      toast.error("Something went wrong. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
+    window.location.href = SHOPIFY_BUY_URL;
   };
 
   const handleAddToCart = () => {
-    addItem({
-      id: BIOLOGIC_MINI_PRODUCT.id,
-      name: BIOLOGIC_MINI_PRODUCT.name,
-      description: "Cordless probiotic air and surface device for dorm rooms",
-      priceId: BIOLOGIC_MINI_PRODUCT.priceId,
-      price: BIOLOGIC_MINI_PRODUCT.price,
-      image: BIOLOGIC_MINI_PRODUCT.image,
-      category: "device",
-    });
-    toast.success("Added to cart");
+    window.location.href = SHOPIFY_BUY_URL;
   };
 
   return (
@@ -658,17 +620,7 @@ const DormLandingPage = () => {
         </div>
       </div>
 
-      <SubscriptionUpsellModal
-        isOpen={showUpsellModal}
-        onClose={() => setShowUpsellModal(false)}
-        device={BIOLOGIC_MINI_PRODUCT}
-        deviceQuantity={1}
-        onSkip={handleSkipUpsell}
-      />
-
-      <Suspense fallback={null}>
-        <StripeCartDrawer />
-      </Suspense>
+      {/* Subscription upsell + in-app cart removed — checkout happens on Shopify */}
     </>
   );
 };
