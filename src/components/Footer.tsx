@@ -24,7 +24,7 @@ const resourceLinks = [
   { label: "Affiliate Program", href: "/affiliate/signup" },
   { label: "Compare Air Purifiers", href: "/compare/envirobiotics-vs-hepa" },
   { label: "FAQ", href: "/faq" },
-  { label: "Site Map", href: "/sitemap" },
+  
 ];
 
 const companyLinks = [

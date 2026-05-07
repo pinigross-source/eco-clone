@@ -15,7 +15,6 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as SubscriptionRouteImport } from './routes/subscription'
 import { Route as SolutionsRouteImport } from './routes/solutions'
-import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as RoomSolutionsRouteImport } from './routes/room-solutions'
@@ -89,11 +88,6 @@ const SubscriptionRoute = SubscriptionRouteImport.update({
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapRoute = SitemapRouteImport.update({
-  id: '/sitemap',
-  path: '/sitemap',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShopRoute = ShopRouteImport.update({
@@ -356,7 +350,6 @@ export interface FileRoutesByFullPath {
   '/room-solutions': typeof RoomSolutionsRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
-  '/sitemap': typeof SitemapRoute
   '/solutions': typeof SolutionsRoute
   '/subscription': typeof SubscriptionRoute
   '/support': typeof SupportRoute
@@ -409,7 +402,6 @@ export interface FileRoutesByTo {
   '/room-solutions': typeof RoomSolutionsRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
-  '/sitemap': typeof SitemapRoute
   '/solutions': typeof SolutionsRoute
   '/subscription': typeof SubscriptionRoute
   '/support': typeof SupportRoute
@@ -463,7 +455,6 @@ export interface FileRoutesById {
   '/room-solutions': typeof RoomSolutionsRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
-  '/sitemap': typeof SitemapRoute
   '/solutions': typeof SolutionsRoute
   '/subscription': typeof SubscriptionRoute
   '/support': typeof SupportRoute
@@ -518,7 +509,6 @@ export interface FileRouteTypes {
     | '/room-solutions'
     | '/safety'
     | '/shop'
-    | '/sitemap'
     | '/solutions'
     | '/subscription'
     | '/support'
@@ -571,7 +561,6 @@ export interface FileRouteTypes {
     | '/room-solutions'
     | '/safety'
     | '/shop'
-    | '/sitemap'
     | '/solutions'
     | '/subscription'
     | '/support'
@@ -624,7 +613,6 @@ export interface FileRouteTypes {
     | '/room-solutions'
     | '/safety'
     | '/shop'
-    | '/sitemap'
     | '/solutions'
     | '/subscription'
     | '/support'
@@ -678,7 +666,6 @@ export interface RootRouteChildren {
   RoomSolutionsRoute: typeof RoomSolutionsRoute
   SafetyRoute: typeof SafetyRoute
   ShopRoute: typeof ShopRoute
-  SitemapRoute: typeof SitemapRoute
   SolutionsRoute: typeof SolutionsRoute
   SubscriptionRoute: typeof SubscriptionRoute
   SupportRoute: typeof SupportRoute
@@ -735,13 +722,6 @@ declare module '@tanstack/react-router' {
       path: '/solutions'
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap': {
-      id: '/sitemap'
-      path: '/sitemap'
-      fullPath: '/sitemap'
-      preLoaderRoute: typeof SitemapRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/shop': {
@@ -1114,7 +1094,6 @@ const rootRouteChildren: RootRouteChildren = {
   RoomSolutionsRoute: RoomSolutionsRoute,
   SafetyRoute: SafetyRoute,
   ShopRoute: ShopRoute,
-  SitemapRoute: SitemapRoute,
   SolutionsRoute: SolutionsRoute,
   SubscriptionRoute: SubscriptionRoute,
   SupportRoute: SupportRoute,
@@ -1131,3 +1110,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
