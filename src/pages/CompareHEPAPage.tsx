@@ -12,8 +12,8 @@ const jsonLd = {
   "@graph": [
     makeBreadcrumbJsonLd([
       { name: "Home", url: "/" },
-      { name: "Compare", url: "/compare/envirobiotics-vs-hepa" },
-      { name: "EnviroBiotics vs HEPA", url: "/compare/envirobiotics-vs-hepa" },
+      { name: "Compare", url: "/compare/hepa" },
+      { name: "EnviroBiotics vs HEPA", url: "/compare/hepa" },
     ]),
     {
       "@type": "Article",
@@ -21,7 +21,7 @@ const jsonLd = {
       description: "An in-depth comparison of probiotic air purification and HEPA filtration technology, covering mechanism, surface treatment, allergen reduction, and long-term effectiveness.",
       author: { "@type": "Organization", name: "EnviroBiotics" },
       publisher: { "@type": "Organization", name: "EnviroBiotics", url: "https://envirobiotics.com" },
-      url: "https://envirobiotics.com/compare/envirobiotics-vs-hepa",
+      url: "https://envirobiotics.com/compare/hepa",
       datePublished: "2025-03-01",
       dateModified: "2026-03-11",
     },
@@ -105,7 +105,7 @@ const CompareHEPAPage = () => {
       <SEOHead
         title="EnviroBiotics vs HEPA Air Purifiers | Complete Comparison"
         description="Compare EnviroBiotics probiotic air purification with HEPA filters. Learn why surface treatment outperforms airborne-only filtration for allergens, mold, and bacteria."
-        path="/compare/envirobiotics-vs-hepa"
+        path="/compare/hepa"
         keywords="EnviroBiotics vs HEPA, probiotic vs HEPA, probiotic air purifier comparison, HEPA filter limitations, surface treatment vs filtration"
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -242,7 +242,7 @@ const CompareHEPAPage = () => {
         </section>
 
         <RelatedTopics
-          currentPath="/compare/envirobiotics-vs-hepa"
+          currentPath="/compare/hepa"
           links={[
             { label: "How EnviroBiotics Works", href: "/how-it-works" },
             { label: "vs UV-C Purifiers", href: "/compare/envirobiotics-vs-uvc" },

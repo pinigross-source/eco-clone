@@ -364,7 +364,7 @@ const SafetyPage = () => {
               verified by independent testing, and certified by leading safety organizations.
             </p>
             <p className="text-muted-foreground text-base leading-relaxed mb-8">
-              Explore our <a href="/proof-and-trust" className="text-primary-text underline">full certifications and research data</a>, learn <a href="/how-it-works" className="text-primary-text underline">how the technology works</a>, or discover the <a href="/benefits" className="text-primary-text underline">health benefits</a> families experience with probiotic air and surface treatment.
+              Explore our <a href="/proof-and-trust" className="text-primary-text underline">full certifications and research data</a>, learn <a href="/how-it-works" className="text-primary-text underline">how the technology works</a>, or discover the <a href="/health-benefits" className="text-primary-text underline">health benefits</a> families experience with probiotic air and surface treatment.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center gap-2 text-foreground">

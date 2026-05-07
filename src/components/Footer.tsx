@@ -8,7 +8,7 @@ const exploreLinks = [
   { label: "Safety & Proof", href: "/safety" },
   { label: "Solutions", href: "/solutions" },
   { label: "Central Air & Heating", href: "/hvac" },
-  { label: "Benefits", href: "/benefits" },
+  { label: "Benefits", href: "/health-benefits" },
   { label: "Support", href: "/support" },
 ];
 
@@ -17,12 +17,12 @@ const resourceLinks = [
   { label: "Videos", href: "/videos" },
   { label: "Research & Case Studies", href: "/research" },
   { label: "Subscribe & Save", href: "/subscribe" },
-  { label: "Register Product", href: "/register" },
+  { label: "Register Product", href: "/product-registration" },
   { label: "About Us", href: "/about" },
   { label: "Glossary", href: "/glossary" },
-  { label: "BetterAir Rebrand", href: "/betterair-to-envirobiotics" },
-  { label: "Affiliate Program", href: "/affiliate/signup" },
-  { label: "Compare Air Purifiers", href: "/compare/envirobiotics-vs-hepa" },
+  { label: "BetterAir Rebrand", href: "/betterair-rebrand" },
+  { label: "Affiliate Program", href: "/affiliate-signup" },
+  { label: "Compare Air Purifiers", href: "/compare/hepa" },
   { label: "FAQ", href: "/faq" },
   
 ];

@@ -32,13 +32,13 @@ const jsonLd = {
         "Poor indoor air quality affects sleep, allergies, asthma, immunity, and long-term health. Learn how probiotic purification addresses the biological root causes.",
       author: { "@type": "Organization", name: "EnviroBiotics" },
       publisher: { "@type": "Organization", name: "EnviroBiotics", url: "https://envirobiotics.com" },
-      url: "https://envirobiotics.com/benefits",
+      url: "https://envirobiotics.com/health-benefits",
       datePublished: "2024-01-01",
       dateModified: "2025-04-01",
     },
     makeBreadcrumbJsonLd([
       { name: "Home", url: "/" },
-      { name: "Health Benefits", url: "/benefits" },
+      { name: "Health Benefits", url: "/health-benefits" },
     ]),
     {
       "@type": "FAQPage",
@@ -137,7 +137,7 @@ const HealthBenefitsPage = () => {
       <SEOHead
         title="Health Benefits of Cleaner Indoor Air | EnviroBiotics"
         description="Poor indoor air quality affects sleep, allergies, asthma, immunity, and long-term health. Learn how probiotic purification addresses the biological root causes. Science-backed guide."
-        path="/benefits"
+        path="/health-benefits"
         keywords="health benefits of indoor air quality, probiotics for allergies home, indoor air quality health benefits, probiotic purification health, allergy relief home, asthma triggers home, benefits of clean indoor air, EnviroBiotics"
         jsonLd={jsonLd}
       />
@@ -469,7 +469,7 @@ const HealthBenefitsPage = () => {
       <section className="pb-20">
         <div className="container px-5 md:px-6 max-w-4xl mx-auto">
           <Suspense fallback={null}>
-            <RelatedTopics currentPath="/benefits" />
+            <RelatedTopics currentPath="/health-benefits" />
           </Suspense>
 
           <p className="text-xs text-muted-foreground mt-12 leading-relaxed">
