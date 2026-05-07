@@ -6,6 +6,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { shopifyUrl } from "@/lib/shopify";
 import { supabase } from "@/integrations/supabase/client";
 import { pingShopify } from "@/serverfn/shopify-ping.functions";
+import { inspectShopifyToken } from "@/serverfn/shopify-token-check.functions";
 
 
 function Row({ title, description, action }: { title: string; description: string; action: React.ReactNode }) {
