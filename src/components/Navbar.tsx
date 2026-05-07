@@ -273,7 +273,7 @@ export const Navbar = () => {
           <div className="hidden lg:flex items-center gap-2 ml-auto">
             <NavDropdown item={storeDropdown} scrolled={scrolled} useLight={useLight} />
             <Suspense fallback={null}><NavbarSearch /></Suspense>
-            <Link to={session ? "/account" : "/auth"} title={session ? "My Account" : "Sign In"}>
+            <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
               <div className={cn(
                 "w-10 h-10 rounded-xl flex items-center justify-center transition-colors hover:scale-105 active:scale-95",
                 scrolled ? "bg-muted/50 hover:bg-muted" : useLight ? "bg-white/10 hover:bg-white/20" : "bg-muted/50 hover:bg-muted"
