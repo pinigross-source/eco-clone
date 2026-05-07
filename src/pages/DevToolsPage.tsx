@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/SEOHead";
 import { shopifyUrl } from "@/lib/shopify";
 import { supabase } from "@/integrations/supabase/client";
-import { pingShopify } from "@/server/shopify-ping.functions";
+import { pingShopify } from "@/serverfn/shopify-ping.functions";
 
 
 function Row({ title, description, action }: { title: string; description: string; action: React.ReactNode }) {
