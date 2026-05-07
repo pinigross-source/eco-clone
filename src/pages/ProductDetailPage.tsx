@@ -64,7 +64,7 @@ const iconMap: Record<string, any> = {
 };
 
 const ProductDetailPage = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams({ strict: false }) as { slug?: string };
   const product = slug ? getProductBySlug(slug) : undefined;
   const otherProducts = slug ? getOtherProducts(slug) : [];
   const relatedBlogPosts = slug ? getPostsForProduct(slug) : [];
@@ -769,7 +769,7 @@ const ProductDetailPage = () => {
           onSubscribe={hasMatchingSubscription(stripeProduct.id) ? () => setShowUpsellModal(true) : undefined}
           hasSubscription={hasMatchingSubscription(stripeProduct.id)}
           disabled={!stripeProduct}
-          triggerRef={heroCTARef}
+          triggerRef={heroCTARef as React.RefObject<HTMLElement>}
         />
       )}
 

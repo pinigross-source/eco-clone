@@ -147,7 +147,7 @@ const ProductRegistrationPage = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from("product_registrations")
         .insert({
           user_id: user.id,

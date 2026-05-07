@@ -83,7 +83,7 @@ const extractPullQuote = (content: string[]): string => {
 };
 
 const BlogPostPage = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams({ strict: false }) as { slug?: string };
   const post = slug ? getPostBySlug(slug) : undefined;
   const relatedPosts = slug ? getRelatedPosts(slug, 3) : [];
 

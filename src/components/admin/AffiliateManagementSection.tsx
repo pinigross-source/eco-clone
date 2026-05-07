@@ -391,7 +391,7 @@ export function AffiliateManagementSection() {
       if (status === "paid") {
         update.paid_date = new Date().toISOString();
       }
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from("commissions")
         .update(update)
         .eq("id", commissionId);

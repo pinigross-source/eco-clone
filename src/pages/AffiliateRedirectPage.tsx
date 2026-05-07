@@ -8,7 +8,8 @@ import { supabase } from "@/integrations/supabase/client";
  * then redirects to /?ref=CODE to trigger the tracking system.
  */
 const AffiliateRedirectPage = ({ defaultDest }: { defaultDest?: string }) => {
-  const { id } = useParams<{ id: string }>();
+  const params = useParams({ strict: false }) as { id?: string };
+  const id = params.id;
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
@@ -16,17 +17,17 @@ const AffiliateRedirectPage = ({ defaultDest }: { defaultDest?: string }) => {
     const dest = searchParams.get("dest") || defaultDest || "/";
     const lookup = async () => {
       if (!id) {
-        navigate(dest, { replace: true });
+        navigate({ to: dest, replace: true } as any);
         return;
       }
 
       const num = parseInt(id, 10);
       if (isNaN(num)) {
-        navigate(dest, { replace: true });
+        navigate({ to: dest, replace: true } as any);
         return;
       }
 
-      const { data } = await supabase
+      const { data } = await (supabase as any)
         .from("affiliates")
         .select("referral_code")
         .eq("affiliate_number", num)
@@ -35,9 +36,9 @@ const AffiliateRedirectPage = ({ defaultDest }: { defaultDest?: string }) => {
 
       const code = data?.[0]?.referral_code;
       if (code) {
-        navigate({ to: `${dest}?ref=${code}`, replace: true });
+        navigate({ to: `${dest}?ref=${code}`, replace: true } as any);
       } else {
-        navigate(dest, { replace: true });
+        navigate({ to: dest, replace: true } as any);
       }
     };
 
