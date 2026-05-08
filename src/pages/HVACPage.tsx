@@ -417,7 +417,7 @@ const HVACPage = () => {
                       className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-white text-sm font-semibold ring-1 ring-inset ring-white/30 backdrop-blur-sm transition-all hover:bg-white/20"
                     >
                       <Mail className="w-4 h-4" />
-                      Contact Sales
+                      contact@envirobiotics.com
                     </a>
                   </div>
                 </div>
