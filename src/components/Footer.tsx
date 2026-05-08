@@ -16,7 +16,7 @@ const resourceLinks = [
   { label: "Blog & Articles", href: "/blog" },
   { label: "Videos", href: "/videos" },
   { label: "Research & Case Studies", href: "/research" },
-  { label: "Subscribe & Save", href: "/subscribe" },
+  { label: "Subscribe & Save", href: "https://shop.envirobiotics.com/collections/subscribe-save" },
   { label: "Register Product", href: "/product-registration" },
   { label: "About Us", href: "/about" },
   { label: "Glossary", href: "/glossary" },
