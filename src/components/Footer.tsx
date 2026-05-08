@@ -135,17 +135,29 @@ export const Footer = () => {
               Resources
             </p>
             <ul className="space-y-3">
-              {resourceLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="group inline-flex items-center gap-1 text-sm text-background/80 hover:text-primary transition-colors"
-                  >
+              {resourceLinks.map((link) => {
+                const isExternal = link.href.startsWith("http");
+                const className = "group inline-flex items-center gap-1 text-sm text-background/80 hover:text-primary transition-colors";
+                const content = (
+                  <>
                     {link.label}
                     <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
-                  </Link>
-                </li>
-              ))}
+                  </>
+                );
+                return (
+                  <li key={link.label}>
+                    {isExternal ? (
+                      <a href={link.href} target="_top" rel="noopener" className={className}>
+                        {content}
+                      </a>
+                    ) : (
+                      <Link to={link.href} className={className}>
+                        {content}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
