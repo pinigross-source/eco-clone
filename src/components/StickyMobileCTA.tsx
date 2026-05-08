@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ShoppingBag, ShoppingCart, Star, ArrowRight } from "lucide-react";
+import { ShoppingBag, ShoppingCart, Star } from "lucide-react";
 import { useLocation } from "@tanstack/react-router";
 import { Link } from "@/lib/link";
 import { useIsMobile } from "@/hooks/use-mobile";
