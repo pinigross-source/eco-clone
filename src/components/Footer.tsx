@@ -21,7 +21,7 @@ const resourceLinks = [
   { label: "About Us", href: "/about" },
   { label: "Glossary", href: "/glossary" },
   { label: "BetterAir Rebrand", href: "/betterair-rebrand" },
-  { label: "Affiliate Program", href: "/affiliate-signup" },
+  { label: "Affiliate Program", href: "https://shop.envirobiotics.com/pages/affiliate-signup" },
   { label: "Compare Air Purifiers", href: "/compare/hepa" },
   { label: "FAQ", href: "/faq" },
   
