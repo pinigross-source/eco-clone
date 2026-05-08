@@ -50,30 +50,18 @@ export const StickyMobileCTA = () => {
 
           <div className="px-4 py-2.5">
             {isHomePage ? (
-              /* Homepage: Shop from $98 + Find My Match */
+              /* Homepage: Shop from $98 */
               <div className="flex gap-2">
                 <Button
                   asChild
                   variant="hero"
-                  size="sm"
-                  className="flex-[1.2] text-sm px-3"
+                  size="lg"
+                  className="flex-1"
                   onClick={() => trackEvent("sticky_cta_shop")}
                 >
-                  <Link to="/shop" className="flex items-center justify-center gap-1.5">
-                    <ShoppingBag className="w-3.5 h-3.5 shrink-0" />
-                    Shop $98
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline-light"
-                  size="sm"
-                  className="flex-1 text-sm px-3"
-                  onClick={() => trackEvent("sticky_cta_quiz")}
-                >
-                  <Link to="/shop#quiz-section" className="flex items-center justify-center gap-1.5 whitespace-nowrap">
-                    Find Match
-                    <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+                  <Link to="/shop" className="flex items-center justify-center gap-2">
+                    <ShoppingBag className="w-4 h-4" />
+                    Shop Devices from $98
                   </Link>
                 </Button>
               </div>
