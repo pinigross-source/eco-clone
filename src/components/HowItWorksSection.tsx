@@ -7,7 +7,7 @@ const steps = [
     icon: SprayCan,
     number: "01",
     title: "Releases",
-    text: "EnviroBiotics devices continuously release beneficial probiotics into your indoor environment, silently, automatically, around the clock.",
+    text: "EnviroBiotics shifts the paradigm from reactive cleaning to proactive biological protection: a living probiotic layer that continuously suppresses harmful organisms on every surface, 24 hours a day.",
   },
   {
     icon: Wind,
