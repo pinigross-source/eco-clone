@@ -7,7 +7,7 @@ const steps = [
     icon: SprayCan,
     number: "01",
     title: "Releases",
-    text: "EnviroBiotics shifts the paradigm from reactive cleaning to proactive biological protection: a living probiotic layer that continuously suppresses harmful organisms on every surface, 24 hours a day.",
+    text: "EnviroBiotics shifts the paradigm from reactive cleaning to proactive biological protection: a 100% natural living probiotic layer that continuously suppresses harmful organisms on every surface, 24 hours a day.",
   },
   {
     icon: Wind,
