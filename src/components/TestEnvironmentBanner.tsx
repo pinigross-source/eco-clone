@@ -9,7 +9,7 @@ export function TestEnvironmentBanner() {
     <div
       role="status"
       aria-label="Test environment"
-      className="sticky top-0 z-[100] w-full bg-amber-400 text-black border-b border-amber-600"
+      className="relative z-[40] w-full bg-amber-400 text-black border-b border-amber-600"
     >
       <div className="mx-auto flex max-w-screen-2xl items-center justify-center gap-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider">
         <AlertTriangle className="h-3.5 w-3.5" aria-hidden="true" />
