@@ -158,9 +158,6 @@ export const ProductShowcase = () => {
                     </Link>
                   </Button>
                 )}
-                <Button variant="outline" size="lg" asChild>
-                  <a href="#match">Need help choosing?</a>
-                </Button>
               </div>
 
               <p className="text-xs text-muted-foreground/50 pt-2">
