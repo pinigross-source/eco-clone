@@ -75,7 +75,7 @@ export const HowItWorksSection = () => {
                 </span>
               </h2>
               <p className="mt-5 sm:mt-8 text-[15px] sm:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                EnviroBiotics shifts the paradigm from reactive cleaning to proactive biological protection: a living probiotic layer that continuously suppresses harmful organisms on every surface, 24 hours a day.
+                EnviroBiotics shifts the paradigm from reactive cleaning to proactive biological protection: a 100% natural living probiotic layer that continuously suppresses harmful organisms on every surface, 24 hours a day.
               </p>
 
               {/* Hero metric */}
