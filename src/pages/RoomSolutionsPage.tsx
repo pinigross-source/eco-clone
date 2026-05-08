@@ -254,12 +254,6 @@ const RoomSolutionsPage = () => {
                       Browse Room Purifiers
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
-                    <Link
-                      to="/shop#find-my-solution"
-                      className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-white text-sm font-semibold ring-1 ring-inset ring-white/30 backdrop-blur-sm transition-all hover:bg-white/20"
-                    >
-                      Take the Quiz
-                    </Link>
                   </div>
                 </div>
               </div>
@@ -626,61 +620,28 @@ const RoomSolutionsPage = () => {
           </div>
         </section>
 
-        {/* ═══════ HVAC + Quiz — Sonos dual cards ═══════ */}
+        {/* ═══════ HVAC — Sonos card ═══════ */}
         <section className="py-16 md:py-24 bg-background">
           <div className="container px-5 md:px-6">
-            <div className="grid lg:grid-cols-2 gap-5 md:gap-6">
-              <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-primary/5 ring-1 ring-primary/15 p-10 sm:p-12 md:p-14 min-h-[360px] flex flex-col justify-end">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-primary/15 rounded-full blur-3xl pointer-events-none" />
-                <div className="relative z-10">
-                  <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-primary-text mb-5">
-                    Whole-Building Coverage
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold leading-[1.08] tracking-[-0.02em] mb-4 text-foreground">
-                    Need protection for your entire building?
-                  </h2>
-                  <p className="text-muted-foreground mb-8 text-base md:text-lg max-w-md leading-relaxed">
-                    Our HVAC-integrated E-Biotic Pro system delivers probiotic protection to every room through your existing ductwork, treating up to 25,000 sq ft.
-                  </p>
-                  <Link
-                    to="/hvac"
-                    className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-primary/90"
-                  >
-                    Explore HVAC Solutions
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
-
-              <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-muted/40 ring-1 ring-border/50 p-10 sm:p-12 md:p-14 min-h-[360px] flex flex-col justify-end">
-                <div className="absolute top-0 left-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-                <div className="relative z-10">
-                  <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    Personal Match
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold leading-[1.08] tracking-[-0.02em] mb-4 text-foreground">
-                    Not sure which device is right for you?
-                  </h2>
-                  <p className="text-muted-foreground mb-8 text-base md:text-lg max-w-md leading-relaxed">
-                    Take our 60-second quiz to get a personalized recommendation based on your space, concerns, and lifestyle.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Link
-                      to="/shop#find-my-solution"
-                      className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-foreground/90"
-                    >
-                      Take the Quiz
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                    <Link
-                      to="/how-it-works"
-                      className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-background text-foreground text-sm font-semibold ring-1 ring-inset ring-border transition-all hover:bg-background/80"
-                    >
-                      Learn How It Works
-                    </Link>
-                  </div>
-                </div>
+            <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-primary/5 ring-1 ring-primary/15 p-10 sm:p-12 md:p-14 min-h-[360px] flex flex-col justify-end">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-primary/15 rounded-full blur-3xl pointer-events-none" />
+              <div className="relative z-10">
+                <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-primary-text mb-5">
+                  Whole-Building Coverage
+                </span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold leading-[1.08] tracking-[-0.02em] mb-4 text-foreground">
+                  Need protection for your entire building?
+                </h2>
+                <p className="text-muted-foreground mb-8 text-base md:text-lg max-w-md leading-relaxed">
+                  Our HVAC-integrated E-Biotic Pro system delivers probiotic protection to every room through your existing ductwork, treating up to 25,000 sq ft.
+                </p>
+                <Link
+                  to="/hvac"
+                  className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-primary/90"
+                >
+                  Explore HVAC Solutions
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
             </div>
           </div>

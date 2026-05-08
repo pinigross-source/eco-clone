@@ -176,12 +176,6 @@ const SolutionsPage = () => {
                       Explore Solutions
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
-                    <Link
-                      to="/shop#find-my-solution"
-                      className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-white text-sm font-semibold ring-1 ring-inset ring-white/30 backdrop-blur-sm transition-all hover:bg-white/20"
-                    >
-                      Take the Quiz
-                    </Link>
                   </div>
                 </div>
               </div>
@@ -451,21 +445,14 @@ const SolutionsPage = () => {
           <div className="container px-5 md:px-6 max-w-5xl">
             <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-primary/5 ring-1 ring-primary/15 p-10 md:p-16 text-center">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-5">
-                Not sure which is
+                Want to learn
                 <br className="hidden md:block" />
-                <span className="text-[hsl(24_95%_53%)]"> right for you?</span>
+                <span className="text-[hsl(24_95%_53%)]"> how it works?</span>
               </h2>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto mb-9">
-                Take our 60-second quiz to get a personalized recommendation based on your space, concerns, and lifestyle.
+                Discover the science behind probiotic environmental purification and how it transforms your indoor spaces.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Link
-                  to="/shop#find-my-solution"
-                  className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-primary/90"
-                >
-                  Take the Quiz
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
                 <Link
                   to="/how-it-works"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-foreground/90"
