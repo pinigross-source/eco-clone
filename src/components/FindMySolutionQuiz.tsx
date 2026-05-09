@@ -277,11 +277,6 @@ export const FindMySolutionQuiz = () => {
               <QuestionButton label="Whole home" onClick={() => setAnswer("primary_goal", "whole", "q3")} />
               <QuestionButton label="I'm not sure yet" onClick={() => setAnswer("primary_goal", "unsure", "q2")} />
             </div>
-            <div className="flex items-center gap-4 mt-4 sm:mt-6">
-              <a href={INTERNAL_LINKS.support} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5 sm:gap-2">
-                <HelpCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> Need help choosing?
-              </a>
-            </div>
           </div>
         );
 
