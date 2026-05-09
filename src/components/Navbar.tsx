@@ -55,12 +55,8 @@ const navLinks: NavItem[] = [
 
 const storeDropdown: NavItem = {
   label: "Shop",
-  href: "/shop",
+  href: "https://shop.envirobiotics.com/",
   bold: true,
-  dropdown: [
-    { label: "All Products", href: "/shop", icon: ShoppingCart, desc: "Browse our full catalog" },
-    { label: "Subscribe & Save", href: "/subscribe", icon: CreditCard, desc: "Auto-refill & save money" },
-  ],
 };
 
 // Desktop dropdown component
