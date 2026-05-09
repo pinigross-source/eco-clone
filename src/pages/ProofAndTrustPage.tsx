@@ -15,7 +15,7 @@ const certifications = [
     label: "ISO 9001 Manufacturing",
     desc: "Our production facilities follow international quality management standards.",
   },
-  { label: "EPA Product Approval", desc: "Our products are approved by the Environmental Protection Agency (EPA) for their safety, ensuring they meet rigorous safety standards." },
+  { label: "EPA Registered", desc: "Our products are approved by the Environmental Protection Agency (EPA) for their safety, ensuring they meet rigorous safety standards." },
   { label: "MADE SAFE® Certified", desc: "Screened for known harmful chemicals and ingredients." },
   { label: "PTPA (Parent Tested Parent Approved)", desc: "Recognized by families as safe for homes with children." },
   { label: "Allergy Standards Limited", desc: "Independently tested for allergen reduction efficacy." },
