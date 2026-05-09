@@ -39,7 +39,6 @@ const sections = [
 
         <h4 className="font-semibold text-foreground mb-2">Shipping Costs</h4>
         <ul className="list-disc pl-5 mb-4 space-y-1">
-          <li>Return shipping costs are non-refundable and must be covered by you.</li>
           <li>For items over $75, consider a trackable shipping service or purchasing shipping insurance.</li>
           <li>EBT Corp. is not responsible for items lost or damaged in transit.</li>
         </ul>
