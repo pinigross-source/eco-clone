@@ -354,6 +354,17 @@ export const Navbar = () => {
                     </div>
                   </div>
                 </>
+              ) : /^https?:\/\//.test(link.href) ? (
+                <a
+                  href={link.href}
+                  target="_top"
+                  rel="noopener"
+                  className="text-sm sm:text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <span>{link.label}</span>
+                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-primary" />
+                </a>
               ) : (
                 <Link
                   to={link.href}
