@@ -84,10 +84,6 @@ export function resolveShopifyUrl(to: string): string | null {
   if (pathOnly === "/manage-subscription") {
     return shopifyAccount("manage-subscription");
   }
-  if (pathOnly === "/product-registration") {
-    return shopifyUrl("/pages/product-registration", "register");
-  }
-
   const productMatch = pathOnly.match(/^\/product\/([^/]+)$/);
   if (productMatch) return shopifyProductUrl(productMatch[1]);
 
