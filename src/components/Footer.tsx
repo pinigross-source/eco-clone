@@ -3,7 +3,7 @@ import { Link } from "@/lib/link";
 import logo from "@/assets/logo.avif";
 
 const exploreLinks = [
-  { label: "Shop", href: "/shop" },
+  { label: "Shop", href: "https://shop.envirobiotics.com/" },
   { label: "How It Works", href: "/how-it-works" },
   { label: "Safety & Proof", href: "/safety" },
   { label: "Solutions", href: "/solutions" },
