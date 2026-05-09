@@ -213,8 +213,8 @@ export const Navbar = () => {
         className={cn(
           "fixed top-0 z-50 w-full transition-all duration-500",
           scrolled
-            ? "bg-background/92 backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-foreground/5"
-            : "bg-background/95 backdrop-blur-xl border-b border-border/50 lg:bg-transparent lg:backdrop-blur-none lg:border-b-0"
+            ? "bg-background/95 backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-foreground/5"
+            : "bg-background backdrop-blur-xl border-b border-border/50"
         )}
       >
         {/* Scroll Progress */}
