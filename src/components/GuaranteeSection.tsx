@@ -90,7 +90,7 @@ export const GuaranteeSection = () => {
 
             <ScrollReveal variant="fadeUp" delay={0.15}>
               <Button variant="hero" size="impact-lg" asChild className="w-full sm:w-auto">
-                <a href="#solutions">
+                <a href="https://shop.envirobiotics.com/" target="_top">
                   Start My Trial
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
