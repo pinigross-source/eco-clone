@@ -90,7 +90,7 @@ const productSupport = [
     image: biologicMiniImg,
     vimeoId: "1099451099",
     videoTitle: "What's in the box?",
-    pdfUrl: "https://zofwakmgbmcqknmiizgd.supabase.co/storage/v1/object/public/user-manuals/BioLogicMini-UM.pdf",
+    pdfUrl: "/manuals/BioLogic-Mini-User-Manual.pdf",
     pdfTitle: "User Manual",
   },
   {
