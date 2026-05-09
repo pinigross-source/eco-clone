@@ -316,13 +316,6 @@ const EducationPage = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <GuideCard
                 icon={<Scale className="w-5 h-5" />}
-                title="EnviroBiotics vs. HEPA Air Purifiers"
-                description="How probiotic purification and HEPA filtration differ, where each performs best, and why combining both provides the most comprehensive indoor air quality solution."
-                to="/compare/hepa"
-                linkText="Read the comparison"
-              />
-              <GuideCard
-                icon={<Scale className="w-5 h-5" />}
                 title="EnviroBiotics vs. UV-C Purifiers"
                 description="UV-C light kills organisms that pass through it but has no effect on surface contamination. This guide compares the two technologies across the most important performance dimensions."
                 to="/compare/uvc"

@@ -241,7 +241,6 @@ const CompareUVCPage = () => {
         <RelatedTopics
           currentPath="/compare/envirobiotics-vs-uvc"
           links={[
-            { label: "vs HEPA Purifiers", href: "/compare/hepa" },
             { label: "vs Chemical Fresheners", href: "/compare/envirobiotics-vs-chemical-fresheners" },
             { label: "Safety & Certifications", href: "/safety" },
             { label: "Probiotic Air Purification Hub", href: "/probiotic-air-purification" },
