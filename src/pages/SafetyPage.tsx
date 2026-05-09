@@ -27,7 +27,7 @@ const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").th
 
 const certifications = [
   {
-    name: "EPA Product Approval",
+    name: "EPA Registered",
     description: "Our products are approved by the Environmental Protection Agency (EPA) for their safety, ensuring they meet rigorous safety standards.",
     image: epaBadge,
   },
