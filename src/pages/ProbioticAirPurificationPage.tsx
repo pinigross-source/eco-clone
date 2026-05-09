@@ -608,11 +608,6 @@ const ProbioticAirPurificationPage = () => {
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </Link>
                     </Button>
-                    <Button variant="outline" size="lg" asChild className="border-primary/30 text-primary hover:bg-primary/5">
-                      <Link to="/compare/hepa">
-                        Compare to HEPA
-                      </Link>
-                    </Button>
                     <Button variant="outline" size="lg" asChild className="hover:border-primary/30">
                       <Link to="/research">
                         Read the Science

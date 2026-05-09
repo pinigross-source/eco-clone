@@ -264,7 +264,6 @@ const CompareBioHealingPage = () => {
           currentPath="/compare/envirobiotics-vs-bio-healing"
           links={[
             { label: "How EnviroBiotics Works", href: "/how-it-works" },
-            { label: "vs HEPA Purifiers", href: "/compare/hepa" },
             { label: "vs UV-C Purifiers", href: "/compare/envirobiotics-vs-uvc" },
             { label: "vs Chemical Air Fresheners", href: "/compare/envirobiotics-vs-chemical-fresheners" },
             { label: "Probiotic Air Purification Hub", href: "/probiotic-air-purification" },
