@@ -204,8 +204,8 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Use light text only when over a dark section and not scrolled
-  const useLight = !scrolled && isOverDark;
+  // Navbar is now always solid background, so always use dark text
+  const useLight = false;
 
   return (
     <>
