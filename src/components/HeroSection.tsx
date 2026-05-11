@@ -40,9 +40,10 @@ export const HeroSection = ({
         if (data.event === "ready") {
           post("addEventListener", "play");
           post("addEventListener", "playing");
+          post("addEventListener", "timeupdate");
           post("play");
         }
-        if (data.event === "play" || data.event === "playing") {
+        if (data.event === "timeupdate" && typeof data.data?.seconds === "number" && data.data.seconds > 0.2) {
           setVideoLoaded(true);
         }
       } catch {}
@@ -53,21 +54,22 @@ export const HeroSection = ({
       post("ping");
       post("addEventListener", "play");
       post("addEventListener", "playing");
+      post("addEventListener", "timeupdate");
       post("play");
     };
     iframe.addEventListener("load", onLoad);
-    // Fallback: reveal after 1.5s even if events don't fire
-    const fallback = setTimeout(() => setVideoLoaded(true), 1500);
     return () => {
       window.removeEventListener("message", onMessage);
       iframe.removeEventListener("load", onLoad);
-      clearTimeout(fallback);
     };
   }, []);
 
   return (
-    <section className="hero-dark-section relative flex min-h-[100dvh] w-full flex-col justify-end overflow-hidden">
-      <div className="absolute inset-0 z-0 bg-foreground" />
+    <section
+      className="hero-dark-section relative flex min-h-[100dvh] w-full flex-col justify-end overflow-hidden bg-cover bg-center"
+      style={{ backgroundColor: "#978276", backgroundImage: "url('/hero-vimeo-poster.jpg')" }}
+    >
+      <div className="absolute inset-0 z-0 bg-transparent" />
 
       <img
         src="/hero-vimeo-poster.jpg"
