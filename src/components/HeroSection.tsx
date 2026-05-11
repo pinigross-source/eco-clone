@@ -4,7 +4,26 @@ import { ArrowRight } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
 import { Button } from "@/components/ui/button";
 
-export const HeroSection = () => {
+export interface HeroSectionProps {
+  /** Video brightness multiplier (1 = normal). Default 1.6 */
+  videoBrightness?: number;
+  /** Video contrast multiplier (1 = normal). Default 1.05 */
+  videoContrast?: number;
+  /** Video saturation multiplier (1 = normal). Default 1.05 */
+  videoSaturation?: number;
+  /** Top overlay darkness (0-1). Default 0.02 (desktop) */
+  overlayTopOpacity?: number;
+  /** Bottom overlay darkness (0-1). Default 0.08 (desktop) */
+  overlayBottomOpacity?: number;
+}
+
+export const HeroSection = ({
+  videoBrightness = 1.6,
+  videoContrast = 1.05,
+  videoSaturation = 1.05,
+  overlayTopOpacity = 0.02,
+  overlayBottomOpacity = 0.08,
+}: HeroSectionProps = {}) => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
@@ -71,7 +90,7 @@ export const HeroSection = () => {
             border: "none",
             width: "max(100vw, 177.78vh)",
             height: "max(100vh, 56.25vw)",
-            filter: "brightness(1.6) contrast(1.05) saturate(1.05)",
+            filter: `brightness(${videoBrightness}) contrast(${videoContrast}) saturate(${videoSaturation})`,
           }}
         />
       </div>
@@ -79,15 +98,13 @@ export const HeroSection = () => {
       <div
         className="absolute inset-0 z-[3] sm:hidden"
         style={{
-          background:
-            "linear-gradient(180deg, hsl(var(--foreground) / 0.04) 0%, hsl(var(--foreground) / 0.14) 100%)",
+          background: `linear-gradient(180deg, hsl(var(--foreground) / ${overlayTopOpacity + 0.02}) 0%, hsl(var(--foreground) / ${overlayBottomOpacity + 0.06}) 100%)`,
         }}
       />
       <div
         className="absolute inset-0 z-[3] hidden sm:block"
         style={{
-          background:
-            "linear-gradient(180deg, hsl(var(--foreground) / 0.02) 0%, hsl(var(--foreground) / 0.08) 100%)",
+          background: `linear-gradient(180deg, hsl(var(--foreground) / ${overlayTopOpacity}) 0%, hsl(var(--foreground) / ${overlayBottomOpacity}) 100%)`,
         }}
       />
 
