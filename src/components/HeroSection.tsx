@@ -71,7 +71,7 @@ export const HeroSection = () => {
             border: "none",
             width: "max(100vw, 177.78vh)",
             height: "max(100vh, 56.25vw)",
-            filter: "brightness(1.25) contrast(1.05) saturate(1.05)",
+            filter: "brightness(1.6) contrast(1.05) saturate(1.05)",
           }}
         />
       </div>
