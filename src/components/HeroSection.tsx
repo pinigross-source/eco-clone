@@ -80,14 +80,14 @@ export const HeroSection = () => {
         className="absolute inset-0 z-[3] sm:hidden"
         style={{
           background:
-            "linear-gradient(180deg, hsl(var(--foreground) / 0.1) 0%, hsl(var(--foreground) / 0.25) 100%)",
+            "linear-gradient(180deg, hsl(var(--foreground) / 0.04) 0%, hsl(var(--foreground) / 0.14) 100%)",
         }}
       />
       <div
         className="absolute inset-0 z-[3] hidden sm:block"
         style={{
           background:
-            "linear-gradient(180deg, hsl(var(--foreground) / 0.04) 0%, hsl(var(--foreground) / 0.18) 100%)",
+            "linear-gradient(180deg, hsl(var(--foreground) / 0.02) 0%, hsl(var(--foreground) / 0.08) 100%)",
         }}
       />
 
