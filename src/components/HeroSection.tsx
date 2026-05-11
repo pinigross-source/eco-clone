@@ -4,7 +4,26 @@ import { ArrowRight } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
 import { Button } from "@/components/ui/button";
 
-export const HeroSection = () => {
+export interface HeroSectionProps {
+  /** Video brightness multiplier (1 = normal). Default 1.6 */
+  videoBrightness?: number;
+  /** Video contrast multiplier (1 = normal). Default 1.05 */
+  videoContrast?: number;
+  /** Video saturation multiplier (1 = normal). Default 1.05 */
+  videoSaturation?: number;
+  /** Top overlay darkness (0-1). Default 0.02 (desktop) */
+  overlayTopOpacity?: number;
+  /** Bottom overlay darkness (0-1). Default 0.08 (desktop) */
+  overlayBottomOpacity?: number;
+}
+
+export const HeroSection = ({
+  videoBrightness = 1.6,
+  videoContrast = 1.05,
+  videoSaturation = 1.05,
+  overlayTopOpacity = 0.02,
+  overlayBottomOpacity = 0.08,
+}: HeroSectionProps = {}) => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
