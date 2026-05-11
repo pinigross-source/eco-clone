@@ -114,7 +114,8 @@ export const HeroSection = ({
             className="mb-4 font-display font-bold tracking-[-0.04em] text-[2.65rem] leading-[1.05] sm:mb-8 sm:text-[clamp(2.8rem,9.5vw,6.5rem)] sm:tracking-[-0.03em] sm:leading-[1.02]"
             style={{
               color: "hsl(var(--primary-foreground))",
-              textShadow: "0 2px 24px hsl(var(--foreground) / 0.35)",
+              textShadow:
+                "0 2px 8px hsl(var(--foreground) / 0.85), 0 4px 24px hsl(var(--foreground) / 0.7), 0 0 60px hsl(var(--foreground) / 0.5)",
             }}
           >
             <span className="block sm:inline">Every surface.</span>
@@ -127,7 +128,8 @@ export const HeroSection = ({
             className="mb-7 max-w-xl text-lg font-medium leading-snug sm:mb-10 sm:text-xl sm:leading-relaxed lg:text-2xl"
             style={{
               color: "hsl(var(--primary-foreground))",
-              textShadow: "0 2px 18px hsl(var(--foreground) / 0.55)",
+              textShadow:
+                "0 2px 8px hsl(var(--foreground) / 0.9), 0 4px 20px hsl(var(--foreground) / 0.75), 0 0 50px hsl(var(--foreground) / 0.5)",
             }}
           >
             From mold, allergens, and odors, on every surface, object, and corner your air touches.
