@@ -18,11 +18,11 @@ export interface HeroSectionProps {
 }
 
 export const HeroSection = ({
-  videoBrightness = 1.6,
-  videoContrast = 1.05,
-  videoSaturation = 1.05,
-  overlayTopOpacity = 0.02,
-  overlayBottomOpacity = 0.08,
+  videoBrightness = 1,
+  videoContrast = 1,
+  videoSaturation = 1,
+  overlayTopOpacity = 0,
+  overlayBottomOpacity = 0,
 }: HeroSectionProps = {}) => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
