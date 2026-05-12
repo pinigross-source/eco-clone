@@ -10,6 +10,22 @@ import {
 
 import appCss from "../styles.css?url";
 import { TestEnvironmentBanner } from "@/components/TestEnvironmentBanner";
+import { isTestEnv } from "@/lib/env";
+
+const PROD_TITLE = "EnviroBiotics — Probiotic air purification";
+const PROD_DESCRIPTION =
+  "EnviroBiotics neutralizes mold, allergens, and odors on every surface, object, and corner your air touches.";
+const PROD_OG_IMAGE = "https://envirobiotics.com/og-default.jpg";
+
+const TEST_TITLE = "Enviro_test";
+const TEST_DESCRIPTION =
+  "Eco Clone replicates the functionality of enviro-clean.lovable.app without using Shopify.";
+const TEST_OG_IMAGE =
+  "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c793fa13-7000-4814-b3d1-0c4dda400ccd/id-preview-4bec4d66--a538c9f9-a84b-4fdd-944e-d2e334872313.lovable.app-1778137015008.png";
+
+const title = isTestEnv ? TEST_TITLE : PROD_TITLE;
+const description = isTestEnv ? TEST_DESCRIPTION : PROD_DESCRIPTION;
+const ogImage = isTestEnv ? TEST_OG_IMAGE : PROD_OG_IMAGE;
 
 function NotFoundComponent() {
   return (
@@ -73,20 +89,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "robots", content: "noindex, nofollow, noarchive, nosnippet, noimageindex" },
-      { name: "googlebot", content: "noindex, nofollow" },
-      { title: "Enviro_test" },
-      { name: "description", content: "Eco Clone replicates the functionality of enviro-clean.lovable.app without using Shopify." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Enviro_test" },
-      { property: "og:description", content: "Eco Clone replicates the functionality of enviro-clean.lovable.app without using Shopify." },
+      ...(isTestEnv
+        ? [
+            { name: "robots", content: "noindex, nofollow, noarchive, nosnippet, noimageindex" },
+            { name: "googlebot", content: "noindex, nofollow" },
+          ]
+        : [{ name: "robots", content: "index, follow" }]),
+      { title },
+      { name: "description", content: description },
+      { name: "author", content: isTestEnv ? "Lovable" : "EnviroBiotics" },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Enviro_test" },
-      { name: "twitter:description", content: "Eco Clone replicates the functionality of enviro-clean.lovable.app without using Shopify." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c793fa13-7000-4814-b3d1-0c4dda400ccd/id-preview-4bec4d66--a538c9f9-a84b-4fdd-944e-d2e334872313.lovable.app-1778137015008.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c793fa13-7000-4814-b3d1-0c4dda400ccd/id-preview-4bec4d66--a538c9f9-a84b-4fdd-944e-d2e334872313.lovable.app-1778137015008.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      ...(isTestEnv ? [{ name: "twitter:site", content: "@Lovable" }] : []),
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { property: "og:image", content: ogImage },
+      { name: "twitter:image", content: ogImage },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -123,7 +143,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TestEnvironmentBanner />
+      {isTestEnv && <TestEnvironmentBanner />}
       <Outlet />
     </QueryClientProvider>
   );
