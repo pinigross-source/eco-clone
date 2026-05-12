@@ -143,7 +143,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TestEnvironmentBanner />
+      {isTestEnv && <TestEnvironmentBanner />}
       <Outlet />
     </QueryClientProvider>
   );
