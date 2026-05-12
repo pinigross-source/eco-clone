@@ -84,7 +84,7 @@ export const GuaranteeSection = () => {
 
             <ScrollReveal variant="fadeUp" delay={0.1}>
               <p className="text-[15px] sm:text-lg md:text-xl text-muted-foreground leading-relaxed font-light mb-7 sm:mb-10 max-w-lg">
-                Plug it in, breathe it in. If it doesn't feel right for your space, return it within 30 days. No pressure, no commitment.
+                Plug it in. If it doesn't feel right for your space, return it within 30 days. No pressure, no commitment.
               </p>
             </ScrollReveal>
 
