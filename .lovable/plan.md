@@ -1,69 +1,68 @@
-# Shopify Connectivity Plan
 
-## Strategy: Hosted Shopify (Recommended)
+# Prepare the site for launch — without going live
 
-Keep Lovable as the **marketing/content front-end** (home, about, how it works, research, blog, support, etc.) and let **Shopify own all commerce** (product pages, cart, checkout, account, orders) on `shop.enviriobiotics.com`.
+Goal: do all the codebase prep work for the audit so production can be flipped on later with a single env-var change. **Until that flag flips, the test site behaves exactly as it does today** — same banner, same `noindex`, same `/dev-tools`, same `Enviro_test` social previews.
 
-This is already the direction we've been heading — every `/shop` and `/product/*` link redirects to Shopify. We just formalize it across the whole experience.
+This plan covers only the gating + production-ready defaults. Per-page SEO copy, the real branded OG image, sitemap/robots/canonical, perf, a11y, and analytics are separate audit passes that come after this foundation lands.
 
-```text
-enviriobiotics.com           shop.enviriobiotics.com
-┌───────────────────┐        ┌────────────────────────┐
-│ Lovable (content) │ ─────▶ │ Shopify (commerce)     │
-│  Home / About     │  link  │  Products / Cart       │
-│  How It Works     │ ─────▶ │  Checkout / Account    │
-│  Research / Blog  │        │  Order history         │
-└───────────────────┘        └────────────────────────┘
+## The mechanism: one env flag
+
+New file `src/lib/env.ts`:
+```ts
+export const isTestEnv =
+  import.meta.env.VITE_IS_TEST_ENV !== "false";
 ```
 
-Pros: zero PCI scope, Shopify handles inventory/tax/shipping/payments/fraud, fastest to ship, no API keys needed.
-Cons: users leave the Lovable domain when they shop (mitigated by shared subdomain + matching design).
+Default = `true` (test mode). Production-only behavior is opt-in by setting `VITE_IS_TEST_ENV=false` in the production environment. This guarantees nothing changes for you today.
 
-## What I'll Implement
+## What gets gated
 
-### 1. Centralize the Shopify URL
-- Add `VITE_SHOPIFY_URL` (default `https://shop.enviriobiotics.com`) and a single helper `shopifyUrl(path?)` in `src/lib/shopify.ts`.
-- Refactor `src/lib/link.tsx` to use it. One place to change the domain ever again.
+### 1. `noindex` meta tags (audit 2.1)
+In `src/routes/__root.tsx` `head()`, only emit `robots: noindex,nofollow,…` and `googlebot: noindex,nofollow` when `isTestEnv` is true. When false, emit `robots: index, follow`.
 
-### 2. Audit & redirect every commerce touchpoint
-Sweep the codebase for any remaining internal `/shop`, `/product/*`, `/cart`, `/checkout`, `/account/orders` references and route them to Shopify:
-- Product handles map: `mini → /products/biotica-mini`, `800 → /products/biotica-800`, `2080 → /products/biotica-2080` (confirm exact handles with you before shipping).
-- Buttons: "Shop", "Buy now", "Add to cart", "Subscribe", "Reorder", "View cart".
-- Nav, footer, hero CTAs, product cards, comparison tables, pricing tables, modals (`ClaimAccountModal`, `NeedHelpSection`), HowItWorks CTA, ProductDetailPage CTAs.
+### 2. Test environment banner (audit 3.1)
+In `RootComponent`, render `<TestEnvironmentBanner />` only when `isTestEnv`.
 
-### 3. Remove dead commerce code from Lovable
-Pages that now exist only on Shopify can be deleted or turned into redirect routes:
-- `src/pages/ShopPage.tsx`, `ProductDetailPage.tsx`, `ProductRegistrationPage.tsx`, `SubscriptionPage.tsx`, `ProSubPage.tsx`, any cart/checkout pages.
-- Replace each with a TanStack route that does `window.location.replace(shopifyUrl(...))` so old links still work.
+### 3. `/dev-tools` route (audit 3.2)
+In `src/routes/dev-tools.tsx`, throw `notFound()` when `!isTestEnv` so production returns the branded 404 page.
 
-### 4. Live product data on marketing pages (optional but valuable)
-For dynamic price/availability on Lovable pages without rebuilding the store, use **Shopify Storefront API** (public, read-only token, safe in browser):
-- Fetch product title/price/image/availability for the 3 biotica products and render on home + comparison pages.
-- Requires: a Storefront API access token from your Shopify admin (Apps → Develop apps → Storefront API access). Stored as `VITE_SHOPIFY_STOREFRONT_TOKEN` + `VITE_SHOPIFY_DOMAIN` (e.g. `enviriobiotics.myshopify.com`).
-- If you'd rather keep it simple, skip this and hardcode prices.
+### 4. Title / description / author / OG / Twitter (audit 3.3 – 3.7)
+Two parallel sets of root-level metadata in `__root.tsx`:
+- **Test (default today):** keeps current `Enviro_test`, "Eco Clone replicates…", `author: Lovable`, `twitter:site: @Lovable`, current R2 preview OG image. Nothing visible changes.
+- **Production (when flag is false):**
+  - title: `EnviroBiotics — Probiotic air purification`
+  - description: real product-level copy (placeholder I'll write, easy to edit later)
+  - author: `EnviroBiotics`
+  - `twitter:site`: removed (no active handle confirmed yet — safer than wrong)
+  - `og:image` / `twitter:image`: `/og-default.jpg` placeholder path. The real 1200×630 branded asset is a separate task; until it's uploaded, production would 404 on this image. We'll ship a temporary committed `public/og-default.jpg` (a simple branded fallback I'll generate) so production never has a broken share preview.
 
-### 5. Shared design / cross-domain UX
-- Mirror the Lovable header/footer inside the Shopify theme so the visual handoff is seamless (this is a Shopify theme edit, not a Lovable change — I'll give you the HTML/CSS to paste).
-- Ensure `shop.enviriobiotics.com` DNS CNAME is pointed at Shopify (you do this in your domain registrar + Shopify admin).
-- Open Shopify links in the same tab (current behavior) so back-button returns to the marketing site.
+### 5. "Edit with Lovable" badge (audit 3.8)
+This is a publish-settings flag, not code. **I will not flip it as part of this prep** — the test site keeps the badge today and you said don't go live. When you're ready to launch I'll call `set_badge_visibility(hide_badge: true)` then. Noted here so it's not forgotten.
 
-### 6. Analytics & attribution
-- Add UTM params on outbound links (`?utm_source=enviro&utm_medium=site&utm_campaign=<location>`) so Shopify analytics shows where buyers came from.
+## Files touched
 
-## What I will NOT build on Lovable
-Cart, checkout, payment, customer accounts, order history, inventory, discounts, shipping rates, tax, refunds. All Shopify.
+```text
+src/lib/env.ts              (new)
+src/routes/__root.tsx       (conditional meta + conditional banner)
+src/routes/dev-tools.tsx    (notFound when !isTestEnv)
+public/og-default.jpg       (new — temporary branded fallback)
+```
 
-## Things I need from you before/while building
-1. **Confirm exact Shopify product handles** for biotica mini, 800, 2080 (look in Shopify admin → Products → URL slug).
-2. **Confirm `shop.enviriobiotics.com` is live** and routing to your Shopify store.
-3. **Decide on step 4** (live prices via Storefront API) — yes or skip.
-4. If yes to step 4, generate a **Storefront API access token** in Shopify and share it (it's public-safe).
+## Out of scope for this prep
 
-## Deliverables
-- `src/lib/shopify.ts` helper + env-var driven base URL
-- Refactored `src/lib/link.tsx` and all CTAs site-wide
-- Removed/redirected obsolete shop pages
-- (Optional) Storefront API hook + live product cards
-- A short doc on how to update the Shopify URL and product handle map
+- Per-page unique titles & descriptions (audit 4.1, 4.2)
+- Final designed 1200×630 OG image
+- robots.txt, sitemap.xml, canonical tags (2.2 – 2.4)
+- All other audit sections
 
-Approve and I'll build it.
+## How you verify nothing changed
+
+After I implement, the preview at `/` should look identical:
+- Yellow "Test environment" banner still at top
+- `/dev-tools` still loads
+- `view-source:` still shows `noindex, nofollow…`
+- Tab title still `Enviro_test`
+
+When you're ready to launch, you (or I) set `VITE_IS_TEST_ENV=false` on the production environment and republish — no further code changes needed for any of the 8 items above.
+
+Approve and I'll implement.
