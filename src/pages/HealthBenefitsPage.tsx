@@ -162,7 +162,7 @@ const HealthBenefitsPage = () => {
               </h1>
 
               <p className="text-sm text-muted-foreground mb-10">
-                By EnviroBiotics Science Team · Last updated April 2025
+                By EnviroBiotics Science Team
               </p>
             </ScrollReveal>
           </Suspense>
@@ -473,7 +473,7 @@ const HealthBenefitsPage = () => {
           </Suspense>
 
           <p className="text-xs text-muted-foreground mt-12 leading-relaxed">
-            All EnviroBiotics probiotic strains are FDA GRAS certified, EPA registered, and MADE SAFE certified. Independent lab testing conducted by Indoor Biotechnologies. Health information provided for educational purposes. Not intended as medical advice. Consult a qualified healthcare provider for personal health guidance. Last updated April 2025.
+            All EnviroBiotics probiotic strains are FDA GRAS certified, EPA registered, and MADE SAFE certified. Independent lab testing conducted by Indoor Biotechnologies. Health information provided for educational purposes. Not intended as medical advice. Consult a qualified healthcare provider for personal health guidance.
           </p>
         </div>
       </section>
