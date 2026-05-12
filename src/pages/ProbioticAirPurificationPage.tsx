@@ -191,7 +191,7 @@ const ProbioticAirPurificationPage = () => {
               </h1>
 
               <p className="text-sm text-muted-foreground mb-10">
-                By EnviroBiotics Science Team · Last updated April 2025
+                By EnviroBiotics Science Team
               </p>
             </ScrollReveal>
           </Suspense>

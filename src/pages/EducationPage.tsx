@@ -446,7 +446,7 @@ const EducationPage = () => {
         {/* ── Disclaimer ── */}
         <div className="container max-w-4xl px-5 sm:px-6 pb-12">
           <p className="text-xs text-muted-foreground/60 leading-relaxed text-center">
-            Content in the EnviroBiotics Education Center is written and reviewed by the EnviroBiotics Science Team. All claims are supported by independent laboratory research or peer-reviewed scientific literature. All EnviroBiotics probiotic strains are FDA GRAS certified, EPA registered, and MADE SAFE certified. Independent lab testing conducted by Indoor Biotechnologies. Results may vary based on space size, environmental conditions, and continuous device operation. Last updated April 2025.
+            Content in the EnviroBiotics Education Center is written and reviewed by the EnviroBiotics Science Team. All claims are supported by independent laboratory research or peer-reviewed scientific literature. All EnviroBiotics probiotic strains are FDA GRAS certified, EPA registered, and MADE SAFE certified. Independent lab testing conducted by Indoor Biotechnologies. Results may vary based on space size, environmental conditions, and continuous device operation.
           </p>
         </div>
 
