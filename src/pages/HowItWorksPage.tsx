@@ -490,7 +490,7 @@ const HowItWorksPage = () => {
                 <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.02] tracking-[-0.03em] text-foreground mb-6">
                   Stop reacting.
                   <br />
-                  <span className="text-muted-foreground/50">Start protecting.</span>
+                  <span className="text-primary whitespace-nowrap">Start protecting.</span>
                 </h2>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-10 md:mb-12 max-w-md">
                   Most cleaning happens after the buildup appears. EnviroBiotics
