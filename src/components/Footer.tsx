@@ -5,11 +5,11 @@ import logo from "@/assets/logo.avif";
 const exploreLinks = [
   { label: "Shop", href: "https://shop.envirobiotics.com/" },
   { label: "How It Works", href: "/how-it-works" },
-  { label: "Safety & Proof", href: "/safety" },
+  { label: "Certified & Verified", href: "/safety" },
   { label: "Solutions", href: "/solutions" },
   { label: "Central Air & Heating", href: "/hvac" },
   { label: "Benefits", href: "/health-benefits" },
-  { label: "Support", href: "/support" },
+  { label: "Help Center", href: "/support" },
 ];
 
 const resourceLinks = [
