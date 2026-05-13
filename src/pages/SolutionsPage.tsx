@@ -24,6 +24,7 @@ import {
 
 import solutionsHeroBg from "@/assets/solutions-hero-bg.avif";
 import familyLivingImg from "@/assets/family-living-cozy.jpg";
+import hiddenProblemImg from "@/assets/hidden-problem-livingroom.jpg";
 
 const problemPoints = [
   {
@@ -184,43 +185,85 @@ const SolutionsPage = () => {
           </div>
         </section>
 
-        {/* ═══════ Problem — Sonos clean grid ═══════ */}
-        <section className="py-24 md:py-32 bg-background relative">
-          <div className="container relative z-10 px-5 md:px-6">
-            <ScrollReveal variant="fadeUp" className="max-w-3xl mb-14 md:mb-20">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
-                The Hidden Problem
-              </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] tracking-[-0.03em] mb-6">
-                Your indoor environment is
-                <br className="hidden md:block" />
-                <span className="text-[hsl(24_95%_53%)]"> working against you.</span>
-              </h2>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                Even in clean homes and offices, microbes accumulate on surfaces, in fabrics, and throughout your HVAC system. The symptoms? Sneezing, congestion, lingering odors, and that stuffy feeling you can't quite shake.
-              </p>
-            </ScrollReveal>
+        {/* ═══════ Problem — Sonos editorial split ═══════ */}
+        <section className="py-20 md:py-28 lg:py-32 bg-background relative">
+          <div className="container px-5 md:px-6">
+            <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-10 lg:gap-16 xl:gap-20 items-center">
+              {/* Editorial copy */}
+              <ScrollReveal variant="fadeUp">
+                <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-6">
+                  The Hidden Problem
+                </span>
+                <h2 className="text-[2rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance mb-6">
+                  Your indoor environment is{" "}
+                  <span className="text-primary whitespace-nowrap">working against you.</span>
+                </h2>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-10">
+                  Even in clean homes and offices, microbes accumulate on surfaces, in fabrics, and throughout your HVAC system. The symptoms? Sneezing, congestion, lingering odors, and that stuffy feeling you can't quite shake.
+                </p>
 
-            <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5" staggerDelay={0.08}>
-              {problemPoints.map(({ icon: Icon, title, description, locations }) => (
-                <StaggerItem key={title} variant="fadeUp">
-                  <div className="group h-full rounded-3xl bg-muted/40 hover:bg-muted/60 p-7 md:p-8 transition-colors duration-300">
-                    <div className="w-11 h-11 rounded-xl bg-background flex items-center justify-center mb-6 ring-1 ring-border/60">
-                      <Icon className="w-5 h-5 text-foreground/70" />
+                {/* Numbered hairline-divided list */}
+                <ul className="border-t border-border/60">
+                  {problemPoints.map(({ title, description, locations }, idx) => (
+                    <li key={title} className="grid grid-cols-[auto_1fr] gap-5 sm:gap-7 py-5 sm:py-6 border-b border-border/60">
+                      <span className="font-display font-bold text-foreground/30 text-xl sm:text-2xl tabular-nums leading-none pt-1">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <div className="min-w-0">
+                        <h3 className="font-display font-semibold text-base sm:text-lg tracking-tight text-foreground mb-1.5">
+                          {title}
+                        </h3>
+                        <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed mb-2">
+                          {description}
+                        </p>
+                        <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60">
+                          {locations}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </ScrollReveal>
+
+              {/* Image with floating chips */}
+              <ScrollReveal variant="fadeUp" delay={0.1}>
+                <div className="relative aspect-[4/5] rounded-[1.75rem] sm:rounded-3xl overflow-hidden bg-muted ring-1 ring-black/[0.05] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.28)]">
+                  <img
+                    src={hiddenProblemImg}
+                    alt="Sunlit living room with airborne dust catching the light"
+                    width={1280}
+                    height={1600}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-foreground/0 to-transparent pointer-events-none" />
+
+                  {/* Top-left glass caption */}
+                  <div className="absolute top-5 left-5 sm:top-7 sm:left-7 max-w-[15rem]">
+                    <div className="backdrop-blur-xl bg-background/85 border border-border/50 rounded-2xl px-5 py-4 shadow-xl">
+                      <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-primary mb-1.5">
+                        Invisible to the eye
+                      </p>
+                      <p className="text-sm text-foreground leading-snug">
+                        The light reveals what cleaning leaves behind.
+                      </p>
                     </div>
-                    <h3 className="font-display font-semibold text-lg md:text-xl tracking-tight mb-3">
-                      {title}
-                    </h3>
-                    <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed mb-5">
-                      {description}
-                    </p>
-                    <p className="text-[11px] font-medium tracking-wider uppercase text-muted-foreground/60">
-                      {locations}
-                    </p>
                   </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
+
+                  {/* Bottom-right stat chip */}
+                  <div className="absolute bottom-5 right-5 sm:bottom-7 sm:right-7">
+                    <div className="backdrop-blur-xl bg-background/90 border border-border/50 rounded-2xl px-5 py-4 shadow-xl text-right">
+                      <div className="font-display font-bold text-3xl sm:text-4xl text-primary tracking-[-0.03em] leading-none">
+                        80%
+                      </div>
+                      <p className="mt-1.5 text-[10px] font-semibold tracking-[0.22em] uppercase text-muted-foreground/70">
+                        Lives on surfaces
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
         </section>
 
