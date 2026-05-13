@@ -204,14 +204,16 @@ export const ActiveDefenseToggle = () => {
             preserveAspectRatio="none"
           >
             <defs>
+              {/* Bright at the device, fading to transparent at the surface — reads as breath, not a beam */}
               <linearGradient id="beamGradient" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%"  stopColor="rgba(14,165,233,0)" />
-                <stop offset="35%" stopColor="rgba(14,165,233,0.55)" />
-                <stop offset="100%" stopColor="rgba(14,165,233,0.9)" />
+                <stop offset="0%"   stopColor="rgba(14,165,233,0.55)" />
+                <stop offset="60%"  stopColor="rgba(14,165,233,0.18)" />
+                <stop offset="100%" stopColor="rgba(14,165,233,0)" />
               </linearGradient>
             </defs>
             {isActive && orderedHotspots.map((spot, i) => {
               const state = hotspotStates[i];
+              const reached = state !== "idle";
               return (
                 <motion.line
                   key={`beam-${i}`}
@@ -219,62 +221,54 @@ export const ActiveDefenseToggle = () => {
                   y1={CENTER.y}
                   x2={spot.x}
                   y2={spot.y}
-                  stroke={state === "protected" ? "rgba(16,185,129,0.35)" : "url(#beamGradient)"}
-                  strokeWidth={0.25}
+                  stroke="url(#beamGradient)"
+                  strokeWidth={0.18}
                   strokeLinecap="round"
                   vectorEffect="non-scaling-stroke"
                   initial={{ pathLength: 0, opacity: 0 }}
                   animate={{
                     pathLength: 1,
-                    opacity: state === "protected" ? 0.5 : 0.9,
+                    // gently fade away once the surface is treated, so lines don't accumulate
+                    opacity: reached ? 0 : 0.9,
                   }}
                   transition={{
                     pathLength: {
                       delay: REACH_START + i * REACH_STEP,
                       duration: BEAM_DRAW,
-                      ease: EASE_OUT_EXPO,
+                      ease: "easeInOut",
                     },
-                    opacity: {
-                      delay: REACH_START + i * REACH_STEP,
-                      duration: 0.6,
-                      ease: EASE_OUT_EXPO,
-                    },
+                    opacity: reached
+                      ? { delay: 0, duration: 1.6, ease: "easeOut" }
+                      : { delay: REACH_START + i * REACH_STEP, duration: 0.9, ease: "easeOut" },
                   }}
-                  style={{ strokeDasharray: 1, strokeDashoffset: 0 }}
                 />
               );
             })}
           </svg>
 
-          {/* Travelling pulse along each beam — small dot that arrives at the hotspot */}
+          {/* Soft bloom at each hotspot the moment it's reached — calm exhale, no projectile */}
           <AnimatePresence>
-            {isActive && orderedHotspots.map((spot, i) => (
-              <motion.div
-                key={`pulse-${waveKey}-${i}`}
-                className={`absolute rounded-full z-20 pointer-events-none ${spot.desktopOnly ? "hidden md:block" : ""}`}
-                style={{
-                  width: 6,
-                  height: 6,
-                  background: ACCENT,
-                  boxShadow: "0 0 12px rgba(14,165,233,0.8)",
-                  marginLeft: -3,
-                  marginTop: -3,
-                }}
-                initial={{ left: `${CENTER.x}%`, top: `${CENTER.y}%`, opacity: 0, scale: 0.4 }}
-                animate={{
-                  left: `${spot.x}%`,
-                  top: `${spot.y}%`,
-                  opacity: [0, 1, 1, 0],
-                  scale: [0.4, 1, 1, 0.6],
-                }}
-                transition={{
-                  delay: REACH_START + i * REACH_STEP,
-                  duration: BEAM_DRAW,
-                  ease: EASE_OUT_EXPO,
-                  times: [0, 0.15, 0.85, 1],
-                }}
-              />
-            ))}
+            {isActive && orderedHotspots.map((spot, i) => {
+              if (hotspotStates[i] === "idle") return null;
+              return (
+                <motion.div
+                  key={`bloom-${waveKey}-${i}`}
+                  className={`absolute rounded-full z-20 pointer-events-none ${spot.desktopOnly ? "hidden md:block" : ""}`}
+                  style={{
+                    left: `${spot.x}%`,
+                    top: `${spot.y}%`,
+                    width: 24,
+                    height: 24,
+                    marginLeft: -12,
+                    marginTop: -12,
+                    background: "radial-gradient(circle, rgba(14,165,233,0.55) 0%, rgba(14,165,233,0) 70%)",
+                  }}
+                  initial={{ opacity: 0, scale: 0.4 }}
+                  animate={{ opacity: [0, 0.9, 0], scale: [0.4, 2.4, 3] }}
+                  transition={{ duration: 1.6, ease: "easeOut" }}
+                />
+              );
+            })}
           </AnimatePresence>
 
           {/* Hotspots */}
