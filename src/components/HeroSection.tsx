@@ -55,9 +55,7 @@ export const HeroSection = ({
           // Never stay paused — resume immediately
           kick();
         }
-        if (data.event === "timeupdate" && typeof data.data?.seconds === "number" && data.data.seconds > 0.2) {
-          setVideoLoaded(true);
-        }
+        // no-op
       } catch {}
     };
     window.addEventListener("message", onMessage);
