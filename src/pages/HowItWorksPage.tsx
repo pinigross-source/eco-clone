@@ -306,7 +306,7 @@ const HowItWorksPage = () => {
               Always running.
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-              EnviroBiotics works automatically in the background, creating a proactive layer of protection throughout your space.
+              Plug it in once. EnviroBiotics works automatically in the background, putting a living layer of protection on every surface in your home, 24 hours a day.
             </p>
           </ScrollReveal>
 
