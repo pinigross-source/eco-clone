@@ -67,14 +67,14 @@ export const HowItWorksSection = () => {
               <p className="hidden lg:block text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6">
                 How It Works
               </p>
-              <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.8rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance">
+              <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.8rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance text-center lg:text-left">
                 A living system.
                 <br />
                 <span className="inline-block lg:whitespace-nowrap text-[0.92em] sm:text-[0.88em] xl:text-[0.9em] text-primary">
                   Working while you do.
                 </span>
               </h2>
-              <p className="mt-5 sm:mt-8 text-[15px] sm:text-lg text-muted-foreground leading-relaxed max-w-xl">
+              <p className="mt-5 sm:mt-8 text-[15px] sm:text-lg text-muted-foreground leading-relaxed max-w-xl text-center lg:text-left mx-auto lg:mx-0">
                 EnviroBiotics shifts the paradigm from reactive cleaning to proactive biological protection: a 100% natural living probiotic layer that continuously suppresses harmful organisms on every surface, 24 hours a day.
               </p>
 
