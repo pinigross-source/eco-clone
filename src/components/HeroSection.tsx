@@ -130,17 +130,7 @@ export const HeroSection = ({
       <div className="container relative z-10 pb-12 pt-24 sm:pb-20 sm:pt-32 lg:pb-24">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-8">
           <div className="lg:col-span-7 text-left">
-            {/* Pill badge */}
-            <div
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[12px] font-semibold backdrop-blur-md sm:text-sm"
-              style={{
-                color: "hsl(var(--primary-foreground))",
-                textShadow: "0 1px 4px hsl(var(--foreground) / 0.6)",
-              }}
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-[hsl(24_95%_53%)]" />
-              Probiotic protection for every surface in your home
-            </div>
+
 
             <h1
               className="mb-5 font-display font-bold tracking-[-0.04em] text-[2.65rem] leading-[1.02] sm:mb-7 sm:text-[clamp(2.8rem,9.5vw,6.5rem)] sm:tracking-[-0.035em] sm:leading-[1.0]"
@@ -219,7 +209,7 @@ export const HeroSection = ({
                 </li>
                 <li className="flex items-center gap-3">
                   <Check className="h-4 w-4 shrink-0 text-[hsl(24_95%_53%)]" strokeWidth={3} />
-                  <span><span className="font-semibold">60-day</span> money-back guarantee</span>
+                  <span><span className="font-semibold">30-day</span> money-back guarantee</span>
                 </li>
               </ul>
             </div>
