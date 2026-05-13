@@ -221,13 +221,13 @@ export const FindMySolutionQuiz = () => {
         <div className="flex gap-2 sm:gap-3 mt-3 sm:mt-4">
           {isPrimary ? (
             <Button variant="hero" size="sm" asChild className="flex-1 text-xs sm:text-sm">
-              <a href={product.url}>
+              <Link to={product.url}>
                 Buy Now <ArrowRight className="ml-1.5 sm:ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
-              </a>
+              </Link>
             </Button>
           ) : (
             <Button variant="outline" size="sm" asChild className="text-xs sm:text-sm">
-              <a href={product.url}>View</a>
+              <Link to={product.url}>View</Link>
             </Button>
           )}
         </div>
