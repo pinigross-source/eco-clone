@@ -3,6 +3,7 @@ import { useLocation } from "@tanstack/react-router";
 import { SEOHead, organizationJsonLd, websiteJsonLd, homepageFaqJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
+import { TaglineBand } from "@/components/TaglineBand";
 import { DeferredSection } from "@/components/DeferredSection";
 
 // Lazy-load all below-fold sections
@@ -73,6 +74,7 @@ const Index = () => {
       <Navbar />
       <main id="main-content" className="pb-20 md:pb-0">
         <HeroSection />
+        <TaglineBand />
 
         {/* Tier 1: First below-fold — loads eagerly (visible quickly on scroll) */}
         <Suspense fallback={<div className="min-h-[300px]" />}>

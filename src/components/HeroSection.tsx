@@ -120,10 +120,9 @@ export const HeroSection = ({
                 "0 2px 8px hsl(var(--foreground) / 0.85), 0 4px 24px hsl(var(--foreground) / 0.7), 0 0 60px hsl(var(--foreground) / 0.5)",
             }}
           >
-            <span className="block sm:inline">Every surface.</span>
-            <span className="hidden sm:inline"> </span>
-            <span className="block sm:inline">Every space.</span>
-            <span className="block">Always clean.</span>
+            <span className="block">The dust.</span>
+            <span className="block">The mold.</span>
+            <span className="block">The smell that won't leave.</span>
           </h1>
 
           <p
@@ -164,6 +163,17 @@ export const HeroSection = ({
               </Button>
             </a>
           </div>
+
+          <p
+            className="mt-4 text-xs sm:text-sm font-semibold tracking-[0.18em] uppercase"
+            style={{
+              color: "hsl(var(--primary-foreground))",
+              textShadow:
+                "0 2px 8px hsl(var(--foreground) / 0.9), 0 4px 20px hsl(var(--foreground) / 0.7)",
+            }}
+          >
+            30-day trial · No commitment · Free returns
+          </p>
         </div>
       </div>
 
