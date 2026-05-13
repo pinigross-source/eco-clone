@@ -178,7 +178,7 @@ export const HeroSection = ({
               }}
             >
               <span className="block">Air purifiers move air. Sprays mask odors.</span>
-              <span className="block">Our device releases living probiotics that reach every surface a filter can't.</span>
+              <span className="block">Our probiotics reach every surface a filter can't.</span>
               <span className="block">24 hours a day, every day.</span>
             </p>
 
