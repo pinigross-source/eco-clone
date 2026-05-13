@@ -133,10 +133,10 @@ const HowItWorksPage = () => {
       />
       <Navbar />
       <main>
-      {/* Hero Section - HVAC style boxed card */}
+      {/* Hero Section - Editorial atmospheric depth */}
       <section className="relative pt-24 pb-16 overflow-hidden">
         <div className="container relative z-10 px-5 md:px-6">
-          <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] ring-1 ring-black/[0.06] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.35),0_20px_40px_-20px_rgba(0,0,0,0.15)]">
+          <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] ring-1 ring-black/[0.06] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.35),0_20px_40px_-20px_rgba(0,0,0,0.15)] min-h-[640px] md:min-h-[720px] flex items-center">
             {/* Background image */}
             <img
               src={howItWorksHeroBg}
@@ -146,35 +146,45 @@ const HowItWorksPage = () => {
               fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            {/* Readability gradient — lighter wash to keep image bright */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/15 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+            {/* Readability gradient — deeper editorial wash */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+
+            {/* Atmospheric mist orbs */}
+            <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden">
+              <div className="absolute top-1/3 left-1/4 w-[28rem] h-[28rem] bg-sky-200/10 blur-[120px] rounded-full animate-pulse" />
+              <div className="absolute bottom-1/4 right-1/4 w-[34rem] h-[34rem] bg-primary/10 blur-[150px] rounded-full animate-pulse [animation-delay:1.2s]" />
+              <div className="absolute top-12 right-12 w-40 h-40 bg-white/5 blur-3xl rounded-full" />
+            </div>
 
             {/* Content */}
-            <div className="relative z-10 px-6 py-20 sm:px-12 sm:py-28 md:px-16 md:py-36 lg:px-20 lg:py-44">
+            <div className="relative z-10 w-full px-6 py-20 sm:px-12 sm:py-28 md:px-16 md:py-36 lg:px-24 lg:py-44">
               <div className="max-w-3xl">
-                <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-white/80 mb-6">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  The Science
-                </span>
+                <div className="inline-flex items-center gap-3 mb-8">
+                  <div className="w-10 h-px bg-primary" />
+                  <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.3em] uppercase text-white/80">
+                    <Sparkles className="w-3.5 h-3.5 text-primary" />
+                    The Science
+                  </span>
+                </div>
 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.25rem] font-display font-bold leading-[1.02] tracking-[-0.035em] text-white mb-6">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-display font-bold leading-[1.02] tracking-[-0.04em] text-white mb-8">
                   How EnviroBiotics
                   <br />
-                  <span className="text-[#F97316]">works.</span>
+                  <span className="italic font-normal text-primary">works.</span>
                 </h1>
 
-                <p className="text-base sm:text-lg md:text-xl text-white/85 max-w-xl leading-relaxed mb-10">
+                <p className="text-base sm:text-lg md:text-xl text-white/85 max-w-xl leading-relaxed font-light mb-12">
                   Unlike passive air filters, EnviroBiotics works proactively, continuously cleaning the surfaces, air, and ventilation systems that move air through your home.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
                     href="https://shop.envirobiotics.com/collections/all"
-                    className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-white/95"
+                    className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-white text-foreground text-sm font-semibold overflow-hidden transition-all duration-500 hover:pr-14 hover:shadow-[0_20px_50px_-15px_rgba(249,115,22,0.5)]"
                   >
-                    Explore Solutions
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <span className="relative z-10">Explore Solutions</span>
+                    <ArrowRight className="w-4 h-4 relative z-10 transition-transform duration-500 group-hover:translate-x-1" />
                   </a>
                 </div>
               </div>
@@ -194,20 +204,20 @@ const HowItWorksPage = () => {
                   The Problem
                 </span>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
-                  Why air filtration alone won't keep your home clean.
+                  Why air filtration alone <span className="italic font-normal text-primary">won't</span> keep your home clean.
                 </h2>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
                   Most of what's in the air doesn't stay there. Dust, allergens, and odor-causing particles settle onto surfaces, fabrics, and objects, then get stirred back into the air with every footstep, door, and breath of moving air. Cleaning the air alone isn't enough. You have to treat the surfaces it lands on.
                 </p>
 
-                <ul className="space-y-3 pt-2">
+                <ul className="space-y-4 pt-4">
                   {settlingPoints.map((point, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-3.5 h-3.5 text-primary" />
+                    <li key={index} className="flex items-start gap-5 group">
+                      <div className="flex-shrink-0 w-11 h-11 rounded-2xl bg-primary/5 border border-primary/15 flex items-center justify-center text-primary text-xs font-bold tracking-wider transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary group-hover:-translate-y-0.5">
+                        {String(index + 1).padStart(2, "0")}
                       </div>
-                      <span className="text-sm md:text-base text-foreground">{point}</span>
+                      <span className="text-base md:text-lg text-foreground/80 leading-relaxed pt-2.5">{point}</span>
                     </li>
                   ))}
                 </ul>
@@ -215,16 +225,19 @@ const HowItWorksPage = () => {
             </ScrollReveal>
 
             <ScrollReveal variant="fadeUp" delay={0.2}>
-              <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-black/[0.04] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] bg-[#fafaf7]">
-                <img
-                  src="/assets/surfaces-hero.webp"
-                  alt="Particles settling on surfaces inside a home"
-                  width="512"
-                  height="683"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-auto object-contain"
-                />
+              <div className="relative">
+                <div aria-hidden="true" className="absolute -inset-6 bg-primary/10 rounded-[2.5rem] -rotate-2 -z-10" />
+                <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-black/[0.04] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] bg-[#fafaf7]">
+                  <img
+                    src="/assets/surfaces-hero.webp"
+                    alt="Particles settling on surfaces inside a home"
+                    width="512"
+                    height="683"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
               </div>
             </ScrollReveal>
           </div>
@@ -295,46 +308,60 @@ const HowItWorksPage = () => {
       {/* Steps Section - The 3-Step Process */}
       <section className="section-padding bg-background">
         <div className="container px-5 md:px-6">
-          <ScrollReveal variant="fadeUp" className="max-w-3xl mb-12 md:mb-16">
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
+          <ScrollReveal variant="fadeUp" className="max-w-3xl mx-auto mb-16 md:mb-24 text-center">
+            <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-6">
               <Repeat className="w-3.5 h-3.5" />
               The Process
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-5">
+            <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-6">
               A simple 3-step cycle.
               <br />
-              Always running.
+              <span className="italic font-normal text-primary">Always running.</span>
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
               Plug it in once. EnviroBiotics works automatically in the background, putting a living layer of protection on every surface in your home, 24 hours a day.
             </p>
           </ScrollReveal>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-5 md:gap-6" staggerDelay={0.15}>
+          <StaggerContainer className="grid md:grid-cols-3 gap-6 md:gap-8" staggerDelay={0.15}>
             {steps.map(({ icon: Icon, title, text }, index) => (
-              <StaggerItem key={title} variant="fadeUp">
-                <div className="h-full p-8 md:p-10 rounded-[1.75rem] bg-card ring-1 ring-black/[0.04] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_30px_60px_-25px_rgba(0,0,0,0.12)] hover:-translate-y-1">
-                  <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-primary">
-                    Step {String(index + 1).padStart(2, "0")}
+              <StaggerItem
+                key={title}
+                variant="fadeUp"
+                className={index === 1 ? "md:translate-y-10" : index === 2 ? "md:translate-y-20" : ""}
+              >
+                <div className="group relative h-full p-10 md:p-12 rounded-[2.5rem] bg-card ring-1 ring-primary/10 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] overflow-hidden transition-all duration-500 hover:shadow-[0_40px_80px_-30px_rgba(249,115,22,0.25)] hover:-translate-y-2">
+                  {/* Watermark numeral */}
+                  <span aria-hidden="true" className="absolute top-6 right-8 text-[7rem] leading-none font-display font-bold text-primary/[0.07] select-none italic">
+                    {index + 1}
                   </span>
-                  <div className="mt-6 mb-6 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
-                    <Icon className="h-6 w-6 text-primary" />
+
+                  <div className="relative z-10 space-y-6">
+                    <div className="w-16 h-16 rounded-3xl bg-primary/8 flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:rotate-3">
+                      <Icon className="h-7 w-7 text-primary transition-colors duration-500 group-hover:text-primary-foreground" />
+                    </div>
+
+                    <div>
+                      <span className="block text-[10px] font-semibold tracking-[0.3em] uppercase text-primary mb-3">
+                        Step {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="text-3xl md:text-[2rem] font-display font-bold tracking-tight text-foreground mb-4">
+                        {title}
+                      </h3>
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                        {text}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-display font-semibold tracking-tight text-foreground mb-3">
-                    {title}
-                  </h3>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                    {text}
-                  </p>
                 </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
 
-          <ScrollReveal variant="fadeUp" delay={0.4} className="mt-10 md:mt-12 text-center">
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-card ring-1 ring-black/[0.06]">
+          <ScrollReveal variant="fadeUp" delay={0.4} className="mt-32 md:mt-40 text-center">
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-card ring-1 ring-primary/15 shadow-sm">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs md:text-sm font-medium text-foreground">Runs quietly. Works constantly. Notice nothing but the difference.</span>
+              <span className="text-xs md:text-sm font-medium text-foreground tracking-wide">Runs quietly. Works constantly. Notice nothing but the difference.</span>
             </div>
           </ScrollReveal>
         </div>
