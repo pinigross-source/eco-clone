@@ -308,46 +308,60 @@ const HowItWorksPage = () => {
       {/* Steps Section - The 3-Step Process */}
       <section className="section-padding bg-background">
         <div className="container px-5 md:px-6">
-          <ScrollReveal variant="fadeUp" className="max-w-3xl mb-12 md:mb-16">
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
+          <ScrollReveal variant="fadeUp" className="max-w-3xl mx-auto mb-16 md:mb-24 text-center">
+            <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-6">
               <Repeat className="w-3.5 h-3.5" />
               The Process
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-5">
+            <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-6">
               A simple 3-step cycle.
               <br />
-              Always running.
+              <span className="italic font-normal text-primary">Always running.</span>
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
               Plug it in once. EnviroBiotics works automatically in the background, putting a living layer of protection on every surface in your home, 24 hours a day.
             </p>
           </ScrollReveal>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-5 md:gap-6" staggerDelay={0.15}>
+          <StaggerContainer className="grid md:grid-cols-3 gap-6 md:gap-8" staggerDelay={0.15}>
             {steps.map(({ icon: Icon, title, text }, index) => (
-              <StaggerItem key={title} variant="fadeUp">
-                <div className="h-full p-8 md:p-10 rounded-[1.75rem] bg-card ring-1 ring-black/[0.04] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_30px_60px_-25px_rgba(0,0,0,0.12)] hover:-translate-y-1">
-                  <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-primary">
-                    Step {String(index + 1).padStart(2, "0")}
+              <StaggerItem
+                key={title}
+                variant="fadeUp"
+                className={index === 1 ? "md:translate-y-10" : index === 2 ? "md:translate-y-20" : ""}
+              >
+                <div className="group relative h-full p-10 md:p-12 rounded-[2.5rem] bg-card ring-1 ring-primary/10 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] overflow-hidden transition-all duration-500 hover:shadow-[0_40px_80px_-30px_rgba(249,115,22,0.25)] hover:-translate-y-2">
+                  {/* Watermark numeral */}
+                  <span aria-hidden="true" className="absolute top-6 right-8 text-[7rem] leading-none font-display font-bold text-primary/[0.07] select-none italic">
+                    {index + 1}
                   </span>
-                  <div className="mt-6 mb-6 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
-                    <Icon className="h-6 w-6 text-primary" />
+
+                  <div className="relative z-10 space-y-6">
+                    <div className="w-16 h-16 rounded-3xl bg-primary/8 flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:rotate-3">
+                      <Icon className="h-7 w-7 text-primary transition-colors duration-500 group-hover:text-primary-foreground" />
+                    </div>
+
+                    <div>
+                      <span className="block text-[10px] font-semibold tracking-[0.3em] uppercase text-primary mb-3">
+                        Step {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="text-3xl md:text-[2rem] font-display font-bold tracking-tight text-foreground mb-4">
+                        {title}
+                      </h3>
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                        {text}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-display font-semibold tracking-tight text-foreground mb-3">
-                    {title}
-                  </h3>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                    {text}
-                  </p>
                 </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
 
-          <ScrollReveal variant="fadeUp" delay={0.4} className="mt-10 md:mt-12 text-center">
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-card ring-1 ring-black/[0.06]">
+          <ScrollReveal variant="fadeUp" delay={0.4} className="mt-32 md:mt-40 text-center">
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-card ring-1 ring-primary/15 shadow-sm">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs md:text-sm font-medium text-foreground">Runs quietly. Works constantly. Notice nothing but the difference.</span>
+              <span className="text-xs md:text-sm font-medium text-foreground tracking-wide">Runs quietly. Works constantly. Notice nothing but the difference.</span>
             </div>
           </ScrollReveal>
         </div>
