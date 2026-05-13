@@ -11,7 +11,7 @@ const faqs = [
   {
     question: "Is it safe for kids and pets?",
     answer:
-      "Designed for everyday home use. Always follow the label and setup instructions. See Safety & Proof for details.",
+      "Yes. Our EnviroBiotics is EPA-registered and uses probiotics on the EPA's GRAS list (Generally Recognized As Safe) — the same kind of beneficial probiotics that already exist in nature, in soil, and on healthy skin. It's designed for everyday use in homes with children, pets, and people with sensitivities. Nothing harsh. No chemicals. Just living probiotics doing what they do in nature, in the rooms where your family actually lives.",
   },
   {
     question: "Does it replace cleaning?",
