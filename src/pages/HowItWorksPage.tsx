@@ -317,7 +317,7 @@ const HowItWorksPage = () => {
             <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-6">
               A simple 3-step cycle.
               <br />
-              <span className="italic font-normal text-primary">Always running.</span>
+              <span className="text-primary whitespace-nowrap">Always running.</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
               Plug it in once. EnviroBiotics works automatically in the background, putting a living layer of protection on every surface in your home, 24 hours a day.
