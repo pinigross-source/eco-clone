@@ -147,8 +147,8 @@ const HowItWorksPage = () => {
               className="absolute inset-0 w-full h-full object-cover"
             />
             {/* Readability gradient — deeper editorial wash */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/15 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
 
             {/* Atmospheric mist orbs */}
             <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden">
