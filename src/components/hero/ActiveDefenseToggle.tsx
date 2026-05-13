@@ -308,22 +308,42 @@ export const ActiveDefenseToggle = () => {
             )}
           </AnimatePresence>
 
-          {/* Status pill — hairline, light weight */}
-          <div className="absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-50">
-            <motion.div
-              className="flex items-center gap-2 px-3 md:px-4 py-1 md:py-1.5 rounded-full backdrop-blur-md bg-white/80"
-              style={{ boxShadow: "0 1px 2px rgba(15,23,42,0.04), 0 0 0 1px rgba(15,23,42,0.06)" }}
-            >
-              <motion.div
-                className="w-1.5 h-1.5 rounded-full"
-                animate={{ backgroundColor: isActive ? CONFIRM : NEUTRAL }}
-                transition={{ duration: 0.6, ease: EASE_OUT_EXPO }}
-              />
-              <span className="text-xs md:text-sm font-medium tracking-wide text-slate-700">
-                {isActive ? "Protected" : "Vulnerable"}
-              </span>
-            </motion.div>
-          </div>
+          {/* Status pill — counts surfaces as the wave reaches them */}
+          {(() => {
+            const reachedCount = hotspotStates.filter(s => s !== "idle").length;
+            const total = orderedHotspots.length;
+            const label = !isActive
+              ? "Vulnerable"
+              : allProtected
+                ? "All surfaces protected"
+                : reachedCount === 0
+                  ? "Reaching surfaces…"
+                  : `Reaching ${reachedCount} / ${total} surfaces`;
+            const dotColor = !isActive ? NEUTRAL : (allProtected ? CONFIRM : ACCENT);
+            return (
+              <div className="absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-50">
+                <motion.div
+                  className="flex items-center gap-2 px-3 md:px-4 py-1 md:py-1.5 rounded-full backdrop-blur-md bg-white/85"
+                  style={{ boxShadow: "0 1px 2px rgba(15,23,42,0.04), 0 0 0 1px rgba(15,23,42,0.06)" }}
+                >
+                  <motion.div
+                    className="w-1.5 h-1.5 rounded-full"
+                    animate={{
+                      backgroundColor: dotColor,
+                      scale: isActive && !allProtected ? [1, 1.5, 1] : 1,
+                    }}
+                    transition={{
+                      backgroundColor: { duration: 0.6, ease: EASE_OUT_EXPO },
+                      scale: { duration: 1.4, repeat: Infinity, ease: "easeInOut" },
+                    }}
+                  />
+                  <span className="text-xs md:text-sm font-medium tracking-wide text-slate-700 tabular-nums">
+                    {label}
+                  </span>
+                </motion.div>
+              </div>
+            );
+          })()}
 
           {/* Centered device */}
           <div className="absolute inset-0 flex items-center justify-center z-40 pt-12 md:pt-16 -mb-4">
