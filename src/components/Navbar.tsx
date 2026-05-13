@@ -261,8 +261,11 @@ export const Navbar = () => {
             <ShopifyCartLink />
           </div>
 
-          {/* Desktop Navigation */}
-          <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-1 xl:gap-1.5">
+          {/* Desktop Navigation — absolutely centered */}
+          <nav
+            aria-label="Main navigation"
+            className="hidden lg:flex items-center gap-2 xl:gap-3 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          >
             {navLinks.map((link) => (
               <NavDropdown key={link.label} item={link} scrolled={scrolled} useLight={useLight} />
             ))}
