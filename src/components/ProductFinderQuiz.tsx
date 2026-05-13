@@ -600,10 +600,10 @@ const ProductFinderQuizInner = ({ onClose, isModal = false, hideHeader = false }
                   </Link>
                 </Button>
                 <Button variant="hero" size="lg" asChild className="text-sm sm:text-base py-2.5 sm:py-3">
-                  <a href={recommendation?.shopLink}>
+                  <Link to={recommendation?.shopLink ?? "/shop"}>
                     Buy Now
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </motion.div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, RotateCcw, HelpCircle, Check } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { Link } from "@/lib/link";
 
 // Product images
 import bioticaMini from "@/assets/biologic-mini-device.png";
@@ -220,13 +221,13 @@ export const FindMySolutionQuiz = () => {
         <div className="flex gap-2 sm:gap-3 mt-3 sm:mt-4">
           {isPrimary ? (
             <Button variant="hero" size="sm" asChild className="flex-1 text-xs sm:text-sm">
-              <a href={product.url}>
+              <Link to={product.url}>
                 Buy Now <ArrowRight className="ml-1.5 sm:ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
-              </a>
+              </Link>
             </Button>
           ) : (
             <Button variant="outline" size="sm" asChild className="text-xs sm:text-sm">
-              <a href={product.url}>View</a>
+              <Link to={product.url}>View</Link>
             </Button>
           )}
         </div>
@@ -421,9 +422,9 @@ export const FindMySolutionQuiz = () => {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 mb-3 sm:mb-4">
               <Button variant="hero" size="lg" asChild className="text-sm sm:text-base">
-                <a href={product.url}>
+                <Link to={product.url}>
                   Buy Now <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                </a>
+                </Link>
               </Button>
               <Button variant="outline" size="lg" asChild className="text-sm sm:text-base">
                 <a href={INTERNAL_LINKS.how_it_works}>
