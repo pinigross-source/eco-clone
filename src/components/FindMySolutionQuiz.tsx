@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, RotateCcw, HelpCircle, Check } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { Link } from "@/lib/link";
 
 // Product images
 import bioticaMini from "@/assets/biologic-mini-device.png";
