@@ -133,10 +133,10 @@ const HowItWorksPage = () => {
       />
       <Navbar />
       <main>
-      {/* Hero Section - HVAC style boxed card */}
+      {/* Hero Section - Editorial atmospheric depth */}
       <section className="relative pt-24 pb-16 overflow-hidden">
         <div className="container relative z-10 px-5 md:px-6">
-          <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] ring-1 ring-black/[0.06] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.35),0_20px_40px_-20px_rgba(0,0,0,0.15)]">
+          <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] ring-1 ring-black/[0.06] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.35),0_20px_40px_-20px_rgba(0,0,0,0.15)] min-h-[640px] md:min-h-[720px] flex items-center">
             {/* Background image */}
             <img
               src={howItWorksHeroBg}
@@ -146,35 +146,45 @@ const HowItWorksPage = () => {
               fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            {/* Readability gradient — lighter wash to keep image bright */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/15 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+            {/* Readability gradient — deeper editorial wash */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+
+            {/* Atmospheric mist orbs */}
+            <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden">
+              <div className="absolute top-1/3 left-1/4 w-[28rem] h-[28rem] bg-sky-200/10 blur-[120px] rounded-full animate-pulse" />
+              <div className="absolute bottom-1/4 right-1/4 w-[34rem] h-[34rem] bg-primary/10 blur-[150px] rounded-full animate-pulse [animation-delay:1.2s]" />
+              <div className="absolute top-12 right-12 w-40 h-40 bg-white/5 blur-3xl rounded-full" />
+            </div>
 
             {/* Content */}
-            <div className="relative z-10 px-6 py-20 sm:px-12 sm:py-28 md:px-16 md:py-36 lg:px-20 lg:py-44">
+            <div className="relative z-10 w-full px-6 py-20 sm:px-12 sm:py-28 md:px-16 md:py-36 lg:px-24 lg:py-44">
               <div className="max-w-3xl">
-                <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-white/80 mb-6">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  The Science
-                </span>
+                <div className="inline-flex items-center gap-3 mb-8">
+                  <div className="w-10 h-px bg-primary" />
+                  <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.3em] uppercase text-white/80">
+                    <Sparkles className="w-3.5 h-3.5 text-primary" />
+                    The Science
+                  </span>
+                </div>
 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.25rem] font-display font-bold leading-[1.02] tracking-[-0.035em] text-white mb-6">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-display font-bold leading-[1.02] tracking-[-0.04em] text-white mb-8">
                   How EnviroBiotics
                   <br />
-                  <span className="text-[#F97316]">works.</span>
+                  <span className="italic font-normal text-primary">works.</span>
                 </h1>
 
-                <p className="text-base sm:text-lg md:text-xl text-white/85 max-w-xl leading-relaxed mb-10">
+                <p className="text-base sm:text-lg md:text-xl text-white/85 max-w-xl leading-relaxed font-light mb-12">
                   Unlike passive air filters, EnviroBiotics works proactively, continuously cleaning the surfaces, air, and ventilation systems that move air through your home.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
                     href="https://shop.envirobiotics.com/collections/all"
-                    className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-white/95"
+                    className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-white text-foreground text-sm font-semibold overflow-hidden transition-all duration-500 hover:pr-14 hover:shadow-[0_20px_50px_-15px_rgba(249,115,22,0.5)]"
                   >
-                    Explore Solutions
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <span className="relative z-10">Explore Solutions</span>
+                    <ArrowRight className="w-4 h-4 relative z-10 transition-transform duration-500 group-hover:translate-x-1" />
                   </a>
                 </div>
               </div>
