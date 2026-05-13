@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "How fast will I notice a difference?",
     answer:
-      "Results vary by space and conditions, and effects can build over time with consistent use.",
+      "Most people notice a difference within a few days. In some environments, depending on factors such as room size, ventilation, and the persistence of the issue, it can take 3 to 4 weeks for the full effect to take hold. That's exactly why we offer a 30-day free trial. Long enough to feel the difference in your space. If you don't, send it back. Full refund, no questions.",
   },
   {
     question: "What about musty spaces?",
