@@ -20,7 +20,7 @@ const sections = [
     content: (
       <>
         <p className="mb-4">
-          We want you to love your Betterair device. If you're not completely satisfied, return it within 30 days of shipment for a full refund to your original payment method.
+          We want you to love your EnviroBiotics device. If you're not completely satisfied, return it within 30 days of shipment for a full refund to your original payment method.
         </p>
 
         <h4 className="font-semibold text-foreground mb-2">Return Eligibility</h4>
