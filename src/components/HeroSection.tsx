@@ -110,8 +110,6 @@ export const HeroSection = ({
         }}
       />
 
-      <div className="container relative z-10 pb-12 pt-24 sm:pb-20 sm:pt-32 lg:pb-24">
-        <div className="max-w-3xl text-left">
       {/* Top-right certifications strip */}
       <div
         className="absolute right-4 top-4 z-10 hidden text-[11px] font-bold uppercase tracking-[0.18em] sm:right-8 sm:top-6 sm:flex sm:items-center sm:gap-3"
