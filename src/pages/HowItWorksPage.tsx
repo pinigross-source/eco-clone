@@ -13,6 +13,7 @@ import howItWorksThumb from "@/assets/how-it-works-video-thumb.jpg";
 import howItWorksHeroBg from "@/assets/how-it-works-hero-bg.avif";
 import protectingLivingRoom from "@/assets/protecting-living-room.jpg";
 import sharedSpacesLiving from "@/assets/shared-spaces-living.jpg";
+import wholeHomeHallway from "@/assets/whole-home-hallway.jpg";
 const HowItWorksThumbnailMistOverlay = lazy(() => import("@/components/HowItWorksThumbnailMistOverlay").then(m => ({ default: m.HowItWorksThumbnailMistOverlay })));
 import { SEOHead, howToJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 const RelatedTopics = lazy(() => import("@/components/RelatedTopics").then(m => ({ default: m.RelatedTopics })));
