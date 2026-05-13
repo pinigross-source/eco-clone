@@ -198,7 +198,7 @@ const HowItWorksPage = () => {
                 </h2>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  Dust, allergens, and odor-causing particles settle onto surfaces, fabrics, and objects, then are stirred back into the air by even the slightest air movement.
+                  Most of what's in the air doesn't stay there. Dust, allergens, and odor-causing particles settle onto surfaces, fabrics, and objects, then get stirred back into the air with every footstep, door, and breath of moving air. Cleaning the air alone isn't enough. You have to treat the surfaces it lands on.
                 </p>
 
                 <ul className="space-y-3 pt-2">
