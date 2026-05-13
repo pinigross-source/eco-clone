@@ -42,12 +42,12 @@ export const FAQSection = () => {
           {/* Left: sticky header */}
           <ScrollReveal variant="fadeUp" className="lg:col-span-5">
             <div className="lg:sticky lg:top-28 text-center lg:text-left">
-              <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-primary mb-5">
-                FAQ
+              <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-6">
+                Q&amp;A
               </p>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold leading-[1.04] tracking-[-0.03em] text-foreground text-balance">
-                Questions?{" "}
-                <span className="text-primary block sm:inline">Answered.</span>
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-display font-bold leading-[1.02] tracking-[-0.035em] text-foreground text-balance">
+                Questions, <br />
+                <span className="text-primary">answered.</span>
               </h2>
               <p className="hidden lg:block text-base text-muted-foreground mt-6 max-w-sm leading-relaxed">
                 Everything you want to know about how it works, what to expect,
