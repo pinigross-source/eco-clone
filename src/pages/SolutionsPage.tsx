@@ -268,62 +268,99 @@ const SolutionsPage = () => {
         </section>
 
         {/* ═══════ Nature's Answer — Sonos editorial split ═══════ */}
-        <section className="py-16 md:py-24 bg-background relative">
+        <section className="py-20 md:py-28 lg:py-32 bg-background relative">
           <div className="container px-5 md:px-6">
-            <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-muted/40 ring-1 ring-border/50">
-              <div className="grid lg:grid-cols-2 gap-0 items-stretch">
-                <div className="relative min-h-[320px] lg:min-h-[600px]">
+            <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-10 lg:gap-16 xl:gap-20 items-center">
+              {/* Image with floating chips */}
+              <ScrollReveal variant="fadeUp">
+                <div className="relative aspect-[4/5] rounded-[1.75rem] sm:rounded-3xl overflow-hidden bg-muted ring-1 ring-black/[0.05] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.28)]">
                   <img
                     src={familyLivingImg}
                     alt="A family enjoying a healthier living environment with probiotic protection"
                     className="absolute inset-0 w-full h-full object-cover"
                     loading="lazy"
                   />
-                </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-foreground/0 to-transparent pointer-events-none" />
 
-                <div className="px-7 py-12 sm:px-12 sm:py-16 md:px-14 md:py-20 lg:py-24 flex flex-col justify-center">
-                  <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
-                    The EnviroBiotics Difference
-                  </span>
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-[1.05] tracking-[-0.03em] mb-6 text-foreground">
-                    Nature's answer
-                    <br />
-                    to indoor pollution.
-                  </h2>
-                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-7 max-w-lg">
-                    EnviroBiotics uses beneficial <strong>Bacillus probiotics</strong>, naturally occurring bacteria safely used for decades. When released into your space, they:
-                  </p>
+                  {/* Top-left glass caption */}
+                  <div className="absolute top-5 left-5 sm:top-7 sm:left-7 max-w-[15rem]">
+                    <div className="backdrop-blur-xl bg-background/85 border border-border/50 rounded-2xl px-5 py-4 shadow-xl">
+                      <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-primary mb-1.5">
+                        Safe by nature
+                      </p>
+                      <p className="text-sm text-foreground leading-snug">
+                        Gentle enough for the people and pets you love most.
+                      </p>
+                    </div>
+                  </div>
 
-                  <ul className="space-y-3.5 mb-8">
-                    {[
-                      "Colonize surfaces where harmful microbes live",
-                      "Outcompete pathogens for resources naturally",
-                      "Continue working 24/7, even when you're away",
-                      "Support fresher air and reduced odors over time",
-                    ].map((point) => (
-                      <li key={point} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                        <span className="text-foreground text-[15px] md:text-base">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-2.5">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background ring-1 ring-border/60 text-xs font-medium text-foreground">
-                      <ShieldCheck className="w-3.5 h-3.5 text-primary" />
-                      MADE SAFE Certified
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background ring-1 ring-border/60 text-xs font-medium text-foreground">
-                      <Leaf className="w-3.5 h-3.5 text-primary" />
-                      Natural
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background ring-1 ring-border/60 text-xs font-medium text-foreground">
-                      <Clock className="w-3.5 h-3.5 text-primary" />
-                      24/7 Protection
-                    </span>
+                  {/* Bottom-right stat chip */}
+                  <div className="absolute bottom-5 right-5 sm:bottom-7 sm:right-7">
+                    <div className="backdrop-blur-xl bg-background/90 border border-border/50 rounded-2xl px-5 py-4 shadow-xl text-right">
+                      <div className="font-display font-bold text-3xl sm:text-4xl text-primary tracking-[-0.03em] leading-none">
+                        100%
+                      </div>
+                      <p className="mt-1.5 text-[10px] font-semibold tracking-[0.22em] uppercase text-muted-foreground/70">
+                        Naturally derived
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
+
+              {/* Editorial copy */}
+              <ScrollReveal variant="fadeUp" delay={0.1}>
+                <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-6">
+                  The EnviroBiotics Difference
+                </span>
+                <h2 className="text-[2rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance mb-6">
+                  Nature's answer to{" "}
+                  <span className="text-primary whitespace-nowrap">indoor pollution.</span>
+                </h2>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-10">
+                  EnviroBiotics uses beneficial <strong className="text-foreground font-semibold">Bacillus probiotics</strong>, naturally occurring bacteria safely used for decades. When released into your space, they go to work, quietly and continuously.
+                </p>
+
+                {/* Numbered hairline list */}
+                <ul className="border-t border-border/60 mb-10">
+                  {[
+                    { title: "Colonize", text: "Settle on surfaces where harmful microbes live." },
+                    { title: "Outcompete", text: "Crowd out pathogens for resources, naturally." },
+                    { title: "Persist", text: "Continue working 24/7, even when you're away." },
+                    { title: "Refresh", text: "Support cleaner air and reduced odors over time." },
+                  ].map(({ title, text }, idx) => (
+                    <li key={title} className="grid grid-cols-[auto_1fr] gap-5 sm:gap-7 py-4 sm:py-5 border-b border-border/60">
+                      <span className="font-display font-bold text-foreground/30 text-lg sm:text-xl tabular-nums leading-none pt-1">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <div className="min-w-0 flex flex-col sm:flex-row sm:items-baseline sm:gap-4">
+                        <h3 className="font-display font-semibold text-base sm:text-lg tracking-tight text-foreground sm:min-w-[7rem]">
+                          {title}
+                        </h3>
+                        <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed">
+                          {text}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Trust chips */}
+                <div className="flex flex-wrap gap-2.5">
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-background ring-1 ring-border/60 text-xs font-medium text-foreground">
+                    <ShieldCheck className="w-3.5 h-3.5 text-primary" />
+                    MADE SAFE Certified
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-background ring-1 ring-border/60 text-xs font-medium text-foreground">
+                    <Leaf className="w-3.5 h-3.5 text-primary" />
+                    Natural
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-background ring-1 ring-border/60 text-xs font-medium text-foreground">
+                    <Clock className="w-3.5 h-3.5 text-primary" />
+                    24/7 Protection
+                  </span>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
