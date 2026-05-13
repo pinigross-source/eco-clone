@@ -20,7 +20,7 @@ const faqs = [
   {
     question: "How is this different from an air purifier?",
     answer:
-      "Air purifiers focus on what's floating. This is designed to support a fresher environment on surfaces + air.",
+      "Air purifiers move air through a filter. They can only clean what floats into them, and only while they're running. Our device works differently. It releases living probiotics that settle on every high-touch surface a filter never reaches: doorknobs, counters, bedding, pillows, remotes, and keep breaking down allergens and odors at the source, 24 hours a day. Purifiers clean the air around you. We clean the surfaces your air actually touches.",
   },
   {
     question: "How fast will I notice a difference?",
