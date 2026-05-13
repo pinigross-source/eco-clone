@@ -3,18 +3,18 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scr
 const stats = [
   {
     value: "80%",
-    text: "of indoor allergens live on surfaces, not floating in the air",
+    text: "of indoor allergens, mold spores, pet dander, and bacteria live on surfaces. Not floating in the air your purifier filters.",
     negative: false,
   },
   {
     value: "24/7",
-    text: "mold, dust mites, and bacteria are active in your space",
+    text: "they don't rest. Most of their work happens between cleanings, while you're asleep.",
     negative: false,
   },
   {
-    value: "99.99%",
-    text: "of surfaces reached",
-    negative: false,
+    value: "0",
+    text: "of those surfaces are reached by traditional HEPA filtration.",
+    negative: true,
   },
 ];
 
