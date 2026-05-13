@@ -24,7 +24,7 @@ export const HeroSection = ({
   overlayTopOpacity = 0,
   overlayBottomOpacity = 0,
 }: HeroSectionProps = {}) => {
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  void useState; // keep import shape
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
