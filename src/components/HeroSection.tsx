@@ -133,7 +133,7 @@ export const HeroSection = ({
                 "0 2px 8px hsl(var(--foreground) / 0.9), 0 4px 20px hsl(var(--foreground) / 0.75), 0 0 50px hsl(var(--foreground) / 0.5)",
             }}
           >
-            From mold, allergens, and odors, on every surface, object, and corner your air touches.
+            Air purifiers move air. Sprays mask odors. Our devices release living probiotics that break down the source on every surface and in the air - 24 hours a day, every day.
           </p>
 
           <div className="flex flex-col items-stretch gap-2.5 sm:flex-row sm:items-center sm:gap-4">
