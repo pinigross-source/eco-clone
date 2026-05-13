@@ -451,7 +451,7 @@ const HowItWorksPage = () => {
                 <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-black/[0.04] shadow-[0_40px_120px_-40px_rgba(15,23,42,0.35)]">
                   <img
                     src={protectingLivingRoom}
-                    alt="Calm sunlit living room — a balanced, breathable space"
+                    alt="Woman relaxing with tea in a calm sunlit living room — a balanced, breathable space"
                     className="w-full object-cover aspect-[4/5] md:aspect-[5/6]"
                     width={1280}
                     height={1280}
