@@ -8,15 +8,6 @@ import {
 } from "lucide-react";
 import biologicMini from "@/assets/biologic-mini-nobg-new.avif";
 
-interface Particle {
-  id: number;
-  delay: number;
-  duration: number;
-  size: number;
-  targetX: number;
-  targetY: number;
-}
-
 // Apple-style cubic bezier
 const EASE_OUT_EXPO: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -26,134 +17,147 @@ const ACCENT_SOFT = "rgba(14, 165, 233, 0.18)";
 const CONFIRM = "rgb(16, 185, 129)";       // emerald-500
 const NEUTRAL = "rgb(71, 85, 105)";        // slate-600
 
-const mobileHotspots = [
-  { x: 10, y: 12, label: "Door handles", icon: DoorOpen },
-  { x: 90, y: 12, label: "Kitchen", icon: UtensilsCrossed },
-  { x: 6, y: 45, label: "Vents", icon: Fan },
-  { x: 94, y: 45, label: "Furniture", icon: Sofa },
-  { x: 10, y: 82, label: "Floor", icon: Footprints },
-  { x: 90, y: 82, label: "Pet areas", icon: PawPrint },
-];
+// Center of the canvas — the device sits here
+const CENTER = { x: 50, y: 52 };
 
-const desktopOnlyHotspots = [
-  { x: 30, y: 12, label: "Keyboards", icon: Keyboard },
-  { x: 70, y: 12, label: "Light switches", icon: Lightbulb },
-  { x: 30, y: 82, label: "Carpets", icon: Layers },
-];
-
-const allHotspots = [...mobileHotspots, ...desktopOnlyHotspots];
-
-// Fewer, calmer particles
-const generateParticles = (): Particle[] => {
-  const particles: Particle[] = [];
-  allHotspots.forEach((hotspot, hotspotIndex) => {
-    for (let i = 0; i < 2; i++) {
-      particles.push({
-        id: hotspotIndex * 2 + i,
-        delay: hotspotIndex * 0.12 + i * 0.5,
-        duration: 3.4 + Math.random() * 0.6,
-        size: 3 + Math.random() * 2,
-        targetX: hotspot.x + (Math.random() - 0.5) * 6,
-        targetY: hotspot.y + (Math.random() - 0.5) * 6,
-      });
-    }
-  });
-  return particles;
+// Hotspots ordered clockwise from top-left so the reach reads as a sweep
+type Hotspot = {
+  x: number; y: number; label: string;
+  icon: typeof DoorOpen; desktopOnly?: boolean;
 };
+
+const orderedHotspots: Hotspot[] = [
+  { x: 10, y: 12, label: "Door handles",   icon: DoorOpen },
+  { x: 30, y: 12, label: "Keyboards",      icon: Keyboard,        desktopOnly: true },
+  { x: 70, y: 12, label: "Light switches", icon: Lightbulb,       desktopOnly: true },
+  { x: 90, y: 12, label: "Kitchen",        icon: UtensilsCrossed },
+  { x: 94, y: 45, label: "Furniture",      icon: Sofa },
+  { x: 90, y: 82, label: "Pet areas",      icon: PawPrint },
+  { x: 30, y: 82, label: "Carpets",        icon: Layers,          desktopOnly: true },
+  { x: 10, y: 82, label: "Floor",          icon: Footprints },
+  { x: 6,  y: 45, label: "Vents",          icon: Fan },
+];
+
+// Per-hotspot timing so the wave reads as a sequence, not a flash
+const REACH_START = 0.6;   // seconds before the first beam fires
+const REACH_STEP  = 0.32;  // seconds between hotspots
+const BEAM_DRAW   = 0.9;   // line draw duration
+const PROTECT_GAP = 0.5;   // gap between arrival and "protected" tick
+
+type HotspotState = "idle" | "treating" | "protected";
 
 export const ActiveDefenseToggle = () => {
   const [isActive, setIsActive] = useState(true);
-  const [particles, setParticles] = useState<Particle[]>([]);
-  const [isProtected, setIsProtected] = useState(false);
-  const [hasInitialized, setHasInitialized] = useState(false);
+  const [hotspotStates, setHotspotStates] = useState<HotspotState[]>(
+    () => orderedHotspots.map(() => "idle")
+  );
+  const [waveKey, setWaveKey] = useState(0);
 
-  useEffect(() => {
-    if (!hasInitialized) {
-      setHasInitialized(true);
-      if (isActive) {
-        setParticles(generateParticles());
-        const t = setTimeout(() => setIsProtected(true), 2200);
-        return () => clearTimeout(t);
-      }
-    }
-  }, [hasInitialized, isActive]);
-
-  // Slower auto-toggle for breathing room
+  // Auto-toggle
   useEffect(() => {
     const id = setInterval(() => setIsActive(prev => !prev), 12000);
     return () => clearInterval(id);
   }, []);
 
+  // Drive per-hotspot reach when active; reset when off
   useEffect(() => {
-    if (!hasInitialized) return;
-    if (isActive) {
-      setParticles(generateParticles());
-      setIsProtected(false);
-      const t = setTimeout(() => setIsProtected(true), 2200);
-      return () => clearTimeout(t);
-    } else {
-      setParticles([]);
-      setIsProtected(false);
+    if (!isActive) {
+      setHotspotStates(orderedHotspots.map(() => "idle"));
+      return;
     }
-  }, [isActive, hasInitialized]);
 
-  const iconColor = !isActive ? NEUTRAL : (isProtected ? CONFIRM : ACCENT);
+    setHotspotStates(orderedHotspots.map(() => "idle"));
+    setWaveKey(k => k + 1);
 
-  const renderHotspot = (
-    spot: typeof allHotspots[number],
-    index: number,
-    keyPrefix: string,
-    extraClass = ""
-  ) => {
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    orderedHotspots.forEach((_, i) => {
+      const arriveMs   = (REACH_START + i * REACH_STEP + BEAM_DRAW) * 1000;
+      const protectMs  = arriveMs + PROTECT_GAP * 1000;
+
+      timers.push(setTimeout(() => {
+        setHotspotStates(prev => {
+          const next = [...prev];
+          if (next[i] === "idle") next[i] = "treating";
+          return next;
+        });
+      }, arriveMs));
+
+      timers.push(setTimeout(() => {
+        setHotspotStates(prev => {
+          const next = [...prev];
+          next[i] = "protected";
+          return next;
+        });
+      }, protectMs));
+    });
+
+    return () => timers.forEach(clearTimeout);
+  }, [isActive]);
+
+  const allProtected = hotspotStates.every(s => s === "protected");
+
+  const renderHotspot = (spot: Hotspot, index: number) => {
     const Icon = spot.icon;
+    const state = isActive ? hotspotStates[index] : "idle";
+    const iconColor =
+      state === "protected" ? CONFIRM :
+      state === "treating"  ? ACCENT  :
+      NEUTRAL;
+    const ringColor =
+      state === "protected" ? "rgba(16,185,129,0.35)" :
+      state === "treating"  ? "rgba(14,165,233,0.45)" :
+      "rgba(15,23,42,0.06)";
+
     return (
       <motion.div
-        key={`${keyPrefix}-${index}`}
-        className={`absolute z-20 ${extraClass}`}
+        key={`${spot.label}-${index}`}
+        className={`absolute z-20 ${spot.desktopOnly ? "hidden md:block" : ""}`}
         style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15 + index * 0.03, duration: 0.7, ease: EASE_OUT_EXPO }}
       >
         <div className="relative -translate-x-1/2 -translate-y-1/2">
-          {/* Soft accent halo — only when protected, no pulsing */}
+          {/* Halo — fades in when treating, brightens when protected */}
           <motion.div
             className="absolute rounded-full blur-xl pointer-events-none"
-            style={{ width: 56, height: 56, left: -4, top: -4 }}
+            style={{ width: 64, height: 64, left: -10, top: -10 }}
             animate={{
-              backgroundColor: isActive && isProtected ? ACCENT_SOFT : "rgba(0,0,0,0)",
-              opacity: isActive && isProtected ? 0.9 : 0,
+              backgroundColor:
+                state === "protected" ? "rgba(16,185,129,0.20)" :
+                state === "treating"  ? ACCENT_SOFT :
+                "rgba(0,0,0,0)",
+              opacity: state === "idle" ? 0 : 1,
+              scale: state === "treating" ? [0.8, 1.15, 1] : 1,
             }}
-            transition={{ duration: 1.2, ease: EASE_OUT_EXPO }}
+            transition={{ duration: 0.9, ease: EASE_OUT_EXPO }}
           />
 
-          {/* Hotspot chip — hairline border, frosted */}
+          {/* Chip */}
           <motion.div
-            className="relative w-9 h-9 md:w-11 md:h-11 rounded-full flex items-center justify-center bg-white/85 backdrop-blur-md"
+            className="relative w-9 h-9 md:w-11 md:h-11 rounded-full flex items-center justify-center bg-white/90 backdrop-blur-md"
             animate={{
-              boxShadow: isActive && isProtected
-                ? "0 1px 2px rgba(15,23,42,0.06), 0 0 0 1px rgba(14,165,233,0.25)"
-                : "0 1px 2px rgba(15,23,42,0.06), 0 0 0 1px rgba(15,23,42,0.06)",
+              boxShadow: `0 1px 2px rgba(15,23,42,0.06), 0 0 0 1px ${ringColor}`,
+              scale: state === "treating" ? [1, 1.08, 1] : 1,
             }}
-            transition={{ duration: 0.6, ease: EASE_OUT_EXPO }}
+            transition={{ duration: 0.7, ease: EASE_OUT_EXPO }}
           >
             <motion.div
               animate={{ color: iconColor }}
-              transition={{ duration: 0.6, ease: EASE_OUT_EXPO }}
+              transition={{ duration: 0.5, ease: EASE_OUT_EXPO }}
             >
               <Icon className="w-4 h-4 md:w-[18px] md:h-[18px]" strokeWidth={1.5} />
             </motion.div>
 
-            {/* Subtle confirmation tick — replaces shield badge */}
             <AnimatePresence>
-              {isActive && isProtected && (
+              {state === "protected" && (
                 <motion.div
                   className="absolute -top-1 -right-1 w-3.5 h-3.5 md:w-4 md:h-4 rounded-full bg-white flex items-center justify-center"
-                  style={{ boxShadow: "0 0 0 1px rgba(16,185,129,0.5)" }}
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  style={{ boxShadow: "0 0 0 1px rgba(16,185,129,0.55)" }}
+                  initial={{ opacity: 0, scale: 0.6 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ delay: 0.05 + index * 0.03, duration: 0.5, ease: EASE_OUT_EXPO }}
+                  exit={{ opacity: 0, scale: 0.6 }}
+                  transition={{ duration: 0.4, ease: EASE_OUT_EXPO }}
                 >
                   <Check className="w-2 h-2 md:w-2.5 md:h-2.5" strokeWidth={3} style={{ color: CONFIRM }} />
                 </motion.div>
@@ -161,10 +165,7 @@ export const ActiveDefenseToggle = () => {
             </AnimatePresence>
           </motion.div>
 
-          {/* Quiet label — tracked, no background */}
-          <span
-            className="hidden md:block absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] uppercase tracking-[0.12em] font-medium text-slate-500"
-          >
+          <span className="hidden md:block absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] uppercase tracking-[0.12em] font-medium text-slate-500">
             {spot.label}
           </span>
         </div>
@@ -174,7 +175,6 @@ export const ActiveDefenseToggle = () => {
 
   return (
     <div className="relative w-full max-w-5xl mx-auto">
-      {/* Container — neutral hairline, soft shadow */}
       <div
         className="relative rounded-2xl md:rounded-3xl overflow-hidden bg-white"
         style={{
@@ -196,62 +196,112 @@ export const ActiveDefenseToggle = () => {
             }}
           />
 
-          {/* Hotspots */}
-          {mobileHotspots.map((spot, i) => renderHotspot(spot, i, "mobile"))}
-          {desktopOnlyHotspots.map((spot, i) =>
-            renderHotspot(spot, i + mobileHotspots.length, "desktop", "hidden md:block")
-          )}
+          {/* Beam layer — one line per hotspot, drawn from device outward */}
+          <svg
+            key={waveKey}
+            className="absolute inset-0 w-full h-full z-10 pointer-events-none"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="beamGradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"  stopColor="rgba(14,165,233,0)" />
+                <stop offset="35%" stopColor="rgba(14,165,233,0.55)" />
+                <stop offset="100%" stopColor="rgba(14,165,233,0.9)" />
+              </linearGradient>
+            </defs>
+            {isActive && orderedHotspots.map((spot, i) => {
+              const state = hotspotStates[i];
+              return (
+                <motion.line
+                  key={`beam-${i}`}
+                  x1={CENTER.x}
+                  y1={CENTER.y}
+                  x2={spot.x}
+                  y2={spot.y}
+                  stroke={state === "protected" ? "rgba(16,185,129,0.35)" : "url(#beamGradient)"}
+                  strokeWidth={0.25}
+                  strokeLinecap="round"
+                  vectorEffect="non-scaling-stroke"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{
+                    pathLength: 1,
+                    opacity: state === "protected" ? 0.5 : 0.9,
+                  }}
+                  transition={{
+                    pathLength: {
+                      delay: REACH_START + i * REACH_STEP,
+                      duration: BEAM_DRAW,
+                      ease: EASE_OUT_EXPO,
+                    },
+                    opacity: {
+                      delay: REACH_START + i * REACH_STEP,
+                      duration: 0.6,
+                      ease: EASE_OUT_EXPO,
+                    },
+                  }}
+                  style={{ strokeDasharray: 1, strokeDashoffset: 0 }}
+                />
+              );
+            })}
+          </svg>
 
-          {/* Particles — solid accent, no rainbow */}
+          {/* Travelling pulse along each beam — small dot that arrives at the hotspot */}
           <AnimatePresence>
-            {isActive && particles.map((particle) => (
+            {isActive && orderedHotspots.map((spot, i) => (
               <motion.div
-                key={particle.id}
-                className="absolute rounded-full z-30 pointer-events-none"
+                key={`pulse-${waveKey}-${i}`}
+                className={`absolute rounded-full z-20 pointer-events-none ${spot.desktopOnly ? "hidden md:block" : ""}`}
                 style={{
-                  width: particle.size,
-                  height: particle.size,
+                  width: 6,
+                  height: 6,
                   background: ACCENT,
-                  boxShadow: `0 0 ${particle.size * 2}px rgba(14,165,233,0.5)`,
+                  boxShadow: "0 0 12px rgba(14,165,233,0.8)",
+                  marginLeft: -3,
+                  marginTop: -3,
                 }}
-                initial={{ left: "50%", top: "50%", scale: 0, opacity: 0 }}
+                initial={{ left: `${CENTER.x}%`, top: `${CENTER.y}%`, opacity: 0, scale: 0.4 }}
                 animate={{
-                  left: `${particle.targetX}%`,
-                  top: `${particle.targetY}%`,
-                  scale: [0, 1, 0.6, 0],
-                  opacity: [0, 0.7, 0.5, 0],
+                  left: `${spot.x}%`,
+                  top: `${spot.y}%`,
+                  opacity: [0, 1, 1, 0],
+                  scale: [0.4, 1, 1, 0.6],
                 }}
                 transition={{
-                  duration: particle.duration,
-                  delay: particle.delay,
+                  delay: REACH_START + i * REACH_STEP,
+                  duration: BEAM_DRAW,
                   ease: EASE_OUT_EXPO,
+                  times: [0, 0.15, 0.85, 1],
                 }}
               />
             ))}
           </AnimatePresence>
 
-          {/* Single, slow expanding ring */}
+          {/* Hotspots */}
+          {orderedHotspots.map((spot, i) => renderHotspot(spot, i))}
+
+          {/* Single slow expanding ring — only while still reaching */}
           <AnimatePresence>
-            {isActive && (
+            {isActive && !allProtected && (
               <motion.div
                 className="absolute rounded-full z-10 pointer-events-none"
                 style={{
-                  left: "50%",
-                  top: "50%",
+                  left: `${CENTER.x}%`,
+                  top: `${CENTER.y}%`,
                   translateX: "-50%",
                   translateY: "-50%",
-                  border: "1px solid rgba(14,165,233,0.25)",
+                  border: "1px solid rgba(14,165,233,0.22)",
                 }}
-                initial={{ width: 100, height: 100, opacity: 0.4 }}
+                initial={{ width: 80, height: 80, opacity: 0.4 }}
                 animate={{
-                  width: ["100px", "180%"],
-                  height: ["100px", "180%"],
+                  width: ["80px", "180%"],
+                  height: ["80px", "180%"],
                   opacity: [0.35, 0],
                 }}
                 transition={{
-                  duration: 4,
+                  duration: 3.6,
                   repeat: Infinity,
-                  repeatDelay: 0.2,
+                  repeatDelay: 0.1,
                   ease: EASE_OUT_EXPO,
                 }}
               />
