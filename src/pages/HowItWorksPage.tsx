@@ -172,7 +172,7 @@ const HowItWorksPage = () => {
                 <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-display font-bold leading-[1.02] tracking-[-0.04em] text-white mb-8">
                   How EnviroBiotics
                   <br />
-                  <span className="italic font-normal text-primary">works.</span>
+                  <span className="text-primary whitespace-nowrap">works.</span>
                 </h1>
 
                 <p className="text-base sm:text-lg md:text-xl text-white/85 max-w-xl leading-relaxed font-light mb-12">
