@@ -205,7 +205,7 @@ const HowItWorksPage = () => {
                   The Problem
                 </span>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
-                  Why air filtration alone <span className="italic font-normal text-primary">won't</span> keep your home clean.
+                  Why air filtration alone <span className="text-primary whitespace-nowrap">won't</span> keep your home clean.
                 </h2>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
@@ -317,7 +317,7 @@ const HowItWorksPage = () => {
             <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-6">
               A simple 3-step cycle.
               <br />
-              <span className="italic font-normal text-primary">Always running.</span>
+              <span className="text-primary whitespace-nowrap">Always running.</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
               Plug it in once. EnviroBiotics works automatically in the background, putting a living layer of protection on every surface in your home, 24 hours a day.
@@ -390,7 +390,7 @@ const HowItWorksPage = () => {
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
                   Probiotic protection
                   <br />
-                  in every room.
+                  <span className="text-primary whitespace-nowrap">in every room.</span>
                 </h2>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
@@ -490,7 +490,7 @@ const HowItWorksPage = () => {
                 <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.02] tracking-[-0.03em] text-foreground mb-6">
                   Stop reacting.
                   <br />
-                  <span className="text-muted-foreground/50">Start protecting.</span>
+                  <span className="text-primary whitespace-nowrap">Start protecting.</span>
                 </h2>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-10 md:mb-12 max-w-md">
                   Most cleaning happens after the buildup appears. EnviroBiotics
@@ -538,7 +538,7 @@ const HowItWorksPage = () => {
             <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
               Long-term benefits
               <br />
-              for your home and health.
+              for your <span className="text-primary whitespace-nowrap">home and health.</span>
             </h2>
           </ScrollReveal>
 
@@ -599,7 +599,7 @@ const HowItWorksPage = () => {
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
                   The air you share
                   <br />
-                  impacts everyone inside.
+                  <span className="text-primary whitespace-nowrap">impacts everyone inside.</span>
                 </h2>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
