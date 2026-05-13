@@ -83,19 +83,19 @@ export const GuaranteeSection = () => {
             </ScrollReveal>
 
             <ScrollReveal variant="fadeUp" delay={0.1}>
-              <p className="text-[15px] sm:text-lg md:text-xl text-muted-foreground leading-relaxed font-light mb-7 sm:mb-10 max-w-lg">
+              <p className="text-[15px] sm:text-lg md:text-xl text-muted-foreground leading-relaxed font-light mb-7 sm:mb-10 max-w-lg text-center lg:text-left mx-auto lg:mx-0">
                 Plug it in. If it doesn't feel right for your space, return it within 30 days. No pressure, no commitment.
               </p>
             </ScrollReveal>
 
-            <ScrollReveal variant="fadeUp" delay={0.15}>
+            <ScrollReveal variant="fadeUp" delay={0.15} className="text-center lg:text-left">
               <Button variant="hero" size="impact-lg" asChild className="w-full sm:w-auto">
                 <a href="https://shop.envirobiotics.com/" target="_top">
                   Start My Trial
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
-              <p className="mt-5 sm:mt-6 text-[11px] sm:text-xs text-muted-foreground/70 tracking-wide text-center sm:text-left">
+              <p className="mt-5 sm:mt-6 text-[11px] sm:text-xs text-muted-foreground/70 tracking-wide text-center lg:text-left">
                 U.S. customers only · Free returns
               </p>
             </ScrollReveal>
