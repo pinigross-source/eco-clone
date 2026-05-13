@@ -13,7 +13,7 @@ const surfaces = [
 
 export const ProblemSection = () => {
   return (
-    <section id="problem" className="py-28 sm:py-36 lg:py-44 bg-background">
+    <section id="problem" className="py-12 sm:py-10 lg:py-12 bg-background">
       <div className="container max-w-6xl mx-auto px-4">
         {/* Header */}
         <ScrollReveal variant="fadeUp" className="text-center mb-16 lg:mb-24">

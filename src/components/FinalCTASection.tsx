@@ -7,7 +7,7 @@ import { trackEvent } from "@/lib/tracking";
 export const FinalCTASection = () => {
   return (
     <section id="final-cta" className="relative overflow-hidden bg-card">
-      <div className="relative py-24 sm:py-32 lg:py-40">
+      <div className="relative py-12 sm:py-10 lg:py-12">
         <div className="container max-w-4xl mx-auto text-center">
           <ScrollReveal variant="fadeUp">
             <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-8">

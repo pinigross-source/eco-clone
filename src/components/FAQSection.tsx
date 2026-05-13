@@ -31,7 +31,7 @@ const faqs = [
 
 export const FAQSection = () => {
   return (
-    <section id="faq" className="py-28 sm:py-36 lg:py-44 bg-background">
+    <section id="faq" className="py-12 sm:py-10 lg:py-12 bg-background">
       <div className="container max-w-3xl mx-auto">
         <ScrollReveal variant="fadeUp" className="text-center mb-16">
           <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6">

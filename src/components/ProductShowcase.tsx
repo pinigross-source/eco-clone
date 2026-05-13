@@ -70,7 +70,7 @@ export const ProductShowcase = () => {
   const goTo = (i: number) => { setIsAutoPlaying(false); setActiveIndex(i); };
 
   return (
-    <section className="py-28 sm:py-36 lg:py-44 bg-background">
+    <section className="py-12 sm:py-10 lg:py-12 bg-background">
       <div className="container max-w-5xl mx-auto">
         <ScrollReveal>
           <div className="text-center mb-16">
