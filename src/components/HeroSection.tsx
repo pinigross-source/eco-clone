@@ -25,7 +25,6 @@ export const HeroSection = ({
   overlayBottomOpacity = 0,
 }: HeroSectionProps = {}) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     const iframe = iframeRef.current;
