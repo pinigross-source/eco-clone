@@ -429,37 +429,100 @@ const HowItWorksPage = () => {
         </div>
       </section>
 
-      {/* What Makes It Different - Feature Block */}
-      <section className="section-padding bg-background">
+      {/* What Makes It Different — editorial split */}
+      <section className="section-padding bg-background overflow-hidden">
         <div className="container px-5 md:px-6">
-          <ScrollReveal variant="fadeUp" className="max-w-3xl mb-12 md:mb-16">
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
-              <Shield className="w-3.5 h-3.5" />
-              The Difference
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-5">
-              Stop reacting.
-              <br />
-              Start protecting.
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Most cleaning happens after the buildup appears. EnviroBiotics helps maintain balance on surfaces so your home stays more stable between cleanings.
-            </p>
-          </ScrollReveal>
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
-          <StaggerContainer className="grid sm:grid-cols-3 gap-5 md:gap-6" staggerDelay={0.12}>
-            {features.map(({ icon: Icon, title, text }) => (
-              <StaggerItem key={title} variant="fadeUp">
-                <div className="h-full p-7 md:p-8 rounded-[1.75rem] bg-card ring-1 ring-black/[0.04] transition-all duration-300 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.12)] hover:-translate-y-1">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                    <Icon className="h-6 w-6 text-primary" />
+            {/* Image — anchors the section */}
+            <ScrollReveal variant="fadeUp" className="lg:col-span-7 order-2 lg:order-1">
+              <div className="relative">
+                {/* Soft ambient glow behind the frame */}
+                <div
+                  aria-hidden
+                  className="absolute -inset-6 md:-inset-10 rounded-[3rem] pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(60% 60% at 30% 40%, rgba(244, 197, 153, 0.35) 0%, rgba(244, 197, 153, 0) 70%)",
+                    filter: "blur(40px)",
+                  }}
+                />
+                <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-black/[0.04] shadow-[0_40px_120px_-40px_rgba(15,23,42,0.35)]">
+                  <img
+                    src={protectingLivingRoom}
+                    alt="Calm sunlit living room — a balanced, breathable space"
+                    className="w-full object-cover aspect-[4/5] md:aspect-[5/6]"
+                    width={1280}
+                    height={1280}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  {/* Subtle bottom vignette for text-friendly base */}
+                  <div
+                    aria-hidden
+                    className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
+                    style={{
+                      background:
+                        "linear-gradient(to top, rgba(15,23,42,0.18), rgba(15,23,42,0))",
+                    }}
+                  />
+                  {/* Floating quiet caption — Sonos-style overlay */}
+                  <div className="absolute left-5 md:left-7 bottom-5 md:bottom-7 right-5 md:right-7">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/85 backdrop-blur-md ring-1 ring-black/[0.04] shadow-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      <span className="text-[11px] font-medium tracking-[0.12em] uppercase text-slate-700">
+                        Balance maintained
+                      </span>
+                    </div>
                   </div>
-                  <h3 className="text-lg md:text-xl font-display font-semibold tracking-tight text-foreground mb-2">{title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{text}</p>
                 </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+              </div>
+            </ScrollReveal>
+
+            {/* Copy + features */}
+            <div className="lg:col-span-5 order-1 lg:order-2">
+              <ScrollReveal variant="fadeUp">
+                <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
+                  <Shield className="w-3.5 h-3.5" />
+                  The Difference
+                </span>
+                <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.02] tracking-[-0.03em] text-foreground mb-6">
+                  Stop reacting.
+                  <br />
+                  <span className="text-muted-foreground/50">Start protecting.</span>
+                </h2>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-10 md:mb-12 max-w-md">
+                  Most cleaning happens after the buildup appears. EnviroBiotics
+                  helps maintain balance on surfaces so your home stays more
+                  stable between cleanings.
+                </p>
+              </ScrollReveal>
+
+              {/* Hairline feature rows — quiet, premium */}
+              <StaggerContainer className="divide-y divide-black/[0.06] border-y border-black/[0.06]" staggerDelay={0.1}>
+                {features.map(({ icon: Icon, title, text }, i) => (
+                  <StaggerItem key={title} variant="fadeUp">
+                    <div className="group flex items-start gap-5 py-5 md:py-6 transition-colors">
+                      <span className="text-[11px] font-medium tracking-[0.15em] tabular-nums text-muted-foreground/50 pt-1.5 w-8">
+                        0{i + 1}
+                      </span>
+                      <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/[0.08] flex items-center justify-center mt-0.5 transition-colors group-hover:bg-primary/[0.14]">
+                        <Icon className="h-[18px] w-[18px] text-primary" strokeWidth={1.5} />
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg font-display font-semibold tracking-tight text-foreground mb-1">
+                          {title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {text}
+                        </p>
+                      </div>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </div>
+          </div>
         </div>
       </section>
 
