@@ -141,8 +141,8 @@ export const HeroSection = ({
               }}
             >
               <span className="block">The dust.</span>
-              <span className="block">The smell that</span>
-              <span className="block text-[hsl(24_95%_53%)]">won't leave.</span>
+              <span className="block">The mold.</span>
+              <span className="block">The smell that <span className="text-[hsl(24_95%_53%)]">won't leave.</span></span>
             </h1>
 
             <p
