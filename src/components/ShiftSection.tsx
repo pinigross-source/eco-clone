@@ -12,7 +12,7 @@ const stats = [
     negative: false,
   },
   {
-    value: "0",
+    value: "Zero",
     text: "of those surfaces are reached by traditional HEPA filtration.",
     negative: true,
   },
