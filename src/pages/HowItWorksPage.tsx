@@ -599,7 +599,7 @@ const HowItWorksPage = () => {
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
                   The air you share
                   <br />
-                  impacts everyone inside.
+                  <span className="text-primary whitespace-nowrap">impacts everyone inside.</span>
                 </h2>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
