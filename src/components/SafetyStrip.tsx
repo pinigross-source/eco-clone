@@ -1,4 +1,4 @@
-import { ShieldCheck, FlaskConical, Star, ArrowRight } from "lucide-react";
+import { ShieldCheck, FlaskConical, ArrowRight } from "lucide-react";
 import { Link } from "@/lib/link";
 import fdaGrasBadge from "@/assets/fda-gras-badge.jpg";
 import epaBadge from "@/assets/epa-badge.png";
@@ -15,7 +15,6 @@ const certifications = [
 const highlights = [
   { icon: ShieldCheck, label: "Safe for kids & pets" },
   { icon: FlaskConical, label: "15+ years of research" },
-  { icon: Star, label: "Over 3 million spaces protected" },
 ];
 
 export const SafetyStrip = () => {
