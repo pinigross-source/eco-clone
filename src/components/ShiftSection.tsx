@@ -38,17 +38,21 @@ export const ShiftSection = () => {
         </ScrollReveal>
 
         <StaggerContainer
-          className="flex flex-col gap-3 sm:grid sm:grid-cols-3 sm:gap-6 lg:gap-10"
+          className="flex flex-col gap-3 sm:grid sm:grid-cols-3 sm:gap-6 lg:gap-8"
           staggerDelay={0.12}
         >
-          {stats.map(({ value, text }) => (
+          {stats.map(({ value, text, negative }) => (
             <StaggerItem key={value} variant="fadeUp">
-              {/* Mobile: premium card row. Desktop: centered stat */}
-              <div className="flex items-center gap-5 rounded-2xl border border-border/60 bg-background/60 px-5 py-5 shadow-sm sm:block sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:text-center">
-                <div className="text-[2.75rem] sm:text-5xl md:text-6xl font-display font-bold text-primary tracking-[-0.03em] leading-none flex-shrink-0 sm:mb-4">
+              {/* Inline card layout across all breakpoints — number + copy sit side by side so meaning lands immediately */}
+              <div className="flex items-center gap-5 rounded-2xl border border-border/60 bg-background/60 px-5 py-5 sm:px-6 sm:py-6 shadow-sm h-full">
+                <div
+                  className={`text-[2.75rem] sm:text-5xl lg:text-[3.5rem] font-display font-bold tracking-[-0.03em] leading-none flex-shrink-0 ${
+                    negative ? "text-muted-foreground/50 line-through decoration-[3px]" : "text-primary"
+                  }`}
+                >
                   {value}
                 </div>
-                <p className="text-[15px] sm:text-sm text-muted-foreground leading-snug sm:leading-relaxed sm:max-w-xs sm:mx-auto text-left sm:text-center">
+                <p className="text-[15px] sm:text-sm lg:text-[15px] text-muted-foreground leading-snug text-left">
                   {text}
                 </p>
               </div>
