@@ -415,25 +415,28 @@ const SolutionsPage = () => {
                 </div>
               </ScrollReveal>
 
-              {/* EnviroBiotics column — accented */}
+              {/* EnviroBiotics column — light, accented */}
               <ScrollReveal variant="fadeUp" delay={0.1}>
-                <div className="relative h-full rounded-[1.75rem] sm:rounded-3xl bg-foreground text-background p-7 sm:p-9 md:p-10 shadow-[0_40px_100px_-40px_rgba(0,0,0,0.4)] overflow-hidden">
-                  {/* Soft accent glow */}
+                <div className="relative h-full rounded-[1.75rem] sm:rounded-3xl bg-background ring-1 ring-primary/30 p-7 sm:p-9 md:p-10 shadow-[0_40px_100px_-40px_rgba(234,88,12,0.18)] overflow-hidden">
+                  {/* Soft warm wash */}
                   <div
-                    className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full opacity-30 blur-3xl"
+                    className="pointer-events-none absolute -top-32 -right-32 w-80 h-80 rounded-full opacity-[0.10] blur-3xl"
                     style={{ background: "hsl(24 95% 53%)" }}
                     aria-hidden="true"
                   />
+                  {/* Top accent rule */}
+                  <div className="absolute top-0 left-7 right-7 sm:left-9 sm:right-9 h-[2px] bg-primary/80 rounded-full" aria-hidden="true" />
+
                   <div className="relative">
                     <div className="flex items-baseline justify-between mb-6 sm:mb-8">
                       <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-primary">
                         EnviroBiotics
                       </p>
-                      <p className="text-[11px] font-medium tracking-wide uppercase text-background/50">
+                      <p className="text-[11px] font-medium tracking-wide uppercase text-muted-foreground/60">
                         Proactive
                       </p>
                     </div>
-                    <h3 className="font-display font-bold text-2xl sm:text-3xl tracking-[-0.02em] leading-tight mb-8 sm:mb-10">
+                    <h3 className="font-display font-bold text-2xl sm:text-3xl tracking-[-0.02em] leading-tight text-foreground mb-8 sm:mb-10">
                       A living layer.{" "}
                       <span className="text-primary">Always on.</span>
                     </h3>
@@ -442,13 +445,13 @@ const SolutionsPage = () => {
                         <li
                           key={category}
                           className={`grid grid-cols-[7rem_1fr] sm:grid-cols-[8rem_1fr] gap-4 sm:gap-6 py-4 sm:py-5 ${
-                            i !== traditionalVsEnvirobiotics.length - 1 ? "border-b border-background/10" : ""
+                            i !== traditionalVsEnvirobiotics.length - 1 ? "border-b border-border/50" : ""
                           }`}
                         >
-                          <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-background/60 pt-0.5">
+                          <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-muted-foreground/60 pt-0.5">
                             {category}
                           </span>
-                          <span className="text-sm sm:text-[15px] text-background leading-snug font-medium flex items-start gap-2">
+                          <span className="text-sm sm:text-[15px] text-foreground leading-snug font-medium flex items-start gap-2">
                             <Check className="w-4 h-4 text-primary shrink-0 mt-[3px]" strokeWidth={2.5} />
                             <span>{envirobiotics}</span>
                           </span>
@@ -460,7 +463,6 @@ const SolutionsPage = () => {
               </ScrollReveal>
             </div>
 
-            {/* Footer line */}
             <ScrollReveal variant="fadeUp">
               <p className="text-sm sm:text-[15px] text-muted-foreground text-center max-w-2xl mx-auto">
                 Same goal. Two completely different approaches. One reacts to what's already there — the other prevents it from settling in.
@@ -469,21 +471,16 @@ const SolutionsPage = () => {
           </div>
         </section>
 
-        {/* ═══════ Solution Categories — Sonos pillar cards ═══════ */}
         <section id="solutions" className="py-24 md:py-32 bg-background relative">
           <div className="container relative z-10 px-5 md:px-6">
             <ScrollReveal variant="fadeUp" className="max-w-3xl mb-14 md:mb-20">
               <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
                 Our Solutions
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] tracking-[-0.03em] mb-6">
-                Solutions for
-                <br className="hidden md:block" />
-                <span className="text-[hsl(24_95%_53%)]"> every environment.</span>
+              <h2 className="text-[2rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance">
+                Solutions for{" "}
+                <span className="text-primary whitespace-nowrap">every environment.</span>
               </h2>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                From single rooms to entire buildings and agricultural operations, choose the probiotic approach that fits your space.
-              </p>
             </ScrollReveal>
 
             <StaggerContainer className="grid md:grid-cols-3 gap-4 md:gap-5" staggerDelay={0.1}>
