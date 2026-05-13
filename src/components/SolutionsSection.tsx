@@ -31,7 +31,7 @@ const solutions = [
 
 export const SolutionsSection = () => {
   return (
-    <section id="solutions" className="py-28 sm:py-36 lg:py-44 bg-background">
+    <section id="solutions" className="py-14 sm:py-20 lg:py-24 bg-background">
       <div className="container max-w-5xl mx-auto">
         <ScrollReveal variant="fadeUp" className="text-center mb-20">
           <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6">
@@ -52,7 +52,7 @@ export const SolutionsSection = () => {
             <StaggerItem key={title} variant="fadeUp">
               <div className="relative rounded-3xl overflow-hidden bg-card border border-border/60 shadow-sm">
                 <div className="grid md:grid-cols-2 items-stretch gap-0">
-                  <div className={`relative ${i === 1 ? "md:order-2" : ""} ${lifestyle ? "min-h-[320px] md:min-h-[460px]" : "flex justify-center items-center py-12 md:py-16 bg-muted/40"}`}>
+                  <div className={`relative ${i === 1 ? "md:order-2" : ""} ${lifestyle ? "min-h-[320px] md:min-h-[460px]" : "flex justify-center items-center py-12 md:py-12 bg-muted/40"}`}>
                     {lifestyle ? (
                       <img
                         src={image}
@@ -80,7 +80,7 @@ export const SolutionsSection = () => {
                     )}
                   </div>
 
-                  <div className={`relative z-10 px-8 pb-10 pt-10 md:px-12 md:py-14 ${i === 1 ? "md:order-1" : ""}`}>
+                  <div className={`relative z-10 px-8 pb-10 pt-10 md:px-12 md:py-10 ${i === 1 ? "md:order-1" : ""}`}>
                     <div className="flex items-center gap-3 mb-5">
                       <div className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center">
                         <Icon className="h-5 w-5 text-foreground" />

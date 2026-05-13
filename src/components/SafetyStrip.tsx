@@ -20,7 +20,7 @@ const highlights = [
 
 export const SafetyStrip = () => {
   return (
-    <section className="py-16 sm:py-28 bg-card border-t border-border/40">
+    <section className="py-14 sm:py-20 bg-card border-t border-border/40">
       <div className="container max-w-4xl mx-auto text-center px-5 sm:px-6">
         <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground/70 mb-4 sm:mb-6">
           Safety & Certifications
