@@ -10,7 +10,7 @@ const sections = [
     title: "Free Shipping",
     content: (
       <p>
-        Ecological Balancing Technologies Corporation (EBT Corp.) offers free USPS Priority Mail shipping on orders over $200 within the continental United States. Expedited options, including FedEx Standard Overnight, are available at an additional cost based on location. Shipping rates, duties, and applicable taxes apply for orders to Hawaii, Canada, and other territories or countries.
+        Ecological Balancing Technologies Corporation (EBT Corp.) offers free USPS Priority Mail shipping on orders over $200 within the continental United States. Shipping rates, duties, and applicable taxes apply for orders to Hawaii, Canada, and other territories or countries.
       </p>
     ),
   },
