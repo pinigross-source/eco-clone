@@ -13,6 +13,7 @@ import howItWorksThumb from "@/assets/how-it-works-video-thumb.jpg";
 import howItWorksHeroBg from "@/assets/how-it-works-hero-bg.avif";
 import protectingLivingRoom from "@/assets/protecting-living-room.jpg";
 import sharedSpacesLiving from "@/assets/shared-spaces-living.jpg";
+import wholeHomeHallway from "@/assets/whole-home-hallway.jpg";
 const HowItWorksThumbnailMistOverlay = lazy(() => import("@/components/HowItWorksThumbnailMistOverlay").then(m => ({ default: m.HowItWorksThumbnailMistOverlay })));
 import { SEOHead, howToJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 const RelatedTopics = lazy(() => import("@/components/RelatedTopics").then(m => ({ default: m.RelatedTopics })));
@@ -378,53 +379,83 @@ const HowItWorksPage = () => {
         </div>
       </section>
 
-      {/* HVAC Section - Whole Home Coverage */}
-      <section className="section-padding bg-background">
-        <div className="container px-5 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      {/* HVAC Section — Whole Home Coverage (editorial) */}
+      <section className="py-20 md:py-28 lg:py-32 bg-background overflow-hidden">
+        <div className="container max-w-7xl mx-auto px-5 md:px-6">
+          <div className="grid lg:grid-cols-[minmax(0,0.95fr)_1.05fr] gap-10 lg:gap-20 xl:gap-24 items-center">
+            {/* Editorial copy */}
             <ScrollReveal variant="fadeUp">
-              <div className="space-y-5 md:space-y-6">
-                <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70">
+              <div className="min-w-0">
+                <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6 inline-flex items-center gap-2">
                   <Wind className="w-3.5 h-3.5" />
                   Whole-Home Coverage
-                </span>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
+                </p>
+
+                <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.6rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance">
                   Probiotic protection
                   <br />
                   <span className="text-primary whitespace-nowrap">in every room.</span>
                 </h2>
 
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  Your HVAC system connects every room in your home. EnviroBiotics works with this natural airflow to deliver protection everywhere air travels.
+                <p className="mt-6 sm:mt-8 text-[15px] sm:text-lg text-muted-foreground leading-relaxed max-w-xl">
+                  Your HVAC system connects every room in your home. EnviroBiotics works with this natural airflow to deliver a living layer of protection everywhere air travels.
                 </p>
 
-                <div className="rounded-2xl bg-card ring-1 ring-black/[0.04] p-6">
-                  <ul className="space-y-3">
-                    {hvacBenefits.map((benefit, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Check className="w-3.5 h-3.5 text-primary" />
-                        </div>
-                        <span className="text-sm md:text-base text-foreground">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Hairline-divided benefits — matches Results editorial style */}
+                <div className="mt-10 border-t border-border/60">
+                  {hvacBenefits.map((benefit, index) => (
+                    <div key={index} className="grid grid-cols-[auto_1fr] gap-5 sm:gap-8 py-5 border-b border-border/60 items-start">
+                      <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 tabular-nums pt-1 w-12">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <p className="text-[15px] sm:text-base text-foreground leading-relaxed">
+                        {benefit}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </ScrollReveal>
 
-            <ScrollReveal variant="fadeUp" delay={0.2}>
-              <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-black/[0.04] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)]">
-                <img
-                  src="/assets/hvac-lungs-home.jpg"
-                  alt="HVAC system as the lungs of your home, cross-section showing air circulation"
-                  className="w-full object-cover aspect-[4/3]"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <Suspense fallback={null}>
-                  <HVACFlowAnimation />
-                </Suspense>
+            {/* Image with floating caption */}
+            <ScrollReveal variant="fadeUp" delay={0.15}>
+              <div className="relative">
+                <div className="relative aspect-[4/5] sm:aspect-square rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden bg-muted ring-1 ring-black/[0.05] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.28)]">
+                  <img
+                    src={wholeHomeHallway}
+                    alt="Sunlit hallway connecting bedroom, living room, and kitchen — air flowing through every room"
+                    width={1280}
+                    height={1280}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent pointer-events-none" />
+
+                  {/* Floating caption — top left */}
+                  <div className="absolute top-5 left-5 sm:top-7 sm:left-7 max-w-[14rem]">
+                    <div className="backdrop-blur-xl bg-background/85 border border-border/50 rounded-2xl px-5 py-4 shadow-xl">
+                      <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-primary mb-1.5">
+                        Carried by airflow
+                      </p>
+                      <p className="text-sm text-foreground leading-relaxed">
+                        Bedroom. Kitchen. Living room. Every connected space.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Stat chip — bottom right */}
+                  <div className="absolute bottom-5 right-5 sm:bottom-7 sm:right-7">
+                    <div className="backdrop-blur-xl bg-background/90 border border-border/50 rounded-2xl px-5 py-4 shadow-xl flex items-end gap-3">
+                      <div className="text-[2.5rem] sm:text-5xl font-display font-bold text-primary leading-none tracking-[-0.04em]">
+                        24<span className="text-foreground/25">/</span>7
+                      </div>
+                      <p className="text-[11px] sm:text-xs text-muted-foreground leading-snug max-w-[8rem] pb-1">
+                        protection moving with the air you already breathe.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </ScrollReveal>
           </div>
