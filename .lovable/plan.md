@@ -1,68 +1,51 @@
+# Home Page Design-Review Fixes (Top 4)
 
-# Prepare the site for launch — without going live
+Scope: `src/components/HeroSection.tsx`, `src/components/ProblemSection.tsx`, and a new tagline band on the home page (`src/pages/Index.tsx`). No business logic changes — copy + layout only.
 
-Goal: do all the codebase prep work for the audit so production can be flipped on later with a single env-var change. **Until that flag flips, the test site behaves exactly as it does today** — same banner, same `noindex`, same `/dev-tools`, same `Enviro_test` social previews.
+## 1. Rewrite hero headline + force line breaks (Must Fix #1)
 
-This plan covers only the gating + production-ready defaults. Per-page SEO copy, the real branded OG image, sitemap/robots/canonical, perf, a11y, and analytics are separate audit passes that come after this foundation lands.
+File: `src/components/HeroSection.tsx` (lines 122–127)
 
-## The mechanism: one env flag
+- Replace the abstract triplet "Every surface. / Every space. / Always clean." with concrete-noun copy:
+  - "The dust."
+  - "The mold."
+  - "The smell that won't leave."
+- Force each clause onto its own line at every breakpoint by giving each clause its own `<span className="block">` and removing the `sm:inline` toggles. This guarantees the triplet rhythm holds on tablet (where it currently wraps as "Every surface. Every / space. / Always clean.").
+- Keep current font sizing, color tokens, and text-shadow.
 
-New file `src/lib/env.ts`:
-```ts
-export const isTestEnv =
-  import.meta.env.VITE_IS_TEST_ENV !== "false";
-```
+## 2. Surface the 30-day trial above the fold (Must Fix #2)
 
-Default = `true` (test mode). Production-only behavior is opt-in by setting `VITE_IS_TEST_ENV=false` in the production environment. This guarantees nothing changes for you today.
+File: `src/components/HeroSection.tsx` (just under the CTA row, ~line 166)
 
-## What gets gated
+- Add a small reassurance line directly under the two hero buttons:
+  - "30-day trial · No commitment · Free returns"
+- Style: small caps or `text-xs/sm font-medium`, same `primary-foreground` color with a subtle text-shadow so it stays legible on the video background. Left-aligned, matching the headline column.
+- Keep the deeper `GuaranteeSection` intact — this is a top-of-page signal, not a replacement.
 
-### 1. `noindex` meta tags (audit 2.1)
-In `src/routes/__root.tsx` `head()`, only emit `robots: noindex,nofollow,…` and `googlebot: noindex,nofollow` when `isTestEnv` is true. When false, emit `robots: index, follow`.
+## 3. Delete the early two-card comparison (Must Fix #3)
 
-### 2. Test environment banner (audit 3.1)
-In `RootComponent`, render `<TestEnvironmentBanner />` only when `isTestEnv`.
+File: `src/components/ProblemSection.tsx`
 
-### 3. `/dev-tools` route (audit 3.2)
-In `src/routes/dev-tools.tsx`, throw `notFound()` when `!isTestEnv` so production returns the branded 404 page.
+- Remove the two-card comparison block (lines 33–73: "Air Purifiers" card vs "EnviroBiotics" card).
+- Keep the section header ("Other solutions stop at the air. Ours goes further.") and the "high-touch surfaces" 4-image grid below it. Adjust the top margin on the surfaces grid (currently `mt-20 lg:mt-28`) so spacing reads correctly without the cards above it.
+- The three-card `ComparisonSection` and the "A living system" explainer in `HowItWorksSection` continue to carry the argument.
 
-### 4. Title / description / author / OG / Twitter (audit 3.3 – 3.7)
-Two parallel sets of root-level metadata in `__root.tsx`:
-- **Test (default today):** keeps current `Enviro_test`, "Eco Clone replicates…", `author: Lovable`, `twitter:site: @Lovable`, current R2 preview OG image. Nothing visible changes.
-- **Production (when flag is false):**
-  - title: `EnviroBiotics — Probiotic air purification`
-  - description: real product-level copy (placeholder I'll write, easy to edit later)
-  - author: `EnviroBiotics`
-  - `twitter:site`: removed (no active handle confirmed yet — safer than wrong)
-  - `og:image` / `twitter:image`: `/og-default.jpg` placeholder path. The real 1200×630 branded asset is a separate task; until it's uploaded, production would 404 on this image. We'll ship a temporary committed `public/og-default.jpg` (a simple branded fallback I'll generate) so production never has a broken share preview.
+## 4. Promote the tagline as its own band (Top 4 #4)
 
-### 5. "Edit with Lovable" badge (audit 3.8)
-This is a publish-settings flag, not code. **I will not flip it as part of this prep** — the test site keeps the badge today and you said don't go live. When you're ready to launch I'll call `set_badge_visibility(hide_badge: true)` then. Noted here so it's not forgotten.
+The line "No chemicals · No ozone · Just beneficial biology" does not currently exist on the page. Add it as a slim full-width band.
 
-## Files touched
+- New lightweight component `src/components/TaglineBand.tsx`:
+  - Single centered line: "No chemicals · No ozone · Just beneficial biology."
+  - Display font, large but not headline-scale (`text-2xl sm:text-3xl lg:text-4xl`), tight tracking, `text-foreground` on `bg-card` (or inverted on `bg-foreground` / `text-primary-foreground` — TBD during build, matching adjacent sections).
+  - Vertical padding `py-14 sm:py-20`, no other chrome.
+- Mount in `src/pages/Index.tsx` between `HeroSection` and `ShiftSection` so it acts as a value-prop bridge from the hero into the argument.
 
-```text
-src/lib/env.ts              (new)
-src/routes/__root.tsx       (conditional meta + conditional banner)
-src/routes/dev-tools.tsx    (notFound when !isTestEnv)
-public/og-default.jpg       (new — temporary branded fallback)
-```
+## Out of scope
 
-## Out of scope for this prep
+- Should Fix and Could Improve items from the review (not included in the message).
+- Hero video content, FAQ states, carousel transitions, reduced-motion behavior.
+- Any backend / data / link changes.
 
-- Per-page unique titles & descriptions (audit 4.1, 4.2)
-- Final designed 1200×630 OG image
-- robots.txt, sitemap.xml, canonical tags (2.2 – 2.4)
-- All other audit sections
+## Verification
 
-## How you verify nothing changed
-
-After I implement, the preview at `/` should look identical:
-- Yellow "Test environment" banner still at top
-- `/dev-tools` still loads
-- `view-source:` still shows `noindex, nofollow…`
-- Tab title still `Enviro_test`
-
-When you're ready to launch, you (or I) set `VITE_IS_TEST_ENV=false` on the production environment and republish — no further code changes needed for any of the 8 items above.
-
-Approve and I'll implement.
+- After edits, view the home page at desktop (1329px), tablet (~820px), and mobile (~390px) and confirm: headline triplet holds at all three breakpoints, trial line is visible without scrolling, only one comparison block remains in the upper half of the page, tagline band reads clearly above `ShiftSection`.
