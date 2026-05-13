@@ -19,17 +19,17 @@ const steps = [
   {
     icon: SprayCan,
     title: "Disperse",
-    text: "Beneficial probiotics are gently released into your space through automated devices.",
+    text: "Your device automatically releases a fine mist of living probiotics into the air, reaching every room it serves.",
   },
   {
     icon: Grid2X2,
     title: "Settle",
-    text: "They settle on surfaces, fabrics, and hard-to-reach areas where buildup typically forms.",
+    text: "The probiotics land on every surface a filter never reaches. Countertops, bedding, pillows, remotes, vents, corners. Exactly where dust, allergens, and odors collect.",
   },
   {
     icon: ShieldCheck,
-    title: "Support",
-    text: "The probiotics suppress odor-causing bacteria and harmful pathogens.",
+    title: "Neutralize",
+    text: "The probiotics break down odors, allergens, and the bacteria that cause them. At the source. Around the clock. Long after they've landed.",
   },
 ];
 
@@ -306,7 +306,7 @@ const HowItWorksPage = () => {
               Always running.
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-              EnviroBiotics works automatically in the background, creating a proactive layer of protection throughout your space.
+              Plug it in once. EnviroBiotics works automatically in the background, putting a living layer of protection on every surface in your home, 24 hours a day.
             </p>
           </ScrollReveal>
 
@@ -334,7 +334,7 @@ const HowItWorksPage = () => {
           <ScrollReveal variant="fadeUp" delay={0.4} className="mt-10 md:mt-12 text-center">
             <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-card ring-1 ring-black/[0.06]">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs md:text-sm font-medium text-foreground">Runs quietly in the background, 24/7</span>
+              <span className="text-xs md:text-sm font-medium text-foreground">Runs quietly. Works constantly. Notice nothing but the difference.</span>
             </div>
           </ScrollReveal>
         </div>
