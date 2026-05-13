@@ -575,6 +575,8 @@ const SolutionsPage = () => {
                 </StaggerItem>
               ))}
             </StaggerContainer>
+          </div>
+        </section>
 
         {/* ═══════ Testimonial — Sonos quiet quote ═══════ */}
         {featuredTestimonial && (
