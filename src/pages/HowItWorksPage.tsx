@@ -575,57 +575,94 @@ const HowItWorksPage = () => {
         </div>
       </section>
 
-      {/* Shared Spaces Section */}
-      <section className="section-padding bg-background overflow-hidden">
-        <div className="container px-5 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      {/* Shared Spaces Section — editorial */}
+      <section className="py-20 md:py-28 lg:py-32 bg-card overflow-hidden">
+        <div className="container max-w-7xl mx-auto px-5 md:px-6">
+          <div className="grid lg:grid-cols-[1.05fr_minmax(0,0.95fr)] gap-10 lg:gap-20 xl:gap-24 items-center">
+            {/* Image with floating caption + stat chip */}
             <ScrollReveal variant="fadeUp" className="order-2 lg:order-1">
-              <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-black/[0.04] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)]">
-                <img
-                  src="/assets/building-breathing.png"
-                  alt="Modern building representing shared indoor spaces"
-                  className="w-full object-cover object-center aspect-[3/4] md:aspect-square"
-                  loading="lazy"
-                  decoding="async"
-                />
+              <div className="relative">
+                <div className="relative aspect-[4/5] sm:aspect-square rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden bg-muted ring-1 ring-black/[0.05] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.28)]">
+                  <img
+                    src={sharedSpacesLiving}
+                    alt="A family relaxing in a sunlit open-plan space that flows into a calm work area"
+                    width={1280}
+                    height={1280}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent pointer-events-none" />
+
+                  {/* Floating caption — top right */}
+                  <div className="absolute top-5 right-5 sm:top-7 sm:right-7 max-w-[14rem]">
+                    <div className="backdrop-blur-xl bg-background/85 border border-border/50 rounded-2xl px-5 py-4 shadow-xl">
+                      <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-primary mb-1.5">
+                        Everywhere air goes
+                      </p>
+                      <p className="text-sm text-foreground leading-relaxed">
+                        From the family room to the boardroom.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Big stat — bottom left */}
+                  <div className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7">
+                    <div className="backdrop-blur-xl bg-background/90 border border-border/50 rounded-2xl px-5 py-4 shadow-xl flex items-end gap-3">
+                      <div className="text-[2.5rem] sm:text-5xl font-display font-bold text-primary leading-none tracking-[-0.04em]">
+                        90<span className="text-foreground/25">%</span>
+                      </div>
+                      <p className="text-[11px] sm:text-xs text-muted-foreground leading-snug max-w-[9rem] pb-1">
+                        of our time is spent indoors, sharing the same air.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </ScrollReveal>
 
-            <ScrollReveal variant="fadeUp" delay={0.2} className="order-1 lg:order-2">
-              <div className="space-y-5 md:space-y-6">
-                <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70">
+            {/* Editorial copy */}
+            <ScrollReveal variant="fadeUp" delay={0.15} className="order-1 lg:order-2">
+              <div className="min-w-0">
+                <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6 inline-flex items-center gap-2">
                   <Building2 className="w-3.5 h-3.5" />
                   Shared Spaces
-                </span>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
-                  The air you share
+                </p>
+
+                <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.6rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance">
+                  The air you share.
                   <br />
-                  <span className="text-primary whitespace-nowrap">impacts everyone inside.</span>
+                  <span className="text-primary whitespace-nowrap">Everyone breathes it.</span>
                 </h2>
 
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  At home. At work. Across every building you step into.
+                <p className="mt-6 sm:mt-8 text-[15px] sm:text-lg text-muted-foreground leading-relaxed max-w-xl">
+                  At home. At work. Across every building you step into. Most of us spend over 90% of our day indoors, breathing air that's circulated, recirculated, and rarely truly clean.
                 </p>
 
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  Most families and teams spend over 90% of their time indoors, breathing air that's constantly circulated through HVAC systems.
-                </p>
-
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  EnviroBiotics works directly with those systems to help support healthier indoor environments, reducing unwanted buildup and making shared spaces more comfortable for the people who live and work in them.
-                </p>
-
-                <div className="pt-3">
-                  <p className="text-base md:text-lg font-semibold text-foreground leading-snug tracking-tight">
-                    One solution.
-                    <br />
-                    Designed for homes. Trusted in workplaces.
-                    <br />
-                    Built for the spaces we share every day.
-                  </p>
+                {/* Editorial divider list — 3 contexts */}
+                <div className="mt-10 border-t border-border/60">
+                  {[
+                    { label: "At home", text: "A living layer of protection across every room — even the ones you forget to clean." },
+                    { label: "At work", text: "Quietly working through your HVAC, so shared desks and meeting rooms feel calmer." },
+                    { label: "In between", text: "Lobbies, schools, gyms — the public spaces we all move through every day." },
+                  ].map(({ label, text }, idx) => (
+                    <div key={label} className="grid grid-cols-[auto_1fr] gap-5 sm:gap-8 py-5 border-b border-border/60">
+                      <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 tabular-nums pt-1 w-12">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <p className="text-base sm:text-lg font-display font-semibold text-foreground tracking-tight">
+                          {label}
+                        </p>
+                        <p className="mt-1 text-[14px] sm:text-[15px] text-muted-foreground leading-relaxed">
+                          {text}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
 
-                <div className="pt-5 flex flex-col sm:flex-row gap-3">
+                <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
                   <a
                     href="https://shop.envirobiotics.com/collections/all"
                     className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-foreground/90"
@@ -633,10 +670,10 @@ const HowItWorksPage = () => {
                     Explore Solutions
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
+                  <p className="text-xs text-muted-foreground tracking-wide">
+                    Safe for families. Trusted in workplaces.
+                  </p>
                 </div>
-                <p className="text-xs text-muted-foreground">
-                  Safe for families. Trusted in workplaces.
-                </p>
               </div>
             </ScrollReveal>
           </div>
