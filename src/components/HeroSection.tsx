@@ -157,7 +157,7 @@ export const HeroSection = ({
 
 
             <h1
-              className="mb-5 font-display font-bold tracking-[-0.04em] text-[2.65rem] leading-[1.02] sm:mb-7 sm:text-[clamp(2.8rem,9.5vw,6.5rem)] sm:tracking-[-0.035em] sm:leading-[1.0]"
+              className="mb-5 font-display font-bold tracking-[-0.035em] text-[2.25rem] leading-[1.05] sm:mb-7 sm:text-[clamp(2.5rem,6vw,4.75rem)] sm:tracking-[-0.03em] sm:leading-[1.05]"
               style={{
                 color: "hsl(var(--primary-foreground))",
                 textShadow:
