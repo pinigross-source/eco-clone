@@ -23,7 +23,7 @@ const promises = [
 
 export const GuaranteeSection = () => {
   return (
-    <section id="guarantee" className="py-10 sm:py-10 lg:py-12 bg-card">
+    <section id="guarantee" className="py-14 sm:py-20 lg:py-24 bg-card">
       <div className="container max-w-6xl mx-auto px-5 sm:px-6">
         {/* Editorial split: image + headline */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-center mb-14 sm:mb-20 lg:mb-28">

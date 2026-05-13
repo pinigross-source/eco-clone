@@ -25,7 +25,7 @@ const steps = [
 
 export const HowItWorksSection = () => {
   return (
-    <section id="how-it-works" className="py-10 sm:py-10 lg:py-12 bg-card">
+    <section id="how-it-works" className="py-14 sm:py-20 lg:py-24 bg-card">
       <div className="container max-w-7xl mx-auto px-5 sm:px-6">
         {/* Editorial header + lifestyle visual */}
         <div className="grid lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] gap-10 lg:gap-20 xl:gap-24 items-center mb-16 sm:mb-24 lg:mb-32">

@@ -17,7 +17,7 @@ const stats = [
 
 export const ShiftSection = () => {
   return (
-    <section id="shift" className="py-10 sm:py-10 lg:py-12 bg-card">
+    <section id="shift" className="py-14 sm:py-20 lg:py-24 bg-card">
       <div className="container max-w-5xl mx-auto px-5 sm:px-6">
         <ScrollReveal variant="fadeUp">
           <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground/70 text-center mb-4 sm:mb-6">

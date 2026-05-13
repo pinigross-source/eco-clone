@@ -89,7 +89,7 @@ const ComparisonVideo = () => {
 
 export const ComparisonSection = () => {
   return (
-    <section id="comparison" className="py-12 sm:py-10 lg:py-12 bg-background">
+    <section id="comparison" className="py-14 sm:py-20 lg:py-24 bg-background">
       <div className="container max-w-5xl mx-auto">
         <ScrollReveal variant="fadeUp" className="text-center mb-20">
           <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6">

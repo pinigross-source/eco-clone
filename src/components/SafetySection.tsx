@@ -47,7 +47,7 @@ export const SafetySection = () => {
     };
   }, []);
   return (
-    <section id="safety" className="py-10 sm:py-10 lg:py-12 bg-background">
+    <section id="safety" className="py-14 sm:py-20 lg:py-24 bg-background">
       <div className="container max-w-6xl mx-auto px-5 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-center">
           {/* Right image (mobile-first order) */}
