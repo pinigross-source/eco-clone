@@ -96,9 +96,9 @@ export const ComparisonSection = () => {
             Why Probiotics
           </p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold leading-[1.06] tracking-[-0.03em] text-foreground max-w-3xl mx-auto">
-            Beyond filters
+            Different mechanism
             <br />
-            <span className="text-primary">and sprays.</span>
+            <span className="text-primary">· Different outcome</span>
           </h2>
         </ScrollReveal>
 
