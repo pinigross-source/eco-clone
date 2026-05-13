@@ -19,17 +19,17 @@ const steps = [
   {
     icon: SprayCan,
     title: "Disperse",
-    text: "Beneficial probiotics are gently released into your space through automated devices.",
+    text: "Your device automatically releases a fine mist of living probiotics into the air, reaching every room it serves.",
   },
   {
     icon: Grid2X2,
     title: "Settle",
-    text: "They settle on surfaces, fabrics, and hard-to-reach areas where buildup typically forms.",
+    text: "The probiotics land on every surface a filter never reaches. Countertops, bedding, pillows, remotes, vents, corners. Exactly where dust, allergens, and odors collect.",
   },
   {
     icon: ShieldCheck,
-    title: "Support",
-    text: "The probiotics suppress odor-causing bacteria and harmful pathogens.",
+    title: "Neutralize",
+    text: "The probiotics break down odors, allergens, and the bacteria that cause them. At the source. Around the clock. Long after they've landed.",
   },
 ];
 
