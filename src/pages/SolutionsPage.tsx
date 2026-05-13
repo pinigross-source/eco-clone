@@ -365,42 +365,107 @@ const SolutionsPage = () => {
           </div>
         </section>
 
-        {/* ═══════ Traditional vs EnviroBiotics — minimal table ═══════ */}
-        <section className="py-16 md:py-24 bg-background relative">
-          <div className="container px-5 md:px-6 max-w-5xl">
-            <ScrollReveal variant="fadeUp" className="max-w-3xl mb-12 md:mb-16">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
+        {/* ═══════ Traditional vs EnviroBiotics — Sonos editorial comparison ═══════ */}
+        <section className="py-20 md:py-28 lg:py-32 bg-card relative">
+          <div className="container px-5 md:px-6 max-w-6xl">
+            {/* Editorial header */}
+            <ScrollReveal variant="fadeUp" className="max-w-3xl mb-14 md:mb-20">
+              <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-6">
                 Side by Side
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-[1.05] tracking-[-0.03em] mb-5">
-                Traditional cleaning vs.
-                <br className="hidden md:block" />
-                <span className="text-[hsl(24_95%_53%)]"> probiotic protection.</span>
+              <h2 className="text-[2rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance">
+                Traditional cleaning vs.{" "}
+                <span className="text-primary whitespace-nowrap">probiotic protection.</span>
               </h2>
             </ScrollReveal>
 
-            <div className="rounded-[2rem] bg-muted/40 ring-1 ring-border/50 overflow-hidden">
-              <div className="grid grid-cols-3 px-6 sm:px-10 py-5 border-b border-border/50 text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground/70">
-                <div>Category</div>
-                <div>Traditional</div>
-                <div className="text-primary">EnviroBiotics</div>
-              </div>
-              {traditionalVsEnvirobiotics.map(({ category, traditional, envirobiotics }, i) => (
-                <div
-                  key={category}
-                  className={`grid grid-cols-3 px-6 sm:px-10 py-5 sm:py-6 items-start gap-3 ${
-                    i !== traditionalVsEnvirobiotics.length - 1 ? "border-b border-border/40" : ""
-                  }`}
-                >
-                  <div className="font-semibold text-sm sm:text-base text-foreground">{category}</div>
-                  <div className="text-sm sm:text-[15px] text-muted-foreground leading-snug">{traditional}</div>
-                  <div className="text-sm sm:text-[15px] text-foreground font-medium leading-snug flex items-start gap-2">
-                    <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                    <span>{envirobiotics}</span>
+            {/* Two-column comparison */}
+            <div className="grid lg:grid-cols-2 gap-5 md:gap-6 mb-10">
+              {/* Traditional column */}
+              <ScrollReveal variant="fadeUp">
+                <div className="h-full rounded-[1.75rem] sm:rounded-3xl bg-background ring-1 ring-border/60 p-7 sm:p-9 md:p-10">
+                  <div className="flex items-baseline justify-between mb-6 sm:mb-8">
+                    <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70">
+                      Traditional
+                    </p>
+                    <p className="text-[11px] font-medium tracking-wide uppercase text-muted-foreground/50">
+                      Reactive
+                    </p>
+                  </div>
+                  <h3 className="font-display font-bold text-2xl sm:text-3xl tracking-[-0.02em] text-foreground/70 leading-tight mb-8 sm:mb-10">
+                    Wipe. Filter. Repeat.
+                  </h3>
+                  <ul>
+                    {traditionalVsEnvirobiotics.map(({ category, traditional }, i) => (
+                      <li
+                        key={category}
+                        className={`grid grid-cols-[7rem_1fr] sm:grid-cols-[8rem_1fr] gap-4 sm:gap-6 py-4 sm:py-5 ${
+                          i !== traditionalVsEnvirobiotics.length - 1 ? "border-b border-border/50" : ""
+                        }`}
+                      >
+                        <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-muted-foreground/60 pt-0.5">
+                          {category}
+                        </span>
+                        <span className="text-sm sm:text-[15px] text-muted-foreground leading-snug line-through decoration-muted-foreground/30 decoration-1">
+                          {traditional}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ScrollReveal>
+
+              {/* EnviroBiotics column — accented */}
+              <ScrollReveal variant="fadeUp" delay={0.1}>
+                <div className="relative h-full rounded-[1.75rem] sm:rounded-3xl bg-foreground text-background p-7 sm:p-9 md:p-10 shadow-[0_40px_100px_-40px_rgba(0,0,0,0.4)] overflow-hidden">
+                  {/* Soft accent glow */}
+                  <div
+                    className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full opacity-30 blur-3xl"
+                    style={{ background: "hsl(24 95% 53%)" }}
+                    aria-hidden="true"
+                  />
+                  <div className="relative">
+                    <div className="flex items-baseline justify-between mb-6 sm:mb-8">
+                      <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-primary">
+                        EnviroBiotics
+                      </p>
+                      <p className="text-[11px] font-medium tracking-wide uppercase text-background/50">
+                        Proactive
+                      </p>
+                    </div>
+                    <h3 className="font-display font-bold text-2xl sm:text-3xl tracking-[-0.02em] leading-tight mb-8 sm:mb-10">
+                      A living layer.{" "}
+                      <span className="text-primary">Always on.</span>
+                    </h3>
+                    <ul>
+                      {traditionalVsEnvirobiotics.map(({ category, envirobiotics }, i) => (
+                        <li
+                          key={category}
+                          className={`grid grid-cols-[7rem_1fr] sm:grid-cols-[8rem_1fr] gap-4 sm:gap-6 py-4 sm:py-5 ${
+                            i !== traditionalVsEnvirobiotics.length - 1 ? "border-b border-background/10" : ""
+                          }`}
+                        >
+                          <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-background/60 pt-0.5">
+                            {category}
+                          </span>
+                          <span className="text-sm sm:text-[15px] text-background leading-snug font-medium flex items-start gap-2">
+                            <Check className="w-4 h-4 text-primary shrink-0 mt-[3px]" strokeWidth={2.5} />
+                            <span>{envirobiotics}</span>
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-              ))}
+              </ScrollReveal>
             </div>
+
+            {/* Footer line */}
+            <ScrollReveal variant="fadeUp">
+              <p className="text-sm sm:text-[15px] text-muted-foreground text-center max-w-2xl mx-auto">
+                Same goal. Two completely different approaches. One reacts to what's already there — the other prevents it from settling in.
+              </p>
+            </ScrollReveal>
           </div>
         </section>
 
