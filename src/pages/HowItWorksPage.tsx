@@ -204,7 +204,7 @@ const HowItWorksPage = () => {
                   The Problem
                 </span>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
-                  Why air filtration alone won't keep your home clean.
+                  Why air filtration alone <span className="italic font-normal text-primary">won't</span> keep your home clean.
                 </h2>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
