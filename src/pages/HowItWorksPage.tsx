@@ -165,7 +165,7 @@ const HowItWorksPage = () => {
                 </h1>
 
                 <p className="text-base sm:text-lg md:text-xl text-white/85 max-w-xl leading-relaxed mb-10">
-                  Unlike passive air filters, EnviroBiotics takes a proactive approach, continuously supporting cleaner surfaces, air, and the systems that circulate air throughout your home.
+                  Unlike passive air filters, EnviroBiotics works proactively, continuously cleaning the surfaces, air, and ventilation systems that move air through your home.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3">
