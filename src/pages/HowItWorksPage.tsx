@@ -225,16 +225,19 @@ const HowItWorksPage = () => {
             </ScrollReveal>
 
             <ScrollReveal variant="fadeUp" delay={0.2}>
-              <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-black/[0.04] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] bg-[#fafaf7]">
-                <img
-                  src="/assets/surfaces-hero.webp"
-                  alt="Particles settling on surfaces inside a home"
-                  width="512"
-                  height="683"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-auto object-contain"
-                />
+              <div className="relative">
+                <div aria-hidden="true" className="absolute -inset-6 bg-primary/10 rounded-[2.5rem] -rotate-2 -z-10" />
+                <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-black/[0.04] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] bg-[#fafaf7]">
+                  <img
+                    src="/assets/surfaces-hero.webp"
+                    alt="Particles settling on surfaces inside a home"
+                    width="512"
+                    height="683"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
               </div>
             </ScrollReveal>
           </div>
