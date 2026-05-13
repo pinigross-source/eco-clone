@@ -4,14 +4,17 @@ const stats = [
   {
     value: "80%",
     text: "of indoor allergens live on surfaces, not floating in the air",
+    negative: false,
   },
   {
     value: "24/7",
     text: "mold, dust mites, and bacteria are active in your space",
+    negative: false,
   },
   {
     value: "0%",
     text: "of surfaces are reached by traditional air purifiers",
+    negative: true,
   },
 ];
 
