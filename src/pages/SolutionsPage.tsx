@@ -483,82 +483,98 @@ const SolutionsPage = () => {
               </h2>
             </ScrollReveal>
 
-            <StaggerContainer className="grid md:grid-cols-3 gap-4 md:gap-5" staggerDelay={0.1}>
-              {solutionCategories.map(({ icon: Icon, title, description, highlights, cta, href, external, badge, featured }) => (
+            <StaggerContainer className="grid md:grid-cols-3 gap-5 md:gap-6" staggerDelay={0.1}>
+              {solutionCategories.map(({ icon: Icon, title, description, highlights, cta, href, external, badge, featured }, idx) => (
                 <StaggerItem key={title} variant="fadeUp">
                   <div
-                    className={`group h-full rounded-3xl p-7 md:p-9 transition-colors duration-300 flex flex-col ${
+                    className={`group relative h-full rounded-[1.75rem] sm:rounded-3xl overflow-hidden flex flex-col transition-all duration-300 ${
                       featured
-                        ? "bg-primary/5 ring-1 ring-primary/20 hover:ring-primary/30"
-                        : "bg-muted/40 hover:bg-muted/60"
+                        ? "bg-background ring-1 ring-primary/30 shadow-[0_40px_100px_-40px_rgba(234,88,12,0.18)] hover:-translate-y-1"
+                        : "bg-background ring-1 ring-border/60 hover:ring-border hover:-translate-y-1"
                     }`}
                   >
-                    <div className="flex items-center justify-between mb-7">
-                      <div className="w-12 h-12 rounded-xl bg-background flex items-center justify-center ring-1 ring-border/60">
-                        <Icon className="w-5 h-5 text-foreground/80" />
+                    {/* Visual header — soft gradient panel with icon */}
+                    <div
+                      className={`relative aspect-[5/3] w-full overflow-hidden ${
+                        featured
+                          ? "bg-gradient-to-br from-primary/15 via-primary/5 to-background"
+                          : "bg-gradient-to-br from-muted/80 via-muted/40 to-background"
+                      }`}
+                    >
+                      {/* Soft accent orb */}
+                      <div
+                        className={`pointer-events-none absolute -bottom-20 -right-16 w-64 h-64 rounded-full blur-3xl ${
+                          featured ? "bg-primary/25" : "bg-foreground/[0.06]"
+                        }`}
+                        aria-hidden="true"
+                      />
+                      {/* Numbered eyebrow */}
+                      <span className="absolute top-5 left-6 text-[11px] font-semibold tracking-[0.25em] uppercase text-foreground/50 tabular-nums">
+                        {String(idx + 1).padStart(2, "0")} — {badge ?? "Solution"}
+                      </span>
+                      {/* Icon mark */}
+                      <div className="absolute bottom-5 left-6 w-14 h-14 rounded-2xl bg-background ring-1 ring-border/60 flex items-center justify-center shadow-sm">
+                        <Icon className={`w-6 h-6 ${featured ? "text-primary" : "text-foreground/80"}`} strokeWidth={1.6} />
                       </div>
-                      {badge && (
-                        <span
-                          className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
-                            featured
-                              ? "bg-primary text-primary-foreground"
-                              : "bg-background ring-1 ring-border/60 text-muted-foreground"
-                          }`}
-                        >
-                          {badge}
+                      {featured && (
+                        <span className="absolute top-5 right-5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-bold tracking-wider uppercase shadow-sm">
+                          <Sparkles className="w-3 h-3" />
+                          Most Popular
                         </span>
                       )}
                     </div>
 
-                    <h3 className="font-display font-bold text-xl md:text-2xl tracking-tight mb-3">
-                      {title}
-                    </h3>
-                    <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed mb-6">
-                      {description}
-                    </p>
+                    {/* Editorial body */}
+                    <div className="flex flex-col flex-1 p-7 md:p-9">
+                      <h3 className="font-display font-bold text-2xl md:text-[1.75rem] tracking-[-0.02em] leading-tight text-foreground mb-3">
+                        {title}
+                      </h3>
+                      <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed mb-7">
+                        {description}
+                      </p>
 
-                    <ul className="space-y-2.5 mb-8 flex-1">
-                      {highlights.map((item) => (
-                        <li key={item} className="flex items-start gap-2.5 text-sm">
-                          <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                          <span className="text-foreground/90">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                      {/* Hairline-divided highlights */}
+                      <ul className="border-t border-border/60 mb-8 flex-1">
+                        {highlights.map((item) => (
+                          <li
+                            key={item}
+                            className="flex items-start gap-3 py-3 border-b border-border/60 text-sm md:text-[15px] text-foreground/90 leading-snug"
+                          >
+                            <Check className="w-4 h-4 text-primary shrink-0 mt-[3px]" strokeWidth={2.5} />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
 
-                    {external ? (
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`group/btn inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all hover:-translate-y-0.5 ${
-                          featured
-                            ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                            : "bg-foreground text-background hover:bg-foreground/90"
-                        }`}
-                      >
-                        {cta}
-                        <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
-                      </a>
-                    ) : (
-                      <Link
-                        to={href}
-                        className={`group/btn inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all hover:-translate-y-0.5 ${
-                          featured
-                            ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                            : "bg-foreground text-background hover:bg-foreground/90"
-                        }`}
-                      >
-                        {cta}
-                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </Link>
-                    )}
+                      {/* Minimal text link CTA */}
+                      {external ? (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`group/btn inline-flex items-center gap-2 text-sm font-semibold tracking-tight transition-colors mt-auto ${
+                            featured ? "text-primary hover:text-primary/80" : "text-foreground hover:text-primary"
+                          }`}
+                        >
+                          {cta}
+                          <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
+                        </a>
+                      ) : (
+                        <Link
+                          to={href}
+                          className={`group/btn inline-flex items-center gap-2 text-sm font-semibold tracking-tight transition-colors mt-auto ${
+                            featured ? "text-primary hover:text-primary/80" : "text-foreground hover:text-primary"
+                          }`}
+                        >
+                          {cta}
+                          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </StaggerItem>
               ))}
             </StaggerContainer>
-          </div>
-        </section>
 
         {/* ═══════ Testimonial — Sonos quiet quote ═══════ */}
         {featuredTestimonial && (
