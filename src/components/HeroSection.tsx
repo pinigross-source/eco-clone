@@ -209,7 +209,7 @@ export const HeroSection = ({
                 </li>
                 <li className="flex items-center gap-3">
                   <Check className="h-4 w-4 shrink-0 text-[hsl(24_95%_53%)]" strokeWidth={3} />
-                  <span><span className="font-semibold">60-day</span> money-back guarantee</span>
+                  <span><span className="font-semibold">30-day</span> money-back guarantee</span>
                 </li>
               </ul>
             </div>
