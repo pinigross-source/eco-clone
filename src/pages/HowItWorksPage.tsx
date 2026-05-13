@@ -211,13 +211,13 @@ const HowItWorksPage = () => {
                   Most of what's in the air doesn't stay there. Dust, allergens, and odor-causing particles settle onto surfaces, fabrics, and objects, then get stirred back into the air with every footstep, door, and breath of moving air. Cleaning the air alone isn't enough. You have to treat the surfaces it lands on.
                 </p>
 
-                <ul className="space-y-3 pt-2">
+                <ul className="space-y-4 pt-4">
                   {settlingPoints.map((point, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-3.5 h-3.5 text-primary" />
+                    <li key={index} className="flex items-start gap-5 group">
+                      <div className="flex-shrink-0 w-11 h-11 rounded-2xl bg-primary/5 border border-primary/15 flex items-center justify-center text-primary text-xs font-bold tracking-wider transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary group-hover:-translate-y-0.5">
+                        {String(index + 1).padStart(2, "0")}
                       </div>
-                      <span className="text-sm md:text-base text-foreground">{point}</span>
+                      <span className="text-base md:text-lg text-foreground/80 leading-relaxed pt-2.5">{point}</span>
                     </li>
                   ))}
                 </ul>
