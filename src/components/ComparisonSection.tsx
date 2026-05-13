@@ -159,7 +159,7 @@ export const ComparisonSection = () => {
         {/* Video introduction */}
         <ComparisonVideo />
         <p className="text-center text-sm text-muted-foreground/60 mt-6">
-          Different mechanism · Different outcome
+          Beyond filters and sprays.
         </p>
       </div>
     </section>
