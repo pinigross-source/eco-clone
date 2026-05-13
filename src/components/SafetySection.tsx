@@ -9,7 +9,6 @@ const safetyPoints = [
 ];
 
 const stats = [
-  { value: "3M+", label: "Spaces protected" },
   { value: "15+", label: "Years of research" },
   { value: "99.9%", label: "Satisfaction" },
 ];
