@@ -542,19 +542,28 @@ const HowItWorksPage = () => {
             </h2>
           </ScrollReveal>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-5 md:gap-6" staggerDelay={0.12}>
-            {results.map(({ icon: Icon, title, bullets }) => (
+          <StaggerContainer className="grid md:grid-cols-3 gap-px bg-black/[0.06] ring-1 ring-black/[0.06] rounded-[1.75rem] overflow-hidden" staggerDelay={0.12}>
+            {results.map(({ icon: Icon, title, bullets }, idx) => (
               <StaggerItem key={title} variant="fadeUp">
-                <div className="h-full p-7 md:p-9 rounded-[1.75rem] bg-card ring-1 ring-black/[0.04] transition-all duration-300 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.12)]">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                    <Icon className="h-6 w-6 text-primary" />
+                <div className="group relative h-full p-8 md:p-10 bg-card transition-colors duration-500 hover:bg-primary/[0.03]">
+                  <div className="flex items-baseline gap-3 mb-8">
+                    <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 tabular-nums">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <span className="h-px flex-1 bg-black/[0.08]" />
+                    <Icon className="h-[18px] w-[18px] text-primary/80" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-lg md:text-xl font-display font-semibold tracking-tight text-foreground mb-4">{title}</h3>
-                  <ul className="space-y-2.5">
+                  <h3 className="text-xl md:text-2xl font-display font-semibold tracking-tight text-foreground leading-snug mb-6 max-w-[14ch]">
+                    {title}
+                  </h3>
+                  <ul className="space-y-0">
                     {bullets.map((bullet, index) => (
-                      <li key={index} className="flex items-start gap-2.5">
-                        <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-muted-foreground leading-relaxed">{bullet}</span>
+                      <li
+                        key={index}
+                        className="flex items-start gap-3 py-3 border-t border-black/[0.06] first:border-t-0"
+                      >
+                        <span className="mt-2 w-1 h-1 rounded-full bg-primary/70 flex-shrink-0" />
+                        <span className="text-[15px] text-muted-foreground leading-relaxed">{bullet}</span>
                       </li>
                     ))}
                   </ul>
