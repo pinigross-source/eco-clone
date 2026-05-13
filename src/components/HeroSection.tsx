@@ -159,7 +159,7 @@ export const HeroSection = ({
                 size="impact-md"
                 className="h-[58px] w-full bg-[hsl(24_95%_53%)] px-7 text-base font-semibold text-white hover:bg-[hsl(24_95%_48%)] sm:h-16 sm:w-auto sm:px-10 sm:text-lg"
               >
-                Buy now
+                Start your 30-day trial
               </Button>
             </a>
           </div>
