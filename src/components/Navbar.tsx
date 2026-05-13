@@ -255,9 +255,9 @@ export const Navbar = () => {
             />
           </Link>
 
-          {/* Mobile: Shop CTA + icons on right */}
+          {/* Mobile: Cart + Shop CTA on right */}
           <div className="lg:hidden absolute right-3 z-20 flex items-center gap-1.5">
-            <Suspense fallback={null}><NavbarSearch /></Suspense>
+            <div className="hidden sm:block"><Suspense fallback={null}><NavbarSearch /></Suspense></div>
             <ShopifyCartLink />
             <a
               href={storeDropdown.href}
