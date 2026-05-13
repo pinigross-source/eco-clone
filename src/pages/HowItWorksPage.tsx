@@ -194,7 +194,7 @@ const HowItWorksPage = () => {
       </section>
 
       {/* Problem Section - Indoor Contamination */}
-      <section className="section-padding bg-[#fafaf7]">
+      <section className="section-padding bg-[#f5f5f7]">
         <div className="container px-5 md:px-6">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <ScrollReveal variant="fadeUp">
@@ -227,7 +227,7 @@ const HowItWorksPage = () => {
             <ScrollReveal variant="fadeUp" delay={0.2}>
               <div className="relative">
                 <div aria-hidden="true" className="absolute -inset-6 bg-foreground/[0.04] rounded-[2.5rem] -rotate-2 -z-10" />
-                <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-black/[0.04] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] bg-[#fafaf7]">
+                <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-black/[0.04] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] bg-[#f5f5f7]">
                   <img
                     src="/assets/surfaces-hero.webp"
                     alt="Particles settling on surfaces inside a home"
@@ -377,7 +377,7 @@ const HowItWorksPage = () => {
       </section>
 
       {/* HVAC Section - Whole Home Coverage */}
-      <section className="section-padding bg-[#fafaf7]">
+      <section className="section-padding bg-[#f5f5f7]">
         <div className="container px-5 md:px-6">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <ScrollReveal variant="fadeUp">
@@ -464,7 +464,7 @@ const HowItWorksPage = () => {
       </section>
 
       {/* Results Grid */}
-      <section className="section-padding bg-[#fafaf7]">
+      <section className="section-padding bg-[#f5f5f7]">
         <div className="container px-5 md:px-6">
           <ScrollReveal variant="fadeUp" className="max-w-3xl mb-12 md:mb-16">
             <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
