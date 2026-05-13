@@ -24,6 +24,7 @@ import {
 
 import solutionsHeroBg from "@/assets/solutions-hero-bg.avif";
 import familyLivingImg from "@/assets/family-living-cozy.jpg";
+import hiddenProblemImg from "@/assets/hidden-problem-livingroom.jpg";
 
 const problemPoints = [
   {
