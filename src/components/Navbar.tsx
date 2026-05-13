@@ -248,7 +248,7 @@ export const Navbar = () => {
             <img
               src={logo}
               alt="EnviroBiotics - Environmental Probiotics"
-              className="h-14 sm:h-[72px] md:h-[82px] w-auto relative z-10"
+              className="h-10 sm:h-12 md:h-[82px] w-auto relative z-10"
               width="210"
               height="72"
               fetchPriority="high"
