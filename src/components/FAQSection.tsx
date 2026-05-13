@@ -15,7 +15,8 @@ const faqs = [
   },
   {
     question: "Does it replace cleaning?",
-    answer: "No. It's designed to support freshness between cleanings.",
+    answer:
+      "No, and that's the point. Cleaning removes what you can see. Our device works in the background on what you can't, breaking down allergens and odors on every surface, 24 hours a day, between cleanings and long after. Think of it as the layer that keeps your home fresh in the days your mop and vacuum can't.",
   },
   {
     question: "How is this different from an air purifier?",
