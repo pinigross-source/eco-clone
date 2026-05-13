@@ -422,9 +422,9 @@ export const FindMySolutionQuiz = () => {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 mb-3 sm:mb-4">
               <Button variant="hero" size="lg" asChild className="text-sm sm:text-base">
-                <a href={product.url}>
+                <Link to={product.url}>
                   Buy Now <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                </a>
+                </Link>
               </Button>
               <Button variant="outline" size="lg" asChild className="text-sm sm:text-base">
                 <a href={INTERNAL_LINKS.how_it_works}>
