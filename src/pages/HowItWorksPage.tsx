@@ -538,7 +538,7 @@ const HowItWorksPage = () => {
             <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
               Long-term benefits
               <br />
-              for your home and health.
+              for your <span className="text-primary whitespace-nowrap">home and health.</span>
             </h2>
           </ScrollReveal>
 
