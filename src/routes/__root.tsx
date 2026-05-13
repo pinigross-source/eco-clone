@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { TestEnvironmentBanner } from "@/components/TestEnvironmentBanner";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { isTestEnv } from "@/lib/env";
 
 const PROD_TITLE = "EnviroBiotics — Probiotic air purification";
