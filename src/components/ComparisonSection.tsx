@@ -90,12 +90,12 @@ const ComparisonVideo = () => {
 export const ComparisonSection = () => {
   return (
     <section id="comparison" className="py-14 sm:py-20 lg:py-24 bg-background">
-      <div className="container max-w-5xl mx-auto">
+      <div className="container max-w-5xl mx-auto px-5 sm:px-6">
         <ScrollReveal variant="fadeUp" className="text-center mb-20">
           <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6">
             Why Probiotics
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold leading-[1.06] tracking-[-0.03em] text-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl sm:text-5xl md:text-[3.25rem] lg:text-[4.25rem] font-display font-bold leading-[1.06] tracking-[-0.03em] text-foreground max-w-3xl mx-auto text-balance">
             Different mechanism
             <br />
             <span className="text-primary">· Different outcome</span>
