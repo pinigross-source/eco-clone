@@ -1,4 +1,3 @@
-import { X, Check } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 import sofaImg from "@/assets/difference-kidsroom.jpg";
 import beddingImg from "@/assets/difference-bedding.jpg";
