@@ -131,11 +131,6 @@ export const HowItWorksSection = () => {
           </StaggerContainer>
         </div>
 
-        <ScrollReveal variant="fadeUp" delay={0.4} className="text-center mt-14 sm:mt-20">
-          <p className="text-sm sm:text-base text-foreground/80 tracking-wide px-4">
-            No chemicals · No ozone · Just beneficial biology working around the clock
-          </p>
-        </ScrollReveal>
       </div>
     </section>
   );
