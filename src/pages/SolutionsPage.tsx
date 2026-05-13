@@ -315,7 +315,7 @@ const SolutionsPage = () => {
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background ring-1 ring-border/60 text-xs font-medium text-foreground">
                       <Leaf className="w-3.5 h-3.5 text-primary" />
-                      100% Natural
+                      Natural
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background ring-1 ring-border/60 text-xs font-medium text-foreground">
                       <Clock className="w-3.5 h-3.5 text-primary" />
