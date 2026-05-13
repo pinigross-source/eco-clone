@@ -39,7 +39,7 @@ const ComparisonVideo = () => {
       >
         {playing ? (
           <iframe
-            src="https://player.vimeo.com/video/1050657976?autoplay=1&title=0&byline=0&portrait=0&controls=1&sidedock=0"
+            src="https://player.vimeo.com/video/1174075751?autoplay=1&title=0&byline=0&portrait=0&controls=1&sidedock=0"
             title="How EnviroBiotics works"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
