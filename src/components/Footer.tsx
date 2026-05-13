@@ -13,8 +13,6 @@ const exploreLinks = [
 ];
 
 const resourceLinks = [
-  { label: "Certified & Verified", href: "/safety" },
-  { label: "Help Center", href: "/support" },
   { label: "Blog & Articles", href: "/blog" },
   { label: "Videos", href: "/videos" },
   { label: "Research & Case Studies", href: "/research" },
