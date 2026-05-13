@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "@/lib/link";
 import { ArrowRight, Check, Star } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
