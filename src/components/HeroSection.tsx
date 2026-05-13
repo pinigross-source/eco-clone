@@ -113,7 +113,7 @@ export const HeroSection = ({
       <div className="container relative z-10 pb-12 pt-24 sm:pb-20 sm:pt-32 lg:pb-24">
         <div className="max-w-3xl text-left">
           <h1
-            className="mb-4 font-display font-bold tracking-[-0.04em] text-[2.65rem] leading-[1.05] sm:mb-8 sm:text-[clamp(2.8rem,9.5vw,6.5rem)] sm:tracking-[-0.03em] sm:leading-[1.02]"
+            className="mb-5 font-display font-bold tracking-[-0.04em] text-[2.65rem] leading-[1.02] sm:mb-7 sm:text-[clamp(2.8rem,9.5vw,6.5rem)] sm:tracking-[-0.035em] sm:leading-[1.0]"
             style={{
               color: "hsl(var(--primary-foreground))",
               textShadow:
@@ -126,28 +126,17 @@ export const HeroSection = ({
           </h1>
 
           <p
-            className="mb-7 max-w-xl text-lg font-medium leading-snug sm:mb-10 sm:text-xl sm:leading-relaxed lg:text-2xl"
+            className="mb-8 max-w-[34rem] text-[1.05rem] font-normal leading-[1.55] sm:mb-10 sm:text-lg sm:leading-[1.6] lg:text-xl"
             style={{
               color: "hsl(var(--primary-foreground))",
               textShadow:
                 "0 2px 8px hsl(var(--foreground) / 0.9), 0 4px 20px hsl(var(--foreground) / 0.75), 0 0 50px hsl(var(--foreground) / 0.5)",
             }}
           >
-            Air purifiers move air. Sprays mask odors. Our device releases living probiotics that break down the source on every high-touch surface a filter never reaches - 24 hours a day, every day.
+            Air purifiers move air. Sprays mask odors. Our device releases living probiotics that break down the source on every high-touch surface a filter never reaches — 24 hours a day, every day.
           </p>
 
-          <div className="flex flex-col items-stretch gap-2.5 sm:flex-row sm:items-center sm:gap-4">
-            <Link to="/how-it-works" onClick={() => trackEvent("click_see_how_it_works")} className="w-full sm:w-auto">
-              <Button
-                variant="impact-light"
-                size="impact-md"
-                className="group h-[58px] w-full px-7 text-base font-semibold sm:h-16 sm:w-auto sm:px-10 sm:text-lg"
-              >
-                See how it works
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-0.5" />
-              </Button>
-            </Link>
-
+          <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
             <a
               href="https://shop.envirobiotics.com/"
               target="_top"
@@ -162,18 +151,33 @@ export const HeroSection = ({
                 Start your 30-day trial
               </Button>
             </a>
+
+            <Link to="/how-it-works" onClick={() => trackEvent("click_see_how_it_works")} className="w-full sm:w-auto">
+              <Button
+                variant="impact-light"
+                size="impact-md"
+                className="group h-[58px] w-full px-7 text-base font-semibold sm:h-16 sm:w-auto sm:px-10 sm:text-lg"
+              >
+                See how it works
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-0.5" />
+              </Button>
+            </Link>
           </div>
 
-          <p
-            className="mt-4 text-xs sm:text-sm font-semibold tracking-[0.18em] uppercase"
+          <div
+            className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] sm:text-xs font-bold tracking-[0.22em] uppercase"
             style={{
               color: "hsl(var(--primary-foreground))",
               textShadow:
                 "0 2px 8px hsl(var(--foreground) / 0.9), 0 4px 20px hsl(var(--foreground) / 0.7)",
             }}
           >
-            30-day trial · No commitment · Free returns
-          </p>
+            <span>30-Day Trial</span>
+            <span className="h-1 w-1 rounded-full bg-white/50" />
+            <span>No Commitment</span>
+            <span className="h-1 w-1 rounded-full bg-white/50" />
+            <span>Free Returns</span>
+          </div>
         </div>
       </div>
 
