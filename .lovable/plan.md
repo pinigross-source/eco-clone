@@ -1,51 +1,42 @@
-# Home Page Design-Review Fixes (Top 4)
+## Goal
 
-Scope: `src/components/HeroSection.tsx`, `src/components/ProblemSection.tsx`, and a new tagline band on the home page (`src/pages/Index.tsx`). No business logic changes — copy + layout only.
+Make `ActiveDefenseToggle` feel calm, premium, and confident — closer to Apple/Sonos product demos — instead of the current dashboard-y look (traffic-light reds/greens/blues, dashed borders, spring bounces, multiple pulsing layers).
 
-## 1. Rewrite hero headline + force line breaks (Must Fix #1)
+## Direction
 
-File: `src/components/HeroSection.tsx` (lines 122–127)
+One restrained color story, slower choreography, fewer simultaneous motions, softer surfaces.
 
-- Replace the abstract triplet "Every surface. / Every space. / Always clean." with concrete-noun copy:
-  - "The dust."
-  - "The mold."
-  - "The smell that won't leave."
-- Force each clause onto its own line at every breakpoint by giving each clause its own `<span className="block">` and removing the `sm:inline` toggles. This guarantees the triplet rhythm holds on tablet (where it currently wraps as "Every surface. Every / space. / Always clean.").
-- Keep current font sizing, color tokens, and text-shadow.
+## Changes
 
-## 2. Surface the 30-day trial above the fold (Must Fix #2)
+**Color & state language**
+- Drop the red → blue → green traffic-light cycle. Use a single neutral baseline (graphite/foreground-muted) and one accent — soft sky/teal — that fades in for "Protected".
+- "Vulnerable" state: monochrome only (no red icons or red labels). Communicate via a subtle desaturation + a single small status word.
+- Replace the green check-shield badge with a thin ring or a 1.5px tick that fades in.
+- Status pill: remove colored fill + bold text. Use a small dot + light-weight label on a frosted white pill with hairline border.
 
-File: `src/components/HeroSection.tsx` (just under the CTA row, ~line 166)
+**Motion**
+- Remove `type: "spring"` everywhere; use `ease: [0.22, 1, 0.36, 1]` (Apple-style cubic) at 0.5–0.8s for state transitions.
+- Hotspot entrance: stagger 30ms, fade + 6px rise, no scale-from-zero.
+- Remove the infinite scale pulse on each hotspot glow. Keep one slow breathing glow on the central device only (4s, opacity 0.4 ↔ 0.7).
+- Reduce expanding wave rings from 3 to 1, slower (4s), thinner (1px), lower opacity (0.15 → 0), single accent color.
+- Particles: fewer (2 per hotspot, not 4), smaller, no rainbow gradient — solid accent at 60% opacity, soft shadow only, ease-out path.
 
-- Add a small reassurance line directly under the two hero buttons:
-  - "30-day trial · No commitment · Free returns"
-- Style: small caps or `text-xs/sm font-medium`, same `primary-foreground` color with a subtle text-shadow so it stays legible on the video background. Left-aligned, matching the headline column.
-- Keep the deeper `GuaranteeSection` intact — this is a top-of-page signal, not a replacement.
+**Surfaces & typography**
+- Container: remove primary-tinted glow shadow; use a single soft neutral shadow + 1px hairline border (`border-black/5`).
+- Background: flat white, drop the dotted grid pattern (or drop opacity to 0.015).
+- Hotspot chips: remove heavy 2px borders and drop-shadows. Use 1px hairline, `bg-white/80 backdrop-blur`, smaller radius.
+- Labels: switch from bold pill labels to lightweight 11px tracked-wide text, no background, sitting quietly under the icon.
 
-## 3. Delete the early two-card comparison (Must Fix #3)
-
-File: `src/components/ProblemSection.tsx`
-
-- Remove the two-card comparison block (lines 33–73: "Air Purifiers" card vs "EnviroBiotics" card).
-- Keep the section header ("Other solutions stop at the air. Ours goes further.") and the "high-touch surfaces" 4-image grid below it. Adjust the top margin on the surfaces grid (currently `mt-20 lg:mt-28`) so spacing reads correctly without the cards above it.
-- The three-card `ComparisonSection` and the "A living system" explainer in `HowItWorksSection` continue to carry the argument.
-
-## 4. Promote the tagline as its own band (Top 4 #4)
-
-The line "No chemicals · No ozone · Just beneficial biology" does not currently exist on the page. Add it as a slim full-width band.
-
-- New lightweight component `src/components/TaglineBand.tsx`:
-  - Single centered line: "No chemicals · No ozone · Just beneficial biology."
-  - Display font, large but not headline-scale (`text-2xl sm:text-3xl lg:text-4xl`), tight tracking, `text-foreground` on `bg-card` (or inverted on `bg-foreground` / `text-primary-foreground` — TBD during build, matching adjacent sections).
-  - Vertical padding `py-14 sm:py-20`, no other chrome.
-- Mount in `src/pages/Index.tsx` between `HeroSection` and `ShiftSection` so it acts as a value-prop bridge from the hero into the argument.
+**Rhythm**
+- Slow the auto-toggle from 8s to 12s so each state has room to breathe.
+- Stretch the protected-phase reveal: particles arrive over ~4s instead of 2.8s.
 
 ## Out of scope
 
-- Should Fix and Could Improve items from the review (not included in the message).
-- Hero video content, FAQ states, carousel transitions, reduced-motion behavior.
-- Any backend / data / link changes.
+- Copy changes ("Protected" / "Vulnerable" / "Passive filters miss…" stay).
+- Layout of hotspots (positions unchanged).
+- The center device illustration and toggle behavior.
 
-## Verification
+## Files
 
-- After edits, view the home page at desktop (1329px), tablet (~820px), and mobile (~390px) and confirm: headline triplet holds at all three breakpoints, trial line is visible without scrolling, only one comparison block remains in the upper half of the page, tagline band reads clearly above `ShiftSection`.
+- `src/components/hero/ActiveDefenseToggle.tsx` — only file touched.
