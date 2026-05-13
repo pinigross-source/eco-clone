@@ -140,11 +140,9 @@ export const HeroSection = ({
                   "0 2px 8px hsl(var(--foreground) / 0.85), 0 4px 24px hsl(var(--foreground) / 0.7), 0 0 60px hsl(var(--foreground) / 0.5)",
               }}
             >
-              <span className="block">The dust. The mold.</span>
-              <span className="block">
-                The smell that{" "}
-                <span className="text-[hsl(24_95%_53%)]">won't leave.</span>
-              </span>
+              <span className="block">The dust.</span>
+              <span className="block">The smell that</span>
+              <span className="block text-[hsl(24_95%_53%)]">won't leave.</span>
             </h1>
 
             <p
