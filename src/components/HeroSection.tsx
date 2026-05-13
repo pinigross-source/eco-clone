@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "@/lib/link";
 import { ArrowRight, Check, Star } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
@@ -24,7 +24,6 @@ export const HeroSection = ({
   overlayTopOpacity = 0,
   overlayBottomOpacity = 0,
 }: HeroSectionProps = {}) => {
-  const [videoLoaded, setVideoLoaded] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
@@ -55,9 +54,7 @@ export const HeroSection = ({
           // Never stay paused — resume immediately
           kick();
         }
-        if (data.event === "timeupdate" && typeof data.data?.seconds === "number" && data.data.seconds > 0.2) {
-          setVideoLoaded(true);
-        }
+        // no-op
       } catch {}
     };
     window.addEventListener("message", onMessage);
@@ -114,7 +111,7 @@ export const HeroSection = ({
           title="EnviroBiotics hero background"
           allow="autoplay; fullscreen; picture-in-picture"
           loading="eager"
-          className={`pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-700 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
+          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-100"
           style={{
             border: "none",
             width: "max(100vw, 177.78vh)",
