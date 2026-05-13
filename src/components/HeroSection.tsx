@@ -114,7 +114,7 @@ export const HeroSection = ({
           title="EnviroBiotics hero background"
           allow="autoplay; fullscreen; picture-in-picture"
           loading="eager"
-          className={`pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-700 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
+          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-100"
           style={{
             border: "none",
             width: "max(100vw, 177.78vh)",
