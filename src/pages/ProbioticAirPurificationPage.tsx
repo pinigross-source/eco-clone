@@ -166,7 +166,7 @@ const ProbioticAirPurificationPage = () => {
         title="What Is Probiotic Air Purification? The Complete Guide (2025)"
         description="Discover how probiotic air purifiers work differently from HEPA filters, using beneficial Bacillus bacteria to clean air and surfaces 24/7. FDA GRAS certified. Learn more."
         path="/probiotic-air-purification"
-        keywords="probiotic air purifier, probiotic air purification, indoor microbiome, what is probiotic air purification, chemical-free air purifier, probiotic indoor air quality, EnviroBiotics, BetterAir"
+        keywords="probiotic air purifier, probiotic air purification, indoor microbiome, what is probiotic air purification, chemical-free air purifier, probiotic indoor air quality, EnviroBiotics"
         jsonLd={jsonLd}
       />
 

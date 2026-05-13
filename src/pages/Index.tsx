@@ -59,7 +59,7 @@ const Index = () => {
         title="EnviroBiotics – Probiotic Air & Surface Support | Fresher Home Between Cleanings"
         description="EnviroBiotics releases beneficial probiotics designed to settle on surfaces and circulate through the air, supporting a fresher indoor environment between cleanings. Safe for families and pets."
         path="/"
-        keywords="bio air, bioair solutions, biotica, eco probiotic, enviro air, enviro bio, environizer air purifier, wet air purification, probiotic air purifier, probiotic air purification system, natural probiotic environmental purifier, surface air purification, EnviroBiotics, BetterAir"
+        keywords="bio air, bioair solutions, biotica, eco probiotic, enviro air, enviro bio, environizer air purifier, wet air purification, probiotic air purifier, probiotic air purification system, natural probiotic environmental purifier, surface air purification, EnviroBiotics"
         jsonLd={{
           "@context": "https://schema.org",
           "@graph": [
