@@ -33,6 +33,12 @@ export const HeroSection = ({
     const post = (method: string, value?: unknown) => {
       iframe.contentWindow?.postMessage(JSON.stringify({ method, value }), "*");
     };
+    const kick = () => {
+      post("setLoop", true);
+      post("setVolume", 0);
+      post("setMuted", true);
+      post("play");
+    };
     const onMessage = (e: MessageEvent) => {
       if (typeof e.data !== "string") return;
       try {
@@ -40,8 +46,14 @@ export const HeroSection = ({
         if (data.event === "ready") {
           post("addEventListener", "play");
           post("addEventListener", "playing");
+          post("addEventListener", "pause");
+          post("addEventListener", "ended");
           post("addEventListener", "timeupdate");
-          post("play");
+          kick();
+        }
+        if (data.event === "pause" || data.event === "ended") {
+          // Never stay paused — resume immediately
+          kick();
         }
         if (data.event === "timeupdate" && typeof data.data?.seconds === "number" && data.data.seconds > 0.2) {
           setVideoLoaded(true);
@@ -50,17 +62,32 @@ export const HeroSection = ({
     };
     window.addEventListener("message", onMessage);
     const onLoad = () => {
-      // Kick off Vimeo player API handshake
       post("ping");
       post("addEventListener", "play");
       post("addEventListener", "playing");
+      post("addEventListener", "pause");
+      post("addEventListener", "ended");
       post("addEventListener", "timeupdate");
-      post("play");
+      kick();
     };
     iframe.addEventListener("load", onLoad);
+
+    // Resume when tab becomes visible again or window regains focus
+    const onVisible = () => {
+      if (document.visibilityState === "visible") kick();
+    };
+    document.addEventListener("visibilitychange", onVisible);
+    window.addEventListener("focus", kick);
+
+    // Safety net: poke play every few seconds in case autoplay is blocked
+    const interval = window.setInterval(kick, 4000);
+
     return () => {
       window.removeEventListener("message", onMessage);
       iframe.removeEventListener("load", onLoad);
+      document.removeEventListener("visibilitychange", onVisible);
+      window.removeEventListener("focus", kick);
+      window.clearInterval(interval);
     };
   }, []);
 
