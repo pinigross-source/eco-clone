@@ -49,8 +49,6 @@ const navLinks: NavItem[] = [
       { label: "Mold & Allergens", href: "/mold-and-allergens", icon: Leaf, desc: "Targeted support" },
     ],
   },
-  { label: "Certified & Verified", href: "/safety" },
-  { label: "Help Center", href: "/support" },
 ];
 
 const storeDropdown: NavItem = {
