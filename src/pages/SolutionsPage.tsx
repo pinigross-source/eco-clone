@@ -461,6 +461,27 @@ const SolutionsPage = () => {
                   </div>
                 </div>
               </ScrollReveal>
+            </div>
+
+            <ScrollReveal variant="fadeUp">
+              <p className="text-sm sm:text-[15px] text-muted-foreground text-center max-w-2xl mx-auto">
+                Same goal. Two completely different approaches. One reacts to what's already there — the other prevents it from settling in.
+              </p>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        <section id="solutions" className="py-24 md:py-32 bg-background relative">
+          <div className="container relative z-10 px-5 md:px-6">
+            <ScrollReveal variant="fadeUp" className="max-w-3xl mb-14 md:mb-20">
+              <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
+                Our Solutions
+              </span>
+              <h2 className="text-[2rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance">
+                Solutions for{" "}
+                <span className="text-primary whitespace-nowrap">every environment.</span>
+              </h2>
+            </ScrollReveal>
 
             <StaggerContainer className="grid md:grid-cols-3 gap-4 md:gap-5" staggerDelay={0.1}>
               {solutionCategories.map(({ icon: Icon, title, description, highlights, cta, href, external, badge, featured }) => (
