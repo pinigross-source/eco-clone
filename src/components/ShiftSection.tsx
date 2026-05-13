@@ -12,9 +12,9 @@ const stats = [
     negative: false,
   },
   {
-    value: "0%",
-    text: "of surfaces are reached by traditional air purifiers",
-    negative: true,
+    value: "99.99%",
+    text: "of surfaces reached",
+    negative: false,
   },
 ];
 
