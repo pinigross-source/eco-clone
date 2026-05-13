@@ -334,7 +334,7 @@ const HowItWorksPage = () => {
           <ScrollReveal variant="fadeUp" delay={0.4} className="mt-10 md:mt-12 text-center">
             <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-card ring-1 ring-black/[0.06]">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs md:text-sm font-medium text-foreground">Runs quietly in the background, 24/7</span>
+              <span className="text-xs md:text-sm font-medium text-foreground">Runs quietly. Works constantly. Notice nothing but the difference.</span>
             </div>
           </ScrollReveal>
         </div>
