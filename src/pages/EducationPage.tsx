@@ -432,18 +432,16 @@ const EducationPage = () => {
                 title="What Is the Indoor Microbiome?"
                 description="Your home is not sterile — it is alive. Thousands of microbial species form an ecosystem as complex as a rainforest, but more intimate. Modern construction and chemical cleaning have changed it in ways that affect how your home behaves."
                 bestFor="Anyone new to indoor air quality science who wants to understand the foundation."
-                to="/education"
+                to="/indoor-microbiome"
                 linkText="Read the guide"
-                comingSoon
               />
               <GuideCard
                 icon={<Shield className="w-5 h-5" />}
                 title="The Hygiene Hypothesis Explained"
                 description="Reduced exposure to beneficial environmental microbes — especially early in life — may disrupt how the immune system develops. The issue isn't dirt; it's microbial diversity and balance."
                 bestFor="Parents concerned about allergies and asthma, and anyone curious about the link between cleanliness and immune function."
-                to="/education"
+                to="/hygiene-hypothesis"
                 linkText="Read the guide"
-                comingSoon
               />
             </div>
           </div>
@@ -468,27 +466,24 @@ const EducationPage = () => {
                 title="Dust Mite Allergens"
                 description="Der p1 and Der f1 are among the most common triggers for indoor allergies and asthma. They accumulate in fabrics and dust, especially in bedrooms, and resuspend with every movement."
                 bestFor="Allergy and asthma sufferers, pet owners, and anyone with recurring respiratory symptoms."
-                to="/education"
+                to="/dust-mite-allergens"
                 linkText="Read the guide"
-                comingSoon
               />
               <GuideCard
                 icon={<Wind className="w-5 h-5" />}
                 title="Mold Indoors"
                 description="Mold grows wherever moisture, organic matter, and poor airflow meet. Visible mold is often only part of the problem — spores and fragments spread into dust and air."
                 bestFor="People dealing with recurring mold problems, damp basements, bathrooms, or HVAC concerns."
-                to="/education"
+                to="/mold-indoors"
                 linkText="Read the guide"
-                comingSoon
               />
               <GuideCard
                 icon={<PawPrint className="w-5 h-5" />}
                 title="Pet Dander"
                 description="Fel d1 and Can f1 are among the stickiest, most persistent indoor allergens. They cling to fabric and travel between homes, remaining for months even after a pet is gone."
                 bestFor="Pet owners with allergies or asthma, and families concerned about pet allergen exposure."
-                to="/education"
+                to="/pet-dander"
                 linkText="Read the guide"
-                comingSoon
               />
             </div>
           </div>
@@ -513,27 +508,24 @@ const EducationPage = () => {
                 title="The Science of Competitive Exclusion"
                 description="When beneficial probiotics occupy a surface first, they compete with unwanted bacteria and mold for nutrients, adhesion sites, and space — creating a more stable microbial environment over time."
                 bestFor="Anyone who wants to understand the core mechanism behind probiotic purification."
-                to="/education"
+                to="/competitive-exclusion"
                 linkText="Read the guide"
-                comingSoon
               />
               <GuideCard
                 icon={<Award className="w-5 h-5" />}
                 title="Understanding FDA GRAS Status"
                 description="GRAS — Generally Recognized As Safe — is a safety designation for substances and ingredients evaluated for their history of safe use. For probiotic products, strain identity and selection matter most."
                 bestFor="Anyone concerned about product safety, health-conscious families, and people with chemical sensitivities."
-                to="/education"
+                to="/fda-gras-status"
                 linkText="Read the guide"
-                comingSoon
               />
               <GuideCard
                 icon={<Scale className="w-5 h-5" />}
                 title="Probiotic vs. Chemical Disinfection"
                 description="Chemical disinfectants can be fast, but they leave residues, disrupt microbial balance, and stop working once the chemistry breaks down. Probiotic hygiene takes a longer-term, biologically balanced approach."
                 bestFor="Anyone weighing the health impact of chemical cleaners, especially families with asthma or chemical sensitivities."
-                to="/education"
+                to="/probiotic-vs-chemical"
                 linkText="Read the guide"
-                comingSoon
               />
             </div>
           </div>
