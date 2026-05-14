@@ -587,7 +587,7 @@ const EducationPage = () => {
                     <div className="relative rounded-3xl overflow-hidden aspect-square shadow-[0_30px_80px_-40px_hsl(var(--foreground)/0.25)]">
                       <img
                         src={petriStill}
-                        alt="A single matte ceramic petri dish on warm linen — beneficial probiotic colonies as quiet still life."
+                        alt="Sunlit interior corner with a billowing linen curtain and an olive tree — fresh, balanced indoor air."
                         className="absolute inset-0 w-full h-full object-cover"
                         width={1280}
                         height={1280}
