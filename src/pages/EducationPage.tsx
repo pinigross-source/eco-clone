@@ -18,7 +18,6 @@ import {
   Award,
   HeartPulse,
   Sparkles,
-  Wand2,
   Search,
   ShieldCheck,
 } from "lucide-react";
