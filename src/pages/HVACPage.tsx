@@ -369,59 +369,56 @@ const HVACPage = () => {
       />
       <Navbar />
       <main>
-        {/* Hero Section - Sonos style with background image */}
-        <section className="relative pt-24 pb-16 overflow-hidden">
-          <div className="container relative z-10">
-            <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] ring-1 ring-black/[0.06] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.35),0_20px_40px_-20px_rgba(0,0,0,0.15)]">
-              {/* Background image */}
-              <img
-                src={hvacBuildingLungsBg}
-                alt=""
-                aria-hidden="true"
-                loading="eager"
-                fetchPriority="high"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              {/* Readability gradient — lighter wash to keep image bright */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/15 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+        {/* Hero Section — split-screen layout */}
+        <section className="relative w-full overflow-hidden pt-16 sm:pt-20 bg-background">
+          <div className="grid lg:grid-cols-2 min-h-[78vh] md:min-h-[88vh]">
+            {/* Text panel */}
+            <div className="flex items-center px-5 sm:px-10 md:px-16 lg:px-20 py-16 lg:py-0 order-2 lg:order-1">
+              <div className="max-w-xl">
+                <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-6">
+                  <Building2 className="w-3.5 h-3.5" />
+                  Central Air & Heating Solutions
+                </span>
 
-              {/* Content */}
-              <div className="relative z-10 px-6 py-20 sm:px-12 sm:py-28 md:px-16 md:py-36 lg:px-20 lg:py-44">
-                <div className="max-w-3xl">
-                  <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-white/80 mb-6">
-                    <Building2 className="w-3.5 h-3.5" />
-                    Central Air & Heating Solutions
-                  </span>
+                <h1 className="font-display font-bold tracking-tight text-balance text-4xl sm:text-5xl md:text-6xl lg:text-[5.25rem] leading-[1.02] text-foreground mb-6">
+                  Your Building Has <span className="text-[hsl(24_95%_53%)] whitespace-nowrap">Lungs.</span>
+                </h1>
 
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.25rem] font-display font-bold leading-[1.02] tracking-[-0.035em] text-white mb-6">
-                    Your Building
-                    <br />
-                    Has Lungs.
-                  </h1>
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed mb-10">
+                  At the heart of every building is a hidden, living system. The HVAC system functions as the building's respiratory system, sustaining comfort, air quality, and overall indoor health.
+                </p>
 
-                  <p className="text-base sm:text-lg md:text-xl text-white/85 max-w-xl leading-relaxed mb-10">
-                    At the heart of every building is a hidden, living system. The HVAC system functions as the building's respiratory system, sustaining comfort, air quality, and overall indoor health.
-                  </p>
-
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <a
-                      href="#ebiotic-pro"
-                      className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-white/95"
-                    >
-                      Explore E-Biotic Pro
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                    <a
-                      href="mailto:contact@envirobiotics.com"
-                      className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-white text-sm font-semibold ring-1 ring-inset ring-white/30 backdrop-blur-sm transition-all hover:bg-white/20"
-                    >
-                      <Mail className="w-4 h-4" />
-                      Contact Sales
-                    </a>
-                  </div>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="#ebiotic-pro"
+                    className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background text-sm font-semibold transition-all hover:-translate-y-0.5"
+                  >
+                    Explore E-Biotic Pro
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                  <a
+                    href="mailto:contact@envirobiotics.com"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-transparent text-foreground text-sm font-semibold ring-1 ring-inset ring-foreground/20 transition-all hover:bg-foreground/5"
+                  >
+                    <Mail className="w-4 h-4" />
+                    Contact Sales
+                  </a>
                 </div>
               </div>
+            </div>
+
+            {/* Image panel */}
+            <div className="relative min-h-[50vh] lg:min-h-[88vh] order-1 lg:order-2">
+              <img
+                src={hvacBuildingLungsBg}
+                alt="HVAC building system as the respiratory system of a modern building"
+                className="absolute inset-0 h-full w-full object-cover"
+                width={1920}
+                height={1280}
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+              />
             </div>
           </div>
         </section>
