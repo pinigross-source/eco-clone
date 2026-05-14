@@ -1,5 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useLocation } from "@tanstack/react-router";
 import Page from "@/pages/SolutionsPage";
+
+function SolutionsRoute() {
+  const location = useLocation();
+
+  if (location.pathname !== "/solutions") {
+    return <Outlet />;
+  }
+
+  return <Page />;
+}
 
 export const Route = createFileRoute("/solutions")({
   head: () => ({
@@ -17,5 +27,5 @@ export const Route = createFileRoute("/solutions")({
       { rel: "canonical", href: "https://envirobiotics.com/solutions" },
     ],
   }),
-  component: Page,
+  component: SolutionsRoute,
 });
