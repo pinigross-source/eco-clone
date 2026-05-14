@@ -3,7 +3,6 @@ import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Link } from "@/lib/link";
-import { SectionLabel } from "@/components/ui/section-label";
 import {
   Accordion,
   AccordionContent,
@@ -11,30 +10,35 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-  Shield, Heart, Moon, Brain, Sparkles, Baby,
-  Leaf, ShoppingBag, ArrowRight, Check,
-  Wind, PawPrint, Bug, Droplets, Users,
-  Microscope, Activity, Eye,
+  Wind, Activity, Moon, Shield, Brain, Eye,
+  Baby, Heart, Leaf, PawPrint, Droplets, Microscope, Bug,
+  ArrowRight, ShoppingBag, Check,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+import heroImg from "@/assets/health-scandi-livingroom.jpg";
+import bedroomImg from "@/assets/health-scandi-bedroom.jpg";
+import nurseryImg from "@/assets/health-scandi-nursery.jpg";
+import kitchenImg from "@/assets/health-scandi-kitchen.jpg";
+import windowImg from "@/assets/health-scandi-window.jpg";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const RelatedTopics = lazy(() => import("@/components/RelatedTopics").then(m => ({ default: m.RelatedTopics })));
 
-/* ─── JSON-LD schema ─────────────────────────────────────── */
+/* ─── JSON-LD ─────────────────────────────────────────────── */
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Article",
-      headline: "Health Benefits of Cleaner Indoor Air | EnviroBiotics",
+      headline: "The Health Benefits of Cleaner Indoor Air | EnviroBiotics",
       description:
-        "Poor indoor air quality affects sleep, allergies, asthma, immunity, and long-term health. Learn how probiotic purification addresses the biological root causes.",
+        "How indoor air quality shapes sleep, allergies, asthma, immunity and cognition — and how continuous probiotic purification addresses the biological root causes.",
       author: { "@type": "Organization", name: "EnviroBiotics" },
       publisher: { "@type": "Organization", name: "EnviroBiotics", url: "https://envirobiotics.com" },
       url: "https://envirobiotics.com/health-benefits",
       datePublished: "2024-01-01",
-      dateModified: "2025-04-01",
+      dateModified: "2026-05-01",
     },
     makeBreadcrumbJsonLd([
       { name: "Home", url: "/" },
@@ -43,259 +47,156 @@ const jsonLd = {
     {
       "@type": "FAQPage",
       mainEntity: [
-        { "@type": "Question", name: "Can probiotic air purification help with allergies?", acceptedAnswer: { "@type": "Answer", text: "Yes. Independent lab testing shows up to 90% reduction in common indoor allergen concentrations within 30 days of continuous probiotic treatment." } },
-        { "@type": "Question", name: "Does indoor air quality affect sleep?", acceptedAnswer: { "@type": "Answer", text: "Research consistently shows that elevated allergen levels, particulate matter, and VOCs in the bedroom environment disrupt sleep architecture and reduce time in deep sleep stages." } },
-        { "@type": "Question", name: "Is probiotic purification safe for children and infants?", acceptedAnswer: { "@type": "Answer", text: "Yes. EnviroBiotics uses FDA GRAS certified Bacillus strains. The devices produce no ozone, no VOCs, and no chemical residues. They are safe for use in nurseries from birth." } },
-        { "@type": "Question", name: "How long before health improvements are noticeable?", acceptedAnswer: { "@type": "Answer", text: "Many users report improvements in odor and sleep quality within one to two weeks. Independent testing shows measurable allergen reduction within the first week and up to 90% reduction after 30 days." } },
-        { "@type": "Question", name: "Can probiotic purification replace asthma medication?", acceptedAnswer: { "@type": "Answer", text: "No. Probiotic purification reduces the environmental triggers that provoke asthma episodes. It is a complementary environmental intervention, not a medical treatment." } },
-        { "@type": "Question", name: "Is the connection between indoor air quality and cognitive health established?", acceptedAnswer: { "@type": "Answer", text: "Yes. Multiple peer-reviewed studies, including research from Harvard University, have found measurable connections between indoor air quality and cognitive performance." } },
+        { "@type": "Question", name: "How long until I notice a difference?", acceptedAnswer: { "@type": "Answer", text: "Most people notice improvement in nasal congestion and sleep quality within 2–3 weeks of continuous use. Allergen reduction is measurable within 30 days." } },
+        { "@type": "Question", name: "Will it work if I still have pets?", acceptedAnswer: { "@type": "Answer", text: "Yes. Probiotic purification reduces pet allergens on surfaces. You don't have to choose between your pet and breathing clearly." } },
+        { "@type": "Question", name: "What if I have mold right now?", acceptedAnswer: { "@type": "Answer", text: "Fix the moisture source first. Probiotic treatment prevents mold from re-establishing after remediation." } },
+        { "@type": "Question", name: "Is it safe for my kids?", acceptedAnswer: { "@type": "Answer", text: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA registered. Safe for infants, children and pregnant women." } },
+        { "@type": "Question", name: "Can I use it with my air purifier?", acceptedAnswer: { "@type": "Answer", text: "Yes. An air purifier handles the floating particles. EnviroBiotics handles the surfaces where most allergens live." } },
       ],
     },
   ],
 };
 
-/* ─── Contaminant categories ─────────────────────────────── */
 const contaminants = [
-  { icon: Bug, title: "Dust mite allergen proteins", text: "Der p1 and Der f1 are waste proteins shed by dust mites living in mattresses, carpets, and soft furnishings. They are among the most potent triggers for allergic rhinitis and asthma in both adults and children." },
-  { icon: Droplets, title: "Mold spores & mycotoxins", text: "Airborne mold spores trigger respiratory inflammation in sensitive individuals. Certain mold species also produce mycotoxins, compounds that cause systemic health effects including neurological symptoms, immune suppression, and chronic fatigue." },
-  { icon: PawPrint, title: "Pet allergen proteins", text: "Fel d1 (cats) and Can f1 (dogs) are exceptionally small, airborne, and persistent. They remain active on surfaces and in the air for months. For the roughly 10 to 20% of the population with pet allergies, indoor levels directly determine quality of daily life." },
-  { icon: Microscope, title: "Indoor pathogens & VOCs", text: "Pathogenic bacteria on surfaces continuously re-seed indoor air. Chemical cleaning products, synthetic fragrances, and off-gassing from furniture add VOC loads that irritate airways and disrupt endocrine function with chronic exposure." },
+  { icon: Bug, title: "Dust mite allergens", text: "Der p1 and Der f1 — the waste proteins shed by dust mites in mattresses, carpets and soft furnishings. Among the most potent triggers for allergic rhinitis and asthma." },
+  { icon: Droplets, title: "Mold spores & mycotoxins", text: "Airborne spores trigger respiratory inflammation. Certain species produce mycotoxins linked to neurological symptoms, immune suppression and chronic fatigue." },
+  { icon: PawPrint, title: "Pet allergen proteins", text: "Fel d1 and Can f1 stay active on surfaces and in the air for months — even in homes without pets. They define daily quality of life for the 10–20% of people with pet allergies." },
+  { icon: Microscope, title: "Pathogens & VOCs", text: "Surface bacteria continuously reseed the air. Cleaning chemicals, fragrances and off-gassing furniture add VOC loads that irritate airways with chronic exposure." },
 ];
 
-/* ─── Health conditions ──────────────────────────────────── */
-const healthConditions = [
+const conditions = [
   {
     icon: Wind,
-    title: "Allergic Rhinitis",
-    intro: "Allergic rhinitis, commonly called hay fever, is one of the most widespread chronic conditions globally. While outdoor pollen is the best-known trigger, dust mite allergens and mold spores in the indoor environment are responsible for year-round symptoms in millions of people.",
-    body: "Symptoms include nasal congestion, sneezing, itchy eyes, and post-nasal drip. When driven by indoor allergens rather than seasonal pollen, symptoms persist continuously. Reducing indoor allergen loads through probiotic surface treatment is among the most effective long-term interventions available. In the Indoor Biotechnologies study, continuous probiotic treatment reduced common indoor allergen concentrations by up to 90% within 30 days.",
+    title: "Allergic rhinitis",
+    intro: "Year-round congestion driven by indoor allergens — not seasonal pollen.",
+    body: "Nasal congestion, sneezing, itchy eyes, post-nasal drip. When the trigger lives in your mattress, carpet and furniture, symptoms never resolve seasonally. In independent lab testing, continuous probiotic treatment reduced common indoor allergen concentrations by up to 90% within 30 days.",
   },
   {
     icon: Activity,
     title: "Asthma",
-    intro: "Asthma affects over 25 million Americans. In adults and children with asthma, indoor biological triggers are responsible for a large proportion of exacerbations, hospitalizations, and reduced quality of life.",
-    body: "The primary indoor asthma triggers are dust mite allergens, mold spores, pet dander, and cockroach allergen proteins, all surface-based contaminants that circulate into the air through everyday activity. Probiotic purification works on the reservoirs directly: consuming the organic matter that dust mites feed on, depriving mold of germination nutrition, and enzymatically degrading pet allergen proteins on all surfaces.",
+    intro: "Indoor biological triggers drive a large share of exacerbations in the 25 million Americans with asthma.",
+    body: "Dust mite allergens in bedding, mold spores in hidden spaces, pet dander on every soft surface — every movement stirs them back into the air you breathe. Probiotic purification works where the problem lives, breaking down the proteins and depriving microbes of their food source.",
   },
   {
     icon: Moon,
-    title: "Sleep Quality",
-    intro: "Sleep researchers have established a clear connection between indoor air quality and sleep outcomes. Poor air quality, specifically elevated particulate matter, allergen proteins, and VOCs, increases nighttime respiratory resistance and disrupts sleep architecture.",
-    body: "Dust mite allergens are particularly relevant because the mattress and pillow are the densest concentration of dust mite habitat in most homes. Nasal congestion and airway inflammation from allergen exposure during sleep reduces time in deep sleep stages and contributes to morning fatigue and impaired concentration. Many users report noticeable improvement in sleep within two to three weeks of continuous use.",
+    title: "Sleep quality",
+    intro: "Your mattress and pillow are the densest dust mite habitat in your home.",
+    body: "Allergen exposure during sleep raises nighttime respiratory resistance, reduces deep sleep and produces the morning fatigue you blame on yourself. Most users report deeper sleep and clearer mornings within two to three weeks.",
   },
   {
     icon: Shield,
-    title: "Immune System Function",
-    intro: "The indoor microbiome has a significant and increasingly well-understood relationship with immune system calibration. Research consistently shows that the microbial diversity of the environments we inhabit influences how the immune system develops, responds, and regulates itself.",
-    body: "Modern indoor environments, stripped of microbial diversity by chemical cleaning and tight building construction, present an impoverished microbial landscape. Researchers connect this depletion to higher rates of allergic sensitization, autoimmune conditions, and inflammatory disease. Probiotic purification partially restores this diversity by introducing beneficial Bacillus strains that re-populate the indoor environment with safe, health-supporting microorganisms.",
+    title: "Immune calibration",
+    intro: "Modern indoor environments are microbially impoverished — and your immune system notices.",
+    body: "Diversity of the indoor microbiome influences how the immune system develops, responds and regulates itself. Probiotic purification reintroduces beneficial Bacillus strains that train the immune system toward tolerance instead of reactivity.",
   },
   {
     icon: Brain,
-    title: "Cognitive Performance & Mental Clarity",
-    intro: "Research published in peer-reviewed environmental health journals has established that indoor air quality affects cognitive function, attention, and mental performance.",
-    body: "A landmark study by Harvard University researchers found that workers in environments with lower VOC levels and better ventilation scored significantly higher on cognitive function tests across nine domains. Separately, research published in Nature Communications identified associations between long-term exposure to poor air quality and increased risk of cognitive decline. The mechanism is both direct (inhaled particles affecting brain chemistry) and indirect (disrupted sleep reducing cognitive repair).",
+    title: "Cognitive performance",
+    intro: "Air quality changes how clearly you think.",
+    body: "Harvard researchers found workers in lower-VOC environments scored significantly higher across nine cognitive domains. Long-term exposure to poor air quality is associated with increased risk of cognitive decline. Better air protects both inhalation and the deep sleep that does the cognitive repair.",
   },
   {
     icon: Eye,
-    title: "Skin Health",
-    intro: "The skin is a physical interface with the environment and is directly affected by indoor air quality.",
-    body: "Dry, irritant-rich indoor air, elevated dust mite allergen concentrations, and VOC exposure are all connected to worsening of eczema and contact dermatitis in sensitive individuals. Dust mite allergen proteins penetrate skin barrier defects and provoke inflammatory responses at the cellular level. Reducing the surface allergen load in a home reduces the ongoing skin exposure that drives chronic eczema.",
+    title: "Skin health",
+    intro: "Your skin is the interface between your body and the air in your home.",
+    body: "Dust mite proteins penetrate skin barrier defects and trigger inflammation at the cellular level. VOC-rich, allergen-heavy air provokes chronic eczema and contact dermatitis. Reducing the surface load lets the skin barrier heal.",
   },
 ];
 
-/* ─── User-reported benefits ─────────────────────────────── */
-const userBenefits = [
-  "Reduced frequency and severity of nasal congestion, sneezing, and eye irritation, particularly in households with pets or dust mite sensitivity.",
-  "Fewer nighttime awakenings, reduced nasal congestion during sleep, and improved morning energy levels.",
-  "Fewer inhaler uses and lower frequency of symptom flares, particularly in children with allergies and asthma.",
-  "Complete resolution of pet odors, musty smells, and persistent cooking odors, not masking but elimination at the source.",
-  "No return of mold in previously affected bathrooms, basements, and HVAC systems after implementing continuous probiotic treatment.",
+const outcomes = [
+  "Less nasal congestion, fewer sneezing fits, clearer eyes — usually within days.",
+  "Deeper sleep, fewer nighttime awakenings, mornings without grogginess.",
+  "Fewer inhaler uses and symptom flares — especially in children.",
+  "Pet, musty and cooking odors eliminated at the source, not masked.",
+  "No mold regrowth in previously affected bathrooms, basements and HVAC.",
+  "Year-round allergy sufferers report manageable seasons for the first time.",
 ];
 
-/* ─── Who benefits most ──────────────────────────────────── */
 const beneficiaries = [
-  { icon: Baby, title: "Children with allergies & asthma", text: "Children are more vulnerable because they breathe more air relative to body weight and spend more time on surfaces where allergens concentrate. Probiotic purification is safe for infants from birth." },
-  { icon: Wind, title: "Adults with chronic allergic rhinitis", text: "For people with year-round allergy symptoms driven by indoor triggers, probiotic purification attacks the allergen reservoirs directly rather than simply filtering what passes through the air." },
-  { icon: Droplets, title: "People recovering from mold exposure", text: "Individuals rebuilding a healthy living environment benefit from ongoing prevention that ensures mold does not reestablish itself after remediation." },
-  { icon: Heart, title: "Elderly individuals", text: "Older adults with reduced immune resilience and greater sensitivity to respiratory irritants benefit from the continuous reduction in pathogen and allergen loads." },
-  { icon: Leaf, title: "Anyone committed to a non-toxic home", text: "People who have already eliminated chemical cleaners and synthetic fragrances benefit from a purification approach that achieves better biological outcomes without reintroducing chemical loads." },
+  { icon: Baby, title: "Children with allergies & asthma", text: "Kids breathe more air per pound of body weight and live closer to where allergens settle. Safe for infants from birth." },
+  { icon: Wind, title: "Adults with chronic rhinitis", text: "Attacks the year-round allergen reservoirs directly instead of filtering what passes through the air." },
+  { icon: Droplets, title: "Recovering from mold", text: "Continuous prevention so mold cannot reestablish itself after remediation." },
+  { icon: Heart, title: "Older adults", text: "Continuous reduction in pathogens and allergens for those with reduced immune resilience." },
+  { icon: Leaf, title: "Non-toxic households", text: "Better biological outcomes without reintroducing chemical loads into your air." },
+  { icon: PawPrint, title: "Pet owners", text: "Reduces pet allergen loads to manageable levels. Keep your pet. Keep your health." },
 ];
 
-/* ─── FAQ ────────────────────────────────────────────────── */
 const faqs = [
-  { q: "Can probiotic air purification help with allergies?", a: "Yes. Independent lab testing shows up to 90% reduction in common indoor allergen concentrations within 30 days of continuous probiotic treatment. Dust mite allergens and pet dander proteins, the most common year-round allergy triggers, are directly reduced through probiotic enzymatic activity on surfaces." },
-  { q: "Does indoor air quality affect sleep?", a: "Research consistently shows that elevated allergen levels, particulate matter, and VOCs in the bedroom environment disrupt sleep architecture and reduce time in deep sleep stages. Reducing the biological load in the bedroom is one of the most impactful changes allergy and asthma sufferers can make for sleep quality." },
-  { q: "Is probiotic purification safe for children and infants?", a: "Yes. EnviroBiotics uses FDA GRAS certified Bacillus strains, the same safety classification used for bacteria in infant formula and baby food. The devices produce no ozone, no VOCs, and no chemical residues. They are safe for use in nurseries from birth." },
-  { q: "How long before health improvements are noticeable?", a: "Many users report improvements in odor and sleep quality within one to two weeks. Independent testing shows measurable allergen reduction within the first week and up to 90% reduction after 30 days of continuous use. Allergy symptom improvement typically follows the allergen reduction curve." },
-  { q: "Can probiotic purification replace asthma medication?", a: "No. Probiotic purification reduces the environmental triggers that provoke asthma episodes. It is a complementary environmental intervention, not a medical treatment. Always follow your physician's guidance on asthma management." },
-  { q: "Is the connection between indoor air quality and cognitive health established?", a: "Yes. Multiple peer-reviewed studies, including research from Harvard University, have found measurable connections between indoor air quality and cognitive performance. This is an active area of ongoing research." },
+  { q: "How long until I notice a difference?", a: "Most people notice improvement in nasal congestion and sleep quality within 2–3 weeks of continuous use. Allergen reduction is measurable within 30 days. Severity of the starting allergen load determines the slope." },
+  { q: "Will it work if I still have pets?", a: "Yes. Probiotic purification reduces pet allergens on surfaces, not by removing the pet. Most people find the resulting load very tolerable." },
+  { q: "What if I have mold right now?", a: "Fix the moisture source first. Probiotic treatment prevents mold from re-establishing afterward — it works as prevention and maintenance, not as a replacement for fixing a leak." },
+  { q: "Is it safe for my kids?", a: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA registered — the same beneficial bacteria found in soil and on healthy skin. Safe for infants, children and pregnant women." },
+  { q: "Can I use it with my air purifier?", a: "Yes. An air purifier handles floating particles. EnviroBiotics handles the surfaces where most allergens actually live. Together they cover the whole problem." },
 ];
 
-/* ─── Page ───────────────────────────────────────────────── */
 const HealthBenefitsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Health Benefits of Cleaner Indoor Air | EnviroBiotics"
-        description="Poor indoor air quality affects sleep, allergies, asthma, immunity, and long-term health. Learn how probiotic purification addresses the biological root causes. Science-backed guide."
+        description="How indoor air quality affects sleep, allergies, asthma, immunity and cognition — and how continuous probiotic purification addresses the biological root causes."
         path="/health-benefits"
-        keywords="health benefits of indoor air quality, probiotics for allergies home, indoor air quality health benefits, probiotic purification health, allergy relief home, asthma triggers home, benefits of clean indoor air, EnviroBiotics"
+        keywords="health benefits indoor air quality, probiotic air purification, allergy relief home, asthma triggers home, sleep air quality, EnviroBiotics"
         jsonLd={jsonLd}
       />
 
       <Navbar />
 
-      {/* ═══════════════════════════════════════════════════
-          HERO
-          ═══════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
-        <div className="absolute top-20 right-10 w-72 md:w-[500px] h-72 md:h-[500px] bg-primary/6 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-0 w-60 md:w-96 h-60 md:h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="container relative px-5 md:px-6 max-w-4xl mx-auto">
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5 md:mb-6">Science-Backed Guide</SectionLabel>
-
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display leading-[1.1] mb-6 text-balance">
-                The Health Benefits of{" "}
-                <span className="text-gradient-primary">Cleaner Indoor Air</span>
-              </h1>
-
-              <p className="text-sm text-muted-foreground mb-10">
-                By EnviroBiotics Science Team
-              </p>
-            </ScrollReveal>
-          </Suspense>
-
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp" delay={0.15}>
-              <div className="space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed">
-                <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed">
-                  The air inside your home is doing something to your body right now.
+      {/* ════════ HERO — full-bleed Sonos style ════════ */}
+      <section className="relative w-full overflow-hidden pt-16 sm:pt-20">
+        <div className="relative min-h-[78vh] md:min-h-[88vh] w-full">
+          <img
+            src={heroImg}
+            alt="A serene Scandinavian living room bathed in soft morning light"
+            className="absolute inset-0 h-full w-full object-cover"
+            width={1920}
+            height={1280}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent md:bg-gradient-to-r md:from-black/65 md:via-black/25 md:to-transparent"
+          />
+          <div className="relative z-10 flex min-h-[78vh] md:min-h-[88vh] items-end md:items-center">
+            <div className="container px-5 sm:px-6 pb-12 md:pb-0">
+              <div className="max-w-3xl text-white" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.45)" }}>
+                <p className="text-[11px] sm:text-xs font-semibold tracking-[0.28em] uppercase text-white/85 mb-5">
+                  Science-Backed Guide
                 </p>
-                <p>
-                  If it is carrying elevated levels of dust mite allergens, mold spores, pet dander, or pathogenic bacteria, the effects are not always obvious. They often show up as chronic fatigue you cannot explain, sleep that never quite feels restorative, allergies that never fully resolve, or a persistent low-grade respiratory irritation that you have quietly accepted as normal.
-                </p>
-                <p>
-                  None of those things are normal. And in most cases, they are directly traceable to the biological quality of your indoor environment.
-                </p>
-                <div className="bg-primary-soft/50 border border-primary/10 rounded-2xl p-5 md:p-6 mt-2">
-                  <p className="text-foreground font-medium text-base md:text-lg leading-relaxed">
-                    This guide covers the connection between indoor air quality and human health, which conditions are most directly affected, and how continuous probiotic purification addresses the biological root causes that conventional air purifiers leave untouched.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-          </Suspense>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════
-          WHY IAQ MATTERS
-          ═══════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-muted/30">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">The Scale of Exposure</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-6">
-                Why Indoor Air Quality Has Such a Large Impact on Health
-              </h2>
-              <div className="space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed mb-12">
-                <p>
-                  The average person spends more than 90% of their time indoors. That means the quality of indoor air is far more relevant to daily health than outdoor air quality, which receives dramatically more public attention and regulatory scrutiny.
-                </p>
-                <p>
-                  The Environmental Protection Agency consistently ranks indoor air pollution among the top five environmental risks to public health. Indoor air can be two to five times more polluted than outdoor air, and in some homes the disparity is far greater.
+                <h1 className="font-display font-bold tracking-tight text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.04] mb-6 !text-white">
+                  The health benefits of cleaner indoor air.
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed max-w-2xl">
+                  Sleep, allergies, asthma, immunity, the way you think — all shaped by what's living
+                  in the air around you. Here's what the science says, and what changes when you fix it.
                 </p>
               </div>
-            </ScrollReveal>
-          </Suspense>
-
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp" delay={0.1}>
-              <h3 className="text-xl md:text-2xl font-display font-semibold mb-8">
-                The biological contaminants most responsible for health impacts
-              </h3>
-              <div className="grid sm:grid-cols-2 gap-5">
-                {contaminants.map((c) => (
-                  <div key={c.title} className="group p-5 md:p-6 rounded-2xl border border-border/50 bg-card hover:border-primary/30 transition-all">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <c.icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <h4 className="font-semibold text-foreground">{c.title}</h4>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{c.text}</p>
-                  </div>
-                ))}
-              </div>
-            </ScrollReveal>
-          </Suspense>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════
-          HEALTH CONDITIONS
-          ═══════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">Conditions & Research</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-6">
-                Health Conditions Most Directly Affected by Indoor Air Quality
-              </h2>
-            </ScrollReveal>
-          </Suspense>
-
-          <div className="space-y-12 mt-10">
-            {healthConditions.map((c, i) => (
-              <Suspense key={c.title} fallback={null}>
-                <ScrollReveal variant="fadeUp" delay={i * 0.05}>
-                  <div className="p-6 md:p-8 rounded-2xl border border-border/50 bg-card">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <c.icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground">{c.title}</h3>
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed mb-4">{c.intro}</p>
-                    <p className="text-muted-foreground leading-relaxed">{c.body}</p>
-                  </div>
-                </ScrollReveal>
-              </Suspense>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          BEYOND CONVENTIONAL PURIFIERS
-          ═══════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-muted/30">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
+      {/* ════════ OPENING NARRATIVE ════════ */}
+      <section className="py-24 md:py-36">
+        <div className="container max-w-3xl mx-auto px-5 sm:px-6">
           <Suspense fallback={null}>
             <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">The Probiotic Difference</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-6">
-                What Probiotic Purification Adds Beyond Conventional Air Purifiers
-              </h2>
-              <div className="space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed mb-10">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold tracking-tight text-foreground leading-[1.2] mb-10 text-balance">
+                The air inside your home is affecting your body right now.
+              </p>
+              <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
                 <p>
-                  A conventional HEPA air purifier addresses the fraction of indoor biological contaminants that become airborne and pass through the filter. That is a meaningful contribution, particularly for smoke, pollen, and PM2.5.
-                </p>
-                <p>
-                  But the health outcomes described above are driven primarily by surface-based contamination: the allergens embedded in mattresses, carpets, and furniture that circulate into the air repeatedly throughout the day. No filter addresses this reservoir.
+                  If it's carrying elevated levels of dust mite allergens, mold spores, pet dander
+                  or pathogenic bacteria, you're already experiencing the consequences — whether
+                  you recognise them as such. Chronic fatigue. Sleep that never feels restorative.
+                  Allergies that won't resolve. A persistent low-grade respiratory irritation
+                  you've stopped noticing.
                 </p>
                 <p className="text-foreground font-medium">
-                  Probiotic purification works where the contamination lives.
-                </p>
-                <p>
-                  EnviroBiotics devices continuously disperse FDA GRAS certified Bacillus probiotics throughout the indoor space. These microorganisms settle on every surface and establish a living protective layer that consumes organic matter, degrades allergen proteins, prevents mold germination, and displaces pathogenic bacteria through competitive exclusion.
-                </p>
-                <p>
-                  The health effects that follow are not from adding something synthetic to the environment. They come from restoring a biological balance that modern indoor environments have lost.
+                  None of that is normal. And it's directly traceable to the biological quality of
+                  your indoor environment — which you can measure, test and change.
                 </p>
               </div>
             </ScrollReveal>
@@ -303,58 +204,87 @@ const HealthBenefitsPage = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          WHAT USERS REPORT
-          ═══════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">Real Outcomes</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-10">
-                What Users Report
-              </h2>
-              <div className="space-y-4">
-                {userBenefits.map((b, i) => (
-                  <div key={i} className="flex gap-3 items-start">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-3.5 h-3.5 text-primary" />
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed">{b}</p>
+      {/* ════════ THE SCALE OF EXPOSURE ════════ */}
+      <section className="bg-secondary/40 py-24 md:py-36">
+        <div className="container px-5 sm:px-6">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
+            <Suspense fallback={null}>
+              <ScrollReveal variant="fadeUp" className="lg:col-span-5">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl">
+                  <img
+                    src={windowImg}
+                    alt="Linen curtain in soft Scandinavian morning light"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </ScrollReveal>
+            </Suspense>
+
+            <Suspense fallback={null}>
+              <ScrollReveal variant="fadeUp" delay={0.1} className="lg:col-span-7">
+                <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                  The Scale of Exposure
+                </p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-8 text-balance">
+                  You spend over 90% of your life breathing indoor air.
+                </h2>
+                <div className="space-y-5 text-lg text-muted-foreground leading-relaxed mb-10">
+                  <p>
+                    The EPA ranks indoor air pollution among the top five environmental risks to
+                    public health. Indoor air can be two to five times more polluted than outdoor
+                    air. In some homes, far worse.
+                  </p>
+                  <p>
+                    The contaminants don't stay suspended. They settle on every surface and get
+                    stirred back into the air with every breath, every step, every moment of
+                    daily life.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-3 gap-6 border-t border-border/60 pt-8">
+                  <div>
+                    <p className="text-3xl md:text-4xl font-display font-semibold text-foreground">90%</p>
+                    <p className="text-xs text-muted-foreground mt-1 leading-snug">of life spent indoors</p>
                   </div>
-                ))}
-              </div>
-            </ScrollReveal>
-          </Suspense>
+                  <div>
+                    <p className="text-3xl md:text-4xl font-display font-semibold text-foreground">5×</p>
+                    <p className="text-xs text-muted-foreground mt-1 leading-snug">more polluted than outdoor air</p>
+                  </div>
+                  <div>
+                    <p className="text-3xl md:text-4xl font-display font-semibold text-foreground">80%</p>
+                    <p className="text-xs text-muted-foreground mt-1 leading-snug">of allergens live on surfaces</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </Suspense>
+          </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          WHO BENEFITS MOST
-          ═══════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-muted/30">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
+      {/* ════════ CONTAMINANTS ════════ */}
+      <section className="py-24 md:py-36">
+        <div className="container max-w-6xl mx-auto px-5 sm:px-6">
           <Suspense fallback={null}>
             <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">Best For</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-10">
-                Who Benefits Most
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                What's actually in the air
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-14 max-w-3xl text-balance">
+                The biological contaminants most responsible for health impacts.
               </h2>
             </ScrollReveal>
           </Suspense>
 
-          <div className="grid sm:grid-cols-2 gap-5">
-            {beneficiaries.map((b, i) => (
-              <Suspense key={b.title} fallback={null}>
+          <div className="grid sm:grid-cols-2 gap-px bg-border/60 rounded-3xl overflow-hidden border border-border/60">
+            {contaminants.map((c, i) => (
+              <Suspense key={c.title} fallback={null}>
                 <ScrollReveal variant="fadeUp" delay={i * 0.05}>
-                  <div className="group p-5 md:p-6 rounded-2xl border border-border/50 bg-card hover:border-primary/30 transition-all h-full">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <b.icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <h3 className="font-semibold text-foreground">{b.title}</h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{b.text}</p>
+                  <div className="bg-background p-8 md:p-10 h-full">
+                    <c.icon className="w-7 h-7 text-foreground/80 mb-6" strokeWidth={1.5} />
+                    <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-3">{c.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{c.text}</p>
                   </div>
                 </ScrollReveal>
               </Suspense>
@@ -363,16 +293,205 @@ const HealthBenefitsPage = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          FAQ
-          ═══════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
+      {/* ════════ CONDITIONS — editorial list with image ════════ */}
+      <section className="bg-secondary/40 py-24 md:py-36">
+        <div className="container max-w-6xl mx-auto px-5 sm:px-6">
           <Suspense fallback={null}>
             <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">Common Questions</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-10">
-                Frequently Asked Questions
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                Conditions & Research
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-16 max-w-3xl text-balance">
+                Six health outcomes shaped by the air in your home.
+              </h2>
+            </ScrollReveal>
+          </Suspense>
+
+          <div className="space-y-px bg-border/60 rounded-3xl overflow-hidden border border-border/60">
+            {conditions.map((c, i) => (
+              <Suspense key={c.title} fallback={null}>
+                <ScrollReveal variant="fadeUp" delay={i * 0.04}>
+                  <article className="bg-background p-8 md:p-12 grid md:grid-cols-12 gap-8">
+                    <div className="md:col-span-4 flex md:flex-col items-start gap-4">
+                      <c.icon className="w-7 h-7 text-foreground/80" strokeWidth={1.5} />
+                      <h3 className="text-2xl md:text-3xl font-display font-semibold text-foreground tracking-tight leading-tight">
+                        {c.title}
+                      </h3>
+                    </div>
+                    <div className="md:col-span-8">
+                      <p className="text-foreground text-lg leading-relaxed mb-4 font-medium">{c.intro}</p>
+                      <p className="text-muted-foreground leading-relaxed">{c.body}</p>
+                    </div>
+                  </article>
+                </ScrollReveal>
+              </Suspense>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ SLEEP IMAGE BREAKER ════════ */}
+      <section className="relative w-full overflow-hidden">
+        <div className="relative aspect-[16/9] md:aspect-[21/9] w-full max-h-[720px]">
+          <img
+            src={bedroomImg}
+            alt="A calm Scandinavian bedroom with linen bedding and warm morning light"
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent" />
+          <div className="absolute inset-0 flex items-end">
+            <div className="container px-5 sm:px-6 pb-10 md:pb-16">
+              <p className="text-white/85 text-[11px] font-semibold tracking-[0.28em] uppercase mb-3">Where it matters most</p>
+              <p className="text-white text-2xl sm:text-3xl md:text-4xl font-display font-semibold max-w-2xl leading-tight" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.4)" }}>
+                You spend a third of your life in your bedroom. Make it the cleanest air you breathe.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ THE PROBIOTIC DIFFERENCE ════════ */}
+      <section className="py-24 md:py-36">
+        <div className="container px-5 sm:px-6">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
+            <Suspense fallback={null}>
+              <ScrollReveal variant="fadeUp" className="lg:col-span-7 order-2 lg:order-1">
+                <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                  The Probiotic Difference
+                </p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-8 text-balance">
+                  A HEPA filter captures what floats. We work where the problem actually lives.
+                </h2>
+                <div className="space-y-5 text-lg text-muted-foreground leading-relaxed">
+                  <p>
+                    Up to 80% of indoor allergens, mold spores and pathogens don't float — they
+                    live on surfaces. Your mattress. Your carpet. Your furniture. No filter
+                    addresses that reservoir. No spray stays active long enough.
+                  </p>
+                  <p className="text-foreground font-medium">
+                    EnviroBiotics devices continuously disperse FDA GRAS certified Bacillus
+                    probiotics throughout the room.
+                  </p>
+                  <p>
+                    They settle on every surface and form a living protective layer — consuming
+                    organic matter, degrading allergen proteins, preventing mold germination,
+                    and displacing pathogenic bacteria through competitive exclusion. You're not
+                    fighting biology anymore. You're using biology to protect yourself.
+                  </p>
+                </div>
+              </ScrollReveal>
+            </Suspense>
+
+            <Suspense fallback={null}>
+              <ScrollReveal variant="fadeUp" delay={0.1} className="lg:col-span-5 order-1 lg:order-2">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl">
+                  <img
+                    src={kitchenImg}
+                    alt="A quiet Scandinavian morning ritual with warm tea"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </ScrollReveal>
+            </Suspense>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ OUTCOMES ════════ */}
+      <section className="bg-secondary/40 py-24 md:py-36">
+        <div className="container max-w-5xl mx-auto px-5 sm:px-6">
+          <Suspense fallback={null}>
+            <ScrollReveal variant="fadeUp">
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                Real Outcomes
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-14 max-w-3xl text-balance">
+                What users report.
+              </h2>
+            </ScrollReveal>
+          </Suspense>
+
+          <div className="grid md:grid-cols-2 gap-x-12 gap-y-2">
+            {outcomes.map((o, i) => (
+              <Suspense key={i} fallback={null}>
+                <ScrollReveal variant="fadeUp" delay={i * 0.04}>
+                  <div className="flex gap-4 py-5 border-b border-border/60">
+                    <Check className="w-5 h-5 text-foreground/70 flex-shrink-0 mt-1" strokeWidth={2} />
+                    <p className="text-foreground/90 leading-relaxed">{o}</p>
+                  </div>
+                </ScrollReveal>
+              </Suspense>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ NURSERY IMAGE BREAKER ════════ */}
+      <section className="relative w-full overflow-hidden">
+        <div className="relative aspect-[16/9] md:aspect-[21/9] w-full max-h-[720px]">
+          <img
+            src={nurseryImg}
+            alt="A peaceful Scandinavian nursery in soft morning light"
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="container px-5 sm:px-6">
+              <p className="text-white/85 text-[11px] font-semibold tracking-[0.28em] uppercase mb-3">Safe from day one</p>
+              <p className="text-white text-2xl sm:text-3xl md:text-4xl font-display font-semibold max-w-2xl leading-tight" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.4)" }}>
+                FDA GRAS certified. EPA registered. Safe for infants, children and pregnant women — from birth.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ WHO BENEFITS ════════ */}
+      <section className="py-24 md:py-36">
+        <div className="container max-w-6xl mx-auto px-5 sm:px-6">
+          <Suspense fallback={null}>
+            <ScrollReveal variant="fadeUp">
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                Best For
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-14 max-w-3xl text-balance">
+                Who benefits most.
+              </h2>
+            </ScrollReveal>
+          </Suspense>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border/60 rounded-3xl overflow-hidden border border-border/60">
+            {beneficiaries.map((b, i) => (
+              <Suspense key={b.title} fallback={null}>
+                <ScrollReveal variant="fadeUp" delay={i * 0.04}>
+                  <div className="bg-background p-8 md:p-10 h-full">
+                    <b.icon className="w-7 h-7 text-foreground/80 mb-6" strokeWidth={1.5} />
+                    <h3 className="text-lg md:text-xl font-display font-semibold text-foreground mb-3">{b.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-[15px]">{b.text}</p>
+                  </div>
+                </ScrollReveal>
+              </Suspense>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ FAQ ════════ */}
+      <section className="bg-secondary/40 py-24 md:py-36">
+        <div className="container max-w-4xl mx-auto px-5 sm:px-6">
+          <Suspense fallback={null}>
+            <ScrollReveal variant="fadeUp">
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                Common Questions
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-12 text-balance">
+                Frequently asked.
               </h2>
             </ScrollReveal>
           </Suspense>
@@ -382,12 +501,12 @@ const HealthBenefitsPage = () => {
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="border border-border/50 rounded-2xl px-5 md:px-6 bg-card data-[state=open]:border-primary/20 transition-colors"
+                className="border border-border/60 rounded-2xl px-5 md:px-7 bg-background data-[state=open]:border-foreground/20 transition-colors"
               >
-                <AccordionTrigger className="text-left text-base font-medium hover:no-underline py-5">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium hover:no-underline py-6">
                   {f.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-6 text-[15px]">
                   {f.a}
                 </AccordionContent>
               </AccordionItem>
@@ -396,84 +515,58 @@ const HealthBenefitsPage = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          BOTTOM LINE
-          ═══════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-muted/30">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
+      {/* ════════ BOTTOM LINE + CTA ════════ */}
+      <section className="py-24 md:py-36">
+        <div className="container max-w-4xl mx-auto px-5 sm:px-6 text-center">
           <Suspense fallback={null}>
             <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">The Bottom Line</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-6">
-                Your Indoor Air Is a Health Decision
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                The Bottom Line
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-semibold tracking-tight text-foreground leading-[1.05] mb-8 text-balance">
+                Your indoor air is a health decision.
               </h2>
-              <div className="space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed mb-10">
-                <p>
-                  The quality of your indoor air is not an abstract environmental concern. It has direct, measurable effects on how you sleep, how you breathe, how your immune system functions, how clearly you think, and over the long term, how your health ages.
-                </p>
-                <p>
-                  Conventional air purifiers address one part of the problem. Probiotic purification addresses the part that matters most: the biological contamination living on every surface in your home, continuously recycling into the air you breathe every day.
-                </p>
-                <p>
-                  EnviroBiotics devices are FDA GRAS certified, EPA registered, independently tested, and safe for every member of your household. They are the only home purification technology that works on surfaces, not just the air.
-                </p>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-12">
+                How you sleep tonight. How you breathe tomorrow. How clearly you think next week.
+                And — over the long term — how your health ages.
+              </p>
+              <div className="flex flex-wrap gap-3 justify-center">
+                <Button variant="default" size="lg" asChild className="rounded-full">
+                  <Link to="/shop">
+                    <ShoppingBag className="w-4 h-4" />
+                    Explore Devices
+                  </Link>
+                </Button>
+                <Button variant="outline" size="lg" asChild className="rounded-full">
+                  <Link to="/how-it-works">
+                    How It Works
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+                <Button variant="ghost" size="lg" asChild className="rounded-full">
+                  <Link to="/research">
+                    Read the research
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
               </div>
             </ScrollReveal>
           </Suspense>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          CTA
-          ═══════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp">
-              <div className="gradient-cta rounded-3xl p-8 md:p-14 text-center">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-                  Ready to breathe easier?
-                </h2>
-                <p className="text-muted-foreground max-w-xl mx-auto mb-8 text-base md:text-lg leading-relaxed">
-                  Explore EnviroBiotics devices or learn how the science works before making a decision.
-                </p>
-                <div className="flex flex-wrap gap-4 justify-center">
-                  <Button variant="hero" size="lg" asChild>
-                    <Link to="/shop">
-                      <ShoppingBag className="w-4 h-4" />
-                      Explore Devices
-                    </Link>
-                  </Button>
-                  <Button variant="hero-outline" size="lg" asChild>
-                    <Link to="/how-it-works">
-                      How It Works
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </Button>
-                  <Button variant="hero-outline" size="lg" asChild>
-                    <Link to="/research">
-                      Read the Research
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </ScrollReveal>
-          </Suspense>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════
-          RELATED + DISCLAIMER
-          ═══════════════════════════════════════════════════ */}
-      <section className="pb-20">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
+      {/* ════════ RELATED + DISCLAIMER ════════ */}
+      <section className="pb-24">
+        <div className="container max-w-5xl mx-auto px-5 sm:px-6">
           <Suspense fallback={null}>
             <RelatedTopics currentPath="/health-benefits" />
           </Suspense>
 
-          <p className="text-xs text-muted-foreground mt-12 leading-relaxed">
-            All EnviroBiotics probiotic strains are FDA GRAS certified, EPA registered, and MADE SAFE certified. Independent lab testing conducted by Indoor Biotechnologies. Health information provided for educational purposes. Not intended as medical advice. Consult a qualified healthcare provider for personal health guidance.
+          <p className="text-xs text-muted-foreground mt-16 leading-relaxed text-center max-w-3xl mx-auto">
+            All EnviroBiotics probiotic strains are FDA GRAS certified, EPA registered and MADE SAFE certified.
+            Independent lab testing conducted by Indoor Biotechnologies. Health information provided for
+            educational purposes. Not intended as medical advice. Consult a qualified healthcare provider
+            for personal health guidance.
           </p>
         </div>
       </section>
