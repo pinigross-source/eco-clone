@@ -33,7 +33,7 @@ const jsonLd = {
       "@type": "Article",
       headline: "The Health Benefits of Cleaner Indoor Air | EnviroBiotics",
       description:
-        "How indoor air quality shapes sleep, allergies, asthma, immunity and cognition — and how continuous probiotic purification addresses the biological root causes.",
+        "How indoor air quality shapes sleep, allergies, asthma, immunity and cognition, and how continuous probiotic purification addresses the biological root causes.",
       author: { "@type": "Organization", name: "EnviroBiotics" },
       publisher: { "@type": "Organization", name: "EnviroBiotics", url: "https://envirobiotics.com" },
       url: "https://envirobiotics.com/health-benefits",
@@ -58,9 +58,9 @@ const jsonLd = {
 };
 
 const contaminants = [
-  { icon: Bug, title: "Dust mite allergens", text: "Der p1 and Der f1 — the waste proteins shed by dust mites in mattresses, carpets and soft furnishings. Among the most potent triggers for allergic rhinitis and asthma." },
+  { icon: Bug, title: "Dust mite allergens", text: "Der p1 and Der f1, the waste proteins shed by dust mites in mattresses, carpets and soft furnishings. Among the most potent triggers for allergic rhinitis and asthma." },
   { icon: Droplets, title: "Mold spores & mycotoxins", text: "Airborne spores trigger respiratory inflammation. Certain species produce mycotoxins linked to neurological symptoms, immune suppression and chronic fatigue." },
-  { icon: PawPrint, title: "Pet allergen proteins", text: "Fel d1 and Can f1 stay active on surfaces and in the air for months — even in homes without pets. They define daily quality of life for the 10–20% of people with pet allergies." },
+  { icon: PawPrint, title: "Pet allergen proteins", text: "Fel d1 and Can f1 stay active on surfaces and in the air for months, even in homes without pets. They define daily quality of life for the 10–20% of people with pet allergies." },
   { icon: Microscope, title: "Pathogens & VOCs", text: "Surface bacteria continuously reseed the air. Cleaning chemicals, fragrances and off-gassing furniture add VOC loads that irritate airways with chronic exposure." },
 ];
 
@@ -68,14 +68,14 @@ const conditions = [
   {
     icon: Wind,
     title: "Allergic rhinitis",
-    intro: "Year-round congestion driven by indoor allergens — not seasonal pollen.",
+    intro: "Year-round congestion driven by indoor allergens, not seasonal pollen.",
     body: "Nasal congestion, sneezing, itchy eyes, post-nasal drip. When the trigger lives in your mattress, carpet and furniture, symptoms never resolve seasonally. In independent lab testing, continuous probiotic treatment reduced common indoor allergen concentrations by up to 90% within 30 days.",
   },
   {
     icon: Activity,
     title: "Asthma",
     intro: "Indoor biological triggers drive a large share of exacerbations in the 25 million Americans with asthma.",
-    body: "Dust mite allergens in bedding, mold spores in hidden spaces, pet dander on every soft surface — every movement stirs them back into the air you breathe. Probiotic purification works where the problem lives, breaking down the proteins and depriving microbes of their food source.",
+    body: "Dust mite allergens in bedding, mold spores in hidden spaces, pet dander on every soft surface, every movement stirs them back into the air you breathe. Probiotic purification works where the problem lives, breaking down the proteins and depriving microbes of their food source.",
   },
   {
     icon: Moon,
@@ -86,7 +86,7 @@ const conditions = [
   {
     icon: Shield,
     title: "Immune calibration",
-    intro: "Modern indoor environments are microbially impoverished — and your immune system notices.",
+    intro: "Modern indoor environments are microbially impoverished, and your immune system notices.",
     body: "Diversity of the indoor microbiome influences how the immune system develops, responds and regulates itself. Probiotic purification reintroduces beneficial Bacillus strains that train the immune system toward tolerance instead of reactivity.",
   },
   {
@@ -104,9 +104,9 @@ const conditions = [
 ];
 
 const outcomes = [
-  "Less nasal congestion, fewer sneezing fits, clearer eyes — usually within days.",
+  "Less nasal congestion, fewer sneezing fits, clearer eyes, usually within days.",
   "Deeper sleep, fewer nighttime awakenings, mornings without grogginess.",
-  "Fewer inhaler uses and symptom flares — especially in children.",
+  "Fewer inhaler uses and symptom flares, especially in children.",
   "Pet, musty and cooking odors eliminated at the source, not masked.",
   "No mold regrowth in previously affected bathrooms, basements and HVAC.",
   "Year-round allergy sufferers report manageable seasons for the first time.",
@@ -124,8 +124,8 @@ const beneficiaries = [
 const faqs = [
   { q: "How long until I notice a difference?", a: "Most people notice improvement in nasal congestion and sleep quality within 2–3 weeks of continuous use. Allergen reduction is measurable within 30 days. Severity of the starting allergen load determines the slope." },
   { q: "Will it work if I still have pets?", a: "Yes. Probiotic purification reduces pet allergens on surfaces, not by removing the pet. Most people find the resulting load very tolerable." },
-  { q: "What if I have mold right now?", a: "Fix the moisture source first. Probiotic treatment prevents mold from re-establishing afterward — it works as prevention and maintenance, not as a replacement for fixing a leak." },
-  { q: "Is it safe for my kids?", a: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA registered — the same beneficial bacteria found in soil and on healthy skin. Safe for infants, children and pregnant women." },
+  { q: "What if I have mold right now?", a: "Fix the moisture source first. Probiotic treatment prevents mold from re-establishing afterward, it works as prevention and maintenance, not as a replacement for fixing a leak." },
+  { q: "Is it safe for my kids?", a: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA registered, the same beneficial bacteria found in soil and on healthy skin. Safe for infants, children and pregnant women." },
   { q: "Can I use it with my air purifier?", a: "Yes. An air purifier handles floating particles. EnviroBiotics handles the surfaces where most allergens actually live. Together they cover the whole problem." },
 ];
 
@@ -134,7 +134,7 @@ const HealthBenefitsPage = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Health Benefits of Cleaner Indoor Air | EnviroBiotics"
-        description="How indoor air quality affects sleep, allergies, asthma, immunity and cognition — and how continuous probiotic purification addresses the biological root causes."
+        description="How indoor air quality affects sleep, allergies, asthma, immunity and cognition, and how continuous probiotic purification addresses the biological root causes."
         path="/health-benefits"
         keywords="health benefits indoor air quality, probiotic air purification, allergy relief home, asthma triggers home, sleep air quality, EnviroBiotics"
         jsonLd={jsonLd}
@@ -142,7 +142,7 @@ const HealthBenefitsPage = () => {
 
       <Navbar />
 
-      {/* ════════ HERO — full-bleed Sonos style ════════ */}
+      {/* ════════ HERO, full-bleed Sonos style ════════ */}
       <section className="relative w-full overflow-hidden pt-16 sm:pt-20">
         <div className="relative min-h-[78vh] md:min-h-[88vh] w-full">
           <img
@@ -189,14 +189,14 @@ const HealthBenefitsPage = () => {
               <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
                 <p>
                   If it's carrying elevated levels of dust mite allergens, mold spores, pet dander
-                  or pathogenic bacteria, you're already experiencing the consequences — whether
+                  or pathogenic bacteria, you're already experiencing the consequences, whether
                   you recognise them as such. Chronic fatigue. Sleep that never feels restorative.
                   Allergies that won't resolve. A persistent low-grade respiratory irritation
                   you've stopped noticing.
                 </p>
                 <p className="text-foreground font-medium">
                   None of that is normal. And it's directly traceable to the biological quality of
-                  your indoor environment — which you can measure, test and change.
+                  your indoor environment, which you can measure, test and change.
                 </p>
               </div>
             </ScrollReveal>
@@ -293,7 +293,7 @@ const HealthBenefitsPage = () => {
         </div>
       </section>
 
-      {/* ════════ CONDITIONS — editorial list with image ════════ */}
+      {/* ════════ CONDITIONS, editorial list with image ════════ */}
       <section className="bg-secondary/40 py-24 md:py-36">
         <div className="container max-w-6xl mx-auto px-5 sm:px-6">
           <Suspense fallback={null}>
@@ -366,7 +366,7 @@ const HealthBenefitsPage = () => {
                 </h2>
                 <div className="space-y-5 text-lg text-muted-foreground leading-relaxed">
                   <p>
-                    Up to 80% of indoor allergens, mold spores and pathogens don't float — they
+                    Up to 80% of indoor allergens, mold spores and pathogens don't float, they
                     live on surfaces. Your mattress. Your carpet. Your furniture. No filter
                     addresses that reservoir. No spray stays active long enough.
                   </p>
@@ -375,7 +375,7 @@ const HealthBenefitsPage = () => {
                     probiotics throughout the room.
                   </p>
                   <p>
-                    They settle on every surface and form a living protective layer — consuming
+                    They settle on every surface and form a living protective layer, consuming
                     organic matter, degrading allergen proteins, preventing mold germination,
                     and displacing pathogenic bacteria through competitive exclusion. You're not
                     fighting biology anymore. You're using biology to protect yourself.
@@ -445,7 +445,7 @@ const HealthBenefitsPage = () => {
             <div className="container px-5 sm:px-6">
               <p className="text-white/85 text-[11px] font-semibold tracking-[0.28em] uppercase mb-3">Safe from day one</p>
               <p className="text-white text-2xl sm:text-3xl md:text-4xl font-display font-semibold max-w-2xl leading-tight" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.4)" }}>
-                FDA GRAS certified. EPA registered. Safe for infants, children and pregnant women — from birth.
+                FDA GRAS certified. EPA registered. Safe for infants, children and pregnant women, from birth.
               </p>
             </div>
           </div>
@@ -528,7 +528,7 @@ const HealthBenefitsPage = () => {
               </h2>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-12">
                 How you sleep tonight. How you breathe tomorrow. How clearly you think next week.
-                And — over the long term — how your health ages.
+                And, over the long term, how your health ages.
               </p>
               <div className="flex flex-wrap gap-3 justify-center">
                 <Button variant="default" size="lg" asChild className="rounded-full">
