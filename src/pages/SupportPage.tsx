@@ -260,6 +260,13 @@ const SupportPage = () => {
                         {option.action}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
+                    ) : option.href!.includes("#") ? (
+                      <Button variant="outline" className="group-hover:border-primary/50 transition-colors" asChild>
+                        <a href={option.href!}>
+                          {option.action}
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
                     ) : (
                       <Button variant="outline" className="group-hover:border-primary/50 transition-colors" asChild>
                         <Link to={option.href!}>
