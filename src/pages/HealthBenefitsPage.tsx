@@ -410,7 +410,7 @@ const HealthBenefitsPage = () => {
                 Real Outcomes
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-14 max-w-3xl text-balance">
-                What users report.
+                What users <span className="text-[hsl(24_95%_53%)]">report.</span>
               </h2>
             </ScrollReveal>
           </Suspense>
