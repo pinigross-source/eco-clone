@@ -176,7 +176,7 @@ const CompetitiveExclusionPage = () => {
                   How beneficial bacteria protect your indoor environment, why this mechanism produces better long-term outcomes than chemical disinfection, and what the peer-reviewed research says.
                 </p>
                 <p className="text-xs text-muted-foreground/60 mt-4">
-                  By EnviroBiotics Science Team · ~2,200 words
+                  By EnviroBiotics Science Team
                 </p>
               </ScrollReveal>
             </Suspense>
