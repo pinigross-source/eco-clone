@@ -1,42 +1,54 @@
 ## Goal
 
-Make `ActiveDefenseToggle` feel calm, premium, and confident — closer to Apple/Sonos product demos — instead of the current dashboard-y look (traffic-light reds/greens/blues, dashed borders, spring bounces, multiple pulsing layers).
+Make every card and listed guide on `/education` link to a real, content-complete page. Remove all "Coming soon" states. Replace the dark "Choose your path" section background with a light treatment to match the rest of the page.
 
-## Direction
+## Route mapping
 
-One restrained color story, slower choreography, fewer simultaneous motions, softer surfaces.
+Existing routes reused as-is:
 
-## Changes
+| Card | Route |
+|---|---|
+| What Is Probiotic Air Purification? | `/probiotic-air-purification` |
+| How to Reduce Mold and Allergens Naturally | `/mold-and-allergens` |
+| How EnviroBiotics Works | `/how-it-works` |
+| The Science of Competitive Exclusion | `/competitive-exclusion` |
+| Product Testing and Safety | `/safety` |
 
-**Color & state language**
-- Drop the red → blue → green traffic-light cycle. Use a single neutral baseline (graphite/foreground-muted) and one accent — soft sky/teal — that fades in for "Protected".
-- "Vulnerable" state: monochrome only (no red icons or red labels). Communicate via a subtle desaturation + a single small status word.
-- Replace the green check-shield badge with a thin ring or a 1.5px tick that fades in.
-- Status pill: remove colored fill + bold text. Use a small dot + light-weight label on a frosted white pill with hairline border.
+New route files to create under `src/routes/`:
 
-**Motion**
-- Remove `type: "spring"` everywhere; use `ease: [0.22, 1, 0.36, 1]` (Apple-style cubic) at 0.5–0.8s for state transitions.
-- Hotspot entrance: stagger 30ms, fade + 6px rise, no scale-from-zero.
-- Remove the infinite scale pulse on each hotspot glow. Keep one slow breathing glow on the central device only (4s, opacity 0.4 ↔ 0.7).
-- Reduce expanding wave rings from 3 to 1, slower (4s), thinner (1px), lower opacity (0.15 → 0), single accent color.
-- Particles: fewer (2 per hotspot, not 4), smaller, no rainbow gradient — solid accent at 60% opacity, soft shadow only, ease-out path.
+| Card | New route |
+|---|---|
+| What Is the Indoor Microbiome? | `/indoor-microbiome` |
+| The Hygiene Hypothesis Explained | `/hygiene-hypothesis` |
+| Dust Mite Allergens | `/dust-mite-allergens` |
+| Mold Indoors | `/mold-indoors` |
+| Pet Dander | `/pet-dander` |
+| Understanding FDA GRAS Status | `/fda-gras-status` |
+| Probiotic vs. Chemical Disinfection | `/probiotic-vs-chemical` |
 
-**Surfaces & typography**
-- Container: remove primary-tinted glow shadow; use a single soft neutral shadow + 1px hairline border (`border-black/5`).
-- Background: flat white, drop the dotted grid pattern (or drop opacity to 0.015).
-- Hotspot chips: remove heavy 2px borders and drop-shadows. Use 1px hairline, `bg-white/80 backdrop-blur`, smaller radius.
-- Labels: switch from bold pill labels to lightweight 11px tracked-wide text, no background, sitting quietly under the icon.
+## New page template
 
-**Rhythm**
-- Slow the auto-toggle from 8s to 12s so each state has room to breathe.
-- Stretch the protected-phase reveal: particles arrive over ~4s instead of 2.8s.
+All new pages share one component shell (`src/components/EducationArticle.tsx`) with:
+
+- `Navbar` + `Footer`
+- `SEOHead` with route-specific title/description and `BreadcrumbJsonLd` (Home → Education Center → Article)
+- Hero (eyebrow "Education Center · {category}", H1, lede)
+- Body sections (intro, key concepts, "Why it matters at home", "How EnviroBiotics helps", short FAQ)
+- `RelatedTopics` block at the bottom
+- `ContentProductCTA` closer
+- All on `bg-background` with light section alternation (`bg-background` / `bg-muted/40`) — no dark backgrounds
+
+Content for each new page will be written from the source doc material already on the Education page (microbiome, hygiene hypothesis, dust mites Der p1/Der f1, mold sources, Fel d1/Can f1, GRAS framework, chemical vs probiotic comparison) — expanded into 600-900 words per page with the same voice and citations style as the existing guides.
+
+## Education page changes (`src/pages/EducationPage.tsx`)
+
+1. Remove the `comingSoon` prop entirely from `GuideCard` and from every card invocation. Update each card's `to` to its mapped route above.
+2. Convert the "Choose your path" section from `bg-foreground text-background` to a light treatment: `bg-muted/40` background with `border` cards on `bg-card`, primary-tinted icon chips, foreground text. Keep the same layout and copy.
+3. In each "path" object, change `guides: string[]` → `guides: { label, to }[]` so every bullet is a `<Link>` to its mapped route. Render bullets as inline links with hover underline + arrow.
+4. Keep all other sections, hero, allergens table, FAQ, and bottom CTA unchanged.
 
 ## Out of scope
 
-- Copy changes ("Protected" / "Vulnerable" / "Passive filters miss…" stay).
-- Layout of hotspots (positions unchanged).
-- The center device illustration and toggle behavior.
-
-## Files
-
-- `src/components/hero/ActiveDefenseToggle.tsx` — only file touched.
+- No changes to `Footer`, `Navbar`, or `RelatedTopics`.
+- No content changes to existing routes (`/probiotic-air-purification`, `/how-it-works`, `/mold-and-allergens`, `/competitive-exclusion`, `/safety`) — only linked to.
+- No removal of the `?preview=1` access gate (still relevant until launch).

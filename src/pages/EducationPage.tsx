@@ -41,11 +41,10 @@ interface GuideCardProps {
   to: string;
   linkText: string;
   icon: React.ReactNode;
-  comingSoon?: boolean;
 }
 
-const GuideCard = ({ title, description, bestFor, to, linkText, icon, comingSoon }: GuideCardProps) => {
-  const content = (
+const GuideCard = ({ title, description, bestFor, to, linkText, icon }: GuideCardProps) => (
+  <Link to={to} className="block h-full">
     <div className="group relative flex flex-col h-full p-7 sm:p-8 rounded-3xl border border-border/60 bg-card hover:border-primary/40 hover:shadow-[0_24px_60px_-30px_hsl(var(--primary)/0.35)] transition-all duration-500">
       <div className="flex items-center gap-3 mb-6">
         <div className="shrink-0 w-11 h-11 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
@@ -65,15 +64,12 @@ const GuideCard = ({ title, description, bestFor, to, linkText, icon, comingSoon
         </p>
       )}
       <span className="inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all mt-auto">
-        {comingSoon ? "Coming soon" : linkText}
-        {!comingSoon && <ArrowRight className="w-4 h-4" />}
+        {linkText}
+        <ArrowRight className="w-4 h-4" />
       </span>
     </div>
-  );
-
-  if (comingSoon) return <div className="opacity-60 cursor-default h-full">{content}</div>;
-  return <Link to={to} className="block h-full">{content}</Link>;
-};
+  </Link>
+);
 
 /* ───────────────────────── Section heading ───────────────────────── */
 
@@ -123,27 +119,48 @@ const paths = [
   {
     icon: <HeartPulse className="w-5 h-5" />,
     title: "I have allergies or asthma",
-    guides: ["Dust Mite Allergens", "Pet Dander", "Mold Indoors", "What Is the Indoor Microbiome?"],
+    guides: [
+      { label: "Dust Mite Allergens", to: "/dust-mite-allergens" },
+      { label: "Pet Dander", to: "/pet-dander" },
+      { label: "Mold Indoors", to: "/mold-indoors" },
+      { label: "What Is the Indoor Microbiome?", to: "/indoor-microbiome" },
+    ],
   },
   {
     icon: <Wind className="w-5 h-5" />,
     title: "I am worried about mold",
-    guides: ["Mold Indoors", "How to Reduce Mold and Allergens Naturally", "The Science of Competitive Exclusion"],
+    guides: [
+      { label: "Mold Indoors", to: "/mold-indoors" },
+      { label: "How to Reduce Mold and Allergens Naturally", to: "/mold-and-allergens" },
+      { label: "The Science of Competitive Exclusion", to: "/competitive-exclusion" },
+    ],
   },
   {
     icon: <Search className="w-5 h-5" />,
     title: "I am comparing this to an air purifier",
-    guides: ["What Is Probiotic Air Purification?", "Probiotic vs. Chemical Disinfection", "How EnviroBiotics Works"],
+    guides: [
+      { label: "What Is Probiotic Air Purification?", to: "/probiotic-air-purification" },
+      { label: "Probiotic vs. Chemical Disinfection", to: "/probiotic-vs-chemical" },
+      { label: "How EnviroBiotics Works", to: "/how-it-works" },
+    ],
   },
   {
     icon: <FlaskConical className="w-5 h-5" />,
     title: "I want to understand the science",
-    guides: ["What Is the Indoor Microbiome?", "The Hygiene Hypothesis Explained", "The Science of Competitive Exclusion"],
+    guides: [
+      { label: "What Is the Indoor Microbiome?", to: "/indoor-microbiome" },
+      { label: "The Hygiene Hypothesis Explained", to: "/hygiene-hypothesis" },
+      { label: "The Science of Competitive Exclusion", to: "/competitive-exclusion" },
+    ],
   },
   {
     icon: <ShieldCheck className="w-5 h-5" />,
     title: "I want to understand safety",
-    guides: ["Understanding FDA GRAS Status", "How EnviroBiotics Works", "Product Testing and Safety"],
+    guides: [
+      { label: "Understanding FDA GRAS Status", to: "/fda-gras-status" },
+      { label: "How EnviroBiotics Works", to: "/how-it-works" },
+      { label: "Product Testing and Safety", to: "/safety" },
+    ],
   },
 ];
 
@@ -343,21 +360,19 @@ const EducationPage = () => {
         </section>
 
         {/* ── Choose your path ── */}
-        <section className="py-20 md:py-32 bg-foreground text-background relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+        <section className="py-20 md:py-32 bg-muted/40 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/[0.06] rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/[0.06] rounded-full blur-3xl pointer-events-none" />
           <div className="container max-w-6xl px-5 sm:px-6 relative">
             <Suspense fallback={null}>
               <ScrollReveal>
                 <div className="max-w-3xl mb-14">
-                  <span className="inline-block text-[11px] uppercase tracking-[0.22em] font-medium text-background/60 mb-5">
-                    Choose your path
-                  </span>
+                  <SectionLabel className="mb-5">Choose your path</SectionLabel>
                   <h2 className="text-3xl sm:text-4xl md:text-[44px] font-display font-bold leading-[1.1] tracking-tight text-balance mb-5">
                     What brought you here?
                   </h2>
-                  <p className="text-base sm:text-lg text-background/70 leading-relaxed">
-                    Different homes have different problems. Choose the path that best matches your situation.
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                    Different homes have different problems. Choose the path that best matches your situation, then jump straight into the relevant guides.
                   </p>
                 </div>
               </ScrollReveal>
@@ -367,18 +382,26 @@ const EducationPage = () => {
               {paths.map((p, i) => (
                 <Suspense key={i} fallback={null}>
                   <ScrollReveal delay={i * 50}>
-                    <div className="h-full p-7 rounded-3xl border border-background/10 bg-background/[0.03] hover:bg-background/[0.06] hover:border-background/20 transition-all">
-                      <div className="w-11 h-11 rounded-2xl bg-background/10 flex items-center justify-center text-background mb-5">
+                    <div className="h-full p-7 rounded-3xl border border-border/60 bg-card hover:border-primary/40 hover:shadow-[0_24px_60px_-30px_hsl(var(--primary)/0.3)] transition-all">
+                      <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5">
                         {p.icon}
                       </div>
-                      <h3 className="text-lg sm:text-xl font-display font-semibold leading-snug mb-5 text-balance">
+                      <h3 className="text-lg sm:text-xl font-display font-semibold leading-snug mb-5 text-balance text-foreground">
                         {p.title}
                       </h3>
-                      <ul className="space-y-2.5">
+                      <ul className="space-y-1.5">
                         {p.guides.map((g, j) => (
-                          <li key={j} className="flex items-start gap-2.5 text-sm text-background/75 leading-relaxed">
-                            <span className="mt-2 w-1 h-1 rounded-full bg-background/50 shrink-0" />
-                            {g}
+                          <li key={j}>
+                            <Link
+                              to={g.to}
+                              className="group flex items-start justify-between gap-3 text-sm text-foreground/85 leading-relaxed py-1.5 hover:text-primary transition-colors"
+                            >
+                              <span className="flex items-start gap-2.5">
+                                <span className="mt-2 w-1 h-1 rounded-full bg-primary/60 shrink-0 group-hover:bg-primary" />
+                                {g.label}
+                              </span>
+                              <ArrowRight className="w-3.5 h-3.5 text-muted-foreground/60 shrink-0 mt-1 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-primary transition-all" />
+                            </Link>
                           </li>
                         ))}
                       </ul>
@@ -409,18 +432,16 @@ const EducationPage = () => {
                 title="What Is the Indoor Microbiome?"
                 description="Your home is not sterile — it is alive. Thousands of microbial species form an ecosystem as complex as a rainforest, but more intimate. Modern construction and chemical cleaning have changed it in ways that affect how your home behaves."
                 bestFor="Anyone new to indoor air quality science who wants to understand the foundation."
-                to="/education"
+                to="/indoor-microbiome"
                 linkText="Read the guide"
-                comingSoon
               />
               <GuideCard
                 icon={<Shield className="w-5 h-5" />}
                 title="The Hygiene Hypothesis Explained"
                 description="Reduced exposure to beneficial environmental microbes — especially early in life — may disrupt how the immune system develops. The issue isn't dirt; it's microbial diversity and balance."
                 bestFor="Parents concerned about allergies and asthma, and anyone curious about the link between cleanliness and immune function."
-                to="/education"
+                to="/hygiene-hypothesis"
                 linkText="Read the guide"
-                comingSoon
               />
             </div>
           </div>
@@ -445,27 +466,24 @@ const EducationPage = () => {
                 title="Dust Mite Allergens"
                 description="Der p1 and Der f1 are among the most common triggers for indoor allergies and asthma. They accumulate in fabrics and dust, especially in bedrooms, and resuspend with every movement."
                 bestFor="Allergy and asthma sufferers, pet owners, and anyone with recurring respiratory symptoms."
-                to="/education"
+                to="/dust-mite-allergens"
                 linkText="Read the guide"
-                comingSoon
               />
               <GuideCard
                 icon={<Wind className="w-5 h-5" />}
                 title="Mold Indoors"
                 description="Mold grows wherever moisture, organic matter, and poor airflow meet. Visible mold is often only part of the problem — spores and fragments spread into dust and air."
                 bestFor="People dealing with recurring mold problems, damp basements, bathrooms, or HVAC concerns."
-                to="/education"
+                to="/mold-indoors"
                 linkText="Read the guide"
-                comingSoon
               />
               <GuideCard
                 icon={<PawPrint className="w-5 h-5" />}
                 title="Pet Dander"
                 description="Fel d1 and Can f1 are among the stickiest, most persistent indoor allergens. They cling to fabric and travel between homes, remaining for months even after a pet is gone."
                 bestFor="Pet owners with allergies or asthma, and families concerned about pet allergen exposure."
-                to="/education"
+                to="/pet-dander"
                 linkText="Read the guide"
-                comingSoon
               />
             </div>
           </div>
@@ -490,27 +508,24 @@ const EducationPage = () => {
                 title="The Science of Competitive Exclusion"
                 description="When beneficial probiotics occupy a surface first, they compete with unwanted bacteria and mold for nutrients, adhesion sites, and space — creating a more stable microbial environment over time."
                 bestFor="Anyone who wants to understand the core mechanism behind probiotic purification."
-                to="/education"
+                to="/competitive-exclusion"
                 linkText="Read the guide"
-                comingSoon
               />
               <GuideCard
                 icon={<Award className="w-5 h-5" />}
                 title="Understanding FDA GRAS Status"
                 description="GRAS — Generally Recognized As Safe — is a safety designation for substances and ingredients evaluated for their history of safe use. For probiotic products, strain identity and selection matter most."
                 bestFor="Anyone concerned about product safety, health-conscious families, and people with chemical sensitivities."
-                to="/education"
+                to="/fda-gras-status"
                 linkText="Read the guide"
-                comingSoon
               />
               <GuideCard
                 icon={<Scale className="w-5 h-5" />}
                 title="Probiotic vs. Chemical Disinfection"
                 description="Chemical disinfectants can be fast, but they leave residues, disrupt microbial balance, and stop working once the chemistry breaks down. Probiotic hygiene takes a longer-term, biologically balanced approach."
                 bestFor="Anyone weighing the health impact of chemical cleaners, especially families with asthma or chemical sensitivities."
-                to="/education"
+                to="/probiotic-vs-chemical"
                 linkText="Read the guide"
-                comingSoon
               />
             </div>
           </div>

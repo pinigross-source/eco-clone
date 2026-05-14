@@ -22,24 +22,31 @@ import { Route as ResearchRouteImport } from './routes/research'
 import { Route as ProofAndTrustRouteImport } from './routes/proof-and-trust'
 import { Route as ProductUseCasesRouteImport } from './routes/product-use-cases'
 import { Route as ProductRegistrationRouteImport } from './routes/product-registration'
+import { Route as ProbioticVsChemicalRouteImport } from './routes/probiotic-vs-chemical'
 import { Route as ProbioticAirPurificationRouteImport } from './routes/probiotic-air-purification'
 import { Route as ProSubscriptionRouteImport } from './routes/pro-subscription'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as PetDanderRouteImport } from './routes/pet-dander'
 import { Route as PaymentSuccessRouteImport } from './routes/payment-success'
 import { Route as OrdersRouteImport } from './routes/orders'
 import { Route as OrderHistoryRouteImport } from './routes/order-history'
 import { Route as NurseryRouteImport } from './routes/nursery'
+import { Route as MoldIndoorsRouteImport } from './routes/mold-indoors'
 import { Route as MoldAndAllergensRouteImport } from './routes/mold-and-allergens'
 import { Route as ManageSubscriptionRouteImport } from './routes/manage-subscription'
 import { Route as LinkCheckRouteImport } from './routes/link-check'
+import { Route as IndoorMicrobiomeRouteImport } from './routes/indoor-microbiome'
+import { Route as HygieneHypothesisRouteImport } from './routes/hygiene-hypothesis'
 import { Route as HvacApplicationsRouteImport } from './routes/hvac-applications'
 import { Route as HvacRouteImport } from './routes/hvac'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as HealthBenefitsRouteImport } from './routes/health-benefits'
 import { Route as GlossaryRouteImport } from './routes/glossary'
+import { Route as FdaGrasStatusRouteImport } from './routes/fda-gras-status'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EmbedRouteImport } from './routes/embed'
 import { Route as EducationRouteImport } from './routes/education'
+import { Route as DustMiteAllergensRouteImport } from './routes/dust-mite-allergens'
 import { Route as DormRouteImport } from './routes/dorm'
 import { Route as DevToolsRouteImport } from './routes/dev-tools'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -131,6 +138,11 @@ const ProductRegistrationRoute = ProductRegistrationRouteImport.update({
   path: '/product-registration',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProbioticVsChemicalRoute = ProbioticVsChemicalRouteImport.update({
+  id: '/probiotic-vs-chemical',
+  path: '/probiotic-vs-chemical',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProbioticAirPurificationRoute =
   ProbioticAirPurificationRouteImport.update({
     id: '/probiotic-air-purification',
@@ -145,6 +157,11 @@ const ProSubscriptionRoute = ProSubscriptionRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PetDanderRoute = PetDanderRouteImport.update({
+  id: '/pet-dander',
+  path: '/pet-dander',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PaymentSuccessRoute = PaymentSuccessRouteImport.update({
@@ -167,6 +184,11 @@ const NurseryRoute = NurseryRouteImport.update({
   path: '/nursery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MoldIndoorsRoute = MoldIndoorsRouteImport.update({
+  id: '/mold-indoors',
+  path: '/mold-indoors',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MoldAndAllergensRoute = MoldAndAllergensRouteImport.update({
   id: '/mold-and-allergens',
   path: '/mold-and-allergens',
@@ -180,6 +202,16 @@ const ManageSubscriptionRoute = ManageSubscriptionRouteImport.update({
 const LinkCheckRoute = LinkCheckRouteImport.update({
   id: '/link-check',
   path: '/link-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndoorMicrobiomeRoute = IndoorMicrobiomeRouteImport.update({
+  id: '/indoor-microbiome',
+  path: '/indoor-microbiome',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HygieneHypothesisRoute = HygieneHypothesisRouteImport.update({
+  id: '/hygiene-hypothesis',
+  path: '/hygiene-hypothesis',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HvacApplicationsRoute = HvacApplicationsRouteImport.update({
@@ -207,6 +239,11 @@ const GlossaryRoute = GlossaryRouteImport.update({
   path: '/glossary',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FdaGrasStatusRoute = FdaGrasStatusRouteImport.update({
+  id: '/fda-gras-status',
+  path: '/fda-gras-status',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
@@ -220,6 +257,11 @@ const EmbedRoute = EmbedRouteImport.update({
 const EducationRoute = EducationRouteImport.update({
   id: '/education',
   path: '/education',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DustMiteAllergensRoute = DustMiteAllergensRouteImport.update({
+  id: '/dust-mite-allergens',
+  path: '/dust-mite-allergens',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DormRoute = DormRouteImport.update({
@@ -366,24 +408,31 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/dev-tools': typeof DevToolsRoute
   '/dorm': typeof DormRoute
+  '/dust-mite-allergens': typeof DustMiteAllergensRoute
   '/education': typeof EducationRoute
   '/embed': typeof EmbedRoute
   '/faq': typeof FaqRoute
+  '/fda-gras-status': typeof FdaGrasStatusRoute
   '/glossary': typeof GlossaryRoute
   '/health-benefits': typeof HealthBenefitsRoute
   '/how-it-works': typeof HowItWorksRoute
   '/hvac': typeof HvacRoute
   '/hvac-applications': typeof HvacApplicationsRoute
+  '/hygiene-hypothesis': typeof HygieneHypothesisRoute
+  '/indoor-microbiome': typeof IndoorMicrobiomeRoute
   '/link-check': typeof LinkCheckRoute
   '/manage-subscription': typeof ManageSubscriptionRoute
   '/mold-and-allergens': typeof MoldAndAllergensRoute
+  '/mold-indoors': typeof MoldIndoorsRoute
   '/nursery': typeof NurseryRoute
   '/order-history': typeof OrderHistoryRoute
   '/orders': typeof OrdersRoute
   '/payment-success': typeof PaymentSuccessRoute
+  '/pet-dander': typeof PetDanderRoute
   '/privacy': typeof PrivacyRoute
   '/pro-subscription': typeof ProSubscriptionRoute
   '/probiotic-air-purification': typeof ProbioticAirPurificationRoute
+  '/probiotic-vs-chemical': typeof ProbioticVsChemicalRoute
   '/product-registration': typeof ProductRegistrationRoute
   '/product-use-cases': typeof ProductUseCasesRoute
   '/proof-and-trust': typeof ProofAndTrustRoute
@@ -424,24 +473,31 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/dev-tools': typeof DevToolsRoute
   '/dorm': typeof DormRoute
+  '/dust-mite-allergens': typeof DustMiteAllergensRoute
   '/education': typeof EducationRoute
   '/embed': typeof EmbedRoute
   '/faq': typeof FaqRoute
+  '/fda-gras-status': typeof FdaGrasStatusRoute
   '/glossary': typeof GlossaryRoute
   '/health-benefits': typeof HealthBenefitsRoute
   '/how-it-works': typeof HowItWorksRoute
   '/hvac': typeof HvacRoute
   '/hvac-applications': typeof HvacApplicationsRoute
+  '/hygiene-hypothesis': typeof HygieneHypothesisRoute
+  '/indoor-microbiome': typeof IndoorMicrobiomeRoute
   '/link-check': typeof LinkCheckRoute
   '/manage-subscription': typeof ManageSubscriptionRoute
   '/mold-and-allergens': typeof MoldAndAllergensRoute
+  '/mold-indoors': typeof MoldIndoorsRoute
   '/nursery': typeof NurseryRoute
   '/order-history': typeof OrderHistoryRoute
   '/orders': typeof OrdersRoute
   '/payment-success': typeof PaymentSuccessRoute
+  '/pet-dander': typeof PetDanderRoute
   '/privacy': typeof PrivacyRoute
   '/pro-subscription': typeof ProSubscriptionRoute
   '/probiotic-air-purification': typeof ProbioticAirPurificationRoute
+  '/probiotic-vs-chemical': typeof ProbioticVsChemicalRoute
   '/product-registration': typeof ProductRegistrationRoute
   '/product-use-cases': typeof ProductUseCasesRoute
   '/proof-and-trust': typeof ProofAndTrustRoute
@@ -483,24 +539,31 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/dev-tools': typeof DevToolsRoute
   '/dorm': typeof DormRoute
+  '/dust-mite-allergens': typeof DustMiteAllergensRoute
   '/education': typeof EducationRoute
   '/embed': typeof EmbedRoute
   '/faq': typeof FaqRoute
+  '/fda-gras-status': typeof FdaGrasStatusRoute
   '/glossary': typeof GlossaryRoute
   '/health-benefits': typeof HealthBenefitsRoute
   '/how-it-works': typeof HowItWorksRoute
   '/hvac': typeof HvacRoute
   '/hvac-applications': typeof HvacApplicationsRoute
+  '/hygiene-hypothesis': typeof HygieneHypothesisRoute
+  '/indoor-microbiome': typeof IndoorMicrobiomeRoute
   '/link-check': typeof LinkCheckRoute
   '/manage-subscription': typeof ManageSubscriptionRoute
   '/mold-and-allergens': typeof MoldAndAllergensRoute
+  '/mold-indoors': typeof MoldIndoorsRoute
   '/nursery': typeof NurseryRoute
   '/order-history': typeof OrderHistoryRoute
   '/orders': typeof OrdersRoute
   '/payment-success': typeof PaymentSuccessRoute
+  '/pet-dander': typeof PetDanderRoute
   '/privacy': typeof PrivacyRoute
   '/pro-subscription': typeof ProSubscriptionRoute
   '/probiotic-air-purification': typeof ProbioticAirPurificationRoute
+  '/probiotic-vs-chemical': typeof ProbioticVsChemicalRoute
   '/product-registration': typeof ProductRegistrationRoute
   '/product-use-cases': typeof ProductUseCasesRoute
   '/proof-and-trust': typeof ProofAndTrustRoute
@@ -543,24 +606,31 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dev-tools'
     | '/dorm'
+    | '/dust-mite-allergens'
     | '/education'
     | '/embed'
     | '/faq'
+    | '/fda-gras-status'
     | '/glossary'
     | '/health-benefits'
     | '/how-it-works'
     | '/hvac'
     | '/hvac-applications'
+    | '/hygiene-hypothesis'
+    | '/indoor-microbiome'
     | '/link-check'
     | '/manage-subscription'
     | '/mold-and-allergens'
+    | '/mold-indoors'
     | '/nursery'
     | '/order-history'
     | '/orders'
     | '/payment-success'
+    | '/pet-dander'
     | '/privacy'
     | '/pro-subscription'
     | '/probiotic-air-purification'
+    | '/probiotic-vs-chemical'
     | '/product-registration'
     | '/product-use-cases'
     | '/proof-and-trust'
@@ -601,24 +671,31 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dev-tools'
     | '/dorm'
+    | '/dust-mite-allergens'
     | '/education'
     | '/embed'
     | '/faq'
+    | '/fda-gras-status'
     | '/glossary'
     | '/health-benefits'
     | '/how-it-works'
     | '/hvac'
     | '/hvac-applications'
+    | '/hygiene-hypothesis'
+    | '/indoor-microbiome'
     | '/link-check'
     | '/manage-subscription'
     | '/mold-and-allergens'
+    | '/mold-indoors'
     | '/nursery'
     | '/order-history'
     | '/orders'
     | '/payment-success'
+    | '/pet-dander'
     | '/privacy'
     | '/pro-subscription'
     | '/probiotic-air-purification'
+    | '/probiotic-vs-chemical'
     | '/product-registration'
     | '/product-use-cases'
     | '/proof-and-trust'
@@ -659,24 +736,31 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dev-tools'
     | '/dorm'
+    | '/dust-mite-allergens'
     | '/education'
     | '/embed'
     | '/faq'
+    | '/fda-gras-status'
     | '/glossary'
     | '/health-benefits'
     | '/how-it-works'
     | '/hvac'
     | '/hvac-applications'
+    | '/hygiene-hypothesis'
+    | '/indoor-microbiome'
     | '/link-check'
     | '/manage-subscription'
     | '/mold-and-allergens'
+    | '/mold-indoors'
     | '/nursery'
     | '/order-history'
     | '/orders'
     | '/payment-success'
+    | '/pet-dander'
     | '/privacy'
     | '/pro-subscription'
     | '/probiotic-air-purification'
+    | '/probiotic-vs-chemical'
     | '/product-registration'
     | '/product-use-cases'
     | '/proof-and-trust'
@@ -718,24 +802,31 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DevToolsRoute: typeof DevToolsRoute
   DormRoute: typeof DormRoute
+  DustMiteAllergensRoute: typeof DustMiteAllergensRoute
   EducationRoute: typeof EducationRoute
   EmbedRoute: typeof EmbedRoute
   FaqRoute: typeof FaqRoute
+  FdaGrasStatusRoute: typeof FdaGrasStatusRoute
   GlossaryRoute: typeof GlossaryRoute
   HealthBenefitsRoute: typeof HealthBenefitsRoute
   HowItWorksRoute: typeof HowItWorksRoute
   HvacRoute: typeof HvacRoute
   HvacApplicationsRoute: typeof HvacApplicationsRoute
+  HygieneHypothesisRoute: typeof HygieneHypothesisRoute
+  IndoorMicrobiomeRoute: typeof IndoorMicrobiomeRoute
   LinkCheckRoute: typeof LinkCheckRoute
   ManageSubscriptionRoute: typeof ManageSubscriptionRoute
   MoldAndAllergensRoute: typeof MoldAndAllergensRoute
+  MoldIndoorsRoute: typeof MoldIndoorsRoute
   NurseryRoute: typeof NurseryRoute
   OrderHistoryRoute: typeof OrderHistoryRoute
   OrdersRoute: typeof OrdersRoute
   PaymentSuccessRoute: typeof PaymentSuccessRoute
+  PetDanderRoute: typeof PetDanderRoute
   PrivacyRoute: typeof PrivacyRoute
   ProSubscriptionRoute: typeof ProSubscriptionRoute
   ProbioticAirPurificationRoute: typeof ProbioticAirPurificationRoute
+  ProbioticVsChemicalRoute: typeof ProbioticVsChemicalRoute
   ProductRegistrationRoute: typeof ProductRegistrationRoute
   ProductUseCasesRoute: typeof ProductUseCasesRoute
   ProofAndTrustRoute: typeof ProofAndTrustRoute
@@ -850,6 +941,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductRegistrationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/probiotic-vs-chemical': {
+      id: '/probiotic-vs-chemical'
+      path: '/probiotic-vs-chemical'
+      fullPath: '/probiotic-vs-chemical'
+      preLoaderRoute: typeof ProbioticVsChemicalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/probiotic-air-purification': {
       id: '/probiotic-air-purification'
       path: '/probiotic-air-purification'
@@ -869,6 +967,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pet-dander': {
+      id: '/pet-dander'
+      path: '/pet-dander'
+      fullPath: '/pet-dander'
+      preLoaderRoute: typeof PetDanderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/payment-success': {
@@ -899,6 +1004,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NurseryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mold-indoors': {
+      id: '/mold-indoors'
+      path: '/mold-indoors'
+      fullPath: '/mold-indoors'
+      preLoaderRoute: typeof MoldIndoorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mold-and-allergens': {
       id: '/mold-and-allergens'
       path: '/mold-and-allergens'
@@ -918,6 +1030,20 @@ declare module '@tanstack/react-router' {
       path: '/link-check'
       fullPath: '/link-check'
       preLoaderRoute: typeof LinkCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/indoor-microbiome': {
+      id: '/indoor-microbiome'
+      path: '/indoor-microbiome'
+      fullPath: '/indoor-microbiome'
+      preLoaderRoute: typeof IndoorMicrobiomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hygiene-hypothesis': {
+      id: '/hygiene-hypothesis'
+      path: '/hygiene-hypothesis'
+      fullPath: '/hygiene-hypothesis'
+      preLoaderRoute: typeof HygieneHypothesisRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hvac-applications': {
@@ -955,6 +1081,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GlossaryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fda-gras-status': {
+      id: '/fda-gras-status'
+      path: '/fda-gras-status'
+      fullPath: '/fda-gras-status'
+      preLoaderRoute: typeof FdaGrasStatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/faq': {
       id: '/faq'
       path: '/faq'
@@ -974,6 +1107,13 @@ declare module '@tanstack/react-router' {
       path: '/education'
       fullPath: '/education'
       preLoaderRoute: typeof EducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dust-mite-allergens': {
+      id: '/dust-mite-allergens'
+      path: '/dust-mite-allergens'
+      fullPath: '/dust-mite-allergens'
+      preLoaderRoute: typeof DustMiteAllergensRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dorm': {
@@ -1205,24 +1345,31 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DevToolsRoute: DevToolsRoute,
   DormRoute: DormRoute,
+  DustMiteAllergensRoute: DustMiteAllergensRoute,
   EducationRoute: EducationRoute,
   EmbedRoute: EmbedRoute,
   FaqRoute: FaqRoute,
+  FdaGrasStatusRoute: FdaGrasStatusRoute,
   GlossaryRoute: GlossaryRoute,
   HealthBenefitsRoute: HealthBenefitsRoute,
   HowItWorksRoute: HowItWorksRoute,
   HvacRoute: HvacRoute,
   HvacApplicationsRoute: HvacApplicationsRoute,
+  HygieneHypothesisRoute: HygieneHypothesisRoute,
+  IndoorMicrobiomeRoute: IndoorMicrobiomeRoute,
   LinkCheckRoute: LinkCheckRoute,
   ManageSubscriptionRoute: ManageSubscriptionRoute,
   MoldAndAllergensRoute: MoldAndAllergensRoute,
+  MoldIndoorsRoute: MoldIndoorsRoute,
   NurseryRoute: NurseryRoute,
   OrderHistoryRoute: OrderHistoryRoute,
   OrdersRoute: OrdersRoute,
   PaymentSuccessRoute: PaymentSuccessRoute,
+  PetDanderRoute: PetDanderRoute,
   PrivacyRoute: PrivacyRoute,
   ProSubscriptionRoute: ProSubscriptionRoute,
   ProbioticAirPurificationRoute: ProbioticAirPurificationRoute,
+  ProbioticVsChemicalRoute: ProbioticVsChemicalRoute,
   ProductRegistrationRoute: ProductRegistrationRoute,
   ProductUseCasesRoute: ProductUseCasesRoute,
   ProofAndTrustRoute: ProofAndTrustRoute,
