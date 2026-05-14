@@ -391,7 +391,7 @@ const EducationPage = () => {
             <div className="grid md:grid-cols-2 gap-5 md:gap-6">
               {steps.map((s, i) => (
                 <Suspense key={i} fallback={null}>
-                  <ScrollReveal delay={i * 60}>
+                  <ScrollReveal delay={i * 0.06}>
                     <div className="group h-full p-7 sm:p-9 rounded-3xl border border-border/60 bg-card/80 backdrop-blur-sm hover:border-primary/40 hover:shadow-[0_24px_60px_-30px_hsl(var(--primary)/0.3)] transition-all">
                       <div className="flex items-baseline gap-5 mb-5">
                         <span className="text-5xl sm:text-6xl font-display font-bold text-gradient-primary leading-none">
@@ -433,7 +433,7 @@ const EducationPage = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {paths.map((p, i) => (
                 <Suspense key={i} fallback={null}>
-                  <ScrollReveal delay={i * 50}>
+                  <ScrollReveal delay={i * 0.05}>
                     <div className="h-full p-7 rounded-3xl border border-border/60 bg-card hover:border-primary/40 hover:shadow-[0_24px_60px_-30px_hsl(var(--primary)/0.3)] transition-all">
                       <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5">
                         {p.icon}
