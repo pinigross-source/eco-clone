@@ -362,7 +362,7 @@ const HealthBenefitsPage = () => {
                   The Probiotic Difference
                 </p>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-8 text-balance">
-                  A HEPA filter captures what floats. We work where the problem actually lives.
+                  A HEPA filter captures what floats. We work where the problem <span className="text-[hsl(24_95%_53%)]">actually lives.</span>
                 </h2>
                 <div className="space-y-5 text-lg text-muted-foreground leading-relaxed">
                   <p>
