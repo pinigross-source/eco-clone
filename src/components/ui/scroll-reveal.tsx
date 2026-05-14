@@ -43,12 +43,18 @@ const variantStyles: Record<AnimationVariant, { hidden: CSSProperties; visible: 
   },
 };
 
-function useInView(ref: React.RefObject<Element | null>, { once = true, amount = 0.2 } = {}) {
+function useInView(ref: React.RefObject<Element | null>, { once = true, amount = 0 } = {}) {
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // Fallback: if IntersectionObserver is missing, show immediately
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -59,11 +65,18 @@ function useInView(ref: React.RefObject<Element | null>, { once = true, amount =
           setInView(false);
         }
       },
-      { threshold: amount }
+      { threshold: amount, rootMargin: "0px 0px -5% 0px" }
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Safety net: ensure content always reveals even if observer never fires
+    const fallback = window.setTimeout(() => setInView(true), 800);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, [ref, once, amount]);
 
   return inView;
