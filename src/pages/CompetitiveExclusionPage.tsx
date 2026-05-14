@@ -342,7 +342,7 @@ const CompetitiveExclusionPage = () => {
                         <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                           <s.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
                         </div>
-                        <p className="text-xs text-muted-foreground/50 font-mono mt-2 text-center">{s.num}</p>
+                        <p className="text-xs text-muted-foreground font-mono mt-2 text-center">{s.num}</p>
                       </div>
                       <div>
                         <h3 className="text-lg font-display font-semibold text-foreground mb-2">{s.title}</h3>

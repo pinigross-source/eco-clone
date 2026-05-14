@@ -160,7 +160,7 @@ export const ProductShowcase = () => {
                 )}
               </div>
 
-              <p className="text-xs text-muted-foreground/50 pt-2">
+              <p className="text-xs text-muted-foreground pt-2">
                 30-day trial · Free shipping on bundles · 1 year warranty
               </p>
             </div>

@@ -388,7 +388,7 @@ const SolutionsPage = () => {
                     <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70">
                       Traditional
                     </p>
-                    <p className="text-[11px] font-medium tracking-wide uppercase text-muted-foreground/50">
+                    <p className="text-[11px] font-medium tracking-wide uppercase text-muted-foreground">
                       Reactive
                     </p>
                   </div>
