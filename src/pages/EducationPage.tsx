@@ -107,7 +107,7 @@ const steps = [
   },
   {
     title: "They settle where filters cannot reach",
-    body: "The probiotics land on bedding, upholstery, carpets, counters, vents, pet areas, dust, and other high-contact surfaces — the places where many allergens, odors, mold spores, and microbes collect.",
+    body: "The probiotics land on bedding, upholstery, carpets, counters, vents, pet areas, dust, and other high-contact surfaces, the places where many allergens, odors, mold spores, and microbes collect.",
   },
   {
     title: "They compete with unwanted microbes",
@@ -115,7 +115,7 @@ const steps = [
   },
   {
     title: "They support continuous surface-level balance",
-    body: "Chemical sprays act only at the moment of use. EnviroBiotics is designed for continuous dispersal — helping maintain microbial balance over time instead of relying on periodic treatment.",
+    body: "Chemical sprays act only at the moment of use. EnviroBiotics is designed for continuous dispersal, helping maintain microbial balance over time instead of relying on periodic treatment.",
   },
 ];
 
@@ -180,7 +180,7 @@ const allergens = [
 const faqs = [
   {
     q: "What is the indoor microbiome?",
-    a: "The indoor microbiome is the community of microorganisms — bacteria, fungi, viruses — that live in your home. A healthy indoor microbiome is diverse and dominated by beneficial organisms. Modern cleaning practices and sealed building design have depleted this diversity, which researchers increasingly connect to rising rates of allergies and immune dysfunction.",
+    a: "The indoor microbiome is the community of microorganisms, bacteria, fungi, viruses, that live in your home. A healthy indoor microbiome is diverse and dominated by beneficial organisms. Modern cleaning practices and sealed building design have depleted this diversity, which researchers increasingly connect to rising rates of allergies and immune dysfunction.",
   },
   {
     q: "How is probiotic air purification different from a regular air purifier?",
@@ -241,7 +241,7 @@ const EducationPage = () => {
       <main>
         {/* ── Hero ── */}
         <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
-          {/* subtle, single light wash — Sonos-style restraint */}
+          {/* subtle, single light wash, Sonos-style restraint */}
           <div className="absolute inset-0 bg-gradient-to-b from-muted/40 via-background to-background pointer-events-none" />
           <div className="absolute -top-24 -right-24 w-[520px] h-[520px] bg-primary/[0.06] rounded-full blur-3xl pointer-events-none" />
 
@@ -262,7 +262,7 @@ const EducationPage = () => {
                       healthier home.
                     </h1>
                     <p className="text-lg sm:text-xl text-foreground/70 max-w-xl leading-[1.55] mb-10">
-                      Indoor air can be two to five times more polluted than outdoor air — and most of it begins on the surfaces around you. Learn how the indoor microbiome, allergens, and probiotic purification really work.
+                      Indoor air can be two to five times more polluted than outdoor air, and most of it begins on the surfaces around you. Learn how the indoor microbiome, allergens, and probiotic purification really work.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -287,7 +287,7 @@ const EducationPage = () => {
                     <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-[0_40px_100px_-40px_hsl(var(--foreground)/0.35)]">
                       <img
                         src={heroLivingRoom}
-                        alt="Sunlit modern living room with dust motes drifting through soft warm light — visualizing the indoor environment EnviroBiotics protects."
+                        alt="Sunlit modern living room with dust motes drifting through soft warm light, visualizing the indoor environment EnviroBiotics protects."
                         className="absolute inset-0 w-full h-full object-cover"
                         width={1080}
                         height={1350}
@@ -303,7 +303,7 @@ const EducationPage = () => {
                   </div>
                 </div>
 
-                {/* Stats strip — quiet editorial band */}
+                {/* Stats strip, quiet editorial band */}
                 <div className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-3 rounded-3xl border border-border/60 bg-card overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-border/60">
                   {[
                     { stat: "90%", label: "of our time is spent indoors", source: "EPA" },
@@ -349,7 +349,7 @@ const EducationPage = () => {
               <GuideCard
                 icon={<BookOpen className="w-5 h-5" />}
                 title="What Is Probiotic Air Purification?"
-                description="Probiotic air purification is not a better filter — it is a fundamentally different approach. Beneficial Bacillus probiotics travel through the air, settle on surfaces, and address the sources of the problem where filters never reach."
+                description="Probiotic air purification is not a better filter, it is a fundamentally different approach. Beneficial Bacillus probiotics travel through the air, settle on surfaces, and address the sources of the problem where filters never reach."
                 bestFor="Anyone new to probiotic purification or comparing it to conventional air purifiers."
                 to="/probiotic-air-purification"
                 linkText="Read the guide"
@@ -357,7 +357,7 @@ const EducationPage = () => {
               <GuideCard
                 icon={<Bug className="w-5 h-5" />}
                 title="How to Reduce Mold and Allergens Naturally"
-                description="Mold, dust mites, and pet allergens live in almost every home. The goal is not sterility — it is reducing triggers to levels your body tolerates. Practical steps plus biological support."
+                description="Mold, dust mites, and pet allergens live in almost every home. The goal is not sterility, it is reducing triggers to levels your body tolerates. Practical steps plus biological support."
                 bestFor="Allergy and asthma sufferers, pet owners, and anyone dealing with recurring mold or dust."
                 to="/mold-and-allergens"
                 linkText="Read the guide"
@@ -365,7 +365,7 @@ const EducationPage = () => {
               <GuideCard
                 icon={<Microscope className="w-5 h-5" />}
                 title="How EnviroBiotics Works"
-                description="Three simultaneous mechanisms — competitive exclusion, antimicrobial production, and surface colonization — working continuously, 24/7, to maintain a protective microbial layer."
+                description="Three simultaneous mechanisms, competitive exclusion, antimicrobial production, and surface colonization, working continuously, 24/7, to maintain a protective microbial layer."
                 bestFor="Anyone who wants to understand the biology before making a purchase decision."
                 to="/how-it-works"
                 linkText="Read the guide"
@@ -475,7 +475,7 @@ const EducationPage = () => {
                     <div className="relative rounded-3xl overflow-hidden aspect-[5/4] shadow-[0_30px_80px_-40px_hsl(var(--primary)/0.45)]">
                       <img
                         src={microbiomeMacro}
-                        alt="Macro abstract visualization of microbial cells suspended in warm light — the indoor microbiome rendered as art."
+                        alt="Macro abstract visualization of microbial cells suspended in warm light, the indoor microbiome rendered as art."
                         className="absolute inset-0 w-full h-full object-cover"
                         width={1600}
                         height={1280}
@@ -486,7 +486,7 @@ const EducationPage = () => {
                   <div className="lg:col-span-6 order-1 lg:order-2">
                     <SectionLabel className="mb-5">Indoor microbiome</SectionLabel>
                     <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] mb-5 text-balance">
-                      Your home is alive — and the balance matters.
+                      Your home is alive, and the balance matters.
                     </h2>
                     <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                       Your home has its own microbial ecosystem. It can influence allergens, respiratory comfort, immune function, odors, and how your home responds to mold and dust. These guides explain what it is, how modern living changed it, and why balance matters more than sterilization.
@@ -500,7 +500,7 @@ const EducationPage = () => {
               <GuideCard
                 icon={<FlaskConical className="w-5 h-5" />}
                 title="What Is the Indoor Microbiome?"
-                description="Your home is not sterile — it is alive. Thousands of microbial species form an ecosystem as complex as a rainforest, but more intimate. Modern construction and chemical cleaning have changed it in ways that affect how your home behaves."
+                description="Your home is not sterile, it is alive. Thousands of microbial species form an ecosystem as complex as a rainforest, but more intimate. Modern construction and chemical cleaning have changed it in ways that affect how your home behaves."
                 bestFor="Anyone new to indoor air quality science who wants to understand the foundation."
                 to="/indoor-microbiome"
                 linkText="Read the guide"
@@ -508,7 +508,7 @@ const EducationPage = () => {
               <GuideCard
                 icon={<Shield className="w-5 h-5" />}
                 title="The Hygiene Hypothesis Explained"
-                description="Reduced exposure to beneficial environmental microbes — especially early in life — may disrupt how the immune system develops. The issue isn't dirt; it's microbial diversity and balance."
+                description="Reduced exposure to beneficial environmental microbes, especially early in life, may disrupt how the immune system develops. The issue isn't dirt; it's microbial diversity and balance."
                 bestFor="Parents concerned about allergies and asthma, and anyone curious about the link between cleanliness and immune function."
                 to="/hygiene-hypothesis"
                 linkText="Read the guide"
@@ -529,14 +529,14 @@ const EducationPage = () => {
                       The triggers live where you sleep.
                     </h2>
                     <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                      Most people think indoor air problems float in the air. In reality, many common triggers settle on surfaces first — bedding, mattresses, carpets, upholstery, HVAC systems, pet areas, and dust — and resuspend with every movement.
+                      Most people think indoor air problems float in the air. In reality, many common triggers settle on surfaces first, bedding, mattresses, carpets, upholstery, HVAC systems, pet areas, and dust, and resuspend with every movement.
                     </p>
                   </div>
                   <div className="lg:col-span-6">
                     <div className="relative rounded-3xl overflow-hidden aspect-[5/4] shadow-[0_30px_80px_-40px_hsl(var(--foreground)/0.25)]">
                       <img
                         src={bedroomAllergens}
-                        alt="Sunlit minimalist bedroom with soft linen and a wool throw — where dust mite and pet dander allergens accumulate."
+                        alt="Sunlit minimalist bedroom with soft linen and a wool throw, where dust mite and pet dander allergens accumulate."
                         className="absolute inset-0 w-full h-full object-cover"
                         width={1600}
                         height={1280}
@@ -560,7 +560,7 @@ const EducationPage = () => {
               <GuideCard
                 icon={<Wind className="w-5 h-5" />}
                 title="Mold Indoors"
-                description="Mold grows wherever moisture, organic matter, and poor airflow meet. Visible mold is often only part of the problem — spores and fragments spread into dust and air."
+                description="Mold grows wherever moisture, organic matter, and poor airflow meet. Visible mold is often only part of the problem, spores and fragments spread into dust and air."
                 bestFor="People dealing with recurring mold problems, damp basements, bathrooms, or HVAC concerns."
                 to="/mold-indoors"
                 linkText="Read the guide"
@@ -587,7 +587,7 @@ const EducationPage = () => {
                     <div className="relative rounded-3xl overflow-hidden aspect-square shadow-[0_30px_80px_-40px_hsl(var(--foreground)/0.25)]">
                       <img
                         src={petriStill}
-                        alt="Sunlit interior corner with a billowing linen curtain and an olive tree — fresh, balanced indoor air."
+                        alt="Sunlit interior corner with a billowing linen curtain and an olive tree, fresh, balanced indoor air."
                         className="absolute inset-0 w-full h-full object-cover"
                         width={1280}
                         height={1280}
@@ -612,7 +612,7 @@ const EducationPage = () => {
               <GuideCard
                 icon={<Beaker className="w-5 h-5" />}
                 title="The Science of Competitive Exclusion"
-                description="When beneficial probiotics occupy a surface first, they compete with unwanted bacteria and mold for nutrients, adhesion sites, and space — creating a more stable microbial environment over time."
+                description="When beneficial probiotics occupy a surface first, they compete with unwanted bacteria and mold for nutrients, adhesion sites, and space, creating a more stable microbial environment over time."
                 bestFor="Anyone who wants to understand the core mechanism behind probiotic purification."
                 to="/competitive-exclusion"
                 linkText="Read the guide"
@@ -620,7 +620,7 @@ const EducationPage = () => {
               <GuideCard
                 icon={<Award className="w-5 h-5" />}
                 title="Understanding FDA GRAS Status"
-                description="GRAS — Generally Recognized As Safe — is a safety designation for substances and ingredients evaluated for their history of safe use. For probiotic products, strain identity and selection matter most."
+                description="GRAS, Generally Recognized As Safe, is a safety designation for substances and ingredients evaluated for their history of safe use. For probiotic products, strain identity and selection matter most."
                 bestFor="Anyone concerned about product safety, health-conscious families, and people with chemical sensitivities."
                 to="/fda-gras-status"
                 linkText="Read the guide"
