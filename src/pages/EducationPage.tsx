@@ -82,7 +82,7 @@ const SectionHead = ({
   title,
   intro,
   align = "left",
-}: { eyebrow?: string; title: string; intro?: string; align?: "left" | "center" }) => (
+}: { eyebrow?: string; title: React.ReactNode; intro?: string; align?: "left" | "center" }) => (
   <div className={align === "center" ? "text-center max-w-3xl mx-auto mb-14" : "max-w-3xl mb-14"}>
     {eyebrow && (
       <SectionLabel className={align === "center" ? "mb-5 mx-auto" : "mb-5"}>{eyebrow}</SectionLabel>
