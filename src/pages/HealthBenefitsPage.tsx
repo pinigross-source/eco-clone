@@ -184,7 +184,7 @@ const HealthBenefitsPage = () => {
           <Suspense fallback={null}>
             <ScrollReveal variant="fadeUp">
               <p className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold tracking-tight text-foreground leading-[1.2] mb-10 text-balance">
-                The air inside your home is affecting your body right now.
+                The air inside your home is affecting your body <span className="text-[hsl(24_95%_53%)]">right now.</span>
               </p>
               <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
                 <p>
