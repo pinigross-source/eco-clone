@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 const HVACFlowAnimation = lazy(() => import("@/components/HVACFlowAnimation").then(m => ({ default: m.HVACFlowAnimation })));
 import howItWorksThumb from "@/assets/how-it-works-video-thumb.jpg";
-import howItWorksHeroBg from "@/assets/how-it-works-hero-bg.avif";
+import howItWorksHeroBg from "@/assets/clean-air-scandi-hero.jpg";
 import protectingLivingRoom from "@/assets/protecting-living-room.jpg";
 import sharedSpacesLiving from "@/assets/shared-spaces-living.jpg";
 import wholeHomeHallway from "@/assets/whole-home-hallway.jpg";
