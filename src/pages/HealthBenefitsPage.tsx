@@ -184,7 +184,7 @@ const HealthBenefitsPage = () => {
           <Suspense fallback={null}>
             <ScrollReveal variant="fadeUp">
               <p className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold tracking-tight text-foreground leading-[1.2] mb-10 text-balance">
-                The air inside your home is affecting your body right now.
+                The air inside your home is affecting your body <span className="text-[hsl(24_95%_53%)]">right now.</span>
               </p>
               <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
                 <p>
@@ -228,7 +228,7 @@ const HealthBenefitsPage = () => {
                   The Scale of Exposure
                 </p>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-8 text-balance">
-                  You spend over 90% of your life breathing indoor air.
+                  You spend over 90% of your life breathing <span className="text-[hsl(24_95%_53%)]">indoor air.</span>
                 </h2>
                 <div className="space-y-5 text-lg text-muted-foreground leading-relaxed mb-10">
                   <p>
@@ -272,7 +272,7 @@ const HealthBenefitsPage = () => {
                 What's actually in the air
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-14 max-w-3xl text-balance">
-                The biological contaminants most responsible for health impacts.
+                The biological contaminants most responsible for <span className="text-[hsl(24_95%_53%)]">health impacts.</span>
               </h2>
             </ScrollReveal>
           </Suspense>
@@ -302,7 +302,7 @@ const HealthBenefitsPage = () => {
                 Conditions & Research
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-16 max-w-3xl text-balance">
-                Six health outcomes shaped by the air in your home.
+                Six health outcomes shaped by the air in <span className="text-[hsl(24_95%_53%)]">your home.</span>
               </h2>
             </ScrollReveal>
           </Suspense>
@@ -362,7 +362,7 @@ const HealthBenefitsPage = () => {
                   The Probiotic Difference
                 </p>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-8 text-balance">
-                  A HEPA filter captures what floats. We work where the problem actually lives.
+                  A HEPA filter captures what floats. We work where the problem <span className="text-[hsl(24_95%_53%)]">actually lives.</span>
                 </h2>
                 <div className="space-y-5 text-lg text-muted-foreground leading-relaxed">
                   <p>
@@ -410,7 +410,7 @@ const HealthBenefitsPage = () => {
                 Real Outcomes
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-14 max-w-3xl text-balance">
-                What users report.
+                What users <span className="text-[hsl(24_95%_53%)]">report.</span>
               </h2>
             </ScrollReveal>
           </Suspense>
@@ -461,7 +461,7 @@ const HealthBenefitsPage = () => {
                 Best For
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-14 max-w-3xl text-balance">
-                Who benefits most.
+                Who benefits <span className="text-[hsl(24_95%_53%)]">most.</span>
               </h2>
             </ScrollReveal>
           </Suspense>
@@ -491,7 +491,7 @@ const HealthBenefitsPage = () => {
                 Common Questions
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-12 text-balance">
-                Frequently asked.
+                Frequently <span className="text-[hsl(24_95%_53%)]">asked.</span>
               </h2>
             </ScrollReveal>
           </Suspense>
@@ -524,7 +524,7 @@ const HealthBenefitsPage = () => {
                 The Bottom Line
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-semibold tracking-tight text-foreground leading-[1.05] mb-8 text-balance">
-                Your indoor air is a health decision.
+                Your indoor air is a <span className="text-[hsl(24_95%_53%)]">health decision.</span>
               </h2>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-12">
                 How you sleep tonight. How you breathe tomorrow. How clearly you think next week.
