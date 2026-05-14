@@ -236,43 +236,81 @@ const EducationPage = () => {
 
       <main>
         {/* ── Hero ── */}
-        <section className="relative overflow-hidden pt-32 pb-24 md:pt-44 md:pb-32">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
-          <div className="absolute top-24 right-0 w-[600px] h-[600px] bg-primary/[0.07] rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-accent/[0.08] rounded-full blur-3xl pointer-events-none" />
+        <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+          {/* subtle, single light wash — Sonos-style restraint */}
+          <div className="absolute inset-0 bg-gradient-to-b from-muted/40 via-background to-background pointer-events-none" />
+          <div className="absolute -top-24 -right-24 w-[520px] h-[520px] bg-primary/[0.06] rounded-full blur-3xl pointer-events-none" />
 
-          <div className="container max-w-5xl px-5 sm:px-6 relative z-10">
+          <div className="container max-w-7xl px-5 sm:px-6 relative z-10">
             <Suspense fallback={null}>
               <ScrollReveal variant="fadeUp">
-                <SectionLabel className="mb-6">Education Center</SectionLabel>
-                <h1 className="text-[40px] sm:text-5xl md:text-6xl lg:text-[80px] font-display font-bold leading-[0.98] tracking-[-0.02em] mb-8 text-balance">
-                  Indoor Air Quality &{" "}
-                  <span className="text-gradient-primary">Probiotic Science</span>
-                </h1>
-                <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-6">
-                  Most people spend over 90% of their time indoors. Yet indoor air can be two to five times more polluted than outdoor air. The bigger surprise: many indoor problems do not begin in the air. They begin on the surfaces around you — bedding, carpets, furniture, vents, pet areas, and dust.
-                </p>
-                <p className="text-base sm:text-lg text-muted-foreground/90 max-w-3xl leading-relaxed mb-10">
-                  The EnviroBiotics Education Center explains the science of the indoor microbiome, why allergens and mold persist in modern homes, and how probiotic purification works differently from traditional air filters.
-                </p>
+                <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
+                  {/* Left: editorial copy */}
+                  <div className="lg:col-span-7">
+                    <div className="inline-flex items-center gap-2.5 mb-8">
+                      <span className="h-px w-8 bg-foreground/40" />
+                      <span className="text-[11px] uppercase tracking-[0.22em] font-semibold text-foreground/70">
+                        Education Center
+                      </span>
+                    </div>
+                    <h1 className="font-display font-bold text-foreground text-[44px] sm:text-6xl md:text-7xl lg:text-[88px] leading-[0.95] tracking-[-0.035em] mb-8 text-balance">
+                      The science of a<br className="hidden sm:block" />{" "}
+                      healthier home.
+                    </h1>
+                    <p className="text-lg sm:text-xl text-foreground/70 max-w-xl leading-[1.55] mb-10">
+                      Indoor air can be two to five times more polluted than outdoor air — and most of it begins on the surfaces around you. Learn how the indoor microbiome, allergens, and probiotic purification really work.
+                    </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10">
-                  <a
-                    href="#foundations"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-foreground text-background rounded-full font-medium hover:bg-foreground/90 transition-all text-sm sm:text-base shadow-sm hover:shadow-md"
-                  >
-                    Start with the basics
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                  <Link
-                    to="/how-it-works"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-border rounded-full font-medium hover:bg-muted transition-colors text-sm sm:text-base"
-                  >
-                    See how EnviroBiotics works
-                  </Link>
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                      <a
+                        href="#foundations"
+                        className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-foreground text-background rounded-full font-medium hover:bg-foreground/90 transition-all text-sm sm:text-base shadow-sm hover:shadow-md"
+                      >
+                        Start with the basics
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
+                      <Link
+                        to="/how-it-works"
+                        className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-foreground/15 rounded-full font-medium hover:bg-foreground hover:text-background transition-colors text-sm sm:text-base"
+                      >
+                        See how EnviroBiotics works
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Right: stat panel — quiet, editorial */}
+                  <div className="lg:col-span-5">
+                    <div className="space-y-px rounded-3xl overflow-hidden border border-border/60 bg-card shadow-[0_30px_80px_-40px_hsl(var(--foreground)/0.18)]">
+                      {[
+                        { stat: "90%", label: "of our time is spent indoors", source: "EPA" },
+                        { stat: "2–5×", label: "indoor air vs. outdoor pollution levels", source: "EPA" },
+                        { stat: "1000s", label: "of microbial species in a typical home", source: "Indoor microbiome research" },
+                      ].map((item, i) => (
+                        <div
+                          key={i}
+                          className="flex items-baseline gap-6 p-7 sm:p-8 bg-card hover:bg-muted/40 transition-colors"
+                        >
+                          <div className="font-display font-bold text-4xl sm:text-5xl tracking-[-0.02em] text-primary shrink-0 tabular-nums">
+                            {item.stat}
+                          </div>
+                          <div className="min-w-0">
+                            <div className="text-[15px] text-foreground leading-snug font-medium">
+                              {item.label}
+                            </div>
+                            <div className="text-[11px] uppercase tracking-[0.18em] font-medium text-muted-foreground/70 mt-1.5">
+                              {item.source}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-xs text-muted-foreground/70 mt-4 px-1 leading-relaxed">
+                      Sources reviewed by the EnviroBiotics Science Team.
+                    </p>
+                  </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-muted-foreground/70 max-w-2xl leading-relaxed border-t border-border/40 pt-6">
+                <p className="text-xs sm:text-sm text-muted-foreground/70 max-w-2xl leading-relaxed border-t border-border/40 pt-6 mt-16">
                   Built around peer-reviewed microbiome research, allergen biology, probiotic hygiene studies, and independent product testing.
                 </p>
               </ScrollReveal>
