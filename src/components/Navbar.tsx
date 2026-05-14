@@ -46,7 +46,6 @@ const navLinks: NavItem[] = [
     dropdown: [
       { label: "Room Solutions", href: "/solutions/room", icon: Home, desc: "Single-room protection" },
       { label: "HVAC / Whole Home", href: "/hvac", icon: Building2, desc: "Central air integration" },
-      { label: "Mold & Allergens", href: "/mold-and-allergens", icon: Leaf, desc: "Targeted support" },
     ],
   },
 ];
