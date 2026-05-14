@@ -259,7 +259,7 @@ const EducationPage = () => {
                     </div>
                     <h1 className="font-display font-bold text-foreground text-[44px] sm:text-6xl md:text-7xl lg:text-[88px] leading-[0.95] tracking-[-0.035em] mb-8 text-balance">
                       The science of a<br className="hidden sm:block" />{" "}
-                      healthier home.
+                      <span className="text-primary">healthier</span> home.
                     </h1>
                     <p className="text-lg sm:text-xl text-foreground/70 max-w-xl leading-[1.55] mb-10">
                       Indoor air can be two to five times more polluted than outdoor air, and most of it begins on the surfaces around you. Learn how the indoor microbiome, allergens, and probiotic purification really work.
