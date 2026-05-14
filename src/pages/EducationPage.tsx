@@ -39,7 +39,7 @@ const RelatedTopics = lazy(() => import("@/components/RelatedTopics").then(m => 
 /* ───────────────────────── Guide card ───────────────────────── */
 
 interface GuideCardProps {
-  title: string;
+  title: React.ReactNode;
   description: string;
   bestFor?: string;
   to: string;
