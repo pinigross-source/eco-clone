@@ -9,6 +9,7 @@ const exploreLinks = [
   { label: "Solutions", href: "/solutions" },
   { label: "Central Air & Heating", href: "/hvac" },
   { label: "Benefits", href: "/health-benefits" },
+  { label: "Education Center", href: "/education" },
   { label: "Help Center", href: "/support" },
 ];
 
