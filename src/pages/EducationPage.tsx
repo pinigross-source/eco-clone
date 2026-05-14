@@ -618,37 +618,42 @@ const EducationPage = () => {
             <Suspense fallback={null}>
               <ScrollReveal>
                 <div className="gradient-cta rounded-[32px] p-10 sm:p-14 md:p-20 text-center relative overflow-hidden">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-foreground/5 border border-foreground/10 text-xs uppercase tracking-[0.18em] font-medium text-foreground/70 mb-6">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    Stay informed
-                  </div>
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-[1.05] tracking-tight mb-5 text-balance">
-                    A healthier indoor environment, backed by science.
-                  </h2>
-                  <p className="text-muted-foreground max-w-2xl mx-auto mb-10 text-base sm:text-lg leading-relaxed">
-                    New guides, research summaries, and product updates are added regularly. If you have a question that is not answered here, contact the EnviroBiotics support team.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                  {/* soft radial highlights */}
+                  <div className="pointer-events-none absolute -top-32 -left-24 w-[420px] h-[420px] rounded-full bg-white/15 blur-3xl" />
+                  <div className="pointer-events-none absolute -bottom-32 -right-24 w-[420px] h-[420px] rounded-full bg-foreground/15 blur-3xl" />
+                  <div className="relative">
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur border border-white/60 text-xs uppercase tracking-[0.18em] font-semibold text-foreground mb-6 shadow-sm">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      Stay informed
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-[1.05] tracking-tight mb-5 text-balance text-foreground">
+                      A healthier indoor environment, backed by science.
+                    </h2>
+                    <p className="max-w-2xl mx-auto mb-10 text-base sm:text-lg leading-relaxed text-foreground/85">
+                      New guides, research summaries, and product updates are added regularly. If you have a question that is not answered here, contact the EnviroBiotics support team.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                      <Link
+                        to="/shop"
+                        className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-foreground text-background rounded-full font-medium hover:bg-foreground/90 transition-all text-sm sm:text-base shadow-md hover:shadow-lg"
+                      >
+                        Explore EnviroBiotics devices
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                      <Link
+                        to="/research"
+                        className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-medium bg-white text-foreground hover:bg-white/90 transition-colors text-sm sm:text-base shadow-sm"
+                      >
+                        Read independent research
+                      </Link>
+                    </div>
                     <Link
-                      to="/shop"
-                      className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-foreground text-background rounded-full font-medium hover:bg-foreground/90 transition-all text-sm sm:text-base shadow-sm hover:shadow-md"
+                      to="/contact"
+                      className="inline-block mt-6 text-sm text-foreground/80 hover:text-foreground transition-colors underline underline-offset-4 decoration-foreground/40"
                     >
-                      Explore EnviroBiotics devices
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                    <Link
-                      to="/research"
-                      className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-border bg-background/60 backdrop-blur rounded-full font-medium hover:bg-background transition-colors text-sm sm:text-base"
-                    >
-                      Read independent research
+                      Contact us with questions
                     </Link>
                   </div>
-                  <Link
-                    to="/contact"
-                    className="inline-block mt-6 text-sm text-muted-foreground hover:text-primary transition-colors underline underline-offset-4"
-                  >
-                    Contact us with questions
-                  </Link>
                 </div>
               </ScrollReveal>
             </Suspense>
