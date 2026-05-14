@@ -201,10 +201,6 @@ const BlogPostPage = () => {
                     {post.category}
                   </span>
                   <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Calendar className="w-4 h-4" />
-                    February 2026
-                  </span>
-                  <span className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Clock className="w-4 h-4" />
                     {readingTime} min read
                   </span>
