@@ -41,11 +41,10 @@ interface GuideCardProps {
   to: string;
   linkText: string;
   icon: React.ReactNode;
-  comingSoon?: boolean;
 }
 
-const GuideCard = ({ title, description, bestFor, to, linkText, icon, comingSoon }: GuideCardProps) => {
-  const content = (
+const GuideCard = ({ title, description, bestFor, to, linkText, icon }: GuideCardProps) => (
+  <Link to={to} className="block h-full">
     <div className="group relative flex flex-col h-full p-7 sm:p-8 rounded-3xl border border-border/60 bg-card hover:border-primary/40 hover:shadow-[0_24px_60px_-30px_hsl(var(--primary)/0.35)] transition-all duration-500">
       <div className="flex items-center gap-3 mb-6">
         <div className="shrink-0 w-11 h-11 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
@@ -65,15 +64,12 @@ const GuideCard = ({ title, description, bestFor, to, linkText, icon, comingSoon
         </p>
       )}
       <span className="inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all mt-auto">
-        {comingSoon ? "Coming soon" : linkText}
-        {!comingSoon && <ArrowRight className="w-4 h-4" />}
+        {linkText}
+        <ArrowRight className="w-4 h-4" />
       </span>
     </div>
-  );
-
-  if (comingSoon) return <div className="opacity-60 cursor-default h-full">{content}</div>;
-  return <Link to={to} className="block h-full">{content}</Link>;
-};
+  </Link>
+);
 
 /* ───────────────────────── Section heading ───────────────────────── */
 
