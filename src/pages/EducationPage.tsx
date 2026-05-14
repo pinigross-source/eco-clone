@@ -582,11 +582,29 @@ const EducationPage = () => {
           <div className="container max-w-6xl px-5 sm:px-6">
             <Suspense fallback={null}>
               <ScrollReveal>
-                <SectionHead
-                  eyebrow="The science"
-                  title="Probiotic Purification Science"
-                  intro="Probiotic purification rests on a simple biological idea: beneficial microbes can shape the environment by competing with unwanted organisms for space, nutrients, and colonization sites. It has been studied in agriculture, microbiology, and hospital hygiene."
-                />
+                <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-14 md:mb-20">
+                  <div className="lg:col-span-5 order-2 lg:order-1">
+                    <div className="relative rounded-3xl overflow-hidden aspect-square shadow-[0_30px_80px_-40px_hsl(var(--foreground)/0.25)]">
+                      <img
+                        src={petriStill}
+                        alt="A single matte ceramic petri dish on warm linen — beneficial probiotic colonies as quiet still life."
+                        className="absolute inset-0 w-full h-full object-cover"
+                        width={1280}
+                        height={1280}
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <div className="lg:col-span-7 order-1 lg:order-2">
+                    <SectionLabel className="mb-5">The science</SectionLabel>
+                    <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] mb-5 text-balance">
+                      Beneficial microbes, working continuously.
+                    </h2>
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                      Probiotic purification rests on a simple biological idea: beneficial microbes can shape the environment by competing with unwanted organisms for space, nutrients, and colonization sites. It has been studied for decades in agriculture, microbiology, and hospital hygiene.
+                    </p>
+                  </div>
+                </div>
               </ScrollReveal>
             </Suspense>
 
