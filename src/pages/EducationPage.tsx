@@ -470,11 +470,29 @@ const EducationPage = () => {
           <div className="container max-w-6xl px-5 sm:px-6">
             <Suspense fallback={null}>
               <ScrollReveal>
-                <SectionHead
-                  eyebrow="Indoor microbiome"
-                  title="The Science of the Indoor Microbiome"
-                  intro="Your home has its own microbial ecosystem. It can influence allergens, respiratory comfort, immune function, odors, and the way your home responds to mold and dust. These guides explain what it is, how modern living changed it, and why balance matters more than sterilization."
-                />
+                <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-14 md:mb-20">
+                  <div className="lg:col-span-6 order-2 lg:order-1">
+                    <div className="relative rounded-3xl overflow-hidden aspect-[5/4] shadow-[0_30px_80px_-40px_hsl(var(--primary)/0.45)]">
+                      <img
+                        src={microbiomeMacro}
+                        alt="Macro abstract visualization of microbial cells suspended in warm light — the indoor microbiome rendered as art."
+                        className="absolute inset-0 w-full h-full object-cover"
+                        width={1600}
+                        height={1280}
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <div className="lg:col-span-6 order-1 lg:order-2">
+                    <SectionLabel className="mb-5">Indoor microbiome</SectionLabel>
+                    <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] mb-5 text-balance">
+                      Your home is alive — and the balance matters.
+                    </h2>
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                      Your home has its own microbial ecosystem. It can influence allergens, respiratory comfort, immune function, odors, and how your home responds to mold and dust. These guides explain what it is, how modern living changed it, and why balance matters more than sterilization.
+                    </p>
+                  </div>
+                </div>
               </ScrollReveal>
             </Suspense>
 
