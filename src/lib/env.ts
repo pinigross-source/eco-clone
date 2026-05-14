@@ -1,9 +1,25 @@
 /**
  * Single source of truth for "is this a test/staging environment?"
  *
- * Defaults to TRUE so the test site keeps its banner, noindex meta,
- * /dev-tools route, and Lovable-flavored social previews unless we
- * explicitly opt out by setting VITE_IS_TEST_ENV=false in production.
+ * Production hosts (envirobiotics.com) are NEVER test, so search engines
+ * can index them. Lovable preview/sandbox hosts and explicit
+ * VITE_IS_TEST_ENV="true" are treated as test (noindex, banner, etc.).
  */
-export const isTestEnv =
-  import.meta.env.VITE_IS_TEST_ENV !== "false";
+const PROD_HOSTS = new Set([
+  "envirobiotics.com",
+  "www.envirobiotics.com",
+]);
+
+function detectIsTestEnv(): boolean {
+  const explicit = import.meta.env.VITE_IS_TEST_ENV;
+  if (explicit === "true") return true;
+  if (explicit === "false") return false;
+
+  if (typeof window !== "undefined" && window.location?.hostname) {
+    return !PROD_HOSTS.has(window.location.hostname);
+  }
+  // SSR / build-time fallback: assume production (safer for SEO).
+  return false;
+}
+
+export const isTestEnv = detectIsTestEnv();
