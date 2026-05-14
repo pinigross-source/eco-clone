@@ -211,41 +211,36 @@ const RoomSolutionsPage = () => {
       />
       <Navbar />
       <main>
-        {/* ═══════ Hero — Sonos style with background image ═══════ */}
-        <section className="relative pt-24 pb-16 overflow-hidden">
-          <div className="container relative z-10">
-            <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] ring-1 ring-black/[0.06] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.35),0_20px_40px_-20px_rgba(0,0,0,0.15)]">
-              {/* Background image */}
-              <img
-                src={roomHeroBg}
-                alt=""
-                aria-hidden="true"
-                loading="eager"
-                fetchPriority="high"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              {/* Readability gradient — lighter wash to keep image bright */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-
-              {/* Content */}
-              <div className="relative z-10 px-6 py-20 sm:px-12 sm:py-28 md:px-16 md:py-36 lg:px-20 lg:py-44">
-                <div className="max-w-3xl">
-                  <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-white/80 mb-6">
+        {/* ═══════ Hero — full-bleed Sonos style ═══════ */}
+        <section className="relative w-full overflow-hidden pt-16 sm:pt-20">
+          <div className="relative min-h-[78vh] md:min-h-[88vh] w-full">
+            <img
+              src={roomHeroBg}
+              alt="A serene room interior showing surfaces where allergens settle"
+              className="absolute inset-0 h-full w-full object-cover"
+              width={1920}
+              height={1280}
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent md:bg-gradient-to-r md:from-black/65 md:via-black/25 md:to-transparent"
+            />
+            <div className="relative z-10 flex min-h-[78vh] md:min-h-[88vh] items-end md:items-center">
+              <div className="container px-5 sm:px-6 pb-12 md:pb-0">
+                <div className="max-w-3xl text-white" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.45)" }}>
+                  <p className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.28em] uppercase text-white/85 mb-5">
                     <Home className="w-3.5 h-3.5" />
                     Room Purifier Solutions
-                  </span>
-
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.25rem] font-display font-bold leading-[1.02] tracking-[-0.035em] text-white mb-6">
-                    It's Not Just <span className="whitespace-nowrap">in the Air.</span>
-                    <br />
-                    It's on <span className="text-[hsl(24_95%_53%)]">Every Surface.</span>
+                  </p>
+                  <h1 className="font-display font-bold tracking-tight text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.04] mb-6 !text-white">
+                    It's not just in the air. It's on <span className="text-[hsl(24_95%_53%)] whitespace-nowrap">every surface.</span>
                   </h1>
-
-                  <p className="text-base sm:text-lg md:text-xl text-white/85 max-w-xl leading-relaxed mb-10">
+                  <p className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed max-w-2xl mb-10">
                     Mold, allergens, pet dander, and odors don't disappear with a quick wipe. They live on your surfaces, in your fabrics, and throughout your home. We treat the source, not just the symptoms.
                   </p>
-
                   <div className="flex flex-col sm:flex-row gap-3">
                     <a
                       href="#products"
