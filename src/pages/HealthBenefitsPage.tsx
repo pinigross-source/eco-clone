@@ -491,7 +491,7 @@ const HealthBenefitsPage = () => {
                 Common Questions
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-12 text-balance">
-                Frequently asked.
+                Frequently <span className="text-[hsl(24_95%_53%)]">asked.</span>
               </h2>
             </ScrollReveal>
           </Suspense>
