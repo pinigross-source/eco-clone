@@ -461,7 +461,7 @@ const HealthBenefitsPage = () => {
                 Best For
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-14 max-w-3xl text-balance">
-                Who benefits most.
+                Who benefits <span className="text-[hsl(24_95%_53%)]">most.</span>
               </h2>
             </ScrollReveal>
           </Suspense>
