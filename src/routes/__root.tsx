@@ -13,11 +13,6 @@ import { TestEnvironmentBanner } from "@/components/TestEnvironmentBanner";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { isTestEnv } from "@/lib/env";
 
-const PROD_OG_IMAGE = "https://envirobiotics.com/og-default.jpg";
-const TEST_OG_IMAGE =
-  "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c793fa13-7000-4814-b3d1-0c4dda400ccd/id-preview-4bec4d66--a538c9f9-a84b-4fdd-944e-d2e334872313.lovable.app-1778137015008.png";
-
-const ogImage = isTestEnv ? TEST_OG_IMAGE : PROD_OG_IMAGE;
 
 function NotFoundComponent() {
   return (
@@ -92,8 +87,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "EnviroBiotics" },
       { name: "twitter:card", content: "summary_large_image" },
       ...(isTestEnv ? [{ name: "twitter:site", content: "@Lovable" }] : []),
-      { property: "og:image", content: ogImage },
-      { name: "twitter:image", content: ogImage },
       { name: "google-site-verification", content: "Y5A06VI6sH3RIrGwheezAnybP5cHN8gEV0qXu_S2nT8" },
     ],
     links: [
