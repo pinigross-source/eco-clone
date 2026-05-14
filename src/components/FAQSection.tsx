@@ -31,7 +31,7 @@ const faqs = [
   {
     question: "What about musty spaces?",
     answer:
-      "It may help reduce musty odors in damp-prone areas over time. It's not a substitute for fixing moisture sources.",
+      "Musty smells come from microbes that thrive in damp, low-airflow areas. Our probiotics outcompete them at the source, breaking down the odor where it actually lives instead of just covering it up. You'll notice the difference within days in most spaces. One honest note: if there's an active moisture problem behind the smell, fix the moisture first. The probiotics handle the air and surfaces. Your home handles the plumbing.",
   },
 ];
 
