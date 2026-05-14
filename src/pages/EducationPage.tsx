@@ -27,6 +27,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import heroLivingRoom from "@/assets/edu-hero-living-room.jpg";
+import microbiomeMacro from "@/assets/edu-microbiome-macro.jpg";
+import bedroomAllergens from "@/assets/edu-bedroom-allergens.jpg";
+import petriStill from "@/assets/edu-petri-still.jpg";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").then(m => ({ default: m.ContentProductCTA })));
@@ -278,39 +282,49 @@ const EducationPage = () => {
                     </div>
                   </div>
 
-                  {/* Right: stat panel — quiet, editorial */}
+                  {/* Right: editorial image */}
                   <div className="lg:col-span-5">
-                    <div className="space-y-px rounded-3xl overflow-hidden border border-border/60 bg-card shadow-[0_30px_80px_-40px_hsl(var(--foreground)/0.18)]">
-                      {[
-                        { stat: "90%", label: "of our time is spent indoors", source: "EPA" },
-                        { stat: "2–5×", label: "indoor air vs. outdoor pollution levels", source: "EPA" },
-                        { stat: "1000s", label: "of microbial species in a typical home", source: "Indoor microbiome research" },
-                      ].map((item, i) => (
-                        <div
-                          key={i}
-                          className="flex items-baseline gap-6 p-7 sm:p-8 bg-card hover:bg-muted/40 transition-colors"
-                        >
-                          <div className="font-display font-bold text-4xl sm:text-5xl tracking-[-0.02em] text-primary shrink-0 tabular-nums">
-                            {item.stat}
-                          </div>
-                          <div className="min-w-0">
-                            <div className="text-[15px] text-foreground leading-snug font-medium">
-                              {item.label}
-                            </div>
-                            <div className="text-[11px] uppercase tracking-[0.18em] font-medium text-muted-foreground/70 mt-1.5">
-                              {item.source}
-                            </div>
-                          </div>
-                        </div>
-                      ))}
+                    <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-[0_40px_100px_-40px_hsl(var(--foreground)/0.35)]">
+                      <img
+                        src={heroLivingRoom}
+                        alt="Sunlit modern living room with dust motes drifting through soft warm light — visualizing the indoor environment EnviroBiotics protects."
+                        className="absolute inset-0 w-full h-full object-cover"
+                        width={1080}
+                        height={1350}
+                        loading="eager"
+                        fetchPriority="high"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7 bg-gradient-to-t from-black/55 via-black/15 to-transparent">
+                        <p className="text-white/95 text-[13px] sm:text-sm font-medium leading-snug max-w-xs">
+                          Most indoor problems start where light, dust, and surfaces meet.
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-xs text-muted-foreground/70 mt-4 px-1 leading-relaxed">
-                      Sources reviewed by the EnviroBiotics Science Team.
-                    </p>
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-muted-foreground/70 max-w-2xl leading-relaxed border-t border-border/40 pt-6 mt-16">
+                {/* Stats strip — quiet editorial band */}
+                <div className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-3 rounded-3xl border border-border/60 bg-card overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-border/60">
+                  {[
+                    { stat: "90%", label: "of our time is spent indoors", source: "EPA" },
+                    { stat: "2–5×", label: "indoor air vs. outdoor pollution", source: "EPA" },
+                    { stat: "1000s", label: "of microbial species in a typical home", source: "Microbiome research" },
+                  ].map((item, i) => (
+                    <div key={i} className="p-7 sm:p-8 hover:bg-muted/40 transition-colors">
+                      <div className="font-display font-bold text-4xl sm:text-5xl tracking-[-0.02em] text-primary tabular-nums mb-3">
+                        {item.stat}
+                      </div>
+                      <div className="text-[15px] text-foreground leading-snug font-medium mb-1.5">
+                        {item.label}
+                      </div>
+                      <div className="text-[10px] uppercase tracking-[0.2em] font-medium text-muted-foreground/70">
+                        {item.source}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-xs sm:text-sm text-muted-foreground/70 max-w-2xl leading-relaxed pt-6 mt-8">
                   Built around peer-reviewed microbiome research, allergen biology, probiotic hygiene studies, and independent product testing.
                 </p>
               </ScrollReveal>
@@ -456,11 +470,29 @@ const EducationPage = () => {
           <div className="container max-w-6xl px-5 sm:px-6">
             <Suspense fallback={null}>
               <ScrollReveal>
-                <SectionHead
-                  eyebrow="Indoor microbiome"
-                  title="The Science of the Indoor Microbiome"
-                  intro="Your home has its own microbial ecosystem. It can influence allergens, respiratory comfort, immune function, odors, and the way your home responds to mold and dust. These guides explain what it is, how modern living changed it, and why balance matters more than sterilization."
-                />
+                <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-14 md:mb-20">
+                  <div className="lg:col-span-6 order-2 lg:order-1">
+                    <div className="relative rounded-3xl overflow-hidden aspect-[5/4] shadow-[0_30px_80px_-40px_hsl(var(--primary)/0.45)]">
+                      <img
+                        src={microbiomeMacro}
+                        alt="Macro abstract visualization of microbial cells suspended in warm light — the indoor microbiome rendered as art."
+                        className="absolute inset-0 w-full h-full object-cover"
+                        width={1600}
+                        height={1280}
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <div className="lg:col-span-6 order-1 lg:order-2">
+                    <SectionLabel className="mb-5">Indoor microbiome</SectionLabel>
+                    <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] mb-5 text-balance">
+                      Your home is alive — and the balance matters.
+                    </h2>
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                      Your home has its own microbial ecosystem. It can influence allergens, respiratory comfort, immune function, odors, and how your home responds to mold and dust. These guides explain what it is, how modern living changed it, and why balance matters more than sterilization.
+                    </p>
+                  </div>
+                </div>
               </ScrollReveal>
             </Suspense>
 
@@ -490,11 +522,29 @@ const EducationPage = () => {
           <div className="container max-w-6xl px-5 sm:px-6">
             <Suspense fallback={null}>
               <ScrollReveal>
-                <SectionHead
-                  eyebrow="Allergens & health"
-                  title="Allergens and Health"
-                  intro="Most people think indoor air problems are floating in the air. But many common triggers settle on surfaces first — bedding, mattresses, carpets, upholstery, HVAC systems, pet areas, and dust."
-                />
+                <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-14 md:mb-20">
+                  <div className="lg:col-span-6">
+                    <SectionLabel className="mb-5">Allergens & health</SectionLabel>
+                    <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] mb-5 text-balance">
+                      The triggers live where you sleep.
+                    </h2>
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                      Most people think indoor air problems float in the air. In reality, many common triggers settle on surfaces first — bedding, mattresses, carpets, upholstery, HVAC systems, pet areas, and dust — and resuspend with every movement.
+                    </p>
+                  </div>
+                  <div className="lg:col-span-6">
+                    <div className="relative rounded-3xl overflow-hidden aspect-[5/4] shadow-[0_30px_80px_-40px_hsl(var(--foreground)/0.25)]">
+                      <img
+                        src={bedroomAllergens}
+                        alt="Sunlit minimalist bedroom with soft linen and a wool throw — where dust mite and pet dander allergens accumulate."
+                        className="absolute inset-0 w-full h-full object-cover"
+                        width={1600}
+                        height={1280}
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
               </ScrollReveal>
             </Suspense>
 
@@ -532,11 +582,29 @@ const EducationPage = () => {
           <div className="container max-w-6xl px-5 sm:px-6">
             <Suspense fallback={null}>
               <ScrollReveal>
-                <SectionHead
-                  eyebrow="The science"
-                  title="Probiotic Purification Science"
-                  intro="Probiotic purification rests on a simple biological idea: beneficial microbes can shape the environment by competing with unwanted organisms for space, nutrients, and colonization sites. It has been studied in agriculture, microbiology, and hospital hygiene."
-                />
+                <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-14 md:mb-20">
+                  <div className="lg:col-span-5 order-2 lg:order-1">
+                    <div className="relative rounded-3xl overflow-hidden aspect-square shadow-[0_30px_80px_-40px_hsl(var(--foreground)/0.25)]">
+                      <img
+                        src={petriStill}
+                        alt="A single matte ceramic petri dish on warm linen — beneficial probiotic colonies as quiet still life."
+                        className="absolute inset-0 w-full h-full object-cover"
+                        width={1280}
+                        height={1280}
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <div className="lg:col-span-7 order-1 lg:order-2">
+                    <SectionLabel className="mb-5">The science</SectionLabel>
+                    <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] mb-5 text-balance">
+                      Beneficial microbes, working continuously.
+                    </h2>
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                      Probiotic purification rests on a simple biological idea: beneficial microbes can shape the environment by competing with unwanted organisms for space, nutrients, and colonization sites. It has been studied for decades in agriculture, microbiology, and hospital hygiene.
+                    </p>
+                  </div>
+                </div>
               </ScrollReveal>
             </Suspense>
 
