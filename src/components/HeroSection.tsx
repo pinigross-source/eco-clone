@@ -99,9 +99,12 @@ export const HeroSection = ({
         src="/hero-vimeo-poster.jpg"
         alt=""
         aria-hidden="true"
+        width={1920}
+        height={1080}
         className="absolute inset-0 z-[1] h-full w-full object-cover"
         loading="eager"
         fetchPriority="high"
+        decoding="async"
       />
 
       <div className="absolute inset-0 z-[2] overflow-hidden">
