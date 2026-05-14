@@ -125,7 +125,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ScrollToTop />
-      {isTestEnv && <TestEnvironmentBanner />}
+      
       <Outlet />
     </QueryClientProvider>
   );
