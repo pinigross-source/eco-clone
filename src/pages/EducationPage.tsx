@@ -87,7 +87,7 @@ const SectionHead = ({
     {eyebrow && (
       <SectionLabel className={align === "center" ? "mb-5 mx-auto" : "mb-5"}>{eyebrow}</SectionLabel>
     )}
-    <h2 className="text-3xl sm:text-4xl md:text-[44px] font-display font-bold leading-[1.1] tracking-tight text-balance">
+    <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.8rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance">
       {title}
     </h2>
     {intro && (
@@ -420,7 +420,7 @@ const EducationPage = () => {
               <ScrollReveal>
                 <div className="max-w-3xl mb-14">
                   <SectionLabel className="mb-5">Choose your path</SectionLabel>
-                  <h2 className="text-3xl sm:text-4xl md:text-[44px] font-display font-bold leading-[1.1] tracking-tight text-balance mb-5">
+                  <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.8rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance mb-5">
                     What brought you here?
                   </h2>
                   <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -485,7 +485,7 @@ const EducationPage = () => {
                   </div>
                   <div className="lg:col-span-6 order-1 lg:order-2">
                     <SectionLabel className="mb-5">Indoor microbiome</SectionLabel>
-                    <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] mb-5 text-balance">
+                    <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.8rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance mb-5">
                       Your home is alive, and the balance matters.
                     </h2>
                     <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -525,7 +525,7 @@ const EducationPage = () => {
                 <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-14 md:mb-20">
                   <div className="lg:col-span-6">
                     <SectionLabel className="mb-5">Allergens & health</SectionLabel>
-                    <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] mb-5 text-balance">
+                    <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.8rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance mb-5">
                       The triggers live where you sleep.
                     </h2>
                     <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -597,7 +597,7 @@ const EducationPage = () => {
                   </div>
                   <div className="lg:col-span-7 order-1 lg:order-2">
                     <SectionLabel className="mb-5">The science</SectionLabel>
-                    <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] mb-5 text-balance">
+                    <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.8rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance mb-5">
                       Beneficial microbes, working continuously.
                     </h2>
                     <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -732,7 +732,7 @@ const EducationPage = () => {
                       <Sparkles className="w-3.5 h-3.5" />
                       Stay informed
                     </div>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-[1.05] tracking-tight mb-5 text-balance text-foreground">
+                    <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.8rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance mb-5">
                       A healthier indoor environment, backed by science.
                     </h2>
                     <p className="max-w-2xl mx-auto mb-10 text-base sm:text-lg leading-relaxed text-foreground/85">
