@@ -282,39 +282,49 @@ const EducationPage = () => {
                     </div>
                   </div>
 
-                  {/* Right: stat panel — quiet, editorial */}
+                  {/* Right: editorial image */}
                   <div className="lg:col-span-5">
-                    <div className="space-y-px rounded-3xl overflow-hidden border border-border/60 bg-card shadow-[0_30px_80px_-40px_hsl(var(--foreground)/0.18)]">
-                      {[
-                        { stat: "90%", label: "of our time is spent indoors", source: "EPA" },
-                        { stat: "2–5×", label: "indoor air vs. outdoor pollution levels", source: "EPA" },
-                        { stat: "1000s", label: "of microbial species in a typical home", source: "Indoor microbiome research" },
-                      ].map((item, i) => (
-                        <div
-                          key={i}
-                          className="flex items-baseline gap-6 p-7 sm:p-8 bg-card hover:bg-muted/40 transition-colors"
-                        >
-                          <div className="font-display font-bold text-4xl sm:text-5xl tracking-[-0.02em] text-primary shrink-0 tabular-nums">
-                            {item.stat}
-                          </div>
-                          <div className="min-w-0">
-                            <div className="text-[15px] text-foreground leading-snug font-medium">
-                              {item.label}
-                            </div>
-                            <div className="text-[11px] uppercase tracking-[0.18em] font-medium text-muted-foreground/70 mt-1.5">
-                              {item.source}
-                            </div>
-                          </div>
-                        </div>
-                      ))}
+                    <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-[0_40px_100px_-40px_hsl(var(--foreground)/0.35)]">
+                      <img
+                        src={heroLivingRoom}
+                        alt="Sunlit modern living room with dust motes drifting through soft warm light — visualizing the indoor environment EnviroBiotics protects."
+                        className="absolute inset-0 w-full h-full object-cover"
+                        width={1080}
+                        height={1350}
+                        loading="eager"
+                        fetchPriority="high"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7 bg-gradient-to-t from-black/55 via-black/15 to-transparent">
+                        <p className="text-white/95 text-[13px] sm:text-sm font-medium leading-snug max-w-xs">
+                          Most indoor problems start where light, dust, and surfaces meet.
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-xs text-muted-foreground/70 mt-4 px-1 leading-relaxed">
-                      Sources reviewed by the EnviroBiotics Science Team.
-                    </p>
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-muted-foreground/70 max-w-2xl leading-relaxed border-t border-border/40 pt-6 mt-16">
+                {/* Stats strip — quiet editorial band */}
+                <div className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-3 rounded-3xl border border-border/60 bg-card overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-border/60">
+                  {[
+                    { stat: "90%", label: "of our time is spent indoors", source: "EPA" },
+                    { stat: "2–5×", label: "indoor air vs. outdoor pollution", source: "EPA" },
+                    { stat: "1000s", label: "of microbial species in a typical home", source: "Microbiome research" },
+                  ].map((item, i) => (
+                    <div key={i} className="p-7 sm:p-8 hover:bg-muted/40 transition-colors">
+                      <div className="font-display font-bold text-4xl sm:text-5xl tracking-[-0.02em] text-primary tabular-nums mb-3">
+                        {item.stat}
+                      </div>
+                      <div className="text-[15px] text-foreground leading-snug font-medium mb-1.5">
+                        {item.label}
+                      </div>
+                      <div className="text-[10px] uppercase tracking-[0.2em] font-medium text-muted-foreground/70">
+                        {item.source}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-xs sm:text-sm text-muted-foreground/70 max-w-2xl leading-relaxed pt-6 mt-8">
                   Built around peer-reviewed microbiome research, allergen biology, probiotic hygiene studies, and independent product testing.
                 </p>
               </ScrollReveal>
