@@ -119,27 +119,48 @@ const paths = [
   {
     icon: <HeartPulse className="w-5 h-5" />,
     title: "I have allergies or asthma",
-    guides: ["Dust Mite Allergens", "Pet Dander", "Mold Indoors", "What Is the Indoor Microbiome?"],
+    guides: [
+      { label: "Dust Mite Allergens", to: "/dust-mite-allergens" },
+      { label: "Pet Dander", to: "/pet-dander" },
+      { label: "Mold Indoors", to: "/mold-indoors" },
+      { label: "What Is the Indoor Microbiome?", to: "/indoor-microbiome" },
+    ],
   },
   {
     icon: <Wind className="w-5 h-5" />,
     title: "I am worried about mold",
-    guides: ["Mold Indoors", "How to Reduce Mold and Allergens Naturally", "The Science of Competitive Exclusion"],
+    guides: [
+      { label: "Mold Indoors", to: "/mold-indoors" },
+      { label: "How to Reduce Mold and Allergens Naturally", to: "/mold-and-allergens" },
+      { label: "The Science of Competitive Exclusion", to: "/competitive-exclusion" },
+    ],
   },
   {
     icon: <Search className="w-5 h-5" />,
     title: "I am comparing this to an air purifier",
-    guides: ["What Is Probiotic Air Purification?", "Probiotic vs. Chemical Disinfection", "How EnviroBiotics Works"],
+    guides: [
+      { label: "What Is Probiotic Air Purification?", to: "/probiotic-air-purification" },
+      { label: "Probiotic vs. Chemical Disinfection", to: "/probiotic-vs-chemical" },
+      { label: "How EnviroBiotics Works", to: "/how-it-works" },
+    ],
   },
   {
     icon: <FlaskConical className="w-5 h-5" />,
     title: "I want to understand the science",
-    guides: ["What Is the Indoor Microbiome?", "The Hygiene Hypothesis Explained", "The Science of Competitive Exclusion"],
+    guides: [
+      { label: "What Is the Indoor Microbiome?", to: "/indoor-microbiome" },
+      { label: "The Hygiene Hypothesis Explained", to: "/hygiene-hypothesis" },
+      { label: "The Science of Competitive Exclusion", to: "/competitive-exclusion" },
+    ],
   },
   {
     icon: <ShieldCheck className="w-5 h-5" />,
     title: "I want to understand safety",
-    guides: ["Understanding FDA GRAS Status", "How EnviroBiotics Works", "Product Testing and Safety"],
+    guides: [
+      { label: "Understanding FDA GRAS Status", to: "/fda-gras-status" },
+      { label: "How EnviroBiotics Works", to: "/how-it-works" },
+      { label: "Product Testing and Safety", to: "/safety" },
+    ],
   },
 ];
 
