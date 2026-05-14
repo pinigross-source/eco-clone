@@ -272,7 +272,7 @@ const HealthBenefitsPage = () => {
                 What's actually in the air
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-14 max-w-3xl text-balance">
-                The biological contaminants most responsible for health impacts.
+                The biological contaminants most responsible for <span className="text-[hsl(24_95%_53%)]">health impacts.</span>
               </h2>
             </ScrollReveal>
           </Suspense>
