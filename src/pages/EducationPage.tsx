@@ -4,7 +4,24 @@ import { Navbar } from "@/components/Navbar";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Link } from "@/lib/link";
 import { SectionLabel } from "@/components/ui/section-label";
-import { BookOpen, Shield, Microscope, FlaskConical, ArrowRight, Beaker, Bug, PawPrint, Wind, Scale, FileText, Building2, Award, MessageCircleQuestion } from "lucide-react";
+import {
+  BookOpen,
+  Shield,
+  Microscope,
+  FlaskConical,
+  ArrowRight,
+  Beaker,
+  Bug,
+  PawPrint,
+  Wind,
+  Scale,
+  Award,
+  HeartPulse,
+  Sparkles,
+  Wand2,
+  Search,
+  ShieldCheck,
+} from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -15,6 +32,8 @@ import {
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").then(m => ({ default: m.ContentProductCTA })));
 const RelatedTopics = lazy(() => import("@/components/RelatedTopics").then(m => ({ default: m.RelatedTopics })));
+
+/* ───────────────────────── Guide card ───────────────────────── */
 
 interface GuideCardProps {
   title: string;
@@ -28,53 +47,136 @@ interface GuideCardProps {
 
 const GuideCard = ({ title, description, bestFor, to, linkText, icon, comingSoon }: GuideCardProps) => {
   const content = (
-    <div className="group relative flex flex-col h-full p-6 sm:p-8 rounded-2xl border border-border/50 bg-card hover:border-primary/30 hover:shadow-lg transition-all duration-300">
-      <div className="flex items-start gap-4 mb-4">
-        <div className="shrink-0 w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+    <div className="group relative flex flex-col h-full p-7 sm:p-8 rounded-3xl border border-border/60 bg-card hover:border-primary/40 hover:shadow-[0_24px_60px_-30px_hsl(var(--primary)/0.35)] transition-all duration-500">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="shrink-0 w-11 h-11 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
           {icon}
         </div>
-        <h3 className="text-lg font-display font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
-          {title}
-        </h3>
+        <span className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground/80 font-medium">
+          Guide
+        </span>
       </div>
-      <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">{description}</p>
+      <h3 className="text-xl sm:text-2xl font-display font-semibold text-foreground leading-[1.2] mb-4 text-balance">
+        {title}
+      </h3>
+      <p className="text-muted-foreground text-[15px] leading-relaxed mb-5 flex-1">{description}</p>
       {bestFor && (
-        <p className="text-xs text-muted-foreground/80 mb-5 italic">Best for: {bestFor}</p>
+        <p className="text-xs text-muted-foreground/80 mb-6 leading-relaxed">
+          <span className="font-semibold text-foreground/80">Best for:</span> {bestFor}
+        </p>
       )}
-      <span className="inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
+      <span className="inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all mt-auto">
         {comingSoon ? "Coming soon" : linkText}
         {!comingSoon && <ArrowRight className="w-4 h-4" />}
       </span>
     </div>
   );
 
-  if (comingSoon) {
-    return <div className="opacity-60 cursor-default">{content}</div>;
-  }
-
-  return <Link to={to} className="block">{content}</Link>;
+  if (comingSoon) return <div className="opacity-60 cursor-default h-full">{content}</div>;
+  return <Link to={to} className="block h-full">{content}</Link>;
 };
+
+/* ───────────────────────── Section heading ───────────────────────── */
+
+const SectionHead = ({
+  eyebrow,
+  title,
+  intro,
+  align = "left",
+}: { eyebrow?: string; title: string; intro?: string; align?: "left" | "center" }) => (
+  <div className={align === "center" ? "text-center max-w-3xl mx-auto mb-14" : "max-w-3xl mb-14"}>
+    {eyebrow && (
+      <SectionLabel className={align === "center" ? "mb-5 mx-auto" : "mb-5"}>{eyebrow}</SectionLabel>
+    )}
+    <h2 className="text-3xl sm:text-4xl md:text-[44px] font-display font-bold leading-[1.1] tracking-tight text-balance">
+      {title}
+    </h2>
+    {intro && (
+      <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mt-5">
+        {intro}
+      </p>
+    )}
+  </div>
+);
+
+/* ───────────────────────── Static data ───────────────────────── */
+
+const steps = [
+  {
+    title: "Beneficial probiotics are released into your indoor space",
+    body: "EnviroBiotics disperses selected Bacillus probiotics into the room. These beneficial microbes move with the natural air currents in your home.",
+  },
+  {
+    title: "They settle where filters cannot reach",
+    body: "The probiotics land on bedding, upholstery, carpets, counters, vents, pet areas, dust, and other high-contact surfaces — the places where many allergens, odors, mold spores, and microbes collect.",
+  },
+  {
+    title: "They compete with unwanted microbes",
+    body: "Beneficial probiotics compete with harmful bacteria and mold for space and nutrients. When beneficial microbes occupy the environment first, it becomes harder for unwanted organisms to establish and grow.",
+  },
+  {
+    title: "They support continuous surface-level balance",
+    body: "Chemical sprays act only at the moment of use. EnviroBiotics is designed for continuous dispersal — helping maintain microbial balance over time instead of relying on periodic treatment.",
+  },
+];
+
+const paths = [
+  {
+    icon: <HeartPulse className="w-5 h-5" />,
+    title: "I have allergies or asthma",
+    guides: ["Dust Mite Allergens", "Pet Dander", "Mold Indoors", "What Is the Indoor Microbiome?"],
+  },
+  {
+    icon: <Wind className="w-5 h-5" />,
+    title: "I am worried about mold",
+    guides: ["Mold Indoors", "How to Reduce Mold and Allergens Naturally", "The Science of Competitive Exclusion"],
+  },
+  {
+    icon: <Search className="w-5 h-5" />,
+    title: "I am comparing this to an air purifier",
+    guides: ["What Is Probiotic Air Purification?", "Probiotic vs. Chemical Disinfection", "How EnviroBiotics Works"],
+  },
+  {
+    icon: <FlaskConical className="w-5 h-5" />,
+    title: "I want to understand the science",
+    guides: ["What Is the Indoor Microbiome?", "The Hygiene Hypothesis Explained", "The Science of Competitive Exclusion"],
+  },
+  {
+    icon: <ShieldCheck className="w-5 h-5" />,
+    title: "I want to understand safety",
+    guides: ["Understanding FDA GRAS Status", "How EnviroBiotics Works", "Product Testing and Safety"],
+  },
+];
+
+const allergens = [
+  { name: "Der p1", source: "Dust mite feces", trigger: "Asthma, allergic rhinitis", locations: "Bedding, mattress, carpet, upholstery", why: "Accumulates in fabric and dust; resuspends easily." },
+  { name: "Der f1", source: "Dust mite feces", trigger: "Allergic asthma, eczema", locations: "Mattresses, soft furniture, rugs", why: "Persists for months; survives normal cleaning." },
+  { name: "Fel d1", source: "Cat skin and saliva", trigger: "Severe allergic reactions", locations: "Furniture, clothing, walls, dust", why: "Sticky and lightweight; spreads everywhere." },
+  { name: "Can f1", source: "Dog skin, fur, saliva", trigger: "Allergic rhinitis, asthma", locations: "Carpet, upholstery, beds, clothing", why: "Travels via fabric and accumulates over time." },
+  { name: "Mold spores", source: "Damp areas, HVAC, walls", trigger: "Respiratory irritation, asthma", locations: "Bathrooms, basements, vents, behind walls", why: "Reproduces wherever moisture and organic matter exist." },
+  { name: "Bacterial buildup", source: "Skin, food, pets, dust", trigger: "Odors, irritation", locations: "Counters, bedding, vents, dust", why: "Continuously replenished from daily life." },
+];
 
 const faqs = [
   {
     q: "What is the indoor microbiome?",
-    a: "The indoor microbiome is the community of microorganisms, including bacteria, fungi, and viruses, that live in your home. A healthy indoor microbiome is diverse and dominated by beneficial organisms. Modern cleaning practices and building design have depleted this diversity, which researchers increasingly connect to rising rates of allergies and immune dysfunction.",
+    a: "The indoor microbiome is the community of microorganisms — bacteria, fungi, viruses — that live in your home. A healthy indoor microbiome is diverse and dominated by beneficial organisms. Modern cleaning practices and sealed building design have depleted this diversity, which researchers increasingly connect to rising rates of allergies and immune dysfunction.",
   },
   {
     q: "How is probiotic air purification different from a regular air purifier?",
-    a: "A conventional air purifier filters particles that pass through it. A probiotic air purifier disperses beneficial bacteria throughout your space, where they settle on surfaces and actively consume the organic matter that allergens and pathogens depend on. It treats the 80% of indoor contamination that lives on surfaces, not just what floats through the air.",
+    a: "A conventional air purifier filters particles that pass through it. A probiotic air purifier disperses beneficial bacteria throughout your space, where they settle on surfaces and compete with the organic matter that allergens and pathogens depend on. It addresses the surfaces where most indoor triggers accumulate, not just what floats through the air.",
   },
   {
     q: "Is the science behind probiotic purification established?",
-    a: "Yes. The mechanism of competitive exclusion is well established in microbiology. Independent lab testing by Indoor Biotechnologies has shown up to 90% reduction in common allergens after 30 days of continuous probiotic treatment. The Robert Koch Institute in Germany has incorporated probiotic surface treatment into its official hospital hygiene guidelines.",
+    a: "Competitive exclusion is well established in microbiology, agriculture, and hospital hygiene research. Independent lab testing has shown meaningful reductions in common indoor allergens after continuous probiotic treatment, and probiotic surface care is now part of published hospital hygiene guidelines in some European institutions.",
   },
   {
-    q: "Who is the EnviroBiotics Science Team?",
-    a: "EnviroBiotics research draws on over a decade of work in environmental probiotics, originally developed under the BetterAir brand and now expanded for consumer and commercial applications. Our strains have been assessed for safety by independent toxicologists, the EPA, and the FDA.",
+    q: "Are the probiotic strains safe?",
+    a: "EnviroBiotics uses Bacillus strains selected for their history of safe use, genetic stability, and absence of toxin or virulence factors. They have been evaluated under the FDA's Generally Recognized As Safe (GRAS) framework and reviewed by independent toxicologists.",
   },
   {
     q: "Where should I start if I am new to this topic?",
-    a: "Start with the guide to probiotic air purification for a broad overview, then move to the mold and allergen reduction guide if you have a specific health concern. The How It Works page covers the biology in more detail for those who want to understand the mechanism before purchasing.",
+    a: "Start with the guide to probiotic air purification for an overview, then move to the mold and allergen guide if you have a specific health concern. The How EnviroBiotics Works page covers the underlying biology for anyone who wants the mechanism explained before purchasing.",
   },
 ];
 
@@ -88,8 +190,8 @@ const jsonLd = {
     {
       "@type": "WebPage",
       "@id": "https://envirobiotics.com/education",
-      name: "Indoor Air Quality Education Center | EnviroBiotics",
-      description: "Learn the science of indoor air quality, the indoor microbiome, allergen reduction, and probiotic purification. Guides, research, and resources from the EnviroBiotics Science Team.",
+      name: "Indoor Air Quality & Probiotic Science | EnviroBiotics Education Center",
+      description: "Learn the science behind the indoor microbiome, allergens, mold, pet dander, and probiotic purification.",
       isPartOf: { "@id": "https://envirobiotics.com/#website" },
     },
     {
@@ -103,12 +205,14 @@ const jsonLd = {
   ],
 };
 
+/* ───────────────────────── Page ───────────────────────── */
+
 const EducationPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Indoor Air Quality Education Center | EnviroBiotics"
-        description="Learn the science of indoor air quality, the indoor microbiome, allergen reduction, and probiotic purification. Guides, research, and resources from the EnviroBiotics Science Team."
+        title="Indoor Air Quality & Probiotic Science | EnviroBiotics Education Center"
+        description="Learn the science behind the indoor microbiome, allergens, mold, pet dander, and probiotic purification. Explore how EnviroBiotics works differently from traditional air purifiers."
         path="/education"
         jsonLd={jsonLd}
       />
@@ -116,46 +220,68 @@ const EducationPage = () => {
 
       <main>
         {/* ── Hero ── */}
-        <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
-          <div className="absolute top-20 right-10 w-72 md:w-[500px] h-72 md:h-[500px] bg-primary/6 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-60 md:w-96 h-60 md:h-96 bg-accent/8 rounded-full blur-3xl pointer-events-none" />
+        <section className="relative overflow-hidden pt-32 pb-24 md:pt-44 md:pb-32">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
+          <div className="absolute top-24 right-0 w-[600px] h-[600px] bg-primary/[0.07] rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-accent/[0.08] rounded-full blur-3xl pointer-events-none" />
 
-          <div className="container max-w-4xl px-5 sm:px-6 relative z-10">
+          <div className="container max-w-5xl px-5 sm:px-6 relative z-10">
             <Suspense fallback={null}>
               <ScrollReveal variant="fadeUp">
-                <SectionLabel className="mb-5">Education Center</SectionLabel>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] mb-6 text-balance">
+                <SectionLabel className="mb-6">Education Center</SectionLabel>
+                <h1 className="text-[40px] sm:text-5xl md:text-6xl lg:text-[80px] font-display font-bold leading-[0.98] tracking-[-0.02em] mb-8 text-balance">
                   Indoor Air Quality &{" "}
                   <span className="text-gradient-primary">Probiotic Science</span>
                 </h1>
-                <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                  Most people spend over 90% of their time indoors. Yet indoor air can be two to five times more polluted than outdoor air. The science of indoor environmental health is evolving fast. This center brings together everything we know about allergen biology, the indoor microbiome, and probiotic purification.
+                <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-6">
+                  Most people spend over 90% of their time indoors. Yet indoor air can be two to five times more polluted than outdoor air. The bigger surprise: many indoor problems do not begin in the air. They begin on the surfaces around you — bedding, carpets, furniture, vents, pet areas, and dust.
+                </p>
+                <p className="text-base sm:text-lg text-muted-foreground/90 max-w-3xl leading-relaxed mb-10">
+                  The EnviroBiotics Education Center explains the science of the indoor microbiome, why allergens and mold persist in modern homes, and how probiotic purification works differently from traditional air filters.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10">
+                  <a
+                    href="#foundations"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-foreground text-background rounded-full font-medium hover:bg-foreground/90 transition-all text-sm sm:text-base shadow-sm hover:shadow-md"
+                  >
+                    Start with the basics
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                  <Link
+                    to="/how-it-works"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-border rounded-full font-medium hover:bg-muted transition-colors text-sm sm:text-base"
+                  >
+                    See how EnviroBiotics works
+                  </Link>
+                </div>
+
+                <p className="text-xs sm:text-sm text-muted-foreground/70 max-w-2xl leading-relaxed border-t border-border/40 pt-6">
+                  Built around peer-reviewed microbiome research, allergen biology, probiotic hygiene studies, and independent product testing.
                 </p>
               </ScrollReveal>
             </Suspense>
           </div>
         </section>
 
-        {/* ── Start Here ── */}
-        <section className="py-16 md:py-24 bg-muted/30">
-          <div className="container max-w-5xl px-5 sm:px-6">
+        {/* ── Start Here / Foundations ── */}
+        <section id="foundations" className="py-20 md:py-32 bg-muted/40">
+          <div className="container max-w-6xl px-5 sm:px-6">
             <Suspense fallback={null}>
               <ScrollReveal>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-1 h-8 bg-primary rounded-full" />
-                  <h2 className="text-2xl md:text-3xl font-display font-bold">Start Here: The Foundations</h2>
-                </div>
-                <p className="text-muted-foreground mb-10 max-w-2xl">
-                  These three guides cover the core science and give you the clearest picture of how indoor air quality actually works and what you can do about it.
-                </p>
+                <SectionHead
+                  eyebrow="Start here"
+                  title="The Foundations"
+                  intro="New to probiotic purification? These three guides explain the core idea: your home has a microbiome, many indoor triggers live on surfaces, and beneficial probiotics can help restore balance continuously."
+                />
               </ScrollReveal>
             </Suspense>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
               <GuideCard
                 icon={<BookOpen className="w-5 h-5" />}
                 title="What Is Probiotic Air Purification?"
-                description="The complete guide to how probiotic purifiers work, what they eliminate, how they compare to HEPA filtration, and what the independent research says."
+                description="Probiotic air purification is not a better filter — it is a fundamentally different approach. Beneficial Bacillus probiotics travel through the air, settle on surfaces, and address the sources of the problem where filters never reach."
                 bestFor="Anyone new to probiotic purification or comparing it to conventional air purifiers."
                 to="/probiotic-air-purification"
                 linkText="Read the guide"
@@ -163,15 +289,15 @@ const EducationPage = () => {
               <GuideCard
                 icon={<Bug className="w-5 h-5" />}
                 title="How to Reduce Mold and Allergens Naturally"
-                description="A practical, science-backed guide to reducing dust mites, mold spores, pet dander, and indoor pathogens. Covers environmental strategies and biological approaches."
-                bestFor="Allergy and asthma sufferers, pet owners, and anyone dealing with recurring mold."
+                description="Mold, dust mites, and pet allergens live in almost every home. The goal is not sterility — it is reducing triggers to levels your body tolerates. Practical steps plus biological support."
+                bestFor="Allergy and asthma sufferers, pet owners, and anyone dealing with recurring mold or dust."
                 to="/mold-and-allergens"
                 linkText="Read the guide"
               />
               <GuideCard
                 icon={<Microscope className="w-5 h-5" />}
                 title="How EnviroBiotics Works"
-                description="A detailed explanation of the competitive exclusion mechanism, the Bacillus strains used, how surface settlement works, and why continuous dispersal outperforms periodic treatment."
+                description="Three simultaneous mechanisms — competitive exclusion, antimicrobial production, and surface colonization — working continuously, 24/7, to maintain a protective microbial layer."
                 bestFor="Anyone who wants to understand the biology before making a purchase decision."
                 to="/how-it-works"
                 linkText="Read the guide"
@@ -180,36 +306,121 @@ const EducationPage = () => {
           </div>
         </section>
 
-        {/* ── Indoor Microbiome ── */}
-        <section className="py-16 md:py-24">
-          <div className="container max-w-5xl px-5 sm:px-6">
+        {/* ── How probiotic purification works (numbered rail) ── */}
+        <section className="py-20 md:py-32 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-background to-accent/[0.04] pointer-events-none" />
+          <div className="container max-w-6xl px-5 sm:px-6 relative">
             <Suspense fallback={null}>
               <ScrollReveal>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-1 h-8 bg-primary rounded-full" />
-                  <h2 className="text-2xl md:text-3xl font-display font-bold">The Science of the Indoor Microbiome</h2>
-                </div>
-                <p className="text-muted-foreground mb-10 max-w-2xl">
-                  The indoor microbiome is one of the most important and least understood aspects of home health. These guides cover what it is, why it matters, and how modern living has disrupted it.
-                </p>
+                <SectionHead
+                  eyebrow="How it works"
+                  title="How Probiotic Purification Works"
+                  intro="Traditional air purifiers focus on what is floating in the air. EnviroBiotics is designed to go further by helping address the surfaces your air touches every day."
+                />
               </ScrollReveal>
             </Suspense>
 
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+              {steps.map((s, i) => (
+                <Suspense key={i} fallback={null}>
+                  <ScrollReveal delay={i * 60}>
+                    <div className="group h-full p-7 sm:p-9 rounded-3xl border border-border/60 bg-card/80 backdrop-blur-sm hover:border-primary/40 hover:shadow-[0_24px_60px_-30px_hsl(var(--primary)/0.3)] transition-all">
+                      <div className="flex items-baseline gap-5 mb-5">
+                        <span className="text-5xl sm:text-6xl font-display font-bold text-gradient-primary leading-none">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="h-px flex-1 bg-border/60" />
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-display font-semibold leading-snug mb-3 text-balance">
+                        {s.title}
+                      </h3>
+                      <p className="text-muted-foreground text-[15px] leading-relaxed">{s.body}</p>
+                    </div>
+                  </ScrollReveal>
+                </Suspense>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Choose your path ── */}
+        <section className="py-20 md:py-32 bg-foreground text-background relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="container max-w-6xl px-5 sm:px-6 relative">
+            <Suspense fallback={null}>
+              <ScrollReveal>
+                <div className="max-w-3xl mb-14">
+                  <span className="inline-block text-[11px] uppercase tracking-[0.22em] font-medium text-background/60 mb-5">
+                    Choose your path
+                  </span>
+                  <h2 className="text-3xl sm:text-4xl md:text-[44px] font-display font-bold leading-[1.1] tracking-tight text-balance mb-5">
+                    What brought you here?
+                  </h2>
+                  <p className="text-base sm:text-lg text-background/70 leading-relaxed">
+                    Different homes have different problems. Choose the path that best matches your situation.
+                  </p>
+                </div>
+              </ScrollReveal>
+            </Suspense>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {paths.map((p, i) => (
+                <Suspense key={i} fallback={null}>
+                  <ScrollReveal delay={i * 50}>
+                    <div className="h-full p-7 rounded-3xl border border-background/10 bg-background/[0.03] hover:bg-background/[0.06] hover:border-background/20 transition-all">
+                      <div className="w-11 h-11 rounded-2xl bg-background/10 flex items-center justify-center text-background mb-5">
+                        {p.icon}
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-display font-semibold leading-snug mb-5 text-balance">
+                        {p.title}
+                      </h3>
+                      <ul className="space-y-2.5">
+                        {p.guides.map((g, j) => (
+                          <li key={j} className="flex items-start gap-2.5 text-sm text-background/75 leading-relaxed">
+                            <span className="mt-2 w-1 h-1 rounded-full bg-background/50 shrink-0" />
+                            {g}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </ScrollReveal>
+                </Suspense>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Indoor Microbiome ── */}
+        <section className="py-20 md:py-32">
+          <div className="container max-w-6xl px-5 sm:px-6">
+            <Suspense fallback={null}>
+              <ScrollReveal>
+                <SectionHead
+                  eyebrow="Indoor microbiome"
+                  title="The Science of the Indoor Microbiome"
+                  intro="Your home has its own microbial ecosystem. It can influence allergens, respiratory comfort, immune function, odors, and the way your home responds to mold and dust. These guides explain what it is, how modern living changed it, and why balance matters more than sterilization."
+                />
+              </ScrollReveal>
+            </Suspense>
+
+            <div className="grid md:grid-cols-2 gap-5 md:gap-7">
               <GuideCard
                 icon={<FlaskConical className="w-5 h-5" />}
                 title="What Is the Indoor Microbiome?"
-                description="Your home has its own microbial ecosystem. Modern building practices, chemical cleaning habits, and reduced contact with nature have depleted it in ways that correlate with rising rates of allergies, asthma, and inflammatory disease."
+                description="Your home is not sterile — it is alive. Thousands of microbial species form an ecosystem as complex as a rainforest, but more intimate. Modern construction and chemical cleaning have changed it in ways that affect how your home behaves."
+                bestFor="Anyone new to indoor air quality science who wants to understand the foundation."
                 to="/education"
-                linkText="Coming soon"
+                linkText="Read the guide"
                 comingSoon
               />
               <GuideCard
                 icon={<Shield className="w-5 h-5" />}
                 title="The Hygiene Hypothesis Explained"
-                description="The hygiene hypothesis proposes that reduced exposure to beneficial environmental microbes is disrupting immune system development. Here is what the research actually says and what it means for how you manage your home."
+                description="Reduced exposure to beneficial environmental microbes — especially early in life — may disrupt how the immune system develops. The issue isn't dirt; it's microbial diversity and balance."
+                bestFor="Parents concerned about allergies and asthma, and anyone curious about the link between cleanliness and immune function."
                 to="/education"
-                linkText="Coming soon"
+                linkText="Read the guide"
                 comingSoon
               />
             </div>
@@ -217,40 +428,44 @@ const EducationPage = () => {
         </section>
 
         {/* ── Allergens & Health ── */}
-        <section className="py-16 md:py-24 bg-muted/30">
-          <div className="container max-w-5xl px-5 sm:px-6">
+        <section className="py-20 md:py-32 bg-muted/40">
+          <div className="container max-w-6xl px-5 sm:px-6">
             <Suspense fallback={null}>
               <ScrollReveal>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-1 h-8 bg-primary rounded-full" />
-                  <h2 className="text-2xl md:text-3xl font-display font-bold">Allergens and Health</h2>
-                </div>
+                <SectionHead
+                  eyebrow="Allergens & health"
+                  title="Allergens and Health"
+                  intro="Most people think indoor air problems are floating in the air. But many common triggers settle on surfaces first — bedding, mattresses, carpets, upholstery, HVAC systems, pet areas, and dust."
+                />
               </ScrollReveal>
             </Suspense>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
               <GuideCard
                 icon={<Bug className="w-5 h-5" />}
                 title="Dust Mite Allergens"
-                description="Dust mite waste proteins are among the most common triggers for indoor allergies and asthma. This guide covers the biology, why conventional approaches fall short, and what independent testing shows about probiotic reduction of Der p1 and Der f1."
+                description="Der p1 and Der f1 are among the most common triggers for indoor allergies and asthma. They accumulate in fabrics and dust, especially in bedrooms, and resuspend with every movement."
+                bestFor="Allergy and asthma sufferers, pet owners, and anyone with recurring respiratory symptoms."
                 to="/education"
-                linkText="Coming soon"
+                linkText="Read the guide"
                 comingSoon
               />
               <GuideCard
                 icon={<Wind className="w-5 h-5" />}
                 title="Mold Indoors"
-                description="Mold grows inside walls, beneath flooring, inside HVAC systems, and in dozens of hidden locations that cleaning products cannot reach. This guide covers mold biology, conditions that allow it to thrive, and effective prevention strategies."
+                description="Mold grows wherever moisture, organic matter, and poor airflow meet. Visible mold is often only part of the problem — spores and fragments spread into dust and air."
+                bestFor="People dealing with recurring mold problems, damp basements, bathrooms, or HVAC concerns."
                 to="/education"
-                linkText="Coming soon"
+                linkText="Read the guide"
                 comingSoon
               />
               <GuideCard
                 icon={<PawPrint className="w-5 h-5" />}
                 title="Pet Dander"
-                description="Fel d1 and Can f1 are two of the stickiest, most persistent indoor allergens. They cling to surfaces for months. This guide explains why conventional approaches provide limited relief and how enzymatic probiotic degradation addresses pet allergens at the molecular level."
+                description="Fel d1 and Can f1 are among the stickiest, most persistent indoor allergens. They cling to fabric and travel between homes, remaining for months even after a pet is gone."
+                bestFor="Pet owners with allergies or asthma, and families concerned about pet allergen exposure."
                 to="/education"
-                linkText="Coming soon"
+                linkText="Read the guide"
                 comingSoon
               />
             </div>
@@ -258,137 +473,123 @@ const EducationPage = () => {
         </section>
 
         {/* ── Probiotic Purification Science ── */}
-        <section className="py-16 md:py-24">
-          <div className="container max-w-5xl px-5 sm:px-6">
+        <section className="py-20 md:py-32">
+          <div className="container max-w-6xl px-5 sm:px-6">
             <Suspense fallback={null}>
               <ScrollReveal>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-1 h-8 bg-primary rounded-full" />
-                  <h2 className="text-2xl md:text-3xl font-display font-bold">Probiotic Purification Science</h2>
-                </div>
+                <SectionHead
+                  eyebrow="The science"
+                  title="Probiotic Purification Science"
+                  intro="Probiotic purification rests on a simple biological idea: beneficial microbes can shape the environment by competing with unwanted organisms for space, nutrients, and colonization sites. It has been studied in agriculture, microbiology, and hospital hygiene."
+                />
               </ScrollReveal>
             </Suspense>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
               <GuideCard
                 icon={<Beaker className="w-5 h-5" />}
                 title="The Science of Competitive Exclusion"
-                description="Competitive exclusion is the core mechanism behind probiotic purification. Learn how beneficial Bacillus strains compete with harmful organisms for resources and space, and what the peer-reviewed research says."
+                description="When beneficial probiotics occupy a surface first, they compete with unwanted bacteria and mold for nutrients, adhesion sites, and space — creating a more stable microbial environment over time."
+                bestFor="Anyone who wants to understand the core mechanism behind probiotic purification."
                 to="/education"
-                linkText="Coming soon"
+                linkText="Read the guide"
                 comingSoon
               />
               <GuideCard
                 icon={<Award className="w-5 h-5" />}
-                title="Understanding FDA GRAS Certification"
-                description="GRAS is the FDA's highest safety designation for microorganisms. This guide explains what it means, how it is evaluated, and why it is the key safety standard to look for in any probiotic air purification product."
+                title="Understanding FDA GRAS Status"
+                description="GRAS — Generally Recognized As Safe — is a safety designation for substances and ingredients evaluated for their history of safe use. For probiotic products, strain identity and selection matter most."
+                bestFor="Anyone concerned about product safety, health-conscious families, and people with chemical sensitivities."
                 to="/education"
-                linkText="Coming soon"
+                linkText="Read the guide"
                 comingSoon
               />
               <GuideCard
                 icon={<Scale className="w-5 h-5" />}
                 title="Probiotic vs. Chemical Disinfection"
-                description="A comparison of long-term outcomes between probiotic surface treatment and conventional chemical disinfection, drawing on hospital hygiene research including the Robert Koch Institute guidelines."
+                description="Chemical disinfectants can be fast, but they leave residues, disrupt microbial balance, and stop working once the chemistry breaks down. Probiotic hygiene takes a longer-term, biologically balanced approach."
+                bestFor="Anyone weighing the health impact of chemical cleaners, especially families with asthma or chemical sensitivities."
                 to="/education"
-                linkText="Coming soon"
+                linkText="Read the guide"
                 comingSoon
               />
             </div>
           </div>
         </section>
 
-        {/* ── Comparisons ── */}
-        <section className="py-16 md:py-24 bg-muted/30">
-          <div className="container max-w-5xl px-5 sm:px-6">
+        {/* ── Allergens at a glance (reference table) ── */}
+        <section className="py-20 md:py-32 bg-muted/40">
+          <div className="container max-w-6xl px-5 sm:px-6">
             <Suspense fallback={null}>
               <ScrollReveal>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-1 h-8 bg-primary rounded-full" />
-                  <h2 className="text-2xl md:text-3xl font-display font-bold">Comparisons</h2>
+                <SectionHead
+                  eyebrow="Quick reference"
+                  title="Common Indoor Allergens at a Glance"
+                  intro="Where common indoor allergens come from, where they collect, and why they are difficult to remove with air filtration alone."
+                />
+              </ScrollReveal>
+            </Suspense>
+
+            <Suspense fallback={null}>
+              <ScrollReveal>
+                <div className="rounded-3xl border border-border/60 bg-card overflow-hidden shadow-sm">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead className="bg-foreground text-background">
+                        <tr>
+                          <th className="text-left px-6 py-4 font-display font-semibold tracking-tight">Allergen</th>
+                          <th className="text-left px-6 py-4 font-display font-semibold tracking-tight">Source</th>
+                          <th className="text-left px-6 py-4 font-display font-semibold tracking-tight">Primary trigger</th>
+                          <th className="text-left px-6 py-4 font-display font-semibold tracking-tight">Common locations</th>
+                          <th className="text-left px-6 py-4 font-display font-semibold tracking-tight">Why it persists</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {allergens.map((a, i) => (
+                          <tr key={i} className="border-t border-border/50 hover:bg-muted/40 transition-colors">
+                            <td className="px-6 py-5 font-semibold text-foreground whitespace-nowrap">{a.name}</td>
+                            <td className="px-6 py-5 text-muted-foreground">{a.source}</td>
+                            <td className="px-6 py-5 text-muted-foreground">{a.trigger}</td>
+                            <td className="px-6 py-5 text-muted-foreground">{a.locations}</td>
+                            <td className="px-6 py-5 text-muted-foreground">{a.why}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <p className="text-muted-foreground mb-10 max-w-2xl">
-                  Designed for people actively evaluating air purification options who want an honest, science-based comparison.
+                <p className="text-xs text-muted-foreground/70 mt-4 max-w-2xl">
+                  Source-level reduction matters because air filtration alone cannot reach the surfaces where these allergens accumulate.
                 </p>
               </ScrollReveal>
             </Suspense>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <GuideCard
-                icon={<Scale className="w-5 h-5" />}
-                title="EnviroBiotics vs. UV-C Purifiers"
-                description="UV-C light kills organisms that pass through it but has no effect on surface contamination. This guide compares the two technologies across the most important performance dimensions."
-                to="/compare/uvc"
-                linkText="Read the comparison"
-              />
-              <GuideCard
-                icon={<Scale className="w-5 h-5" />}
-                title="EnviroBiotics vs. Chemical Fresheners"
-                description="Chemical fresheners mask odors and provide one-time antimicrobial action. Probiotic purification eliminates the source of both odors and contamination continuously."
-                to="/compare/chemical-fresheners"
-                linkText="Read the comparison"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* ── Proof & Research ── */}
-        <section className="py-16 md:py-24">
-          <div className="container max-w-5xl px-5 sm:px-6">
-            <Suspense fallback={null}>
-              <ScrollReveal>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-1 h-8 bg-primary rounded-full" />
-                  <h2 className="text-2xl md:text-3xl font-display font-bold">Proof and Research</h2>
-                </div>
-              </ScrollReveal>
-            </Suspense>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <GuideCard
-                icon={<FileText className="w-5 h-5" />}
-                title="Independent Studies and Lab Results"
-                description="The research behind EnviroBiotics, including the Indoor Biotechnologies study showing up to 90% allergen reduction, toxicological safety assessments, and third-party performance testing."
-                to="/research"
-                linkText="Read the research"
-              />
-              <GuideCard
-                icon={<Award className="w-5 h-5" />}
-                title="Certifications Explained"
-                description="What FDA GRAS, EPA registration, MADE SAFE certification, and Allergy UK endorsement actually mean, how each is evaluated, and why they matter."
-                to="/proof-and-trust"
-                linkText="Read the guide"
-              />
-              <GuideCard
-                icon={<Building2 className="w-5 h-5" />}
-                title="Case Studies"
-                description="Real outcomes from households, offices, HVAC facilities, and healthcare environments that have used EnviroBiotics technology."
-                to="/case-studies"
-                linkText="Read the case studies"
-              />
-            </div>
           </div>
         </section>
 
         {/* ── FAQ ── */}
-        <section className="py-16 md:py-24 bg-muted/30">
+        <section className="py-20 md:py-32">
           <div className="container max-w-3xl px-5 sm:px-6">
             <Suspense fallback={null}>
               <ScrollReveal>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-1 h-8 bg-primary rounded-full" />
-                  <h2 className="text-2xl md:text-3xl font-display font-bold">Frequently Asked Questions</h2>
-                </div>
+                <SectionHead
+                  eyebrow="FAQ"
+                  title="Frequently Asked Questions"
+                  align="center"
+                />
               </ScrollReveal>
             </Suspense>
 
-            <Accordion type="single" collapsible className="mt-8 space-y-3">
+            <Accordion type="single" collapsible className="mt-2 space-y-3">
               {faqs.map((faq, i) => (
-                <AccordionItem key={i} value={`faq-${i}`} className="border border-border/50 rounded-xl px-5 sm:px-6 bg-card data-[state=open]:border-primary/30 transition-colors">
-                  <AccordionTrigger className="text-left font-display font-semibold text-sm sm:text-base py-5 hover:no-underline">
+                <AccordionItem
+                  key={i}
+                  value={`faq-${i}`}
+                  className="border border-border/60 rounded-2xl px-6 sm:px-7 bg-card data-[state=open]:border-primary/40 data-[state=open]:shadow-sm transition-all"
+                >
+                  <AccordionTrigger className="text-left font-display font-semibold text-base sm:text-lg py-6 hover:no-underline">
                     {faq.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-5">
+                  <AccordionContent className="text-muted-foreground text-[15px] leading-relaxed pb-6">
                     {faq.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -398,33 +599,40 @@ const EducationPage = () => {
         </section>
 
         {/* ── Bottom CTA ── */}
-        <section className="py-16 md:py-24">
-          <div className="container max-w-4xl px-5 sm:px-6">
+        <section className="pb-12 md:pb-20">
+          <div className="container max-w-5xl px-5 sm:px-6">
             <Suspense fallback={null}>
               <ScrollReveal>
-                <div className="gradient-cta rounded-3xl p-8 sm:p-10 md:p-14 text-center">
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 text-balance">
-                    Stay Informed
+                <div className="gradient-cta rounded-[32px] p-10 sm:p-14 md:p-20 text-center relative overflow-hidden">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-foreground/5 border border-foreground/10 text-xs uppercase tracking-[0.18em] font-medium text-foreground/70 mb-6">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Stay informed
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-[1.05] tracking-tight mb-5 text-balance">
+                    A healthier indoor environment, backed by science.
                   </h2>
-                  <p className="text-muted-foreground max-w-xl mx-auto mb-8 text-sm sm:text-base">
-                    New guides, research summaries, and product updates are added regularly. If you have a question that is not answered here, visit the FAQ or contact the EnviroBiotics support team.
+                  <p className="text-muted-foreground max-w-2xl mx-auto mb-10 text-base sm:text-lg leading-relaxed">
+                    New guides, research summaries, and product updates are added regularly. If you have a question that is not answered here, contact the EnviroBiotics support team.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                     <Link
                       to="/shop"
-                      className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors text-sm sm:text-base"
+                      className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-foreground text-background rounded-full font-medium hover:bg-foreground/90 transition-all text-sm sm:text-base shadow-sm hover:shadow-md"
                     >
-                      Explore EnviroBiotics Devices
+                      Explore EnviroBiotics devices
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                     <Link
                       to="/research"
-                      className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-border rounded-xl font-medium hover:bg-muted transition-colors text-sm sm:text-base"
+                      className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-border bg-background/60 backdrop-blur rounded-full font-medium hover:bg-background transition-colors text-sm sm:text-base"
                     >
-                      Read Independent Research
+                      Read independent research
                     </Link>
                   </div>
-                  <Link to="/contact" className="inline-block mt-5 text-sm text-muted-foreground hover:text-primary transition-colors underline underline-offset-4">
+                  <Link
+                    to="/contact"
+                    className="inline-block mt-6 text-sm text-muted-foreground hover:text-primary transition-colors underline underline-offset-4"
+                  >
                     Contact us with questions
                   </Link>
                 </div>
@@ -434,11 +642,11 @@ const EducationPage = () => {
         </section>
 
         {/* ── Product CTA ── */}
-        <section className="container max-w-4xl px-5 sm:px-6 pb-8">
+        <section className="container max-w-5xl px-5 sm:px-6 pb-8">
           <Suspense fallback={null}>
             <ContentProductCTA
               headline="Science-backed purification for your home."
-              subtitle="Explore the devices that deliver these research-proven results."
+              subtitle="Explore the devices that put this research to work."
             />
           </Suspense>
         </section>
@@ -446,12 +654,12 @@ const EducationPage = () => {
         {/* ── Disclaimer ── */}
         <div className="container max-w-4xl px-5 sm:px-6 pb-12">
           <p className="text-xs text-muted-foreground/60 leading-relaxed text-center">
-            Content in the EnviroBiotics Education Center is written and reviewed by the EnviroBiotics Science Team. All claims are supported by independent laboratory research or peer-reviewed scientific literature. All EnviroBiotics probiotic strains are FDA GRAS certified, EPA registered, and MADE SAFE certified. Independent lab testing conducted by Indoor Biotechnologies. Results may vary based on space size, environmental conditions, and continuous device operation.
+            Content in the EnviroBiotics Education Center is written and reviewed by the EnviroBiotics Science Team. All claims are supported by independent laboratory research or peer-reviewed scientific literature. EnviroBiotics probiotic strains are evaluated under the FDA's GRAS framework and reviewed by independent toxicologists. Results may vary based on space size, environmental conditions, and continuous device operation.
           </p>
         </div>
 
         <Suspense fallback={null}>
-          <div className="container max-w-4xl px-5 sm:px-6 pb-8">
+          <div className="container max-w-5xl px-5 sm:px-6 pb-12">
             <RelatedTopics currentPath="/education" />
           </div>
         </Suspense>
