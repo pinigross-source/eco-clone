@@ -3,7 +3,6 @@ import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Link } from "@/lib/link";
-import { SectionLabel } from "@/components/ui/section-label";
 import {
   Accordion,
   AccordionContent,
@@ -11,30 +10,36 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-  Shield, Microscope, Droplets, Wind, PawPrint, Baby,
-  Leaf, Heart, AlertTriangle, ShoppingBag, ArrowRight,
-  Check, Sparkles, Bug, FlaskConical, ThermometerSun,
-  Home, Layers, SprayCan,
+  Bug, Droplets, PawPrint, Microscope,
+  ThermometerSun, Wind, Sparkles, Leaf,
+  Shield, AlertTriangle, FlaskConical, Layers,
+  ShoppingBag, ArrowRight, Check,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+import heroImg from "@/assets/mold-scandi-hero.jpg";
+import bathroomImg from "@/assets/mold-scandi-bathroom.jpg";
+import petImg from "@/assets/mold-scandi-pet.jpg";
+import bedroomImg from "@/assets/health-scandi-bedroom.jpg";
+import windowImg from "@/assets/health-scandi-window.jpg";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const RelatedTopics = lazy(() => import("@/components/RelatedTopics").then(m => ({ default: m.RelatedTopics })));
 
-/* ─── JSON-LD schema ─────────────────────────────────────── */
+/* ─── JSON-LD ─────────────────────────────────────────────── */
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Article",
-      headline: "How to Reduce Mold and Allergens at Home Naturally (2025 Guide)",
+      headline: "How to Reduce Mold and Allergens at Home Naturally | EnviroBiotics",
       description:
-        "Learn how to reduce mold, dust mite allergens, pet dander, and indoor pathogens naturally, without harsh chemicals. Science-backed strategies including probiotic purification.",
+        "A complete natural guide to reducing mold, dust mite allergens, pet dander and indoor pathogens at the source, without harsh chemicals.",
       author: { "@type": "Organization", name: "EnviroBiotics" },
       publisher: { "@type": "Organization", name: "EnviroBiotics", url: "https://envirobiotics.com" },
       url: "https://envirobiotics.com/mold-and-allergens",
       datePublished: "2024-01-01",
-      dateModified: "2025-04-01",
+      dateModified: "2026-05-01",
     },
     makeBreadcrumbJsonLd([
       { name: "Home", url: "/" },
@@ -43,13 +48,12 @@ const jsonLd = {
     {
       "@type": "FAQPage",
       mainEntity: [
-        { "@type": "Question", name: "What is the fastest way to reduce dust mite allergens?", acceptedAnswer: { "@type": "Answer", text: "The fastest short-term measures are washing all bedding at 60°C and encasing your mattress and pillows in allergen-barrier covers. For sustained reduction, continuous probiotic purification delivers the most significant long-term results, with independent studies showing up to 90% allergen reduction within 30 days." } },
-        { "@type": "Question", name: "Does an air purifier help with mold?", acceptedAnswer: { "@type": "Answer", text: "A HEPA air purifier can capture airborne mold spores that pass through it. However, it has no effect on mold already growing on surfaces, which is where the health risk is greatest. Probiotic purification addresses surface mold at the source by depriving spores of the food they need to germinate." } },
-        { "@type": "Question", name: "Is bleach effective against mold?", acceptedAnswer: { "@type": "Answer", text: "Bleach kills surface mold on contact but evaporates quickly and leaves no residual protection. On porous surfaces, bleach cannot penetrate deeply enough to eliminate mold roots. Vinegar and probiotic treatment are more effective for long-term mold prevention." } },
-        { "@type": "Question", name: "Can you fully eliminate dust mites from a home?", acceptedAnswer: { "@type": "Answer", text: "Complete elimination is not realistic, as dust mites are present in virtually every indoor environment. The goal is to reduce allergen concentrations below the threshold that triggers symptoms." } },
-        { "@type": "Question", name: "How long does it take for probiotic purification to reduce allergens?", acceptedAnswer: { "@type": "Answer", text: "Independent testing by Indoor Biotechnologies showed measurable allergen reduction within the first week and up to 90% reduction after 30 days of continuous use." } },
-        { "@type": "Question", name: "Is probiotic purification safe if I have pets?", acceptedAnswer: { "@type": "Answer", text: "Yes. EnviroBiotics uses FDA GRAS certified Bacillus strains, the same safety classification used for bacteria in pet food and animal feed. The devices are safe for all animals." } },
-        { "@type": "Question", name: "What humidity level prevents both mold and dust mites?", acceptedAnswer: { "@type": "Answer", text: "Keeping indoor relative humidity between 40% and 50% is the optimal range. Below 50% prevents dust mite survival. Below 60% prevents most mold growth." } },
+        { "@type": "Question", name: "What is the fastest way to reduce dust mite allergens?", acceptedAnswer: { "@type": "Answer", text: "Wash bedding weekly above 130°F and encase mattresses and pillows in allergen-barrier covers. For sustained reduction, continuous probiotic purification has shown up to 90% allergen reduction within 30 days." } },
+        { "@type": "Question", name: "Does an air purifier help with mold?", acceptedAnswer: { "@type": "Answer", text: "A HEPA purifier can capture airborne spores but has no effect on mold growing on surfaces, where the real problem lives. Probiotic purification reaches the surfaces and removes the food source spores need to germinate." } },
+        { "@type": "Question", name: "What if I have active mold right now?", acceptedAnswer: { "@type": "Answer", text: "Fix the moisture source first. Clean visible mold with vinegar or a professional remediator, then deploy probiotic purification to prevent it from coming back." } },
+        { "@type": "Question", name: "Can I use probiotic purification if I have pets?", acceptedAnswer: { "@type": "Answer", text: "Yes. Probiotic treatment reduces pet allergen load on surfaces. You don't have to choose between your pet and breathing easily." } },
+        { "@type": "Question", name: "Is it safe for kids?", acceptedAnswer: { "@type": "Answer", text: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA registered. Safe for infants, children, pregnant women and people with chemical sensitivities." } },
+        { "@type": "Question", name: "What humidity level prevents both mold and dust mites?", acceptedAnswer: { "@type": "Answer", text: "40 to 50 percent relative humidity is the sweet spot. Below 50 percent slows dust mite reproduction. Below 60 percent prevents most mold growth." } },
       ],
     },
   ],
@@ -57,166 +61,217 @@ const jsonLd = {
 
 /* ─── Allergen sources ──────────────────────────────────── */
 const allergenSources = [
-  { icon: Bug, title: "Dust mites", text: "These microscopic arachnids live in mattresses, pillows, carpets, and upholstered furniture. Their fecal waste proteins, specifically Der p1 and Der f1, are among the most potent indoor allergens known. A single gram of dust can contain thousands of dust mite waste particles." },
-  { icon: Droplets, title: "Mold", text: "Mold spores are present in virtually every indoor environment. They become a health problem when they find a food source on a damp surface. Common problem areas include bathrooms, kitchens, basements, window frames, and inside HVAC systems." },
-  { icon: PawPrint, title: "Pet dander", text: "Pet allergens are protein-based particles shed from skin, saliva, and urine of cats, dogs, and other animals. Fel d1 (cats) and Can f1 (dogs) are extremely small and sticky, clinging to surfaces and persisting for months." },
-  { icon: Microscope, title: "Indoor bacteria & pathogens", text: "Pathogenic bacteria thrive on organic residue on surfaces throughout the home. They are transmitted by touch, re-aerosolized by foot traffic, and accumulate wherever organic matter is available as a food source." },
+  { icon: Bug, title: "Dust mites", text: "Microscopic arachnids living in mattresses, pillows, carpets and upholstery. Their fecal proteins, Der p1 and Der f1, are among the most potent indoor allergens known. A single gram of dust can contain thousands of waste particles." },
+  { icon: Droplets, title: "Mold", text: "Spores are present in every indoor environment. They become a respiratory problem when they find moisture and organic matter, behind tiles, inside HVAC ducts, beneath flooring, in window frames, in walls." },
+  { icon: PawPrint, title: "Pet dander", text: "Fel d1 and Can f1 are 2 to 4 micron protein particles that stay airborne for hours and cling to soft surfaces for months. Even pet-free homes accumulate them through clothing and visitors." },
+  { icon: Microscope, title: "Pathogens", text: "Bacteria thrive on the organic residue covering every surface in your home. Each touch transfers them, each footstep resuspends them, and they repopulate immediately after cleaning." },
 ];
 
-/* ─── Chemical problems ─────────────────────────────────── */
+/* ─── Why chemicals fall short ──────────────────────────── */
 const chemicalProblems = [
-  { title: "One-time treatments only", text: "Chemical disinfectants kill what they contact at the moment of application. Within 30 minutes to a few hours, surfaces begin to be recolonized. There is no residual protection." },
-  { title: "Worsen air quality", text: "Many conventional cleaning products release volatile organic compounds (VOCs). Bleach releases chlorine gas. Fragrance-based products add chemical aerosols that can worsen allergy and asthma symptoms." },
-  { title: "Create resistance", text: "Repeated use of chemical antimicrobials contributes to the development of resistant organisms. The bacteria and mold that survive become harder to eliminate over time." },
-  { title: "Leave surfaces vulnerable", text: "After a chemical treatment kills existing microbes, it leaves surfaces with no biological defense. The first organism to recolonize faces no competition, a worse starting position than an untreated surface." },
+  { title: "One-time treatments only", text: "Disinfectants kill what they touch at the moment of application. Within a few hours, recolonisation is already underway. Spray Monday, square one by Wednesday." },
+  { title: "Worsen the air you breathe", text: "Bleach releases chlorine gas. Fragrance products add VOC aerosols. You're trying to solve a respiratory problem by inhaling toxins that trigger the same symptoms." },
+  { title: "Create resistance over time", text: "Repeated chemical antimicrobials select for harder-to-eliminate organisms. The bacteria and mold that survive each round become tougher to remove the next time." },
+  { title: "Leave surfaces defenceless", text: "After a chemical strike, surfaces are sterile. The first organism to land faces no competition, a worse starting position than if you'd never sprayed at all." },
 ];
 
-/* ─── Mold strategies ───────────────────────────────────── */
-const moldStrategies = [
-  { icon: ThermometerSun, title: "Control Humidity", text: "Keep indoor relative humidity below 50%. Use a hygrometer to monitor bathrooms, basements, and kitchens. Run exhaust fans during and after showers. Fix leaks immediately, a slow drip is enough moisture to support mold growth within 24 to 48 hours." },
-  { icon: Wind, title: "Improve Ventilation", text: "Stagnant air allows moisture and spore concentrations to build up. Open windows when conditions allow, run HVAC systems regularly, and replace filters on schedule. Pay attention to closets, basements, and laundry areas." },
-  { icon: Sparkles, title: "Clean with Mold-Resistant Practices", text: "Vinegar is a genuinely effective mold inhibitor for hard surfaces. It penetrates surface cells and disrupts mold at a structural level. Apply undiluted white vinegar, allow it to sit for an hour, then wipe clean." },
-  { icon: Leaf, title: "Use Probiotic Purification", text: "EnviroBiotics devices continuously disperse beneficial Bacillus probiotics that settle on surfaces and consume the organic matter mold spores need to germinate. This works in hidden spaces, inside HVAC ducts, behind walls, beneath flooring, where mold problems are most serious." },
+/* ─── Probiotic mechanism ────────────────────────────────── */
+const probioticMechanisms = [
+  { icon: Layers, title: "Consume the food source", text: "Beneficial Bacillus strains eat the same organic debris dust mites depend on. Mites lose their food. Their populations shrink. Allergen load drops at the source." },
+  { icon: Sparkles, title: "Degrade allergen proteins", text: "Pet allergens like Fel d1 and Can f1 are broken down enzymatically on the surfaces where they settle, before they get resuspended into the air you breathe." },
+  { icon: Shield, title: "Prevent mold germination", text: "By stripping surfaces of the organic matter spores need to colonise, probiotics keep mold from re-establishing in hidden spaces, HVAC ducts, behind walls, under flooring." },
+  { icon: FlaskConical, title: "Crowd out pathogens", text: "Through competitive exclusion, beneficial bacteria occupy the surface niches pathogenic species would otherwise colonise, displacing them continuously." },
 ];
 
-/* ─── Dust mite strategies ──────────────────────────────── */
-const dustMiteStrategies = [
-  "Encase mattresses and pillows in allergen-barrier covers with pore sizes below 10 microns.",
-  "Wash bedding weekly at 60°C (140°F). Cold water does not reliably kill mites.",
-  "Reduce carpeting where possible. Hard flooring with washable rugs is easier to keep allergen-free.",
-  "Keep indoor humidity below 50%. Dust mites cannot survive in low-humidity environments.",
-  "Deploy probiotic surface treatment to consume the organic debris dust mites feed on. Independent testing showed up to 90% allergen reduction after 30 days.",
+/* ─── Action plan layers ────────────────────────────────── */
+const actionLayers = [
+  { number: "01", title: "Environmental controls", body: "Keep relative humidity 40 to 50 percent. Fix leaks immediately. Improve ventilation in bathrooms, kitchens, basements and laundry rooms.", timing: "Foundation, fix first" },
+  { number: "02", title: "Physical reduction", body: "Encase mattresses and pillows. Wash bedding weekly above 130°F. HEPA-vacuum carpets and upholstery. Replace carpet with hard flooring in bedrooms when possible.", timing: "Weekly maintenance" },
+  { number: "03", title: "Source-based cleaning", body: "Use vinegar on hard mold surfaces. Limit chemical disinfectants to acute contamination. Wash soft surfaces where pet dander accumulates.", timing: "Ongoing as needed" },
+  { number: "04", title: "Biological protection", body: "Run an EnviroBiotics probiotic purifier continuously. Beneficial Bacillus strains establish a living barrier on every surface. Effects build over 2 to 4 weeks and persist as long as the device runs.", timing: "Continuous, deploy now" },
+  { number: "05", title: "Air filtration", body: "Use a HEPA air purifier as supplementary capture for the airborne fraction. The probiotic device prevents resuspension. Together they cover the complete problem.", timing: "Supplementary" },
 ];
 
-/* ─── Pet dander strategies ─────────────────────────────── */
-const petDanderStrategies = [
-  { title: "Create pet-free zones", text: "Keeping pets out of bedrooms significantly reduces allergen exposure during sleep, the most critical period for respiratory recovery." },
-  { title: "Groom pets regularly", text: "Regular bathing and brushing reduces the amount of allergen shed. Ideally done by a non-allergic household member, outdoors." },
-  { title: "Use HEPA in high-use rooms", text: "A HEPA purifier captures airborne pet dander effectively. However, it cannot address dander already settled into fabric and surfaces." },
-  { title: "Apply probiotic purification", text: "EnviroBiotics probiotics degrade the protein structure of pet allergens at the molecular level, reducing the reservoir of settled dander that continually re-seeds the air." },
+/* ─── Outcomes ──────────────────────────────────────────── */
+const outcomes = [
+  "Less morning congestion, fewer sneezing fits, clearer eyes, often within days.",
+  "Deeper sleep without nighttime allergic awakenings.",
+  "Mold does not regrow in previously affected bathrooms, basements or HVAC.",
+  "Pet allergen loads drop to manageable levels without removing the pet.",
+  "Musty, pet and cooking odors eliminated at the source instead of masked.",
+  "Year-round allergy sufferers report manageable seasons for the first time.",
 ];
 
-/* ─── Probiotic unified benefits ────────────────────────── */
-const probioticBenefits = [
-  "Consume the organic debris that dust mites depend on for food, reducing the population and the allergen proteins it produces.",
-  "Deprive mold spores of the surface nutrition they need to germinate, preventing colonies from forming even in hidden areas.",
-  "Break down pet dander proteins enzymatically, reducing allergen concentration on surfaces.",
-  "Displace pathogenic bacteria through competitive exclusion, reducing the overall microbial burden of the indoor environment.",
-];
-
-/* ─── Practical plan ────────────────────────────────────── */
-const practicalPlan = [
-  { icon: ThermometerSun, title: "Environmental controls", text: "Keep relative humidity below 50%, fix leaks immediately, and ensure adequate ventilation throughout the home." },
-  { icon: Shield, title: "Physical barriers", text: "Use allergen-barrier mattress and pillow encasements and wash bedding weekly at high temperature." },
-  { icon: Sparkles, title: "Surface cleaning", text: "Vacuum weekly with a HEPA-filtered vacuum. Use vinegar-based cleaning on surfaces prone to mold." },
-  { icon: Leaf, title: "Biological protection", text: "Run an EnviroBiotics probiotic purifier continuously in bedrooms and living areas. For whole-home coverage, consider the E-Biotic Pro." },
-  { icon: Wind, title: "Air filtration", text: "Use a HEPA air purifier as a complementary tool for airborne particles, smoke, and PM2.5. Combine with probiotic purification for complete coverage." },
-];
-
-/* ─── FAQ ────────────────────────────────────────────────── */
+/* ─── FAQs ─────────────────────────────────────────────── */
 const faqs = [
-  { q: "What is the fastest way to reduce dust mite allergens?", a: "The fastest short-term measures are washing all bedding at 60°C and encasing your mattress and pillows in allergen-barrier covers. For sustained reduction, continuous probiotic purification delivers the most significant long-term results, with independent studies showing up to 90% allergen reduction within 30 days." },
-  { q: "Does an air purifier help with mold?", a: "A HEPA air purifier can capture airborne mold spores that pass through it. However, it has no effect on mold already growing on surfaces, which is where the health risk is greatest. Probiotic purification addresses surface mold at the source by depriving spores of the food they need to germinate." },
-  { q: "Is bleach effective against mold?", a: "Bleach kills surface mold on contact but evaporates quickly and leaves no residual protection. On porous surfaces, bleach cannot penetrate deeply enough to eliminate mold roots. It also releases chlorine gas. Vinegar and probiotic treatment are more effective for long-term mold prevention." },
-  { q: "Can you fully eliminate dust mites from a home?", a: "Complete elimination is not realistic. The goal is to reduce allergen concentrations below the threshold that triggers symptoms. The combination of encasements, hot washing, humidity control, and probiotic surface treatment can achieve this for most allergy sufferers." },
-  { q: "How long does it take for probiotic purification to reduce allergens?", a: "Independent testing by Indoor Biotechnologies showed measurable allergen reduction within the first week and up to 90% reduction after 30 days of continuous use." },
-  { q: "Is probiotic purification safe if I have pets?", a: "Yes. EnviroBiotics uses FDA GRAS certified Bacillus strains, the same safety classification used for bacteria in pet food and animal feed. The devices are safe for all animals, including cats, dogs, birds, and small pets." },
-  { q: "What humidity level prevents both mold and dust mites?", a: "Keeping indoor relative humidity between 40% and 50% is the optimal range. Below 50% prevents dust mite survival. Below 60% prevents most mold growth. Staying within the 40 to 50% range addresses both simultaneously." },
+  { q: "What is the fastest way to reduce dust mite allergens?", a: "Wash bedding weekly above 130°F and encase mattresses and pillows in allergen-barrier covers. For sustained reduction, continuous probiotic purification has shown up to 90% allergen reduction within 30 days of independent testing." },
+  { q: "Does an air purifier help with mold?", a: "A HEPA purifier can capture airborne spores but has no effect on mold growing on surfaces, where the real problem lives. Probiotic purification reaches the surfaces and removes the food source spores need to germinate." },
+  { q: "What if I have active mold right now?", a: "Fix the moisture source first, leaks, ventilation, humidity. Clean visible mold with vinegar or call a remediator if it's extensive. Then deploy probiotic purification to prevent regrowth, the layer that addresses re-accumulation." },
+  { q: "Can I use probiotic purification if I have pets?", a: "Yes. Probiotic treatment reduces pet allergen load on surfaces, not by removing the pet. Most pet owners use it to manage allergens while keeping their animals comfortably." },
+  { q: "Is it safe for kids?", a: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA registered, the same beneficial bacteria found in soil and on healthy skin. Safe for infants, children, pregnant women and people with chemical sensitivities." },
+  { q: "What humidity level prevents both mold and dust mites?", a: "40 to 50 percent relative humidity is the sweet spot. Below 50 percent slows dust mite reproduction. Below 60 percent prevents most mold growth. A simple hygrometer in problem rooms makes this trivial to monitor." },
 ];
 
-/* ─── Page ───────────────────────────────────────────────── */
 const MoldAndAllergensPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="How to Reduce Mold and Allergens at Home Naturally (2025 Guide)"
-        description="Learn how to reduce mold, dust mite allergens, pet dander, and indoor pathogens naturally, without harsh chemicals. Science-backed strategies including probiotic purification."
+        title="How to Reduce Mold & Allergens at Home Naturally | EnviroBiotics"
+        description="A complete natural guide to reducing mold, dust mite allergens, pet dander and indoor pathogens at the source, without harsh chemicals."
         path="/mold-and-allergens"
-        keywords="how to reduce mold at home naturally, dust mite allergen reducer, mold prevention home, reduce indoor allergens, natural allergen reduction, mold and allergen control, EnviroBiotics"
+        keywords="reduce mold naturally, dust mite allergens, pet dander reduction, probiotic air purification, indoor allergens, EnviroBiotics"
         jsonLd={jsonLd}
       />
 
       <Navbar />
 
-      {/* ════════════════════════════════════════════════════
-          HERO
-          ════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
-        <div className="absolute top-20 right-10 w-72 md:w-[500px] h-72 md:h-[500px] bg-primary/6 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-0 w-60 md:w-96 h-60 md:h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+      {/* ════════ HERO, full-bleed Sonos style ════════ */}
+      <section className="relative w-full overflow-hidden pt-16 sm:pt-20">
+        <div className="relative min-h-[78vh] md:min-h-[88vh] w-full">
+          <img
+            src={heroImg}
+            alt="A serene Scandinavian bedroom in soft morning light"
+            className="absolute inset-0 h-full w-full object-cover"
+            width={1920}
+            height={1280}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent md:bg-gradient-to-r md:from-black/65 md:via-black/25 md:to-transparent"
+          />
+          <div className="relative z-10 flex min-h-[78vh] md:min-h-[88vh] items-end md:items-center">
+            <div className="container px-5 sm:px-6 pb-12 md:pb-0">
+              <div className="max-w-3xl text-white" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.45)" }}>
+                <p className="text-[11px] sm:text-xs font-semibold tracking-[0.28em] uppercase text-white/85 mb-5">
+                  The Complete Natural Guide
+                </p>
+                <h1 className="font-display font-bold tracking-tight text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.04] mb-6 !text-white">
+                  How to reduce mold and allergens in your home.
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed max-w-2xl">
+                  No harsh chemicals. No expensive renovations. Just an understanding of where allergens
+                  actually <span className="text-[hsl(24_95%_53%)]">live</span>, and how to address them at the source.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <div className="container relative px-5 md:px-6 max-w-4xl mx-auto">
+      {/* ════════ OPENING NARRATIVE ════════ */}
+      <section className="py-24 md:py-36">
+        <div className="container max-w-3xl mx-auto px-5 sm:px-6">
           <Suspense fallback={null}>
             <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5 md:mb-6">The Complete Natural Guide</SectionLabel>
-
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display leading-[1.1] mb-6 text-balance">
-                How to Reduce{" "}
-                <span className="text-gradient-primary">Mold & Allergens</span>{" "}
-                in Your Home
-              </h1>
-
-              <p className="text-sm text-muted-foreground mb-10">
-                By EnviroBiotics Science Team
+              <p className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold tracking-tight text-foreground leading-[1.2] mb-10 text-balance">
+                If you suffer from allergies or asthma, your home is working <span className="text-[hsl(24_95%_53%)]">against you.</span>
               </p>
-            </ScrollReveal>
-          </Suspense>
-
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp" delay={0.15}>
-              <div className="space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed">
-                <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed">
-                  If you suffer from allergies or asthma, your home may be working against you.
+              <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
+                <p>
+                  Mold spores, dust mite allergens, pet dander and airborne pathogens are among
+                  the most common triggers of chronic respiratory symptoms. They don't just float
+                  in the air, they live on your mattress, your carpet, your furniture, your walls.
+                </p>
+                <p className="text-foreground font-medium">
+                  Modern sealed homes mean once contamination enters, it stays. It accumulates on
+                  surfaces. It recirculates through your HVAC. It re-enters the air with every
+                  step across a carpet and every fluff of a pillow.
                 </p>
                 <p>
-                  Mold spores, dust mite allergens, pet dander, and airborne pathogens are among the most common triggers for chronic respiratory symptoms, and all of them thrive indoors. Modern homes are sealed tightly for energy efficiency, which means contamination that enters has nowhere to go. It accumulates on surfaces, recirculates through HVAC systems, and re-enters the air every time someone walks across a carpet or fluffs a pillow.
+                  The good news: reducing these allergens does not require breathing masks or
+                  industrial sprays. It requires understanding where they actually live and
+                  addressing them where they are.
                 </p>
-                <p>
-                  The good news is that reducing these allergens does not require harsh chemical sprays, expensive renovations, or breathing masks. It requires understanding where allergens actually live and addressing them at the source.
-                </p>
-                <div className="bg-primary-soft/50 border border-primary/10 rounded-2xl p-5 md:p-6 mt-2">
-                  <p className="text-foreground font-medium text-base md:text-lg leading-relaxed">
-                    This guide covers the most effective natural strategies for reducing mold and allergens in your home, including the emerging science of probiotic indoor purification, which has shown up to 90% reductions in allergen concentration in independent testing.
-                  </p>
-                </div>
               </div>
             </ScrollReveal>
           </Suspense>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          WHERE DO ALLERGENS COME FROM?
-          ════════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-muted/30">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
+      {/* ════════ WHERE ALLERGENS LIVE ════════ */}
+      <section className="bg-secondary/40 py-24 md:py-36">
+        <div className="container px-5 sm:px-6">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
+            <Suspense fallback={null}>
+              <ScrollReveal variant="fadeUp" className="lg:col-span-5">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl">
+                  <img
+                    src={windowImg}
+                    alt="Soft linen curtain in Scandinavian morning light"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </ScrollReveal>
+            </Suspense>
+
+            <Suspense fallback={null}>
+              <ScrollReveal variant="fadeUp" delay={0.1} className="lg:col-span-7">
+                <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                  Where Allergens Live
+                </p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-8 text-balance">
+                  Up to 80% of indoor allergens don't float, they live on <span className="text-[hsl(24_95%_53%)]">surfaces.</span>
+                </h2>
+                <div className="space-y-5 text-lg text-muted-foreground leading-relaxed mb-10">
+                  <p>
+                    This is why conventional air purifiers fall short. Even high-quality HEPA models
+                    can only capture what happens to float into them. They have no effect on the mold
+                    growing behind your bathroom tiles, the dust mite colonies in your mattress, or
+                    the pet dander embedded in your couch fabric.
+                  </p>
+                  <p>
+                    You can run a purifier 24 hours a day and still wake up congested, because the
+                    real problem is not in the air. It's on the surfaces around you.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-3 gap-6 border-t border-border/60 pt-8">
+                  <div>
+                    <p className="text-3xl md:text-4xl font-display font-semibold text-foreground">80%</p>
+                    <p className="text-xs text-muted-foreground mt-1 leading-snug">of allergens live on surfaces</p>
+                  </div>
+                  <div>
+                    <p className="text-3xl md:text-4xl font-display font-semibold text-foreground">90%</p>
+                    <p className="text-xs text-muted-foreground mt-1 leading-snug">allergen reduction at 30 days</p>
+                  </div>
+                  <div>
+                    <p className="text-3xl md:text-4xl font-display font-semibold text-foreground">⅓</p>
+                    <p className="text-xs text-muted-foreground mt-1 leading-snug">of life spent in dust mite habitat</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </Suspense>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ ALLERGEN SOURCES ════════ */}
+      <section className="py-24 md:py-36">
+        <div className="container max-w-6xl mx-auto px-5 sm:px-6">
           <Suspense fallback={null}>
             <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">Understanding The Problem</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-6">
-                Where Do Indoor Allergens Actually Come From?
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                What's actually triggering you
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-14 max-w-3xl text-balance">
+                The four sources behind almost every indoor allergic <span className="text-[hsl(24_95%_53%)]">response.</span>
               </h2>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4">
-                Before addressing the problem, it helps to understand the scale of it. According to health researchers and indoor environmental scientists, up to 80% of indoor allergens do not live in the air. They live on surfaces, your carpet, mattress, upholstered furniture, curtains, bedding, and the hidden crevices of your walls and baseboards.
-              </p>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10">
-                This is why conventional air purifiers, even high-quality HEPA models, can only do so much. A HEPA filter captures particles that happen to pass through it. It has no effect on the mold growing behind your bathroom tiles, the dust mite colonies in your mattress, or the pet dander embedded in your couch fabric.
-              </p>
             </ScrollReveal>
           </Suspense>
 
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-            {allergenSources.map((item, i) => (
-              <Suspense key={item.title} fallback={null}>
-                <ScrollReveal variant="fadeUp" delay={i * 0.1}>
-                  <div className="card-premium p-6 md:p-8 h-full">
-                    <div className="flex items-start gap-4 mb-3">
-                      <div className="icon-container icon-container-lg shrink-0">
-                        <item.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-lg md:text-xl font-display font-semibold text-foreground pt-2">{item.title}</h3>
-                    </div>
-                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed pl-0 md:pl-[4.5rem]">{item.text}</p>
+          <div className="grid sm:grid-cols-2 gap-px bg-border/60 rounded-3xl overflow-hidden border border-border/60">
+            {allergenSources.map((c, i) => (
+              <Suspense key={c.title} fallback={null}>
+                <ScrollReveal variant="fadeUp" delay={i * 0.05}>
+                  <div className="bg-background p-8 md:p-10 h-full">
+                    <c.icon className="w-7 h-7 text-foreground/80 mb-6" strokeWidth={1.5} />
+                    <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-3">{c.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{c.text}</p>
                   </div>
                 </ScrollReveal>
               </Suspense>
@@ -225,37 +280,57 @@ const MoldAndAllergensPage = () => {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          THE PROBLEM WITH CHEMICALS
-          ════════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28">
-        <div className="absolute top-40 left-10 w-60 md:w-80 h-60 md:h-80 bg-destructive/4 rounded-full blur-3xl pointer-events-none" />
-        <div className="container relative px-5 md:px-6 max-w-4xl mx-auto">
+      {/* ════════ BATHROOM IMAGE BREAKER ════════ */}
+      <section className="relative w-full overflow-hidden">
+        <div className="relative aspect-[16/9] md:aspect-[21/9] w-full max-h-[720px]">
+          <img
+            src={bathroomImg}
+            alt="A clean Scandinavian bathroom in soft morning light"
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent" />
+          <div className="absolute inset-0 flex items-end">
+            <div className="container px-5 sm:px-6 pb-10 md:pb-16">
+              <p className="text-white/85 text-[11px] font-semibold tracking-[0.28em] uppercase mb-3">Mold reduction</p>
+              <p className="text-white text-2xl sm:text-3xl md:text-4xl font-display font-semibold max-w-2xl leading-tight" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.4)" }}>
+                Mold cannot grow without moisture. Fix that first. Everything else follows.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ WHY CHEMICALS FALL SHORT ════════ */}
+      <section className="bg-secondary/40 py-24 md:py-36">
+        <div className="container max-w-6xl mx-auto px-5 sm:px-6">
           <Suspense fallback={null}>
             <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">Why Chemicals Fall Short</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-6">
-                The Problem with Chemical Approaches
-              </h2>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10">
-                The instinctive response to mold and allergens is to reach for a cleaning product. Bleach for mold. Disinfectant spray for bacteria. Chemical fresheners for odors. These approaches have real limitations.
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                Why Chemicals Fall Short
               </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-16 max-w-3xl text-balance">
+                Bleach, sprays and fragrances feel like a solution. Here's what they actually <span className="text-[hsl(24_95%_53%)]">do.</span>
+              </h2>
             </ScrollReveal>
           </Suspense>
 
-          <div className="space-y-4">
-            {chemicalProblems.map((item, i) => (
-              <Suspense key={item.title} fallback={null}>
-                <ScrollReveal variant="fadeUp" delay={i * 0.08}>
-                  <div className="card-premium p-5 md:p-6 flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <AlertTriangle className="w-4 h-4 text-destructive" />
+          <div className="space-y-px bg-border/60 rounded-3xl overflow-hidden border border-border/60">
+            {chemicalProblems.map((c, i) => (
+              <Suspense key={c.title} fallback={null}>
+                <ScrollReveal variant="fadeUp" delay={i * 0.04}>
+                  <article className="bg-background p-8 md:p-12 grid md:grid-cols-12 gap-8">
+                    <div className="md:col-span-4 flex md:flex-col items-start gap-4">
+                      <AlertTriangle className="w-7 h-7 text-foreground/80" strokeWidth={1.5} />
+                      <h3 className="text-2xl md:text-3xl font-display font-semibold text-foreground tracking-tight leading-tight">
+                        {c.title}
+                      </h3>
                     </div>
-                    <div>
-                      <h3 className="font-display font-semibold text-foreground mb-1">{item.title}</h3>
-                      <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{item.text}</p>
+                    <div className="md:col-span-8">
+                      <p className="text-muted-foreground leading-relaxed text-lg">{c.text}</p>
                     </div>
-                  </div>
+                  </article>
                 </ScrollReveal>
               </Suspense>
             ))}
@@ -263,102 +338,118 @@ const MoldAndAllergensPage = () => {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          NATURAL MOLD STRATEGIES
-          ════════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-muted/30">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">Mold Prevention</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4">
-                Natural Strategies for Reducing Mold at Home
-              </h2>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10">
-                Effective mold reduction combines environmental controls, cleaning practices, and biological protection. The following strategies work best when used together.
-              </p>
-            </ScrollReveal>
-          </Suspense>
+      {/* ════════ THE PROBIOTIC MECHANISM ════════ */}
+      <section className="py-24 md:py-36">
+        <div className="container px-5 sm:px-6">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
+            <Suspense fallback={null}>
+              <ScrollReveal variant="fadeUp" className="lg:col-span-7 order-2 lg:order-1">
+                <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                  The Probiotic Advantage
+                </p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-8 text-balance">
+                  One mechanism that addresses mold, dust mites and pet dander <span className="text-[hsl(24_95%_53%)]">simultaneously.</span>
+                </h2>
+                <div className="space-y-5 text-lg text-muted-foreground leading-relaxed mb-10">
+                  <p>
+                    Rather than requiring a separate product for each allergen, a probiotic
+                    purifier establishes a biological environment that is simultaneously
+                    inhospitable to all of them, through competitive exclusion and continuous
+                    consumption of organic matter.
+                  </p>
+                  <p className="text-foreground font-medium">
+                    Independent testing showed up to 90% allergen reduction after 30 days of
+                    continuous use, sustained as long as the device runs.
+                  </p>
+                </div>
 
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-            {moldStrategies.map((item, i) => (
-              <Suspense key={item.title} fallback={null}>
-                <ScrollReveal variant="fadeUp" delay={i * 0.1}>
-                  <div className="card-premium p-6 md:p-8 h-full">
-                    <div className="icon-container icon-container-lg mb-4">
-                      <item.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="text-lg font-display font-semibold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{item.text}</p>
-                  </div>
-                </ScrollReveal>
-              </Suspense>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════
-          DUST MITE STRATEGIES
-          ════════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28">
-        <div className="absolute top-20 right-0 w-60 md:w-96 h-60 md:h-96 bg-primary/4 rounded-full blur-3xl pointer-events-none" />
-        <div className="container relative px-5 md:px-6 max-w-4xl mx-auto">
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">Dust Mite Control</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4">
-                Natural Strategies for Reducing Dust Mite Allergens
-              </h2>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10">
-                Dust mites are one of the hardest allergens to control because their primary habitat, the mattress and bedding you sleep in, is where you spend a third of your life.
-              </p>
-            </ScrollReveal>
-          </Suspense>
-
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp" delay={0.1}>
-              <div className="card-premium p-6 md:p-8">
-                <div className="space-y-4">
-                  {dustMiteStrategies.map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                        <Check className="w-3.5 h-3.5 text-primary" />
-                      </div>
-                      <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{item}</p>
+                <div className="grid sm:grid-cols-2 gap-px bg-border/60 rounded-2xl overflow-hidden border border-border/60">
+                  {probioticMechanisms.map(m => (
+                    <div key={m.title} className="bg-background p-6 md:p-7 h-full">
+                      <m.icon className="w-6 h-6 text-foreground/80 mb-4" strokeWidth={1.5} />
+                      <h3 className="text-base md:text-lg font-display font-semibold text-foreground mb-2">{m.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed text-[15px]">{m.text}</p>
                     </div>
                   ))}
                 </div>
-              </div>
-            </ScrollReveal>
-          </Suspense>
+              </ScrollReveal>
+            </Suspense>
+
+            <Suspense fallback={null}>
+              <ScrollReveal variant="fadeUp" delay={0.1} className="lg:col-span-5 order-1 lg:order-2">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl">
+                  <img
+                    src={petImg}
+                    alt="A golden retriever resting on a wool rug in soft morning light"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </ScrollReveal>
+            </Suspense>
+          </div>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          PET DANDER STRATEGIES
-          ════════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-muted/30">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
+      {/* ════════ ACTION PLAN ════════ */}
+      <section className="bg-secondary/40 py-24 md:py-36">
+        <div className="container max-w-5xl mx-auto px-5 sm:px-6">
           <Suspense fallback={null}>
             <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">Pet Allergen Control</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4">
-                Natural Strategies for Reducing Pet Dander
-              </h2>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10">
-                Pet allergens are particularly challenging because they are so small and sticky. Fel d1 particles from cats are roughly 2 to 4 microns in size, which means they remain airborne for extended periods and cling tenaciously to soft surfaces.
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                Your Action Plan
               </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-14 max-w-3xl text-balance">
+                Five layers that, stacked together, change the biology of your <span className="text-[hsl(24_95%_53%)]">home.</span>
+              </h2>
             </ScrollReveal>
           </Suspense>
 
-          <div className="grid sm:grid-cols-2 gap-5 md:gap-6">
-            {petDanderStrategies.map((item, i) => (
-              <Suspense key={item.title} fallback={null}>
-                <ScrollReveal variant="fadeUp" delay={i * 0.1}>
-                  <div className="card-premium p-6 h-full">
-                    <h3 className="text-base font-display font-semibold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{item.text}</p>
+          <div className="space-y-px bg-border/60 rounded-3xl overflow-hidden border border-border/60">
+            {actionLayers.map((l, i) => (
+              <Suspense key={l.number} fallback={null}>
+                <ScrollReveal variant="fadeUp" delay={i * 0.04}>
+                  <article className="bg-background p-8 md:p-12 grid md:grid-cols-12 gap-6 md:gap-8">
+                    <div className="md:col-span-3">
+                      <p className="text-4xl md:text-5xl font-display font-semibold text-foreground/30 leading-none mb-3">{l.number}</p>
+                      <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-muted-foreground">{l.timing}</p>
+                    </div>
+                    <div className="md:col-span-9">
+                      <h3 className="text-2xl md:text-3xl font-display font-semibold text-foreground tracking-tight leading-tight mb-4">
+                        {l.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed text-lg">{l.body}</p>
+                    </div>
+                  </article>
+                </ScrollReveal>
+              </Suspense>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ OUTCOMES ════════ */}
+      <section className="py-24 md:py-36">
+        <div className="container max-w-5xl mx-auto px-5 sm:px-6">
+          <Suspense fallback={null}>
+            <ScrollReveal variant="fadeUp">
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                What Changes
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-14 max-w-3xl text-balance">
+                What users <span className="text-[hsl(24_95%_53%)]">report.</span>
+              </h2>
+            </ScrollReveal>
+          </Suspense>
+
+          <div className="grid md:grid-cols-2 gap-x-12 gap-y-2">
+            {outcomes.map((o, i) => (
+              <Suspense key={i} fallback={null}>
+                <ScrollReveal variant="fadeUp" delay={i * 0.04}>
+                  <div className="flex gap-4 py-5 border-b border-border/60">
+                    <Check className="w-5 h-5 text-foreground/70 flex-shrink-0 mt-1" strokeWidth={2} />
+                    <p className="text-foreground/90 leading-relaxed">{o}</p>
                   </div>
                 </ScrollReveal>
               </Suspense>
@@ -367,198 +458,114 @@ const MoldAndAllergensPage = () => {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          PROBIOTIC UNIFIED APPROACH
-          ════════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28">
-        <div className="absolute bottom-20 left-10 w-60 md:w-80 h-60 md:h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="container relative px-5 md:px-6 max-w-4xl mx-auto">
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">The Probiotic Advantage</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4">
-                How Probiotic Purification Addresses All Three Allergen Sources at Once
-              </h2>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4">
-                One of the most practical advantages of probiotic indoor purification is that it addresses mold, dust mite allergens, and pet dander through a single continuous mechanism: competitive exclusion and organic matter consumption.
+      {/* ════════ BEDROOM IMAGE BREAKER ════════ */}
+      <section className="relative w-full overflow-hidden">
+        <div className="relative aspect-[16/9] md:aspect-[21/9] w-full max-h-[720px]">
+          <img
+            src={bedroomImg}
+            alt="A calm Scandinavian bedroom with linen bedding and warm morning light"
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="container px-5 sm:px-6">
+              <p className="text-white/85 text-[11px] font-semibold tracking-[0.28em] uppercase mb-3">Where it matters most</p>
+              <p className="text-white text-2xl sm:text-3xl md:text-4xl font-display font-semibold max-w-2xl leading-tight" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.4)" }}>
+                A third of your life is spent in the densest dust mite habitat in your home. Make it the cleanest air you breathe.
               </p>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10">
-                Rather than requiring a separate product or strategy for each allergen type, a probiotic purifier establishes a biological environment that is inhospitable to all of them simultaneously.
-              </p>
-            </ScrollReveal>
-          </Suspense>
-
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp" delay={0.1}>
-              <div className="card-premium p-6 md:p-8">
-                <h3 className="font-display font-semibold text-foreground mb-5 text-lg">The beneficial Bacillus strains in EnviroBiotics devices:</h3>
-                <div className="space-y-4">
-                  {probioticBenefits.map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                        <Check className="w-3.5 h-3.5 text-primary" />
-                      </div>
-                      <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{item}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="bg-primary-soft/50 border border-primary/10 rounded-xl p-5 mt-6">
-                  <p className="text-foreground font-medium text-sm md:text-base leading-relaxed">
-                    This whole-environment approach is what distinguishes probiotic purification from every other allergen control strategy. Other approaches treat specific symptoms in specific locations. Probiotic purification changes the biology of the entire space.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-          </Suspense>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════
-          PRACTICAL PLAN
-          ════════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-muted/30">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">Your Action Plan</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4">
-                A Practical Allergen Reduction Plan for Your Home
-              </h2>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10">
-                For the best results, combine the following elements. This layered approach addresses allergens at every stage: before they accumulate on surfaces, while they are present, and as they attempt to re-enter the air.
-              </p>
-            </ScrollReveal>
-          </Suspense>
-
-          <div className="space-y-4">
-            {practicalPlan.map((item, i) => (
-              <Suspense key={item.title} fallback={null}>
-                <ScrollReveal variant="fadeUp" delay={i * 0.08}>
-                  <div className="card-premium p-5 md:p-6 flex items-start gap-4">
-                    <div className="relative shrink-0">
-                      <span className="absolute -top-1 -left-1 text-[2.5rem] font-display font-black text-primary/[0.06] leading-none select-none">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div className="icon-container icon-container-lg relative z-10">
-                        <item.icon className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="font-display font-semibold text-foreground mb-1">{item.title}</h3>
-                      <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{item.text}</p>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              </Suspense>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          FAQ
-          ════════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
+      {/* ════════ FAQ ════════ */}
+      <section className="bg-secondary/40 py-24 md:py-36">
+        <div className="container max-w-4xl mx-auto px-5 sm:px-6">
           <Suspense fallback={null}>
             <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">FAQ</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-10">
-                Frequently Asked Questions
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                Common Questions
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-12 text-balance">
+                Frequently <span className="text-[hsl(24_95%_53%)]">asked.</span>
               </h2>
             </ScrollReveal>
           </Suspense>
 
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp" delay={0.1}>
-              <Accordion type="single" collapsible className="space-y-3">
-                {faqs.map((faq, i) => (
-                  <AccordionItem
-                    key={i}
-                    value={`faq-${i}`}
-                    className="card-premium px-5 md:px-6 border-none data-[state=open]:ring-2 data-[state=open]:ring-primary/20 transition-all duration-300"
-                  >
-                    <AccordionTrigger className="text-left font-display font-semibold text-sm md:text-base text-foreground hover:text-primary-text py-4 md:py-5 [&[data-state=open]]:text-primary-text">
-                      {faq.q}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-sm md:text-base text-muted-foreground leading-relaxed pb-4 md:pb-5">
-                      {faq.a}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </ScrollReveal>
-          </Suspense>
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqs.map((f, i) => (
+              <AccordionItem
+                key={i}
+                value={`faq-${i}`}
+                className="border border-border/60 rounded-2xl px-5 md:px-7 bg-background data-[state=open]:border-foreground/20 transition-colors"
+              >
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium hover:no-underline py-6">
+                  {f.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-6 text-[15px]">
+                  {f.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          BOTTOM LINE / CTA
-          ════════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-muted/30">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
+      {/* ════════ BOTTOM LINE + CTA ════════ */}
+      <section className="py-24 md:py-36">
+        <div className="container max-w-4xl mx-auto px-5 sm:px-6 text-center">
           <Suspense fallback={null}>
             <ScrollReveal variant="fadeUp">
-              <SectionLabel className="mb-5">The Bottom Line</SectionLabel>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-6">
-                Create an Environment That's Biologically Unfavorable to Allergens
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-5">
+                The Bottom Line
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-semibold tracking-tight text-foreground leading-[1.05] mb-8 text-balance">
+                You don't have to live with allergies. You have to make allergens <span className="text-[hsl(24_95%_53%)]">irrelevant.</span>
               </h2>
-              <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed mb-10">
-                <p>
-                  Mold and allergen reduction is not about a single product or a single cleaning session. It is about creating indoor conditions that are biologically unfavorable for the organisms causing your symptoms.
-                </p>
-                <p>
-                  Environmental controls reduce moisture and stagnation. Physical barriers limit exposure during sleep. Regular cleaning removes accumulated allergen loads. And probiotic purification provides the ongoing biological defense layer that no filter, spray, or encasement can replicate on its own.
-                </p>
-              </div>
-            </ScrollReveal>
-          </Suspense>
-
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp" delay={0.15}>
-              <div className="gradient-cta rounded-2xl p-8 md:p-12 text-center">
-                <p className="text-foreground font-medium text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-                  EnviroBiotics devices are FDA GRAS certified, EPA registered, and independently tested to reduce dust mite allergens, mold spores, pet dander, and harmful bacteria continuously. Safe for every member of your household.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button asChild variant="hero" size="lg">
-                    <Link to="/shop">
-                      <ShoppingBag className="w-5 h-5" />
-                      Explore EnviroBiotics Devices
-                    </Link>
-                  </Button>
-                  <Button asChild variant="hero-outline" size="lg">
-                    <Link to="/probiotic-air-purification">
-                      How Probiotic Air Purification Works
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </Button>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
-                  <Link to="/proof-and-trust" className="text-sm text-primary-text hover:underline font-medium inline-flex items-center gap-1">
-                    Read the independent studies & certifications <ArrowRight className="w-3.5 h-3.5" />
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-12">
+                Each layer addresses a different part of the problem. Together, they create an indoor
+                environment where allergens cannot accumulate, mold cannot establish, and dust mites
+                cannot thrive.
+              </p>
+              <div className="flex flex-wrap gap-3 justify-center">
+                <Button variant="default" size="lg" asChild className="rounded-full">
+                  <Link to="/shop">
+                    <ShoppingBag className="w-4 h-4" />
+                    Explore Devices
                   </Link>
-                </div>
+                </Button>
+                <Button variant="outline" size="lg" asChild className="rounded-full">
+                  <Link to="/how-it-works">
+                    How It Works
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+                <Button variant="ghost" size="lg" asChild className="rounded-full">
+                  <Link to="/research">
+                    Read the research
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
               </div>
-            </ScrollReveal>
-          </Suspense>
-
-          <Suspense fallback={null}>
-            <ScrollReveal variant="fadeUp" delay={0.2}>
-              <p className="text-xs text-muted-foreground text-center mt-8 max-w-2xl mx-auto leading-relaxed">
-                All EnviroBiotics probiotic strains are FDA GRAS certified, EPA registered, and MADE SAFE certified. Independent lab testing conducted by Indoor Biotechnologies. Results may vary based on space size, environmental conditions, and continuous device operation.
-              </p>
             </ScrollReveal>
           </Suspense>
         </div>
       </section>
 
-      {/* Related Topics */}
-      <section className="py-12 md:py-16">
-        <div className="container px-5 md:px-6 max-w-4xl mx-auto">
+      {/* ════════ RELATED + DISCLAIMER ════════ */}
+      <section className="pb-24">
+        <div className="container max-w-5xl mx-auto px-5 sm:px-6">
           <Suspense fallback={null}>
             <RelatedTopics currentPath="/mold-and-allergens" />
           </Suspense>
+
+          <p className="text-xs text-muted-foreground mt-16 leading-relaxed text-center max-w-3xl mx-auto">
+            All EnviroBiotics probiotic strains are FDA GRAS certified, EPA registered and MADE SAFE certified.
+            Independent lab testing conducted by Indoor Biotechnologies. Educational content. Not intended as
+            medical advice. Consult a qualified healthcare provider for personal health guidance.
+          </p>
         </div>
       </section>
 
