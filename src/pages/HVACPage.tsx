@@ -369,56 +369,54 @@ const HVACPage = () => {
       />
       <Navbar />
       <main>
-        {/* Hero Section — split-screen layout */}
-        <section className="relative w-full overflow-hidden pt-16 sm:pt-20 bg-background">
-          <div className="grid lg:grid-cols-2 min-h-[78vh] md:min-h-[88vh]">
-            {/* Text panel */}
-            <div className="flex items-center px-5 sm:px-10 md:px-16 lg:px-20 py-16 lg:py-0 order-2 lg:order-1">
-              <div className="max-w-xl">
-                <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.28em] uppercase text-muted-foreground mb-6">
-                  <Building2 className="w-3.5 h-3.5" />
-                  Central Air & Heating Solutions
-                </span>
-
-                <h1 className="font-display font-bold tracking-tight text-balance text-4xl sm:text-5xl md:text-6xl lg:text-[5.25rem] leading-[1.02] text-foreground mb-6">
-                  Your Building Has <span className="text-[hsl(24_95%_53%)] whitespace-nowrap">Lungs.</span>
-                </h1>
-
-                <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed mb-10">
-                  At the heart of every building is a hidden, living system. The HVAC system functions as the building's respiratory system, sustaining comfort, air quality, and overall indoor health.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <a
-                    href="#ebiotic-pro"
-                    className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background text-sm font-semibold transition-all hover:-translate-y-0.5"
-                  >
-                    Explore E-Biotic Pro
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                  <a
-                    href="mailto:contact@envirobiotics.com"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-transparent text-foreground text-sm font-semibold ring-1 ring-inset ring-foreground/20 transition-all hover:bg-foreground/5"
-                  >
-                    <Mail className="w-4 h-4" />
-                    Contact Sales
-                  </a>
+        {/* Hero Section — full-bleed Sonos style */}
+        <section className="relative w-full overflow-hidden pt-16 sm:pt-20">
+          <div className="relative min-h-[78vh] md:min-h-[88vh] w-full">
+            <img
+              src={hvacBuildingLungsBg}
+              alt="HVAC building system as the respiratory system of a modern building"
+              className="absolute inset-0 h-full w-full object-cover"
+              width={1920}
+              height={1280}
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent md:bg-gradient-to-r md:from-black/65 md:via-black/25 md:to-transparent"
+            />
+            <div className="relative z-10 flex min-h-[78vh] md:min-h-[88vh] items-end md:items-center">
+              <div className="container px-5 sm:px-6 pb-12 md:pb-0">
+                <div className="max-w-3xl text-white" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.45)" }}>
+                  <p className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.28em] uppercase text-white/85 mb-5">
+                    <Building2 className="w-3.5 h-3.5" />
+                    Central Air & Heating Solutions
+                  </p>
+                  <h1 className="font-display font-bold tracking-tight text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.04] mb-6 !text-white">
+                    Your Building Has <span className="text-[hsl(24_95%_53%)] whitespace-nowrap">Lungs.</span>
+                  </h1>
+                  <p className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed max-w-2xl mb-10">
+                    At the heart of every building is a hidden, living system. The HVAC system functions as the building's respiratory system, sustaining comfort, air quality, and overall indoor health.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <a
+                      href="#ebiotic-pro"
+                      className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-white/95"
+                    >
+                      Explore E-Biotic Pro
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                    <a
+                      href="mailto:contact@envirobiotics.com"
+                      className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-white text-sm font-semibold ring-1 ring-inset ring-white/30 backdrop-blur-sm transition-all hover:bg-white/20"
+                    >
+                      <Mail className="w-4 h-4" />
+                      Contact Sales
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Image panel */}
-            <div className="relative min-h-[50vh] lg:min-h-[88vh] order-1 lg:order-2">
-              <img
-                src={hvacBuildingLungsBg}
-                alt="HVAC building system as the respiratory system of a modern building"
-                className="absolute inset-0 h-full w-full object-cover"
-                width={1920}
-                height={1280}
-                fetchPriority="high"
-                loading="eager"
-                decoding="async"
-              />
             </div>
           </div>
         </section>
