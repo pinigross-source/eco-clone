@@ -228,7 +228,7 @@ const HealthBenefitsPage = () => {
                   The Scale of Exposure
                 </p>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-8 text-balance">
-                  You spend over 90% of your life breathing indoor air.
+                  You spend over 90% of your life breathing <span className="text-[hsl(24_95%_53%)]">indoor air.</span>
                 </h2>
                 <div className="space-y-5 text-lg text-muted-foreground leading-relaxed mb-10">
                   <p>
