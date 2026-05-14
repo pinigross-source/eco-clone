@@ -169,8 +169,8 @@ const HealthBenefitsPage = () => {
                   The health benefits of cleaner indoor air.
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed max-w-2xl">
-                  Sleep, allergies, asthma, immunity, the way you think — all shaped by what's living
-                  in the air around you. Here's what the science says, and what changes when you fix it.
+                  Sleep, allergies, asthma, immunity, the way you think. All shaped by what's <span className="text-[hsl(24_95%_53%)]">living</span> in
+                  the air around you. Here's what the science says, and what changes when you fix it.
                 </p>
               </div>
             </div>
