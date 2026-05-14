@@ -36,7 +36,7 @@ const allLinks: RelatedLink[] = [
   { label: "Product Use Cases", href: "/product-use-cases", icon: LayoutGrid, description: "Room-by-room placement guide" },
   { label: "Proof & Trust", href: "/proof-and-trust", icon: ShieldCheck, description: "Certifications and lab results" },
   { label: "Safety & Certifications", href: "/safety", icon: ShieldCheck, description: "FDA GRAS and safety data" },
-  { label: "Education Center", href: "/education", icon: GraduationCap, description: "Deep-dive articles and guides" },
+  
   { label: "Case Studies", href: "/case-studies", icon: FileBarChart, description: "Documented real-world results" },
   { label: "Research", href: "/research", icon: FlaskConical, description: "Published studies and whitepapers" },
   { label: "FAQ", href: "/faq", icon: HelpCircle, description: "Common questions answered" },
