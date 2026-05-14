@@ -7,13 +7,6 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { ArrowRight, CheckCircle2, ShieldCheck, Repeat, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const timeline = [
-  { year: "2009", label: "Founded as BetterAir", detail: "Pioneered commercial probiotic air treatment in Israel." },
-  { year: "2017", label: "U.S. Market Launch", detail: "Brought the Biotica 800 and BioLogic Mini to North America." },
-  { year: "2023", label: "FDA GRAS & MADE SAFE", detail: "Achieved gold-standard safety certifications for consumer products." },
-  { year: "2024", label: "Rebranded to EnviroBiotics", detail: "New name reflecting our expanded mission: environmental probiotics for every indoor space." },
-];
-
 const sameTechnology = [
   "Same patented Bacillus probiotic strains",
   "Same manufacturing facility and quality standards",
@@ -140,23 +133,6 @@ const BetterAirRebrandPage = () => {
                 </li>
               ))}
             </ul>
-          </section>
-        </ScrollReveal>
-
-        {/* Timeline */}
-        <ScrollReveal>
-          <section className="mb-14">
-            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-6">Our Journey</h2>
-            <div className="border-l-2 border-primary/30 pl-6 space-y-8">
-              {timeline.map((item, i) => (
-                <div key={i} className="relative">
-                  <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-primary border-2 border-background" />
-                  <p className="text-sm font-bold text-primary">{item.year}</p>
-                  <h3 className="text-lg font-semibold text-foreground">{item.label}</h3>
-                  <p className="text-muted-foreground">{item.detail}</p>
-                </div>
-              ))}
-            </div>
           </section>
         </ScrollReveal>
 
