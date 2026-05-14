@@ -14,7 +14,8 @@ const DOMAIN = "https://envirobiotics.com";
 
 export const SEOHead = ({ title, description, path, type = "website", image, keywords, jsonLd }: SEOHeadProps) => {
   // Ensure trailing slash for canonical consistency (matches server behavior)
-  const normalizedPath = path === "/" ? "/" : (path.endsWith("/") ? path : `${path}/`);
+  // Canonical convention: no trailing slash except for root.
+  const normalizedPath = path === "/" ? "/" : path.replace(/\/+$/, "");
   const canonicalUrl = `${DOMAIN}${normalizedPath}`;
   const ogImage = image || `${DOMAIN}/og-image.png`;
   const fullTitle = title.includes("EnviroBiotics") ? title : `${title} | EnviroBiotics`;
