@@ -524,7 +524,7 @@ const HealthBenefitsPage = () => {
                 The Bottom Line
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-semibold tracking-tight text-foreground leading-[1.05] mb-8 text-balance">
-                Your indoor air is a health decision.
+                Your indoor air is a <span className="text-[hsl(24_95%_53%)]">health decision.</span>
               </h2>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-12">
                 How you sleep tonight. How you breathe tomorrow. How clearly you think next week.
