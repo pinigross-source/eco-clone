@@ -92,8 +92,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "EnviroBiotics" },
       { name: "twitter:card", content: "summary_large_image" },
       ...(isTestEnv ? [{ name: "twitter:site", content: "@Lovable" }] : []),
-      { property: "og:image", content: ogImage },
-      { name: "twitter:image", content: ogImage },
       { name: "google-site-verification", content: "Y5A06VI6sH3RIrGwheezAnybP5cHN8gEV0qXu_S2nT8" },
     ],
     links: [
