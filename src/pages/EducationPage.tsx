@@ -360,21 +360,19 @@ const EducationPage = () => {
         </section>
 
         {/* ── Choose your path ── */}
-        <section className="py-20 md:py-32 bg-foreground text-background relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+        <section className="py-20 md:py-32 bg-muted/40 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/[0.06] rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/[0.06] rounded-full blur-3xl pointer-events-none" />
           <div className="container max-w-6xl px-5 sm:px-6 relative">
             <Suspense fallback={null}>
               <ScrollReveal>
                 <div className="max-w-3xl mb-14">
-                  <span className="inline-block text-[11px] uppercase tracking-[0.22em] font-medium text-background/60 mb-5">
-                    Choose your path
-                  </span>
+                  <SectionLabel className="mb-5">Choose your path</SectionLabel>
                   <h2 className="text-3xl sm:text-4xl md:text-[44px] font-display font-bold leading-[1.1] tracking-tight text-balance mb-5">
                     What brought you here?
                   </h2>
-                  <p className="text-base sm:text-lg text-background/70 leading-relaxed">
-                    Different homes have different problems. Choose the path that best matches your situation.
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                    Different homes have different problems. Choose the path that best matches your situation, then jump straight into the relevant guides.
                   </p>
                 </div>
               </ScrollReveal>
@@ -384,18 +382,26 @@ const EducationPage = () => {
               {paths.map((p, i) => (
                 <Suspense key={i} fallback={null}>
                   <ScrollReveal delay={i * 50}>
-                    <div className="h-full p-7 rounded-3xl border border-background/10 bg-background/[0.03] hover:bg-background/[0.06] hover:border-background/20 transition-all">
-                      <div className="w-11 h-11 rounded-2xl bg-background/10 flex items-center justify-center text-background mb-5">
+                    <div className="h-full p-7 rounded-3xl border border-border/60 bg-card hover:border-primary/40 hover:shadow-[0_24px_60px_-30px_hsl(var(--primary)/0.3)] transition-all">
+                      <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5">
                         {p.icon}
                       </div>
-                      <h3 className="text-lg sm:text-xl font-display font-semibold leading-snug mb-5 text-balance">
+                      <h3 className="text-lg sm:text-xl font-display font-semibold leading-snug mb-5 text-balance text-foreground">
                         {p.title}
                       </h3>
-                      <ul className="space-y-2.5">
+                      <ul className="space-y-1.5">
                         {p.guides.map((g, j) => (
-                          <li key={j} className="flex items-start gap-2.5 text-sm text-background/75 leading-relaxed">
-                            <span className="mt-2 w-1 h-1 rounded-full bg-background/50 shrink-0" />
-                            {g}
+                          <li key={j}>
+                            <Link
+                              to={g.to}
+                              className="group flex items-start justify-between gap-3 text-sm text-foreground/85 leading-relaxed py-1.5 hover:text-primary transition-colors"
+                            >
+                              <span className="flex items-start gap-2.5">
+                                <span className="mt-2 w-1 h-1 rounded-full bg-primary/60 shrink-0 group-hover:bg-primary" />
+                                {g.label}
+                              </span>
+                              <ArrowRight className="w-3.5 h-3.5 text-muted-foreground/60 shrink-0 mt-1 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-primary transition-all" />
+                            </Link>
                           </li>
                         ))}
                       </ul>
