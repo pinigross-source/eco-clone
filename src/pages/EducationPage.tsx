@@ -27,6 +27,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import heroLivingRoom from "@/assets/edu-hero-living-room.jpg";
+import microbiomeMacro from "@/assets/edu-microbiome-macro.jpg";
+import bedroomAllergens from "@/assets/edu-bedroom-allergens.jpg";
+import petriStill from "@/assets/edu-petri-still.jpg";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").then(m => ({ default: m.ContentProductCTA })));
