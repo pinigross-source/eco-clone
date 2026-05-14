@@ -1,0 +1,49 @@
+# EnviroBiotics
+
+> EnviroBiotics is a probiotic air and surface care system that releases beneficial Bacillus microbes into indoor air and onto surfaces to outcompete mold, allergens, and odor-causing organisms between cleanings. Safe for families and pets.
+
+## Pages
+
+- [Home](/): Probiotic air and surface support for a fresher home between cleanings.
+- [How It Works](/how-it-works): How probiotic purification settles on surfaces and circulates through the air.
+- [Solutions](/solutions): Room-by-room and HVAC solutions for indoor microbial balance.
+- [Shop](/shop): EnviroBiotics products and subscriptions.
+- [HVAC](/hvac): Whole-home probiotic delivery through your HVAC system.
+- [Safety](/safety): Independent testing, GRAS strain selection, and safety data.
+- [About](/about): The company, mission, and team behind EnviroBiotics.
+- [Contact](/contact): Reach our support and sales teams.
+
+## Education
+
+- [Education Center](/education): Guides on probiotic purification, microbiome health, and indoor air quality.
+- [Probiotic Air Purification](/probiotic-air-purification): What probiotic air purification is and how it differs from filtration.
+- [Probiotic vs. Chemical Disinfection](/probiotic-vs-chemical): A side-by-side comparison.
+- [Competitive Exclusion](/competitive-exclusion): The microbiology behind beneficial-microbe surface care.
+- [FDA GRAS Status](/fda-gras-status): How GRAS strain evaluation works.
+- [Indoor Microbiome](/indoor-microbiome): Why indoor microbial diversity matters.
+- [Hygiene Hypothesis](/hygiene-hypothesis): Modern research on early-life microbial exposure.
+- [Mold and Allergens](/mold-and-allergens): How mold, dust mites, and pet dander interact indoors.
+- [Pet Dander](/pet-dander): Reducing pet allergen load.
+- [Dust Mite Allergens](/dust-mite-allergens): Strategies for dust mite reduction.
+- [Mold Indoors](/mold-indoors): Causes, risks, and remediation.
+- [Health Benefits](/health-benefits): Reported outcomes from probiotic environmental care.
+- [Research](/research): Peer-reviewed studies and references.
+- [Glossary](/glossary): Microbiology and air-quality terms.
+- [FAQ](/faq): Common questions answered.
+- [Blog](/blog): Articles and updates.
+- [Videos](/videos): Demonstrations and explainers.
+- [Case Studies](/case-studies): Real-world deployments and results.
+
+## Compare
+
+- [vs. HEPA](/compare/hepa): Probiotic surface care vs. HEPA filtration.
+- [vs. UVC](/compare/uvc): Probiotic surface care vs. UVC sterilization.
+- [vs. Chemical Fresheners](/compare/chemical-fresheners): Probiotic balance vs. chemical fragrance.
+- [vs. Bio-Healing](/compare/bio-healing): How EnviroBiotics differs from bio-healing alternatives.
+
+## Optional
+
+- [Privacy](/privacy): Privacy policy.
+- [Terms](/terms): Terms of service.
+- [Warranty](/warranty-policy): Product warranty.
+- [Support](/support): Help and support.
