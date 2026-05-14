@@ -522,11 +522,29 @@ const EducationPage = () => {
           <div className="container max-w-6xl px-5 sm:px-6">
             <Suspense fallback={null}>
               <ScrollReveal>
-                <SectionHead
-                  eyebrow="Allergens & health"
-                  title="Allergens and Health"
-                  intro="Most people think indoor air problems are floating in the air. But many common triggers settle on surfaces first — bedding, mattresses, carpets, upholstery, HVAC systems, pet areas, and dust."
-                />
+                <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-14 md:mb-20">
+                  <div className="lg:col-span-6">
+                    <SectionLabel className="mb-5">Allergens & health</SectionLabel>
+                    <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] mb-5 text-balance">
+                      The triggers live where you sleep.
+                    </h2>
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                      Most people think indoor air problems float in the air. In reality, many common triggers settle on surfaces first — bedding, mattresses, carpets, upholstery, HVAC systems, pet areas, and dust — and resuspend with every movement.
+                    </p>
+                  </div>
+                  <div className="lg:col-span-6">
+                    <div className="relative rounded-3xl overflow-hidden aspect-[5/4] shadow-[0_30px_80px_-40px_hsl(var(--foreground)/0.25)]">
+                      <img
+                        src={bedroomAllergens}
+                        alt="Sunlit minimalist bedroom with soft linen and a wool throw — where dust mite and pet dander allergens accumulate."
+                        className="absolute inset-0 w-full h-full object-cover"
+                        width={1600}
+                        height={1280}
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
               </ScrollReveal>
             </Suspense>
 
