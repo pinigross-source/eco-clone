@@ -302,7 +302,7 @@ const HealthBenefitsPage = () => {
                 Conditions & Research
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-[1.1] mb-16 max-w-3xl text-balance">
-                Six health outcomes shaped by the air in your home.
+                Six health outcomes shaped by the air in <span className="text-[hsl(24_95%_53%)]">your home.</span>
               </h2>
             </ScrollReveal>
           </Suspense>
