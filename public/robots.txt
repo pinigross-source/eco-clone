@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /account
+Disallow: /auth
+Disallow: /checkout
+Disallow: /cart
+Disallow: /payment-success
+Disallow: /order-history
+Disallow: /orders
+Disallow: /manage-subscription
+Disallow: /pro-subscription
+Disallow: /affiliate-dashboard
+Disallow: /affiliate-signup
+Disallow: /aff/
+Disallow: /dev-tools
+Disallow: /link-check
+Disallow: /embed
+Disallow: /product-registration
+
+Sitemap: https://envirobiotics.com/sitemap.xml
