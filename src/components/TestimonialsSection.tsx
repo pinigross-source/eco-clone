@@ -99,7 +99,7 @@ export const TestimonialsSection = () => {
             What people{" "}
             <span className="text-primary">notice.</span>
           </h2>
-          <p className="mt-4 text-xs text-muted-foreground/50 italic">
+          <p className="mt-4 text-xs text-muted-foreground italic">
             Individual results vary by space and conditions.
           </p>
         </ScrollReveal>

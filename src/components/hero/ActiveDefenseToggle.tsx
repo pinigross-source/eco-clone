@@ -520,7 +520,7 @@ export const ActiveDefenseToggle = () => {
         </div>
       </div>
 
-      <p className="hidden md:block text-center text-xs text-slate-400 mt-4 tracking-wide">
+      <p className="hidden md:block text-center text-xs text-muted-foreground mt-4 tracking-wide">
         Press the power button to see the difference
       </p>
     </div>
