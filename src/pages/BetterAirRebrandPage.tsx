@@ -7,13 +7,6 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { ArrowRight, CheckCircle2, ShieldCheck, Repeat, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const timeline = [
-  { year: "2009", label: "Founded as BetterAir", detail: "Pioneered commercial probiotic air treatment in Israel." },
-  { year: "2017", label: "U.S. Market Launch", detail: "Brought the Biotica 800 and BioLogic Mini to North America." },
-  { year: "2023", label: "FDA GRAS & MADE SAFE", detail: "Achieved gold-standard safety certifications for consumer products." },
-  { year: "2024", label: "Rebranded to EnviroBiotics", detail: "New name reflecting our expanded mission: environmental probiotics for every indoor space." },
-];
-
 const sameTechnology = [
   "Same patented Bacillus probiotic strains",
   "Same manufacturing facility and quality standards",
