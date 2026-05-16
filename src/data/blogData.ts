@@ -75,7 +75,7 @@ export const blogPosts: BlogPost[] = [
       "**Why do I still have allergies with an air purifier?** Most likely because your allergens, dust mites, pet dander, and mold are primarily surface-based, not airborne. Air purifiers are highly effective at cleaning airborne particles, but most of what triggers indoor allergies live on surfaces, furniture, and fabrics that the purifier's filter never reaches.",
       "**Are probiotics safe to release into my home?** The Bacillus probiotic strains used by EnviroBiotics are FDA GRAS (Generally Recognized as Safe), EPA-registered, and MADE SAFE-certified. They are the same class of beneficial bacteria widely used in food production and probiotic supplements. They produce no ozone, no VOCs, and leave no chemical residue. They are safe for infants, children, pregnant women, elderly individuals, and pets.",
       "**How long before I notice a difference?** Independent laboratory testing shows measurable reductions in allergen and pathogen levels within 30 days of continuous use. Probiotic surface treatment is cumulative: the beneficial layer builds and becomes more effective over time, rather than degrading like a filter does.",
-      "**Can I use EnviroBiotics alongside my existing air purifier?** Yes, and many users do. Air purification and probiotic surface treatment address different problems, and using both provides more comprehensive protection than either approach alone."
+      "Can I use EnviroBiotics alongside my existing air purifier? Yes, and many users do. Air purification and probiotic surface treatment address different problems, and using both provides more comprehensive protection than either approach alone."
     ],
   },
   {
