@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "@/lib/link";
+import { shopifyProductUrl } from "@/lib/shopify";
 import { ArrowRight, Check, Star } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
 import { Button } from "@/components/ui/button";
@@ -187,7 +188,7 @@ export const HeroSection = ({
 
             <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
               <a
-                href="https://shop.envirobiotics.com/"
+                href={shopifyProductUrl("biologic-mini", "hero-trial")}
                 target="_top"
                 onClick={() => trackEvent("click_buy_now_hero")}
                 className="w-full sm:w-auto"
@@ -197,7 +198,7 @@ export const HeroSection = ({
                   size="impact-md"
                   className="h-[58px] w-full bg-[hsl(24_95%_53%)] px-7 text-base font-semibold text-white hover:bg-[hsl(24_95%_48%)] sm:h-16 sm:w-auto sm:px-10 sm:text-lg"
                 >
-                  Start your 30-day trial
+                  Try BioLogic Mini — 30 days risk-free
                 </Button>
               </a>
 
