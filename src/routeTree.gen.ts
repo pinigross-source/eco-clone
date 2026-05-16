@@ -387,9 +387,9 @@ const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   getParentRoute: () => CaseStudiesRoute,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AffIdRoute = AffIdRouteImport.update({
   id: '/aff/$id',
@@ -853,6 +853,7 @@ export interface RootRouteChildren {
   VideosRoute: typeof VideosRoute
   WarrantyPolicyRoute: typeof WarrantyPolicyRoute
   AffIdRoute: typeof AffIdRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   CompareBioHealingRoute: typeof CompareBioHealingRoute
   CompareChemicalFreshenersRoute: typeof CompareChemicalFreshenersRoute
   CompareHepaRoute: typeof CompareHepaRoute
@@ -1299,10 +1300,10 @@ declare module '@tanstack/react-router' {
     }
     '/blog/$slug': {
       id: '/blog/$slug'
-      path: '/$slug'
+      path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
+      parentRoute: typeof rootRouteImport
     }
     '/aff/$id': {
       id: '/aff/$id'
@@ -1394,6 +1395,7 @@ const rootRouteChildren: RootRouteChildren = {
   VideosRoute: VideosRoute,
   WarrantyPolicyRoute: WarrantyPolicyRoute,
   AffIdRoute: AffIdRoute,
+  BlogSlugRoute: BlogSlugRoute,
   CompareBioHealingRoute: CompareBioHealingRoute,
   CompareChemicalFreshenersRoute: CompareChemicalFreshenersRoute,
   CompareHepaRoute: CompareHepaRoute,
@@ -1404,13 +1406,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
