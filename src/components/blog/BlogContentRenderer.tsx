@@ -61,6 +61,15 @@ interface ContentBlockProps {
 }
 
 const ContentBlock = ({ item, isFirstParagraph = false }: ContentBlockProps) => {
+  // Heading ###
+  if (item.startsWith("### ")) {
+    return (
+      <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mt-8 mb-2">
+        {item.slice(4)}
+      </h3>
+    );
+  }
+
   // Heading ##
   if (item.startsWith("## ")) {
     return (
