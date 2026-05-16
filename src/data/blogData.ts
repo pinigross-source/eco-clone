@@ -30,7 +30,7 @@ import purificationVsDisinfectionImg from "@/assets/blog/purification-vs-disinfe
 import ba2080ReviewImg from "@/assets/blog/ba-2080-review-6-months.avif";
 import betterairRebrandImg from "@/assets/blog/betterair-to-envirobiotics-rebrand.jpg";
 import improveIaqNaturallyImg from "@/assets/blog/improve-indoor-air-quality-naturally.jpg";
-import mustySmellImg from "@/assets/blog/get-rid-of-musty-smell.jpg";
+import mustySmellImg from "@/assets/blog/get-rid-of-musty-smell.avif";
 import indoorMicrobiomeHealthImg from "@/assets/blog/indoor-microbiome-health.jpg";
 
 export const blogPosts: BlogPost[] = [
