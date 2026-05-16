@@ -36,7 +36,7 @@ import indoorMicrobiomeHealthImg from "@/assets/blog/indoor-microbiome-health.jp
 export const blogPosts: BlogPost[] = [
   {
     slug: "why-air-purifiers-dont-solve-allergies",
-    title: "Air Purifiers Don't Stop Allergy Triggers. Here's What Actually Works.",
+    title: "Air Purifiers Alone Don't Stop Allergy Triggers. Here's What Actually Works.",
     description: "HEPA filters catch airborne particles, but 99% of allergens live on surfaces. Learn why your air purifier isn't enough and what probiotic surface treatment does differently.",
     image: whyAirPurifiersDontSolveAllergiesImg,
     category: "blog",
