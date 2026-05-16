@@ -55,7 +55,6 @@ import { Route as CompetitiveExclusionRouteImport } from './routes/competitive-e
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CartRouteImport } from './routes/cart'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BetterairRebrandRouteImport } from './routes/betterair-rebrand'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AffiliateSignupRouteImport } from './routes/affiliate-signup'
@@ -64,6 +63,7 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as SolutionsRoomRouteImport } from './routes/solutions.room'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 import { Route as CompareUvcRouteImport } from './routes/compare.uvc'
@@ -305,11 +305,6 @@ const CartRoute = CartRouteImport.update({
   path: '/cart',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BetterairRebrandRoute = BetterairRebrandRouteImport.update({
   id: '/betterair-rebrand',
   path: '/betterair-rebrand',
@@ -348,6 +343,11 @@ const AboutRoute = AboutRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SolutionsRoomRoute = SolutionsRoomRouteImport.update({
@@ -406,7 +406,6 @@ export interface FileRoutesByFullPath {
   '/affiliate-signup': typeof AffiliateSignupRoute
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
-  '/blog': typeof BlogRouteWithChildren
   '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/checkout': typeof CheckoutRoute
@@ -462,6 +461,7 @@ export interface FileRoutesByFullPath {
   '/compare/uvc': typeof CompareUvcRoute
   '/product/$slug': typeof ProductSlugRoute
   '/solutions/room': typeof SolutionsRoomRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -472,7 +472,6 @@ export interface FileRoutesByTo {
   '/affiliate-signup': typeof AffiliateSignupRoute
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
-  '/blog': typeof BlogRouteWithChildren
   '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/checkout': typeof CheckoutRoute
@@ -528,6 +527,7 @@ export interface FileRoutesByTo {
   '/compare/uvc': typeof CompareUvcRoute
   '/product/$slug': typeof ProductSlugRoute
   '/solutions/room': typeof SolutionsRoomRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -539,7 +539,6 @@ export interface FileRoutesById {
   '/affiliate-signup': typeof AffiliateSignupRoute
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
-  '/blog': typeof BlogRouteWithChildren
   '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/checkout': typeof CheckoutRoute
@@ -595,6 +594,7 @@ export interface FileRoutesById {
   '/compare/uvc': typeof CompareUvcRoute
   '/product/$slug': typeof ProductSlugRoute
   '/solutions/room': typeof SolutionsRoomRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -607,7 +607,6 @@ export interface FileRouteTypes {
     | '/affiliate-signup'
     | '/auth'
     | '/betterair-rebrand'
-    | '/blog'
     | '/cart'
     | '/case-studies'
     | '/checkout'
@@ -663,6 +662,7 @@ export interface FileRouteTypes {
     | '/compare/uvc'
     | '/product/$slug'
     | '/solutions/room'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -673,7 +673,6 @@ export interface FileRouteTypes {
     | '/affiliate-signup'
     | '/auth'
     | '/betterair-rebrand'
-    | '/blog'
     | '/cart'
     | '/case-studies'
     | '/checkout'
@@ -729,6 +728,7 @@ export interface FileRouteTypes {
     | '/compare/uvc'
     | '/product/$slug'
     | '/solutions/room'
+    | '/blog'
   id:
     | '__root__'
     | '/'
@@ -739,7 +739,6 @@ export interface FileRouteTypes {
     | '/affiliate-signup'
     | '/auth'
     | '/betterair-rebrand'
-    | '/blog'
     | '/cart'
     | '/case-studies'
     | '/checkout'
@@ -795,6 +794,7 @@ export interface FileRouteTypes {
     | '/compare/uvc'
     | '/product/$slug'
     | '/solutions/room'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -806,7 +806,6 @@ export interface RootRouteChildren {
   AffiliateSignupRoute: typeof AffiliateSignupRoute
   AuthRoute: typeof AuthRoute
   BetterairRebrandRoute: typeof BetterairRebrandRoute
-  BlogRoute: typeof BlogRouteWithChildren
   CartRoute: typeof CartRoute
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   CheckoutRoute: typeof CheckoutRoute
@@ -859,6 +858,7 @@ export interface RootRouteChildren {
   CompareHepaRoute: typeof CompareHepaRoute
   CompareUvcRoute: typeof CompareUvcRoute
   ProductSlugRoute: typeof ProductSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1185,13 +1185,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/betterair-rebrand': {
       id: '/betterair-rebrand'
       path: '/betterair-rebrand'
@@ -1246,6 +1239,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solutions/room': {
@@ -1314,16 +1314,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface BlogRouteChildren {
-  BlogSlugRoute: typeof BlogSlugRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogSlugRoute: BlogSlugRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
-
 interface CaseStudiesRouteChildren {
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
 }
@@ -1357,7 +1347,6 @@ const rootRouteChildren: RootRouteChildren = {
   AffiliateSignupRoute: AffiliateSignupRoute,
   AuthRoute: AuthRoute,
   BetterairRebrandRoute: BetterairRebrandRoute,
-  BlogRoute: BlogRouteWithChildren,
   CartRoute: CartRoute,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   CheckoutRoute: CheckoutRoute,
@@ -1410,6 +1399,7 @@ const rootRouteChildren: RootRouteChildren = {
   CompareHepaRoute: CompareHepaRoute,
   CompareUvcRoute: CompareUvcRoute,
   ProductSlugRoute: ProductSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
