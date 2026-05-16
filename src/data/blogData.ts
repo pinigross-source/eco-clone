@@ -19,7 +19,7 @@ import indoorConditionsImg from "@/assets/blog/indoor-conditions-disease.jpg";
 import amrResistanceImg from "@/assets/blog/amr-resistance.jpg";
 import indoorAllergensImg from "@/assets/blog/indoor-allergens-asthma.jpg";
 import stopOverSanitizationImg from "@/assets/blog/stop-over-sanitization.jpg";
-import probioticVsHepaImg from "@/assets/blog/probiotic-vs-hepa.jpg";
+import probioticVsHepaImg from "@/assets/blog/probiotic-vs-hepa.avif";
 import bestMoldPurifierImg from "@/assets/blog/best-air-purifier-mold.jpg";
 import reduceAllergensImg from "@/assets/blog/reduce-allergens-naturally.jpg";
 import doProbioticWorkImg from "@/assets/blog/do-probiotic-purifiers-work.jpg";
