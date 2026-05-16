@@ -25,7 +25,7 @@ import reduceAllergensImg from "@/assets/blog/reduce-allergens-naturally.jpg";
 import doProbioticWorkImg from "@/assets/blog/do-probiotic-purifiers-work.jpg";
 import areProbioticsSafeImg from "@/assets/blog/are-environmental-probiotics-safe.jpg";
 import biologicalAirFiltrationImg from "@/assets/blog/biological-air-filtration.jpg";
-import whyAirPurifiersDontSolveAllergiesImg from "@/assets/blog/why-air-purifiers-dont-solve-allergies.jpg";
+import whyAirPurifiersDontSolveAllergiesImg from "@/assets/blog/why-air-purifiers-dont-solve-allergies.avif";
 import purificationVsDisinfectionImg from "@/assets/blog/purification-vs-disinfection.jpg";
 import ba2080ReviewImg from "@/assets/blog/ba-2080-review-6-months.avif";
 import betterairRebrandImg from "@/assets/blog/betterair-to-envirobiotics-rebrand.jpg";
