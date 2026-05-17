@@ -1,6 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { shopifyProductUrl } from "@/lib/shopify";
+
+// Legacy slugs that should 301 to their canonical product URL.
+const LEGACY_SLUG_REDIRECTS: Record<string, string> = {
+  "betterair-2080": "ba-2080",
+};
 
 function ProductRedirect() {
   const { slug } = Route.useParams();
@@ -15,5 +20,15 @@ function ProductRedirect() {
 }
 
 export const Route = createFileRoute("/product/$slug")({
+  beforeLoad: ({ params }) => {
+    const target = LEGACY_SLUG_REDIRECTS[params.slug];
+    if (target) {
+      throw redirect({
+        to: "/product/$slug",
+        params: { slug: target },
+        statusCode: 301,
+      });
+    }
+  },
   component: ProductRedirect,
 });

@@ -183,14 +183,14 @@ const CompareHEPAPage = () => {
           <div className="container max-w-4xl mx-auto px-5">
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">Best of Both Worlds: The BA-2080</h2>
             <p className="text-muted-foreground mb-4">
-              You don't have to choose. The <Link to="/product/betterair-2080" className="text-primary hover:underline">BA-2080</Link> combines a true HEPA filter for immediate airborne particle capture with EnviroBiotics probiotic technology for continuous surface treatment. It's the only device on the market that addresses both airborne and surface-level contamination in a single unit.
+              You don't have to choose. The <Link to="/product/ba-2080" className="text-primary hover:underline">BA-2080</Link> combines a true HEPA filter for immediate airborne particle capture with EnviroBiotics probiotic technology for continuous surface treatment. It's the only device on the market that addresses both airborne and surface-level contamination in a single unit.
             </p>
             <p className="text-muted-foreground mb-6">
               For rooms up to 2,600 sq ft, the BA-2080 provides dual-layer protection: HEPA filtration reduces airborne particles on the first pass, while probiotics settle onto surfaces and provide ongoing protection between filter cycles.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button variant="hero" size="lg" asChild>
-                <Link to="/product/betterair-2080">View BA-2080</Link>
+                <Link to="/product/ba-2080">View BA-2080</Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
                 <Link to="/shop"><ShoppingBag className="mr-2 h-4 w-4" />Shop All Products</Link>
