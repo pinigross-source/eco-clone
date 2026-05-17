@@ -12,26 +12,26 @@ export interface BlogPost {
   tags?: string[];
 }
 
-import probioticAirPurifierHero from "@/assets/blog/probiotic-air-purifier-hero.jpg";
-import candidaAurisImg from "@/assets/blog/candida-auris-threat.jpg";
-import healthierHomeTipsImg from "@/assets/blog/healthier-home-tips.jpg";
-import indoorConditionsImg from "@/assets/blog/indoor-conditions-disease.jpg";
-import amrResistanceImg from "@/assets/blog/amr-resistance.jpg";
-import indoorAllergensImg from "@/assets/blog/indoor-allergens-asthma.jpg";
-import stopOverSanitizationImg from "@/assets/blog/stop-over-sanitization.jpg";
+import probioticAirPurifierHero from "@/assets/blog/probiotic-air-purifier-hero.avif";
+import candidaAurisImg from "@/assets/blog/candida-auris-threat.avif";
+import healthierHomeTipsImg from "@/assets/blog/healthier-home-tips.avif";
+import indoorConditionsImg from "@/assets/blog/indoor-conditions-disease.avif";
+import amrResistanceImg from "@/assets/blog/amr-resistance.avif";
+import indoorAllergensImg from "@/assets/blog/indoor-allergens-asthma.avif";
+import stopOverSanitizationImg from "@/assets/blog/stop-over-sanitization.avif";
 import probioticVsHepaImg from "@/assets/blog/probiotic-vs-hepa.avif";
-import bestMoldPurifierImg from "@/assets/blog/best-air-purifier-mold.jpg";
-import reduceAllergensImg from "@/assets/blog/reduce-allergens-naturally.jpg";
-import doProbioticWorkImg from "@/assets/blog/do-probiotic-purifiers-work.jpg";
-import areProbioticsSafeImg from "@/assets/blog/are-environmental-probiotics-safe.jpg";
-import biologicalAirFiltrationImg from "@/assets/blog/biological-air-filtration.jpg";
+import bestMoldPurifierImg from "@/assets/blog/best-air-purifier-mold.avif";
+import reduceAllergensImg from "@/assets/blog/reduce-allergens-naturally.avif";
+import doProbioticWorkImg from "@/assets/blog/do-probiotic-purifiers-work.avif";
+import areProbioticsSafeImg from "@/assets/blog/are-environmental-probiotics-safe.avif";
+import biologicalAirFiltrationImg from "@/assets/blog/biological-air-filtration.avif";
 import whyAirPurifiersDontSolveAllergiesImg from "@/assets/blog/why-air-purifiers-dont-solve-allergies.avif";
-import purificationVsDisinfectionImg from "@/assets/blog/purification-vs-disinfection.jpg";
+import purificationVsDisinfectionImg from "@/assets/blog/purification-vs-disinfection.avif";
 import ba2080ReviewImg from "@/assets/blog/ba-2080-review-6-months.avif";
-import betterairRebrandImg from "@/assets/blog/betterair-to-envirobiotics-rebrand.jpg";
-import improveIaqNaturallyImg from "@/assets/blog/improve-indoor-air-quality-naturally.jpg";
+import betterairRebrandImg from "@/assets/blog/betterair-to-envirobiotics-rebrand.avif";
+import improveIaqNaturallyImg from "@/assets/blog/improve-indoor-air-quality-naturally.avif";
 import mustySmellImg from "@/assets/blog/get-rid-of-musty-smell.avif";
-import indoorMicrobiomeHealthImg from "@/assets/blog/indoor-microbiome-health.jpg";
+import indoorMicrobiomeHealthImg from "@/assets/blog/indoor-microbiome-health.avif";
 
 export const blogPosts: BlogPost[] = [
   {

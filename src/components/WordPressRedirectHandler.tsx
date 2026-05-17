@@ -18,7 +18,7 @@ const REDIRECT_MAP: Record<string, string> = {
   "/5-tips-for-healthier-happier-home-with-envirobiotics": "/blog/5-tips-healthier-home",
 
   // ── WordPress Product Pages ──
-  "/ba2080-advanced-purification": "/product/betterair-2080",
+  "/ba2080-advanced-purification": "/product/ba-2080",
   "/biotica-800": "/product/biotica-800",
   "/biotica800_lp": "/product/biotica-800",
   "/biologic-mini-portable-purification-healthy-spaces": "/product/biologic-mini",
@@ -53,7 +53,7 @@ const REDIRECT_MAP: Record<string, string> = {
   "/pets": "/shop",
   "/biologic": "/shop",
   "/fogger": "/shop",
-  "/ba2080": "/product/betterair-2080",
+  "/ba2080": "/product/ba-2080",
   "/biologic-mini": "/product/biologic-mini",
   "/test": "/shop",
   "/pro_sub": "/shop",
@@ -131,7 +131,7 @@ const REDIRECT_MAP: Record<string, string> = {
   "/how-it-": "/how-it-works",
   "/how-": "/how-it-works",
   "/e-biotic-refill-subscription-250ml-5m": "/shop",
-  "/2080-certified-hepa-purifier-by-betterair": "/product/betterair-2080",
+  "/2080-certified-hepa-purifier-by-betterair": "/product/ba-2080",
   "/e-biotic-pro": "/product/ebiotic-pro",
   "/biologic-mini-twin-pack-refill-subscription": "/shop",
   "/asthma-and-": "/health-benefits#asthma-prevention",

@@ -149,7 +149,7 @@ const BetterAirRebrandPage = () => {
               {[
                 { name: "BioLogic Mini", desc: "Portable probiotic purifier, up to 300 sq ft", slug: "biologic-mini" },
                 { name: "Biotica 800", desc: "Whole-room probiotic purifier, up to 800 sq ft", slug: "biotica-800" },
-                { name: "BA-2080", desc: "Hybrid HEPA + probiotic, up to 2,600 sq ft", slug: "betterair-2080" },
+                { name: "BA-2080", desc: "Hybrid HEPA + probiotic, up to 2,600 sq ft", slug: "ba-2080" },
                 { name: "eBiotic Pro", desc: "HVAC-integrated system, up to 25,000 sq ft", slug: "ebiotic-pro" },
               ].map((p) => (
                 <Link

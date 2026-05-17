@@ -111,7 +111,7 @@ const glossaryTerms: GlossaryTerm[] = [
     definition: "High-Efficiency Particulate Air filter — a mechanical filter that captures at least 99.97% of airborne particles 0.3 microns or larger.",
     extendedDescription: "HEPA filters are the gold standard for airborne particle filtration and are widely used in hospitals, laboratories, and consumer air purifiers. However, HEPA filters only treat air that passes through them. They cannot address particles that have settled on surfaces, fabrics, or in cracks — where up to 80% of indoor allergens reside. The BA-2080 from EnviroBiotics combines HEPA filtration with probiotic dispersion to address both airborne and surface-level contamination.",
     relatedLinks: [
-      { label: "BA-2080 Product", url: "/product/betterair-2080" },
+      { label: "BA-2080 Product", url: "/product/ba-2080" },
       { label: "Probiotic vs HEPA Comparison", url: "/probiotic-air-purification" },
     ],
   },
