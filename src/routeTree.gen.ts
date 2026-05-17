@@ -72,7 +72,6 @@ import { Route as CompareChemicalFreshenersRouteImport } from './routes/compare.
 import { Route as CompareBioHealingRouteImport } from './routes/compare.bio-healing'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
-import { Route as AuthorSlugRouteImport } from './routes/author.$slug'
 import { Route as AffIdRouteImport } from './routes/aff.$id'
 
 const WarrantyPolicyRoute = WarrantyPolicyRouteImport.update({
@@ -392,11 +391,6 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthorSlugRoute = AuthorSlugRouteImport.update({
-  id: '/author/$slug',
-  path: '/author/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AffIdRoute = AffIdRouteImport.update({
   id: '/aff/$id',
   path: '/aff/$id',
@@ -459,7 +453,6 @@ export interface FileRoutesByFullPath {
   '/videos': typeof VideosRoute
   '/warranty-policy': typeof WarrantyPolicyRoute
   '/aff/$id': typeof AffIdRoute
-  '/author/$slug': typeof AuthorSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/compare/bio-healing': typeof CompareBioHealingRoute
@@ -526,7 +519,6 @@ export interface FileRoutesByTo {
   '/videos': typeof VideosRoute
   '/warranty-policy': typeof WarrantyPolicyRoute
   '/aff/$id': typeof AffIdRoute
-  '/author/$slug': typeof AuthorSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/compare/bio-healing': typeof CompareBioHealingRoute
@@ -594,7 +586,6 @@ export interface FileRoutesById {
   '/videos': typeof VideosRoute
   '/warranty-policy': typeof WarrantyPolicyRoute
   '/aff/$id': typeof AffIdRoute
-  '/author/$slug': typeof AuthorSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/compare/bio-healing': typeof CompareBioHealingRoute
@@ -663,7 +654,6 @@ export interface FileRouteTypes {
     | '/videos'
     | '/warranty-policy'
     | '/aff/$id'
-    | '/author/$slug'
     | '/blog/$slug'
     | '/case-studies/$slug'
     | '/compare/bio-healing'
@@ -730,7 +720,6 @@ export interface FileRouteTypes {
     | '/videos'
     | '/warranty-policy'
     | '/aff/$id'
-    | '/author/$slug'
     | '/blog/$slug'
     | '/case-studies/$slug'
     | '/compare/bio-healing'
@@ -797,7 +786,6 @@ export interface FileRouteTypes {
     | '/videos'
     | '/warranty-policy'
     | '/aff/$id'
-    | '/author/$slug'
     | '/blog/$slug'
     | '/case-studies/$slug'
     | '/compare/bio-healing'
@@ -865,7 +853,6 @@ export interface RootRouteChildren {
   VideosRoute: typeof VideosRoute
   WarrantyPolicyRoute: typeof WarrantyPolicyRoute
   AffIdRoute: typeof AffIdRoute
-  AuthorSlugRoute: typeof AuthorSlugRoute
   BlogSlugRoute: typeof BlogSlugRoute
   CompareBioHealingRoute: typeof CompareBioHealingRoute
   CompareChemicalFreshenersRoute: typeof CompareChemicalFreshenersRoute
@@ -1318,13 +1305,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/author/$slug': {
-      id: '/author/$slug'
-      path: '/author/$slug'
-      fullPath: '/author/$slug'
-      preLoaderRoute: typeof AuthorSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/aff/$id': {
       id: '/aff/$id'
       path: '/aff/$id'
@@ -1415,7 +1395,6 @@ const rootRouteChildren: RootRouteChildren = {
   VideosRoute: VideosRoute,
   WarrantyPolicyRoute: WarrantyPolicyRoute,
   AffIdRoute: AffIdRoute,
-  AuthorSlugRoute: AuthorSlugRoute,
   BlogSlugRoute: BlogSlugRoute,
   CompareBioHealingRoute: CompareBioHealingRoute,
   CompareChemicalFreshenersRoute: CompareChemicalFreshenersRoute,

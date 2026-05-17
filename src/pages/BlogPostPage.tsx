@@ -7,7 +7,6 @@ import { Footer } from "@/components/Footer";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 import { ArrowLeft, Calendar, Clock, ArrowRight, BookOpen, Lightbulb, CheckCircle2, Share2, Bookmark } from "lucide-react";
 import { getPostBySlug, getRelatedPosts, BlogPost } from "@/data/blogData";
-import { DEFAULT_AUTHOR_SLUG, getAuthorBySlug } from "@/data/authorsData";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BlogContentRenderer } from "@/components/blog/BlogContentRenderer";
@@ -143,10 +142,9 @@ const BlogPostPage = () => {
               dateModified: "2026-03-11",
               wordCount: post.content.join(" ").split(" ").length,
               author: {
-                "@type": (getAuthorBySlug(DEFAULT_AUTHOR_SLUG)?.type ?? "Organization"),
-                "@id": `https://envirobiotics.com/author/${DEFAULT_AUTHOR_SLUG}#${(getAuthorBySlug(DEFAULT_AUTHOR_SLUG)?.type ?? "Organization") === "Person" ? "person" : "org"}`,
-                name: getAuthorBySlug(DEFAULT_AUTHOR_SLUG)?.name ?? "EnviroBiotics",
-                url: `https://envirobiotics.com/author/${DEFAULT_AUTHOR_SLUG}`,
+                "@type": "Organization",
+                name: "EnviroBiotics",
+                url: "https://envirobiotics.com",
               },
               publisher: {
                 "@type": "Organization",
@@ -197,7 +195,7 @@ const BlogPostPage = () => {
               </ScrollReveal>
               
               <ScrollReveal delay={0.1}>
-                <div className="flex flex-wrap items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-6">
                   <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium capitalize">
                     <BookOpen className="w-4 h-4" />
                     {post.category}
@@ -205,15 +203,6 @@ const BlogPostPage = () => {
                   <span className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Clock className="w-4 h-4" />
                     {readingTime} min read
-                  </span>
-                  <span className="text-sm text-muted-foreground">
-                    By{" "}
-                    <Link
-                      to={`/author/${DEFAULT_AUTHOR_SLUG}`}
-                      className="text-primary hover:underline font-medium"
-                    >
-                      {getAuthorBySlug(DEFAULT_AUTHOR_SLUG)?.name ?? "EnviroBiotics"}
-                    </Link>
                   </span>
                 </div>
               </ScrollReveal>
