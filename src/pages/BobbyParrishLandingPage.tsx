@@ -316,18 +316,18 @@ const BobbyParrishLandingPage = () => {
             </Reveal>
 
             <Reveal>
-              <div className="mt-6 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] p-8 sm:p-12">
-                <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-3xl">
+              <div className="mt-5 overflow-hidden rounded-3xl bg-card p-6 ring-1 ring-black/[0.06] sm:mt-6 sm:p-12">
+                <h3 className="font-display text-[1.6rem] font-bold leading-tight tracking-[-0.02em] text-foreground sm:text-3xl">
                   Cleaner support for the spaces you use every day.
                 </h3>
-                <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                <p className="mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
                   Designed to work quietly in the background, helping maintain balance on air,
                   surfaces, fabrics, and objects throughout your home.
                 </p>
               </div>
             </Reveal>
 
-            <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="mt-5 grid grid-cols-1 gap-4 sm:mt-6 sm:grid-cols-2 sm:gap-6">
               {[
                 {
                   img: bathroomImg,
@@ -343,12 +343,12 @@ const BobbyParrishLandingPage = () => {
                 },
               ].map((item) => (
                 <Reveal key={item.title}>
-                  <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl sm:aspect-[5/3]">
                     <img src={item.img} alt={item.title} className="h-full w-full object-cover" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
-                    <div className="absolute bottom-5 left-6 right-6 text-white">
-                      <p className="text-lg font-semibold">{item.title}</p>
-                      <p className="text-sm text-white/85">{item.caption}</p>
+                    <div className="absolute bottom-4 left-4 right-4 text-white sm:bottom-5 sm:left-6 sm:right-6">
+                      <p className="text-base font-semibold sm:text-lg">{item.title}</p>
+                      <p className="mt-1 text-xs leading-snug text-white/85 sm:text-sm">{item.caption}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -358,23 +358,23 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 4. HOW IT WORKS ============ */}
-        <section id="how-it-works" className="bg-[#F5F3EE] py-24 sm:py-32 lg:py-40">
-          <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-16">
+        <section id="how-it-works" className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-40">
+          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
-                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
+                <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
                   How It Works
                 </p>
-                <h2 className="font-display text-4xl font-bold tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
+                <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
                   How EnviroBiotics works.
                 </h2>
-                <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+                <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
                   A simple probiotic system designed to help clean beyond the air.
                 </p>
               </div>
             </Reveal>
 
-            <ol className="mt-16 grid grid-cols-1 gap-10 sm:mt-20 sm:grid-cols-3 sm:gap-12">
+            <ol className="mt-10 grid grid-cols-1 gap-7 sm:mt-14 md:grid-cols-3 md:gap-10 lg:mt-20 lg:gap-12">
               {[
                 {
                   step: "01",
