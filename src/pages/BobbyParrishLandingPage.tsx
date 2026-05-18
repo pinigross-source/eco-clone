@@ -195,7 +195,7 @@ const BobbyParrishLandingPage = () => {
                   className="font-display font-bold tracking-[-0.035em] text-white text-[2.75rem] leading-[1.02] sm:text-[clamp(3rem,8vw,6.25rem)]"
                   style={{ textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
                 >
-                  Breathe Easier, Live Healthier!
+                  Breathe Easier, Live <span className="text-primary">Healthier!</span>
                 </h1>
               </Reveal>
               <Reveal>
