@@ -246,10 +246,10 @@ const BobbyParrishLandingPage = () => {
         <section className="bg-[#F5F3EE] py-20 sm:py-28">
           <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-10 px-6 sm:px-10 md:grid-cols-4 lg:px-16">
             {[
-              { n: "80%", label: "Allergens live on surfaces" },
-              { n: "300", label: "sq ft · BioLogic Mini" },
-              { n: "800", label: "sq ft · Biotica 800" },
-              { n: "30-day", label: "Money-back guarantee" },
+              { n: "10%", label: "Off with code Bobby" },
+              { n: "300", label: "sq. ft. Mini coverage" },
+              { n: "800", label: "sq. ft. large space coverage" },
+              { n: "30-day", label: "Risk-free trial" },
             ].map((s) => (
               <Reveal key={s.label}>
                 <div className="text-center">
