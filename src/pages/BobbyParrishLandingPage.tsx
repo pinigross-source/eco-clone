@@ -544,22 +544,19 @@ const BobbyParrishLandingPage = () => {
             <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
               {[
                 {
-                  text: "My son's allergies improved within the first two weeks. We have one in his bedroom and one in the living room. Life-changing.",
-                  author: "Sarah M.",
-                  tag: "Verified Buyer",
+                  text: "I wanted something that felt more natural than sprays and fragrances. EnviroBiotics gives me a simple way to support a cleaner home every day.",
+                  author: "Verified Customer",
                 },
                 {
-                  text: "No more sneezing and coughing. The Biotica 800 runs silently and we noticed a difference almost immediately.",
-                  author: "James R.",
-                  tag: "Verified Buyer",
+                  text: "It was easy to set up, and I love that it works quietly in the background. It feels like a smarter way to care for our indoor space.",
+                  author: "Verified Customer",
                 },
                 {
-                  text: "Bobby recommended this and I'm so glad I listened. We have two cats and the pet dander difference is incredible.",
-                  author: "Michelle T.",
-                  tag: "FlavCity Community",
+                  text: "I like knowing it goes beyond the air and helps support the surfaces and fabrics around our home.",
+                  author: "Verified Customer",
                 },
-              ].map((t) => (
-                <Reveal key={t.author}>
+              ].map((t, i) => (
+                <Reveal key={i}>
                   <div className="flex h-full flex-col gap-5 rounded-2xl border border-border/60 bg-card p-7">
                     <div className="flex gap-0.5 text-primary">
                       {[0, 1, 2, 3, 4].map((i) => (
