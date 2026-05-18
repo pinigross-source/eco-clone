@@ -165,8 +165,8 @@ const BobbyParrishLandingPage = () => {
   return (
     <>
       <SEOHead
-        title="Bobby Parrish × EnviroBiotics | Probiotic Air & Surface Care"
-        description="Bobby Parrish's favorite holistic purifier. Probiotic protection for every surface, 24/7. Chemical-free, safe for pets and kids."
+        title="EnviroBiotics Bobby Offer - Save 10% with Code Bobby"
+        description="Bobby followers save 10% on EnviroBiotics with code Bobby. Bring probiotic cleaning into your home and support cleaner air, surfaces, fabrics, and everyday spaces without harsh chemicals."
         path="/bobby"
       />
 
