@@ -55,6 +55,7 @@ import { Route as CompetitiveExclusionRouteImport } from './routes/competitive-e
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CartRouteImport } from './routes/cart'
+import { Route as BobbyRouteImport } from './routes/bobby'
 import { Route as BetterairRebrandRouteImport } from './routes/betterair-rebrand'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AffiliateSignupRouteImport } from './routes/affiliate-signup'
@@ -305,6 +306,11 @@ const CartRoute = CartRouteImport.update({
   path: '/cart',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BobbyRoute = BobbyRouteImport.update({
+  id: '/bobby',
+  path: '/bobby',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BetterairRebrandRoute = BetterairRebrandRouteImport.update({
   id: '/betterair-rebrand',
   path: '/betterair-rebrand',
@@ -406,6 +412,7 @@ export interface FileRoutesByFullPath {
   '/affiliate-signup': typeof AffiliateSignupRoute
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
+  '/bobby': typeof BobbyRoute
   '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/checkout': typeof CheckoutRoute
@@ -472,6 +479,7 @@ export interface FileRoutesByTo {
   '/affiliate-signup': typeof AffiliateSignupRoute
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
+  '/bobby': typeof BobbyRoute
   '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/checkout': typeof CheckoutRoute
@@ -539,6 +547,7 @@ export interface FileRoutesById {
   '/affiliate-signup': typeof AffiliateSignupRoute
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
+  '/bobby': typeof BobbyRoute
   '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/checkout': typeof CheckoutRoute
@@ -607,6 +616,7 @@ export interface FileRouteTypes {
     | '/affiliate-signup'
     | '/auth'
     | '/betterair-rebrand'
+    | '/bobby'
     | '/cart'
     | '/case-studies'
     | '/checkout'
@@ -673,6 +683,7 @@ export interface FileRouteTypes {
     | '/affiliate-signup'
     | '/auth'
     | '/betterair-rebrand'
+    | '/bobby'
     | '/cart'
     | '/case-studies'
     | '/checkout'
@@ -739,6 +750,7 @@ export interface FileRouteTypes {
     | '/affiliate-signup'
     | '/auth'
     | '/betterair-rebrand'
+    | '/bobby'
     | '/cart'
     | '/case-studies'
     | '/checkout'
@@ -806,6 +818,7 @@ export interface RootRouteChildren {
   AffiliateSignupRoute: typeof AffiliateSignupRoute
   AuthRoute: typeof AuthRoute
   BetterairRebrandRoute: typeof BetterairRebrandRoute
+  BobbyRoute: typeof BobbyRoute
   CartRoute: typeof CartRoute
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   CheckoutRoute: typeof CheckoutRoute
@@ -1186,6 +1199,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bobby': {
+      id: '/bobby'
+      path: '/bobby'
+      fullPath: '/bobby'
+      preLoaderRoute: typeof BobbyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/betterair-rebrand': {
       id: '/betterair-rebrand'
       path: '/betterair-rebrand'
@@ -1348,6 +1368,7 @@ const rootRouteChildren: RootRouteChildren = {
   AffiliateSignupRoute: AffiliateSignupRoute,
   AuthRoute: AuthRoute,
   BetterairRebrandRoute: BetterairRebrandRoute,
+  BobbyRoute: BobbyRoute,
   CartRoute: CartRoute,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   CheckoutRoute: CheckoutRoute,
@@ -1406,13 +1427,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
