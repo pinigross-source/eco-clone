@@ -62,6 +62,7 @@ const Reveal = ({ children, className = "" }: { children: React.ReactNode; class
 type ProductCardProps = {
   name: string;
   tagline: string;
+  description?: string;
   price: string;
   oldPrice?: string;
   features: string[];
@@ -69,6 +70,7 @@ type ProductCardProps = {
   href: string;
   highlight?: boolean;
   ctaText: string;
+  offerNote?: string;
   onClick: () => void;
 };
 
