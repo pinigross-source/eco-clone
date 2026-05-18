@@ -31,7 +31,13 @@ const LINKS = {
 };
 
 /* Reveal-on-scroll (matches dorm page pattern) */
-const Reveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+const Reveal = ({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
   const [visible, setVisible] = useState(false);
   const [ref, setRef] = useState<HTMLDivElement | null>(null);
   useEffect(() => {
@@ -126,7 +132,10 @@ const ProductCard = ({
       </div>
       <ul className="flex flex-1 flex-col gap-3">
         {features.map((f) => (
-          <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+          <li
+            key={f}
+            className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]"
+          >
             <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
             <span className="leading-snug">{f}</span>
           </li>
@@ -134,14 +143,14 @@ const ProductCard = ({
       </ul>
       <div className="border-t border-border/60 pt-5">
         <div className="mb-2 flex items-baseline gap-3">
-          <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">{price}</span>
+          <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">
+            {price}
+          </span>
           {oldPrice && (
             <span className="text-base text-muted-foreground line-through">{oldPrice}</span>
           )}
         </div>
-        {offerNote && (
-          <p className="mb-4 text-xs font-semibold text-primary">{offerNote}</p>
-        )}
+        {offerNote && <p className="mb-4 text-xs font-semibold text-primary">{offerNote}</p>}
         <a
           href={href}
           onClick={onClick}
@@ -154,9 +163,7 @@ const ProductCard = ({
           {ctaText}
           <ArrowRight className="h-4 w-4" />
         </a>
-        <p className="mt-3 text-center text-[11px] text-muted-foreground">
-          30-day risk-free trial
-        </p>
+        <p className="mt-3 text-center text-[11px] text-muted-foreground">30-day risk-free trial</p>
       </div>
     </div>
   </div>
@@ -194,7 +201,10 @@ const BobbyParrishLandingPage = () => {
             loading="eager"
             decoding="async"
           />
-          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/22 to-black/5 sm:from-black/78 sm:via-black/24" />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/22 to-black/5 sm:from-black/78 sm:via-black/24"
+          />
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-8 sm:px-8 sm:pb-16 md:px-10 md:pb-20 lg:px-16 lg:pb-28">
             <div className="max-w-[36rem] lg:max-w-3xl">
               <Reveal className="hidden sm:block">
@@ -223,7 +233,13 @@ const BobbyParrishLandingPage = () => {
               </Reveal>
               <Reveal>
                 <p className="mt-4 inline-flex max-w-full flex-wrap items-center gap-1.5 rounded-2xl bg-primary/95 px-4 py-2 text-sm font-semibold leading-snug text-primary-foreground shadow-lg shadow-black/20 sm:mt-5 sm:rounded-full sm:px-5 sm:text-base">
-                  <span className="sm:hidden">Code</span><span className="hidden sm:inline">Use code</span> <span className="rounded-md bg-white/95 px-2 py-0.5 font-extrabold uppercase tracking-wider text-primary shadow-sm">Bobby</span> <span className="sm:hidden">for 10% off.</span><span className="hidden sm:inline">at checkout to get 10% off your order.</span>
+                  <span className="sm:hidden">Code</span>
+                  <span className="hidden sm:inline">Use code</span>{" "}
+                  <span className="rounded-md bg-white/95 px-2 py-0.5 font-extrabold uppercase tracking-wider text-primary shadow-sm">
+                    Bobby
+                  </span>{" "}
+                  <span className="sm:hidden">for 10% off.</span>
+                  <span className="hidden sm:inline">at checkout to get 10% off your order.</span>
                 </p>
               </Reveal>
               <Reveal>
@@ -304,8 +320,8 @@ const BobbyParrishLandingPage = () => {
                   </h2>
                   <p className="mt-4 text-[0.95rem] font-medium leading-relaxed text-foreground/85 sm:mt-5 sm:text-base">
                     Dust, odors, allergens, and microscopic buildup can settle on fabrics,
-                    furniture, floors, and everyday surfaces. EnviroBiotics helps support a
-                    fresher, more balanced home with beneficial probiotics.
+                    furniture, floors, and everyday surfaces. EnviroBiotics helps support a fresher,
+                    more balanced home with beneficial probiotics.
                   </p>
                   <a
                     href="#how-it-works"
@@ -347,11 +363,18 @@ const BobbyParrishLandingPage = () => {
               ].map((item) => (
                 <Reveal key={item.title}>
                   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl sm:aspect-[5/3]">
-                    <img src={item.img} alt={item.title} className="h-full w-full object-cover" loading="lazy" />
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4 text-white sm:bottom-5 sm:left-6 sm:right-6">
                       <p className="text-base font-semibold sm:text-lg">{item.title}</p>
-                      <p className="mt-1 text-xs leading-snug text-white/85 sm:text-sm">{item.caption}</p>
+                      <p className="mt-1 text-xs leading-snug text-white/85 sm:text-sm">
+                        {item.caption}
+                      </p>
                     </div>
                   </div>
                 </Reveal>
@@ -396,9 +419,15 @@ const BobbyParrishLandingPage = () => {
                 },
               ].map((item) => (
                 <li key={item.step} className="border-t border-foreground/15 pt-6">
-                  <span className="font-display text-2xl font-semibold tracking-tight text-primary">{item.step}</span>
-                  <h3 className="mt-3 text-xl font-semibold text-foreground sm:text-2xl">{item.title}</h3>
-                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">{item.copy}</p>
+                  <span className="font-display text-2xl font-semibold tracking-tight text-primary">
+                    {item.step}
+                  </span>
+                  <h3 className="mt-3 text-xl font-semibold text-foreground sm:text-2xl">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+                    {item.copy}
+                  </p>
                 </li>
               ))}
             </ol>
@@ -424,8 +453,9 @@ const BobbyParrishLandingPage = () => {
                   Choose your probiotic protection.
                 </h2>
                 <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  Start small, cover a larger room, or protect multiple spaces. Bobby followers
-                  save 10% with code <span className="font-semibold text-foreground">Bobby</span> at checkout.
+                  Start small, cover a larger room, or protect multiple spaces. Bobby followers save
+                  10% with code <span className="font-semibold text-foreground">Bobby</span> at
+                  checkout.
                 </p>
               </div>
             </Reveal>
@@ -520,11 +550,12 @@ const BobbyParrishLandingPage = () => {
                   <p className="text-[0.95rem] leading-relaxed text-muted-foreground sm:text-lg">
                     No harsh chemical sprays. No artificial masking fragrances. No complicated
                     routine. EnviroBiotics works quietly in the background, releasing beneficial
-                    environmental probiotics that help support a cleaner, fresher indoor
-                    environment every day.
+                    environmental probiotics that help support a cleaner, fresher indoor environment
+                    every day.
                   </p>
                   <p className="text-sm font-semibold text-foreground">
-                    Bobby followers get 10% off with code <span className="text-primary">Bobby</span>.
+                    Bobby followers get 10% off with code{" "}
+                    <span className="text-primary">Bobby</span>.
                   </p>
                   <a href="#products" onClick={() => trackEvent("click_bobby_endorsement_cta")}>
                     <Button
@@ -571,7 +602,9 @@ const BobbyParrishLandingPage = () => {
                         <Star key={i} className="h-4 w-4 fill-current" />
                       ))}
                     </div>
-                    <p className="flex-1 text-[0.95rem] italic leading-relaxed text-muted-foreground sm:text-base">&ldquo;{t.text}&rdquo;</p>
+                    <p className="flex-1 text-[0.95rem] italic leading-relaxed text-muted-foreground sm:text-base">
+                      &ldquo;{t.text}&rdquo;
+                    </p>
                     <div>
                       <div className="text-sm font-semibold text-foreground">{t.author}</div>
                     </div>
@@ -678,7 +711,10 @@ const BobbyParrishLandingPage = () => {
             aria-hidden
             className="absolute inset-0 h-full w-full object-cover opacity-25"
           />
-          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary-soft))] via-[hsl(var(--primary-soft))]/80 to-transparent" />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary-soft))] via-[hsl(var(--primary-soft))]/80 to-transparent"
+          />
           <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
             <Reveal>
               <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
@@ -688,14 +724,13 @@ const BobbyParrishLandingPage = () => {
                 Every surface.
                 <br />
                 Every room.
-                <br />
-                A cleaner way to care for your home.
+                <br />A cleaner way to care for your home.
               </h2>
               <p className="mx-auto mt-5 max-w-lg text-base font-medium leading-relaxed text-foreground/85 sm:mt-6 sm:text-lg">
                 Start supporting your indoor environment with beneficial environmental probiotics
                 that help clean beyond the air. Use code{" "}
-                <span className="font-bold text-foreground">Bobby</span> at checkout to save
-                10% on your EnviroBiotics order.
+                <span className="font-bold text-foreground">Bobby</span> at checkout to save 10% on
+                your EnviroBiotics order.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a href="#products" onClick={() => trackEvent("click_final_shop_bobby_offer")}>
@@ -715,7 +750,8 @@ const BobbyParrishLandingPage = () => {
                 </a>
               </div>
               <p className="mt-8 text-sm font-medium text-foreground/75">
-                Use code <span className="font-bold text-foreground">Bobby</span> for 10% off · 30-day risk-free trial · Easy home setup
+                Use code <span className="font-bold text-foreground">Bobby</span> for 10% off ·
+                30-day risk-free trial · Easy home setup
               </p>
             </Reveal>
           </div>
