@@ -195,11 +195,7 @@ const BobbyParrishLandingPage = () => {
                   className="font-display font-bold tracking-[-0.035em] text-white text-[2.75rem] leading-[1.02] sm:text-[clamp(3rem,8vw,6.25rem)]"
                   style={{ textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
                 >
-                  The dust.
-                  <br />
-                  The mold.
-                  <br />
-                  The smell that <span className="text-primary">won&apos;t leave.</span>
+                  Breathe Easier, Live Healthier!
                 </h1>
               </Reveal>
               <Reveal>
