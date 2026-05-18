@@ -215,7 +215,7 @@ const BobbyParrishLandingPage = () => {
                 <p className="mt-6 max-w-2xl text-lg font-medium leading-relaxed text-white sm:text-xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
                   Bring probiotic cleaning into your home with EnviroBiotics. Our system releases
                   beneficial environmental probiotics that help support cleaner air, surfaces,
-                  fabrics, and everyday spaces — without harsh chemicals.
+                  fabrics, and everyday spaces - without harsh chemicals.
                 </p>
               </Reveal>
               <Reveal>
@@ -389,7 +389,7 @@ const BobbyParrishLandingPage = () => {
                 {
                   step: "03",
                   title: "Support",
-                  copy: "They help support a cleaner, fresher, more balanced indoor environment — continuously, naturally, and without harsh chemicals.",
+                  copy: "They help support a cleaner, fresher, more balanced indoor environment - continuously, naturally, and without harsh chemicals.",
                 },
               ].map((item) => (
                 <li key={item.step} className="border-t border-foreground/15 pt-6">
