@@ -287,25 +287,27 @@ const BobbyParrishLandingPage = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/55 to-transparent" />
-                <div className="absolute inset-y-0 left-0 flex w-full max-w-xl flex-col justify-center p-8 sm:p-14 lg:p-20">
+                <div className="absolute inset-y-0 left-0 flex w-full max-w-[420px] flex-col justify-center p-8 sm:p-12 lg:p-16">
                   <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
                     Beyond the Air
                   </p>
-                  <h2 className="font-display text-4xl font-bold tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
-                    Your space looks clean.
+                  <h2 className="font-display text-3xl font-bold tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
+                    Your home looks clean.
                     <br />
-                    What&apos;s on your surfaces isn&apos;t.
+                    But surfaces collect what you can&apos;t see.
                   </h2>
-                  <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    Dust, odors, allergens, bacteria, mold-related particles, and other microscopic
-                    buildup can settle on the surfaces your family touches every day — from
-                    bedding and furniture to counters, fabrics, floors, and shared living areas.
+                  <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+                    Dust, odors, allergens, and microscopic buildup can settle on fabrics,
+                    furniture, floors, and everyday surfaces. EnviroBiotics helps support a
+                    fresher, more balanced home with beneficial probiotics.
                   </p>
-                  <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    EnviroBiotics helps support a cleaner indoor environment by spreading
-                    beneficial environmental probiotics throughout your space, reaching places
-                    traditional air purifiers and sprays can miss.
-                  </p>
+                  <a
+                    href="#how-it-works"
+                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+                  >
+                    See how it works
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
                 </div>
               </div>
             </Reveal>
