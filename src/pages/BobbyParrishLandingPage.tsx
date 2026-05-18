@@ -566,7 +566,6 @@ const BobbyParrishLandingPage = () => {
                     <p className="flex-1 text-base italic leading-relaxed text-muted-foreground">&ldquo;{t.text}&rdquo;</p>
                     <div>
                       <div className="text-sm font-semibold text-foreground">{t.author}</div>
-                      <div className="text-xs text-muted-foreground">{t.tag}</div>
                     </div>
                   </div>
                 </Reveal>
