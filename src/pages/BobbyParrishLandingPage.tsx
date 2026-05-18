@@ -205,7 +205,7 @@ const BobbyParrishLandingPage = () => {
               </Reveal>
               <Reveal>
                 <h1
-                  className="font-display text-[2.3rem] font-bold leading-[1.03] tracking-[-0.035em] text-white sm:text-[clamp(3rem,7vw,5rem)] lg:text-[clamp(4.5rem,8vw,6.25rem)]"
+                  className="font-display text-[2.3rem] font-bold leading-[1.03] tracking-[-0.035em] text-white sm:text-[clamp(3rem,6.2vw,4.25rem)] lg:text-[clamp(4.5rem,8vw,6.25rem)]"
                   style={{ textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
                 >
                   Breathe Easier. Live <span className="text-primary">Healthier.</span> Save 10%.
@@ -215,7 +215,7 @@ const BobbyParrishLandingPage = () => {
                 <p className="mt-4 max-w-[18rem] text-[1rem] font-medium leading-relaxed text-white/92 sm:hidden [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
                   Probiotic home cleaning for air, surfaces, fabrics, and everyday spaces.
                 </p>
-                <p className="mt-5 hidden max-w-[34rem] text-lg font-medium leading-relaxed text-white/92 sm:block md:text-xl lg:max-w-2xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
+                <p className="mt-5 hidden max-w-[31rem] text-lg font-medium leading-relaxed text-white/92 sm:block md:text-[1.15rem] lg:max-w-2xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
                   Bring probiotic cleaning into your home with EnviroBiotics. Our system releases
                   beneficial environmental probiotics that help support cleaner air, surfaces,
                   fabrics, and everyday spaces - without harsh chemicals.
@@ -260,7 +260,7 @@ const BobbyParrishLandingPage = () => {
 
         {/* ============ 2. STATS STRIP ============ */}
         <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-28">
-          <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-5 gap-y-8 px-5 sm:gap-10 sm:px-10 md:grid-cols-4 lg:px-16">
+          <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-5 gap-y-8 px-5 sm:gap-10 sm:px-10 lg:grid-cols-4 lg:px-16">
             {[
               { n: "10%", label: "Off with code Bobby" },
               { n: "300", label: "sq. ft. Mini coverage" },
