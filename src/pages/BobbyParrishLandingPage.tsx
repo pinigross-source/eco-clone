@@ -722,12 +722,12 @@ const BobbyParrishLandingPage = () => {
       >
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div>
-            <p className="text-sm font-semibold text-foreground">Home Bundle</p>
-            <p className="text-xs text-muted-foreground">$399 · Save $98</p>
+            <p className="text-sm font-semibold text-foreground">Save 10% with code Bobby</p>
+            <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
-          <a href={LINKS.bundle} onClick={trackBundle}>
+          <a href="#products" onClick={() => trackEvent("click_sticky_bobby_offer")}>
             <Button className="h-11 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-              Shop now
+              Shop offer
             </Button>
           </a>
         </div>
