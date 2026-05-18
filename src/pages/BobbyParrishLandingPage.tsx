@@ -502,24 +502,28 @@ const BobbyParrishLandingPage = () => {
                     <span className="text-xs font-semibold text-foreground">10M+ followers</span>
                   </div>
                 </div>
-                <div className="flex flex-col justify-center gap-7 p-10 sm:p-14 lg:p-16">
-                  <span className="font-display text-6xl leading-none text-primary/40">&ldquo;</span>
-                  <p className="font-display text-2xl font-medium leading-[1.35] tracking-[-0.01em] text-foreground sm:text-[1.75rem]">
-                    Probiotics that clean your home the way nature intended. No chemicals, no
-                    nonsense. This is exactly what I put in my own home.
+                <div className="flex flex-col justify-center gap-6 p-10 sm:p-14 lg:p-16">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
+                    A Natural Way to Support Your Home
                   </p>
-                  <div>
-                    <div className="text-base font-bold text-foreground">Bobby Parrish</div>
-                    <div className="mt-1 text-sm text-muted-foreground">
-                      Founder of FlavCity · Chef & Clean Living Advocate
-                    </div>
-                  </div>
+                  <h2 className="font-display text-3xl font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.75rem]">
+                    Probiotics that clean your home the way nature intended.
+                  </h2>
+                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    No harsh chemical sprays. No artificial masking fragrances. No complicated
+                    routine. EnviroBiotics works quietly in the background, releasing beneficial
+                    environmental probiotics that help support a cleaner, fresher indoor
+                    environment every day.
+                  </p>
+                  <p className="text-sm font-semibold text-foreground">
+                    Bobby followers get 10% off with code <span className="text-primary">Bobby</span>.
+                  </p>
                   <a href="#products" onClick={() => trackEvent("click_bobby_endorsement_cta")}>
                     <Button
                       size="lg"
                       className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
                     >
-                      Shop Bobby&apos;s Picks
+                      Claim 10% Off
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
