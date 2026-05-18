@@ -410,13 +410,14 @@ const BobbyParrishLandingPage = () => {
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-                  Bobby&apos;s picks
+                  Choose Your Device
                 </p>
                 <h2 className="font-display text-4xl font-bold tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
-                  Choose your protection.
+                  Choose your probiotic protection.
                 </h2>
                 <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-                  Every device ships free with a 30-day money-back guarantee.
+                  Start small, cover a larger room, or protect multiple spaces. Bobby followers
+                  save 10% with code <span className="font-semibold text-foreground">Bobby</span> at checkout.
                 </p>
               </div>
             </Reveal>
@@ -425,53 +426,58 @@ const BobbyParrishLandingPage = () => {
               <Reveal>
                 <ProductCard
                   name="BioLogic Mini"
-                  tagline="Portable · Up to 300 sq ft"
+                  tagline="Best for Small Rooms"
+                  description="A compact probiotic device designed for bedrooms, nurseries, home offices, bathrooms, and smaller spaces."
                   price="$98"
                   image={miniImg}
                   href={LINKS.mini}
                   ctaText="Shop BioLogic Mini"
+                  offerNote="Use code Bobby for 10% off."
                   onClick={trackMini}
                   features={[
-                    "Bedrooms, offices, cars, pet areas",
-                    "Cordless & USB-C rechargeable",
-                    "Whisper-quiet automatic operation",
-                    "Refills last up to 3 months",
+                    "Covers up to 300 sq. ft.",
+                    "Great for bedrooms and personal spaces",
+                    "Easy to place on a shelf, desk, or nightstand",
+                    "Helps support cleaner air and surfaces",
                   ]}
                 />
               </Reveal>
               <Reveal>
                 <ProductCard
                   name="Home Bundle"
-                  tagline="Best value · Whole home"
+                  tagline="Most Popular"
+                  description="The best choice for Bobby followers who want broader probiotic support in more than one room."
                   price="$399"
-                  oldPrice="$497"
                   image={bundleImg}
                   href={LINKS.bundle}
                   highlight
-                  ctaText="Get the Bundle · Save $98"
+                  ctaText="Get the Home Bundle"
+                  offerNote="Use code Bobby for 10% off."
                   onClick={trackBundle}
                   features={[
-                    "2× BioLogic Mini (300 sq ft each)",
-                    "1× Biotica 800 (800 sq ft)",
-                    "Covers living room + 2 bedrooms",
-                    "All refills & hardware included",
+                    "Ideal for multi-room coverage",
+                    "Great for bedrooms, living rooms, and shared spaces",
+                    "Helps support cleaner surfaces throughout the home",
+                    "Best value for families",
                   ]}
                 />
               </Reveal>
               <Reveal>
                 <ProductCard
                   name="Biotica 800"
-                  tagline="Whole room · Up to 800 sq ft"
+                  tagline="Best for Larger Spaces"
+                  description="A powerful probiotic device designed for larger rooms, open living areas, basements, and bigger indoor spaces."
                   price="$299"
                   image={bioticaImg}
                   href={LINKS.biotica}
                   ctaText="Shop Biotica 800"
+                  offerNote="Use code Bobby for 10% off."
                   onClick={trackBiotica}
                   features={[
-                    "Living rooms, kitchens, open plans",
-                    "Continuous probiotic dispersion",
-                    "Targets mold, allergens, pet dander",
-                    "Plug-in for permanent protection",
+                    "Covers up to 800 sq. ft.",
+                    "Great for open-plan living areas",
+                    "Designed for stronger room coverage",
+                    "Helps support fresher air, surfaces, and fabrics",
                   ]}
                 />
               </Reveal>
