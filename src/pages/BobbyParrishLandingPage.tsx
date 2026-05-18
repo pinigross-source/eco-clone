@@ -539,14 +539,14 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 7. TESTIMONIALS ============ */}
-        <section className="bg-background py-24 sm:py-32">
-          <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-16">
+        <section className="bg-background py-14 sm:py-24 lg:py-32">
+          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
+              <h2 className="font-display text-[2rem] font-bold leading-tight tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
                 What families are saying.
               </h2>
             </Reveal>
-            <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 md:grid-cols-3 md:gap-6">
               {[
                 {
                   text: "I wanted something that felt more natural than sprays and fragrances. EnviroBiotics gives me a simple way to support a cleaner home every day.",
@@ -562,13 +562,13 @@ const BobbyParrishLandingPage = () => {
                 },
               ].map((t, i) => (
                 <Reveal key={i}>
-                  <div className="flex h-full flex-col gap-5 rounded-2xl border border-border/60 bg-card p-7">
+                  <div className="flex h-full flex-col gap-4 rounded-2xl border border-border/60 bg-card p-5 sm:gap-5 sm:p-7">
                     <div className="flex gap-0.5 text-primary">
                       {[0, 1, 2, 3, 4].map((i) => (
                         <Star key={i} className="h-4 w-4 fill-current" />
                       ))}
                     </div>
-                    <p className="flex-1 text-base italic leading-relaxed text-muted-foreground">&ldquo;{t.text}&rdquo;</p>
+                    <p className="flex-1 text-[0.95rem] italic leading-relaxed text-muted-foreground sm:text-base">&ldquo;{t.text}&rdquo;</p>
                     <div>
                       <div className="text-sm font-semibold text-foreground">{t.author}</div>
                     </div>
@@ -580,10 +580,10 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 8. FEATURE ICONS ============ */}
-        <section className="bg-[#F5F3EE] py-20 sm:py-24">
-          <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-16">
+        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-24">
+          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4 md:gap-8">
                 {[
                   {
                     label: "Probiotic Cleaning",
@@ -616,8 +616,8 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 9. FAQ ============ */}
-        <section className="bg-background py-24 sm:py-32">
-          <div className="mx-auto max-w-3xl px-6 sm:px-10">
+        <section className="bg-background py-14 sm:py-24 lg:py-32">
+          <div className="mx-auto max-w-3xl px-5 sm:px-10">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
                 Common questions
@@ -668,7 +668,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 10. FINAL CTA ============ */}
-        <section className="relative overflow-hidden bg-[hsl(var(--primary-soft))] py-28 sm:py-36 lg:py-44">
+        <section className="relative overflow-hidden bg-[hsl(var(--primary-soft))] py-16 sm:py-28 lg:py-44">
           <img
             src={familyImg}
             alt=""
@@ -676,19 +676,19 @@ const BobbyParrishLandingPage = () => {
             className="absolute inset-0 h-full w-full object-cover opacity-25"
           />
           <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary-soft))] via-[hsl(var(--primary-soft))]/80 to-transparent" />
-          <div className="relative mx-auto max-w-3xl px-6 text-center sm:px-10">
+          <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
             <Reveal>
               <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
                 Bobby Followers Save 10%
               </p>
-              <h2 className="font-display text-5xl font-bold tracking-[-0.03em] text-foreground sm:text-6xl lg:text-[5rem] lg:leading-[1.02]">
+              <h2 className="font-display text-[2.7rem] font-bold leading-[1.04] tracking-[-0.03em] text-foreground sm:text-6xl lg:text-[5rem] lg:leading-[1.02]">
                 Every surface.
                 <br />
                 Every room.
                 <br />
                 A cleaner way to care for your home.
               </h2>
-              <p className="mx-auto mt-6 max-w-lg text-lg font-medium leading-relaxed text-foreground/85">
+              <p className="mx-auto mt-5 max-w-lg text-base font-medium leading-relaxed text-foreground/85 sm:mt-6 sm:text-lg">
                 Start supporting your indoor environment with beneficial environmental probiotics
                 that help clean beyond the air. Use code{" "}
                 <span className="font-bold text-foreground">Bobby</span> at checkout to save
