@@ -289,8 +289,8 @@ const BobbyParrishLandingPage = () => {
                   className="h-[clamp(360px,52vw,560px)] w-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/55 to-transparent" />
-                <div className="absolute inset-y-0 left-0 flex w-full max-w-[420px] flex-col justify-center p-8 sm:p-12 lg:p-16">
+                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent sm:via-background/70" />
+                <div className="absolute inset-y-0 left-0 flex w-full max-w-[440px] flex-col justify-center p-8 sm:p-12 lg:p-16">
                   <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
                     Beyond the Air
                   </p>
@@ -299,7 +299,7 @@ const BobbyParrishLandingPage = () => {
                     <br />
                     But surfaces collect what you can&apos;t see.
                   </h2>
-                  <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+                  <p className="mt-5 text-base font-medium leading-relaxed text-foreground/85">
                     Dust, odors, allergens, and microscopic buildup can settle on fabrics,
                     furniture, floors, and everyday surfaces. EnviroBiotics helps support a
                     fresher, more balanced home with beneficial probiotics.
