@@ -14,7 +14,7 @@ import {
 import miniImg from "@/assets/shop/biologic-mini.png";
 import bioticaImg from "@/assets/shop/biotica-800.png";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
-import heroImg from "@/assets/dorm/dorm-hero-moving-in.jpg";
+import heroImg from "@/assets/bobby/bobby-hero.avif";
 import livingImg from "@/assets/dorm/dorm-clean-bedroom.avif";
 import familyImg from "@/assets/dorm/dorm-students-studying.jpg";
 import bobbyImg from "@/assets/dorm/dorm-student-reading.jpg";
@@ -175,7 +175,7 @@ const BobbyParrishLandingPage = () => {
         <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
           <img
             src={heroImg}
-            alt="Bright, natural-light home"
+            alt="Bobby Parrish at home"
             className="absolute inset-0 h-full w-full object-cover"
             fetchPriority="high"
             loading="eager"
