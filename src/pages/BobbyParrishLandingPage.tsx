@@ -187,7 +187,7 @@ const BobbyParrishLandingPage = () => {
               <Reveal>
                 <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  Bobby Parrish Exclusive
+                  Special Offer for Bobby Followers
                 </p>
               </Reveal>
               <Reveal>
@@ -195,13 +195,19 @@ const BobbyParrishLandingPage = () => {
                   className="font-display font-bold tracking-[-0.035em] text-white text-[2.75rem] leading-[1.02] sm:text-[clamp(3rem,8vw,6.25rem)]"
                   style={{ textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
                 >
-                  Breathe Easier, Live <span className="text-primary">Healthier!</span>
+                  Breathe Easier. Live <span className="text-primary">Healthier.</span> Save 10%.
                 </h1>
               </Reveal>
               <Reveal>
                 <p className="mt-6 max-w-2xl text-lg font-medium leading-relaxed text-white sm:text-xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
-                  Air purifiers move air. Sprays mask odors. Our probiotics reach every surface a
-                  filter can&apos;t — 24 hours a day, every day.
+                  Bring probiotic cleaning into your home with EnviroBiotics. Our system releases
+                  beneficial environmental probiotics that help support cleaner air, surfaces,
+                  fabrics, and everyday spaces — without harsh chemicals or artificial fragrance.
+                </p>
+              </Reveal>
+              <Reveal>
+                <p className="mt-5 inline-block rounded-full bg-primary/90 px-5 py-2 text-sm font-semibold text-primary-foreground sm:text-base">
+                  Use code <span className="font-bold">Bobby</span> at checkout to get 10% off your order.
                 </p>
               </Reveal>
               <Reveal>
@@ -211,7 +217,7 @@ const BobbyParrishLandingPage = () => {
                       size="lg"
                       className="h-14 rounded-full bg-white px-8 text-base font-semibold text-foreground hover:bg-white/90"
                     >
-                      Shop Bobby&apos;s Picks
+                      Shop the Bobby Offer
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
@@ -219,19 +225,17 @@ const BobbyParrishLandingPage = () => {
                     href="#how-it-works"
                     className="inline-flex h-14 items-center justify-center rounded-full border border-white/40 px-7 text-base font-medium text-white backdrop-blur-sm transition hover:bg-white/10"
                   >
-                    How it works
+                    How It Works
                   </a>
                 </div>
               </Reveal>
               <Reveal>
                 <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85">
-                  <span>FDA GRAS</span>
+                  <span>30-day risk-free trial</span>
                   <span className="opacity-50">·</span>
-                  <span>Chemical-free</span>
+                  <span>Easy to use</span>
                   <span className="opacity-50">·</span>
-                  <span>Safe for pets & kids</span>
-                  <span className="opacity-50">·</span>
-                  <span>Free shipping</span>
+                  <span>Designed for everyday home care</span>
                 </div>
               </Reveal>
             </div>
