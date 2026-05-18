@@ -574,23 +574,35 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 8. TRUST BAND ============ */}
+        {/* ============ 8. FEATURE ICONS ============ */}
         <section className="bg-[#F5F3EE] py-20 sm:py-24">
           <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
                 {[
-                  { label: "FDA GRAS Certified", desc: "Generally Recognized as Safe" },
-                  { label: "MADE SAFE Certified", desc: "Screened for harmful chemicals" },
-                  { label: "EPA Registered", desc: "Meets EPA standards" },
-                  { label: "Lab-tested", desc: "Measurable allergen reduction" },
+                  {
+                    label: "Probiotic Cleaning",
+                    desc: "Uses beneficial environmental probiotics to help support a cleaner indoor environment.",
+                  },
+                  {
+                    label: "Beyond the Air",
+                    desc: "Designed to reach air, surfaces, fabrics, furniture, and everyday objects.",
+                  },
+                  {
+                    label: "No Harsh Chemicals",
+                    desc: "A natural approach to home care without heavy chemical sprays or artificial fragrance.",
+                  },
+                  {
+                    label: "Easy Daily Support",
+                    desc: "Simple to use and designed to work quietly in the background.",
+                  },
                 ].map((b) => (
-                  <div key={b.label} className="flex flex-col gap-1.5">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/15 text-primary">
-                      <Check className="h-4 w-4" strokeWidth={3} />
+                  <div key={b.label} className="flex flex-col gap-2">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                      <Check className="h-5 w-5" strokeWidth={3} />
                     </div>
-                    <div className="mt-2 text-sm font-bold text-foreground">{b.label}</div>
-                    <div className="text-xs text-muted-foreground">{b.desc}</div>
+                    <div className="mt-2 text-base font-bold text-foreground">{b.label}</div>
+                    <div className="text-sm leading-relaxed text-muted-foreground">{b.desc}</div>
                   </div>
                 ))}
               </div>
