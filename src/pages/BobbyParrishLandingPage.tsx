@@ -711,8 +711,8 @@ const BobbyParrishLandingPage = () => {
                   Compare Devices
                 </a>
               </div>
-              <p className="mt-8 text-sm text-muted-foreground">
-                Use code <span className="font-semibold text-foreground">Bobby</span> for 10% off · 30-day risk-free trial · Easy home setup
+              <p className="mt-8 text-sm font-medium text-foreground/75">
+                Use code <span className="font-bold text-foreground">Bobby</span> for 10% off · 30-day risk-free trial · Easy home setup
               </p>
             </Reveal>
           </div>
