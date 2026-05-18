@@ -377,7 +377,7 @@ const BobbyParrishLandingPage = () => {
               </div>
             </Reveal>
 
-            <ol className="mt-10 grid grid-cols-1 gap-7 sm:mt-14 md:grid-cols-3 md:gap-10 lg:mt-20 lg:gap-12">
+            <ol className="mt-10 grid grid-cols-1 gap-7 sm:mt-14 lg:mt-20 lg:grid-cols-3 lg:gap-12">
               {[
                 {
                   step: "01",
@@ -430,7 +430,7 @@ const BobbyParrishLandingPage = () => {
               </div>
             </Reveal>
 
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-14 md:grid-cols-2 md:gap-7 xl:grid-cols-3 xl:mt-16">
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-14 lg:grid-cols-2 lg:gap-7 xl:mt-16 xl:grid-cols-3">
               <Reveal>
                 <ProductCard
                   name="BioLogic Mini"
@@ -549,7 +549,7 @@ const BobbyParrishLandingPage = () => {
                 What families are saying.
               </h2>
             </Reveal>
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 md:grid-cols-3 md:gap-6">
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 lg:grid-cols-3 lg:gap-6">
               {[
                 {
                   text: "I wanted something that felt more natural than sprays and fragrances. EnviroBiotics gives me a simple way to support a cleaner home every day.",
@@ -586,7 +586,7 @@ const BobbyParrishLandingPage = () => {
         <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4 md:gap-8">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
                 {[
                   {
                     label: "Probiotic Cleaning",
