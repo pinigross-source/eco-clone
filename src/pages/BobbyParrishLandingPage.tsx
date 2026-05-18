@@ -228,7 +228,7 @@ const BobbyParrishLandingPage = () => {
                   <a href="#products" onClick={() => trackEvent("click_hero_shop_picks")}>
                     <Button
                       size="lg"
-                      className="h-13 w-full rounded-full bg-white px-7 text-base font-semibold text-foreground hover:bg-white/90 sm:h-14 sm:w-auto sm:px-8"
+                      className="h-[3.25rem] w-full rounded-full bg-white px-7 text-base font-semibold text-foreground hover:bg-white/90 sm:h-14 sm:w-auto sm:px-8"
                     >
                       Shop the Bobby Offer
                       <ArrowRight className="ml-2 h-4 w-4" />
