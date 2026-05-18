@@ -62,6 +62,7 @@ const Reveal = ({ children, className = "" }: { children: React.ReactNode; class
 type ProductCardProps = {
   name: string;
   tagline: string;
+  description?: string;
   price: string;
   oldPrice?: string;
   features: string[];
@@ -69,12 +70,14 @@ type ProductCardProps = {
   href: string;
   highlight?: boolean;
   ctaText: string;
+  offerNote?: string;
   onClick: () => void;
 };
 
 const ProductCard = ({
   name,
   tagline,
+  description,
   price,
   oldPrice,
   features,
@@ -82,6 +85,7 @@ const ProductCard = ({
   href,
   highlight,
   ctaText,
+  offerNote,
   onClick,
 }: ProductCardProps) => (
   <div
@@ -93,7 +97,7 @@ const ProductCard = ({
   >
     {highlight && (
       <div className="absolute right-5 top-5 z-10 rounded-full bg-primary px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
-        Bobby&apos;s Pick
+        Most Popular
       </div>
     )}
     <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
@@ -113,6 +117,9 @@ const ProductCard = ({
         <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
           {name}
         </h3>
+        {description && (
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p>
+        )}
       </div>
       <ul className="flex flex-1 flex-col gap-3">
         {features.map((f) => (
@@ -123,12 +130,15 @@ const ProductCard = ({
         ))}
       </ul>
       <div className="border-t border-border/60 pt-5">
-        <div className="mb-4 flex items-baseline gap-3">
+        <div className="mb-2 flex items-baseline gap-3">
           <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">{price}</span>
           {oldPrice && (
             <span className="text-base text-muted-foreground line-through">{oldPrice}</span>
           )}
         </div>
+        {offerNote && (
+          <p className="mb-4 text-xs font-semibold text-primary">{offerNote}</p>
+        )}
         <a
           href={href}
           onClick={onClick}
@@ -142,7 +152,7 @@ const ProductCard = ({
           <ArrowRight className="h-4 w-4" />
         </a>
         <p className="mt-3 text-center text-[11px] text-muted-foreground">
-          Free shipping · 30-day guarantee
+          30-day risk-free trial
         </p>
       </div>
     </div>
@@ -165,8 +175,8 @@ const BobbyParrishLandingPage = () => {
   return (
     <>
       <SEOHead
-        title="Bobby Parrish × EnviroBiotics | Probiotic Air & Surface Care"
-        description="Bobby Parrish's favorite holistic purifier. Probiotic protection for every surface, 24/7. Chemical-free, safe for pets and kids."
+        title="EnviroBiotics Bobby Offer - Save 10% with Code Bobby"
+        description="Bobby followers save 10% on EnviroBiotics with code Bobby. Bring probiotic cleaning into your home and support cleaner air, surfaces, fabrics, and everyday spaces without harsh chemicals."
         path="/bobby"
       />
 
@@ -187,7 +197,7 @@ const BobbyParrishLandingPage = () => {
               <Reveal>
                 <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  Bobby Parrish Exclusive
+                  Special Offer for Bobby Followers
                 </p>
               </Reveal>
               <Reveal>
@@ -195,13 +205,19 @@ const BobbyParrishLandingPage = () => {
                   className="font-display font-bold tracking-[-0.035em] text-white text-[2.75rem] leading-[1.02] sm:text-[clamp(3rem,8vw,6.25rem)]"
                   style={{ textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
                 >
-                  Breathe Easier, Live <span className="text-primary">Healthier!</span>
+                  Breathe Easier. Live <span className="text-primary">Healthier.</span> Save 10%.
                 </h1>
               </Reveal>
               <Reveal>
                 <p className="mt-6 max-w-2xl text-lg font-medium leading-relaxed text-white sm:text-xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
-                  Air purifiers move air. Sprays mask odors. Our probiotics reach every surface a
-                  filter can&apos;t — 24 hours a day, every day.
+                  Bring probiotic cleaning into your home with EnviroBiotics. Our system releases
+                  beneficial environmental probiotics that help support cleaner air, surfaces,
+                  fabrics, and everyday spaces — without harsh chemicals or artificial fragrance.
+                </p>
+              </Reveal>
+              <Reveal>
+                <p className="mt-5 inline-block rounded-full bg-primary/90 px-5 py-2 text-sm font-semibold text-primary-foreground sm:text-base">
+                  Use code <span className="font-bold">Bobby</span> at checkout to get 10% off your order.
                 </p>
               </Reveal>
               <Reveal>
@@ -211,7 +227,7 @@ const BobbyParrishLandingPage = () => {
                       size="lg"
                       className="h-14 rounded-full bg-white px-8 text-base font-semibold text-foreground hover:bg-white/90"
                     >
-                      Shop Bobby&apos;s Picks
+                      Shop the Bobby Offer
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
@@ -219,19 +235,17 @@ const BobbyParrishLandingPage = () => {
                     href="#how-it-works"
                     className="inline-flex h-14 items-center justify-center rounded-full border border-white/40 px-7 text-base font-medium text-white backdrop-blur-sm transition hover:bg-white/10"
                   >
-                    How it works
+                    How It Works
                   </a>
                 </div>
               </Reveal>
               <Reveal>
                 <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85">
-                  <span>FDA GRAS</span>
+                  <span>30-day risk-free trial</span>
                   <span className="opacity-50">·</span>
-                  <span>Chemical-free</span>
+                  <span>Easy to use</span>
                   <span className="opacity-50">·</span>
-                  <span>Safe for pets & kids</span>
-                  <span className="opacity-50">·</span>
-                  <span>Free shipping</span>
+                  <span>Designed for everyday home care</span>
                 </div>
               </Reveal>
             </div>
@@ -242,10 +256,10 @@ const BobbyParrishLandingPage = () => {
         <section className="bg-[#F5F3EE] py-20 sm:py-28">
           <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-10 px-6 sm:px-10 md:grid-cols-4 lg:px-16">
             {[
-              { n: "80%", label: "Allergens live on surfaces" },
-              { n: "300", label: "sq ft · BioLogic Mini" },
-              { n: "800", label: "sq ft · Biotica 800" },
-              { n: "30-day", label: "Money-back guarantee" },
+              { n: "10%", label: "Off with code Bobby" },
+              { n: "300", label: "sq. ft. Mini coverage" },
+              { n: "800", label: "sq. ft. large space coverage" },
+              { n: "30-day", label: "Risk-free trial" },
             ].map((s) => (
               <Reveal key={s.label}>
                 <div className="text-center">
@@ -275,7 +289,7 @@ const BobbyParrishLandingPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/55 to-transparent" />
                 <div className="absolute inset-y-0 left-0 flex w-full max-w-xl flex-col justify-center p-8 sm:p-14 lg:p-20">
                   <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-                    The reality
+                    Beyond the Air
                   </p>
                   <h2 className="font-display text-4xl font-bold tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
                     Your space looks clean.
@@ -283,17 +297,45 @@ const BobbyParrishLandingPage = () => {
                     What&apos;s on your surfaces isn&apos;t.
                   </h2>
                   <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    Up to 80% of indoor allergens, mold spores, and bacteria live on surfaces — not
-                    in the air your filter catches.
+                    Dust, odors, allergens, bacteria, mold-related particles, and other microscopic
+                    buildup can settle on the surfaces your family touches every day — from
+                    bedding and furniture to counters, fabrics, floors, and shared living areas.
+                  </p>
+                  <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    EnviroBiotics helps support a cleaner indoor environment by spreading
+                    beneficial environmental probiotics throughout your space, reaching places
+                    traditional air purifiers and sprays can miss.
                   </p>
                 </div>
               </div>
             </Reveal>
 
+            <Reveal>
+              <div className="mt-6 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] p-8 sm:p-12">
+                <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-3xl">
+                  Cleaner support for the spaces you use every day.
+                </h3>
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  Designed to work quietly in the background, helping maintain balance on air,
+                  surfaces, fabrics, and objects throughout your home.
+                </p>
+              </div>
+            </Reveal>
+
             <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
               {[
-                { img: bathroomImg, title: "Bedrooms", caption: "Dust mites thrive in pillows and bedding." },
-                { img: particlesImg, title: "Kitchens", caption: "Mold and bacteria colonize counters between cleanings." },
+                {
+                  img: bathroomImg,
+                  title: "Bedrooms",
+                  caption:
+                    "Support a fresher sleep environment on bedding, fabrics, furniture, and surrounding surfaces.",
+                },
+                {
+                  img: particlesImg,
+                  title: "Kitchens & Living Areas",
+                  caption:
+                    "Help care for the everyday spaces where your family gathers, eats, relaxes, and spends time together.",
+                },
               ].map((item) => (
                 <Reveal key={item.title}>
                   <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl">
@@ -316,13 +358,13 @@ const BobbyParrishLandingPage = () => {
             <Reveal>
               <div className="max-w-2xl">
                 <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-                  The science
+                  How It Works
                 </p>
                 <h2 className="font-display text-4xl font-bold tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
                   How EnviroBiotics works.
                 </h2>
                 <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                  Three quiet steps. No chemicals, no ozone, no filters to replace.
+                  A simple probiotic system designed to help clean beyond the air.
                 </p>
               </div>
             </Reveal>
@@ -332,17 +374,17 @@ const BobbyParrishLandingPage = () => {
                 {
                   step: "01",
                   title: "Release",
-                  copy: "Devices continuously disperse beneficial Bacillus probiotics into the air around you.",
+                  copy: "The device gently releases beneficial environmental probiotics into your indoor space throughout the day.",
                 },
                 {
                   step: "02",
                   title: "Settle",
-                  copy: "Probiotics land on every surface — desks, fabrics, vents — coating the spaces a filter can't reach.",
+                  copy: "The probiotics move through the room and settle on surfaces, fabrics, furniture, floors, and everyday objects.",
                 },
                 {
                   step: "03",
-                  title: "Protect",
-                  copy: "They outcompete harmful microbes for resources, 24/7, without chemicals or fragrance.",
+                  title: "Support",
+                  copy: "They help support a cleaner, fresher, more balanced indoor environment — continuously, naturally, and without harsh chemicals.",
                 },
               ].map((item) => (
                 <li key={item.step} className="border-t border-foreground/15 pt-6">
@@ -352,6 +394,13 @@ const BobbyParrishLandingPage = () => {
                 </li>
               ))}
             </ol>
+
+            <Reveal>
+              <p className="mt-12 max-w-3xl text-sm italic leading-relaxed text-muted-foreground sm:text-base">
+                Unlike air purifiers that only treat the air passing through a filter, EnviroBiotics
+                is designed to support the air, surfaces, and objects throughout your space.
+              </p>
+            </Reveal>
           </div>
         </section>
 
@@ -361,13 +410,14 @@ const BobbyParrishLandingPage = () => {
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-                  Bobby&apos;s picks
+                  Choose Your Device
                 </p>
                 <h2 className="font-display text-4xl font-bold tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
-                  Choose your protection.
+                  Choose your probiotic protection.
                 </h2>
                 <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-                  Every device ships free with a 30-day money-back guarantee.
+                  Start small, cover a larger room, or protect multiple spaces. Bobby followers
+                  save 10% with code <span className="font-semibold text-foreground">Bobby</span> at checkout.
                 </p>
               </div>
             </Reveal>
@@ -376,53 +426,58 @@ const BobbyParrishLandingPage = () => {
               <Reveal>
                 <ProductCard
                   name="BioLogic Mini"
-                  tagline="Portable · Up to 300 sq ft"
+                  tagline="Best for Small Rooms"
+                  description="A compact probiotic device designed for bedrooms, nurseries, home offices, bathrooms, and smaller spaces."
                   price="$98"
                   image={miniImg}
                   href={LINKS.mini}
                   ctaText="Shop BioLogic Mini"
+                  offerNote="Use code Bobby for 10% off."
                   onClick={trackMini}
                   features={[
-                    "Bedrooms, offices, cars, pet areas",
-                    "Cordless & USB-C rechargeable",
-                    "Whisper-quiet automatic operation",
-                    "Refills last up to 3 months",
+                    "Covers up to 300 sq. ft.",
+                    "Great for bedrooms and personal spaces",
+                    "Easy to place on a shelf, desk, or nightstand",
+                    "Helps support cleaner air and surfaces",
                   ]}
                 />
               </Reveal>
               <Reveal>
                 <ProductCard
                   name="Home Bundle"
-                  tagline="Best value · Whole home"
+                  tagline="Most Popular"
+                  description="The best choice for Bobby followers who want broader probiotic support in more than one room."
                   price="$399"
-                  oldPrice="$497"
                   image={bundleImg}
                   href={LINKS.bundle}
                   highlight
-                  ctaText="Get the Bundle · Save $98"
+                  ctaText="Get the Home Bundle"
+                  offerNote="Use code Bobby for 10% off."
                   onClick={trackBundle}
                   features={[
-                    "2× BioLogic Mini (300 sq ft each)",
-                    "1× Biotica 800 (800 sq ft)",
-                    "Covers living room + 2 bedrooms",
-                    "All refills & hardware included",
+                    "Ideal for multi-room coverage",
+                    "Great for bedrooms, living rooms, and shared spaces",
+                    "Helps support cleaner surfaces throughout the home",
+                    "Best value for families",
                   ]}
                 />
               </Reveal>
               <Reveal>
                 <ProductCard
                   name="Biotica 800"
-                  tagline="Whole room · Up to 800 sq ft"
+                  tagline="Best for Larger Spaces"
+                  description="A powerful probiotic device designed for larger rooms, open living areas, basements, and bigger indoor spaces."
                   price="$299"
                   image={bioticaImg}
                   href={LINKS.biotica}
                   ctaText="Shop Biotica 800"
+                  offerNote="Use code Bobby for 10% off."
                   onClick={trackBiotica}
                   features={[
-                    "Living rooms, kitchens, open plans",
-                    "Continuous probiotic dispersion",
-                    "Targets mold, allergens, pet dander",
-                    "Plug-in for permanent protection",
+                    "Covers up to 800 sq. ft.",
+                    "Great for open-plan living areas",
+                    "Designed for stronger room coverage",
+                    "Helps support fresher air, surfaces, and fabrics",
                   ]}
                 />
               </Reveal>
@@ -447,24 +502,28 @@ const BobbyParrishLandingPage = () => {
                     <span className="text-xs font-semibold text-foreground">10M+ followers</span>
                   </div>
                 </div>
-                <div className="flex flex-col justify-center gap-7 p-10 sm:p-14 lg:p-16">
-                  <span className="font-display text-6xl leading-none text-primary/40">&ldquo;</span>
-                  <p className="font-display text-2xl font-medium leading-[1.35] tracking-[-0.01em] text-foreground sm:text-[1.75rem]">
-                    Probiotics that clean your home the way nature intended. No chemicals, no
-                    nonsense. This is exactly what I put in my own home.
+                <div className="flex flex-col justify-center gap-6 p-10 sm:p-14 lg:p-16">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
+                    A Natural Way to Support Your Home
                   </p>
-                  <div>
-                    <div className="text-base font-bold text-foreground">Bobby Parrish</div>
-                    <div className="mt-1 text-sm text-muted-foreground">
-                      Founder of FlavCity · Chef & Clean Living Advocate
-                    </div>
-                  </div>
+                  <h2 className="font-display text-3xl font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.75rem]">
+                    Probiotics that clean your home the way nature intended.
+                  </h2>
+                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    No harsh chemical sprays. No artificial masking fragrances. No complicated
+                    routine. EnviroBiotics works quietly in the background, releasing beneficial
+                    environmental probiotics that help support a cleaner, fresher indoor
+                    environment every day.
+                  </p>
+                  <p className="text-sm font-semibold text-foreground">
+                    Bobby followers get 10% off with code <span className="text-primary">Bobby</span>.
+                  </p>
                   <a href="#products" onClick={() => trackEvent("click_bobby_endorsement_cta")}>
                     <Button
                       size="lg"
                       className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
                     >
-                      Shop Bobby&apos;s Picks
+                      Claim 10% Off
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
@@ -485,22 +544,19 @@ const BobbyParrishLandingPage = () => {
             <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
               {[
                 {
-                  text: "My son's allergies improved within the first two weeks. We have one in his bedroom and one in the living room. Life-changing.",
-                  author: "Sarah M.",
-                  tag: "Verified Buyer",
+                  text: "I wanted something that felt more natural than sprays and fragrances. EnviroBiotics gives me a simple way to support a cleaner home every day.",
+                  author: "Verified Customer",
                 },
                 {
-                  text: "No more sneezing and coughing. The Biotica 800 runs silently and we noticed a difference almost immediately.",
-                  author: "James R.",
-                  tag: "Verified Buyer",
+                  text: "It was easy to set up, and I love that it works quietly in the background. It feels like a smarter way to care for our indoor space.",
+                  author: "Verified Customer",
                 },
                 {
-                  text: "Bobby recommended this and I'm so glad I listened. We have two cats and the pet dander difference is incredible.",
-                  author: "Michelle T.",
-                  tag: "FlavCity Community",
+                  text: "I like knowing it goes beyond the air and helps support the surfaces and fabrics around our home.",
+                  author: "Verified Customer",
                 },
-              ].map((t) => (
-                <Reveal key={t.author}>
+              ].map((t, i) => (
+                <Reveal key={i}>
                   <div className="flex h-full flex-col gap-5 rounded-2xl border border-border/60 bg-card p-7">
                     <div className="flex gap-0.5 text-primary">
                       {[0, 1, 2, 3, 4].map((i) => (
@@ -510,7 +566,6 @@ const BobbyParrishLandingPage = () => {
                     <p className="flex-1 text-base italic leading-relaxed text-muted-foreground">&ldquo;{t.text}&rdquo;</p>
                     <div>
                       <div className="text-sm font-semibold text-foreground">{t.author}</div>
-                      <div className="text-xs text-muted-foreground">{t.tag}</div>
                     </div>
                   </div>
                 </Reveal>
@@ -519,23 +574,35 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 8. TRUST BAND ============ */}
+        {/* ============ 8. FEATURE ICONS ============ */}
         <section className="bg-[#F5F3EE] py-20 sm:py-24">
           <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
                 {[
-                  { label: "FDA GRAS Certified", desc: "Generally Recognized as Safe" },
-                  { label: "MADE SAFE Certified", desc: "Screened for harmful chemicals" },
-                  { label: "EPA Registered", desc: "Meets EPA standards" },
-                  { label: "Lab-tested", desc: "Measurable allergen reduction" },
+                  {
+                    label: "Probiotic Cleaning",
+                    desc: "Uses beneficial environmental probiotics to help support a cleaner indoor environment.",
+                  },
+                  {
+                    label: "Beyond the Air",
+                    desc: "Designed to reach air, surfaces, fabrics, furniture, and everyday objects.",
+                  },
+                  {
+                    label: "No Harsh Chemicals",
+                    desc: "A natural approach to home care without heavy chemical sprays or artificial fragrance.",
+                  },
+                  {
+                    label: "Easy Daily Support",
+                    desc: "Simple to use and designed to work quietly in the background.",
+                  },
                 ].map((b) => (
-                  <div key={b.label} className="flex flex-col gap-1.5">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/15 text-primary">
-                      <Check className="h-4 w-4" strokeWidth={3} />
+                  <div key={b.label} className="flex flex-col gap-2">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                      <Check className="h-5 w-5" strokeWidth={3} />
                     </div>
-                    <div className="mt-2 text-sm font-bold text-foreground">{b.label}</div>
-                    <div className="text-xs text-muted-foreground">{b.desc}</div>
+                    <div className="mt-2 text-base font-bold text-foreground">{b.label}</div>
+                    <div className="text-sm leading-relaxed text-muted-foreground">{b.desc}</div>
                   </div>
                 ))}
               </div>
@@ -552,55 +619,45 @@ const BobbyParrishLandingPage = () => {
               </h2>
             </Reveal>
             <Accordion type="single" collapsible className="mt-10 w-full">
-              <AccordionItem value="q1">
-                <AccordionTrigger className="text-left text-base font-medium">
-                  Is it safe for my family and pets?
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground">
-                  All probiotic strains are FDA GRAS certified, MADE SAFE certified, and EPA
-                  registered. No ozone, no VOCs, no chemical residues. Safe for infants, children,
-                  pregnant women, elderly, and all pets.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q2">
-                <AccordionTrigger className="text-left text-base font-medium">
-                  How is this different from a regular air purifier?
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground">
-                  Traditional purifiers only trap what passes through a filter — and only treat
-                  air. EnviroBiotics disperses probiotics that settle on every surface, consuming
-                  the organic matter allergens and mold need to survive.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q3">
-                <AccordionTrigger className="text-left text-base font-medium">
-                  How long do refills last?
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground">
-                  BioLogic Mini refills last about 90 days. Biotica 800 refills last up to 6
-                  months. Subscribe for automatic deliveries with free shipping and a lifetime
-                  warranty.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q4">
-                <AccordionTrigger className="text-left text-base font-medium">
-                  What&apos;s in the Home Bundle?
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground">
-                  Two BioLogic Minis (for bedrooms, office, or car) plus one Biotica 800 (for your
-                  main living area). All refills, USB-C cables, and mounting hardware included. You
-                  save $98 vs. buying separately.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q5">
-                <AccordionTrigger className="text-left text-base font-medium">
-                  What if it doesn&apos;t work for me?
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground">
-                  Every purchase includes a 30-day satisfaction guarantee. If you&apos;re not fully
-                  satisfied, return it for a full refund — no questions asked.
-                </AccordionContent>
-              </AccordionItem>
+              {[
+                {
+                  q: "Is EnviroBiotics an air purifier?",
+                  a: "No. EnviroBiotics is different from a traditional air purifier. Air purifiers filter air that passes through the unit. EnviroBiotics releases beneficial environmental probiotics that can move through your space and settle on surfaces, fabrics, and everyday objects.",
+                },
+                {
+                  q: "How do Bobby followers get 10% off?",
+                  a: "Use code Bobby at checkout to receive 10% off your EnviroBiotics order.",
+                },
+                {
+                  q: "Does EnviroBiotics replace regular cleaning?",
+                  a: "No. EnviroBiotics is designed to support your home between regular cleanings. Continue your normal cleaning routine while using EnviroBiotics to help maintain a fresher, more balanced indoor environment.",
+                },
+                {
+                  q: "Which device should I choose?",
+                  a: "Choose BioLogic Mini for bedrooms, nurseries, bathrooms, offices, and smaller rooms up to 300 sq. ft. Choose Biotica 800 for larger rooms and open spaces up to 800 sq. ft. Choose the Home Bundle if you want probiotic support in multiple areas of your home.",
+                },
+                {
+                  q: "Is it safe for everyday home use?",
+                  a: "EnviroBiotics is designed for everyday indoor use. For best results, follow the product instructions and use as directed.",
+                },
+                {
+                  q: "How long does it take to start working?",
+                  a: "EnviroBiotics begins releasing environmental probiotics once the device is active. Consistent use helps support ongoing probiotic coverage throughout your space.",
+                },
+                {
+                  q: "Can I use it around kids and pets?",
+                  a: "EnviroBiotics is designed for home environments. Always use according to the product instructions and place the device where it can operate safely and effectively.",
+                },
+              ].map((item, idx) => (
+                <AccordionItem key={idx} value={`q${idx}`}>
+                  <AccordionTrigger className="text-left text-base font-medium">
+                    {item.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-base text-muted-foreground">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
         </section>
@@ -617,34 +674,41 @@ const BobbyParrishLandingPage = () => {
           <div className="relative mx-auto max-w-3xl px-6 text-center sm:px-10">
             <Reveal>
               <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-                Bobby Parrish × EnviroBiotics
+                Bobby Followers Save 10%
               </p>
               <h2 className="font-display text-5xl font-bold tracking-[-0.03em] text-foreground sm:text-6xl lg:text-[5rem] lg:leading-[1.02]">
                 Every surface.
                 <br />
-                Always clean.
+                Every room.
+                <br />
+                A cleaner way to care for your home.
               </h2>
               <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-                Join thousands of families who&apos;ve switched to probiotic purification.
-                Bobby-approved, science-backed, risk-free.
+                Start supporting your indoor environment with beneficial environmental probiotics
+                that help clean beyond the air. Use code{" "}
+                <span className="font-semibold text-foreground">Bobby</span> at checkout to save
+                10% on your EnviroBiotics order.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a href={LINKS.bundle} onClick={trackBundle}>
+                <a href="#products" onClick={() => trackEvent("click_final_shop_bobby_offer")}>
                   <Button
                     size="lg"
                     className="h-14 rounded-full bg-foreground px-10 text-base font-semibold text-background hover:bg-foreground/90"
                   >
-                    Get the Home Bundle · Save $98
+                    Shop the Bobby Offer
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
                 <a
-                  href={shopifyUrl("/collections/all", "bobby-parrish")}
+                  href="#products"
                   className="inline-flex h-14 items-center justify-center rounded-full border border-foreground/20 px-7 text-base font-medium text-foreground transition hover:bg-foreground/5"
                 >
-                  Browse all products
+                  Compare Devices
                 </a>
               </div>
+              <p className="mt-8 text-sm text-muted-foreground">
+                Use code <span className="font-semibold text-foreground">Bobby</span> for 10% off · 30-day risk-free trial · Easy home setup
+              </p>
             </Reveal>
           </div>
         </section>
@@ -658,12 +722,12 @@ const BobbyParrishLandingPage = () => {
       >
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div>
-            <p className="text-sm font-semibold text-foreground">Home Bundle</p>
-            <p className="text-xs text-muted-foreground">$399 · Save $98</p>
+            <p className="text-sm font-semibold text-foreground">Save 10% with code Bobby</p>
+            <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
-          <a href={LINKS.bundle} onClick={trackBundle}>
+          <a href="#products" onClick={() => trackEvent("click_sticky_bobby_offer")}>
             <Button className="h-11 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-              Shop now
+              Shop offer
             </Button>
           </a>
         </div>
