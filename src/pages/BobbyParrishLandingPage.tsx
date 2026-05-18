@@ -674,34 +674,41 @@ const BobbyParrishLandingPage = () => {
           <div className="relative mx-auto max-w-3xl px-6 text-center sm:px-10">
             <Reveal>
               <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-                Bobby Parrish × EnviroBiotics
+                Bobby Followers Save 10%
               </p>
               <h2 className="font-display text-5xl font-bold tracking-[-0.03em] text-foreground sm:text-6xl lg:text-[5rem] lg:leading-[1.02]">
                 Every surface.
                 <br />
-                Always clean.
+                Every room.
+                <br />
+                A cleaner way to care for your home.
               </h2>
               <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-                Join thousands of families who&apos;ve switched to probiotic purification.
-                Bobby-approved, science-backed, risk-free.
+                Start supporting your indoor environment with beneficial environmental probiotics
+                that help clean beyond the air. Use code{" "}
+                <span className="font-semibold text-foreground">Bobby</span> at checkout to save
+                10% on your EnviroBiotics order.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a href={LINKS.bundle} onClick={trackBundle}>
+                <a href="#products" onClick={() => trackEvent("click_final_shop_bobby_offer")}>
                   <Button
                     size="lg"
                     className="h-14 rounded-full bg-foreground px-10 text-base font-semibold text-background hover:bg-foreground/90"
                   >
-                    Get the Home Bundle · Save $98
+                    Shop the Bobby Offer
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
                 <a
-                  href={shopifyUrl("/collections/all", "bobby-parrish")}
+                  href="#products"
                   className="inline-flex h-14 items-center justify-center rounded-full border border-foreground/20 px-7 text-base font-medium text-foreground transition hover:bg-foreground/5"
                 >
-                  Browse all products
+                  Compare Devices
                 </a>
               </div>
+              <p className="mt-8 text-sm text-muted-foreground">
+                Use code <span className="font-semibold text-foreground">Bobby</span> for 10% off · 30-day risk-free trial · Easy home setup
+              </p>
             </Reveal>
           </div>
         </section>
