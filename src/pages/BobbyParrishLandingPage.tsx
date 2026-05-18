@@ -185,50 +185,50 @@ const BobbyParrishLandingPage = () => {
 
       <main className="bg-background text-foreground">
         {/* ============ 1. HERO ============ */}
-        <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
+        <section className="relative h-[100svh] min-h-[620px] w-full overflow-hidden sm:min-h-[680px]">
           <img
             src={heroImg}
             alt="Bobby Parrish at home"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover object-[28%_center] sm:object-[34%_center] lg:object-center"
             fetchPriority="high"
             loading="eager"
             decoding="async"
           />
-          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10" />
-          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-6 pb-16 sm:px-10 sm:pb-24 lg:px-16 lg:pb-28">
-            <div className="max-w-3xl">
-              <Reveal>
-                <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/22 to-black/5 sm:from-black/78 sm:via-black/24" />
+          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-8 sm:px-8 sm:pb-16 md:px-10 md:pb-20 lg:px-16 lg:pb-28">
+            <div className="max-w-[36rem] lg:max-w-3xl">
+              <Reveal className="hidden sm:block">
+                <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                   Special Offer for Bobby Followers
                 </p>
               </Reveal>
               <Reveal>
                 <h1
-                  className="font-display font-bold tracking-[-0.035em] text-white text-[2.75rem] leading-[1.02] sm:text-[clamp(3rem,8vw,6.25rem)]"
+                  className="font-display text-[2.3rem] font-bold leading-[1.03] tracking-[-0.035em] text-white sm:text-[clamp(3rem,7vw,5rem)] lg:text-[clamp(4.5rem,8vw,6.25rem)]"
                   style={{ textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
                 >
                   Breathe Easier. Live <span className="text-primary">Healthier.</span> Save 10%.
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mt-6 max-w-2xl text-lg font-medium leading-relaxed text-white sm:text-xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
+                <p className="mt-4 max-w-[34rem] text-[1rem] font-medium leading-relaxed text-white/92 sm:mt-5 sm:text-lg md:text-xl lg:max-w-2xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
                   Bring probiotic cleaning into your home with EnviroBiotics. Our system releases
                   beneficial environmental probiotics that help support cleaner air, surfaces,
                   fabrics, and everyday spaces - without harsh chemicals.
                 </p>
               </Reveal>
               <Reveal>
-                <p className="mt-5 inline-block rounded-full bg-primary/90 px-5 py-2 text-sm font-semibold text-primary-foreground sm:text-base">
+                <p className="mt-4 inline-flex max-w-full flex-wrap items-center gap-1.5 rounded-2xl bg-primary/95 px-4 py-2 text-sm font-semibold leading-snug text-primary-foreground shadow-lg shadow-black/20 sm:mt-5 sm:rounded-full sm:px-5 sm:text-base">
                   Use code <span className="rounded-md bg-white/95 px-2 py-0.5 font-extrabold uppercase tracking-wider text-primary shadow-sm">Bobby</span> at checkout to get 10% off your order.
                 </p>
               </Reveal>
               <Reveal>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-4">
                   <a href="#products" onClick={() => trackEvent("click_hero_shop_picks")}>
                     <Button
                       size="lg"
-                      className="h-14 rounded-full bg-white px-8 text-base font-semibold text-foreground hover:bg-white/90"
+                      className="h-13 w-full rounded-full bg-white px-7 text-base font-semibold text-foreground hover:bg-white/90 sm:h-14 sm:w-auto sm:px-8"
                     >
                       Shop the Bobby Offer
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -236,14 +236,14 @@ const BobbyParrishLandingPage = () => {
                   </a>
                   <a
                     href="#how-it-works"
-                    className="inline-flex h-14 items-center justify-center rounded-full border border-white/40 px-7 text-base font-medium text-white backdrop-blur-sm transition hover:bg-white/10"
+                    className="hidden h-14 items-center justify-center rounded-full border border-white/40 px-7 text-base font-medium text-white backdrop-blur-sm transition hover:bg-white/10 sm:inline-flex"
                   >
                     How It Works
                   </a>
                 </div>
               </Reveal>
-              <Reveal>
-                <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85">
+              <Reveal className="hidden md:block">
+                <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85 lg:mt-10">
                   <span>30-day risk-free trial</span>
                   <span className="opacity-50">·</span>
                   <span>Easy to use</span>
