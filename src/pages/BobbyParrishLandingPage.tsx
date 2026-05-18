@@ -358,13 +358,13 @@ const BobbyParrishLandingPage = () => {
             <Reveal>
               <div className="max-w-2xl">
                 <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-                  The science
+                  How It Works
                 </p>
                 <h2 className="font-display text-4xl font-bold tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
                   How EnviroBiotics works.
                 </h2>
                 <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                  Three quiet steps. No chemicals, no ozone, no filters to replace.
+                  A simple probiotic system designed to help clean beyond the air.
                 </p>
               </div>
             </Reveal>
@@ -374,17 +374,17 @@ const BobbyParrishLandingPage = () => {
                 {
                   step: "01",
                   title: "Release",
-                  copy: "Devices continuously disperse beneficial Bacillus probiotics into the air around you.",
+                  copy: "The device gently releases beneficial environmental probiotics into your indoor space throughout the day.",
                 },
                 {
                   step: "02",
                   title: "Settle",
-                  copy: "Probiotics land on every surface — desks, fabrics, vents — coating the spaces a filter can't reach.",
+                  copy: "The probiotics move through the room and settle on surfaces, fabrics, furniture, floors, and everyday objects.",
                 },
                 {
                   step: "03",
-                  title: "Protect",
-                  copy: "They outcompete harmful microbes for resources, 24/7, without chemicals or fragrance.",
+                  title: "Support",
+                  copy: "They help support a cleaner, fresher, more balanced indoor environment — continuously, naturally, and without harsh chemicals.",
                 },
               ].map((item) => (
                 <li key={item.step} className="border-t border-foreground/15 pt-6">
@@ -394,6 +394,13 @@ const BobbyParrishLandingPage = () => {
                 </li>
               ))}
             </ol>
+
+            <Reveal>
+              <p className="mt-12 max-w-3xl text-sm italic leading-relaxed text-muted-foreground sm:text-base">
+                Unlike air purifiers that only treat the air passing through a filter, EnviroBiotics
+                is designed to support the air, surfaces, and objects throughout your space.
+              </p>
+            </Reveal>
           </div>
         </section>
 
