@@ -256,8 +256,8 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 2. STATS STRIP ============ */}
-        <section className="bg-[#F5F3EE] py-20 sm:py-28">
-          <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-10 px-6 sm:px-10 md:grid-cols-4 lg:px-16">
+        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-28">
+          <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-5 gap-y-8 px-5 sm:gap-10 sm:px-10 md:grid-cols-4 lg:px-16">
             {[
               { n: "10%", label: "Off with code Bobby" },
               { n: "300", label: "sq. ft. Mini coverage" },
@@ -266,10 +266,10 @@ const BobbyParrishLandingPage = () => {
             ].map((s) => (
               <Reveal key={s.label}>
                 <div className="text-center">
-                  <div className="font-display text-4xl font-bold tracking-[-0.03em] text-primary sm:text-5xl lg:text-[3.5rem]">
+                  <div className="font-display text-3xl font-bold tracking-[-0.03em] text-primary sm:text-5xl lg:text-[3.5rem]">
                     {s.n}
                   </div>
-                  <div className="mt-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                  <div className="mt-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground sm:mt-3 sm:text-[11px] sm:tracking-[0.22em]">
                     {s.label}
                   </div>
                 </div>
@@ -279,27 +279,27 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 3. THE PROBLEM ============ */}
-        <section className="bg-background py-24 sm:py-32 lg:py-40">
-          <div className="mx-auto max-w-[1480px] px-6 sm:px-10 lg:px-16">
+        <section className="bg-background py-14 sm:py-24 lg:py-40">
+          <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="relative overflow-hidden rounded-[2.5rem] ring-1 ring-black/[0.06] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.28)]">
+              <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.24)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.28)]">
                 <img
                   src={livingImg}
                   alt="A clean-looking home interior"
-                  className="h-[clamp(360px,52vw,560px)] w-full object-cover"
+                  className="h-64 w-full object-cover sm:h-[clamp(360px,52vw,560px)]"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent sm:via-background/70" />
-                <div className="absolute inset-y-0 left-0 flex w-full max-w-[440px] flex-col justify-center p-8 sm:p-12 lg:p-16">
-                  <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
+                <div className="hidden sm:absolute sm:inset-0 sm:block sm:bg-gradient-to-r sm:from-background sm:via-background/70 sm:to-transparent" />
+                <div className="relative flex w-full flex-col justify-center p-6 sm:absolute sm:inset-y-0 sm:left-0 sm:max-w-[440px] sm:p-12 lg:p-16">
+                  <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
                     Beyond the Air
                   </p>
-                  <h2 className="font-display text-3xl font-bold tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
+                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
                     Your home looks clean.
                     <br />
                     But surfaces collect what you can&apos;t see.
                   </h2>
-                  <p className="mt-5 text-base font-medium leading-relaxed text-foreground/85">
+                  <p className="mt-4 text-[0.95rem] font-medium leading-relaxed text-foreground/85 sm:mt-5 sm:text-base">
                     Dust, odors, allergens, and microscopic buildup can settle on fabrics,
                     furniture, floors, and everyday surfaces. EnviroBiotics helps support a
                     fresher, more balanced home with beneficial probiotics.
