@@ -220,7 +220,7 @@ const BobbyParrishLandingPage = () => {
               </Reveal>
               <Reveal>
                 <p className="mt-5 inline-block rounded-full bg-primary/90 px-5 py-2 text-sm font-semibold text-primary-foreground sm:text-base">
-                  Use code <span className="font-bold">Bobby</span> at checkout to get 10% off your order.
+                  Use code <span className="rounded-md bg-white/95 px-2 py-0.5 font-extrabold uppercase tracking-wider text-primary shadow-sm">Bobby</span> at checkout to get 10% off your order.
                 </p>
               </Reveal>
               <Reveal>
