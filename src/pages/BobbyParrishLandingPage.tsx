@@ -77,6 +77,7 @@ type ProductCardProps = {
 const ProductCard = ({
   name,
   tagline,
+  description,
   price,
   oldPrice,
   features,
@@ -84,6 +85,7 @@ const ProductCard = ({
   href,
   highlight,
   ctaText,
+  offerNote,
   onClick,
 }: ProductCardProps) => (
   <div
@@ -95,7 +97,7 @@ const ProductCard = ({
   >
     {highlight && (
       <div className="absolute right-5 top-5 z-10 rounded-full bg-primary px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
-        Bobby&apos;s Pick
+        Most Popular
       </div>
     )}
     <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
@@ -115,6 +117,9 @@ const ProductCard = ({
         <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
           {name}
         </h3>
+        {description && (
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p>
+        )}
       </div>
       <ul className="flex flex-1 flex-col gap-3">
         {features.map((f) => (
@@ -125,12 +130,15 @@ const ProductCard = ({
         ))}
       </ul>
       <div className="border-t border-border/60 pt-5">
-        <div className="mb-4 flex items-baseline gap-3">
+        <div className="mb-2 flex items-baseline gap-3">
           <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">{price}</span>
           {oldPrice && (
             <span className="text-base text-muted-foreground line-through">{oldPrice}</span>
           )}
         </div>
+        {offerNote && (
+          <p className="mb-4 text-xs font-semibold text-primary">{offerNote}</p>
+        )}
         <a
           href={href}
           onClick={onClick}
@@ -144,7 +152,7 @@ const ProductCard = ({
           <ArrowRight className="h-4 w-4" />
         </a>
         <p className="mt-3 text-center text-[11px] text-muted-foreground">
-          Free shipping · 30-day guarantee
+          30-day risk-free trial
         </p>
       </div>
     </div>
