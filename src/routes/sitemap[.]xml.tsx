@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { blogPosts, articlePosts } from "@/data/blogData";
 
 const BASE_URL = "https://envirobiotics.com";
 
