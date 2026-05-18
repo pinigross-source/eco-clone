@@ -491,30 +491,30 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 6. BOBBY ENDORSEMENT ============ */}
-        <section className="bg-[hsl(var(--primary-soft))] py-24 sm:py-32 lg:py-40">
-          <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-16">
+        <section className="bg-[hsl(var(--primary-soft))] py-14 sm:py-24 lg:py-40">
+          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="grid grid-cols-1 overflow-hidden rounded-[2.5rem] bg-card ring-1 ring-black/[0.06] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.18)] lg:grid-cols-2">
-                <div className="relative min-h-[420px] bg-muted">
+              <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.18)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.18)] lg:grid-cols-2">
+                <div className="relative min-h-[280px] bg-muted sm:min-h-[420px]">
                   <img
                     src={bobbyImg}
                     alt="Bobby Parrish"
                     className="absolute inset-0 h-full w-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-6 left-6 flex items-center gap-2 rounded-full border border-black/10 bg-white/85 px-4 py-2 backdrop-blur">
+                  <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-black/10 bg-white/85 px-4 py-2 backdrop-blur sm:bottom-6 sm:left-6">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                     <span className="text-xs font-semibold text-foreground">10M+ followers</span>
                   </div>
                 </div>
-                <div className="flex flex-col justify-center gap-6 p-10 sm:p-14 lg:p-16">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
+                <div className="flex flex-col justify-center gap-4 p-6 sm:gap-6 sm:p-14 lg:p-16">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:text-[11px] sm:tracking-[0.32em]">
                     A Natural Way to Support Your Home
                   </p>
-                  <h2 className="font-display text-3xl font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.75rem]">
+                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.75rem]">
                     Probiotics that clean your home the way nature intended.
                   </h2>
-                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  <p className="text-[0.95rem] leading-relaxed text-muted-foreground sm:text-lg">
                     No harsh chemical sprays. No artificial masking fragrances. No complicated
                     routine. EnviroBiotics works quietly in the background, releasing beneficial
                     environmental probiotics that help support a cleaner, fresher indoor
