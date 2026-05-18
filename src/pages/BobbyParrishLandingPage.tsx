@@ -279,7 +279,7 @@ const BobbyParrishLandingPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/55 to-transparent" />
                 <div className="absolute inset-y-0 left-0 flex w-full max-w-xl flex-col justify-center p-8 sm:p-14 lg:p-20">
                   <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-                    The reality
+                    Beyond the Air
                   </p>
                   <h2 className="font-display text-4xl font-bold tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
                     Your space looks clean.
@@ -287,17 +287,45 @@ const BobbyParrishLandingPage = () => {
                     What&apos;s on your surfaces isn&apos;t.
                   </h2>
                   <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    Up to 80% of indoor allergens, mold spores, and bacteria live on surfaces — not
-                    in the air your filter catches.
+                    Dust, odors, allergens, bacteria, mold-related particles, and other microscopic
+                    buildup can settle on the surfaces your family touches every day — from
+                    bedding and furniture to counters, fabrics, floors, and shared living areas.
+                  </p>
+                  <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    EnviroBiotics helps support a cleaner indoor environment by spreading
+                    beneficial environmental probiotics throughout your space, reaching places
+                    traditional air purifiers and sprays can miss.
                   </p>
                 </div>
               </div>
             </Reveal>
 
+            <Reveal>
+              <div className="mt-6 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] p-8 sm:p-12">
+                <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-3xl">
+                  Cleaner support for the spaces you use every day.
+                </h3>
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  Designed to work quietly in the background, helping maintain balance on air,
+                  surfaces, fabrics, and objects throughout your home.
+                </p>
+              </div>
+            </Reveal>
+
             <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
               {[
-                { img: bathroomImg, title: "Bedrooms", caption: "Dust mites thrive in pillows and bedding." },
-                { img: particlesImg, title: "Kitchens", caption: "Mold and bacteria colonize counters between cleanings." },
+                {
+                  img: bathroomImg,
+                  title: "Bedrooms",
+                  caption:
+                    "Support a fresher sleep environment on bedding, fabrics, furniture, and surrounding surfaces.",
+                },
+                {
+                  img: particlesImg,
+                  title: "Kitchens & Living Areas",
+                  caption:
+                    "Help care for the everyday spaces where your family gathers, eats, relaxes, and spends time together.",
+                },
               ].map((item) => (
                 <Reveal key={item.title}>
                   <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl">
