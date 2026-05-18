@@ -619,55 +619,45 @@ const BobbyParrishLandingPage = () => {
               </h2>
             </Reveal>
             <Accordion type="single" collapsible className="mt-10 w-full">
-              <AccordionItem value="q1">
-                <AccordionTrigger className="text-left text-base font-medium">
-                  Is it safe for my family and pets?
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground">
-                  All probiotic strains are FDA GRAS certified, MADE SAFE certified, and EPA
-                  registered. No ozone, no VOCs, no chemical residues. Safe for infants, children,
-                  pregnant women, elderly, and all pets.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q2">
-                <AccordionTrigger className="text-left text-base font-medium">
-                  How is this different from a regular air purifier?
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground">
-                  Traditional purifiers only trap what passes through a filter — and only treat
-                  air. EnviroBiotics disperses probiotics that settle on every surface, consuming
-                  the organic matter allergens and mold need to survive.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q3">
-                <AccordionTrigger className="text-left text-base font-medium">
-                  How long do refills last?
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground">
-                  BioLogic Mini refills last about 90 days. Biotica 800 refills last up to 6
-                  months. Subscribe for automatic deliveries with free shipping and a lifetime
-                  warranty.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q4">
-                <AccordionTrigger className="text-left text-base font-medium">
-                  What&apos;s in the Home Bundle?
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground">
-                  Two BioLogic Minis (for bedrooms, office, or car) plus one Biotica 800 (for your
-                  main living area). All refills, USB-C cables, and mounting hardware included. You
-                  save $98 vs. buying separately.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q5">
-                <AccordionTrigger className="text-left text-base font-medium">
-                  What if it doesn&apos;t work for me?
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground">
-                  Every purchase includes a 30-day satisfaction guarantee. If you&apos;re not fully
-                  satisfied, return it for a full refund — no questions asked.
-                </AccordionContent>
-              </AccordionItem>
+              {[
+                {
+                  q: "Is EnviroBiotics an air purifier?",
+                  a: "No. EnviroBiotics is different from a traditional air purifier. Air purifiers filter air that passes through the unit. EnviroBiotics releases beneficial environmental probiotics that can move through your space and settle on surfaces, fabrics, and everyday objects.",
+                },
+                {
+                  q: "How do Bobby followers get 10% off?",
+                  a: "Use code Bobby at checkout to receive 10% off your EnviroBiotics order.",
+                },
+                {
+                  q: "Does EnviroBiotics replace regular cleaning?",
+                  a: "No. EnviroBiotics is designed to support your home between regular cleanings. Continue your normal cleaning routine while using EnviroBiotics to help maintain a fresher, more balanced indoor environment.",
+                },
+                {
+                  q: "Which device should I choose?",
+                  a: "Choose BioLogic Mini for bedrooms, nurseries, bathrooms, offices, and smaller rooms up to 300 sq. ft. Choose Biotica 800 for larger rooms and open spaces up to 800 sq. ft. Choose the Home Bundle if you want probiotic support in multiple areas of your home.",
+                },
+                {
+                  q: "Is it safe for everyday home use?",
+                  a: "EnviroBiotics is designed for everyday indoor use. For best results, follow the product instructions and use as directed.",
+                },
+                {
+                  q: "How long does it take to start working?",
+                  a: "EnviroBiotics begins releasing environmental probiotics once the device is active. Consistent use helps support ongoing probiotic coverage throughout your space.",
+                },
+                {
+                  q: "Can I use it around kids and pets?",
+                  a: "EnviroBiotics is designed for home environments. Always use according to the product instructions and place the device where it can operate safely and effectively.",
+                },
+              ].map((item, idx) => (
+                <AccordionItem key={idx} value={`q${idx}`}>
+                  <AccordionTrigger className="text-left text-base font-medium">
+                    {item.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-base text-muted-foreground">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
         </section>
