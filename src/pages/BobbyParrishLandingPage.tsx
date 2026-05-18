@@ -688,10 +688,10 @@ const BobbyParrishLandingPage = () => {
                 <br />
                 A cleaner way to care for your home.
               </h2>
-              <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
+              <p className="mx-auto mt-6 max-w-lg text-lg font-medium leading-relaxed text-foreground/85">
                 Start supporting your indoor environment with beneficial environmental probiotics
                 that help clean beyond the air. Use code{" "}
-                <span className="font-semibold text-foreground">Bobby</span> at checkout to save
+                <span className="font-bold text-foreground">Bobby</span> at checkout to save
                 10% on your EnviroBiotics order.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
