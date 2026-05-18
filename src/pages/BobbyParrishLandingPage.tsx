@@ -15,11 +15,11 @@ import miniImg from "@/assets/shop/biologic-mini.png";
 import bioticaImg from "@/assets/shop/biotica-800.png";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
 import heroImg from "@/assets/bobby/bobby-hero.avif";
-import livingImg from "@/assets/dorm/dorm-clean-bedroom.avif";
-import familyImg from "@/assets/dorm/dorm-students-studying.jpg";
-import bobbyImg from "@/assets/dorm/dorm-student-reading.jpg";
-import particlesImg from "@/assets/dorm/dorm-airborne-particles.avif";
-import bathroomImg from "@/assets/dorm/dorm-bathroom-moisture.avif";
+import livingImg from "@/assets/bobby/bobby-ambient.jpg";
+import familyImg from "@/assets/bobby/bobby-ambient.jpg";
+import bobbyImg from "@/assets/bobby/bobby-portrait.jpg";
+import particlesImg from "@/assets/bobby/bobby-kitchen.jpg";
+import bathroomImg from "@/assets/bobby/bobby-bedroom.jpg";
 
 const LINKS = {
   mini: shopifyProductUrl("biologic-mini", "bobby-parrish"),
