@@ -50,11 +50,22 @@ const ENTRIES: SitemapEntry[] = [
   { path: "/terms", changefreq: "yearly", priority: "0.3" },
 ];
 
+// Dynamically include all internal blog posts (skip externally-hosted ones).
+const BLOG_ENTRIES: SitemapEntry[] = [...blogPosts, ...articlePosts]
+  .filter((post) => !post.externalUrl)
+  .map((post) => ({
+    path: `/blog/${post.slug}`,
+    changefreq: "monthly" as const,
+    priority: "0.7",
+  }));
+
+const ALL_ENTRIES: SitemapEntry[] = [...ENTRIES, ...BLOG_ENTRIES];
+
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const urls = ENTRIES.map((e) =>
+        const urls = ALL_ENTRIES.map((e) =>
           [
             `  <url>`,
             `    <loc>${BASE_URL}${e.path}</loc>`,
