@@ -21,10 +21,13 @@ import bobbyImg from "@/assets/bobby/bobby-portrait.jpg";
 import particlesImg from "@/assets/bobby/bobby-kitchen.jpg";
 import bathroomImg from "@/assets/bobby/bobby-bedroom.jpg";
 
+const withDiscount = (url: string, code = "Bobby") =>
+  `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
+
 const LINKS = {
-  mini: shopifyProductUrl("biologic-mini", "bobby-parrish"),
-  biotica: shopifyProductUrl("biotica-800", "bobby-parrish"),
-  bundle: shopifyUrl("/products/home-complete-bundle", "bobby-parrish"),
+  mini: withDiscount(shopifyProductUrl("biologic-mini", "bobby-parrish")),
+  biotica: withDiscount(shopifyProductUrl("biotica-800", "bobby-parrish")),
+  bundle: withDiscount(shopifyUrl("/products/home-complete-bundle", "bobby-parrish")),
 };
 
 /* Reveal-on-scroll (matches dorm page pattern) */
