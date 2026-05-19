@@ -15,6 +15,7 @@ import miniImg from "@/assets/shop/biologic-mini.png";
 import bioticaImg from "@/assets/shop/biotica-800.png";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
 import heroImg from "@/assets/bobby/bobby-hero.avif";
+import heroImgMobile from "@/assets/bobby/bobby-hero-mobile.avif";
 import livingImg from "@/assets/bobby/bobby-ambient.jpg";
 import familyImg from "@/assets/bobby/bobby-ambient.jpg";
 import bobbyImg from "@/assets/bobby/bobby-portrait.jpg";
@@ -193,14 +194,17 @@ const BobbyParrishLandingPage = () => {
       <main className="bg-background text-foreground">
         {/* ============ 1. HERO ============ */}
         <section className="relative h-[100svh] min-h-[620px] w-full overflow-hidden sm:min-h-[680px]">
-          <img
-            src={heroImg}
-            alt="Bobby Parrish at home"
-            className="absolute inset-0 h-full w-full object-cover object-[28%_center] sm:object-[34%_center] lg:object-center"
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-          />
+          <picture>
+            <source media="(max-width: 639px)" srcSet={heroImgMobile} />
+            <img
+              src={heroImg}
+              alt="Bobby Parrish at home"
+              className="absolute inset-0 h-full w-full object-cover object-[28%_center] sm:object-[34%_center] lg:object-center"
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+            />
+          </picture>
           <div
             aria-hidden
             className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/22 to-black/5 sm:from-black/78 sm:via-black/24"
