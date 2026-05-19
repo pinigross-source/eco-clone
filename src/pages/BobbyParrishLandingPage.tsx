@@ -209,8 +209,8 @@ const BobbyParrishLandingPage = () => {
             aria-hidden
             className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/22 to-black/5 sm:from-black/78 sm:via-black/24"
           />
-          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-8 sm:px-8 sm:pb-16 md:px-10 md:pb-20 lg:px-16 lg:pb-28">
-            <div className="max-w-[36rem] lg:max-w-3xl">
+          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-8 text-center sm:px-8 sm:pb-16 sm:text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
+            <div className="mx-auto max-w-[36rem] sm:mx-0 lg:max-w-3xl">
               <Reveal className="hidden sm:block">
                 <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -228,8 +228,9 @@ const BobbyParrishLandingPage = () => {
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mt-3 max-w-[20rem] text-[1.0625rem] font-medium leading-[1.45] text-white/95 sm:hidden [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
-                  Probiotic home cleaning for air, surfaces, fabrics, and everyday spaces.
+                <p className="mx-auto mt-3 max-w-[22rem] text-[1.0625rem] font-medium leading-[1.45] text-white/95 sm:hidden [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
+                  <span className="block">Probiotic home cleaning for air,</span>
+                  <span className="block">surfaces, fabrics &amp; everyday spaces.</span>
                 </p>
                 <p className="mt-5 hidden max-w-[31rem] text-lg font-medium leading-relaxed text-white/92 sm:block md:text-[1.15rem] lg:max-w-2xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
                   Bring probiotic cleaning into your home with EnviroBiotics. Our system releases
