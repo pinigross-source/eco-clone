@@ -239,15 +239,14 @@ const BobbyParrishLandingPage = () => {
                 </p>
               </Reveal>
               <Reveal>
-                <p className="mt-3 hidden max-w-full flex-wrap items-center gap-1.5 rounded-2xl bg-primary/95 px-4 py-2 text-sm font-semibold leading-snug text-primary-foreground shadow-lg shadow-black/20 sm:mt-5 sm:inline-flex sm:rounded-full sm:px-5 sm:text-base">
-                  <span>Use code</span>{" "}
-                  <span className="rounded-md bg-white/95 px-2 py-0.5 font-extrabold uppercase tracking-wider text-primary shadow-sm">
-                    Bobby
-                  </span>{" "}
-                  <span>at checkout to get 10% off your order.</span>
-                </p>
-                <p className="mt-3 text-[0.95rem] font-medium text-white/95 sm:hidden [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
-                  Use code <span className="font-extrabold uppercase tracking-wider text-primary">Bobby</span> for 10% off.
+                <p
+                  className="mt-4 text-[0.95rem] font-semibold text-white sm:mt-6 sm:text-lg lg:text-xl"
+                  style={{ textShadow: "0 1px 12px rgba(0,0,0,0.55)" }}
+                >
+                  Use code{" "}
+                  <span className="font-extrabold uppercase tracking-wider text-primary">Bobby</span>{" "}
+                  <span className="sm:hidden">for 10% off.</span>
+                  <span className="hidden sm:inline">at checkout to get 10% off your order.</span>
                 </p>
               </Reveal>
               <Reveal>
