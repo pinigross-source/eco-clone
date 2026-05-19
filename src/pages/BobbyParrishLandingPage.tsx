@@ -207,7 +207,7 @@ const BobbyParrishLandingPage = () => {
           </picture>
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/22 to-black/5 sm:from-black/78 sm:via-black/24"
+            className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/22 to-black/5 sm:bg-gradient-to-r sm:from-black/75 sm:via-black/35 sm:via-40% sm:to-transparent"
           />
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-8 text-center sm:px-8 sm:pb-16 sm:text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
             <div className="mx-auto max-w-[36rem] sm:mx-0 lg:max-w-3xl">
