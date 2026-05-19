@@ -226,7 +226,7 @@ const BobbyParrishLandingPage = () => {
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mt-4 max-w-[18rem] text-[1rem] font-medium leading-relaxed text-white/92 sm:hidden [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
+                <p className="mt-3 max-w-[20rem] text-[1.0625rem] font-medium leading-[1.45] text-white/95 sm:hidden [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
                   Probiotic home cleaning for air, surfaces, fabrics, and everyday spaces.
                 </p>
                 <p className="mt-5 hidden max-w-[31rem] text-lg font-medium leading-relaxed text-white/92 sm:block md:text-[1.15rem] lg:max-w-2xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
@@ -236,14 +236,15 @@ const BobbyParrishLandingPage = () => {
                 </p>
               </Reveal>
               <Reveal>
-                <p className="mt-4 inline-flex max-w-full flex-wrap items-center gap-1.5 rounded-2xl bg-primary/95 px-4 py-2 text-sm font-semibold leading-snug text-primary-foreground shadow-lg shadow-black/20 sm:mt-5 sm:rounded-full sm:px-5 sm:text-base">
-                  <span className="sm:hidden">Code</span>
-                  <span className="hidden sm:inline">Use code</span>{" "}
+                <p className="mt-3 hidden max-w-full flex-wrap items-center gap-1.5 rounded-2xl bg-primary/95 px-4 py-2 text-sm font-semibold leading-snug text-primary-foreground shadow-lg shadow-black/20 sm:mt-5 sm:inline-flex sm:rounded-full sm:px-5 sm:text-base">
+                  <span>Use code</span>{" "}
                   <span className="rounded-md bg-white/95 px-2 py-0.5 font-extrabold uppercase tracking-wider text-primary shadow-sm">
                     Bobby
                   </span>{" "}
-                  <span className="sm:hidden">for 10% off.</span>
-                  <span className="hidden sm:inline">at checkout to get 10% off your order.</span>
+                  <span>at checkout to get 10% off your order.</span>
+                </p>
+                <p className="mt-3 text-[0.95rem] font-medium text-white/95 sm:hidden [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
+                  Use code <span className="font-extrabold uppercase tracking-wider text-primary">Bobby</span> for 10% off.
                 </p>
               </Reveal>
               <Reveal>
