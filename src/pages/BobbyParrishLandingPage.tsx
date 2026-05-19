@@ -219,10 +219,12 @@ const BobbyParrishLandingPage = () => {
               </Reveal>
               <Reveal>
                 <h1
-                  className="font-display text-[2.3rem] font-bold leading-[1.03] tracking-[-0.035em] text-white sm:text-[clamp(3rem,6.2vw,4.25rem)] lg:text-[clamp(4.5rem,8vw,6.25rem)]"
+                  className="font-display text-[2.5rem] font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-[clamp(3rem,6.2vw,4.25rem)] lg:text-[clamp(4.5rem,8vw,6.25rem)]"
                   style={{ textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
                 >
-                  Breathe Easier. Live <span className="text-primary">Healthier.</span> Save 10%.
+                  <span className="block sm:inline">Breathe Easier.</span>{" "}
+                  <span className="block sm:inline text-primary">Live Healthier.</span>{" "}
+                  <span className="block sm:inline">Save 10%.</span>
                 </h1>
               </Reveal>
               <Reveal>
