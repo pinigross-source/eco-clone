@@ -195,11 +195,11 @@ const BobbyParrishLandingPage = () => {
         {/* ============ 1. HERO ============ */}
         <section className="relative h-[100svh] min-h-[620px] w-full overflow-hidden sm:min-h-[680px]">
           <picture>
-            <source media="(max-width: 639px)" srcSet={heroImgMobile} />
+            <source media="(max-width: 1023px)" srcSet={heroImgMobile} />
             <img
               src={heroImg}
               alt="Bobby Parrish at home"
-              className="absolute inset-0 h-full w-full object-cover object-[28%_center] sm:object-[34%_center] lg:object-center"
+              className="absolute inset-0 h-full w-full object-cover object-[50%_20%] sm:object-[50%_22%] lg:object-center"
               fetchPriority="high"
               loading="eager"
               decoding="async"
