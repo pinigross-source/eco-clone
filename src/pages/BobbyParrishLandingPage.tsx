@@ -15,6 +15,7 @@ import miniImg from "@/assets/shop/biologic-mini.png";
 import bioticaImg from "@/assets/shop/biotica-800.png";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
 import heroImg from "@/assets/bobby/bobby-hero.avif";
+import heroImgMobile from "@/assets/bobby/bobby-hero-mobile.avif";
 import livingImg from "@/assets/bobby/bobby-ambient.jpg";
 import familyImg from "@/assets/bobby/bobby-ambient.jpg";
 import bobbyImg from "@/assets/bobby/bobby-portrait.jpg";
