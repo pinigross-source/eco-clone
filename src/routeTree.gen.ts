@@ -16,6 +16,7 @@ import { Route as SupportRouteImport } from './routes/support'
 import { Route as SubscriptionRouteImport } from './routes/subscription'
 import { Route as SubscribeRouteImport } from './routes/subscribe'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as SleepRouteImport } from './routes/sleep'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SafetyRouteImport } from './routes/safety'
@@ -110,6 +111,11 @@ const SubscribeRoute = SubscribeRouteImport.update({
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SleepRoute = SleepRouteImport.update({
+  id: '/sleep',
+  path: '/sleep',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -466,6 +472,7 @@ export interface FileRoutesByFullPath {
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sleep': typeof SleepRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/subscribe': typeof SubscribeRoute
   '/subscription': typeof SubscriptionRoute
@@ -535,6 +542,7 @@ export interface FileRoutesByTo {
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sleep': typeof SleepRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/subscribe': typeof SubscribeRoute
   '/subscription': typeof SubscriptionRoute
@@ -605,6 +613,7 @@ export interface FileRoutesById {
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sleep': typeof SleepRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/subscribe': typeof SubscribeRoute
   '/subscription': typeof SubscriptionRoute
@@ -676,6 +685,7 @@ export interface FileRouteTypes {
     | '/safety'
     | '/shop'
     | '/sitemap.xml'
+    | '/sleep'
     | '/solutions'
     | '/subscribe'
     | '/subscription'
@@ -745,6 +755,7 @@ export interface FileRouteTypes {
     | '/safety'
     | '/shop'
     | '/sitemap.xml'
+    | '/sleep'
     | '/solutions'
     | '/subscribe'
     | '/subscription'
@@ -814,6 +825,7 @@ export interface FileRouteTypes {
     | '/safety'
     | '/shop'
     | '/sitemap.xml'
+    | '/sleep'
     | '/solutions'
     | '/subscribe'
     | '/subscription'
@@ -884,6 +896,7 @@ export interface RootRouteChildren {
   SafetyRoute: typeof SafetyRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SleepRoute: typeof SleepRoute
   SolutionsRoute: typeof SolutionsRouteWithChildren
   SubscribeRoute: typeof SubscribeRoute
   SubscriptionRoute: typeof SubscriptionRoute
@@ -950,6 +963,13 @@ declare module '@tanstack/react-router' {
       path: '/solutions'
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sleep': {
+      id: '/sleep'
+      path: '/sleep'
+      fullPath: '/sleep'
+      preLoaderRoute: typeof SleepRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -1450,6 +1470,7 @@ const rootRouteChildren: RootRouteChildren = {
   SafetyRoute: SafetyRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SleepRoute: SleepRoute,
   SolutionsRoute: SolutionsRouteWithChildren,
   SubscribeRoute: SubscribeRoute,
   SubscriptionRoute: SubscriptionRoute,
