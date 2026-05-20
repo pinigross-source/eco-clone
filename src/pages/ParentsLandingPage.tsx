@@ -503,7 +503,7 @@ const ParentsLandingPage = () => {
               </div>
             </Reveal>
 
-            <ol className="mt-10 grid grid-cols-1 gap-7 sm:mt-14 lg:mt-16 lg:grid-cols-3 lg:gap-10">
+            <ol className="mt-12 grid grid-cols-1 gap-6 sm:mt-16 lg:mt-20 lg:grid-cols-3 lg:gap-8">
               {[
                 {
                   step: "01",
@@ -523,15 +523,15 @@ const ParentsLandingPage = () => {
               ].map((item) => (
                 <li
                   key={item.step}
-                  className="rounded-3xl bg-card p-7 ring-1 ring-black/[0.05] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.15)] sm:p-8"
+                  className="rounded-3xl bg-card p-8 ring-1 ring-black/[0.05] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.18)] transition hover:-translate-y-1 hover:shadow-[0_30px_80px_-40px_rgba(0,0,0,0.22)] sm:p-10"
                 >
-                  <span className="font-display text-2xl font-semibold tracking-tight text-primary">
+                  <span className="font-display text-[2.5rem] font-bold leading-none tracking-tight text-primary sm:text-[3rem]">
                     {item.step}
                   </span>
-                  <h3 className="mt-3 text-xl font-semibold text-foreground sm:text-2xl">
+                  <h3 className="mt-5 font-display text-[1.6rem] font-semibold tracking-tight text-foreground sm:text-[1.85rem]">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+                  <p className="mt-3 text-[1rem] leading-[1.7] text-muted-foreground sm:text-[1.05rem]">
                     {item.copy}
                   </p>
                 </li>
@@ -539,7 +539,7 @@ const ParentsLandingPage = () => {
             </ol>
 
             <Reveal>
-              <p className="mt-10 max-w-3xl text-sm italic leading-relaxed text-muted-foreground sm:text-base">
+              <p className="mt-12 max-w-3xl text-[15px] italic leading-relaxed text-muted-foreground sm:text-base">
                 EnviroBiotics does not replace cleaning, ventilation, or filtration. It adds another
                 layer of room support.
               </p>
