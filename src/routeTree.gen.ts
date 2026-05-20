@@ -55,6 +55,7 @@ import { Route as DormRouteImport } from './routes/dorm'
 import { Route as DevToolsRouteImport } from './routes/dev-tools'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompetitiveExclusionRouteImport } from './routes/competitive-exclusion'
+import { Route as ClarityRouteImport } from './routes/clarity'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CartRouteImport } from './routes/cart'
@@ -309,6 +310,11 @@ const CompetitiveExclusionRoute = CompetitiveExclusionRouteImport.update({
   path: '/competitive-exclusion',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ClarityRoute = ClarityRouteImport.update({
+  id: '/clarity',
+  path: '/clarity',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CheckoutRoute = CheckoutRouteImport.update({
   id: '/checkout',
   path: '/checkout',
@@ -434,6 +440,7 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/checkout': typeof CheckoutRoute
+  '/clarity': typeof ClarityRoute
   '/competitive-exclusion': typeof CompetitiveExclusionRoute
   '/contact': typeof ContactRoute
   '/dev-tools': typeof DevToolsRoute
@@ -504,6 +511,7 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/checkout': typeof CheckoutRoute
+  '/clarity': typeof ClarityRoute
   '/competitive-exclusion': typeof CompetitiveExclusionRoute
   '/contact': typeof ContactRoute
   '/dev-tools': typeof DevToolsRoute
@@ -575,6 +583,7 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/checkout': typeof CheckoutRoute
+  '/clarity': typeof ClarityRoute
   '/competitive-exclusion': typeof CompetitiveExclusionRoute
   '/contact': typeof ContactRoute
   '/dev-tools': typeof DevToolsRoute
@@ -647,6 +656,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/case-studies'
     | '/checkout'
+    | '/clarity'
     | '/competitive-exclusion'
     | '/contact'
     | '/dev-tools'
@@ -717,6 +727,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/case-studies'
     | '/checkout'
+    | '/clarity'
     | '/competitive-exclusion'
     | '/contact'
     | '/dev-tools'
@@ -787,6 +798,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/case-studies'
     | '/checkout'
+    | '/clarity'
     | '/competitive-exclusion'
     | '/contact'
     | '/dev-tools'
@@ -858,6 +870,7 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   CheckoutRoute: typeof CheckoutRoute
+  ClarityRoute: typeof ClarityRoute
   CompetitiveExclusionRoute: typeof CompetitiveExclusionRoute
   ContactRoute: typeof ContactRoute
   DevToolsRoute: typeof DevToolsRoute
@@ -1238,6 +1251,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompetitiveExclusionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/clarity': {
+      id: '/clarity'
+      path: '/clarity'
+      fullPath: '/clarity'
+      preLoaderRoute: typeof ClarityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/checkout': {
       id: '/checkout'
       path: '/checkout'
@@ -1432,6 +1452,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   CheckoutRoute: CheckoutRoute,
+  ClarityRoute: ClarityRoute,
   CompetitiveExclusionRoute: CompetitiveExclusionRoute,
   ContactRoute: ContactRoute,
   DevToolsRoute: DevToolsRoute,
