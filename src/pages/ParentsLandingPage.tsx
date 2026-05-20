@@ -300,7 +300,7 @@ const ParentsLandingPage = () => {
 
 
         {/* ============ 2. STATS STRIP ============ */}
-        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-24">
+        <section className="bg-[#F5F3EE] py-14 sm:py-20 lg:py-24">
           <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-6 px-5 sm:grid-cols-3 sm:gap-8 sm:px-10 lg:px-16">
             {[
               { n: "24/7", label: "Continuous probiotic support" },
@@ -426,7 +426,7 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ 4. NURSERY STORY ============ */}
-        <section className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-32">
+        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.24)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.28)]">
@@ -494,7 +494,7 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ 5. HOW IT WORKS ============ */}
-        <section id="how-it-works" className="bg-background py-14 sm:py-24 lg:py-32">
+        <section id="how-it-works" className="bg-background py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
@@ -554,7 +554,7 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ 6. PRODUCTS ============ */}
-        <section id="products" className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-32">
+        <section id="products" className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
@@ -637,7 +637,7 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ 7. WHY PARENTS PICK US ============ */}
-        <section className="bg-[hsl(var(--primary-soft))] py-14 sm:py-24 lg:py-32">
+        <section className="bg-[hsl(var(--primary-soft))] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.18)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.18)] lg:grid-cols-2">
