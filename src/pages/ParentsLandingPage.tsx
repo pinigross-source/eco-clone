@@ -86,6 +86,7 @@ const Reveal = ({
 type ProductCardProps = {
   name: string;
   tagline: string;
+  subtitle?: string;
   description?: string;
   price: string;
   oldPrice?: string;
@@ -102,6 +103,7 @@ type ProductCardProps = {
 const ProductCard = ({
   name,
   tagline,
+  subtitle,
   description,
   price,
   oldPrice,
@@ -117,12 +119,12 @@ const ProductCard = ({
   <div
     className={`group relative flex h-full flex-col overflow-hidden rounded-3xl bg-card transition-transform duration-500 hover:-translate-y-1 ${
       highlight
-        ? "ring-2 ring-primary shadow-[0_50px_120px_-40px_hsl(var(--primary)/0.35)]"
+        ? "ring-2 ring-primary shadow-[0_50px_120px_-40px_hsl(var(--primary)/0.4)]"
         : "ring-1 ring-black/[0.06] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.18)]"
     }`}
   >
     {highlight && (
-      <div className="absolute right-5 top-5 z-10 rounded-full bg-primary px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
+      <div className="absolute right-5 top-5 z-10 rounded-full bg-primary px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground shadow-sm">
         {badge ?? "Parent Favorite"}
       </div>
     )}
@@ -143,18 +145,25 @@ const ProductCard = ({
         <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
           {name}
         </h3>
+        {subtitle && (
+          <p className="mt-2 text-[13px] font-semibold uppercase tracking-[0.18em] text-primary">
+            {subtitle}
+          </p>
+        )}
         {description && (
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p>
+          <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground sm:text-[15px]">
+            {description}
+          </p>
         )}
       </div>
-      <ul className="flex flex-1 flex-col gap-3">
+      <ul className="flex flex-1 flex-col gap-3.5">
         {features.map((f) => (
           <li
             key={f}
-            className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]"
+            className="flex items-start gap-3 text-[15px] leading-snug text-muted-foreground sm:text-[15px]"
           >
             <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
-            <span className="leading-snug">{f}</span>
+            <span>{f}</span>
           </li>
         ))}
       </ul>
