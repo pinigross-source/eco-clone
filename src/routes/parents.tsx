@@ -19,7 +19,7 @@ export const Route = createFileRoute("/parents")({
       {
         property: "og:description",
         content:
-          "Probiotic protection for the air and every surface your kids touch — cribs, toys, bedding. Safe for kids & pets.",
+          "Probiotic protection for the air and every surface your kids touch, cribs, toys, bedding. Safe for kids & pets.",
       },
       { property: "og:url", content: "https://envirobiotics.com/parents" },
       { property: "og:type", content: "website" },

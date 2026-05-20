@@ -235,8 +235,8 @@ const ParentsLandingPage = () => {
                 </p>
                 <p className="mt-5 hidden max-w-[31rem] text-lg font-medium leading-relaxed text-white/92 sm:block md:text-[1.15rem] lg:max-w-2xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
                   HEPA filters move air. Sprays mask odors. EnviroBiotics releases beneficial
-                  probiotics that keep working on every surface a filter can&apos;t reach &mdash;
-                  cribs, playmats, stuffies, bedding &mdash; without harsh chemicals.
+                  probiotics that keep working on every surface a filter can&apos;t reach ,
+                  cribs, playmats, stuffies, bedding, without harsh chemicals.
                 </p>
               </Reveal>
               <Reveal>
@@ -332,7 +332,7 @@ const ParentsLandingPage = () => {
                   </h2>
                   <p className="mt-4 text-[0.95rem] font-medium leading-relaxed text-foreground/85 sm:mt-5 sm:text-base">
                     Dust, dander, dust-mite allergens and odor-causing microbes settle on cribs,
-                    bedding, playmats, and stuffed animals &mdash; the surfaces filters never
+                    bedding, playmats, and stuffed animals, the surfaces filters never
                     touch. EnviroBiotics works where kids actually live.
                   </p>
                   <a
@@ -415,12 +415,12 @@ const ParentsLandingPage = () => {
                 {
                   step: "02",
                   title: "Colonize",
-                  copy: "Probiotics settle on cribs, bedding, plush toys, playmats and everyday surfaces &mdash; the places kids actually touch.",
+                  copy: "Probiotics settle on cribs, bedding, plush toys, playmats and everyday surfaces, the places kids actually touch.",
                 },
                 {
                   step: "03",
                   title: "Protect 24/7",
-                  copy: "They keep competing with allergens and odor-causing microbes around the clock &mdash; naturally, no chemicals required.",
+                  copy: "They keep competing with allergens and odor-causing microbes around the clock, naturally, no chemicals required.",
                 },
               ].map((item) => (
                 <li key={item.step} className="border-t border-foreground/15 pt-6">
@@ -480,11 +480,11 @@ const ParentsLandingPage = () => {
                   offerNote={`Use code ${PROMO} for 10% off.`}
                   onClick={trackMini}
                   features={[
-                    "Covers up to 300 sq. ft. &mdash; perfect nursery size",
+                    "Covers up to 300 sq. ft., perfect nursery size",
                     "Whisper-quiet, no blue lights, won't disturb sleep",
                     "Safe to run around babies, kids, and pets",
                     "Helps care for cribs, bedding, and plush toys",
-                  ].map((s) => s.replace("&mdash;", "—"))}
+                  ].map((s) => s.replace(",", ","))}
                 />
               </Reveal>
               <Reveal>
@@ -689,7 +689,7 @@ const ParentsLandingPage = () => {
                 },
                 {
                   q: "Does this replace my HEPA air purifier?",
-                  a: "No &mdash; they do different jobs. HEPA filters trap particles in the air that passes through them. EnviroBiotics releases beneficial probiotics that settle on the air and on every surface in the room. Many families use both together.",
+                  a: "No, they do different jobs. HEPA filters trap particles in the air that passes through them. EnviroBiotics releases beneficial probiotics that settle on the air and on every surface in the room. Many families use both together.",
                 },
                 {
                   q: "Is it safe with pets?",
