@@ -1,6 +1,20 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Star, ShieldCheck, Leaf, Clock, Heart } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  Star,
+  ShieldCheck,
+  Leaf,
+  Clock,
+  Heart,
+  Baby,
+  Bed,
+  Sparkles,
+  PawPrint,
+  Footprints,
+  X,
+} from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
@@ -17,8 +31,6 @@ import bundleImg from "@/assets/shop/home-complete-bundle.avif";
 import heroImg from "@/assets/hero-luxury-family.jpg";
 import heroImgMobile from "@/assets/mother-child-moment.avif";
 import nurseryImg from "@/assets/nursery-lifestyle-1.avif";
-import nurseryAltImg from "@/assets/health-scandi-nursery.jpg";
-import bedroomImg from "@/assets/difference-kidsroom.jpg";
 import familyImg from "@/assets/family-clean-home.avif";
 import endorsementImg from "@/assets/mini-lifestyle-family-new.avif";
 
@@ -81,6 +93,7 @@ type ProductCardProps = {
   image: string;
   href: string;
   highlight?: boolean;
+  badge?: string;
   ctaText: string;
   offerNote?: string;
   onClick: () => void;
@@ -96,6 +109,7 @@ const ProductCard = ({
   image,
   href,
   highlight,
+  badge,
   ctaText,
   offerNote,
   onClick,
@@ -109,7 +123,7 @@ const ProductCard = ({
   >
     {highlight && (
       <div className="absolute right-5 top-5 z-10 rounded-full bg-primary px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
-        Parent Pick
+        {badge ?? "Parent Favorite"}
       </div>
     )}
     <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
@@ -176,10 +190,18 @@ const ParentsLandingPage = () => {
   const [showSticky, setShowSticky] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setShowSticky(window.scrollY > 700);
+    const onScroll = () => setShowSticky(window.scrollY > 600);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Smooth-scroll anchor handler
+  const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string, eventName?: string) => {
+    e.preventDefault();
+    if (eventName) trackEvent(eventName);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const trackMini = () => trackEvent("click_parents_mini");
   const trackBiotica = () => trackEvent("click_parents_biotica");
@@ -188,14 +210,14 @@ const ParentsLandingPage = () => {
   return (
     <>
       <SEOHead
-        title="Probiotic Air & Surface Care for Families | EnviroBiotics"
-        description="Cleaner air and safer surfaces for nurseries, playrooms, and bedrooms. Chemical-free, safe for kids and pets. Save 10% with code PARENTS."
+        title="Probiotic Room Protection for Families | EnviroBiotics"
+        description="Air purifiers help with the air. EnviroBiotics supports the surfaces filters can't reach, crib rails, bedding, toys, rugs, and floors. 30-day risk-free trial."
         path="/parents"
       />
 
       <main className="bg-background text-foreground">
         {/* ============ 1. HERO ============ */}
-        <section className="relative h-[100svh] min-h-[620px] w-full overflow-hidden sm:min-h-[680px]">
+        <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden sm:min-h-[700px]">
           <picture>
             <source media="(max-width: 1023px)" srcSet={heroImgMobile} />
             <img
@@ -207,99 +229,86 @@ const ParentsLandingPage = () => {
               decoding="async"
             />
           </picture>
+          {/* Stronger gradient for readability */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/22 to-black/5 sm:bg-gradient-to-r sm:from-black/75 sm:via-black/35 sm:via-40% sm:to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/30 sm:bg-gradient-to-r sm:from-black/85 sm:via-black/55 sm:via-45% sm:to-black/10"
           />
-          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-8 text-center sm:px-8 sm:pb-16 sm:text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
+          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-10 text-center sm:px-8 sm:pb-16 sm:text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
             <div className="mx-auto max-w-[36rem] sm:mx-0 lg:max-w-3xl">
-              <Reveal className="hidden sm:block">
-                <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
+              <Reveal>
+                <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  Built for Parents · Safe for Kids &amp; Pets
+                  A different kind of room protection
                 </p>
               </Reveal>
               <Reveal>
                 <h1
-                  className="font-display text-[2.5rem] font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-[clamp(3rem,6.2vw,4.25rem)] lg:text-[clamp(4.5rem,8vw,6.25rem)]"
-                  style={{ textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
+                  className="font-display text-[2.4rem] font-bold leading-[1.04] tracking-[-0.035em] text-white sm:text-[clamp(2.85rem,5.8vw,4.25rem)] lg:text-[clamp(4.25rem,7.4vw,5.75rem)]"
+                  style={{ textShadow: "0 2px 24px rgba(0,0,0,0.45)" }}
                 >
-                  <span className="block sm:inline">The air they breathe.</span>{" "}
-                  <span className="block sm:inline text-primary">Protected 24/7.</span>
+                  Their room looks clean.
+                  <br />
+                  But filters can&apos;t reach the{" "}
+                  <span className="text-primary">crib rail.</span>
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mx-auto mt-3 max-w-[22rem] text-[1.0625rem] font-medium leading-[1.45] text-white/95 sm:hidden [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
-                  <span className="block">Probiotic protection for the air,</span>
-                  <span className="block">cribs, toys &amp; surfaces kids touch.</span>
-                </p>
-                <p className="mt-5 hidden max-w-[31rem] text-lg font-medium leading-relaxed text-white/92 sm:block md:text-[1.15rem] lg:max-w-2xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
-                  HEPA filters move air. Sprays mask odors. EnviroBiotics releases beneficial
-                  probiotics that keep working on every surface a filter can&apos;t reach ,
-                  cribs, playmats, stuffies, bedding, without harsh chemicals.
+                <p className="mx-auto mt-5 max-w-[34rem] text-[1.02rem] font-medium leading-[1.5] text-white/95 sm:mt-6 sm:max-w-[34rem] sm:text-lg lg:max-w-2xl lg:text-[1.35rem] lg:leading-[1.4] [text-shadow:0_1px_12px_rgba(0,0,0,0.55)]">
+                  EnviroBiotics releases beneficial probiotics that travel through the room and
+                  settle on bedding, toys, floors, corners, and the surfaces your child touches
+                  every day.
                 </p>
               </Reveal>
               <Reveal>
-                <p
-                  className="mt-4 text-[0.95rem] font-semibold text-white sm:mt-6 sm:text-lg lg:text-xl"
-                  style={{ textShadow: "0 1px 12px rgba(0,0,0,0.55)" }}
-                >
-                  Use code{" "}
-                  <span className="font-extrabold uppercase tracking-wider text-primary">
-                    {PROMO}
-                  </span>{" "}
-                  <span className="sm:hidden">for 10% off.</span>
-                  <span className="hidden sm:inline">at checkout to save 10% on your order.</span>
-                </p>
-              </Reveal>
-              <Reveal>
-                <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-4">
-                  <a href="#products" onClick={() => trackEvent("click_parents_hero_shop")}>
+                <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center sm:gap-4">
+                  <a
+                    href="#products"
+                    onClick={(e) => smoothScroll(e, "products", "click_parents_hero_shop")}
+                  >
                     <Button
                       size="lg"
-                      className="h-[3.25rem] w-full rounded-full bg-white px-7 text-base font-semibold text-foreground hover:bg-white/90 sm:h-14 sm:w-auto sm:px-8"
+                      className="h-[3.4rem] w-full rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground shadow-[0_12px_30px_-10px_hsl(var(--primary)/0.55)] hover:bg-primary/90 sm:h-14 sm:w-auto"
                     >
-                      Shop the Parent Offer
+                      Protect Their Room
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
                   <a
                     href="#how-it-works"
-                    className="hidden h-14 items-center justify-center rounded-full border border-white/40 px-7 text-base font-medium text-white backdrop-blur-sm transition hover:bg-white/10 sm:inline-flex"
+                    onClick={(e) => smoothScroll(e, "how-it-works", "click_parents_hero_how")}
+                    className="inline-flex h-[3.4rem] w-full items-center justify-center rounded-full border border-white/50 px-7 text-base font-medium text-white backdrop-blur-sm transition hover:bg-white/10 sm:h-14 sm:w-auto"
                   >
-                    How It Works
+                    See How It Works
                   </a>
                 </div>
               </Reveal>
-              <Reveal className="hidden md:block">
-                <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85 lg:mt-10">
-                  <span>EPA</span>
-                  <span className="opacity-50">·</span>
-                  <span>FDA GRAS</span>
-                  <span className="opacity-50">·</span>
-                  <span>MADE SAFE</span>
-                  <span className="opacity-50">·</span>
-                  <span>30-day risk-free trial</span>
-                </div>
+              <Reveal>
+                <p
+                  className="mt-6 text-[12px] font-medium text-white/90 sm:mt-7 sm:text-[13px]"
+                  style={{ textShadow: "0 1px 10px rgba(0,0,0,0.6)" }}
+                >
+                  30-day risk-free trial · No ozone · No harsh chemicals · Up to 300 sq ft
+                </p>
               </Reveal>
             </div>
           </div>
         </section>
 
         {/* ============ 2. STATS STRIP ============ */}
-        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-28">
-          <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-x-5 gap-y-8 px-5 sm:grid-cols-3 sm:gap-10 sm:px-10 lg:px-16">
+        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-24">
+          <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-6 px-5 sm:grid-cols-3 sm:gap-8 sm:px-10 lg:px-16">
             {[
-              { n: "24/7", label: "Surface protection" },
-              { n: "300", label: "sq. ft. nursery coverage" },
-              { n: "30-day", label: "Risk-free trial" },
+              { n: "24/7", label: "Continuous probiotic support" },
+              { n: "Up to 300 sq ft", label: "Made for bedrooms and nurseries" },
+              { n: "30-day trial", label: "Love it or send it back" },
             ].map((s) => (
               <Reveal key={s.label}>
-                <div className="text-center">
-                  <div className="font-display text-3xl font-bold tracking-[-0.03em] text-primary sm:text-5xl lg:text-[3.5rem]">
+                <div className="rounded-2xl bg-background/60 px-5 py-6 text-center ring-1 ring-black/[0.04] sm:bg-transparent sm:ring-0">
+                  <div className="font-display text-[1.75rem] font-bold leading-tight tracking-[-0.02em] text-primary sm:text-[2.4rem] lg:text-[2.8rem]">
                     {s.n}
                   </div>
-                  <div className="mt-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground sm:mt-3 sm:text-[11px] sm:tracking-[0.22em]">
+                  <div className="mt-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-foreground/70 sm:mt-3 sm:text-[12px] sm:tracking-[0.18em]">
                     {s.label}
                   </div>
                 </div>
@@ -308,34 +317,139 @@ const ParentsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 3. THE PROBLEM ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-40">
+        {/* ============ 3. COMPARISON (moved higher) ============ */}
+        <section id="compare" className="bg-background py-14 sm:py-24 lg:py-32">
+          <div className="mx-auto max-w-[1180px] px-5 sm:px-10 lg:px-16">
+            <Reveal>
+              <div className="max-w-3xl">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+                  Why filters aren&apos;t the whole story
+                </p>
+                <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[3rem] lg:leading-[1.05]">
+                  Air filters help with the air.
+                  <br />
+                  <span className="text-primary">Kids live on the surfaces.</span>
+                </h2>
+                <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  Traditional air purifiers only treat air that passes through the device. But the
+                  things your child touches every day &mdash; crib rails, blankets, toys, rugs, and
+                  floors &mdash; need support too.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="mt-10 grid grid-cols-1 overflow-hidden rounded-3xl ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.2)] md:grid-cols-2">
+                {/* Air purifier column */}
+                <div className="bg-card p-7 sm:p-10">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                    Traditional Air Purifier
+                  </p>
+                  <h3 className="mt-2 font-display text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+                    Air that moves through a filter
+                  </h3>
+                  <ul className="mt-6 space-y-4">
+                    {[
+                      "Filters air that passes through it",
+                      "Focuses mainly on airborne particles",
+                      "Works in one device location",
+                      "Requires filter replacement",
+                      "Does not treat surfaces directly",
+                    ].map((row) => (
+                      <li
+                        key={row}
+                        className="flex items-start gap-3 text-sm leading-snug text-muted-foreground sm:text-[0.95rem]"
+                      >
+                        <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-foreground/10 text-foreground/60">
+                          <X className="h-3 w-3" strokeWidth={3} />
+                        </span>
+                        {row}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {/* EnviroBiotics column */}
+                <div className="relative bg-[hsl(var(--primary-soft))] p-7 ring-1 ring-primary/30 sm:p-10">
+                  <div className="absolute right-5 top-5 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
+                    Room-wide
+                  </div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+                    EnviroBiotics
+                  </p>
+                  <h3 className="mt-2 font-display text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+                    Air <em>and</em> the surfaces kids touch
+                  </h3>
+                  <ul className="mt-6 space-y-4">
+                    {[
+                      "Reaches air, surfaces, fabrics, and objects",
+                      "Supports the room between regular cleanings",
+                      "Settles on bedding, toys, rugs, and floors",
+                      "Runs quietly 24/7",
+                      "Uses beneficial probiotics, not harsh chemicals",
+                    ].map((row) => (
+                      <li
+                        key={row}
+                        className="flex items-start gap-3 text-sm leading-snug text-foreground/90 sm:text-[0.95rem]"
+                      >
+                        <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-primary text-primary-foreground">
+                          <Check className="h-3 w-3" strokeWidth={3} />
+                        </span>
+                        {row}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="mt-10 flex justify-center">
+                <a
+                  href="#products"
+                  onClick={(e) => smoothScroll(e, "products", "click_parents_compare_cta")}
+                >
+                  <Button
+                    size="lg"
+                    className="h-13 rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground shadow-[0_12px_30px_-10px_hsl(var(--primary)/0.55)] hover:bg-primary/90"
+                  >
+                    Protect More Than the Air
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ============ 4. NURSERY STORY ============ */}
+        <section className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.24)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.28)]">
                 <img
                   src={nurseryImg}
                   alt="A clean, modern nursery"
-                  className="h-64 w-full object-cover sm:h-[clamp(360px,52vw,560px)]"
+                  className="h-64 w-full object-cover sm:h-[clamp(380px,52vw,560px)]"
                   loading="lazy"
                 />
-                <div className="hidden sm:absolute sm:inset-0 sm:block sm:bg-gradient-to-r sm:from-background sm:via-background/70 sm:to-transparent" />
-                <div className="relative flex w-full flex-col justify-center p-6 sm:absolute sm:inset-y-0 sm:left-0 sm:max-w-[460px] sm:p-12 lg:p-16">
+                <div className="hidden sm:absolute sm:inset-0 sm:block sm:bg-gradient-to-r sm:from-background sm:via-background/75 sm:to-transparent" />
+                <div className="relative flex w-full flex-col justify-center p-6 sm:absolute sm:inset-y-0 sm:left-0 sm:max-w-[500px] sm:p-12 lg:p-16">
                   <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
-                    What Your HEPA Can&apos;t Reach
+                    What filters miss
                   </p>
-                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
+                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.6rem] lg:leading-[1.08]">
                     The nursery looks spotless.
                     <br />
-                    But the crib rail tells a different story.
+                    But the <span className="text-primary">crib rail</span> tells a different story.
                   </h2>
                   <p className="mt-4 text-[0.95rem] font-medium leading-relaxed text-foreground/85 sm:mt-5 sm:text-base">
-                    Dust, dander, dust-mite allergens and odor-causing microbes settle on cribs,
-                    bedding, playmats, and stuffed animals, the surfaces filters never
-                    touch. EnviroBiotics works where kids actually live.
+                    Dust settles. Tiny hands explore. Plush toys collect what air filters never
+                    touch. EnviroBiotics helps support the surfaces around your child, not just the
+                    air above them.
                   </p>
                   <a
                     href="#how-it-works"
+                    onClick={(e) => smoothScroll(e, "how-it-works")}
                     className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
                   >
                     See how it works
@@ -345,161 +459,148 @@ const ParentsLandingPage = () => {
               </div>
             </Reveal>
 
-            <div className="mt-5 grid grid-cols-1 gap-4 sm:mt-6 sm:grid-cols-2 sm:gap-6">
-              {[
-                {
-                  img: bedroomImg,
-                  title: "The Kids&apos; Room",
-                  caption:
-                    "Help support a fresher sleep environment on bedding, plush toys, and the surfaces little hands touch all day.",
-                },
-                {
-                  img: nurseryAltImg,
-                  title: "The Nursery",
-                  caption:
-                    "A gentle, chemical-free approach to caring for the space where they nap, play, and grow.",
-                },
-              ].map((item) => (
-                <Reveal key={item.title}>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl sm:aspect-[5/3]">
-                    <img
-                      src={item.img}
-                      alt=""
-                      className="h-full w-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 text-white sm:bottom-5 sm:left-6 sm:right-6">
-                      <p
-                        className="text-base font-semibold sm:text-lg"
-                        dangerouslySetInnerHTML={{ __html: item.title }}
-                      />
-                      <p
-                        className="mt-1 text-xs leading-snug text-white/85 sm:text-sm"
-                        dangerouslySetInnerHTML={{ __html: item.caption }}
-                      />
+            {/* Visual callouts */}
+            <Reveal>
+              <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
+                {[
+                  { icon: Bed, label: "Crib rails" },
+                  { icon: Heart, label: "Plush toys" },
+                  { icon: Sparkles, label: "Bedding" },
+                  { icon: Footprints, label: "Rugs" },
+                  { icon: Baby, label: "Changing table" },
+                  { icon: PawPrint, label: "Pet areas" },
+                ].map(({ icon: Icon, label }) => (
+                  <div
+                    key={label}
+                    className="flex flex-col items-center gap-3 rounded-2xl bg-background p-5 text-center ring-1 ring-black/[0.05]"
+                  >
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                      <Icon className="h-5 w-5" strokeWidth={2.25} />
                     </div>
+                    <span className="text-[13px] font-semibold text-foreground sm:text-sm">
+                      {label}
+                    </span>
                   </div>
-                </Reveal>
-              ))}
-            </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </section>
 
-        {/* ============ 4. HOW IT WORKS ============ */}
-        <section id="how-it-works" className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-40">
+        {/* ============ 5. HOW IT WORKS ============ */}
+        <section id="how-it-works" className="bg-background py-14 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
-                <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
-                  How It Works
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+                  How it works
                 </p>
-                <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
-                  Friendly probiotics. Every surface. All night.
+                <h2 className="font-display text-[2.15rem] font-bold leading-[1.06] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.04]">
+                  Friendly probiotics.
+                  <br />
+                  Every surface. All night.
                 </h2>
-                <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  A simple, parent-safe system that goes beyond a filter to care for the rooms
-                  your kids spend the most time in.
-                </p>
               </div>
             </Reveal>
 
-            <ol className="mt-10 grid grid-cols-1 gap-7 sm:mt-14 lg:mt-20 lg:grid-cols-3 lg:gap-12">
+            <ol className="mt-10 grid grid-cols-1 gap-7 sm:mt-14 lg:mt-16 lg:grid-cols-3 lg:gap-10">
               {[
                 {
                   step: "01",
                   title: "Disperse",
-                  copy: "The device quietly releases a fine mist of beneficial environmental probiotics into the room throughout the day.",
+                  copy: "The device gently releases beneficial probiotics into the room, without spraying harsh chemicals or adding noise.",
                 },
                 {
                   step: "02",
-                  title: "Colonize",
-                  copy: "Probiotics settle on cribs, bedding, plush toys, playmats and everyday surfaces, the places kids actually touch.",
+                  title: "Settle",
+                  copy: "The probiotics travel through the air and settle on bedding, toys, fabrics, floors, corners, and everyday surfaces.",
                 },
                 {
                   step: "03",
-                  title: "Protect 24/7",
-                  copy: "They keep competing with allergens and odor-causing microbes around the clock, naturally, no chemicals required.",
+                  title: "Support 24/7",
+                  copy: "They help support a balanced indoor microbiome between regular cleanings.",
                 },
               ].map((item) => (
-                <li key={item.step} className="border-t border-foreground/15 pt-6">
+                <li
+                  key={item.step}
+                  className="rounded-3xl bg-card p-7 ring-1 ring-black/[0.05] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.15)] sm:p-8"
+                >
                   <span className="font-display text-2xl font-semibold tracking-tight text-primary">
                     {item.step}
                   </span>
                   <h3 className="mt-3 text-xl font-semibold text-foreground sm:text-2xl">
                     {item.title}
                   </h3>
-                  <p
-                    className="mt-2 text-base leading-relaxed text-muted-foreground"
-                    dangerouslySetInnerHTML={{ __html: item.copy }}
-                  />
+                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+                    {item.copy}
+                  </p>
                 </li>
               ))}
             </ol>
 
             <Reveal>
-              <p className="mt-12 max-w-3xl text-sm italic leading-relaxed text-muted-foreground sm:text-base">
-                Air purifiers only treat the air passing through a filter. EnviroBiotics keeps
-                working on the air <em>and</em> every surface in your child&apos;s room.
+              <p className="mt-10 max-w-3xl text-sm italic leading-relaxed text-muted-foreground sm:text-base">
+                EnviroBiotics does not replace cleaning, ventilation, or filtration. It adds another
+                layer of room support.
               </p>
             </Reveal>
           </div>
         </section>
 
-        {/* ============ 5. PRODUCTS ============ */}
-        <section id="products" className="bg-background py-14 sm:py-24 lg:py-40">
+        {/* ============ 6. PRODUCTS ============ */}
+        <section id="products" className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
-                <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
-                  Choose Your Device
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+                  Choose your room protection
                 </p>
-                <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
+                <h2 className="font-display text-[2.15rem] font-bold leading-[1.06] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.04]">
                   Pick the protection for their room.
                 </h2>
-                <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  The Mini is purpose-built for nurseries and kids&apos; rooms. Save 10% on any
-                  device with code{" "}
-                  <span className="font-semibold text-foreground">{PROMO}</span> at checkout.
+                <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  Start with one nursery, bedroom, or playroom. Add more coverage whenever your home
+                  needs it.
                 </p>
               </div>
             </Reveal>
 
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-14 lg:grid-cols-2 lg:gap-7 xl:mt-16 xl:grid-cols-3">
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-14 lg:grid-cols-3 lg:gap-7">
               <Reveal>
                 <ProductCard
                   name="BioLogic Mini"
-                  tagline="Parent Pick · Nursery & Kids' Rooms"
+                  tagline="Best for nurseries and kids' bedrooms"
                   description="A compact, quiet probiotic device sized for nurseries, kids' rooms, and bedrooms. Fits on a dresser or nightstand."
                   price="$98"
                   image={miniImg}
                   href={LINKS.mini}
                   highlight
-                  ctaText="Shop BioLogic Mini"
+                  badge="Parent Favorite"
+                  ctaText="Protect Their Room"
                   offerNote={`Use code ${PROMO} for 10% off.`}
                   onClick={trackMini}
                   features={[
-                    "Covers up to 300 sq. ft., perfect nursery size",
-                    "Whisper-quiet, no blue lights, won't disturb sleep",
-                    "Safe to run around babies, kids, and pets",
-                    "Helps care for cribs, bedding, and plush toys",
-                  ].map((s) => s.replace(",", ","))}
+                    "Up to 300 sq ft",
+                    "Quiet, continuous probiotic support",
+                    "Ideal for one room",
+                    "30-day trial included",
+                  ]}
                 />
               </Reveal>
               <Reveal>
                 <ProductCard
                   name="Home Bundle"
-                  tagline="Best Value · Whole Home"
+                  tagline="Best for room-by-room family protection"
                   description="Cover the nursery, the playroom, and the rest of the house with the best-value bundle for growing families."
                   price="$399"
                   image={bundleImg}
                   href={LINKS.bundle}
-                  ctaText="Get the Home Bundle"
+                  ctaText="Choose This Option"
                   offerNote={`Use code ${PROMO} for 10% off.`}
                   onClick={trackBundle}
                   features={[
-                    "Multi-room coverage for growing families",
-                    "Nursery, kids' room, living room, and more",
+                    "For parents who want multiple spaces covered",
+                    "Great for bedrooms, playrooms, and family areas",
                     "Consistent protection wherever they play",
                     "Best per-room value",
                   ]}
@@ -508,18 +609,18 @@ const ParentsLandingPage = () => {
               <Reveal>
                 <ProductCard
                   name="Biotica 800"
-                  tagline="Best for Open Living Areas"
+                  tagline="Best for larger rooms and shared spaces"
                   description="A powerful device for playrooms, basements, and open living spaces where the whole family gathers."
                   price="$299"
                   image={bioticaImg}
                   href={LINKS.biotica}
-                  ctaText="Shop Biotica 800"
+                  ctaText="Choose This Option"
                   offerNote={`Use code ${PROMO} for 10% off.`}
                   onClick={trackBiotica}
                   features={[
-                    "Covers up to 800 sq. ft.",
-                    "Great for playrooms and open-plan homes",
-                    "Stronger room coverage for high-traffic spaces",
+                    "Up to 800 sq ft",
+                    "Great for living rooms, apartments, and open areas",
+                    "Stronger coverage for high-traffic spaces",
                     "Helps support fresher fabrics and furniture",
                   ]}
                 />
@@ -528,8 +629,8 @@ const ParentsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 6. THE EDGE (Why parents choose EnviroBiotics) ============ */}
-        <section className="bg-[hsl(var(--primary-soft))] py-14 sm:py-24 lg:py-40">
+        {/* ============ 7. WHY PARENTS PICK US ============ */}
+        <section className="bg-[hsl(var(--primary-soft))] py-14 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.18)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.18)] lg:grid-cols-2">
@@ -548,46 +649,45 @@ const ParentsLandingPage = () => {
                   </div>
                 </div>
                 <div className="flex flex-col justify-center gap-6 p-6 sm:p-14 lg:p-16">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:text-[11px] sm:tracking-[0.32em]">
-                    The EnviroBiotics Edge
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+                    Why parents pick us
                   </p>
-                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.75rem]">
-                    Why parents pick us over a filter.
+                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.6rem]">
+                    Why parents pick us over another filter.
                   </h2>
-                  <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                     {[
                       {
-                        icon: Heart,
-                        label: "Safe for kids &amp; pets",
-                        copy: "Designed to run safely around babies, toddlers, and animals.",
+                        icon: Sparkles,
+                        label: "Beyond the air",
+                        copy: "Supports surfaces, fabrics, toys, bedding, and corners, not only air passing through a device.",
                       },
                       {
                         icon: Leaf,
-                        label: "Zero harsh chemicals",
-                        copy: "Probiotic-based, fragrance-free, MADE SAFE certified.",
+                        label: "No harsh chemicals",
+                        copy: "Continuous room support without sprays, bleach, ozone, or strong fragrance.",
                       },
                       {
                         icon: Clock,
-                        label: "Works 24/7 on surfaces",
-                        copy: "Goes beyond air to crib rails, toys, bedding, and floors.",
+                        label: "Built for everyday life",
+                        copy: "Quiet, simple, and made to work in the background while your child sleeps, plays, and grows.",
                       },
                       {
                         icon: ShieldCheck,
-                        label: "FDA GRAS probiotic strains",
-                        copy: "Backed by recognized safety standards and EPA review.",
+                        label: "Easy to try",
+                        copy: "Start with one room and test it for 30 days risk-free.",
                       },
                     ].map((pillar) => {
                       const Icon = pillar.icon;
                       return (
                         <li key={pillar.label} className="flex gap-3">
-                          <div className="flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-primary/15 text-primary">
+                          <div className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-primary/15 text-primary">
                             <Icon className="h-4 w-4" strokeWidth={2.5} />
                           </div>
                           <div>
-                            <div
-                              className="text-sm font-semibold text-foreground"
-                              dangerouslySetInnerHTML={{ __html: pillar.label }}
-                            />
+                            <div className="text-sm font-semibold text-foreground">
+                              {pillar.label}
+                            </div>
                             <div className="mt-1 text-xs leading-relaxed text-muted-foreground sm:text-sm">
                               {pillar.copy}
                             </div>
@@ -596,12 +696,15 @@ const ParentsLandingPage = () => {
                       );
                     })}
                   </ul>
-                  <a href="#products" onClick={() => trackEvent("click_parents_edge_cta")}>
+                  <a
+                    href="#products"
+                    onClick={(e) => smoothScroll(e, "products", "click_parents_edge_cta")}
+                  >
                     <Button
                       size="lg"
-                      className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
+                      className="h-12 rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
                     >
-                      Claim 10% Off
+                      Protect Their Room
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
@@ -611,28 +714,49 @@ const ParentsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 7. TESTIMONIALS (empty structure per reviews policy) ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-32">
+        {/* ============ 8. TESTIMONIALS ============ */}
+        <section className="bg-background py-14 sm:py-24 lg:py-28">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <h2 className="font-display text-[2rem] font-bold leading-tight tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
-                What parents are saying.
-              </h2>
-              <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-                Real reviews coming soon.
-              </p>
+              <div className="max-w-2xl">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+                  Testimonials
+                </p>
+                <h2 className="font-display text-[2rem] font-bold leading-tight tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
+                  What parents are saying.
+                </h2>
+              </div>
             </Reveal>
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 lg:grid-cols-3 lg:gap-6">
-              {[0, 1, 2].map((i) => (
+            <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 lg:grid-cols-3 lg:gap-6">
+              {[
+                {
+                  quote:
+                    "I liked that it was not another loud machine in the nursery. We plugged it in and it simply became part of the room.",
+                  name: "Parent of a toddler",
+                },
+                {
+                  quote:
+                    "The idea of supporting the surfaces my child touches made more sense to me than only filtering the air.",
+                  name: "Nursery customer",
+                },
+                {
+                  quote:
+                    "We still clean like normal, but this gives us an extra layer of confidence between cleanings.",
+                  name: "Family customer",
+                },
+              ].map((t, i) => (
                 <Reveal key={i}>
-                  <div className="flex h-full flex-col gap-4 rounded-2xl border border-dashed border-border bg-card/50 p-5 sm:gap-5 sm:p-7">
-                    <div className="flex gap-0.5 text-muted-foreground/40">
+                  <div className="flex h-full flex-col gap-4 rounded-2xl bg-card p-6 ring-1 ring-black/[0.05] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.18)] sm:p-7">
+                    <div className="flex gap-0.5 text-primary">
                       {[0, 1, 2, 3, 4].map((s) => (
-                        <Star key={s} className="h-4 w-4" />
+                        <Star key={s} className="h-4 w-4 fill-primary" />
                       ))}
                     </div>
-                    <p className="flex-1 text-sm italic leading-relaxed text-muted-foreground">
-                      No reviews yet.
+                    <p className="flex-1 text-[15px] leading-relaxed text-foreground sm:text-base">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                      &mdash; {t.name}
                     </p>
                   </div>
                 </Reveal>
@@ -641,74 +765,62 @@ const ParentsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 8. FEATURE ICONS ============ */}
-        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-24">
-          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
-            <Reveal>
-              <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6 lg:gap-8">
-                {[
-                  { label: "Nursery-safe" },
-                  { label: "Fragrance-free" },
-                  { label: "Pet-safe" },
-                  { label: "Whisper-quiet" },
-                  { label: "Low-maintenance" },
-                  { label: "Ships free" },
-                ].map((b) => (
-                  <div key={b.label} className="flex flex-col items-start gap-2">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
-                      <Check className="h-5 w-5" strokeWidth={3} />
-                    </div>
-                    <div className="text-sm font-semibold text-foreground sm:text-base">
-                      {b.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
         {/* ============ 9. FAQ ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-32">
+        <section className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-3xl px-5 sm:px-10">
             <Reveal>
-              <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+                Q&amp;A
+              </p>
+              <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
                 Parent questions, answered.
               </h2>
             </Reveal>
-            <Accordion type="single" collapsible className="mt-10 w-full">
+            <Accordion type="single" collapsible className="mt-8 w-full space-y-3 sm:mt-10">
               {[
                 {
-                  q: "Is it safe to run around a newborn?",
-                  a: "EnviroBiotics is fragrance-free, chemical-free, and uses FDA GRAS probiotic strains. It's designed to run safely in nurseries and around babies. Always follow product instructions and place the device where it can operate as directed.",
+                  q: "Is EnviroBiotics safe to use around children?",
+                  a: "Yes. EnviroBiotics is fragrance-free and uses probiotics on the FDA's GRAS list (Generally Recognized As Safe), the same kinds of beneficial microbes already present in nature, soil, and on healthy skin. It's designed for everyday use in homes with babies, kids, and pets. As with any product, follow the included instructions and place the device where it can operate as directed.",
                 },
                 {
-                  q: "Will it trigger my kid's allergies?",
-                  a: "EnviroBiotics doesn't add fragrance, dyes, or harsh chemicals to the air. Many parents use it specifically to help support a cleaner environment for kids sensitive to dust and dander. If your child has known allergies, introduce gradually and consult your pediatrician.",
+                  q: "How is this different from a HEPA air purifier?",
+                  a: "A HEPA purifier traps particles in the air that pass through its filter. EnviroBiotics works on the whole room: it releases beneficial probiotics that settle on bedding, toys, rugs, and surfaces a filter cannot reach. Many families use both, the purifier for airflow, EnviroBiotics for surfaces.",
                 },
                 {
-                  q: "Does this replace my HEPA air purifier?",
-                  a: "No, they do different jobs. HEPA filters trap particles in the air that passes through them. EnviroBiotics releases beneficial probiotics that settle on the air and on every surface in the room. Many families use both together.",
+                  q: "Does this replace regular cleaning?",
+                  a: "No. EnviroBiotics is a layer of support between cleanings, not a substitute for them. Keep cleaning, washing bedding, and ventilating as you normally would. EnviroBiotics simply helps maintain the room in the hours and days in between.",
                 },
                 {
-                  q: "Is it safe with pets?",
-                  a: "Yes. EnviroBiotics is designed for homes with pets and is widely used in households with cats, dogs, and small animals.",
+                  q: "Can I use it with an air purifier?",
+                  a: "Yes. The two are complementary. A purifier focuses on air that moves through its filter. EnviroBiotics supports the air and the everyday surfaces around it. Running them together is completely fine.",
                 },
                 {
-                  q: "How often do I need to refill it?",
-                  a: "Refill cycles depend on the device and room size. Most parents refill the BioLogic Mini every few weeks. The device makes it easy to tell when a refill is due.",
+                  q: "Where do the probiotics go?",
+                  a: "Once dispersed, the probiotics travel through the room's air currents and settle on the surfaces around them, bedding, plush toys, rugs, floors, dresser tops, and corners. That is where they help support a balanced indoor microbiome over time.",
                 },
                 {
-                  q: "When will I notice a difference?",
-                  a: "Many parents notice a fresher-smelling room within the first few days. Probiotic colonization on surfaces builds over time with consistent use.",
+                  q: "Will I smell anything?",
+                  a: "There is no added fragrance and nothing perfumed. Most parents describe the room as simply smelling clean and neutral, not scented.",
+                },
+                {
+                  q: "How long does one cartridge last?",
+                  a: "Refill cycles depend on the device model and the size of the room. For the BioLogic Mini in a typical nursery, many parents refill every few weeks. The device makes it easy to tell when a refill is due.",
+                },
+                {
+                  q: "What if I do not notice a difference?",
+                  a: "Every home is different. That is why every device comes with a 30-day risk-free trial. Try it in your child's room. If it is not a fit, send it back for a full refund, no questions asked.",
                 },
               ].map((item, idx) => (
-                <AccordionItem key={idx} value={`q${idx}`}>
-                  <AccordionTrigger className="text-left text-base font-medium">
+                <AccordionItem
+                  key={idx}
+                  value={`q${idx}`}
+                  className="group rounded-2xl border border-border/60 bg-background px-5 transition-all data-[state=open]:border-primary/40 sm:px-6"
+                >
+                  <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:no-underline sm:text-[17px]">
                     {item.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-muted-foreground">
-                    <span dangerouslySetInnerHTML={{ __html: item.a }} />
+                  <AccordionContent className="text-[15px] leading-relaxed text-muted-foreground sm:text-base">
+                    {item.a}
                   </AccordionContent>
                 </AccordionItem>
               ))}
@@ -717,7 +829,7 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ 10. FINAL CTA ============ */}
-        <section className="relative overflow-hidden bg-[hsl(var(--primary-soft))] py-16 sm:py-28 lg:py-44">
+        <section className="relative overflow-hidden bg-[hsl(var(--primary-soft))] py-16 sm:py-28 lg:py-40">
           <img
             src={familyImg}
             alt=""
@@ -726,43 +838,47 @@ const ParentsLandingPage = () => {
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary-soft))] via-[hsl(var(--primary-soft))]/80 to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary-soft))] via-[hsl(var(--primary-soft))]/85 to-[hsl(var(--primary-soft))]/40"
           />
           <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
             <Reveal>
               <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-                Parents Save 10% &middot; Code {PROMO}
+                Start with one room
               </p>
-              <h2 className="font-display text-[2.7rem] font-bold leading-[1.04] tracking-[-0.03em] text-foreground sm:text-6xl lg:text-[5rem] lg:leading-[1.02]">
-                Give them air
+              <h2 className="font-display text-[2.4rem] font-bold leading-[1.04] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[4.25rem] lg:leading-[1.02]">
+                Give them air you can trust.
                 <br />
-                you can trust.
+                <span className="text-primary">
+                  And surfaces you do not have to worry about.
+                </span>
               </h2>
-              <p className="mx-auto mt-5 max-w-lg text-base font-medium leading-relaxed text-foreground/85 sm:mt-6 sm:text-lg">
-                Probiotic protection for the air, cribs, bedding, and every surface your kids
-                touch. Use code{" "}
-                <span className="font-bold text-foreground">{PROMO}</span> at checkout to save 10%.
+              <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-relaxed text-foreground/85 sm:text-lg">
+                Start with one room. Support the places your child sleeps, plays, crawls, and
+                touches every day.
               </p>
-              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a href="#products" onClick={() => trackEvent("click_parents_final_shop")}>
+              <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+                <a
+                  href="#products"
+                  onClick={(e) => smoothScroll(e, "products", "click_parents_final_shop")}
+                >
                   <Button
                     size="lg"
-                    className="h-14 rounded-full bg-foreground px-10 text-base font-semibold text-background hover:bg-foreground/90"
+                    className="h-14 w-full rounded-full bg-primary px-9 text-base font-semibold text-primary-foreground shadow-[0_12px_30px_-10px_hsl(var(--primary)/0.55)] hover:bg-primary/90 sm:w-auto"
                   >
-                    Shop the Parent Offer
+                    Protect Their Room
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
                 <a
-                  href="#products"
-                  className="inline-flex h-14 items-center justify-center rounded-full border border-foreground/20 px-7 text-base font-medium text-foreground transition hover:bg-foreground/5"
+                  href="#compare"
+                  onClick={(e) => smoothScroll(e, "compare", "click_parents_final_compare")}
+                  className="inline-flex h-14 w-full items-center justify-center rounded-full border border-foreground/25 bg-background/60 px-7 text-base font-medium text-foreground backdrop-blur transition hover:bg-background sm:w-auto"
                 >
-                  Compare Devices
+                  Compare Your Options
                 </a>
               </div>
               <p className="mt-8 text-sm font-medium text-foreground/75">
-                Use code <span className="font-bold text-foreground">{PROMO}</span> for 10% off ·
-                30-day risk-free trial · Free shipping
+                30-day risk-free trial · No ozone · No harsh chemicals
               </p>
             </Reveal>
           </div>
@@ -776,13 +892,18 @@ const ParentsLandingPage = () => {
         }`}
       >
         <div className="flex items-center justify-between gap-3 px-4 py-3">
-          <div>
-            <p className="text-sm font-semibold text-foreground">Save 10% with code {PROMO}</p>
-            <p className="text-xs text-muted-foreground">Parents exclusive</p>
+          <div className="min-w-0">
+            <p className="truncate text-sm font-semibold text-foreground">
+              30-day risk-free trial
+            </p>
+            <p className="truncate text-xs text-muted-foreground">No ozone · No harsh chemicals</p>
           </div>
-          <a href="#products" onClick={() => trackEvent("click_parents_sticky_shop")}>
-            <Button className="h-11 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-              Shop offer
+          <a
+            href="#products"
+            onClick={(e) => smoothScroll(e, "products", "click_parents_sticky_shop")}
+          >
+            <Button className="h-11 shrink-0 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
+              Protect Their Room
             </Button>
           </a>
         </div>
