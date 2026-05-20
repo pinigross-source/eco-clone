@@ -219,7 +219,7 @@ const PetsLandingPage = () => {
                 </p>
               </Reveal>
               <Reveal>
-                <h1 className="font-display font-bold tracking-[-0.03em] text-foreground text-[clamp(2.125rem,8vw,2.5rem)] leading-[1.05] sm:text-[clamp(2.875rem,5vw,3.375rem)] sm:leading-[1.04] lg:text-[clamp(3.625rem,4.5vw,4.375rem)] lg:leading-[1.02]">
+                <h1 className="font-display font-bold tracking-[-0.03em] text-foreground text-[clamp(1.875rem,7vw,2.25rem)] leading-[1.08] sm:text-[clamp(2.375rem,4.4vw,2.875rem)] sm:leading-[1.06] lg:text-[clamp(2.875rem,3.6vw,3.5rem)] lg:leading-[1.05]">
                   Your home smells clean.
                   <br />
                   But filters can&apos;t reach
@@ -626,14 +626,12 @@ const PetsLandingPage = () => {
         <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6 lg:gap-8">
+              <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 lg:gap-8">
                 {[
                   { label: "Pet-safe" },
-                  { label: "Fragrance-free" },
                   { label: "Family-safe" },
                   { label: "Whisper-quiet" },
                   { label: "Low-maintenance" },
-                  { label: "Ships free" },
                 ].map((b) => (
                   <div key={b.label} className="flex flex-col items-start gap-2">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
