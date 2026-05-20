@@ -578,8 +578,9 @@ const ParentsLandingPage = () => {
               <Reveal>
                 <ProductCard
                   name="BioLogic Mini"
-                  tagline="Best for nurseries and kids' bedrooms"
-                  description="A compact, quiet probiotic device sized for nurseries, kids' rooms, and bedrooms. Fits on a dresser or nightstand."
+                  tagline="For nurseries &amp; kids' bedrooms"
+                  subtitle="Best starter choice"
+                  description="Best for nurseries and kids' bedrooms. Up to 300 sq ft. Quiet, continuous probiotic support for one room."
                   price="$98"
                   image={miniImg}
                   href={LINKS.mini}
@@ -589,7 +590,7 @@ const ParentsLandingPage = () => {
                   offerNote={`Use code ${PROMO} for 10% off.`}
                   onClick={trackMini}
                   features={[
-                    "Up to 300 sq ft",
+                    "Up to 300 sq ft of coverage",
                     "Quiet, continuous probiotic support",
                     "Ideal for one room",
                     "30-day trial included",
@@ -599,8 +600,8 @@ const ParentsLandingPage = () => {
               <Reveal>
                 <ProductCard
                   name="Home Bundle"
-                  tagline="Best for room-by-room family protection"
-                  description="Cover the nursery, the playroom, and the rest of the house with the best-value bundle for growing families."
+                  tagline="Best for the whole home"
+                  description="Best for room-by-room family protection. Great for bedrooms, playrooms, and shared spaces."
                   price="$399"
                   image={bundleImg}
                   href={LINKS.bundle}
@@ -608,18 +609,18 @@ const ParentsLandingPage = () => {
                   offerNote={`Use code ${PROMO} for 10% off.`}
                   onClick={trackBundle}
                   features={[
-                    "For parents who want multiple spaces covered",
+                    "Covers multiple rooms at once",
+                    "Best per-room value",
                     "Great for bedrooms, playrooms, and family areas",
                     "Consistent protection wherever they play",
-                    "Best per-room value",
                   ]}
                 />
               </Reveal>
               <Reveal>
                 <ProductCard
                   name="Biotica 800"
-                  tagline="Best for larger rooms and shared spaces"
-                  description="A powerful device for playrooms, basements, and open living spaces where the whole family gathers."
+                  tagline="For larger &amp; shared spaces"
+                  description="Best for larger rooms and open family areas. Up to 800 sq ft of continuous probiotic support."
                   price="$299"
                   image={bioticaImg}
                   href={LINKS.biotica}
@@ -627,8 +628,8 @@ const ParentsLandingPage = () => {
                   offerNote={`Use code ${PROMO} for 10% off.`}
                   onClick={trackBiotica}
                   features={[
-                    "Up to 800 sq ft",
-                    "Great for living rooms, apartments, and open areas",
+                    "Up to 800 sq ft of coverage",
+                    "Great for living rooms and open areas",
                     "Stronger coverage for high-traffic spaces",
                     "Helps support fresher fabrics and furniture",
                   ]}
