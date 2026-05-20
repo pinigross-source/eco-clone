@@ -180,9 +180,9 @@ const ProductCard = ({
         <a
           href={href}
           onClick={onClick}
-          className={`flex h-12 w-full items-center justify-center gap-2 rounded-full text-sm font-semibold transition-colors ${
+          className={`flex h-[3.25rem] w-full items-center justify-center gap-2 rounded-full text-[15px] font-semibold transition-all ${
             highlight
-              ? "bg-primary text-primary-foreground hover:bg-primary/90"
+              ? "bg-primary text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.65)] hover:bg-primary/90"
               : "bg-foreground text-background hover:bg-foreground/90"
           }`}
         >
