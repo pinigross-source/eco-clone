@@ -229,15 +229,15 @@ const ParentsLandingPage = () => {
               decoding="async"
             />
           </picture>
-          {/* Stronger gradient for readability */}
+          {/* Lighter gradient: brighter image, still readable */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/30 sm:bg-gradient-to-r sm:from-black/85 sm:via-black/55 sm:via-45% sm:to-black/10"
+            className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10 sm:bg-gradient-to-r sm:from-black/70 sm:via-black/35 sm:via-45% sm:to-transparent"
           />
-          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-10 text-center sm:px-8 sm:pb-16 sm:text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
+          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-10 text-center sm:px-8 sm:pb-20 sm:text-left md:px-10 md:pb-24 lg:px-16 lg:pb-32">
             <div className="mx-auto max-w-[36rem] sm:mx-0 lg:max-w-3xl">
               <Reveal>
-                <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
+                <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                   A different kind of room protection
                 </p>
@@ -245,7 +245,7 @@ const ParentsLandingPage = () => {
               <Reveal>
                 <h1
                   className="font-display text-[2.4rem] font-bold leading-[1.04] tracking-[-0.035em] text-white sm:text-[clamp(2.85rem,5.8vw,4.25rem)] lg:text-[clamp(4.25rem,7.4vw,5.75rem)]"
-                  style={{ textShadow: "0 2px 24px rgba(0,0,0,0.45)" }}
+                  style={{ textShadow: "0 2px 28px rgba(0,0,0,0.55)" }}
                 >
                   Their room looks clean.
                   <br />
@@ -254,30 +254,30 @@ const ParentsLandingPage = () => {
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mx-auto mt-5 max-w-[34rem] text-[1.02rem] font-medium leading-[1.5] text-white/95 sm:mt-6 sm:max-w-[34rem] sm:text-lg lg:max-w-2xl lg:text-[1.35rem] lg:leading-[1.4] [text-shadow:0_1px_12px_rgba(0,0,0,0.55)]">
+                <p className="mx-auto mt-6 max-w-[34rem] text-[1.05rem] font-medium leading-[1.55] text-white/95 sm:mt-7 sm:max-w-[34rem] sm:text-lg lg:max-w-2xl lg:text-[1.35rem] lg:leading-[1.4] [text-shadow:0_1px_14px_rgba(0,0,0,0.6)]">
                   EnviroBiotics releases beneficial probiotics that travel through the room and
                   settle on bedding, toys, floors, corners, and the surfaces your child touches
                   every day.
                 </p>
               </Reveal>
               <Reveal>
-                <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center sm:gap-4">
+                <div className="mt-9 flex flex-col gap-3 sm:mt-11 sm:flex-row sm:items-center sm:gap-4">
                   <a
                     href="#products"
                     onClick={(e) => smoothScroll(e, "products", "click_parents_hero_shop")}
                   >
                     <Button
                       size="lg"
-                      className="h-[3.4rem] w-full rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground shadow-[0_12px_30px_-10px_hsl(var(--primary)/0.55)] hover:bg-primary/90 sm:h-14 sm:w-auto"
+                      className="h-[3.6rem] w-full rounded-full bg-primary px-10 text-[17px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.65)] hover:bg-primary/90 sm:h-[3.75rem] sm:w-auto sm:text-[17px]"
                     >
                       Protect Their Room
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                      <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </a>
                   <a
                     href="#how-it-works"
                     onClick={(e) => smoothScroll(e, "how-it-works", "click_parents_hero_how")}
-                    className="inline-flex h-[3.4rem] w-full items-center justify-center rounded-full border border-white/50 px-7 text-base font-medium text-white backdrop-blur-sm transition hover:bg-white/10 sm:h-14 sm:w-auto"
+                    className="inline-flex h-[3.6rem] w-full items-center justify-center rounded-full border border-white/70 bg-white/10 px-8 text-[16px] font-semibold text-white backdrop-blur-md transition hover:bg-white/20 sm:h-[3.75rem] sm:w-auto"
                   >
                     See How It Works
                   </a>
@@ -285,8 +285,8 @@ const ParentsLandingPage = () => {
               </Reveal>
               <Reveal>
                 <p
-                  className="mt-6 text-[12px] font-medium text-white/90 sm:mt-7 sm:text-[13px]"
-                  style={{ textShadow: "0 1px 10px rgba(0,0,0,0.6)" }}
+                  className="mt-8 text-[13px] font-medium leading-relaxed text-white/95 sm:mt-9 sm:text-[14px]"
+                  style={{ textShadow: "0 1px 12px rgba(0,0,0,0.7)" }}
                 >
                   30-day risk-free trial · No ozone · No harsh chemicals · Up to 300 sq ft
                 </p>
