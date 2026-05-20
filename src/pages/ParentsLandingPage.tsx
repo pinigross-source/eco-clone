@@ -461,9 +461,9 @@ const ParentsLandingPage = () => {
 
             {/* Visual callouts */}
             <Reveal>
-              <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
+              <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
                 {[
-                  { icon: Bed, label: "Crib rails" },
+                  { icon: Bed, label: "Crib rail" },
                   { icon: Heart, label: "Plush toys" },
                   { icon: Sparkles, label: "Bedding" },
                   { icon: Footprints, label: "Rugs" },
@@ -472,12 +472,12 @@ const ParentsLandingPage = () => {
                 ].map(({ icon: Icon, label }) => (
                   <div
                     key={label}
-                    className="flex flex-col items-center gap-3 rounded-2xl bg-background p-5 text-center ring-1 ring-black/[0.05]"
+                    className="flex flex-col items-center justify-center gap-3 rounded-2xl bg-background p-5 text-center ring-1 ring-black/[0.05] shadow-[0_8px_24px_-18px_rgba(0,0,0,0.2)] transition hover:-translate-y-0.5 hover:ring-primary/30 sm:p-6"
                   >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/15 text-primary">
                       <Icon className="h-5 w-5" strokeWidth={2.25} />
                     </div>
-                    <span className="text-[13px] font-semibold text-foreground sm:text-sm">
+                    <span className="text-[14px] font-semibold leading-tight text-foreground sm:text-[15px]">
                       {label}
                     </span>
                   </div>
