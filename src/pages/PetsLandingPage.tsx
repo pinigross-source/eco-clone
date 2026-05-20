@@ -194,96 +194,78 @@ const PetsLandingPage = () => {
 
       <main className="bg-background text-foreground">
         {/* ============ 1. HERO ============ */}
-        <section className="relative h-[100svh] min-h-[620px] w-full overflow-hidden sm:min-h-[680px]">
-          <picture>
-            <source media="(max-width: 1023px)" srcSet={heroImgMobile} />
-            <img
-              src={heroImg}
-              alt="A relaxed pet in a clean, fresh-smelling living room"
-              className="absolute inset-0 h-full w-full object-cover object-[50%_30%] sm:object-[50%_35%] lg:object-[30%_center]"
-              fetchPriority="high"
-              loading="eager"
-              decoding="async"
-            />
-          </picture>
+        <section className="relative w-full overflow-hidden h-[84svh] min-h-[600px] sm:h-[720px] lg:h-[760px]">
+          <img
+            src={heroImg}
+            alt="A calm dog and owner in a bright, airy Scandinavian living room"
+            className="absolute inset-0 h-full w-full object-cover object-[60%_40%] sm:object-[58%_center] lg:object-[55%_center]"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            width={1920}
+            height={1080}
+          />
+          {/* Soft cream wash behind text only — keeps image bright */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/22 to-black/5 sm:bg-gradient-to-r sm:from-black/75 sm:via-black/35 sm:via-40% sm:to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-[#f7f3ec]/85 via-[#f7f3ec]/35 to-transparent sm:bg-gradient-to-r sm:from-[#f7f3ec]/90 sm:via-[#f7f3ec]/40 sm:via-40% sm:to-transparent"
           />
-          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-8 text-center sm:px-8 sm:pb-16 sm:text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
-            <div className="mx-auto max-w-[36rem] sm:mx-0 lg:max-w-3xl">
-              <Reveal className="hidden sm:block">
-                <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
+          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-center px-5 pb-8 pt-24 text-center sm:items-start sm:px-10 sm:pb-0 sm:pt-0 sm:text-left lg:px-16">
+            <div className="mx-auto w-full max-w-[36rem] sm:mx-0 sm:max-w-[40.625rem]">
+              <Reveal>
+                <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background/80 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground backdrop-blur">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  Built for Pet Homes · Safe for Cats &amp; Dogs
+                  Built for pet homes
                 </p>
               </Reveal>
               <Reveal>
-                <h1
-                  className="font-display text-[2.5rem] font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-[clamp(3rem,6.2vw,4.25rem)] lg:text-[clamp(4.5rem,8vw,6.25rem)]"
-                  style={{ textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
-                >
-                  <span className="block sm:inline">Pet odors, dander, mess.</span>{" "}
-                  <span className="block sm:inline text-primary">Handled 24/7.</span>
+                <h1 className="font-display font-bold tracking-[-0.03em] text-foreground text-[clamp(2.125rem,8vw,2.5rem)] leading-[1.05] sm:text-[clamp(2.875rem,5vw,3.375rem)] sm:leading-[1.04] lg:text-[clamp(3.625rem,4.5vw,4.375rem)] lg:leading-[1.02]">
+                  Your home smells clean.
+                  <br />
+                  But filters can&apos;t reach the{" "}
+                  <span className="text-primary">pet bed.</span>
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mx-auto mt-3 max-w-[22rem] text-[1.0625rem] font-medium leading-[1.45] text-white/95 sm:hidden [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
-                  <span className="block">Probiotic protection for the air,</span>
-                  <span className="block">pet beds, sofas &amp; floors they live on.</span>
-                </p>
-                <p className="mt-5 hidden max-w-[31rem] text-lg font-medium leading-relaxed text-white/92 sm:block md:text-[1.15rem] lg:max-w-2xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
-                  HEPA filters move air. Sprays mask odors. EnviroBiotics releases beneficial
-                  probiotics that keep working on every surface a filter can&apos;t reach: pet beds,
-                  sofas, rugs, and floors, without harsh chemicals.
+                <p className="mx-auto mt-5 max-w-[34rem] text-[1rem] font-medium leading-[1.6] text-foreground/85 sm:mx-0 sm:mt-6 sm:max-w-[37.5rem] sm:text-[1.1rem] sm:leading-[1.6] lg:text-[1.2rem]">
+                  EnviroBiotics releases beneficial probiotics that travel through the room and
+                  settle on pet beds, sofas, rugs, and floors, working 24/7 on the surfaces your
+                  animals actually live on.
                 </p>
               </Reveal>
               <Reveal>
-                <p
-                  className="mt-4 text-[0.95rem] font-semibold text-white sm:mt-6 sm:text-lg lg:text-xl"
-                  style={{ textShadow: "0 1px 12px rgba(0,0,0,0.55)" }}
-                >
-                  Use code{" "}
-                  <span className="font-extrabold uppercase tracking-wider text-primary">
-                    {PROMO}
-                  </span>{" "}
-                  <span className="sm:hidden">for 10% off.</span>
-                  <span className="hidden sm:inline">at checkout to save 10% on your order.</span>
-                </p>
-              </Reveal>
-              <Reveal>
-                <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-4">
-                  <a href="#products" onClick={() => trackEvent("click_pets_hero_shop")}>
+                <div className="mt-8 flex flex-col items-stretch gap-3.5 sm:mt-10 sm:flex-row sm:items-center sm:gap-5">
+                  <a
+                    href="#products"
+                    onClick={() => trackEvent("click_pets_hero_shop")}
+                    className="sm:w-auto"
+                  >
                     <Button
                       size="lg"
-                      className="h-[3.25rem] w-full rounded-full bg-white px-7 text-base font-semibold text-foreground hover:bg-white/90 sm:h-14 sm:w-auto sm:px-8"
+                      className="h-[3.5rem] w-full rounded-full bg-primary px-9 text-[16px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.65)] hover:bg-primary/90 sm:w-auto"
                     >
                       Shop the Pet Offer
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                      <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </a>
                   <a
                     href="#how-it-works"
-                    className="hidden h-14 items-center justify-center rounded-full border border-white/40 px-7 text-base font-medium text-white backdrop-blur-sm transition hover:bg-white/10 sm:inline-flex"
+                    onClick={() => trackEvent("click_pets_hero_how")}
+                    className="inline-flex h-[3.5rem] w-full items-center justify-center rounded-full border border-foreground/25 bg-background/80 px-8 text-[15px] font-semibold text-foreground backdrop-blur-md transition hover:bg-background sm:w-auto"
                   >
-                    How It Works
+                    See How It Works
                   </a>
                 </div>
               </Reveal>
-              <Reveal className="hidden md:block">
-                <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85 lg:mt-10">
-                  <span>EPA</span>
-                  <span className="opacity-50">·</span>
-                  <span>FDA GRAS</span>
-                  <span className="opacity-50">·</span>
-                  <span>MADE SAFE</span>
-                  <span className="opacity-50">·</span>
-                  <span>30-day risk-free trial</span>
-                </div>
+              <Reveal>
+                <p className="mt-7 text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-8 sm:text-[13px]">
+                  Use code <span className="font-bold text-primary">{PROMO}</span> for 10% off · Safe for cats &amp; dogs · 30-day risk-free trial
+                </p>
               </Reveal>
             </div>
           </div>
         </section>
+
 
         {/* ============ 2. STATS STRIP ============ */}
         <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-28">
