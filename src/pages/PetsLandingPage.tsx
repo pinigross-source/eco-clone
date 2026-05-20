@@ -14,8 +14,7 @@ import {
 import miniImg from "@/assets/shop/biologic-mini.png";
 import bioticaImg from "@/assets/shop/biotica-800.png";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
-import heroImg from "@/assets/family-pet-living-room.jpg";
-import heroImgMobile from "@/assets/family-kitchen-pet.png";
+import heroImg from "@/assets/pet-scandinavian-bright.jpg";
 import petBedImg from "@/assets/difference-petbed.jpg";
 import petScandiImg from "@/assets/mold-scandi-pet.jpg";
 import petSofaImg from "@/assets/difference-sofa.jpg";
