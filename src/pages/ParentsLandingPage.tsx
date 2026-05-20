@@ -470,7 +470,7 @@ const ParentsLandingPage = () => {
               <Reveal>
                 <ProductCard
                   name="BioLogic Mini"
-                  tagline="Parent Pick · Nursery &amp; Kids' Rooms"
+                  tagline="Parent Pick · Nursery & Kids' Rooms"
                   description="A compact, quiet probiotic device sized for nurseries, kids' rooms, and bedrooms. Fits on a dresser or nightstand."
                   price="$98"
                   image={miniImg}
