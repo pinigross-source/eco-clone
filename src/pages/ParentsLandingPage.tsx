@@ -432,17 +432,17 @@ const ParentsLandingPage = () => {
                   className="h-64 w-full object-cover sm:h-[clamp(380px,52vw,560px)]"
                   loading="lazy"
                 />
-                <div className="hidden sm:absolute sm:inset-0 sm:block sm:bg-gradient-to-r sm:from-background sm:via-background/75 sm:to-transparent" />
-                <div className="relative flex w-full flex-col justify-center p-6 sm:absolute sm:inset-y-0 sm:left-0 sm:max-w-[500px] sm:p-12 lg:p-16">
+                <div className="hidden sm:absolute sm:inset-0 sm:block sm:bg-gradient-to-r sm:from-background sm:from-25% sm:via-background/85 sm:via-55% sm:to-transparent" />
+                <div className="relative flex w-full flex-col justify-center p-6 sm:absolute sm:inset-y-0 sm:left-0 sm:max-w-[520px] sm:p-12 lg:p-16">
                   <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
                     What filters miss
                   </p>
-                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.6rem] lg:leading-[1.08]">
+                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.12] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.6rem] lg:leading-[1.1]">
                     The nursery looks spotless.
                     <br />
                     But the <span className="text-primary">crib rail</span> tells a different story.
                   </h2>
-                  <p className="mt-4 text-[0.95rem] font-medium leading-relaxed text-foreground/85 sm:mt-5 sm:text-base">
+                  <p className="mt-5 text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:mt-6 sm:text-[1.05rem]">
                     Dust settles. Tiny hands explore. Plush toys collect what air filters never
                     touch. EnviroBiotics helps support the surfaces around your child, not just the
                     air above them.
