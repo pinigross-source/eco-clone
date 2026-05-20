@@ -826,12 +826,12 @@ const ParentsLandingPage = () => {
                 <AccordionItem
                   key={idx}
                   value={`q${idx}`}
-                  className="group rounded-2xl border border-border/60 bg-background px-5 transition-all data-[state=open]:border-primary/40 sm:px-6"
+                  className="group rounded-2xl border border-border/60 bg-background px-6 transition-all hover:border-primary/30 data-[state=open]:border-primary/40 data-[state=open]:shadow-[0_18px_50px_-30px_rgba(0,0,0,0.18)] sm:px-8"
                 >
-                  <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:no-underline sm:text-[17px]">
+                  <AccordionTrigger className="py-6 text-left text-[17px] font-semibold text-foreground hover:no-underline sm:py-7 sm:text-[18px]">
                     {item.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-[15px] leading-relaxed text-muted-foreground sm:text-base">
+                  <AccordionContent className="pb-6 text-[15px] leading-[1.7] text-muted-foreground sm:text-[16px]">
                     {item.a}
                   </AccordionContent>
                 </AccordionItem>
