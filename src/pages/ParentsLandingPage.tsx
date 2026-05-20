@@ -778,17 +778,17 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ 9. FAQ ============ */}
-        <section className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-3xl px-5 sm:px-10">
+        <section className="bg-[#F5F3EE] py-16 sm:py-28 lg:py-36">
+          <div className="mx-auto max-w-[880px] px-5 sm:px-10">
             <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+              <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                 Q&amp;A
               </p>
-              <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
+              <h2 className="font-display text-[2.15rem] font-bold tracking-[-0.02em] text-foreground sm:text-[2.85rem] lg:text-[3.25rem]">
                 Parent questions, answered.
               </h2>
             </Reveal>
-            <Accordion type="single" collapsible className="mt-8 w-full space-y-3 sm:mt-10">
+            <Accordion type="single" collapsible className="mt-10 w-full space-y-4 sm:mt-12">
               {[
                 {
                   q: "Is EnviroBiotics safe to use around children?",
