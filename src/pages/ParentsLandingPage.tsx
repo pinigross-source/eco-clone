@@ -336,8 +336,8 @@ const ParentsLandingPage = () => {
                 </h2>
                 <p className="mt-6 max-w-2xl text-[1.05rem] leading-[1.7] text-muted-foreground sm:text-[1.15rem]">
                   Traditional air purifiers only treat air that passes through the device. But the
-                  things your child touches every day &mdash; crib rails, blankets, toys, rugs, and
-                  floors &mdash; need support too.
+                  things your child touches every day, like crib rails, blankets, toys, rugs, and
+                  floors, need support too.
                 </p>
               </div>
             </Reveal>
@@ -765,7 +765,7 @@ const ParentsLandingPage = () => {
                       &ldquo;{t.quote}&rdquo;
                     </p>
                     <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-foreground/70">
-                      &mdash; {t.name}
+                      {t.name}
                     </p>
                   </div>
                 </Reveal>
