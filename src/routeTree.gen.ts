@@ -29,6 +29,7 @@ import { Route as ProSubscriptionRouteImport } from './routes/pro-subscription'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PetDanderRouteImport } from './routes/pet-dander'
 import { Route as PaymentSuccessRouteImport } from './routes/payment-success'
+import { Route as ParentsRouteImport } from './routes/parents'
 import { Route as OrdersRouteImport } from './routes/orders'
 import { Route as OrderHistoryRouteImport } from './routes/order-history'
 import { Route as NurseryRouteImport } from './routes/nursery'
@@ -174,6 +175,11 @@ const PetDanderRoute = PetDanderRouteImport.update({
 const PaymentSuccessRoute = PaymentSuccessRouteImport.update({
   id: '/payment-success',
   path: '/payment-success',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentsRoute = ParentsRouteImport.update({
+  id: '/parents',
+  path: '/parents',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OrdersRoute = OrdersRouteImport.update({
@@ -439,6 +445,7 @@ export interface FileRoutesByFullPath {
   '/nursery': typeof NurseryRoute
   '/order-history': typeof OrderHistoryRoute
   '/orders': typeof OrdersRoute
+  '/parents': typeof ParentsRoute
   '/payment-success': typeof PaymentSuccessRoute
   '/pet-dander': typeof PetDanderRoute
   '/privacy': typeof PrivacyRoute
@@ -506,6 +513,7 @@ export interface FileRoutesByTo {
   '/nursery': typeof NurseryRoute
   '/order-history': typeof OrderHistoryRoute
   '/orders': typeof OrdersRoute
+  '/parents': typeof ParentsRoute
   '/payment-success': typeof PaymentSuccessRoute
   '/pet-dander': typeof PetDanderRoute
   '/privacy': typeof PrivacyRoute
@@ -574,6 +582,7 @@ export interface FileRoutesById {
   '/nursery': typeof NurseryRoute
   '/order-history': typeof OrderHistoryRoute
   '/orders': typeof OrdersRoute
+  '/parents': typeof ParentsRoute
   '/payment-success': typeof PaymentSuccessRoute
   '/pet-dander': typeof PetDanderRoute
   '/privacy': typeof PrivacyRoute
@@ -643,6 +652,7 @@ export interface FileRouteTypes {
     | '/nursery'
     | '/order-history'
     | '/orders'
+    | '/parents'
     | '/payment-success'
     | '/pet-dander'
     | '/privacy'
@@ -710,6 +720,7 @@ export interface FileRouteTypes {
     | '/nursery'
     | '/order-history'
     | '/orders'
+    | '/parents'
     | '/payment-success'
     | '/pet-dander'
     | '/privacy'
@@ -777,6 +788,7 @@ export interface FileRouteTypes {
     | '/nursery'
     | '/order-history'
     | '/orders'
+    | '/parents'
     | '/payment-success'
     | '/pet-dander'
     | '/privacy'
@@ -845,6 +857,7 @@ export interface RootRouteChildren {
   NurseryRoute: typeof NurseryRoute
   OrderHistoryRoute: typeof OrderHistoryRoute
   OrdersRoute: typeof OrdersRoute
+  ParentsRoute: typeof ParentsRoute
   PaymentSuccessRoute: typeof PaymentSuccessRoute
   PetDanderRoute: typeof PetDanderRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -1015,6 +1028,13 @@ declare module '@tanstack/react-router' {
       path: '/payment-success'
       fullPath: '/payment-success'
       preLoaderRoute: typeof PaymentSuccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parents': {
+      id: '/parents'
+      path: '/parents'
+      fullPath: '/parents'
+      preLoaderRoute: typeof ParentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/orders': {
@@ -1395,6 +1415,7 @@ const rootRouteChildren: RootRouteChildren = {
   NurseryRoute: NurseryRoute,
   OrderHistoryRoute: OrderHistoryRoute,
   OrdersRoute: OrdersRoute,
+  ParentsRoute: ParentsRoute,
   PaymentSuccessRoute: PaymentSuccessRoute,
   PetDanderRoute: PetDanderRoute,
   PrivacyRoute: PrivacyRoute,
