@@ -288,10 +288,9 @@ const ParentsLandingPage = () => {
 
         {/* ============ 2. STATS STRIP ============ */}
         <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-28">
-          <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-5 gap-y-8 px-5 sm:gap-10 sm:px-10 lg:grid-cols-4 lg:px-16">
+          <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-x-5 gap-y-8 px-5 sm:grid-cols-3 sm:gap-10 sm:px-10 lg:px-16">
             {[
               { n: "24/7", label: "Surface protection" },
-              { n: "0", label: "Harsh chemicals or fragrance" },
               { n: "300", label: "sq. ft. nursery coverage" },
               { n: "30-day", label: "Risk-free trial" },
             ].map((s) => (
