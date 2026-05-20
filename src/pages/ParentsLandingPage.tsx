@@ -300,7 +300,7 @@ const ParentsLandingPage = () => {
 
 
         {/* ============ 2. STATS STRIP ============ */}
-        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-24">
+        <section className="bg-[#F5F3EE] py-14 sm:py-20 lg:py-24">
           <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-6 px-5 sm:grid-cols-3 sm:gap-8 sm:px-10 lg:px-16">
             {[
               { n: "24/7", label: "Continuous probiotic support" },
@@ -329,7 +329,7 @@ const ParentsLandingPage = () => {
                 <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                   Why filters aren&apos;t the whole story
                 </p>
-                <h2 className="font-display text-[2.25rem] font-bold leading-[1.06] tracking-[-0.025em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem] lg:leading-[1.04]">
+                <h2 className="font-display text-[2.05rem] font-bold leading-[1.08] [text-wrap:balance] tracking-[-0.025em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem] lg:leading-[1.04]">
                   Air filters help with the air.
                   <br />
                   <span className="text-primary">Kids live on the surfaces.</span>
@@ -426,7 +426,7 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ 4. NURSERY STORY ============ */}
-        <section className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-32">
+        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.24)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.28)]">
@@ -443,7 +443,7 @@ const ParentsLandingPage = () => {
                   <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
                     What filters miss
                   </p>
-                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.12] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.6rem] lg:leading-[1.1]">
+                  <h2 className="font-display text-[1.7rem] font-bold leading-[1.15] [text-wrap:balance] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.6rem] lg:leading-[1.1]">
                     The nursery looks spotless.
                     <br />
                     But the <span className="text-primary">crib rail</span> tells a different story.
@@ -494,14 +494,14 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ 5. HOW IT WORKS ============ */}
-        <section id="how-it-works" className="bg-background py-14 sm:py-24 lg:py-32">
+        <section id="how-it-works" className="bg-background py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                   How it works
                 </p>
-                <h2 className="font-display text-[2.15rem] font-bold leading-[1.06] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.04]">
+                <h2 className="font-display text-[2rem] font-bold leading-[1.08] [text-wrap:balance] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.04]">
                   Friendly probiotics.
                   <br />
                   Every surface. All night.
@@ -554,14 +554,14 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ 6. PRODUCTS ============ */}
-        <section id="products" className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-32">
+        <section id="products" className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                   Choose your room protection
                 </p>
-                <h2 className="font-display text-[2.15rem] font-bold leading-[1.06] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.04]">
+                <h2 className="font-display text-[2rem] font-bold leading-[1.08] [text-wrap:balance] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.04]">
                   Pick the protection for their room.
                 </h2>
                 <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -637,7 +637,7 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ 7. WHY PARENTS PICK US ============ */}
-        <section className="bg-[hsl(var(--primary-soft))] py-14 sm:py-24 lg:py-32">
+        <section className="bg-[hsl(var(--primary-soft))] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.18)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.18)] lg:grid-cols-2">
@@ -660,7 +660,7 @@ const ParentsLandingPage = () => {
                     <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                       Why parents pick us
                     </p>
-                    <h2 className="font-display text-[1.95rem] font-bold leading-[1.08] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.6rem]">
+                    <h2 className="font-display text-[1.8rem] font-bold leading-[1.1] [text-wrap:balance] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.6rem]">
                       Why parents pick us over another filter.
                     </h2>
                   </div>
@@ -731,7 +731,7 @@ const ParentsLandingPage = () => {
                 <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                   Testimonials
                 </p>
-                <h2 className="font-display text-[2.15rem] font-bold leading-tight tracking-[-0.02em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem]">
+                <h2 className="font-display text-[2rem] font-bold leading-[1.1] [text-wrap:balance] tracking-[-0.02em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem]">
                   What parents are saying.
                 </h2>
               </div>
@@ -781,7 +781,7 @@ const ParentsLandingPage = () => {
               <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                 Q&amp;A
               </p>
-              <h2 className="font-display text-[2.15rem] font-bold tracking-[-0.02em] text-foreground sm:text-[2.85rem] lg:text-[3.25rem]">
+              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] [text-wrap:balance] text-foreground sm:text-[2.85rem] lg:text-[3.25rem]">
                 Parent questions, answered.
               </h2>
             </Reveal>
@@ -855,7 +855,7 @@ const ParentsLandingPage = () => {
               <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
                 Start with one room
               </p>
-              <h2 className="font-display text-[2.25rem] font-bold leading-[1.06] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[4rem] lg:leading-[1.04]">
+              <h2 className="font-display text-[2.05rem] font-bold leading-[1.08] [text-wrap:balance] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[4rem] lg:leading-[1.04]">
                 Give them air you can trust.
               </h2>
               <p className="mt-4 font-display text-[1.35rem] font-semibold leading-[1.25] tracking-[-0.02em] text-primary sm:mt-5 sm:text-[1.75rem] lg:text-[2.15rem]">
