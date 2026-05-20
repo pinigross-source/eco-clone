@@ -381,7 +381,7 @@ const ParentsLandingPage = () => {
                     EnviroBiotics
                   </p>
                   <h3 className="mt-3 font-display text-[1.5rem] font-semibold tracking-tight text-foreground sm:text-[1.75rem]">
-                    Air <em>and</em> the surfaces kids touch
+                    Air <span className="text-primary">and</span> the surfaces kids touch
                   </h3>
                   <ul className="mt-7 space-y-5">
                     {[
