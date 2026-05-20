@@ -841,55 +841,56 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ 10. FINAL CTA ============ */}
-        <section className="relative overflow-hidden bg-[hsl(var(--primary-soft))] py-16 sm:py-28 lg:py-40">
+        <section className="relative overflow-hidden bg-[hsl(var(--primary-soft))] py-20 sm:py-28 lg:py-40">
           <img
             src={familyImg}
             alt=""
             aria-hidden
-            className="absolute inset-0 h-full w-full object-cover opacity-25"
+            className="absolute inset-0 h-full w-full object-cover opacity-20"
           />
+          {/* Strong cream overlay for contrast */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary-soft))] via-[hsl(var(--primary-soft))]/85 to-[hsl(var(--primary-soft))]/40"
+            className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--primary-soft))] via-[hsl(var(--primary-soft))]/92 to-[hsl(var(--primary-soft))]"
           />
           <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
             <Reveal>
-              <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
+              <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
                 Start with one room
               </p>
-              <h2 className="font-display text-[2.4rem] font-bold leading-[1.04] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[4.25rem] lg:leading-[1.02]">
+              <h2 className="font-display text-[2.25rem] font-bold leading-[1.06] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[4rem] lg:leading-[1.04]">
                 Give them air you can trust.
-                <br />
-                <span className="text-primary">
-                  And surfaces you do not have to worry about.
-                </span>
               </h2>
-              <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-relaxed text-foreground/85 sm:text-lg">
+              <p className="mt-4 font-display text-[1.35rem] font-semibold leading-[1.25] tracking-[-0.02em] text-primary sm:mt-5 sm:text-[1.75rem] lg:text-[2.15rem]">
+                And surfaces you do not have to worry about.
+              </p>
+              <p className="mx-auto mt-7 max-w-xl text-[1rem] font-medium leading-[1.65] text-foreground/85 sm:text-lg">
                 Start with one room. Support the places your child sleeps, plays, crawls, and
                 touches every day.
               </p>
-              <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+              <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
                 <a
                   href="#products"
                   onClick={(e) => smoothScroll(e, "products", "click_parents_final_shop")}
+                  className="sm:w-auto"
                 >
                   <Button
                     size="lg"
-                    className="h-14 w-full rounded-full bg-primary px-9 text-base font-semibold text-primary-foreground shadow-[0_12px_30px_-10px_hsl(var(--primary)/0.55)] hover:bg-primary/90 sm:w-auto"
+                    className="h-[3.5rem] w-full rounded-full bg-primary px-10 text-[16px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.6)] hover:bg-primary/90 sm:w-auto"
                   >
                     Protect Their Room
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
                 <a
                   href="#compare"
                   onClick={(e) => smoothScroll(e, "compare", "click_parents_final_compare")}
-                  className="inline-flex h-14 w-full items-center justify-center rounded-full border border-foreground/25 bg-background/60 px-7 text-base font-medium text-foreground backdrop-blur transition hover:bg-background sm:w-auto"
+                  className="inline-flex h-[3.5rem] w-full items-center justify-center rounded-full border border-foreground/25 bg-background/80 px-8 text-[16px] font-semibold text-foreground backdrop-blur transition hover:bg-background sm:w-auto"
                 >
                   Compare Your Options
                 </a>
               </div>
-              <p className="mt-8 text-sm font-medium text-foreground/75">
+              <p className="mt-8 text-[13px] font-medium text-foreground/70 sm:text-sm">
                 30-day risk-free trial · No ozone · No harsh chemicals
               </p>
             </Reveal>
