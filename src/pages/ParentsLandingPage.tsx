@@ -318,19 +318,19 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ 3. COMPARISON (moved higher) ============ */}
-        <section id="compare" className="bg-background py-14 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[1180px] px-5 sm:px-10 lg:px-16">
+        <section id="compare" className="bg-background py-16 sm:py-28 lg:py-36">
+          <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-3xl">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                   Why filters aren&apos;t the whole story
                 </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[3rem] lg:leading-[1.05]">
+                <h2 className="font-display text-[2.25rem] font-bold leading-[1.06] tracking-[-0.025em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem] lg:leading-[1.04]">
                   Air filters help with the air.
                   <br />
                   <span className="text-primary">Kids live on the surfaces.</span>
                 </h2>
-                <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                <p className="mt-6 max-w-2xl text-[1.05rem] leading-[1.7] text-muted-foreground sm:text-[1.15rem]">
                   Traditional air purifiers only treat air that passes through the device. But the
                   things your child touches every day &mdash; crib rails, blankets, toys, rugs, and
                   floors &mdash; need support too.
@@ -339,16 +339,16 @@ const ParentsLandingPage = () => {
             </Reveal>
 
             <Reveal>
-              <div className="mt-10 grid grid-cols-1 overflow-hidden rounded-3xl ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.2)] md:grid-cols-2">
+              <div className="mt-12 grid grid-cols-1 gap-5 sm:mt-14 md:grid-cols-2 md:gap-6">
                 {/* Air purifier column */}
-                <div className="bg-card p-7 sm:p-10">
+                <div className="rounded-3xl bg-card p-7 ring-1 ring-black/[0.06] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.18)] sm:p-10">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                     Traditional Air Purifier
                   </p>
-                  <h3 className="mt-2 font-display text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+                  <h3 className="mt-3 font-display text-[1.5rem] font-semibold tracking-tight text-foreground sm:text-[1.75rem]">
                     Air that moves through a filter
                   </h3>
-                  <ul className="mt-6 space-y-4">
+                  <ul className="mt-7 space-y-5">
                     {[
                       "Filters air that passes through it",
                       "Focuses mainly on airborne particles",
@@ -358,10 +358,10 @@ const ParentsLandingPage = () => {
                     ].map((row) => (
                       <li
                         key={row}
-                        className="flex items-start gap-3 text-sm leading-snug text-muted-foreground sm:text-[0.95rem]"
+                        className="flex items-start gap-3.5 text-[15px] leading-relaxed text-muted-foreground sm:text-base"
                       >
-                        <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-foreground/10 text-foreground/60">
-                          <X className="h-3 w-3" strokeWidth={3} />
+                        <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-foreground/8 text-foreground/55 ring-1 ring-foreground/10">
+                          <X className="h-3.5 w-3.5" strokeWidth={3} />
                         </span>
                         {row}
                       </li>
@@ -369,17 +369,17 @@ const ParentsLandingPage = () => {
                   </ul>
                 </div>
                 {/* EnviroBiotics column */}
-                <div className="relative bg-[hsl(var(--primary-soft))] p-7 ring-1 ring-primary/30 sm:p-10">
-                  <div className="absolute right-5 top-5 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
+                <div className="relative rounded-3xl bg-[hsl(var(--primary-soft))] p-7 ring-2 ring-primary/40 shadow-[0_30px_80px_-40px_hsl(var(--primary)/0.4)] sm:p-10">
+                  <div className="absolute right-5 top-5 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground shadow-sm">
                     Room-wide
                   </div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
                     EnviroBiotics
                   </p>
-                  <h3 className="mt-2 font-display text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+                  <h3 className="mt-3 font-display text-[1.5rem] font-semibold tracking-tight text-foreground sm:text-[1.75rem]">
                     Air <em>and</em> the surfaces kids touch
                   </h3>
-                  <ul className="mt-6 space-y-4">
+                  <ul className="mt-7 space-y-5">
                     {[
                       "Reaches air, surfaces, fabrics, and objects",
                       "Supports the room between regular cleanings",
@@ -389,10 +389,10 @@ const ParentsLandingPage = () => {
                     ].map((row) => (
                       <li
                         key={row}
-                        className="flex items-start gap-3 text-sm leading-snug text-foreground/90 sm:text-[0.95rem]"
+                        className="flex items-start gap-3.5 text-[15px] leading-relaxed text-foreground/90 sm:text-base"
                       >
-                        <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-primary text-primary-foreground">
-                          <Check className="h-3 w-3" strokeWidth={3} />
+                        <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm">
+                          <Check className="h-3.5 w-3.5" strokeWidth={3} />
                         </span>
                         {row}
                       </li>
@@ -403,17 +403,17 @@ const ParentsLandingPage = () => {
             </Reveal>
 
             <Reveal>
-              <div className="mt-10 flex justify-center">
+              <div className="mt-12 flex justify-center">
                 <a
                   href="#products"
                   onClick={(e) => smoothScroll(e, "products", "click_parents_compare_cta")}
                 >
                   <Button
                     size="lg"
-                    className="h-13 rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground shadow-[0_12px_30px_-10px_hsl(var(--primary)/0.55)] hover:bg-primary/90"
+                    className="h-[3.5rem] rounded-full bg-primary px-9 text-[16px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.6)] hover:bg-primary/90"
                   >
                     Protect More Than the Air
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
               </div>
