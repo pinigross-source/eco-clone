@@ -727,19 +727,19 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ 8. TESTIMONIALS ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-28">
+        <section className="bg-background py-16 sm:py-28 lg:py-36">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                   Testimonials
                 </p>
-                <h2 className="font-display text-[2rem] font-bold leading-tight tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
+                <h2 className="font-display text-[2.15rem] font-bold leading-tight tracking-[-0.02em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem]">
                   What parents are saying.
                 </h2>
               </div>
             </Reveal>
-            <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 lg:grid-cols-3 lg:gap-6">
+            <div className="mt-12 grid grid-cols-1 gap-6 sm:mt-14 lg:grid-cols-3 lg:gap-7">
               {[
                 {
                   quote:
@@ -758,16 +758,16 @@ const ParentsLandingPage = () => {
                 },
               ].map((t, i) => (
                 <Reveal key={i}>
-                  <div className="flex h-full flex-col gap-4 rounded-2xl bg-card p-6 ring-1 ring-black/[0.05] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.18)] sm:p-7">
-                    <div className="flex gap-0.5 text-primary">
+                  <div className="flex h-full flex-col gap-5 rounded-3xl bg-card p-7 ring-1 ring-black/[0.05] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.2)] sm:p-9">
+                    <div className="flex gap-1 text-primary">
                       {[0, 1, 2, 3, 4].map((s) => (
-                        <Star key={s} className="h-4 w-4 fill-primary" />
+                        <Star key={s} className="h-5 w-5 fill-primary" strokeWidth={0} />
                       ))}
                     </div>
-                    <p className="flex-1 text-[15px] leading-relaxed text-foreground sm:text-base">
+                    <p className="flex-1 text-[1.05rem] leading-[1.65] text-foreground sm:text-[1.1rem]">
                       &ldquo;{t.quote}&rdquo;
                     </p>
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                    <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-foreground/70">
                       &mdash; {t.name}
                     </p>
                   </div>
