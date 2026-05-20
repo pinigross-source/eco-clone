@@ -30,7 +30,7 @@ import bioticaImg from "@/assets/shop/biotica-800.png";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
 import heroImg from "@/assets/hero-scandinavian-family.jpg";
 import heroImgMobile from "@/assets/hero-scandinavian-family.jpg";
-import nurseryImg from "@/assets/nursery-lifestyle-1.avif";
+import nurseryImg from "@/assets/nursery-scandinavian-bright.jpg";
 import familyImg from "@/assets/family-clean-home.avif";
 import endorsementImg from "@/assets/mini-lifestyle-family-new.avif";
 
@@ -432,11 +432,13 @@ const ParentsLandingPage = () => {
               <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.24)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.28)]">
                 <img
                   src={nurseryImg}
-                  alt="A clean, modern nursery"
-                  className="h-64 w-full object-cover sm:h-[clamp(380px,52vw,560px)]"
+                  alt="A bright Scandinavian nursery with a light oak crib"
+                  className="h-64 w-full object-cover object-[70%_center] sm:h-[clamp(380px,52vw,560px)]"
                   loading="lazy"
+                  width={1920}
+                  height={1080}
                 />
-                <div className="hidden sm:absolute sm:inset-0 sm:block sm:bg-gradient-to-r sm:from-background sm:from-25% sm:via-background/85 sm:via-55% sm:to-transparent" />
+                <div className="hidden sm:absolute sm:inset-0 sm:block sm:bg-gradient-to-r sm:from-background sm:from-30% sm:via-background/80 sm:via-55% sm:to-transparent" />
                 <div className="relative flex w-full flex-col justify-center p-6 sm:absolute sm:inset-y-0 sm:left-0 sm:max-w-[520px] sm:p-12 lg:p-16">
                   <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
                     What filters miss
