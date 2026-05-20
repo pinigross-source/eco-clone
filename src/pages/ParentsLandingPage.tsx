@@ -226,24 +226,24 @@ const ParentsLandingPage = () => {
 
       <main className="bg-background text-foreground">
         {/* ============ 1. HERO ============ */}
-        <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden sm:min-h-[700px]">
+        <section className="relative w-full overflow-hidden h-[88svh] min-h-[600px] sm:h-[720px] lg:h-[760px]">
           <img
             src={heroImg}
             alt="Parent and child in a bright, calm Scandinavian home"
-            className="absolute inset-0 h-full w-full object-cover object-[60%_center] sm:object-[55%_center] lg:object-[40%_center]"
+            className="absolute inset-0 h-full w-full object-cover object-[70%_35%] sm:object-[68%_center] lg:object-[62%_center]"
             fetchPriority="high"
             loading="eager"
             decoding="async"
             width={1920}
             height={1080}
           />
-          {/* Soft light overlay: keeps the image bright and airy */}
+          {/* Soft cream wash behind text only — keeps image bright */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-[#f7f3ec]/95 via-[#f7f3ec]/55 to-[#f7f3ec]/10 sm:bg-gradient-to-r sm:from-[#f7f3ec]/92 sm:via-[#f7f3ec]/55 sm:via-45% sm:to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-[#f7f3ec]/85 via-[#f7f3ec]/35 to-transparent sm:bg-gradient-to-r sm:from-[#f7f3ec]/90 sm:via-[#f7f3ec]/40 sm:via-40% sm:to-transparent"
           />
-          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-10 text-center sm:px-8 sm:pb-20 sm:text-left md:px-10 md:pb-24 lg:px-16 lg:pb-32">
-            <div className="mx-auto max-w-[36rem] sm:mx-0 lg:max-w-3xl">
+          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-center px-5 pb-8 pt-24 text-center sm:items-start sm:px-10 sm:pb-0 sm:pt-0 sm:text-left lg:px-16">
+            <div className="mx-auto w-full max-w-[36rem] sm:mx-0 sm:max-w-[40.625rem]">
               <Reveal>
                 <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background/80 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground backdrop-blur">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -251,7 +251,7 @@ const ParentsLandingPage = () => {
                 </p>
               </Reveal>
               <Reveal>
-                <h1 className="font-display text-[2.4rem] font-bold leading-[1.04] tracking-[-0.035em] text-foreground sm:text-[clamp(2.85rem,5.8vw,4.25rem)] lg:text-[clamp(4.25rem,7.4vw,5.75rem)]">
+                <h1 className="font-display font-bold tracking-[-0.03em] text-foreground text-[clamp(2.125rem,8vw,2.5rem)] leading-[1.05] sm:text-[clamp(2.875rem,5vw,3.375rem)] sm:leading-[1.04] lg:text-[clamp(3.625rem,4.5vw,4.375rem)] lg:leading-[1.02]">
                   Their room looks clean.
                   <br />
                   But filters can&apos;t reach the{" "}
@@ -259,21 +259,22 @@ const ParentsLandingPage = () => {
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mx-auto mt-6 max-w-[34rem] text-[1.05rem] font-medium leading-[1.55] text-foreground/85 sm:mt-7 sm:max-w-[34rem] sm:text-lg lg:max-w-2xl lg:text-[1.35rem] lg:leading-[1.4]">
+                <p className="mx-auto mt-5 max-w-[34rem] text-[1rem] font-medium leading-[1.6] text-foreground/85 sm:mx-0 sm:mt-6 sm:max-w-[37.5rem] sm:text-[1.1rem] sm:leading-[1.6] lg:text-[1.2rem]">
                   EnviroBiotics releases beneficial probiotics that travel through the room and
                   settle on bedding, toys, floors, corners, and the surfaces your child touches
                   every day.
                 </p>
               </Reveal>
               <Reveal>
-                <div className="mt-9 flex flex-col gap-3 sm:mt-11 sm:flex-row sm:items-center sm:gap-4">
+                <div className="mt-8 flex flex-col items-stretch gap-3.5 sm:mt-10 sm:flex-row sm:items-center sm:gap-5">
                   <a
                     href="#products"
                     onClick={(e) => smoothScroll(e, "products", "click_parents_hero_shop")}
+                    className="sm:w-auto"
                   >
                     <Button
                       size="lg"
-                      className="h-[3.6rem] w-full rounded-full bg-primary px-10 text-[17px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.65)] hover:bg-primary/90 sm:h-[3.75rem] sm:w-auto sm:text-[17px]"
+                      className="h-[3.5rem] w-full rounded-full bg-primary px-9 text-[16px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.65)] hover:bg-primary/90 sm:w-auto"
                     >
                       Protect Their Room
                       <ArrowRight className="ml-2 h-5 w-5" />
@@ -282,20 +283,21 @@ const ParentsLandingPage = () => {
                   <a
                     href="#how-it-works"
                     onClick={(e) => smoothScroll(e, "how-it-works", "click_parents_hero_how")}
-                    className="inline-flex h-[3.6rem] w-full items-center justify-center rounded-full border border-foreground/25 bg-background/80 px-8 text-[16px] font-semibold text-foreground backdrop-blur-md transition hover:bg-background sm:h-[3.75rem] sm:w-auto"
+                    className="inline-flex h-[3.5rem] w-full items-center justify-center rounded-full border border-foreground/25 bg-background/80 px-8 text-[15px] font-semibold text-foreground backdrop-blur-md transition hover:bg-background sm:w-auto"
                   >
                     See How It Works
                   </a>
                 </div>
               </Reveal>
               <Reveal>
-                <p className="mt-8 text-[13px] font-medium leading-relaxed text-foreground/75 sm:mt-9 sm:text-[14px]">
+                <p className="mt-7 text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-8 sm:text-[13px]">
                   30-day risk-free trial · No ozone · No harsh chemicals · Up to 300 sq ft
                 </p>
               </Reveal>
             </div>
           </div>
         </section>
+
 
         {/* ============ 2. STATS STRIP ============ */}
         <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-24">
