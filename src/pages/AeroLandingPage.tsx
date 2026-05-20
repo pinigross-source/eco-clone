@@ -259,7 +259,7 @@ const AeroLandingPage = () => {
   return (
     <>
       <SEOHead
-        title="EnviroBiotics Aero: Effortless, Probiotic Clean Air | EnviroBiotics"
+        title="EnviroBiotics: Effortless, Probiotic Clean Air | EnviroBiotics"
         description="A beautifully engineered probiotic system for the modern home. Effortless wellness for the air, bedding, sofas, and every surface. Save 10% with code AERO."
         path="/aero"
       />
@@ -287,7 +287,7 @@ const AeroLandingPage = () => {
               <Reveal className="hidden sm:block">
                 <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  EnviroBiotics Aero &middot; Effortless Probiotic Air
+                  EnviroBiotics &middot; Effortless Probiotic Air
                 </p>
               </Reveal>
               <Reveal>
@@ -306,7 +306,7 @@ const AeroLandingPage = () => {
                 </p>
                 <p className="mt-5 hidden max-w-[31rem] text-lg font-medium leading-relaxed text-white/92 sm:block md:text-[1.15rem] lg:max-w-2xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
                   Quietly engineered, sculpted to disappear into the room, and built around a simple
-                  idea: clean air should feel as good as it looks. EnviroBiotics Aero keeps working
+                  idea: clean air should feel as good as it looks. EnviroBiotics keeps working
                   on the air and every surface a filter can&apos;t reach.
                 </p>
               </Reveal>
@@ -330,7 +330,7 @@ const AeroLandingPage = () => {
                       size="lg"
                       className="h-[3.25rem] w-full rounded-full bg-white px-7 text-base font-semibold text-foreground hover:bg-white/90 sm:h-14 sm:w-auto sm:px-8"
                     >
-                      Shop the Aero Offer
+                      Shop the EnviroBiotics Offer
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
@@ -405,7 +405,7 @@ const AeroLandingPage = () => {
                   </h2>
                   <p className="mt-4 text-[0.95rem] font-medium leading-relaxed text-foreground/85 sm:mt-5 sm:text-base">
                     The air inside can silently work against you, filled with allergens, odors, and
-                    settled dust. EnviroBiotics Aero clears the air, calms the space, and restores
+                    settled dust. EnviroBiotics clears the air, calms the space, and restores
                     your sense of balance, beautifully.
                   </p>
                   <a
@@ -473,7 +473,7 @@ const AeroLandingPage = () => {
 
             <Reveal>
               <p className="mt-12 max-w-3xl text-sm italic leading-relaxed text-muted-foreground sm:text-base">
-                Air purifiers only treat the air passing through a filter. EnviroBiotics Aero keeps
+                Air purifiers only treat the air passing through a filter. EnviroBiotics keeps
                 working on the air <em>and</em> every surface that surrounds you.
               </p>
             </Reveal>
@@ -530,7 +530,7 @@ const AeroLandingPage = () => {
                   Choose Your Device
                 </p>
                 <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
-                  Pick your Aero.
+                  Pick your EnviroBiotics.
                 </h2>
                 <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
                   Three beautifully engineered options. Save 10% on any device with code{" "}
@@ -611,7 +611,7 @@ const AeroLandingPage = () => {
                   Compare the Range
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-5xl">
-                  Choose your perfect Aero.
+                  Choose your perfect EnviroBiotics.
                 </h2>
                 <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
                   Compare our range of beautifully engineered, whisper-quiet probiotic devices.
@@ -768,7 +768,7 @@ const AeroLandingPage = () => {
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <h2 className="font-display text-[2rem] font-bold leading-tight tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
-                What Aero homes are saying.
+                What EnviroBiotics homes are saying.
               </h2>
               <p className="mt-3 text-sm text-muted-foreground sm:text-base">
                 Real reviews coming soon.
@@ -825,22 +825,22 @@ const AeroLandingPage = () => {
           <div className="mx-auto max-w-3xl px-5 sm:px-10">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
-                Aero questions, answered.
+                EnviroBiotics questions, answered.
               </h2>
             </Reveal>
             <Accordion type="single" collapsible className="mt-10 w-full">
               {[
                 {
-                  q: "What makes EnviroBiotics Aero different from an air purifier?",
-                  a: "Air purifiers move air through a filter. Aero releases beneficial probiotics that settle on the air and every surface in the room, the places filters never reach. Many homes use both together.",
+                  q: "What makes EnviroBiotics different from an air purifier?",
+                  a: "Air purifiers move air through a filter. EnviroBiotics releases beneficial probiotics that settle on the air and every surface in the room, the places filters never reach. Many homes use both together.",
                 },
                 {
                   q: "Is it really quiet?",
-                  a: "Yes. Aero devices are whisper-quiet and designed to disappear into the room, including bedrooms and nurseries where silence matters most.",
+                  a: "Yes. EnviroBiotics devices are whisper-quiet and designed to disappear into the room, including bedrooms and nurseries where silence matters most.",
                 },
                 {
                   q: "Is it safe to run continuously?",
-                  a: "Yes. Aero is fragrance-free, chemical-free, and uses FDA GRAS probiotic strains. It is designed for continuous use in homes with kids, pets, and the whole family.",
+                  a: "Yes. EnviroBiotics is fragrance-free, chemical-free, and uses FDA GRAS probiotic strains. It is designed for continuous use in homes with kids, pets, and the whole family.",
                 },
                 {
                   q: "How much maintenance does it need?",
@@ -852,7 +852,7 @@ const AeroLandingPage = () => {
                 },
                 {
                   q: "How long is the trial?",
-                  a: "Every Aero device ships with a 30-day risk-free trial, free shipping, and a 2-year warranty.",
+                  a: "Every EnviroBiotics device ships with a 30-day risk-free trial, free shipping, and a 2-year warranty.",
                 },
               ].map((item, idx) => (
                 <AccordionItem key={idx} value={`q${idx}`}>
@@ -883,7 +883,7 @@ const AeroLandingPage = () => {
           <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
             <Reveal>
               <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-                EnviroBiotics Aero &middot; Save 10% with Code {PROMO}
+                EnviroBiotics &middot; Save 10% with Code {PROMO}
               </p>
               <h2 className="font-display text-[2.7rem] font-bold leading-[1.04] tracking-[-0.03em] text-foreground sm:text-6xl lg:text-[5rem] lg:leading-[1.02]">
                 Welcome to
@@ -901,7 +901,7 @@ const AeroLandingPage = () => {
                     size="lg"
                     className="h-14 rounded-full bg-foreground px-10 text-base font-semibold text-background hover:bg-foreground/90"
                   >
-                    Shop the Aero Offer
+                    Shop the EnviroBiotics Offer
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
@@ -924,7 +924,7 @@ const AeroLandingPage = () => {
             onClick={() => trackEvent("click_aero_sticky_mini")}
             className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background"
           >
-            Shop Aero &middot; Save 10% with {PROMO}
+            Shop EnviroBiotics &middot; Save 10% with {PROMO}
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>

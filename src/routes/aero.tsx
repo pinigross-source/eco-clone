@@ -5,7 +5,7 @@ export const Route = createFileRoute("/aero")({
   head: () => ({
     meta: [
       {
-        title: "EnviroBiotics Aero: Effortless, Probiotic Clean Air | EnviroBiotics",
+        title: "EnviroBiotics: Effortless, Probiotic Clean Air | EnviroBiotics",
       },
       {
         name: "description",
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/aero")({
       },
       {
         property: "og:title",
-        content: "EnviroBiotics Aero: Effortless, Probiotic Clean Air | EnviroBiotics",
+        content: "EnviroBiotics: Effortless, Probiotic Clean Air | EnviroBiotics",
       },
       {
         property: "og:description",
