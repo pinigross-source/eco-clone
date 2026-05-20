@@ -626,14 +626,12 @@ const PetsLandingPage = () => {
         <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6 lg:gap-8">
+              <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 lg:gap-8">
                 {[
                   { label: "Pet-safe" },
-                  { label: "Fragrance-free" },
                   { label: "Family-safe" },
                   { label: "Whisper-quiet" },
                   { label: "Low-maintenance" },
-                  { label: "Ships free" },
                 ].map((b) => (
                   <div key={b.label} className="flex flex-col items-start gap-2">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
