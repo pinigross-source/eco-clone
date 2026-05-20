@@ -836,7 +836,7 @@ const ParentsLandingPage = () => {
         {/* ============ 10. FINAL CTA ============ */}
         <section className="relative overflow-hidden bg-[hsl(var(--primary-soft))] py-20 sm:py-28 lg:py-40">
           <img
-            src={familyImg}
+            src={heroImg}
             alt=""
             aria-hidden
             className="absolute inset-0 h-full w-full object-cover opacity-20"
