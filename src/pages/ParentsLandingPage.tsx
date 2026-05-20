@@ -658,14 +658,16 @@ const ParentsLandingPage = () => {
                     </span>
                   </div>
                 </div>
-                <div className="flex flex-col justify-center gap-6 p-6 sm:p-14 lg:p-16">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
-                    Why parents pick us
-                  </p>
-                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.6rem]">
-                    Why parents pick us over another filter.
-                  </h2>
-                  <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div className="flex flex-col justify-center gap-7 p-6 sm:gap-8 sm:p-14 lg:p-16">
+                  <div>
+                    <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+                      Why parents pick us
+                    </p>
+                    <h2 className="font-display text-[1.95rem] font-bold leading-[1.08] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.6rem]">
+                      Why parents pick us over another filter.
+                    </h2>
+                  </div>
+                  <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7">
                     {[
                       {
                         icon: Sparkles,
@@ -690,15 +692,15 @@ const ParentsLandingPage = () => {
                     ].map((pillar) => {
                       const Icon = pillar.icon;
                       return (
-                        <li key={pillar.label} className="flex gap-3">
-                          <div className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-primary/15 text-primary">
-                            <Icon className="h-4 w-4" strokeWidth={2.5} />
+                        <li key={pillar.label} className="flex gap-4">
+                          <div className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-primary/15 text-primary">
+                            <Icon className="h-5 w-5" strokeWidth={2.25} />
                           </div>
                           <div>
-                            <div className="text-sm font-semibold text-foreground">
+                            <div className="text-[15px] font-semibold text-foreground sm:text-base">
                               {pillar.label}
                             </div>
-                            <div className="mt-1 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                            <div className="mt-1.5 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
                               {pillar.copy}
                             </div>
                           </div>
@@ -712,7 +714,7 @@ const ParentsLandingPage = () => {
                   >
                     <Button
                       size="lg"
-                      className="h-12 rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+                      className="h-[3.25rem] rounded-full bg-primary px-8 text-[15px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.6)] hover:bg-primary/90"
                     >
                       Protect Their Room
                       <ArrowRight className="ml-2 h-4 w-4" />
