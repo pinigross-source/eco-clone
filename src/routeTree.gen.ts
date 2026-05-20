@@ -27,6 +27,7 @@ import { Route as ProbioticVsChemicalRouteImport } from './routes/probiotic-vs-c
 import { Route as ProbioticAirPurificationRouteImport } from './routes/probiotic-air-purification'
 import { Route as ProSubscriptionRouteImport } from './routes/pro-subscription'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as PetsRouteImport } from './routes/pets'
 import { Route as PetDanderRouteImport } from './routes/pet-dander'
 import { Route as PaymentSuccessRouteImport } from './routes/payment-success'
 import { Route as ParentsRouteImport } from './routes/parents'
@@ -165,6 +166,11 @@ const ProSubscriptionRoute = ProSubscriptionRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PetsRoute = PetsRouteImport.update({
+  id: '/pets',
+  path: '/pets',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PetDanderRoute = PetDanderRouteImport.update({
@@ -448,6 +454,7 @@ export interface FileRoutesByFullPath {
   '/parents': typeof ParentsRoute
   '/payment-success': typeof PaymentSuccessRoute
   '/pet-dander': typeof PetDanderRoute
+  '/pets': typeof PetsRoute
   '/privacy': typeof PrivacyRoute
   '/pro-subscription': typeof ProSubscriptionRoute
   '/probiotic-air-purification': typeof ProbioticAirPurificationRoute
@@ -516,6 +523,7 @@ export interface FileRoutesByTo {
   '/parents': typeof ParentsRoute
   '/payment-success': typeof PaymentSuccessRoute
   '/pet-dander': typeof PetDanderRoute
+  '/pets': typeof PetsRoute
   '/privacy': typeof PrivacyRoute
   '/pro-subscription': typeof ProSubscriptionRoute
   '/probiotic-air-purification': typeof ProbioticAirPurificationRoute
@@ -585,6 +593,7 @@ export interface FileRoutesById {
   '/parents': typeof ParentsRoute
   '/payment-success': typeof PaymentSuccessRoute
   '/pet-dander': typeof PetDanderRoute
+  '/pets': typeof PetsRoute
   '/privacy': typeof PrivacyRoute
   '/pro-subscription': typeof ProSubscriptionRoute
   '/probiotic-air-purification': typeof ProbioticAirPurificationRoute
@@ -655,6 +664,7 @@ export interface FileRouteTypes {
     | '/parents'
     | '/payment-success'
     | '/pet-dander'
+    | '/pets'
     | '/privacy'
     | '/pro-subscription'
     | '/probiotic-air-purification'
@@ -723,6 +733,7 @@ export interface FileRouteTypes {
     | '/parents'
     | '/payment-success'
     | '/pet-dander'
+    | '/pets'
     | '/privacy'
     | '/pro-subscription'
     | '/probiotic-air-purification'
@@ -791,6 +802,7 @@ export interface FileRouteTypes {
     | '/parents'
     | '/payment-success'
     | '/pet-dander'
+    | '/pets'
     | '/privacy'
     | '/pro-subscription'
     | '/probiotic-air-purification'
@@ -860,6 +872,7 @@ export interface RootRouteChildren {
   ParentsRoute: typeof ParentsRoute
   PaymentSuccessRoute: typeof PaymentSuccessRoute
   PetDanderRoute: typeof PetDanderRoute
+  PetsRoute: typeof PetsRoute
   PrivacyRoute: typeof PrivacyRoute
   ProSubscriptionRoute: typeof ProSubscriptionRoute
   ProbioticAirPurificationRoute: typeof ProbioticAirPurificationRoute
@@ -1014,6 +1027,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pets': {
+      id: '/pets'
+      path: '/pets'
+      fullPath: '/pets'
+      preLoaderRoute: typeof PetsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pet-dander': {
@@ -1418,6 +1438,7 @@ const rootRouteChildren: RootRouteChildren = {
   ParentsRoute: ParentsRoute,
   PaymentSuccessRoute: PaymentSuccessRoute,
   PetDanderRoute: PetDanderRoute,
+  PetsRoute: PetsRoute,
   PrivacyRoute: PrivacyRoute,
   ProSubscriptionRoute: ProSubscriptionRoute,
   ProbioticAirPurificationRoute: ProbioticAirPurificationRoute,
