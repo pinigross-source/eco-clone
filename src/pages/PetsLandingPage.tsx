@@ -1,6 +1,23 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Star, ShieldCheck, Leaf, Clock, Heart } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  ShieldCheck,
+  Leaf,
+  Clock,
+  Heart,
+  BedDouble,
+  Sofa,
+  Home as HomeIcon,
+  PawPrint,
+  Box,
+  Layers,
+  Volume2,
+  Sparkles,
+  Filter,
+  Dot,
+} from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
@@ -82,6 +99,7 @@ type ProductCardProps = {
   highlight?: boolean;
   ctaText: string;
   offerNote?: string;
+  starterNote?: string;
   onClick: () => void;
 };
 
@@ -97,6 +115,7 @@ const ProductCard = ({
   highlight,
   ctaText,
   offerNote,
+  starterNote,
   onClick,
 }: ProductCardProps) => (
   <div
@@ -128,6 +147,11 @@ const ProductCard = ({
         <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
           {name}
         </h3>
+        {starterNote && (
+          <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+            {starterNote}
+          </p>
+        )}
         {description && (
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p>
         )}
@@ -187,8 +211,8 @@ const PetsLandingPage = () => {
   return (
     <>
       <SEOHead
-        title="Probiotic Air & Surface Care for Pet Homes | EnviroBiotics"
-        description="Tackle pet dander, odors, and microbes on beds, sofas, and floors. Chemical-free, safe for cats, dogs, and the whole family. Save 10% with code PETS."
+        title="Probiotic Surface Support for Pet Homes | EnviroBiotics"
+        description="A pet air purifier helps the air. EnviroBiotics adds surface-focused support for pet beds, sofas, rugs, crates, and floors. Save 10% with code PETS."
         path="/pets"
       />
 
@@ -205,7 +229,6 @@ const PetsLandingPage = () => {
             width={1920}
             height={1080}
           />
-          {/* Soft cream wash behind text only — keeps image bright */}
           <div
             aria-hidden
             className="absolute inset-0 bg-gradient-to-t from-[#f7f3ec]/85 via-[#f7f3ec]/35 to-transparent sm:bg-gradient-to-r sm:from-[#f7f3ec]/90 sm:via-[#f7f3ec]/40 sm:via-40% sm:to-transparent"
@@ -219,8 +242,8 @@ const PetsLandingPage = () => {
                 </p>
               </Reveal>
               <Reveal>
-                <h1 className="font-display font-bold tracking-[-0.03em] text-foreground text-[clamp(1.875rem,7vw,2.25rem)] leading-[1.08] sm:text-[clamp(2.375rem,4.4vw,2.875rem)] sm:leading-[1.06] lg:text-[clamp(2.875rem,3.6vw,3.5rem)] lg:leading-[1.05]">
-                  Your home smells clean.
+                <h1 className="font-display font-bold tracking-[-0.03em] text-foreground text-[clamp(2.125rem,7.5vw,2.5rem)] leading-[1.06] sm:text-[clamp(2.875rem,5vw,3.375rem)] sm:leading-[1.05] lg:text-[clamp(3.625rem,4.4vw,4.375rem)] lg:leading-[1.04]">
+                  The air feels clean.
                   <br />
                   But filters can&apos;t reach
                   <br />
@@ -228,10 +251,10 @@ const PetsLandingPage = () => {
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mx-auto mt-5 max-w-[34rem] text-[1rem] font-medium leading-[1.6] text-foreground/85 sm:mx-0 sm:mt-6 sm:max-w-[37.5rem] sm:text-[1.1rem] sm:leading-[1.6] lg:text-[1.2rem]">
-                  EnviroBiotics releases beneficial probiotics that travel through the room and
-                  settle on pet beds, sofas, rugs, and floors, working 24/7 on the surfaces your
-                  animals actually live on.
+                <p className="mx-auto mt-5 max-w-[34rem] text-[1rem] font-medium leading-[1.6] text-foreground/85 sm:mx-0 sm:mt-6 sm:max-w-[38.75rem] sm:text-[1.1rem] sm:leading-[1.6] lg:text-[1.15rem]">
+                  EnviroBiotics disperses beneficial probiotics that travel through the room and
+                  settle on pet beds, sofas, rugs, crates, and floors &mdash; the surfaces your
+                  pets actually live on.
                 </p>
               </Reveal>
               <Reveal>
@@ -260,19 +283,18 @@ const PetsLandingPage = () => {
               </Reveal>
               <Reveal>
                 <p className="mt-7 text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-8 sm:text-[13px]">
-                  Use code <span className="font-bold text-primary">{PROMO}</span> for 10% off · Safe for cats &amp; dogs · 30-day risk-free trial
+                  Use code <span className="font-bold text-primary">{PROMO}</span> for 10% off · 30-day risk-free trial · No ozone · No harsh chemicals
                 </p>
               </Reveal>
             </div>
           </div>
         </section>
 
-
         {/* ============ 2. STATS STRIP ============ */}
-        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-28">
+        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-24">
           <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-6 px-5 sm:grid-cols-3 sm:gap-8 sm:px-10 lg:px-16">
             {[
-              { n: "24/7", label: "Surface protection" },
+              { n: "24/7", label: "Surface-focused support" },
               { n: "300 sq ft", label: "Per-room coverage" },
               { n: "30-day", label: "Risk-free trial" },
             ].map((s) => (
@@ -290,8 +312,110 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 3. THE PROBLEM ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-40">
+        {/* ============ 3. DIRECT COMPARISON ============ */}
+        <section className="bg-background py-14 sm:py-24 lg:py-32">
+          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
+            <Reveal>
+              <div className="mx-auto max-w-2xl text-center">
+                <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
+                  What Your Pet Purifier Can&apos;t Reach
+                </p>
+                <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.75rem] lg:text-[3.25rem] lg:leading-[1.05]">
+                  A pet purifier helps the air.
+                  <br />
+                  <span className="text-primary">Pets live on everything else.</span>
+                </h2>
+                <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
+                  Pet hair, dander, and odors do not stay in the air. They settle into beds, blankets, sofas, rugs, crates, and floors. EnviroBiotics adds a surface-focused layer of support where filters cannot directly work.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="mt-12 grid grid-cols-1 gap-5 sm:mt-14 lg:grid-cols-2 lg:gap-7">
+              {/* Purifier column */}
+              <Reveal>
+                <div className="flex h-full flex-col rounded-3xl bg-card p-7 ring-1 ring-black/[0.06] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.16)] sm:p-9">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted text-muted-foreground">
+                      <Filter className="h-5 w-5" strokeWidth={2} />
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-foreground sm:text-2xl">
+                      Traditional Pet Air Purifier
+                    </h3>
+                  </div>
+                  <ul className="mt-6 flex flex-1 flex-col gap-4">
+                    {[
+                      "Pulls airborne particles through a filter",
+                      "Helps with air near the device",
+                      "Focuses on airborne fur, dander, and odors",
+                      "Requires filter replacement and cleaning",
+                      "Does not directly support pet beds, sofas, rugs, or floors",
+                    ].map((row) => (
+                      <li
+                        key={row}
+                        className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-muted-foreground"
+                      >
+                        <Dot className="mt-0.5 h-5 w-5 flex-none text-muted-foreground/60" strokeWidth={4} />
+                        <span>{row}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+
+              {/* EnviroBiotics column */}
+              <Reveal>
+                <div className="relative flex h-full flex-col rounded-3xl bg-card p-7 ring-2 ring-primary/40 shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.35)] sm:p-9">
+                  <div className="absolute -top-3 left-7 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary-foreground">
+                    The Missing Layer
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                      <Sparkles className="h-5 w-5" strokeWidth={2.2} />
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-foreground sm:text-2xl">
+                      EnviroBiotics
+                    </h3>
+                  </div>
+                  <ul className="mt-6 flex flex-1 flex-col gap-4">
+                    {[
+                      "Travels through the room and settles on surfaces",
+                      "Supports pet beds, sofas, rugs, crates, and floors",
+                      "Adds a layer of support between regular cleanings",
+                      "Uses probiotic cartridges",
+                      "Helps maintain a fresher-feeling pet home",
+                    ].map((row) => (
+                      <li
+                        key={row}
+                        className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-foreground/85"
+                      >
+                        <Check className="mt-0.5 h-5 w-5 flex-none text-primary" strokeWidth={2.6} />
+                        <span>{row}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            </div>
+
+            <Reveal>
+              <div className="mt-10 flex justify-center sm:mt-12">
+                <a href="#products" onClick={() => trackEvent("click_pets_compare_cta")}>
+                  <Button
+                    size="lg"
+                    className="h-14 rounded-full bg-primary px-9 text-[15px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.55)] hover:bg-primary/90"
+                  >
+                    Protect the Places Filters Miss
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ============ 4. PET BED STORY + ZONE CARDS ============ */}
+        <section className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.24)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.28)]">
@@ -301,8 +425,8 @@ const PetsLandingPage = () => {
                   className="h-64 w-full object-cover sm:h-[clamp(360px,52vw,560px)]"
                   loading="lazy"
                 />
-                <div className="hidden sm:absolute sm:inset-0 sm:block sm:bg-gradient-to-r sm:from-background sm:via-background/70 sm:to-transparent" />
-                <div className="relative flex w-full flex-col justify-center p-6 sm:absolute sm:inset-y-0 sm:left-0 sm:max-w-[460px] sm:p-12 lg:p-16">
+                <div className="hidden sm:absolute sm:inset-0 sm:block sm:bg-gradient-to-r sm:from-card sm:via-card/80 sm:to-transparent" />
+                <div className="relative flex w-full flex-col justify-center p-6 sm:absolute sm:inset-y-0 sm:left-0 sm:max-w-[480px] sm:p-12 lg:p-16">
                   <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
                     What Your HEPA Can&apos;t Reach
                   </p>
@@ -312,9 +436,7 @@ const PetsLandingPage = () => {
                     But the pet bed tells a different story.
                   </h2>
                   <p className="mt-4 text-[0.95rem] font-medium leading-relaxed text-foreground/85 sm:mt-5 sm:text-base">
-                    Dander, fur, tracked-in dirt, and odor-causing microbes settle into pet beds,
-                    sofas, rugs, and floors, the surfaces filters never touch. EnviroBiotics works
-                    where pets actually live.
+                    Fur, tracked-in dirt, organic residue, and pet odors settle into the places your pet uses most. EnviroBiotics works where pets actually live &mdash; on pet beds, sofas, rugs, crates, blankets, and floors.
                   </p>
                   <a
                     href="#how-it-works"
@@ -327,39 +449,84 @@ const PetsLandingPage = () => {
               </div>
             </Reveal>
 
-            <div className="mt-5 grid grid-cols-1 gap-4 sm:mt-6 sm:grid-cols-2 sm:gap-6">
+            {/* Surface zone cards */}
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:grid-cols-3 sm:gap-5 lg:grid-cols-6">
+              {[
+                { icon: BedDouble, title: "Pet Beds", copy: "Where fur, oils, and everyday pet odors build up." },
+                { icon: Sofa, title: "Sofas", copy: "For the shared spaces pets and people use together." },
+                { icon: Layers, title: "Rugs", copy: "Where paws, hair, and daily pet life settle." },
+                { icon: HomeIcon, title: "Floors", copy: "Support for the surfaces pets walk, nap, and play on." },
+                { icon: Box, title: "Crates", copy: "Another layer for enclosed pet rest areas." },
+                { icon: PawPrint, title: "Litter Areas", copy: "Surface-focused support around high-use pet zones." },
+              ].map((zone) => {
+                const Icon = zone.icon;
+                return (
+                  <Reveal key={zone.title}>
+                    <div className="flex h-full flex-col gap-3 rounded-2xl bg-card p-4 ring-1 ring-black/[0.05] shadow-[0_10px_30px_-18px_rgba(0,0,0,0.18)] sm:p-5">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                        <Icon className="h-4.5 w-4.5 h-[18px] w-[18px]" strokeWidth={2.2} />
+                      </div>
+                      <div>
+                        <div className="text-[0.95rem] font-semibold text-foreground">{zone.title}</div>
+                        <p className="mt-1 text-[12.5px] leading-snug text-muted-foreground">
+                          {zone.copy}
+                        </p>
+                      </div>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ============ 5. SURFACE ZONES (3 BIG CARDS) ============ */}
+        <section className="bg-background py-14 sm:py-24 lg:py-32">
+          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
+            <Reveal>
+              <div className="max-w-2xl">
+                <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.875rem]">
+                  Pet mess does not stay in the air.
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-lg">
+                  It settles into the soft surfaces, corners, and favorite spots your pets return to every day.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
               {[
                 {
-                  img: petSofaImg,
-                  title: "The Sofa &amp; Rugs",
+                  img: petBedImg,
+                  title: "Pet Beds & Crates",
                   caption:
-                    "Help support a fresher living room on the upholstery, throws, and floors where pets nap and shed all day.",
+                    "Support the spaces where pets sleep, shed, and spend hours every day.",
+                },
+                {
+                  img: petSofaImg,
+                  title: "Sofas & Rugs",
+                  caption:
+                    "Help maintain a fresher-feeling living space on upholstery, throws, and floors.",
                 },
                 {
                   img: petScandiImg,
                   title: "The Whole Home",
                   caption:
-                    "A gentle, chemical-free approach to caring for the spaces your pets, and your family, share.",
+                    "Add surface-focused support to the rooms your pets and family share.",
                 },
               ].map((item) => (
                 <Reveal key={item.title}>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl sm:aspect-[5/3]">
+                  <div className="group relative aspect-[5/4] w-full overflow-hidden rounded-2xl shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]">
                     <img
                       src={item.img}
-                      alt=""
-                      className="h-full w-full object-cover"
+                      alt={item.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 text-white sm:bottom-5 sm:left-6 sm:right-6">
-                      <p
-                        className="text-base font-semibold sm:text-lg"
-                        dangerouslySetInnerHTML={{ __html: item.title }}
-                      />
-                      <p
-                        className="mt-1 text-xs leading-snug text-white/85 sm:text-sm"
-                        dangerouslySetInnerHTML={{ __html: item.caption }}
-                      />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/75 via-foreground/15 to-transparent" />
+                    <div className="absolute bottom-5 left-5 right-5 text-background">
+                      <p className="text-lg font-semibold">{item.title}</p>
+                      <p className="mt-1 text-sm leading-snug text-background/90">{item.caption}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -368,20 +535,21 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 4. HOW IT WORKS ============ */}
-        <section id="how-it-works" className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-40">
+        {/* ============ 6. HOW IT WORKS ============ */}
+        <section id="how-it-works" className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
                   How It Works
                 </p>
-                <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
-                  Friendly probiotics. Every surface. All day.
+                <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
+                  Friendly probiotics.
+                  <br />
+                  Every surface. All day.
                 </h2>
                 <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  A simple, pet-safe system that goes beyond a filter to care for the rooms your
-                  animals spend the most time in.
+                  A simple surface-focused system that goes beyond a filter to support the rooms your animals spend the most time in.
                 </p>
               </div>
             </Reveal>
@@ -391,17 +559,17 @@ const PetsLandingPage = () => {
                 {
                   step: "01",
                   title: "Disperse",
-                  copy: "The device quietly releases a fine mist of beneficial environmental probiotics into the room throughout the day.",
+                  copy: "The device quietly disperses beneficial environmental probiotics into the room throughout the day.",
                 },
                 {
                   step: "02",
-                  title: "Colonize",
-                  copy: "Probiotics settle on pet beds, sofas, rugs, floors, and litter-area surfaces, the places pets actually live.",
+                  title: "Settle",
+                  copy: "They travel through the air and settle on pet beds, sofas, rugs, floors, crates, and everyday surfaces.",
                 },
                 {
                   step: "03",
-                  title: "Protect 24/7",
-                  copy: "They keep competing with allergens, dander, and odor-causing microbes around the clock, naturally, no chemicals required.",
+                  title: "Support",
+                  copy: "They help maintain a fresher surface environment between regular cleaning, vacuuming, and filtration.",
                 },
               ].map((item) => (
                 <li key={item.step} className="border-t border-foreground/15 pt-6">
@@ -411,37 +579,37 @@ const PetsLandingPage = () => {
                   <h3 className="mt-3 text-xl font-semibold text-foreground sm:text-2xl">
                     {item.title}
                   </h3>
-                  <p
-                    className="mt-2 text-base leading-relaxed text-muted-foreground"
-                    dangerouslySetInnerHTML={{ __html: item.copy }}
-                  />
+                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+                    {item.copy}
+                  </p>
                 </li>
               ))}
             </ol>
 
             <Reveal>
               <p className="mt-12 max-w-3xl text-sm italic leading-relaxed text-muted-foreground sm:text-base">
-                Air purifiers only treat the air passing through a filter. EnviroBiotics keeps
-                working on the air <em>and</em> every surface your pets touch.
+                EnviroBiotics does not replace cleaning, ventilation, or air filtration. It adds another layer of support for the surfaces pets use most.
               </p>
             </Reveal>
           </div>
         </section>
 
-        {/* ============ 5. PRODUCTS ============ */}
-        <section id="products" className="bg-background py-14 sm:py-24 lg:py-40">
+        {/* ============ 7. PRODUCTS ============ */}
+        <section id="products" className="bg-background py-14 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
                   Choose Your Device
                 </p>
-                <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
+                <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
                   Pick the protection for their favorite spot.
                 </h2>
-                <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  The Mini is purpose-built for bedrooms and pet zones. Save 10% on any device with
-                  code <span className="font-semibold text-foreground">{PROMO}</span> at checkout.
+                <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
+                  Start with one pet bed, one bedroom, or one favorite corner. Add more coverage whenever your home needs it.
+                </p>
+                <p className="mx-auto mt-3 max-w-md text-sm font-semibold text-primary">
+                  Use code {PROMO} for 10% off at checkout.
                 </p>
               </div>
             </Reveal>
@@ -451,7 +619,8 @@ const PetsLandingPage = () => {
                 <ProductCard
                   name="BioLogic Mini"
                   tagline="Pet Pick · Bedrooms & Pet Zones"
-                  description="A compact, quiet probiotic device sized for bedrooms, pet zones, and the corners where your animal naps."
+                  starterNote="Best starter choice"
+                  description="A compact, quiet probiotic device sized for bedrooms, pet zones, crates, and the corners where your animals nap."
                   price="$98"
                   image={miniImg}
                   href={LINKS.mini}
@@ -460,10 +629,10 @@ const PetsLandingPage = () => {
                   offerNote={`Use code ${PROMO} for 10% off.`}
                   onClick={trackMini}
                   features={[
-                    "Covers up to 300 sq. ft., perfect for a pet zone",
-                    "Whisper-quiet, won't spook cats or dogs",
-                    "Safe to run around pets and the whole family",
-                    "Helps care for pet beds, blankets, and crates",
+                    "Covers up to 300 sq ft, ideal for one pet zone",
+                    "Quiet enough for bedrooms and shared spaces",
+                    "Designed for homes with pets and family",
+                    "Helps support pet beds, blankets, crates, and floors",
                   ]}
                 />
               </Reveal>
@@ -471,7 +640,7 @@ const PetsLandingPage = () => {
                 <ProductCard
                   name="Home Bundle"
                   tagline="Best Value · Whole Home"
-                  description="Cover the living room, the bedroom, and every pet zone with the best-value bundle for multi-pet homes."
+                  description="Cover the living room, bedroom, and every pet zone with the best-value bundle for multi-pet homes."
                   price="$399"
                   image={bundleImg}
                   href={LINKS.bundle}
@@ -479,9 +648,9 @@ const PetsLandingPage = () => {
                   offerNote={`Use code ${PROMO} for 10% off.`}
                   onClick={trackBundle}
                   features={[
-                    "Multi-room coverage for multi-pet homes",
-                    "Living room, bedroom, mudroom, and more",
-                    "Consistent freshness wherever they roam",
+                    "Multi-room coverage for pet homes",
+                    "Great for living rooms, bedrooms, mudrooms, and more",
+                    "Consistent support wherever pets roam",
                     "Best per-room value",
                   ]}
                 />
@@ -490,7 +659,7 @@ const PetsLandingPage = () => {
                 <ProductCard
                   name="Biotica 800"
                   tagline="Best for Open Living Areas"
-                  description="A powerful device for great rooms, basements, and open layouts where pets and people gather."
+                  description="A powerful device for larger rooms, basements, and open layouts where pets and people gather."
                   price="$299"
                   image={bioticaImg}
                   href={LINKS.biotica}
@@ -498,33 +667,39 @@ const PetsLandingPage = () => {
                   offerNote={`Use code ${PROMO} for 10% off.`}
                   onClick={trackBiotica}
                   features={[
-                    "Covers up to 800 sq. ft.",
+                    "Covers up to 800 sq ft",
                     "Great for open-plan homes with multiple pets",
                     "Stronger coverage for high-shed, high-traffic spaces",
-                    "Helps support fresher sofas, rugs, and bedding",
+                    "Helps support sofas, rugs, bedding, and floors",
                   ]}
                 />
               </Reveal>
             </div>
+
+            <Reveal>
+              <p className="mx-auto mt-10 max-w-xl text-center text-sm italic text-muted-foreground sm:text-base">
+                Less than the price of many pet air purifiers. Built for the surfaces they miss.
+              </p>
+            </Reveal>
           </div>
         </section>
 
-        {/* ============ 6. THE EDGE ============ */}
-        <section className="bg-[hsl(var(--primary-soft))] py-14 sm:py-24 lg:py-40">
+        {/* ============ 8. PROOF & TRUST ============ */}
+        <section className="bg-[hsl(var(--primary-soft))] py-14 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.18)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.18)] lg:grid-cols-2">
                 <div className="relative min-h-[280px] bg-muted sm:min-h-[420px]">
                   <img
                     src={endorsementImg}
-                    alt="Happy dog owner at home with EnviroBiotics"
+                    alt="A pet owner relaxing on a light sofa with their dog in a bright Scandinavian home"
                     className="absolute inset-0 h-full w-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-black/10 bg-white/85 px-4 py-2 backdrop-blur sm:bottom-6 sm:left-6">
+                  <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-black/10 bg-white/90 px-4 py-2 backdrop-blur sm:bottom-6 sm:left-6">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                     <span className="text-xs font-semibold text-foreground">
-                      EPA · FDA GRAS · MADE SAFE
+                      No ozone · No harsh chemicals
                     </span>
                   </div>
                 </div>
@@ -532,30 +707,30 @@ const PetsLandingPage = () => {
                   <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:text-[11px] sm:tracking-[0.32em]">
                     The EnviroBiotics Edge
                   </p>
-                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.75rem]">
-                    Why pet parents pick us over a filter.
+                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.5rem]">
+                    Why pet parents pick us over another filter.
                   </h2>
                   <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     {[
                       {
-                        icon: Heart,
-                        label: "Safe for cats &amp; dogs",
-                        copy: "Designed to run safely around pets and the whole family.",
+                        icon: Layers,
+                        label: "Beyond the air",
+                        copy: "Supports pet beds, sofas, rugs, crates, floors, and the surfaces pets use every day &mdash; not only air passing through a device.",
                       },
                       {
                         icon: Leaf,
-                        label: "Zero harsh chemicals",
-                        copy: "Probiotic-based, fragrance-free, MADE SAFE certified.",
+                        label: "No harsh chemicals",
+                        copy: "A probiotic-based approach without bleach, ozone, or strong fragrance.",
                       },
                       {
-                        icon: Clock,
-                        label: "Works 24/7 on surfaces",
-                        copy: "Goes beyond air to pet beds, sofas, rugs, and floors.",
+                        icon: Heart,
+                        label: "Built for pet homes",
+                        copy: "Designed for use in homes with cats, dogs, and family members when used as directed.",
                       },
                       {
                         icon: ShieldCheck,
-                        label: "FDA GRAS probiotic strains",
-                        copy: "Backed by recognized safety standards and EPA review.",
+                        label: "Easy to try",
+                        copy: `Start with one room, use code ${PROMO} for 10% off, and test it for 30 days risk-free.`,
                       },
                     ].map((pillar) => {
                       const Icon = pillar.icon;
@@ -565,26 +740,41 @@ const PetsLandingPage = () => {
                             <Icon className="h-4 w-4" strokeWidth={2.5} />
                           </div>
                           <div>
-                            <div
-                              className="text-sm font-semibold text-foreground"
-                              dangerouslySetInnerHTML={{ __html: pillar.label }}
-                            />
-                            <div className="mt-1 text-xs leading-relaxed text-muted-foreground sm:text-sm">
-                              {pillar.copy}
+                            <div className="text-sm font-semibold text-foreground">
+                              {pillar.label}
                             </div>
+                            <div
+                              className="mt-1 text-xs leading-relaxed text-muted-foreground sm:text-sm"
+                              dangerouslySetInnerHTML={{ __html: pillar.copy }}
+                            />
                           </div>
                         </li>
                       );
                     })}
                   </ul>
+                  <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground">
+                    <span>No ozone</span>
+                    <span className="text-muted-foreground/40">·</span>
+                    <span>No harsh chemicals</span>
+                    <span className="text-muted-foreground/40">·</span>
+                    <span>30-day risk-free trial</span>
+                    <span className="text-muted-foreground/40">·</span>
+                    <span>Designed for pet homes</span>
+                  </div>
                   <a href="#products" onClick={() => trackEvent("click_pets_edge_cta")}>
                     <Button
                       size="lg"
-                      className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
+                      className="h-12 rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
                     >
                       Claim 10% Off
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
+                  </a>
+                  <a
+                    href="/safety"
+                    className="text-xs font-semibold text-muted-foreground underline-offset-4 hover:text-primary hover:underline"
+                  >
+                    View safety and certification details
                   </a>
                 </div>
               </div>
@@ -592,29 +782,33 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 7. TESTIMONIALS ============ */}
+        {/* ============ 9. TRUST ALTERNATIVE (no fake reviews) ============ */}
         <section className="bg-background py-14 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <h2 className="font-display text-[2rem] font-bold leading-tight tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
-                What pet parents are saying.
-              </h2>
-              <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-                Real reviews coming soon.
-              </p>
+              <div className="max-w-2xl">
+                <h2 className="font-display text-[2rem] font-bold leading-tight tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.875rem]">
+                  Built for pet homes like yours.
+                </h2>
+                <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+                  Start with the room where your pet spends the most time.
+                </p>
+              </div>
             </Reveal>
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 lg:grid-cols-3 lg:gap-6">
-              {[0, 1, 2].map((i) => (
-                <Reveal key={i}>
-                  <div className="flex h-full flex-col gap-4 rounded-2xl border border-dashed border-border bg-card/50 p-5 sm:gap-5 sm:p-7">
-                    <div className="flex gap-0.5 text-muted-foreground/40">
-                      {[0, 1, 2, 3, 4].map((s) => (
-                        <Star key={s} className="h-4 w-4" />
-                      ))}
+            <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+              {[
+                { title: "Dog Homes", copy: "For beds, rugs, sofas, and the corners dogs return to every day." },
+                { title: "Cat Homes", copy: "For litter-area surfaces, blankets, cat beds, and favorite sunny spots." },
+                { title: "Multi-Pet Homes", copy: "For rooms where fur, odors, and everyday pet life build up faster." },
+                { title: "Shared Family Spaces", copy: "For the sofas, rugs, and floors pets and people use together." },
+              ].map((card) => (
+                <Reveal key={card.title}>
+                  <div className="flex h-full flex-col gap-3 rounded-2xl bg-card p-6 ring-1 ring-black/[0.06] shadow-[0_20px_50px_-30px_rgba(0,0,0,0.18)] sm:p-7">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                      <PawPrint className="h-5 w-5" strokeWidth={2.2} />
                     </div>
-                    <p className="flex-1 text-sm italic leading-relaxed text-muted-foreground">
-                      No reviews yet.
-                    </p>
+                    <h3 className="text-lg font-semibold text-foreground">{card.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{card.copy}</p>
                   </div>
                 </Reveal>
               ))}
@@ -622,72 +816,96 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 8. FEATURE ICONS ============ */}
-        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-24">
+        {/* ============ 10. TRUST ICON STRIP ============ */}
+        <section className="bg-[#F5F3EE] py-12 sm:py-20">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 lg:gap-8">
                 {[
-                  { label: "Pet-safe" },
-                  { label: "Family-safe" },
-                  { label: "Whisper-quiet" },
-                  { label: "Low-maintenance" },
-                ].map((b) => (
-                  <div key={b.label} className="flex flex-col items-start gap-2">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
-                      <Check className="h-5 w-5" strokeWidth={3} />
+                  { icon: PawPrint, label: "Pet-home friendly", copy: "Designed for homes with cats and dogs when used as directed." },
+                  { icon: Heart, label: "Family-home friendly", copy: "Made for shared spaces where people and pets live together." },
+                  { icon: Volume2, label: "Whisper-quiet", copy: "Designed to run quietly in the background." },
+                  { icon: Sparkles, label: "Low-maintenance", copy: "Simple cartridge-based support for everyday use." },
+                ].map((b) => {
+                  const Icon = b.icon;
+                  return (
+                    <div key={b.label} className="flex flex-col items-start gap-3">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                        <Icon className="h-5 w-5" strokeWidth={2.2} />
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-foreground sm:text-base">
+                          {b.label}
+                        </div>
+                        <p className="mt-1 text-xs leading-snug text-muted-foreground sm:text-[13px]">
+                          {b.copy}
+                        </p>
+                      </div>
                     </div>
-                    <div className="text-sm font-semibold text-foreground sm:text-base">
-                      {b.label}
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </Reveal>
           </div>
         </section>
 
-        {/* ============ 9. FAQ ============ */}
+        {/* ============ 11. FAQ ============ */}
         <section className="bg-background py-14 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-3xl px-5 sm:px-10">
             <Reveal>
-              <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
+              <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.75rem]">
                 Pet parent questions, answered.
               </h2>
             </Reveal>
             <Accordion type="single" collapsible className="mt-10 w-full">
               {[
                 {
-                  q: "Is it safe to run around cats and dogs?",
-                  a: "Yes. EnviroBiotics is fragrance-free, chemical-free, and uses FDA GRAS probiotic strains. It's designed to run safely in homes with cats, dogs, and small animals. Always follow product instructions.",
+                  q: "Is EnviroBiotics safe to run around cats and dogs?",
+                  a: "EnviroBiotics is designed for use in homes with cats and dogs when used as directed. It uses beneficial environmental probiotics and does not rely on ozone, bleach, or harsh chemical sprays. Always follow the product instructions and keep cartridges and devices out of reach of pets and children.",
+                },
+                {
+                  q: "How is this different from a pet air purifier?",
+                  a: "A pet air purifier filters air that passes through the device. EnviroBiotics disperses beneficial probiotics that travel through the room and settle on pet beds, sofas, rugs, crates, floors, and other surfaces. It is a surface-focused layer of support, not a replacement for filtration.",
                 },
                 {
                   q: "Will it help with pet odors?",
-                  a: "EnviroBiotics doesn't mask odors with fragrance. It releases beneficial probiotics that settle on pet beds, sofas, rugs, and floors, where they compete with odor-causing microbes around the clock. Most pet parents notice a fresher-smelling home within the first few days.",
+                  a: "EnviroBiotics helps support a fresher-feeling environment on the surfaces where pet odors and organic residue often settle. Results can vary by room, pet habits, cleaning routine, ventilation, and how consistently the device is used.",
                 },
                 {
                   q: "What about pet dander and allergies?",
-                  a: "Many pet households use EnviroBiotics to help support a cleaner environment on the surfaces where dander settles. If anyone in the home has known allergies, introduce gradually and consult your physician.",
+                  a: "Pet dander can settle into soft surfaces like bedding, sofas, rugs, and blankets. EnviroBiotics does not treat allergies or replace medical advice. It adds surface-focused support for the rooms pets use most and can be used alongside cleaning, vacuuming, and air filtration.",
                 },
                 {
                   q: "Does this replace my HEPA air purifier?",
-                  a: "No, they do different jobs. HEPA filters trap particles in the air that passes through them. EnviroBiotics releases beneficial probiotics that settle on the air and on every surface in the room. Many pet homes use both together.",
+                  a: "No. A HEPA air purifier can be helpful for airborne particles. EnviroBiotics supports the surfaces filters cannot directly reach. Many pet owners may choose to use both: a purifier for the air and EnviroBiotics for pet beds, sofas, rugs, crates, floors, and everyday surfaces.",
+                },
+                {
+                  q: "Does this replace cleaning or vacuuming?",
+                  a: "No. EnviroBiotics does not replace cleaning, vacuuming, washing pet beds, ventilation, or filtration. It adds another layer of support between regular cleanings.",
                 },
                 {
                   q: "How often do I need to refill it?",
-                  a: "Refill cycles depend on the device and room size. Most pet parents refill the BioLogic Mini every few weeks. The device makes it easy to tell when a refill is due.",
+                  a: "Refill timing depends on the device and usage settings. Please check the product instructions or cartridge details for the recommended replacement schedule.",
                 },
                 {
                   q: "When will I notice a difference?",
-                  a: "Many pet parents notice a fresher-smelling room within the first few days. Probiotic colonization on surfaces builds over time with consistent use.",
+                  a: "Some customers may notice a fresher-feeling room sooner, while others may need more time depending on room size, pet habits, airflow, cleaning routine, and product usage. For best results, use consistently in the room or pet zone where your animals spend the most time.",
+                },
+                {
+                  q: "Can I use it near a litter box or crate?",
+                  a: "Yes, EnviroBiotics can be used in rooms with litter areas, crates, pet beds, or other pet zones when used as directed. Place the device according to the product instructions and keep it out of reach of pets.",
+                },
+                {
+                  q: "What if I do not notice a difference?",
+                  a: "Start with one room and try it consistently. The page offer includes a 30-day risk-free trial, so you can test it in the pet zone that matters most.",
                 },
               ].map((item, idx) => (
                 <AccordionItem key={idx} value={`q${idx}`}>
-                  <AccordionTrigger className="text-left text-base font-medium">
+                  <AccordionTrigger className="text-left text-base font-medium sm:text-lg">
                     {item.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-muted-foreground">
-                    <span dangerouslySetInnerHTML={{ __html: item.a }} />
+                  <AccordionContent className="text-base leading-relaxed text-muted-foreground">
+                    {item.a}
                   </AccordionContent>
                 </AccordionItem>
               ))}
@@ -695,38 +913,36 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 10. FINAL CTA ============ */}
-        <section className="relative overflow-hidden bg-[hsl(var(--primary-soft))] py-16 sm:py-28 lg:py-44">
+        {/* ============ 12. FINAL CTA ============ */}
+        <section className="relative overflow-hidden bg-[hsl(var(--primary-soft))] py-16 sm:py-28 lg:py-40">
           <img
             src={familyImg}
             alt=""
             aria-hidden
-            className="absolute inset-0 h-full w-full object-cover opacity-25"
+            className="absolute inset-0 h-full w-full object-cover opacity-40"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary-soft))] via-[hsl(var(--primary-soft))]/80 to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary-soft))]/95 via-[hsl(var(--primary-soft))]/75 to-[hsl(var(--primary-soft))]/45"
           />
           <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
             <Reveal>
               <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-                Pet Parents Save 10% &middot; Code {PROMO}
+                Pet Parents Save 10% &middot; Code <span className="text-primary">{PROMO}</span>
               </p>
-              <h2 className="font-display text-[2.7rem] font-bold leading-[1.04] tracking-[-0.03em] text-foreground sm:text-6xl lg:text-[5rem] lg:leading-[1.02]">
-                A fresher home
+              <h2 className="font-display text-[2.5rem] font-bold leading-[1.04] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[4.25rem] lg:leading-[1.02]">
+                Protect the places
                 <br />
-                for you and them.
+                your pet actually lives.
               </h2>
-              <p className="mx-auto mt-5 max-w-lg text-base font-medium leading-relaxed text-foreground/85 sm:mt-6 sm:text-lg">
-                Probiotic protection for the air, pet beds, sofas, and every surface your animals
-                touch. Use code{" "}
-                <span className="font-bold text-foreground">{PROMO}</span> at checkout to save 10%.
+              <p className="mx-auto mt-5 max-w-xl text-base font-medium leading-relaxed text-foreground/85 sm:mt-6 sm:text-lg">
+                Start with one pet bed, one sofa, or one favorite corner. EnviroBiotics supports the surfaces filters cannot directly reach.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a href="#products" onClick={() => trackEvent("click_pets_final_shop")}>
                   <Button
                     size="lg"
-                    className="h-14 rounded-full bg-foreground px-10 text-base font-semibold text-background hover:bg-foreground/90"
+                    className="h-14 rounded-full bg-primary px-10 text-base font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.55)] hover:bg-primary/90"
                   >
                     Shop the Pet Offer
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -734,13 +950,14 @@ const PetsLandingPage = () => {
                 </a>
                 <a
                   href="#products"
-                  className="inline-flex h-14 items-center justify-center rounded-full border border-foreground/20 px-7 text-base font-medium text-foreground transition hover:bg-foreground/5"
+                  onClick={() => trackEvent("click_pets_final_compare")}
+                  className="inline-flex h-14 items-center justify-center rounded-full border border-foreground/25 bg-background/70 px-7 text-base font-semibold text-foreground backdrop-blur transition hover:bg-background"
                 >
                   Compare Devices
                 </a>
               </div>
               <p className="mt-8 text-sm font-medium text-foreground/75">
-                Use code <span className="font-bold text-foreground">{PROMO}</span> for 10% off ·
+                Use code <span className="font-bold text-primary">{PROMO}</span> for 10% off ·
                 30-day risk-free trial · Free shipping
               </p>
             </Reveal>
@@ -760,8 +977,8 @@ const PetsLandingPage = () => {
             <p className="text-xs text-muted-foreground">Pet parents exclusive</p>
           </div>
           <a href="#products" onClick={() => trackEvent("click_pets_sticky_shop")}>
-            <Button className="h-11 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-              Shop offer
+            <Button className="h-11 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
+              Shop the Pet Offer
             </Button>
           </a>
         </div>
