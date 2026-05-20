@@ -222,8 +222,9 @@ const PetsLandingPage = () => {
                 <h1 className="font-display font-bold tracking-[-0.03em] text-foreground text-[clamp(2.125rem,8vw,2.5rem)] leading-[1.05] sm:text-[clamp(2.875rem,5vw,3.375rem)] sm:leading-[1.04] lg:text-[clamp(3.625rem,4.5vw,4.375rem)] lg:leading-[1.02]">
                   Your home smells clean.
                   <br />
-                  But filters can&apos;t reach the{" "}
-                  <span className="text-primary">pet bed.</span>
+                  But filters can&apos;t reach
+                  <br />
+                  the <span className="text-primary">pet bed.</span>
                 </h1>
               </Reveal>
               <Reveal>
