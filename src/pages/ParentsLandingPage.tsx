@@ -329,7 +329,7 @@ const ParentsLandingPage = () => {
                 <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                   Why filters aren&apos;t the whole story
                 </p>
-                <h2 className="font-display text-[2.25rem] font-bold leading-[1.06] tracking-[-0.025em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem] lg:leading-[1.04]">
+                <h2 className="font-display text-[2.05rem] font-bold leading-[1.08] [text-wrap:balance] tracking-[-0.025em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem] lg:leading-[1.04]">
                   Air filters help with the air.
                   <br />
                   <span className="text-primary">Kids live on the surfaces.</span>
@@ -443,7 +443,7 @@ const ParentsLandingPage = () => {
                   <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
                     What filters miss
                   </p>
-                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.12] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.6rem] lg:leading-[1.1]">
+                  <h2 className="font-display text-[1.7rem] font-bold leading-[1.15] [text-wrap:balance] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.6rem] lg:leading-[1.1]">
                     The nursery looks spotless.
                     <br />
                     But the <span className="text-primary">crib rail</span> tells a different story.
@@ -501,7 +501,7 @@ const ParentsLandingPage = () => {
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                   How it works
                 </p>
-                <h2 className="font-display text-[2.15rem] font-bold leading-[1.06] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.04]">
+                <h2 className="font-display text-[2rem] font-bold leading-[1.08] [text-wrap:balance] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.04]">
                   Friendly probiotics.
                   <br />
                   Every surface. All night.
@@ -561,7 +561,7 @@ const ParentsLandingPage = () => {
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                   Choose your room protection
                 </p>
-                <h2 className="font-display text-[2.15rem] font-bold leading-[1.06] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.04]">
+                <h2 className="font-display text-[2rem] font-bold leading-[1.08] [text-wrap:balance] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.04]">
                   Pick the protection for their room.
                 </h2>
                 <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -660,7 +660,7 @@ const ParentsLandingPage = () => {
                     <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                       Why parents pick us
                     </p>
-                    <h2 className="font-display text-[1.95rem] font-bold leading-[1.08] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.6rem]">
+                    <h2 className="font-display text-[1.8rem] font-bold leading-[1.1] [text-wrap:balance] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.6rem]">
                       Why parents pick us over another filter.
                     </h2>
                   </div>
@@ -731,7 +731,7 @@ const ParentsLandingPage = () => {
                 <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                   Testimonials
                 </p>
-                <h2 className="font-display text-[2.15rem] font-bold leading-tight tracking-[-0.02em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem]">
+                <h2 className="font-display text-[2rem] font-bold leading-[1.1] [text-wrap:balance] tracking-[-0.02em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem]">
                   What parents are saying.
                 </h2>
               </div>
@@ -781,7 +781,7 @@ const ParentsLandingPage = () => {
               <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                 Q&amp;A
               </p>
-              <h2 className="font-display text-[2.15rem] font-bold tracking-[-0.02em] text-foreground sm:text-[2.85rem] lg:text-[3.25rem]">
+              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] [text-wrap:balance] text-foreground sm:text-[2.85rem] lg:text-[3.25rem]">
                 Parent questions, answered.
               </h2>
             </Reveal>
@@ -855,7 +855,7 @@ const ParentsLandingPage = () => {
               <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
                 Start with one room
               </p>
-              <h2 className="font-display text-[2.25rem] font-bold leading-[1.06] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[4rem] lg:leading-[1.04]">
+              <h2 className="font-display text-[2.05rem] font-bold leading-[1.08] [text-wrap:balance] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[4rem] lg:leading-[1.04]">
                 Give them air you can trust.
               </h2>
               <p className="mt-4 font-display text-[1.35rem] font-semibold leading-[1.25] tracking-[-0.02em] text-primary sm:mt-5 sm:text-[1.75rem] lg:text-[2.15rem]">
