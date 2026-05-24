@@ -661,10 +661,6 @@ const BobbyParrishLandingPage = () => {
                   a: "No. EnviroBiotics is different from a traditional air purifier. Air purifiers filter air that passes through the unit. EnviroBiotics releases beneficial environmental probiotics that can move through your space and settle on surfaces, fabrics, and everyday objects.",
                 },
                 {
-                  q: "How do Bobby followers get 15% off?",
-                  a: "Use code Bobby at checkout to receive 15% off your EnviroBiotics order.",
-                },
-                {
                   q: "Does EnviroBiotics replace regular cleaning?",
                   a: "No. EnviroBiotics is designed to support your home between regular cleanings. Continue your normal cleaning routine while using EnviroBiotics to help maintain a fresher, more balanced indoor environment.",
                 },
