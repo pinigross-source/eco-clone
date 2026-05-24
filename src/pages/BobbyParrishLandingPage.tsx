@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Star } from "lucide-react";
+import { ArrowRight, Check, Star, ShieldCheck, Sparkles, Clock } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
