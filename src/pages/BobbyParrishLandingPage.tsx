@@ -237,8 +237,9 @@ const BobbyParrishLandingPage = () => {
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_40%,rgba(255,240,210,0.18),transparent_55%)] mix-blend-screen pointer-events-none"
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(255,240,210,0.12),transparent_60%)] pointer-events-none"
           />
+
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-8 text-center sm:px-8 sm:pb-16 sm:text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
             <div className="mx-auto max-w-[36rem] sm:mx-0 lg:max-w-3xl">
               <Reveal>
