@@ -713,7 +713,7 @@ const BobbyParrishLandingPage = () => {
             height={1080}
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/75 to-background/85" />
+          <div className="absolute inset-0 bg-background/75 backdrop-blur-sm" />
           <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6">
             <Reveal>
               <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
