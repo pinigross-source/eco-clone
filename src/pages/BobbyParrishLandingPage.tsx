@@ -703,8 +703,18 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* 10. Final CTA */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/10 py-20 sm:py-28">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+        <section className="relative overflow-hidden py-20 sm:py-28">
+          <img
+            src={ctaBgImg}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            width={1920}
+            height={1080}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/75 to-background/85" />
+          <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6">
             <Reveal>
               <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
                 Bobby Followers Save 15%
