@@ -557,66 +557,9 @@ const BobbyParrishLandingPage = () => {
             </Reveal>
 
             <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 lg:grid-cols-3 lg:gap-6 xl:mt-16">
-              {/* Card 1 — Home Bundle */}
+              {/* Card 1 — BioLogic Mini (entry) */}
               <Reveal>
                 <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-muted/40 ring-1 ring-black/[0.06] sm:rounded-3xl">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
-                    <img
-                      src={bundleImg}
-                      alt="Home Bundle"
-                      className="h-full w-full object-contain p-6 sm:p-8"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-5 sm:p-6">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground mb-2">
-                      FULL HOME
-                    </p>
-                    <h3 className="font-display text-xl font-bold tracking-[-0.02em] text-foreground sm:text-2xl">
-                      Home Bundle
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      Two devices for full-home coverage — perfect for families, multi-room homes, and households with pets or kids.
-                    </p>
-                    <ul className="mt-4 flex flex-1 flex-col gap-2">
-                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
-                        <span>Covers up to 800 sq ft across multiple rooms</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
-                        <span>Two devices: living spaces + bedrooms</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
-                        <span>Best value per square foot</span>
-                      </li>
-                    </ul>
-                    <div className="mt-5 border-t border-border/50 pt-5">
-                      <div className="mb-1 flex items-baseline gap-2">
-                        <span className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground">$399</span>
-                        <span className="text-sm text-muted-foreground line-through">$499</span>
-                      </div>
-                      <a
-                        href={LINKS.bundle}
-                        onClick={trackBundle}
-                        className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
-                      >
-                        Full home coverage
-                        <ArrowRight className="h-4 w-4" />
-                      </a>
-                      <p className="mt-2 text-center text-[11px] text-muted-foreground">30-day risk-free trial</p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-
-              {/* Card 2 — BioLogic Mini (HERO) */}
-              <Reveal>
-                <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-card ring-2 ring-primary shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.3)] sm:rounded-3xl">
-                  <div className="absolute right-5 top-5 z-10 rounded-full bg-primary px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
-                    BOBBY&apos;S PICK
-                  </div>
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
                     <img
                       src={miniImg}
@@ -625,45 +568,102 @@ const BobbyParrishLandingPage = () => {
                       loading="lazy"
                     />
                   </div>
-                  <div className="flex flex-1 flex-col p-6 sm:p-8">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary mb-2">
-                      MOST POPULAR
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground mb-2">
+                      START SMALL
                     </p>
-                    <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
+                    <h3 className="font-display text-xl font-bold tracking-[-0.02em] text-foreground sm:text-2xl">
                       BioLogic Mini
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                      The device Bobby followers buy most. Compact, quiet, and perfect for starting in one room — bedrooms, home offices, or apartments.
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      Compact and quiet — perfect for one room, a home office, or as Bobby&apos;s travel essential.
                     </p>
-                    <ul className="mt-5 flex flex-1 flex-col gap-3">
-                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                    <ul className="mt-4 flex flex-1 flex-col gap-2">
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
                         <span>Covers up to 300 sq ft</span>
                       </li>
-                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
-                        <span>Best for one room or a small apartment</span>
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Best for one room or apartment</span>
                       </li>
-                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
                         <span>Easy to move between spaces</span>
                       </li>
-                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
-                        <span>Bobby&apos;s travel essential</span>
-                      </li>
                     </ul>
-                    <div className="mt-6 border-t border-border/60 pt-5">
-                      <div className="mb-1 flex items-baseline gap-3">
-                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$83</span>
-                        <span className="text-base text-muted-foreground line-through">$98</span>
+                    <div className="mt-5 border-t border-border/50 pt-5">
+                      <div className="mb-1 flex items-baseline gap-2">
+                        <span className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground">$83</span>
+                        <span className="text-sm text-muted-foreground line-through">$98</span>
                       </div>
                       <a
                         href={LINKS.mini}
                         onClick={trackMini}
+                        className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
+                      >
+                        Start with the Mini
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                      <p className="mt-2 text-center text-[11px] text-muted-foreground">30-day risk-free trial</p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+
+              {/* Card 2 — Home Bundle (HERO / Bobby's Pick) */}
+              <Reveal>
+                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-card ring-2 ring-primary shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.3)] sm:rounded-3xl">
+                  <div className="absolute right-5 top-5 z-10 rounded-full bg-primary px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
+                    BOBBY&apos;S PICK
+                  </div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
+                    <img
+                      src={bundleImg}
+                      alt="Home Bundle"
+                      className="h-full w-full object-contain p-6 sm:p-8"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6 sm:p-8">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary mb-2">
+                      BOBBY&apos;S SETUP
+                    </p>
+                    <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
+                      Home Bundle
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                      The setup Bobby actually uses at home. Two devices for full-home coverage — living spaces plus bedrooms — built for families, pets, and multi-room homes.
+                    </p>
+                    <ul className="mt-5 flex flex-1 flex-col gap-3">
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Covers up to 800 sq ft across multiple rooms</span>
+                      </li>
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Two devices: living spaces + bedrooms</span>
+                      </li>
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Best value per square foot</span>
+                      </li>
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                        <span>What Bobby uses in his own home</span>
+                      </li>
+                    </ul>
+                    <div className="mt-6 border-t border-border/60 pt-5">
+                      <div className="mb-1 flex items-baseline gap-3">
+                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$399</span>
+                        <span className="text-base text-muted-foreground line-through">$499</span>
+                      </div>
+                      <a
+                        href={LINKS.bundle}
+                        onClick={trackBundle}
                         className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                       >
-                        Get the BioLogic Mini
+                        Get Bobby&apos;s Bundle
                         <ArrowRight className="h-4 w-4" />
                       </a>
                       <p className="mt-3 text-center text-[11px] text-muted-foreground">
