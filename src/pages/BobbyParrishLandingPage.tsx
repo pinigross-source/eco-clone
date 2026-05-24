@@ -234,7 +234,7 @@ const BobbyParrishLandingPage = () => {
           <div
             aria-hidden
             className="absolute inset-0 lg:hidden"
-            style={{ background: "linear-gradient(180deg, rgba(252,247,240,0.35) 0%, rgba(252,247,240,0.85) 38%, rgba(252,247,240,0.95) 70%, rgba(252,247,240,0.98) 100%)" }}
+            style={{ background: "linear-gradient(180deg, rgba(252,247,240,0) 0%, rgba(252,247,240,0) 35%, rgba(252,247,240,0.75) 60%, rgba(252,247,240,0.96) 85%)" }}
           />
           {/* Desktop: horizontal gradient */}
           <div
