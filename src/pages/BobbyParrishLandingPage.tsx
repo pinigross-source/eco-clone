@@ -243,18 +243,12 @@ const BobbyParrishLandingPage = () => {
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-8 text-center sm:px-8 sm:pb-16 sm:text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
             <div className="mx-auto max-w-[36rem] sm:mx-0 lg:max-w-3xl">
               <Reveal>
-                <span className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-[0.8rem] font-semibold text-white shadow-[0_4px_14px_rgba(0,0,0,0.18)]">
-                  <span aria-hidden>👋</span>
-                  Bobby's 15% off · For FlavCity fans only
-                </span>
-              </Reveal>
-              <Reveal>
                 <h1
                   className="font-display font-bold tracking-[-0.025em] text-[#1a1410] text-[2.4rem] leading-[1.05] sm:text-[3rem] lg:text-[3.6rem]"
                 >
                   <span className="block">Bobby uses EnviroBiotics</span>
                   <span className="block">to clean his home.</span>
-                  <span className="block text-primary">Now you can too, 15% off.</span>
+                  <span className="block text-primary">Now you can too.</span>
                 </h1>
               </Reveal>
               <Reveal>
@@ -263,15 +257,22 @@ const BobbyParrishLandingPage = () => {
                 </p>
               </Reveal>
               <Reveal>
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                  <a href="#bundle" onClick={() => trackEvent("click_hero_shop_picks")}>
+                <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
+                  <a href="#bundle" onClick={() => trackEvent("click_hero_shop_picks")} className="w-full sm:w-auto">
                     <Button
                       size="lg"
                       className="h-[3.25rem] w-full rounded-full bg-primary px-7 text-base font-semibold text-white hover:bg-primary/90 sm:h-14 sm:w-auto sm:px-8"
                     >
-                      Get Bobby's Pick
+                      See the Bundle — $399 (Save $96)
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
+                  </a>
+                  <a
+                    href="#products"
+                    onClick={() => trackEvent("click_hero_shop_singles")}
+                    className="text-[0.95rem] font-medium text-[#4a3f33] hover:underline"
+                  >
+                    Or shop singles with code BOBBY (15% off)
                   </a>
                 </div>
               </Reveal>
