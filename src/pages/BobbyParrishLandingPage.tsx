@@ -272,7 +272,7 @@ const BobbyParrishLandingPage = () => {
                     onClick={() => trackEvent("click_hero_shop_singles")}
                     className="text-[0.95rem] font-medium text-[#4a3f33] hover:underline"
                   >
-                    Or shop singles with code BOBBY (15% off)
+                    Or shop singles from $83 (15% off)
                   </a>
                 </div>
               </Reveal>
