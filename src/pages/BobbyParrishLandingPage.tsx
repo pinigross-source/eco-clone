@@ -694,6 +694,42 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
+        {/* 10. Final CTA */}
+        <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/10 py-20 sm:py-28">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+            <Reveal>
+              <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                Bobby Followers Save 15%
+              </span>
+            </Reveal>
+            <Reveal>
+              <h2 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                <span className="block">Every surface.</span>
+                <span className="block">Every room.</span>
+                <span className="block text-primary">A cleaner way to care for your home.</span>
+              </h2>
+            </Reveal>
+            <Reveal>
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+                Start supporting your indoor environment with beneficial environmental probiotics that help clean beyond the air. Use code Bobby at checkout to save 15% on your EnviroBiotics order.
+              </p>
+            </Reveal>
+            <Reveal>
+              <div className="mt-10 flex justify-center">
+                <a href="#products" onClick={() => trackEvent("click_final_cta_bobby_offer")}>
+                  <Button
+                    size="lg"
+                    className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground hover:bg-primary/90"
+                  >
+                    Shop the Bobby Offer
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
       </main>
 
       {/* Sticky mobile bar */}
