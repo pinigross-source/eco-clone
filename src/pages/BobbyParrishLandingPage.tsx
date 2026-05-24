@@ -333,12 +333,13 @@ const BobbyParrishLandingPage = () => {
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
-                  <a
-                    href="#products"
-                    onClick={() => trackEvent("click_hero_shop_singles")}
-                    className="text-[0.95rem] font-medium text-[#4a3f33] hover:underline"
-                  >
-                    Or shop singles from $83 (15% off)
+                  <a href="#products" onClick={() => trackEvent("click_hero_shop_singles")}>
+                    <Button
+                      size="lg"
+                      className="h-14 rounded-full border border-[#1a1410]/15 bg-white px-8 text-base font-semibold text-[#1a1410] hover:bg-white/90"
+                    >
+                      Shop singles from $83 (15% off)
+                    </Button>
                   </a>
                 </div>
               </Reveal>
