@@ -799,10 +799,6 @@ const BobbyParrishLandingPage = () => {
                     className="absolute inset-0 h-full w-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-black/10 bg-white/85 px-4 py-2 backdrop-blur sm:bottom-6 sm:left-6">
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                    <span className="text-xs font-semibold text-foreground">10M+ followers</span>
-                  </div>
                 </div>
                 <div className="flex flex-col justify-center gap-4 p-6 sm:gap-6 sm:p-14 lg:p-16">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:text-[11px] sm:tracking-[0.32em]">
