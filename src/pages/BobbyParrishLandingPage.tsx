@@ -832,19 +832,19 @@ const BobbyParrishLandingPage = () => {
                 {[
                   {
                     label: "Probiotic Cleaning",
-                    desc: "Uses beneficial environmental probiotics to help support a cleaner indoor environment.",
+                    desc: "Uses beneficial environmental probiotics - the same microbes naturally present in healthy homes.",
                   },
                   {
-                    label: "Beyond the Air",
-                    desc: "Designed to reach air, surfaces, fabrics, furniture, and everyday objects.",
+                    label: "Works With Your Routine",
+                    desc: "Doesn't replace your regular cleaning. Quietly supports the gaps your wipes and sprays can't reach.",
                   },
                   {
                     label: "No Harsh Chemicals",
-                    desc: "A natural approach to home care without heavy chemical sprays or artificial fragrance.",
+                    desc: "No bleach, no ammonia, no synthetic fragrances. Safe around kids, pets, and sensitive family members.",
                   },
                   {
-                    label: "Easy Daily Support",
-                    desc: "Simple to use and designed to work quietly in the background.",
+                    label: "Set It and Forget It",
+                    desc: "Runs quietly in the background. No daily routine. No moving parts to maintain.",
                   },
                 ].map((b) => (
                   <div key={b.label} className="flex flex-col gap-2">
