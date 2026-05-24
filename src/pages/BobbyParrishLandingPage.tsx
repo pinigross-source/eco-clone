@@ -343,7 +343,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 3. FAQ TRUST CARDS ============ */}
-        <section className="bg-background py-14 sm:py-20 lg:py-20">
+        <section className="bg-[#FEFDFB] py-14 sm:py-20 lg:py-20">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <p className="mb-10 sm:mb-14 text-center text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:text-[11px] sm:tracking-[0.32em]">
@@ -387,7 +387,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 4. THE PROBLEM ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-24">
+        <section className="bg-[#FEFDFB] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.24)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.28)]">
@@ -540,7 +540,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 5. PRODUCTS ============ */}
-        <section id="products" className="bg-background py-14 sm:py-24 lg:py-24">
+        <section id="products" className="bg-gradient-to-b from-[#FEFDFB] via-white to-[#FBF8F2] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
@@ -781,7 +781,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 7. TESTIMONIALS ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-24">
+        <section className="bg-[#FEFDFB] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
@@ -865,7 +865,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 9. FAQ ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-24">
+        <section className="bg-[#FEFDFB] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-3xl px-5 sm:px-10">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
