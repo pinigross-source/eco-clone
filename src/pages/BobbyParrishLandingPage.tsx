@@ -250,8 +250,7 @@ const BobbyParrishLandingPage = () => {
               </Reveal>
               <Reveal>
                 <h1
-                  className="font-display font-bold tracking-[-0.025em] text-white text-[2.4rem] leading-[1.05] sm:text-[3rem] lg:text-[3.6rem]"
-                  style={{ textShadow: "0 2px 24px rgba(0,0,0,0.4)" }}
+                  className="font-display font-bold tracking-[-0.025em] text-[#1a1410] text-[2.4rem] leading-[1.05] sm:text-[3rem] lg:text-[3.6rem]"
                 >
                   <span className="block">Bobby uses EnviroBiotics</span>
                   <span className="block">to clean his home.</span>
@@ -259,7 +258,7 @@ const BobbyParrishLandingPage = () => {
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mt-5 max-w-[34rem] text-[1.05rem] font-light leading-[1.55] text-white/90 [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
+                <p className="mt-5 max-w-[34rem] text-[1.05rem] font-light leading-[1.55] text-[#4a3f33]">
                   The probiotic cleaning system Bobby trusts in his own kitchen, bedroom, and bathroom. Beneficial bacteria, released into the air and onto surfaces, working between cleanings, no bleach, no ammonia, no harsh chemicals.
                 </p>
               </Reveal>
@@ -277,7 +276,7 @@ const BobbyParrishLandingPage = () => {
                 </div>
               </Reveal>
               <Reveal>
-                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[0.8rem] font-medium text-white/75">
+                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[0.8rem] font-medium text-[#6b5d4f]">
                   <span>✓ Free shipping</span>
                   <span>✓ 30-day money-back</span>
                   <span>✓ Cancel anytime</span>
