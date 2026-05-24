@@ -299,7 +299,7 @@ const BobbyParrishLandingPage = () => {
             <Reveal className="hidden lg:block">
               <div className="absolute right-16 top-1/2 -translate-y-1/2 max-w-[360px] rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-6 text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.4)]">
                 <p className="text-[0.95rem] font-medium leading-relaxed italic">
-                  "This is the one thing I actually use every day in my home. My followers get 15% off - and if you don't love it, send it back."
+                  "This is the one thing I actually use every day in my home. My followers get 15% off,  and if you don't love it, send it back."
                 </p>
                 <p className="mt-3 text-sm font-semibold not-italic">- Bobby</p>
               </div>
