@@ -737,12 +737,6 @@ const BobbyParrishLandingPage = () => {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
-                <a
-                  href="#products"
-                  className="inline-flex h-14 items-center justify-center rounded-full border border-foreground/20 px-7 text-base font-medium text-foreground transition hover:bg-foreground/5"
-                >
-                  Compare Devices
-                </a>
               </div>
               <p className="mt-8 text-lg md:text-xl font-medium text-foreground/85">
                 30-day risk-free trial · Easy home setup
