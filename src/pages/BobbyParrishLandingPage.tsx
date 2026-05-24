@@ -541,76 +541,187 @@ const BobbyParrishLandingPage = () => {
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
-                  Choose Your Device
+                  CHOOSE YOUR DEVICE
                 </p>
                 <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
-                  Choose your probiotic protection.
+                  Most Bobby followers start with the bundle.
                 </h2>
                 <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  Start small, cover a larger room, or protect multiple spaces. Bobby followers save
-                  15% with code <span className="font-semibold text-foreground">Bobby</span>.
+                  Cover one room, the whole home, or larger spaces. 15% off auto-applied at checkout.
                 </p>
               </div>
             </Reveal>
 
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-14 lg:grid-cols-2 lg:gap-7 xl:mt-16 xl:grid-cols-3">
+            <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 lg:grid-cols-3 lg:gap-6 xl:mt-16">
+              {/* Card 1 — BioLogic Mini (de-emphasized) */}
               <Reveal>
-                <ProductCard
-                  name="BioLogic Mini"
-                  tagline="Best for Small Rooms"
-                  description="A compact probiotic device designed for bedrooms, nurseries, home offices, bathrooms, and smaller spaces."
-                  price="$83.30"
-                  oldPrice="$98"
-                  image={miniImg}
-                  href={LINKS.mini}
-                  ctaText="Shop BioLogic Mini"
-                  onClick={trackMini}
-                  features={[
-                    "Covers up to 300 sq. ft.",
-                    "Great for bedrooms and personal spaces",
-                    "Easy to place on a shelf, desk, or nightstand",
-                    "Helps support cleaner air and surfaces",
-                  ]}
-                />
+                <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-muted/40 ring-1 ring-black/[0.06] sm:rounded-3xl">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
+                    <img
+                      src={miniImg}
+                      alt="BioLogic Mini"
+                      className="h-full w-full object-contain p-6 sm:p-8"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground mb-2">
+                      SMALLER HOMES
+                    </p>
+                    <h3 className="font-display text-xl font-bold tracking-[-0.02em] text-foreground sm:text-2xl">
+                      BioLogic Mini
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      A single compact device for apartments, bedrooms, home offices, or small spaces under 300 sq ft.
+                    </p>
+                    <ul className="mt-4 flex flex-1 flex-col gap-2">
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Covers up to 300 sq ft</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Best for one room or a small apartment</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Easy to move between spaces</span>
+                      </li>
+                    </ul>
+                    <div className="mt-5 border-t border-border/50 pt-5">
+                      <div className="mb-1 flex items-baseline gap-2">
+                        <span className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground">$83</span>
+                        <span className="text-sm text-muted-foreground line-through">$98</span>
+                      </div>
+                      <a
+                        href={LINKS.mini}
+                        onClick={trackMini}
+                        className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
+                      >
+                        Smaller home? Start here
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                      <p className="mt-2 text-center text-[11px] text-muted-foreground">30-day risk-free trial</p>
+                    </div>
+                  </div>
+                </div>
               </Reveal>
+
+              {/* Card 2 — Home Bundle (HERO) */}
               <Reveal>
-                <ProductCard
-                  name="Home Bundle"
-                  tagline="Most Popular"
-                  description="The best choice for Bobby followers who want broader probiotic support in more than one room."
-                  price="$399"
-                  oldPrice="$495"
-                  image={bundleImg}
-                  href={LINKS.bundle}
-                  highlight
-                  ctaText="Get the Home Bundle"
-                  onClick={trackBundle}
-                  features={[
-                    "Ideal for multi-room coverage",
-                    "Great for bedrooms, living rooms, and shared spaces",
-                    "Helps support cleaner surfaces throughout the home",
-                    "Best value for families",
-                  ]}
-                />
+                <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-card ring-2 ring-primary shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.3)] sm:rounded-3xl">
+                  <div className="absolute right-5 top-5 z-10 rounded-full bg-primary px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
+                    BOBBY&apos;S PICK
+                  </div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
+                    <img
+                      src={bundleImg}
+                      alt="Home Bundle"
+                      className="h-full w-full object-contain p-6 sm:p-8"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6 sm:p-8">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary mb-2">
+                      MOST POPULAR
+                    </p>
+                    <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
+                      Home Bundle
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                      The setup Bobby followers buy most. Two devices, full-home coverage — perfect for families, multi-room homes, and households with pets or kids.
+                    </p>
+                    <ul className="mt-5 flex flex-1 flex-col gap-3">
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Covers up to 800 sq ft across multiple rooms</span>
+                      </li>
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Two devices: one for living spaces, one for bedrooms</span>
+                      </li>
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Ideal for families, pets, and allergy-prone homes</span>
+                      </li>
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Best value per square foot</span>
+                      </li>
+                    </ul>
+                    <div className="mt-6 border-t border-border/60 pt-5">
+                      <div className="mb-1 flex items-baseline gap-3">
+                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$399</span>
+                        <span className="text-base text-muted-foreground line-through">$499</span>
+                      </div>
+                      <a
+                        href={LINKS.bundle}
+                        onClick={trackBundle}
+                        className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                      >
+                        Get Bobby&apos;s Setup
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                      <p className="mt-3 text-center text-[11px] text-muted-foreground">
+                        30-day risk-free trial · Free shipping
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </Reveal>
+
+              {/* Card 3 — Biotica 800 (de-emphasized) */}
               <Reveal>
-                <ProductCard
-                  name="Biotica 800"
-                  tagline="Best for Larger Spaces"
-                  description="A powerful probiotic device designed for larger rooms, open living areas, basements, and bigger indoor spaces."
-                  price="$254.15"
-                  oldPrice="$299"
-                  image={bioticaImg}
-                  href={LINKS.biotica}
-                  ctaText="Shop Biotica 800"
-                  onClick={trackBiotica}
-                  features={[
-                    "Covers up to 800 sq. ft.",
-                    "Great for open-plan living areas",
-                    "Designed for stronger room coverage",
-                    "Helps support fresher air, surfaces, and fabrics",
-                  ]}
-                />
+                <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-muted/40 ring-1 ring-black/[0.06] sm:rounded-3xl">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
+                    <img
+                      src={bioticaImg}
+                      alt="Biotica 800"
+                      className="h-full w-full object-contain p-6 sm:p-8"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground mb-2">
+                      LARGER HOMES
+                    </p>
+                    <h3 className="font-display text-xl font-bold tracking-[-0.02em] text-foreground sm:text-2xl">
+                      Biotica 800
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      A single high-coverage device for open-plan homes, basements, and larger spaces up to 800 sq ft.
+                    </p>
+                    <ul className="mt-4 flex flex-1 flex-col gap-2">
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Covers up to 800 sq ft</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Designed for open-plan layouts</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
+                        <span>Single-device simplicity</span>
+                      </li>
+                    </ul>
+                    <div className="mt-5 border-t border-border/50 pt-5">
+                      <div className="mb-1 flex items-baseline gap-2">
+                        <span className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground">$254</span>
+                        <span className="text-sm text-muted-foreground line-through">$299</span>
+                      </div>
+                      <a
+                        href={LINKS.biotica}
+                        onClick={trackBiotica}
+                        className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
+                      >
+                        Larger home? See this
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                      <p className="mt-2 text-center text-[11px] text-muted-foreground">30-day risk-free trial</p>
+                    </div>
+                  </div>
+                </div>
               </Reveal>
             </div>
           </div>
