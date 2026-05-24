@@ -21,6 +21,7 @@ import familyImg from "@/assets/bobby/bobby-ambient.jpg";
 import bobbyImg from "@/assets/bobby/bobby-portrait.jpg";
 import particlesImg from "@/assets/bobby/bobby-kitchen.jpg";
 import bathroomImg from "@/assets/bobby/bobby-bedroom.jpg";
+import travelImg from "@/assets/bobby-travel.avif";
 
 const withDiscount = (url: string, code = "Bobby") =>
   `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
