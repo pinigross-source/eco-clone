@@ -269,7 +269,7 @@ const BobbyParrishLandingPage = () => {
                       size="lg"
                       className="h-[3.25rem] w-full rounded-full bg-primary px-7 text-base font-semibold text-white hover:bg-primary/90 sm:h-14 sm:w-auto sm:px-8"
                     >
-                      Get Bobby's Bundle, 15% off
+                      Get Bobby's Pick
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
