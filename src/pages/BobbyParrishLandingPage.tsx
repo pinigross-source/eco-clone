@@ -500,11 +500,11 @@ const BobbyParrishLandingPage = () => {
                   name="Biotica 800"
                   tagline="Best for Larger Spaces"
                   description="A powerful probiotic device designed for larger rooms, open living areas, basements, and bigger indoor spaces."
-                  price="$299"
+                  price="$254"
+                  oldPrice="$299"
                   image={bioticaImg}
                   href={LINKS.biotica}
                   ctaText="Shop Biotica 800"
-                  offerNote="Use code Bobby for 15% off."
                   onClick={trackBiotica}
                   features={[
                     "Covers up to 800 sq. ft.",
