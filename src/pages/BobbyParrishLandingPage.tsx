@@ -27,7 +27,7 @@ const withDiscount = (url: string, code = "Bobby") =>
 
 const LINKS = {
   mini: "https://shop.envirobiotics.com/products/biologic-mini-bobby",
-  biotica: withDiscount(shopifyProductUrl("biotica-800", "bobby-parrish")),
+  biotica: "https://shop.envirobiotics.com/products/biotica-800-bobby",
   bundle: withDiscount(shopifyUrl("/products/home-complete-bundle", "bobby-parrish")),
 };
 
@@ -500,7 +500,7 @@ const BobbyParrishLandingPage = () => {
                   name="Biotica 800"
                   tagline="Best for Larger Spaces"
                   description="A powerful probiotic device designed for larger rooms, open living areas, basements, and bigger indoor spaces."
-                  price="$254"
+                  price="$254.15"
                   oldPrice="$299"
                   image={bioticaImg}
                   href={LINKS.biotica}
