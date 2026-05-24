@@ -674,7 +674,7 @@ const BobbyParrishLandingPage = () => {
                 </div>
               </Reveal>
 
-              {/* Card 3 — Biotica 800 */}
+              {/* Card 3 - Biotica 800 */}
               <Reveal>
                 <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-muted/40 ring-1 ring-black/[0.06] sm:rounded-3xl">
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
