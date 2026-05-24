@@ -225,64 +225,72 @@ const BobbyParrishLandingPage = () => {
             <img
               src={heroImgMobile}
               alt="Bobby Parrish at home"
-              className="absolute inset-0 h-full w-full object-cover object-[50%_25%]"
+              className="absolute inset-0 h-full w-full object-cover object-[50%_22%]"
               fetchPriority="high"
               loading="eager"
               decoding="async"
             />
+            {/* soft fade into cream */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#FCF7F0]" />
           </div>
-          <div className="px-6 py-10">
+          <div className="px-6 pt-8 pb-12">
             <Reveal>
-              <h1 className="font-display font-bold tracking-[-0.025em] text-[#1a1410] text-[2rem] leading-[1.1]">
-                <span className="block">Bobby uses EnviroBiotics</span>
-                <span className="block">to clean his home.</span>
-                <span className="block text-primary">Now you can too.</span>
-              </h1>
-            </Reveal>
-            <Reveal>
-              <p className="mt-5 text-base font-light leading-[1.55] text-[#4a3f33]">
-                The probiotic cleaning system Bobby trusts in his own kitchen, bedroom, and bathroom. Beneficial bacteria, released into the air and onto surfaces, working between cleanings, no bleach, no ammonia, no harsh chemicals.
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                As featured by Bobby Parrish
               </p>
             </Reveal>
             <Reveal>
-              <div className="mt-7 flex flex-col items-center gap-4">
+              <h1 className="mt-4 font-display font-semibold tracking-[-0.03em] text-[#1a1410] text-[2.125rem] leading-[1.05]">
+                Bobby uses EnviroBiotics to clean his home.
+                <span className="block mt-1 text-primary italic font-normal">Now you can too.</span>
+              </h1>
+            </Reveal>
+            <Reveal>
+              <p className="mt-5 text-[0.95rem] font-light leading-[1.6] text-[#4a3f33]">
+                The probiotic cleaning system Bobby trusts in his own kitchen, bedroom, and bathroom — beneficial bacteria working between cleanings. No bleach, no ammonia, no harsh chemicals.
+              </p>
+            </Reveal>
+            <Reveal>
+              <div className="mt-8 flex flex-col gap-3">
                 <Button
                   asChild
                   size="lg"
-                  className="h-auto w-full rounded-full bg-primary px-6 py-[18px] text-base font-semibold text-white hover:bg-primary/90"
+                  className="h-[54px] w-full rounded-full bg-primary px-6 text-[0.95rem] font-semibold tracking-[-0.01em] text-white shadow-[0_8px_24px_-8px_rgba(232,93,58,0.55)] hover:bg-primary/90"
                 >
                   <a href="#bundle" onClick={() => trackEvent("click_hero_shop_picks")}>
-                    See the Bundle - $399 (Save $96)
+                    See the Bundle — $399
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
                 <Button
                   asChild
                   size="lg"
-                  className="h-auto w-full rounded-full border border-[#1a1410]/15 bg-white px-6 py-[18px] text-base font-semibold text-[#1a1410] hover:bg-white/90"
+                  className="h-[54px] w-full rounded-full border border-[#1a1410]/15 bg-white px-6 text-[0.95rem] font-semibold tracking-[-0.01em] text-[#1a1410] shadow-none hover:bg-white"
                 >
                   <a href="#products" onClick={() => trackEvent("click_hero_shop_singles")}>
-                    Shop singles from $83 (15% off)
+                    Shop singles from $83
                   </a>
                 </Button>
               </div>
             </Reveal>
             <Reveal>
-              <div className="mt-5 flex flex-wrap justify-center gap-x-3 gap-y-2 text-[0.72rem] font-medium text-[#6b5d4f]">
-                <span>✓ Free shipping</span>
-                <span>✓ 30-day money-back</span>
-                <span>✓ Cancel anytime</span>
+              <div className="mt-6 flex items-center justify-between gap-2 text-[0.7rem] font-medium tracking-[0.02em] text-[#6b5d4f]">
+                <span>Free shipping</span>
+                <span className="h-1 w-1 rounded-full bg-[#6b5d4f]/40" />
+                <span>30-day guarantee</span>
+                <span className="h-1 w-1 rounded-full bg-[#6b5d4f]/40" />
+                <span>Cancel anytime</span>
               </div>
             </Reveal>
             <Reveal>
-              <div className="mt-8 w-full rounded-[10px] bg-white px-5 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
-                <p className="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-primary">
+              <figure className="mt-9 border-l-2 border-primary/60 pl-5">
+                <blockquote className="font-display text-[1.05rem] italic leading-[1.45] text-[#2a2620]">
+                  "This is the BioLogic Mini — I keep one in my kitchen and one in our bedroom."
+                </blockquote>
+                <figcaption className="mt-3 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-[#6b5d4f]">
                   Bobby Parrish · FlavCity
-                </p>
-                <p className="mt-1.5 text-[0.92rem] italic leading-[1.4] text-[#2a2620]">
-                  "This is the BioLogic Mini, I keep one in my kitchen and one in our bedroom."
-                </p>
-              </div>
+                </figcaption>
+              </figure>
             </Reveal>
           </div>
         </section>
