@@ -230,9 +230,16 @@ const BobbyParrishLandingPage = () => {
               decoding="async"
             />
           </picture>
+          {/* Mobile: vertical gradient for legibility behind centered text */}
           <div
             aria-hidden
-            className="absolute inset-0"
+            className="absolute inset-0 lg:hidden"
+            style={{ background: "linear-gradient(180deg, rgba(252,247,240,0.35) 0%, rgba(252,247,240,0.85) 38%, rgba(252,247,240,0.95) 70%, rgba(252,247,240,0.98) 100%)" }}
+          />
+          {/* Desktop: horizontal gradient */}
+          <div
+            aria-hidden
+            className="absolute inset-0 hidden lg:block"
             style={{ background: "linear-gradient(90deg, rgba(252, 247, 240, 0.92) 0%, rgba(252, 247, 240, 0.75) 35%, rgba(252, 247, 240, 0.35) 60%, rgba(252, 247, 240, 0) 78%)" }}
           />
           <div
@@ -244,7 +251,7 @@ const BobbyParrishLandingPage = () => {
             <div className="mx-auto max-w-[36rem] sm:mx-0 lg:max-w-3xl">
               <Reveal>
                 <h1
-                  className="font-display font-bold tracking-[-0.025em] text-[#1a1410] text-[2.4rem] leading-[1.05] sm:text-[3rem] lg:text-[3.6rem]"
+                  className="font-display font-bold tracking-[-0.025em] text-[#1a1410] text-[2rem] leading-[1.08] sm:text-[3rem] sm:leading-[1.05] lg:text-[3.6rem]"
                 >
                   <span className="block">Bobby uses EnviroBiotics</span>
                   <span className="block">to clean his home.</span>
