@@ -230,9 +230,16 @@ const BobbyParrishLandingPage = () => {
               decoding="async"
             />
           </picture>
+          {/* Mobile: vertical gradient for legibility behind centered text */}
           <div
             aria-hidden
-            className="absolute inset-0"
+            className="absolute inset-0 lg:hidden"
+            style={{ background: "linear-gradient(180deg, rgba(252,247,240,0.35) 0%, rgba(252,247,240,0.85) 38%, rgba(252,247,240,0.95) 70%, rgba(252,247,240,0.98) 100%)" }}
+          />
+          {/* Desktop: horizontal gradient */}
+          <div
+            aria-hidden
+            className="absolute inset-0 hidden lg:block"
             style={{ background: "linear-gradient(90deg, rgba(252, 247, 240, 0.92) 0%, rgba(252, 247, 240, 0.75) 35%, rgba(252, 247, 240, 0.35) 60%, rgba(252, 247, 240, 0) 78%)" }}
           />
           <div
