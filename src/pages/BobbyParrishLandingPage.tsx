@@ -780,8 +780,13 @@ const BobbyParrishLandingPage = () => {
         <section className="bg-background py-14 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
+              <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
+                FROM THE BOBBY COMMUNITY
+              </p>
+            </Reveal>
+            <Reveal>
               <h2 className="font-display text-[2rem] font-bold leading-tight tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
-                What families are saying.
+                What Bobby&apos;s followers are noticing.
               </h2>
             </Reveal>
             <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 lg:grid-cols-3 lg:gap-6">
