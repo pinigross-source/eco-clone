@@ -557,7 +557,7 @@ const BobbyParrishLandingPage = () => {
             </Reveal>
 
             <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 lg:grid-cols-3 lg:gap-6 xl:mt-16">
-              {/* Card 1 — BioLogic Mini (entry) */}
+              {/* Card 1 - BioLogic Mini (entry) */}
               <Reveal>
                 <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-muted/40 ring-1 ring-black/[0.06] sm:rounded-3xl">
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
@@ -576,7 +576,7 @@ const BobbyParrishLandingPage = () => {
                       BioLogic Mini
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      Compact and quiet — perfect for one room, a home office, or as Bobby&apos;s travel essential.
+                      Compact and quiet - perfect for one room, a home office, or as Bobby&apos;s travel essential.
                     </p>
                     <ul className="mt-4 flex flex-1 flex-col gap-2">
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -611,7 +611,7 @@ const BobbyParrishLandingPage = () => {
                 </div>
               </Reveal>
 
-              {/* Card 2 — Home Bundle (HERO / Bobby's Pick) */}
+              {/* Card 2 - Home Bundle (HERO / Bobby's Pick) */}
               <Reveal>
                 <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-card ring-2 ring-primary shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.3)] sm:rounded-3xl">
                   <div className="absolute right-5 top-5 z-10 rounded-full bg-primary px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
@@ -633,7 +633,7 @@ const BobbyParrishLandingPage = () => {
                       Home Bundle
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                      The setup Bobby actually uses at home. Two devices for full-home coverage — living spaces plus bedrooms — built for families, pets, and multi-room homes.
+                      The setup Bobby actually uses at home. Two devices for full-home coverage - living spaces plus bedrooms - built for families, pets, and multi-room homes.
                     </p>
                     <ul className="mt-5 flex flex-1 flex-col gap-3">
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
@@ -674,7 +674,7 @@ const BobbyParrishLandingPage = () => {
                 </div>
               </Reveal>
 
-              {/* Card 3 — Biotica 800 */}
+              {/* Card 3 - Biotica 800 */}
               <Reveal>
                 <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-muted/40 ring-1 ring-black/[0.06] sm:rounded-3xl">
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
@@ -999,7 +999,7 @@ const BobbyParrishLandingPage = () => {
                     size="lg"
                     className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground hover:bg-primary/90"
                   >
-                    Get Bobby&apos;s Bundle — 15% off
+                    Get Bobby&apos;s Bundle - 15% off
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
