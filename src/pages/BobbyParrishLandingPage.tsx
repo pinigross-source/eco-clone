@@ -218,28 +218,88 @@ const BobbyParrishLandingPage = () => {
         </div>
 
         {/* ============ 1. HERO ============ */}
-        <section className="relative h-[100svh] min-h-[620px] w-full overflow-hidden sm:min-h-[680px]">
+
+        {/* MOBILE: stacked layout (below 768px) */}
+        <section className="md:hidden w-full bg-[#FCF7F0]">
+          <div className="relative w-full aspect-[4/5] overflow-hidden">
+            <img
+              src={heroImgMobile}
+              alt="Bobby Parrish at home"
+              className="absolute inset-0 h-full w-full object-cover object-[50%_25%]"
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <div className="px-6 py-10">
+            <Reveal>
+              <h1 className="font-display font-bold tracking-[-0.025em] text-[#1a1410] text-[2rem] leading-[1.1]">
+                <span className="block">Bobby uses EnviroBiotics</span>
+                <span className="block">to clean his home.</span>
+                <span className="block text-primary">Now you can too.</span>
+              </h1>
+            </Reveal>
+            <Reveal>
+              <p className="mt-5 text-base font-light leading-[1.55] text-[#4a3f33]">
+                The probiotic cleaning system Bobby trusts in his own kitchen, bedroom, and bathroom. Beneficial bacteria, released into the air and onto surfaces, working between cleanings, no bleach, no ammonia, no harsh chemicals.
+              </p>
+            </Reveal>
+            <Reveal>
+              <div className="mt-7 flex flex-col items-center gap-4">
+                <a href="#bundle" onClick={() => trackEvent("click_hero_shop_picks")} className="w-full max-w-[360px]">
+                  <Button
+                    size="lg"
+                    className="h-auto w-full rounded-full bg-primary px-6 py-[18px] text-base font-semibold text-white hover:bg-primary/90"
+                  >
+                    See the Bundle - $399 (Save $96)
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
+                <a
+                  href="#products"
+                  onClick={() => trackEvent("click_hero_shop_singles")}
+                  className="text-[0.95rem] font-medium text-[#4a3f33] hover:underline"
+                >
+                  Or shop singles from $83 (15% off)
+                </a>
+              </div>
+            </Reveal>
+            <Reveal>
+              <div className="mt-5 flex flex-wrap justify-center gap-x-3 gap-y-2 text-[0.72rem] font-medium text-[#6b5d4f]">
+                <span>✓ Free shipping</span>
+                <span>✓ 30-day money-back</span>
+                <span>✓ Cancel anytime</span>
+              </div>
+            </Reveal>
+            <Reveal>
+              <div className="mt-8 w-full rounded-[10px] bg-white px-5 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
+                <p className="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-primary">
+                  Bobby Parrish · FlavCity
+                </p>
+                <p className="mt-1.5 text-[0.92rem] italic leading-[1.4] text-[#2a2620]">
+                  "This is the BioLogic Mini, I keep one in my kitchen and one in our bedroom."
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* DESKTOP / TABLET: overlay layout (768px and up) */}
+        <section className="hidden md:block relative h-[100svh] min-h-[680px] w-full overflow-hidden">
           <picture>
             <source media="(max-width: 1023px)" srcSet={heroImgMobile} />
             <img
               src={heroImg}
               alt="Bobby Parrish at home"
-              className="absolute inset-0 h-full w-full object-cover object-[50%_12%] sm:object-[50%_22%] lg:object-center"
+              className="absolute inset-0 h-full w-full object-cover object-[50%_22%] lg:object-center"
               fetchPriority="high"
               loading="eager"
               decoding="async"
             />
           </picture>
-          {/* Mobile: photo dominates top, text sits on solid cream below */}
           <div
             aria-hidden
-            className="absolute inset-0 lg:hidden"
-            style={{ background: "linear-gradient(180deg, rgba(252,247,240,0) 0%, rgba(252,247,240,0) 32%, rgba(252,247,240,0.98) 44%, rgba(252,247,240,1) 100%)" }}
-          />
-          {/* Desktop: horizontal gradient */}
-          <div
-            aria-hidden
-            className="absolute inset-0 hidden lg:block"
+            className="absolute inset-0"
             style={{ background: "linear-gradient(90deg, rgba(252, 247, 240, 0.92) 0%, rgba(252, 247, 240, 0.75) 35%, rgba(252, 247, 240, 0.35) 60%, rgba(252, 247, 240, 0) 78%)" }}
           />
           <div
@@ -247,12 +307,10 @@ const BobbyParrishLandingPage = () => {
             className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(255,240,210,0.12),transparent_60%)] pointer-events-none"
           />
 
-          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-8 text-center sm:px-8 sm:pb-16 sm:text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
-            <div className="mx-auto max-w-[36rem] sm:mx-0 lg:max-w-3xl">
+          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-8 pb-16 text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
+            <div className="max-w-[36rem] lg:max-w-3xl">
               <Reveal>
-                <h1
-                  className="font-display font-bold tracking-[-0.025em] text-[#1a1410] text-[2rem] leading-[1.08] sm:text-[3rem] sm:leading-[1.05] lg:text-[3.6rem]"
-                >
+                <h1 className="font-display font-bold tracking-[-0.025em] text-[#1a1410] text-[3rem] leading-[1.05] lg:text-[3.6rem]">
                   <span className="block">Bobby uses EnviroBiotics</span>
                   <span className="block">to clean his home.</span>
                   <span className="block text-primary">Now you can too.</span>
@@ -264,11 +322,11 @@ const BobbyParrishLandingPage = () => {
                 </p>
               </Reveal>
               <Reveal>
-                <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
-                  <a href="#bundle" onClick={() => trackEvent("click_hero_shop_picks")} className="w-full sm:w-auto">
+                <div className="mt-7 flex flex-row items-center gap-6">
+                  <a href="#bundle" onClick={() => trackEvent("click_hero_shop_picks")}>
                     <Button
                       size="lg"
-                      className="h-[3.25rem] w-full rounded-full bg-primary px-7 text-base font-semibold text-white hover:bg-primary/90 sm:h-14 sm:w-auto sm:px-8"
+                      className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-white hover:bg-primary/90"
                     >
                       See the Bundle - $399 (Save $96)
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -290,8 +348,6 @@ const BobbyParrishLandingPage = () => {
                   <span>✓ Cancel anytime</span>
                 </div>
               </Reveal>
-
-              {/* Photo caption (museum plaque) - inline under CTA on all sizes */}
               <Reveal>
                 <div className="mt-8 inline-block max-w-[24rem] rounded-[10px] bg-white/[0.94] px-5 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.18)] backdrop-blur-md">
                   <p className="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-primary">
@@ -305,6 +361,7 @@ const BobbyParrishLandingPage = () => {
             </div>
           </div>
         </section>
+
 
 
         {/* ============ GUARANTEE STRIP ============ */}
