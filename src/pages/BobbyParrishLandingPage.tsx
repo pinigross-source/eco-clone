@@ -268,7 +268,7 @@ const BobbyParrishLandingPage = () => {
                       size="lg"
                       className="h-[3.25rem] w-full rounded-full bg-white px-7 text-base font-semibold text-foreground hover:bg-white/90 sm:h-14 sm:w-auto sm:px-8"
                     >
-                      Get Bobby's Setup — 15% off
+                      Get Bobby's Setup - 15% off
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
@@ -291,13 +291,13 @@ const BobbyParrishLandingPage = () => {
               </Reveal>
             </div>
 
-            {/* Bobby quote overlay — positioned on right side over his shoulder/chest area */}
+            {/* Bobby quote overlay - positioned on right side over his shoulder/chest area */}
             <Reveal className="hidden lg:block">
               <div className="absolute right-16 top-1/2 -translate-y-1/2 max-w-[360px] rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-6 text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.4)]">
                 <p className="text-[0.95rem] font-medium leading-relaxed italic">
-                  "This is the one thing I actually use every day in my home. My followers get 15% off — and if you don't love it, send it back."
+                  "This is the one thing I actually use every day in my home. My followers get 15% off - and if you don't love it, send it back."
                 </p>
-                <p className="mt-3 text-sm font-semibold not-italic">— Bobby</p>
+                <p className="mt-3 text-sm font-semibold not-italic">- Bobby</p>
               </div>
             </Reveal>
           </div>
