@@ -927,7 +927,7 @@ const BobbyParrishLandingPage = () => {
           <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6">
             <Reveal>
               <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                Bobby Followers Save 15%
+                BOBBY FOLLOWERS SAVE 15%
               </span>
             </Reveal>
             <Reveal>
@@ -939,21 +939,33 @@ const BobbyParrishLandingPage = () => {
             </Reveal>
             <Reveal>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                Start supporting your indoor environment with beneficial environmental probiotics that help clean beyond the air. Save 15% on your EnviroBiotics order.
+                Start supporting your home with beneficial environmental probiotics that work quietly in the background, every day. 15% off auto-applies at checkout - and you have 30 days to decide if it&apos;s right for your home.
               </p>
             </Reveal>
             <Reveal>
-              <div className="mt-10 flex justify-center">
-                <a href="#products" onClick={() => trackEvent("click_final_cta_bobby_offer")}>
+              <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+                <a href={LINKS.bundle} onClick={() => trackEvent("click_final_cta_bundle")}>
                   <Button
                     size="lg"
                     className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground hover:bg-primary/90"
                   >
-                    Shop the Bobby Offer
+                    Get Bobby&apos;s Setup - 15% off
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
+                <a
+                  href="#products"
+                  onClick={() => trackEvent("click_final_cta_browse_all")}
+                  className="text-base font-medium text-foreground underline-offset-4 hover:underline"
+                >
+                  Browse all devices
+                </a>
               </div>
+            </Reveal>
+            <Reveal>
+              <p className="mt-6 text-center text-sm text-muted-foreground">
+                Free shipping · 30-day money-back guarantee · Cancel anytime
+              </p>
             </Reveal>
           </div>
         </section>
