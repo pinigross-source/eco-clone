@@ -294,18 +294,43 @@ const BobbyParrishLandingPage = () => {
                 </div>
               </Reveal>
             </div>
+          </div>
 
-            {/* Desktop photo caption (museum plaque) */}
-            <Reveal className="hidden md:block">
-              <div className="absolute bottom-[8%] right-[5%] z-10 max-w-[260px] rounded-[10px] bg-white/[0.92] px-[18px] py-[14px] shadow-[0_10px_30px_rgba(0,0,0,0.22)] backdrop-blur-md">
-                <p className="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-primary">
-                  Bobby Parrish · FlavCity
-                </p>
-                <p className="mt-1.5 text-[0.92rem] italic leading-[1.4] text-[#2a2620]">
-                  "This is the BioLogic Mini, I keep one in my kitchen and one in our bedroom."
-                </p>
-              </div>
-            </Reveal>
+          {/* Desktop photo caption (museum plaque) */}
+          <div
+            className="absolute z-20 hidden w-[280px] max-w-[280px] rounded-[12px] md:block"
+            style={{
+              bottom: "10%",
+              right: "6%",
+              padding: "16px 20px",
+              background: "rgba(255, 255, 255, 0.94)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.18)",
+            }}
+          >
+            <p
+              className="text-primary"
+              style={{
+                fontSize: "0.72rem",
+                fontWeight: 700,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                marginBottom: "6px",
+              }}
+            >
+              Bobby Parrish · FlavCity
+            </p>
+            <p
+              style={{
+                color: "#2a2620",
+                fontSize: "0.92rem",
+                lineHeight: 1.4,
+                fontStyle: "italic",
+              }}
+            >
+              "This is the BioLogic Mini, I keep one in my kitchen and one in our bedroom."
+            </p>
           </div>
         </section>
 
