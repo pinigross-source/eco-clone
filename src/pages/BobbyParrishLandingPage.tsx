@@ -247,7 +247,7 @@ const BobbyParrishLandingPage = () => {
             </Reveal>
             <Reveal>
               <p className="mt-5 text-[0.95rem] font-light leading-[1.6] text-[#4a3f33]">
-                The probiotic cleaning system Bobby trusts in his own kitchen, bedroom, and bathroom — beneficial bacteria working between cleanings. No bleach, no ammonia, no harsh chemicals.
+                The probiotic cleaning system Bobby trusts in his own kitchen, bedroom, and bathroom. Beneficial bacteria working between cleanings. No bleach, no ammonia, no harsh chemicals.
               </p>
             </Reveal>
             <Reveal>
