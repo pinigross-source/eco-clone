@@ -258,7 +258,7 @@ const BobbyParrishLandingPage = () => {
                   <span className="block">Probiotics for a fresher home.</span>
                 </p>
                 <p className="mt-5 hidden max-w-[31rem] text-lg font-medium leading-relaxed text-white/92 sm:block md:text-[1.15rem] lg:max-w-2xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
-                  Bobby's home cleaning upgrade. EnviroBiotics releases beneficial probiotics into your air and onto surfaces — supporting a fresher, calmer home without harsh chemicals.
+                  Bobby's home cleaning upgrade. EnviroBiotics releases beneficial probiotics into your air and onto surfaces, supporting a fresher, calmer home without harsh chemicals.
                 </p>
               </Reveal>
               <Reveal>
