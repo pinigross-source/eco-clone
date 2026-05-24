@@ -429,45 +429,50 @@ const BobbyParrishLandingPage = () => {
               </div>
             </Reveal>
 
-            <div className="mt-5 grid grid-cols-1 gap-4 sm:mt-6 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
-              {[
-                {
-                  img: bathroomImg,
-                  title: "Bedrooms",
-                  caption:
-                    "Support a fresher sleep environment on bedding, fabrics, furniture, and surrounding surfaces.",
-                },
-                {
-                  img: particlesImg,
-                  title: "Kitchens & Living Areas",
-                  caption:
-                    "Help care for the everyday spaces where your family gathers, eats, relaxes, and spends time together.",
-                },
-                {
-                  img: travelImg,
-                  title: "On the Go",
-                  caption:
-                    "Take the same quiet support with you, for travel, hotel rooms, and the everyday spaces in between.",
-                },
-              ].map((item) => (
-                <Reveal key={item.title}>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl sm:aspect-[5/3]">
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      className="h-full w-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 text-white sm:bottom-5 sm:left-6 sm:right-6">
-                      <p className="text-base font-semibold sm:text-lg">{item.title}</p>
-                      <p className="mt-1 text-xs leading-snug text-white/85 sm:text-sm">
-                        {item.caption}
+            <div className="mt-14 sm:mt-20 lg:mt-28">
+              <Reveal>
+                <p className="mb-10 sm:mb-14 text-center text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:text-[11px] sm:tracking-[0.32em]">
+                  WHAT TO EXPECT
+                </p>
+              </Reveal>
+              <Reveal>
+                <h3 className="text-center font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08] mb-10 sm:mb-14">
+                  The first 30 days in your home.
+                </h3>
+              </Reveal>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
+                {[
+                  {
+                    week: "Week 1",
+                    title: "A fresher first impression",
+                    body: "Most Bobby followers notice a calmer, less stuffy feeling within the first 7 days — especially in bedrooms and closed-door spaces.",
+                  },
+                  {
+                    week: "Week 2",
+                    title: "Softer-smelling fabrics",
+                    body: "Bedding, towels, upholstery, and curtains start holding scents less stubbornly. Pet smells and cooking lingers fade faster.",
+                  },
+                  {
+                    week: "Week 4",
+                    title: "Less buildup, more balance",
+                    body: "Surfaces stay cleaner between wipes. Allergy-prone family members often report easier breathing in the rooms with EnviroBiotics running.",
+                  },
+                ].map((item) => (
+                  <Reveal key={item.week}>
+                    <div className="flex h-full flex-col rounded-2xl bg-card p-6 ring-1 ring-black/[0.06] sm:p-8">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-primary mb-4">
+                        {item.week}
+                      </p>
+                      <h4 className="font-display text-lg font-bold tracking-[-0.02em] text-foreground sm:text-xl mb-3">
+                        {item.title}
+                      </h4>
+                      <p className="text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                        {item.body}
                       </p>
                     </div>
-                  </div>
-                </Reveal>
-              ))}
+                  </Reveal>
+                ))}
+              </div>
             </div>
           </div>
         </section>
