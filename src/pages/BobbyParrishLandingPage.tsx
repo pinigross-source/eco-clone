@@ -232,7 +232,11 @@ const BobbyParrishLandingPage = () => {
           </picture>
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/22 to-black/5 sm:bg-gradient-to-r sm:from-black/75 sm:via-black/35 sm:via-40% sm:to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent sm:bg-gradient-to-r sm:from-black/45 sm:via-black/15 sm:via-45% sm:to-transparent"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_40%,rgba(255,240,210,0.18),transparent_55%)] mix-blend-screen pointer-events-none"
           />
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-8 text-center sm:px-8 sm:pb-16 sm:text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
             <div className="mx-auto max-w-[36rem] sm:mx-0 lg:max-w-3xl">
@@ -304,7 +308,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ GUARANTEE STRIP ============ */}
-        <section className="w-full bg-[#F5F3EE] border-y border-black/[0.05]">
+        <section className="w-full bg-[#FBF8F2]">
           <div className="max-w-3xl mx-auto px-5 py-6 sm:py-8 text-center">
             <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground leading-relaxed">
               Try it for 30 days. Don't love it? Full refund - free return shipping.
@@ -316,7 +320,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 2. STATS STRIP ============ */}
-        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-28">
+        <section className="bg-gradient-to-b from-[#FBF8F2] to-[#F4EFE5] py-12 sm:py-20 lg:py-20">
           <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-5 gap-y-8 px-5 sm:gap-10 sm:px-10 lg:grid-cols-4 lg:px-16">
             {[
               { n: "15%", label: "Off with code Bobby" },
@@ -339,7 +343,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 3. FAQ TRUST CARDS ============ */}
-        <section className="bg-background py-14 sm:py-20 lg:py-28">
+        <section className="bg-[#FEFDFB] py-14 sm:py-20 lg:py-20">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <p className="mb-10 sm:mb-14 text-center text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:text-[11px] sm:tracking-[0.32em]">
@@ -383,7 +387,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 4. THE PROBLEM ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-40">
+        <section className="bg-[#FEFDFB] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.24)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.28)]">
@@ -478,7 +482,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 4. HOW IT WORKS ============ */}
-        <section id="how-it-works" className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-40">
+        <section id="how-it-works" className="bg-gradient-to-b from-[#FBF8F2] to-[#F4EFE5] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
@@ -536,7 +540,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 5. PRODUCTS ============ */}
-        <section id="products" className="bg-background py-14 sm:py-24 lg:py-40">
+        <section id="products" className="bg-gradient-to-b from-[#FEFDFB] via-white to-[#FBF8F2] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
@@ -728,7 +732,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 6. BOBBY ENDORSEMENT ============ */}
-        <section className="bg-[hsl(var(--primary-soft))] py-14 sm:py-24 lg:py-40">
+        <section className="bg-[hsl(var(--primary-soft))] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.18)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.18)] lg:grid-cols-2">
@@ -777,7 +781,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 7. TESTIMONIALS ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-32">
+        <section className="bg-[#FEFDFB] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
@@ -825,7 +829,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 8. FEATURE ICONS ============ */}
-        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-24">
+        <section className="bg-gradient-to-b from-[#FBF8F2] to-[#F4EFE5] py-12 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
@@ -861,7 +865,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 9. FAQ ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-32">
+        <section className="bg-[#FEFDFB] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-3xl px-5 sm:px-10">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
