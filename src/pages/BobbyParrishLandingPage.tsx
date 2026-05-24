@@ -351,7 +351,7 @@ const BobbyParrishLandingPage = () => {
                 {
                   icon: ShieldCheck,
                   title: "Safe around kids and pets?",
-                  body: "Yes. EnviroBiotics uses beneficial environmental probiotics — the same family of microbes naturally present in healthy homes. No harsh chemicals, no fragrances, no respiratory irritants. Safe to run continuously around children, pets, and sensitive family members.",
+                  body: "Yes. EnviroBiotics uses beneficial environmental probiotics - the same family of microbes naturally present in healthy homes. No harsh chemicals, no fragrances, no respiratory irritants. Safe to run continuously around children, pets, and sensitive family members.",
                 },
                 {
                   icon: Sparkles,
@@ -445,7 +445,7 @@ const BobbyParrishLandingPage = () => {
                   {
                     week: "Week 1",
                     title: "A fresher first impression",
-                    body: "Most Bobby followers notice a calmer, less stuffy feeling within the first 7 days — especially in bedrooms and closed-door spaces.",
+                    body: "Most Bobby followers notice a calmer, less stuffy feeling within the first 7 days - especially in bedrooms and closed-door spaces.",
                   },
                   {
                     week: "Week 2",
@@ -629,7 +629,7 @@ const BobbyParrishLandingPage = () => {
                       Home Bundle
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                      The setup Bobby followers buy most. Two devices, full-home coverage — perfect for families, multi-room homes, and households with pets or kids.
+                      The setup Bobby followers buy most. Two devices, full-home coverage - perfect for families, multi-room homes, and households with pets or kids.
                     </p>
                     <ul className="mt-5 flex flex-1 flex-col gap-3">
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
@@ -832,19 +832,19 @@ const BobbyParrishLandingPage = () => {
                 {[
                   {
                     label: "Probiotic Cleaning",
-                    desc: "Uses beneficial environmental probiotics to help support a cleaner indoor environment.",
+                    desc: "Uses beneficial environmental probiotics - the same microbes naturally present in healthy homes.",
                   },
                   {
-                    label: "Beyond the Air",
-                    desc: "Designed to reach air, surfaces, fabrics, furniture, and everyday objects.",
+                    label: "Works With Your Routine",
+                    desc: "Doesn't replace your regular cleaning. Quietly supports the gaps your wipes and sprays can't reach.",
                   },
                   {
                     label: "No Harsh Chemicals",
-                    desc: "A natural approach to home care without heavy chemical sprays or artificial fragrance.",
+                    desc: "No bleach, no ammonia, no synthetic fragrances. Safe around kids, pets, and sensitive family members.",
                   },
                   {
-                    label: "Easy Daily Support",
-                    desc: "Simple to use and designed to work quietly in the background.",
+                    label: "Set It and Forget It",
+                    desc: "Runs quietly in the background. No daily routine. No moving parts to maintain.",
                   },
                 ].map((b) => (
                   <div key={b.label} className="flex flex-col gap-2">
