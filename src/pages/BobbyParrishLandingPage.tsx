@@ -194,6 +194,29 @@ const BobbyParrishLandingPage = () => {
       />
 
       <main className="bg-background text-foreground">
+        {/* ============ STICKY DISCOUNT BAR ============ */}
+        <div className="sticky top-0 z-50 bg-foreground text-background border-b border-white/10">
+          <div className="hidden sm:block text-center py-2.5 px-4">
+            <span className="text-sm font-medium">
+              🎁 Code BOBBY auto-applied - 15% off +free shipping+ 30-day money-back guarantee
+            </span>{" "}
+            <a
+              href="#products"
+              onClick={() => trackEvent("click_sticky_bar_shop")}
+              className="text-sm font-semibold underline underline-offset-2 hover:no-underline whitespace-nowrap"
+            >
+              Shop now →
+            </a>
+          </div>
+          <a
+            href="#products"
+            onClick={() => trackEvent("click_sticky_bar_shop_mobile")}
+            className="block sm:hidden text-center py-2.5 px-3 text-xs font-medium"
+          >
+            🎁 BOBBY - 15% off +free shipping + 30-day guarantee →
+          </a>
+        </div>
+
         {/* ============ 1. HERO ============ */}
         <section className="relative h-[100svh] min-h-[620px] w-full overflow-hidden sm:min-h-[680px]">
           <picture>
