@@ -576,7 +576,7 @@ const BobbyParrishLandingPage = () => {
                       BioLogic Mini
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      Compact and quiet — perfect for one room, a home office, or as Bobby&apos;s travel essential.
+                      Compact and quiet - perfect for one room, a home office, or as Bobby&apos;s travel essential.
                     </p>
                     <ul className="mt-4 flex flex-1 flex-col gap-2">
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -999,7 +999,7 @@ const BobbyParrishLandingPage = () => {
                     size="lg"
                     className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground hover:bg-primary/90"
                   >
-                    Get Bobby&apos;s Bundle — 15% off
+                    Get Bobby&apos;s Bundle - 15% off
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
