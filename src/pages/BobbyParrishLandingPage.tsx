@@ -224,17 +224,17 @@ const BobbyParrishLandingPage = () => {
             <img
               src={heroImg}
               alt="Bobby Parrish at home"
-              className="absolute inset-0 h-full w-full object-cover object-[50%_20%] sm:object-[50%_22%] lg:object-center"
+              className="absolute inset-0 h-full w-full object-cover object-[50%_12%] sm:object-[50%_22%] lg:object-center"
               fetchPriority="high"
               loading="eager"
               decoding="async"
             />
           </picture>
-          {/* Mobile: vertical gradient for legibility behind centered text */}
+          {/* Mobile: photo dominates top, text sits on solid cream below */}
           <div
             aria-hidden
             className="absolute inset-0 lg:hidden"
-            style={{ background: "linear-gradient(180deg, rgba(252,247,240,0) 0%, rgba(252,247,240,0) 35%, rgba(252,247,240,0.75) 60%, rgba(252,247,240,0.96) 85%)" }}
+            style={{ background: "linear-gradient(180deg, rgba(252,247,240,0) 0%, rgba(252,247,240,0) 32%, rgba(252,247,240,0.98) 44%, rgba(252,247,240,1) 100%)" }}
           />
           {/* Desktop: horizontal gradient */}
           <div
