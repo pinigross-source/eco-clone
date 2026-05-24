@@ -461,11 +461,11 @@ const BobbyParrishLandingPage = () => {
                   name="BioLogic Mini"
                   tagline="Best for Small Rooms"
                   description="A compact probiotic device designed for bedrooms, nurseries, home offices, bathrooms, and smaller spaces."
-                  price="$98"
+                  price="$83"
+                  oldPrice="$98"
                   image={miniImg}
                   href={LINKS.mini}
                   ctaText="Shop BioLogic Mini"
-                  offerNote="Use code Bobby for 15% off."
                   onClick={trackMini}
                   features={[
                     "Covers up to 300 sq. ft.",
