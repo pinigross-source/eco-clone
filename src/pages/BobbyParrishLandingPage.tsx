@@ -994,12 +994,12 @@ const BobbyParrishLandingPage = () => {
             </Reveal>
             <Reveal>
               <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <a href={LINKS.mini} onClick={() => trackEvent("click_final_cta_mini")}>
+                <a href={LINKS.bundle} onClick={() => trackEvent("click_final_cta_bundle")}>
                   <Button
                     size="lg"
                     className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground hover:bg-primary/90"
                   >
-                    Get the BioLogic Mini — 15% off
+                    Get Bobby&apos;s Bundle — 15% off
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
