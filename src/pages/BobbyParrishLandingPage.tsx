@@ -590,7 +590,7 @@ const BobbyParrishLandingPage = () => {
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
                   How It Works
                 </p>
-                <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
+                <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
                   How EnviroBiotics works.
                 </h2>
                 <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
@@ -648,7 +648,7 @@ const BobbyParrishLandingPage = () => {
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
                   CHOOSE YOUR DEVICE
                 </p>
-                <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
+                <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
                   Most Bobby followers go with the Bundle.
                 </h2>
                 <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
@@ -1085,7 +1085,7 @@ const BobbyParrishLandingPage = () => {
               </span>
             </Reveal>
             <Reveal>
-              <h2 className="mt-6 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              <h2 className="mt-6 text-balance font-display text-[1.85rem] font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                 <span className="block">Every surface. Every room.</span>
                 <span className="block text-primary">A cleaner way to care for your home.</span>
               </h2>
