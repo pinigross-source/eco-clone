@@ -731,7 +731,63 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 6. BOBBY ENDORSEMENT ============ */}
+        {/* ============ 6. ON THE GO ============ */}
+        <section className="bg-gradient-to-b from-[#FEFDFB] to-[#FBF8F2] py-14 sm:py-24 lg:py-24">
+          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
+            <Reveal>
+              <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.18)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.18)] lg:grid-cols-2">
+                <div className="relative min-h-[320px] bg-muted sm:min-h-[480px] lg:order-2">
+                  <img
+                    src={travelImg}
+                    alt="Bobby Parrish traveling with BioLogic Mini"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-black/10 bg-white/85 px-4 py-2 backdrop-blur sm:bottom-6 sm:left-6">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    <span className="text-xs font-semibold text-foreground">Bobby&apos;s travel essential</span>
+                  </div>
+                </div>
+                <div className="flex flex-col justify-center gap-4 p-6 sm:gap-6 sm:p-14 lg:order-1 lg:p-16">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:text-[11px] sm:tracking-[0.32em]">
+                    ON THE GO
+                  </p>
+                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.75rem]">
+                    Bobby doesn&apos;t leave home without it.
+                  </h2>
+                  <p className="text-[0.95rem] leading-relaxed text-muted-foreground sm:text-lg">
+                    The BioLogic Mini is compact enough to pack in a suitcase and powerful enough to keep hotel rooms, Airbnbs, and temporary spaces feeling fresh. Wherever Bobby travels, his probiotic support comes with him.
+                  </p>
+                  <ul className="flex flex-col gap-3">
+                    <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                      <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                      <span>Fits easily in luggage or a carry-on</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                      <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                      <span>Plug in anywhere for instant probiotic coverage</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                      <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                      <span>Covers up to 300 sq ft - perfect for hotel rooms and rentals</span>
+                    </li>
+                  </ul>
+                  <a href={LINKS.mini} onClick={trackMini}>
+                    <Button
+                      size="lg"
+                      className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
+                    >
+                      Get the BioLogic Mini
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ============ 7. BOBBY ENDORSEMENT ============ */}
         <section className="bg-[hsl(var(--primary-soft))] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
