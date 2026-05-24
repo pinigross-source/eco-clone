@@ -343,40 +343,70 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 3. FAQ TRUST CARDS ============ */}
-        <section className="bg-[#FEFDFB] py-14 sm:py-20 lg:py-20">
-          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
+        <section className="relative overflow-hidden bg-[#FBF8F2] py-20 sm:py-28 lg:py-32">
+          {/* Decorative background flourishes */}
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,_rgba(214,158,46,0.10),_transparent_70%)] blur-3xl" />
+            <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-[radial-gradient(circle,_rgba(193,127,71,0.08),_transparent_70%)] blur-2xl" />
+          </div>
+
+          <div className="relative mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <p className="mb-10 sm:mb-14 text-center text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:text-[11px] sm:tracking-[0.32em]">
-                THE QUESTIONS EVERYONE ASKS FIRST
-              </p>
+              <div className="mb-14 flex flex-col items-center text-center sm:mb-20">
+                <div className="flex items-center gap-3">
+                  <span className="h-px w-10 bg-primary/40" />
+                  <p className="text-[10px] font-medium uppercase tracking-[0.4em] text-primary sm:text-[11px]">
+                    The Questions Everyone Asks First
+                  </p>
+                  <span className="h-px w-10 bg-primary/40" />
+                </div>
+                <h2 className="mt-5 max-w-2xl font-display text-3xl font-normal italic tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+                  Considered answers,<br className="hidden sm:block" /> before you ask.
+                </h2>
+              </div>
             </Reveal>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
               {[
                 {
                   icon: ShieldCheck,
+                  num: "01",
                   title: "Safe around kids and pets?",
-                  body: "Yes. EnviroBiotics uses beneficial environmental probiotics - the same family of microbes naturally present in healthy homes. No harsh chemicals, no fragrances, no respiratory irritants. Safe to run continuously around children, pets, and sensitive family members.",
+                  body: "Yes. EnviroBiotics uses beneficial environmental probiotics, the same family of microbes naturally present in healthy homes. No harsh chemicals, no fragrances, no respiratory irritants. Safe to run continuously around children, pets, and sensitive family members.",
                 },
                 {
                   icon: Sparkles,
+                  num: "02",
                   title: "Do I still clean normally?",
                   body: "Yes, keep using whatever cleaners you love. EnviroBiotics works alongside your routine, supporting the in-between moments your regular cleaning can't reach: fabrics, soft surfaces, and the air itself.",
                 },
                 {
                   icon: Clock,
+                  num: "03",
                   title: "What will I actually notice?",
                   body: "Most Bobby followers report a fresher-feeling home within the first 7 days, less stuffiness, calmer-smelling fabrics, and noticeably less dust settling on surfaces.",
                 },
               ].map((card) => (
                 <Reveal key={card.title}>
-                  <div className="flex h-full flex-col rounded-2xl bg-card p-6 ring-1 ring-black/[0.06] sm:p-8">
-                    <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
-                      <card.icon className="h-5 w-5 text-primary" strokeWidth={2} />
+                  <div className="group relative flex h-full flex-col overflow-hidden rounded-[1.25rem] bg-gradient-to-b from-white to-[#FBF8F2] p-8 ring-1 ring-black/[0.05] shadow-[0_1px_2px_rgba(0,0,0,0.04),0_20px_50px_-30px_rgba(120,80,30,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_2px_3px_rgba(0,0,0,0.04),0_40px_80px_-30px_rgba(120,80,30,0.28)] sm:p-10">
+                    {/* Top hairline accent on hover */}
+                    <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                    <div className="mb-8 flex items-start justify-between">
+                      <div className="relative inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary/15 to-primary/5 ring-1 ring-primary/20">
+                        <card.icon className="h-[18px] w-[18px] text-primary" strokeWidth={1.75} />
+                      </div>
+                      <span className="font-display text-xs font-normal italic tracking-[0.2em] text-primary/60">
+                        {card.num}
+                      </span>
                     </div>
-                    <h3 className="font-display text-lg font-bold tracking-[-0.02em] text-foreground sm:text-xl">
+
+                    <h3 className="font-display text-[1.35rem] font-normal tracking-[-0.015em] text-foreground sm:text-[1.5rem] sm:leading-[1.2]">
                       {card.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+
+                    <div className="mt-5 h-px w-10 bg-primary/30" />
+
+                    <p className="mt-5 text-[0.95rem] leading-[1.7] text-muted-foreground">
                       {card.body}
                     </p>
                   </div>
