@@ -239,7 +239,7 @@ const BobbyParrishLandingPage = () => {
               <Reveal className="hidden sm:block">
                 <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  Special Offer for Bobby Followers
+                  EXCLUSIVE OFFER FOR BOBBY FOLLOWERS
                 </p>
               </Reveal>
               <Reveal>
@@ -254,13 +254,11 @@ const BobbyParrishLandingPage = () => {
               </Reveal>
               <Reveal>
                 <p className="mx-auto mt-3 max-w-[22rem] text-[1.0625rem] font-medium leading-[1.45] text-white/95 sm:hidden [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
-                  <span className="block">Probiotic home cleaning for air,</span>
-                  <span className="block">surfaces, fabrics &amp; everyday spaces.</span>
+                  <span className="block">Bobby's home cleaning upgrade.</span>
+                  <span className="block">Probiotics for a fresher home.</span>
                 </p>
                 <p className="mt-5 hidden max-w-[31rem] text-lg font-medium leading-relaxed text-white/92 sm:block md:text-[1.15rem] lg:max-w-2xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
-                  Bring probiotic cleaning into your home with EnviroBiotics. Our system releases
-                  beneficial environmental probiotics that help support cleaner air, surfaces,
-                  fabrics, and everyday spaces - without harsh chemicals.
+                  Bobby's home cleaning upgrade. EnviroBiotics releases beneficial probiotics into your air and onto surfaces — supporting a fresher, calmer home without harsh chemicals.
                 </p>
               </Reveal>
               <Reveal>
@@ -270,7 +268,7 @@ const BobbyParrishLandingPage = () => {
                       size="lg"
                       className="h-[3.25rem] w-full rounded-full bg-white px-7 text-base font-semibold text-foreground hover:bg-white/90 sm:h-14 sm:w-auto sm:px-8"
                     >
-                      Shop the Bobby Offer
+                      Get Bobby's Setup — 15% off
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
@@ -278,20 +276,30 @@ const BobbyParrishLandingPage = () => {
                     href="#how-it-works"
                     className="hidden h-14 items-center justify-center rounded-full border border-white/40 px-7 text-base font-medium text-white backdrop-blur-sm transition hover:bg-white/10 sm:inline-flex"
                   >
-                    How It Works
+                    See how it works
                   </a>
                 </div>
               </Reveal>
               <Reveal className="hidden md:block">
                 <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85 lg:mt-10">
-                  <span>30-day risk-free trial</span>
+                  <span>Free shipping</span>
                   <span className="opacity-50">·</span>
-                  <span>Easy to use</span>
+                  <span>30-day money-back</span>
                   <span className="opacity-50">·</span>
-                  <span>Designed for everyday home care</span>
+                  <span>Keep using your regular cleaners</span>
                 </div>
               </Reveal>
             </div>
+
+            {/* Bobby quote overlay — positioned on right side over his shoulder/chest area */}
+            <Reveal className="hidden lg:block">
+              <div className="absolute right-16 top-1/2 -translate-y-1/2 max-w-[360px] rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-6 text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.4)]">
+                <p className="text-[0.95rem] font-medium leading-relaxed italic">
+                  "This is the one thing I actually use every day in my home. My followers get 15% off — and if you don't love it, send it back."
+                </p>
+                <p className="mt-3 text-sm font-semibold not-italic">— Bobby</p>
+              </div>
+            </Reveal>
           </div>
         </section>
 
