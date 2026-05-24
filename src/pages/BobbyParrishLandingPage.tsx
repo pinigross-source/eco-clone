@@ -14,8 +14,8 @@ import {
 import miniImg from "@/assets/shop/biologic-mini.png";
 import bioticaImg from "@/assets/shop/biotica-800.png";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
-import heroImg from "@/assets/bobby/bobby-hero-new.avif";
-import heroImgMobile from "@/assets/bobby/bobby-hero-mobile-new.avif";
+import heroImg from "@/assets/bobby/bobby-hero-bright.avif";
+import heroImgMobile from "@/assets/bobby/bobby-hero-mobile-bright.avif";
 import livingImg from "@/assets/bobby/bobby-ambient.jpg";
 import familyImg from "@/assets/bobby/bobby-ambient.jpg";
 import bobbyImg from "@/assets/bobby/bobby-portrait.jpg";
