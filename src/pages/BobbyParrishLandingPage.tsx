@@ -853,15 +853,12 @@ const BobbyParrishLandingPage = () => {
               {[
                 {
                   text: "I wanted something that felt more natural than sprays and fragrances. EnviroBiotics gives me a simple way to support a cleaner home every day.",
-                  author: "Verified Customer",
                 },
                 {
                   text: "It was easy to set up, and I love that it works quietly in the background. It feels like a smarter way to care for our indoor space.",
-                  author: "Verified Customer",
                 },
                 {
                   text: "I like knowing it goes beyond the air and helps support the surfaces and fabrics around our home.",
-                  author: "Verified Customer",
                 },
               ].map((t, i) => (
                 <Reveal key={i}>
@@ -874,9 +871,6 @@ const BobbyParrishLandingPage = () => {
                     <p className="flex-1 text-[0.95rem] italic leading-relaxed text-muted-foreground sm:text-base">
                       &ldquo;{t.text}&rdquo;
                     </p>
-                    <div>
-                      <div className="text-sm font-semibold text-foreground">{t.author}</div>
-                    </div>
                   </div>
                 </Reveal>
               ))}
