@@ -26,7 +26,7 @@ const withDiscount = (url: string, code = "Bobby") =>
   `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
 
 const LINKS = {
-  mini: withDiscount(shopifyProductUrl("biologic-mini", "bobby-parrish")),
+  mini: "https://shop.envirobiotics.com/products/biologic-mini-bobby",
   biotica: withDiscount(shopifyProductUrl("biotica-800", "bobby-parrish")),
   bundle: withDiscount(shopifyUrl("/products/home-complete-bundle", "bobby-parrish")),
 };
