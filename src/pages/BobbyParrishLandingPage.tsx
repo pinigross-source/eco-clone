@@ -308,7 +308,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ GUARANTEE STRIP ============ */}
-        <section className="w-full bg-gradient-to-b from-[#FBF8F2] to-[#F4EFE5] border-y border-black/[0.05]">
+        <section className="w-full bg-[#FBF8F2]">
           <div className="max-w-3xl mx-auto px-5 py-6 sm:py-8 text-center">
             <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground leading-relaxed">
               Try it for 30 days. Don't love it? Full refund - free return shipping.
