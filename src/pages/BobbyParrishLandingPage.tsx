@@ -263,7 +263,7 @@ const BobbyParrishLandingPage = () => {
                       size="lg"
                       className="h-[3.25rem] w-full rounded-full bg-primary px-7 text-base font-semibold text-white hover:bg-primary/90 sm:h-14 sm:w-auto sm:px-8"
                     >
-                      See the Bundle — $399 (Save $96)
+                      See the Bundle - $399 (Save $96)
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
@@ -284,7 +284,7 @@ const BobbyParrishLandingPage = () => {
                 </div>
               </Reveal>
 
-              {/* Photo caption (museum plaque) — inline under CTA on all sizes */}
+              {/* Photo caption (museum plaque) - inline under CTA on all sizes */}
               <Reveal>
                 <div className="mt-8 inline-block max-w-[24rem] rounded-[10px] bg-white/[0.94] px-5 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.18)] backdrop-blur-md">
                   <p className="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-primary">
@@ -574,7 +574,7 @@ const BobbyParrishLandingPage = () => {
                   Most Bobby followers go with the Bundle.
                 </h2>
                 <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  Cover one room, the whole home, or larger spaces. Single devices use code BOBBY for 15% off — the Bundle is already discounted $96 off the full $495 price.
+                  Cover one room, the whole home, or larger spaces. Single devices use code BOBBY for 15% off - the Bundle is already discounted $96 off the full $495 price.
                 </p>
               </div>
             </Reveal>
@@ -1015,7 +1015,7 @@ const BobbyParrishLandingPage = () => {
             </Reveal>
             <Reveal>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                Start supporting your home with beneficial environmental probiotics that work quietly in the background, every day. The Home Bundle is already discounted $96 — or choose a single device and code BOBBY saves you 15%.
+                Start supporting your home with beneficial environmental probiotics that work quietly in the background, every day. The Home Bundle is already discounted $96 - or choose a single device and code BOBBY saves you 15%.
               </p>
             </Reveal>
             <Reveal>
@@ -1025,7 +1025,7 @@ const BobbyParrishLandingPage = () => {
                     size="lg"
                     className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground hover:bg-primary/90"
                   >
-                    Get the Bundle — $399 (Save $96)
+                    Get the Bundle - $399 (Save $96)
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
