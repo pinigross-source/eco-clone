@@ -240,68 +240,70 @@ const BobbyParrishLandingPage = () => {
           />
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-8 text-center sm:px-8 sm:pb-16 sm:text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
             <div className="mx-auto max-w-[36rem] sm:mx-0 lg:max-w-3xl">
-              <Reveal className="hidden sm:block">
-                <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  EXCLUSIVE OFFER FOR BOBBY FOLLOWERS
-                </p>
+              <Reveal>
+                <span className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-[0.8rem] font-semibold text-white shadow-[0_4px_14px_rgba(0,0,0,0.18)]">
+                  <span aria-hidden>👋</span>
+                  Bobby's 15% off · For FlavCity fans only
+                </span>
               </Reveal>
               <Reveal>
                 <h1
-                  className="font-display text-[2.5rem] font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-[clamp(3rem,6.2vw,4.25rem)] lg:text-[clamp(4.5rem,8vw,6.25rem)]"
-                  style={{ textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
+                  className="font-display font-bold tracking-[-0.025em] text-white text-[2.4rem] leading-[1.05] sm:text-[3rem] lg:text-[3.6rem]"
+                  style={{ textShadow: "0 2px 24px rgba(0,0,0,0.4)" }}
                 >
-                  <span className="block sm:inline">Breathe Easier.</span>{" "}
-                  <span className="block sm:inline text-primary">Live Healthier.</span>{" "}
-                  <span className="block sm:inline">Save 15%.</span>
+                  <span className="block">Bobby uses EnviroBiotics</span>
+                  <span className="block">to clean his home.</span>
+                  <span className="block text-primary">Now you can too, 15% off.</span>
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mx-auto mt-3 max-w-[22rem] text-[1.0625rem] font-medium leading-[1.45] text-white/95 sm:hidden [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
-                  <span className="block">Bobby's home cleaning upgrade.</span>
-                  <span className="block">Probiotics for a fresher home.</span>
-                </p>
-                <p className="mt-5 hidden max-w-[31rem] text-lg font-medium leading-relaxed text-white/92 sm:block md:text-[1.15rem] lg:max-w-2xl lg:text-[1.6rem] lg:leading-[1.35] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
-                  Bobby's home cleaning upgrade. EnviroBiotics releases beneficial probiotics into your air and onto surfaces, supporting a fresher, calmer home without harsh chemicals.
+                <p className="mt-5 max-w-[34rem] text-[1.05rem] font-light leading-[1.55] text-white/90 [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
+                  The probiotic cleaning system Bobby trusts in his own kitchen, bedroom, and bathroom. Beneficial bacteria, released into the air and onto surfaces, working between cleanings, no bleach, no ammonia, no harsh chemicals.
                 </p>
               </Reveal>
               <Reveal>
-                <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-4">
-                  <a href="#products" onClick={() => trackEvent("click_hero_shop_picks")}>
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                  <a href="#bundle" onClick={() => trackEvent("click_hero_shop_picks")}>
                     <Button
                       size="lg"
-                      className="h-[3.25rem] w-full rounded-full bg-white px-7 text-base font-semibold text-foreground hover:bg-white/90 sm:h-14 sm:w-auto sm:px-8"
+                      className="h-[3.25rem] w-full rounded-full bg-primary px-7 text-base font-semibold text-white hover:bg-primary/90 sm:h-14 sm:w-auto sm:px-8"
                     >
-                      Get Bobby's Setup - 15% off
+                      Get Bobby's Bundle, 15% off
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
-                  <a
-                    href="#how-it-works"
-                    className="hidden h-14 items-center justify-center rounded-full border border-white/40 px-7 text-base font-medium text-white backdrop-blur-sm transition hover:bg-white/10 sm:inline-flex"
-                  >
-                    See how it works
-                  </a>
                 </div>
               </Reveal>
-              <Reveal className="hidden md:block">
-                <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85 lg:mt-10">
-                  <span>Free shipping</span>
-                  <span className="opacity-50">·</span>
-                  <span>30-day money-back</span>
-                  <span className="opacity-50">·</span>
-                  <span>Keep using your regular cleaners</span>
+              <Reveal>
+                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[0.8rem] font-medium text-white/75">
+                  <span>✓ Free shipping</span>
+                  <span>✓ 30-day money-back</span>
+                  <span>✓ Cancel anytime</span>
+                </div>
+              </Reveal>
+
+              {/* Mobile caption (stacked below CTA) */}
+              <Reveal className="md:hidden">
+                <div className="mt-7 rounded-[10px] bg-white/92 px-[18px] py-[14px] shadow-[0_8px_24px_rgba(0,0,0,0.18)] backdrop-blur-md">
+                  <p className="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-primary">
+                    Bobby Parrish · FlavCity
+                  </p>
+                  <p className="mt-1.5 text-[0.92rem] italic leading-[1.4] text-[#2a2620]">
+                    "This is the BioLogic Mini, I keep one in my kitchen and one in our bedroom."
+                  </p>
                 </div>
               </Reveal>
             </div>
 
-            {/* Bobby quote overlay - positioned on right side over his shoulder/chest area */}
-            <Reveal className="hidden lg:block">
-              <div className="absolute right-16 top-1/2 -translate-y-1/2 max-w-[360px] rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-6 text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.4)]">
-                <p className="text-[0.95rem] font-medium leading-relaxed italic">
-                  "This is the one thing I actually use every day in my home. My followers get 15% off,  and if you don't love it, send it back."
+            {/* Desktop photo caption (museum plaque) */}
+            <Reveal className="hidden md:block">
+              <div className="absolute bottom-[8%] right-[5%] z-10 max-w-[260px] rounded-[10px] bg-white/[0.92] px-[18px] py-[14px] shadow-[0_10px_30px_rgba(0,0,0,0.22)] backdrop-blur-md">
+                <p className="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-primary">
+                  Bobby Parrish · FlavCity
                 </p>
-                <p className="mt-3 text-sm font-semibold not-italic">- Bobby</p>
+                <p className="mt-1.5 text-[0.92rem] italic leading-[1.4] text-[#2a2620]">
+                  "This is the BioLogic Mini, I keep one in my kitchen and one in our bedroom."
+                </p>
               </div>
             </Reveal>
           </div>
