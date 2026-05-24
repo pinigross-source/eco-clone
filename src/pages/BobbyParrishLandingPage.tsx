@@ -871,28 +871,32 @@ const BobbyParrishLandingPage = () => {
             <Accordion type="single" collapsible className="mt-10 w-full">
               {[
                 {
-                  q: "Is EnviroBiotics an air purifier?",
-                  a: "No. EnviroBiotics is different from a traditional air purifier. Air purifiers filter air that passes through the unit. EnviroBiotics releases beneficial environmental probiotics that can move through your space and settle on surfaces, fabrics, and everyday objects.",
+                  q: "Is EnviroBiotics safe for kids and pets?",
+                  a: "Yes. EnviroBiotics uses beneficial environmental probiotics - the same family of microbes naturally present in healthy homes. No harsh chemicals, no fragrances, no respiratory irritants. Safe to run continuously around children, pets, and sensitive family members.",
                 },
                 {
-                  q: "Does EnviroBiotics replace regular cleaning?",
+                  q: "Do I need to stop using my regular cleaners?",
                   a: "No. EnviroBiotics is designed to support your home between regular cleanings. Continue your normal cleaning routine while using EnviroBiotics to help maintain a fresher, more balanced indoor environment.",
+                },
+                {
+                  q: "What will I actually notice in my home?",
+                  a: "Most Bobby followers report a fresher-feeling home within the first 7 days. You may notice calmer-smelling fabrics, less stuffiness in closed-door spaces, and less dust settling on surfaces between wipes.",
+                },
+                {
+                  q: "Is this an air purifier?",
+                  a: "No. EnviroBiotics is different from a traditional air purifier. Air purifiers filter air that passes through the unit. EnviroBiotics releases beneficial environmental probiotics that can move through your space and settle on surfaces, fabrics, and everyday objects.",
                 },
                 {
                   q: "Which device should I choose?",
                   a: "Choose BioLogic Mini for bedrooms, nurseries, bathrooms, offices, and smaller rooms up to 300 sq. ft. Choose Biotica 800 for larger rooms and open spaces up to 800 sq. ft. Choose the Home Bundle if you want probiotic support in multiple areas of your home.",
                 },
                 {
-                  q: "Is it safe for everyday home use?",
-                  a: "EnviroBiotics is designed for everyday indoor use. For best results, follow the product instructions and use as directed.",
-                },
-                {
                   q: "How long does it take to start working?",
                   a: "EnviroBiotics begins releasing environmental probiotics once the device is active. Consistent use helps support ongoing probiotic coverage throughout your space.",
                 },
                 {
-                  q: "Can I use it around kids and pets?",
-                  a: "EnviroBiotics is designed for home environments. Always use according to the product instructions and place the device where it can operate safely and effectively.",
+                  q: "Does this replace regular cleaning?",
+                  a: "No. EnviroBiotics is designed to support your home between regular cleanings. Continue your normal cleaning routine while using EnviroBiotics to help maintain a fresher, more balanced indoor environment.",
                 },
               ].map((item, idx) => (
                 <AccordionItem key={idx} value={`q${idx}`}>
