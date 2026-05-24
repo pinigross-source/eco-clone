@@ -481,7 +481,7 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 4. HOW IT WORKS ============ */}
+        {/* ============ 5. HOW IT WORKS ============ */}
         <section id="how-it-works" className="bg-gradient-to-b from-[#FBF8F2] to-[#F4EFE5] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
@@ -972,7 +972,7 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
-        {/* 10. Final CTA */}
+        {/* ============ 11. FINAL CTA ============ */}
         <section className="relative overflow-hidden py-20 sm:py-28">
           <img
             src={ctaBgImg}
