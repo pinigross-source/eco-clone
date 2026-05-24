@@ -305,11 +305,11 @@ const BobbyParrishLandingPage = () => {
 
         {/* ============ GUARANTEE STRIP ============ */}
         <section className="w-full bg-[#F5F3EE] border-y border-black/[0.05]">
-          <div className="max-w-3xl mx-auto px-5 py-5 sm:py-6 text-center">
-            <p className="text-sm sm:text-base font-medium text-foreground">
+          <div className="max-w-3xl mx-auto px-5 py-6 sm:py-8 text-center">
+            <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground leading-relaxed">
               Try it for 30 days. Don't love it? Full refund - free return shipping.
             </p>
-            <p className="text-sm sm:text-base text-muted-foreground mt-1">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mt-2">
               We're confident you'll feel the difference within the first week.
             </p>
           </div>
