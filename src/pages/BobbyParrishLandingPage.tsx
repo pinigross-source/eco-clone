@@ -573,8 +573,8 @@ const BobbyParrishLandingPage = () => {
                 <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
                   Most Bobby followers go with the Bundle.
                 </h2>
-                <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  Cover one room, the whole home, or larger spaces. 15% off auto-applied at checkout.
+                <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
+                  Cover one room, the whole home, or larger spaces. Single devices use code BOBBY for 15% off — the Bundle is already discounted $96 off the full $495 price.
                 </p>
               </div>
             </Reveal>
