@@ -232,7 +232,8 @@ const BobbyParrishLandingPage = () => {
           </picture>
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent sm:bg-gradient-to-r sm:from-black/45 sm:via-black/15 sm:via-45% sm:to-transparent"
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(90deg, rgba(20, 18, 15, 0.88) 0%, rgba(20, 18, 15, 0.72) 30%, rgba(20, 18, 15, 0.35) 55%, rgba(20, 18, 15, 0) 75%)" }}
           />
           <div
             aria-hidden
