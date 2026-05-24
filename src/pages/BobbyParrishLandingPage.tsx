@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Star } from "lucide-react";
+import { ArrowRight, Check, Star, ShieldCheck, Sparkles, Clock } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
@@ -338,7 +338,51 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 3. THE PROBLEM ============ */}
+        {/* ============ 3. FAQ TRUST CARDS ============ */}
+        <section className="bg-background py-14 sm:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
+            <Reveal>
+              <p className="mb-10 sm:mb-14 text-center text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:text-[11px] sm:tracking-[0.32em]">
+                THE QUESTIONS EVERYONE ASKS FIRST
+              </p>
+            </Reveal>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
+              {[
+                {
+                  icon: ShieldCheck,
+                  title: "Safe around kids and pets?",
+                  body: "Yes. EnviroBiotics uses beneficial environmental probiotics — the same family of microbes naturally present in healthy homes. No harsh chemicals, no fragrances, no respiratory irritants. Safe to run continuously around children, pets, and sensitive family members.",
+                },
+                {
+                  icon: Sparkles,
+                  title: "Do I still clean normally?",
+                  body: "Yes, keep using whatever cleaners you love. EnviroBiotics works alongside your routine, supporting the in-between moments your regular cleaning can't reach: fabrics, soft surfaces, and the air itself.",
+                },
+                {
+                  icon: Clock,
+                  title: "What will I actually notice?",
+                  body: "Most Bobby followers report a fresher-feeling home within the first 7 days, less stuffiness, calmer-smelling fabrics, and noticeably less dust settling on surfaces.",
+                },
+              ].map((card) => (
+                <Reveal key={card.title}>
+                  <div className="flex h-full flex-col rounded-2xl bg-card p-6 ring-1 ring-black/[0.06] sm:p-8">
+                    <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
+                      <card.icon className="h-5 w-5 text-primary" strokeWidth={2} />
+                    </div>
+                    <h3 className="font-display text-lg font-bold tracking-[-0.02em] text-foreground sm:text-xl">
+                      {card.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                      {card.body}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============ 4. THE PROBLEM ============ */}
         <section className="bg-background py-14 sm:py-24 lg:py-40">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
