@@ -677,10 +677,13 @@ const BobbyParrishLandingPage = () => {
                       </li>
                     </ul>
                     <div className="mt-6 border-t border-border/60 pt-5">
-                      <div className="mb-1 flex items-baseline gap-3">
-                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$399</span>
-                        <span className="text-base text-muted-foreground line-through">$499</span>
+                      <div className="mb-1">
+                        <span className="text-[1.1rem] text-[#9a8a7a] line-through">$495</span>
                       </div>
+                      <div className="flex items-baseline gap-3">
+                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$399</span>
+                      </div>
+                      <p className="mt-1 text-[0.85rem] font-bold text-[#ff7a2f]">Save $96</p>
                       <a
                         href={LINKS.bundle}
                         onClick={trackBundle}
