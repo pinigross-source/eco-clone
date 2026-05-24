@@ -186,8 +186,8 @@ const BobbyParrishLandingPage = () => {
   return (
     <>
       <SEOHead
-        title="EnviroBiotics Bobby Offer - Save 10% with Code Bobby"
-        description="Bobby followers save 10% on EnviroBiotics with code Bobby. Bring probiotic cleaning into your home and support cleaner air, surfaces, fabrics, and everyday spaces without harsh chemicals."
+        title="EnviroBiotics Bobby Offer - Save 15% with Code Bobby"
+        description="Bobby followers save 15% on EnviroBiotics with code Bobby. Bring probiotic cleaning into your home and support cleaner air, surfaces, fabrics, and everyday spaces without harsh chemicals."
         path="/bobby"
       />
 
@@ -224,7 +224,7 @@ const BobbyParrishLandingPage = () => {
                 >
                   <span className="block sm:inline">Breathe Easier.</span>{" "}
                   <span className="block sm:inline text-primary">Live Healthier.</span>{" "}
-                  <span className="block sm:inline">Save 10%.</span>
+                  <span className="block sm:inline">Save 15%.</span>
                 </h1>
               </Reveal>
               <Reveal>
@@ -236,17 +236,6 @@ const BobbyParrishLandingPage = () => {
                   Bring probiotic cleaning into your home with EnviroBiotics. Our system releases
                   beneficial environmental probiotics that help support cleaner air, surfaces,
                   fabrics, and everyday spaces - without harsh chemicals.
-                </p>
-              </Reveal>
-              <Reveal>
-                <p
-                  className="mt-4 text-[0.95rem] font-semibold text-white sm:mt-6 sm:text-lg lg:text-xl"
-                  style={{ textShadow: "0 1px 12px rgba(0,0,0,0.55)" }}
-                >
-                  Use code{" "}
-                  <span className="font-extrabold uppercase tracking-wider text-primary">Bobby</span>{" "}
-                  <span className="sm:hidden">for 10% off.</span>
-                  <span className="hidden sm:inline">at checkout to get 10% off your order.</span>
                 </p>
               </Reveal>
               <Reveal>
@@ -285,7 +274,7 @@ const BobbyParrishLandingPage = () => {
         <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-28">
           <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-5 gap-y-8 px-5 sm:gap-10 sm:px-10 lg:grid-cols-4 lg:px-16">
             {[
-              { n: "10%", label: "Off with code Bobby" },
+              { n: "15%", label: "Off with code Bobby" },
               { n: "300", label: "sq. ft. Mini coverage" },
               { n: "800", label: "sq. ft. large space coverage" },
               { n: "30-day", label: "Risk-free trial" },
@@ -461,8 +450,7 @@ const BobbyParrishLandingPage = () => {
                 </h2>
                 <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
                   Start small, cover a larger room, or protect multiple spaces. Bobby followers save
-                  10% with code <span className="font-semibold text-foreground">Bobby</span> at
-                  checkout.
+                  15% with code <span className="font-semibold text-foreground">Bobby</span>.
                 </p>
               </div>
             </Reveal>
@@ -477,7 +465,7 @@ const BobbyParrishLandingPage = () => {
                   image={miniImg}
                   href={LINKS.mini}
                   ctaText="Shop BioLogic Mini"
-                  offerNote="Use code Bobby for 10% off."
+                  offerNote="Use code Bobby for 15% off."
                   onClick={trackMini}
                   features={[
                     "Covers up to 300 sq. ft.",
@@ -497,7 +485,7 @@ const BobbyParrishLandingPage = () => {
                   href={LINKS.bundle}
                   highlight
                   ctaText="Get the Home Bundle"
-                  offerNote="Use code Bobby for 10% off."
+                  offerNote="Use code Bobby for 15% off."
                   onClick={trackBundle}
                   features={[
                     "Ideal for multi-room coverage",
@@ -516,7 +504,7 @@ const BobbyParrishLandingPage = () => {
                   image={bioticaImg}
                   href={LINKS.biotica}
                   ctaText="Shop Biotica 800"
-                  offerNote="Use code Bobby for 10% off."
+                  offerNote="Use code Bobby for 15% off."
                   onClick={trackBiotica}
                   features={[
                     "Covers up to 800 sq. ft.",
@@ -561,7 +549,7 @@ const BobbyParrishLandingPage = () => {
                     every day.
                   </p>
                   <p className="text-sm font-semibold text-foreground">
-                    Bobby followers get 10% off with code{" "}
+                    Bobby followers get 15% off with code{" "}
                     <span className="text-primary">Bobby</span>.
                   </p>
                   <a href="#products" onClick={() => trackEvent("click_bobby_endorsement_cta")}>
@@ -569,7 +557,7 @@ const BobbyParrishLandingPage = () => {
                       size="lg"
                       className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
                     >
-                      Claim 10% Off
+                      Claim 15% Off
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
@@ -673,8 +661,8 @@ const BobbyParrishLandingPage = () => {
                   a: "No. EnviroBiotics is different from a traditional air purifier. Air purifiers filter air that passes through the unit. EnviroBiotics releases beneficial environmental probiotics that can move through your space and settle on surfaces, fabrics, and everyday objects.",
                 },
                 {
-                  q: "How do Bobby followers get 10% off?",
-                  a: "Use code Bobby at checkout to receive 10% off your EnviroBiotics order.",
+                  q: "How do Bobby followers get 15% off?",
+                  a: "Use code Bobby at checkout to receive 15% off your EnviroBiotics order.",
                 },
                 {
                   q: "Does EnviroBiotics replace regular cleaning?",
@@ -725,7 +713,7 @@ const BobbyParrishLandingPage = () => {
           <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
             <Reveal>
               <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-                Bobby Followers Save 10%
+                Bobby Followers Save 15%
               </p>
               <h2 className="font-display text-[2.7rem] font-bold leading-[1.04] tracking-[-0.03em] text-foreground sm:text-6xl lg:text-[5rem] lg:leading-[1.02]">
                 Every surface.
@@ -736,7 +724,7 @@ const BobbyParrishLandingPage = () => {
               <p className="mx-auto mt-5 max-w-lg text-base font-medium leading-relaxed text-foreground/85 sm:mt-6 sm:text-lg">
                 Start supporting your indoor environment with beneficial environmental probiotics
                 that help clean beyond the air. Use code{" "}
-                <span className="font-bold text-foreground">Bobby</span> at checkout to save 10% on
+                <span className="font-bold text-foreground">Bobby</span> at checkout to save 15% on
                 your EnviroBiotics order.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -757,7 +745,7 @@ const BobbyParrishLandingPage = () => {
                 </a>
               </div>
               <p className="mt-8 text-sm font-medium text-foreground/75">
-                Use code <span className="font-bold text-foreground">Bobby</span> for 10% off ·
+                Use code <span className="font-bold text-foreground">Bobby</span> for 15% off ·
                 30-day risk-free trial · Easy home setup
               </p>
             </Reveal>
@@ -773,7 +761,7 @@ const BobbyParrishLandingPage = () => {
       >
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div>
-            <p className="text-sm font-semibold text-foreground">Save 10% with code Bobby</p>
+            <p className="text-sm font-semibold text-foreground">Save 15% with code Bobby</p>
             <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
           <a href="#products" onClick={() => trackEvent("click_sticky_bobby_offer")}>
