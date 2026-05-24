@@ -237,8 +237,9 @@ const BobbyParrishLandingPage = () => {
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_40%,rgba(255,240,210,0.18),transparent_55%)] mix-blend-screen pointer-events-none"
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(255,240,210,0.12),transparent_60%)] pointer-events-none"
           />
+
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-8 text-center sm:px-8 sm:pb-16 sm:text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
             <div className="mx-auto max-w-[36rem] sm:mx-0 lg:max-w-3xl">
               <Reveal>
@@ -283,9 +284,9 @@ const BobbyParrishLandingPage = () => {
                 </div>
               </Reveal>
 
-              {/* Mobile caption (stacked below CTA) */}
-              <Reveal className="md:hidden">
-                <div className="mt-7 rounded-[10px] bg-white/92 px-[18px] py-[14px] shadow-[0_8px_24px_rgba(0,0,0,0.18)] backdrop-blur-md">
+              {/* Photo caption (museum plaque) — inline under CTA on all sizes */}
+              <Reveal>
+                <div className="mt-8 inline-block max-w-[24rem] rounded-[10px] bg-white/[0.94] px-5 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.18)] backdrop-blur-md">
                   <p className="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-primary">
                     Bobby Parrish · FlavCity
                   </p>
@@ -296,44 +297,8 @@ const BobbyParrishLandingPage = () => {
               </Reveal>
             </div>
           </div>
-
-          {/* Desktop photo caption (museum plaque) */}
-          <div
-            className="absolute z-20 hidden w-[280px] max-w-[280px] rounded-[12px] md:block"
-            style={{
-              bottom: "10%",
-              right: "6%",
-              padding: "16px 20px",
-              background: "rgba(255, 255, 255, 0.94)",
-              backdropFilter: "blur(10px)",
-              WebkitBackdropFilter: "blur(10px)",
-              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.18)",
-            }}
-          >
-            <p
-              className="text-primary"
-              style={{
-                fontSize: "0.72rem",
-                fontWeight: 700,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                marginBottom: "6px",
-              }}
-            >
-              Bobby Parrish · FlavCity
-            </p>
-            <p
-              style={{
-                color: "#2a2620",
-                fontSize: "0.92rem",
-                lineHeight: 1.4,
-                fontStyle: "italic",
-              }}
-            >
-              "This is the BioLogic Mini, I keep one in my kitchen and one in our bedroom."
-            </p>
-          </div>
         </section>
+
 
         {/* ============ GUARANTEE STRIP ============ */}
         <section className="w-full bg-[#FBF8F2]">
