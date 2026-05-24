@@ -343,7 +343,7 @@ const BobbyParrishLandingPage = () => {
               </div>
             </Reveal>
 
-            <div className="mt-5 grid grid-cols-1 gap-4 sm:mt-6 sm:grid-cols-2 sm:gap-6">
+            <div className="mt-5 grid grid-cols-1 gap-4 sm:mt-6 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
               {[
                 {
                   img: bathroomImg,
@@ -356,6 +356,12 @@ const BobbyParrishLandingPage = () => {
                   title: "Kitchens & Living Areas",
                   caption:
                     "Help care for the everyday spaces where your family gathers, eats, relaxes, and spends time together.",
+                },
+                {
+                  img: travelImg,
+                  title: "On the Go",
+                  caption:
+                    "Take the same quiet support with you, for travel, hotel rooms, and the everyday spaces in between.",
                 },
               ].map((item) => (
                 <Reveal key={item.title}>
