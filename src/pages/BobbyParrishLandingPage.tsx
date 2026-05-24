@@ -836,7 +836,7 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 7. TESTIMONIALS ============ */}
+        {/* ============ 8. TESTIMONIALS ============ */}
         <section className="bg-[#FEFDFB] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
@@ -884,7 +884,7 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 8. FEATURE ICONS ============ */}
+        {/* ============ 9. FEATURE ICONS ============ */}
         <section className="bg-gradient-to-b from-[#FBF8F2] to-[#F4EFE5] py-12 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
@@ -920,7 +920,7 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 9. FAQ ============ */}
+        {/* ============ 10. FAQ ============ */}
         <section className="bg-[#FEFDFB] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-3xl px-5 sm:px-10">
             <Reveal>
