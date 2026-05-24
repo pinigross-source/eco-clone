@@ -308,7 +308,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ GUARANTEE STRIP ============ */}
-        <section className="w-full bg-[#F5F3EE] border-y border-black/[0.05]">
+        <section className="w-full bg-gradient-to-b from-[#FBF8F2] to-[#F4EFE5] border-y border-black/[0.05]">
           <div className="max-w-3xl mx-auto px-5 py-6 sm:py-8 text-center">
             <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground leading-relaxed">
               Try it for 30 days. Don't love it? Full refund - free return shipping.
@@ -320,7 +320,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 2. STATS STRIP ============ */}
-        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-20">
+        <section className="bg-gradient-to-b from-[#FBF8F2] to-[#F4EFE5] py-12 sm:py-20 lg:py-20">
           <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-5 gap-y-8 px-5 sm:gap-10 sm:px-10 lg:grid-cols-4 lg:px-16">
             {[
               { n: "15%", label: "Off with code Bobby" },
@@ -482,7 +482,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 4. HOW IT WORKS ============ */}
-        <section id="how-it-works" className="bg-[#F5F3EE] py-14 sm:py-24 lg:py-24">
+        <section id="how-it-works" className="bg-gradient-to-b from-[#FBF8F2] to-[#F4EFE5] py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
@@ -829,7 +829,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 8. FEATURE ICONS ============ */}
-        <section className="bg-[#F5F3EE] py-12 sm:py-20 lg:py-24">
+        <section className="bg-gradient-to-b from-[#FBF8F2] to-[#F4EFE5] py-12 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
