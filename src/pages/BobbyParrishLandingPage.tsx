@@ -481,11 +481,11 @@ const BobbyParrishLandingPage = () => {
                   tagline="Most Popular"
                   description="The best choice for Bobby followers who want broader probiotic support in more than one room."
                   price="$399"
+                  oldPrice="$495"
                   image={bundleImg}
                   href={LINKS.bundle}
                   highlight
                   ctaText="Get the Home Bundle"
-                  offerNote="Use code Bobby for 15% off."
                   onClick={trackBundle}
                   features={[
                     "Ideal for multi-room coverage",
