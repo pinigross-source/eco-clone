@@ -711,7 +711,7 @@ const BobbyParrishLandingPage = () => {
             </Reveal>
             <Reveal>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                Start supporting your indoor environment with beneficial environmental probiotics that help clean beyond the air. Use code Bobby at checkout to save 15% on your EnviroBiotics order.
+                Start supporting your indoor environment with beneficial environmental probiotics that help clean beyond the air. Save 15% on your EnviroBiotics order.
               </p>
             </Reveal>
             <Reveal>
