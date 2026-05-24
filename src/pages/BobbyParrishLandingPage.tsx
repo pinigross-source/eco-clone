@@ -694,51 +694,6 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ 10. FINAL CTA ============ */}
-        <section className="relative overflow-hidden bg-[hsl(var(--primary-soft))] py-16 sm:py-28 lg:py-44">
-          <img
-            src={familyImg}
-            alt=""
-            aria-hidden
-            className="absolute inset-0 h-full w-full object-cover opacity-25"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary-soft))] via-[hsl(var(--primary-soft))]/80 to-transparent"
-          />
-          <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
-            <Reveal>
-              <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-                Bobby Followers Save 15%
-              </p>
-              <h2 className="font-display text-[2.7rem] font-bold leading-[1.04] tracking-[-0.03em] text-foreground sm:text-6xl lg:text-[5rem] lg:leading-[1.02]">
-                Every surface.
-                <br />
-                Every room.
-                <br />A cleaner way to care for your home.
-              </h2>
-              <p className="mx-auto mt-5 max-w-lg text-base font-medium leading-relaxed text-foreground/85 sm:mt-6 sm:text-lg">
-                Start supporting your indoor environment with beneficial environmental probiotics
-                that help clean beyond the air. Use code Bobby at checkout to save 15% on
-                your EnviroBiotics order. Save 15% on your EnviroBiotics order.
-              </p>
-              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a href="#products" onClick={() => trackEvent("click_final_shop_bobby_offer")}>
-                  <Button
-                    size="lg"
-                    className="h-14 rounded-full bg-foreground px-10 text-base font-semibold text-background hover:bg-foreground/90"
-                  >
-                    Shop the Bobby Offer
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </a>
-              </div>
-              <p className="mt-8 text-lg md:text-xl font-medium text-foreground/85">
-                30-day risk-free trial · Easy home setup
-              </p>
-            </Reveal>
-          </div>
-        </section>
       </main>
 
       {/* Sticky mobile bar */}
