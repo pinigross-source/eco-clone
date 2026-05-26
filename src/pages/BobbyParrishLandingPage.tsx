@@ -30,7 +30,7 @@ const withDiscount = (url: string, code = "Bobby") =>
 const LINKS = {
   mini: withDiscount("https://shop.envirobiotics.com/products/biologic-mini-bobby"),
   biotica: withDiscount("https://shop.envirobiotics.com/products/biotica-800-bobby"),
-  bundle: withDiscount(shopifyUrl("/products/home-complete-bundle", "bobby-parrish")),
+  bundle: withDiscount("https://shop.envirobiotics.com/products/home-complete-bundle"),
 };
 
 /* Reveal-on-scroll (matches dorm page pattern) */
@@ -257,7 +257,7 @@ const BobbyParrishLandingPage = () => {
                   size="lg"
                   className="h-[54px] w-full rounded-full bg-primary px-6 text-[0.95rem] font-semibold tracking-[-0.01em] text-white shadow-[0_8px_24px_-8px_rgba(232,93,58,0.55)] hover:bg-primary/90"
                 >
-                  <a href="#bundle" onClick={() => trackEvent("click_hero_shop_picks")}>
+                  <a href={LINKS.bundle} onClick={() => trackEvent("click_hero_shop_picks")}>
                     See the Bundle — $399
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
@@ -339,7 +339,7 @@ const BobbyParrishLandingPage = () => {
                     size="lg"
                     className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-white hover:bg-primary/90"
                   >
-                    <a href="#bundle" onClick={() => trackEvent("click_hero_shop_picks")}>
+                    <a href={LINKS.bundle} onClick={() => trackEvent("click_hero_shop_picks")}>
                       See the Bundle - $399 (Save $96)
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
