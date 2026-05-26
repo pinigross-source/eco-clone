@@ -258,7 +258,7 @@ const BobbyParrishLandingPage = () => {
                   className="h-[54px] w-full rounded-full bg-primary px-6 text-[0.95rem] font-semibold tracking-[-0.01em] text-white shadow-[0_8px_24px_-8px_rgba(232,93,58,0.55)] hover:bg-primary/90"
                 >
                   <a href={LINKS.bundle} onClick={() => trackEvent("click_hero_shop_picks")}>
-                    See the Bundle — $399
+                    See the Bundle — $395
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
@@ -340,7 +340,7 @@ const BobbyParrishLandingPage = () => {
                     className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-white hover:bg-primary/90"
                   >
                     <a href={LINKS.bundle} onClick={() => trackEvent("click_hero_shop_picks")}>
-                      See the Bundle - $399 (Save $96)
+                      See the Bundle - $395 (Save $100)
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
@@ -652,7 +652,7 @@ const BobbyParrishLandingPage = () => {
                   Most Bobby followers go with the Bundle.
                 </h2>
                 <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  Cover one room, the whole home, or larger spaces. Single devices use code BOBBY for 15% off - the Bundle is already discounted $96 off the full $495 price.
+                  Cover one room, the whole home, or larger spaces. Single devices use code BOBBY for 15% off - the Bundle is already discounted $100 off the full $495 price.
                 </p>
               </div>
             </Reveal>
@@ -759,9 +759,9 @@ const BobbyParrishLandingPage = () => {
                         <span className="text-[1.1rem] text-[#9a8a7a] line-through">$495</span>
                       </div>
                       <div className="flex items-baseline gap-3">
-                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$399</span>
+                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$395</span>
                       </div>
-                      <p className="mt-1 text-[0.85rem] font-bold text-[#ff7a2f]">Save $96</p>
+                      <p className="mt-1 text-[0.85rem] font-bold text-[#ff7a2f]">Save $100</p>
                       <a
                         href={LINKS.bundle}
                         onClick={trackBundle}
@@ -1081,7 +1081,7 @@ const BobbyParrishLandingPage = () => {
           <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6">
             <Reveal>
               <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                Bundle $96 off · Singles 15% off
+                Bundle $100 off · Singles 15% off
               </span>
             </Reveal>
             <Reveal>
@@ -1092,7 +1092,7 @@ const BobbyParrishLandingPage = () => {
             </Reveal>
             <Reveal>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                Start supporting your home with beneficial environmental probiotics that work quietly in the background, every day. The Home Bundle is already discounted $96 - or choose a single device and code BOBBY saves you 15%.
+                Start supporting your home with beneficial environmental probiotics that work quietly in the background, every day. The Home Bundle is already discounted $100 - or choose a single device and code BOBBY saves you 15%.
               </p>
             </Reveal>
             <Reveal>
@@ -1103,7 +1103,7 @@ const BobbyParrishLandingPage = () => {
                   className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground hover:bg-primary/90"
                 >
                   <a href={LINKS.bundle} onClick={() => trackEvent("click_final_cta_bundle")}>
-                    Get the Bundle - $399 (Save $96)
+                    Get the Bundle - $395 (Save $100)
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
