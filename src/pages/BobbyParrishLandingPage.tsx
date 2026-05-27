@@ -1093,9 +1093,9 @@ const BobbyParrishLandingPage = () => {
               </span>
             </Reveal>
             <Reveal>
-              <h2 className="mt-6 text-balance font-display text-[1.85rem] font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                <span className="block">Every surface. Every room.</span>
-                <span className="block text-primary">A cleaner way to care for your home.</span>
+              <h2 className="mt-6 text-balance font-display font-semibold leading-[1.02] tracking-[-0.035em] text-foreground text-[2.5rem] sm:text-[3.25rem] lg:text-[4rem]">
+                Every surface. Every room.{" "}
+                <em className="not-italic text-heading-accent">A cleaner way to care for your home.</em>
               </h2>
             </Reveal>
             <Reveal>
