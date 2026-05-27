@@ -197,11 +197,6 @@ const BobbyParrishLandingPage = () => {
   }, []);
 
   const trackMini = () => trackEvent("click_bobby_mini");
-  const goToMiniOffer = (e?: React.MouseEvent<HTMLAnchorElement> | React.TouchEvent<HTMLAnchorElement>) => {
-    e?.preventDefault();
-    trackMini();
-    window.location.assign(LINKS.mini);
-  };
   const trackBiotica = () => trackEvent("click_bobby_biotica");
   const trackBundle = () => trackEvent("click_bobby_bundle");
 
@@ -1165,21 +1160,21 @@ const BobbyParrishLandingPage = () => {
           showSticky ? "translate-y-0" : "translate-y-full"
         }`}
       >
-        <div className="flex items-center justify-between gap-3 px-4 py-3">
-          <div>
+        <a
+          href={LINKS.mini}
+          target="_top"
+          onClick={trackMini}
+          className="flex items-center justify-between gap-3 px-4 py-3"
+          aria-label="Start with the BioLogic Mini Bobby offer"
+        >
+          <div className="min-w-0">
             <p className="text-sm font-semibold text-foreground">Save 15% with code Bobby</p>
             <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
-          <a
-            href={LINKS.mini}
-            target="_top"
-            onClick={goToMiniOffer}
-            onTouchEnd={goToMiniOffer}
-            className="inline-flex h-11 items-center justify-center rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
-          >
+          <span className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90">
             Start with the Mini
-          </a>
-        </div>
+          </span>
+        </a>
       </div>
     </>
   );
