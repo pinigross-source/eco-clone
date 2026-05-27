@@ -139,7 +139,7 @@ const ProductCard = ({
             key={f}
             className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]"
           >
-            <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+            <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
             <span className="leading-snug">{f}</span>
           </li>
         ))}
@@ -220,7 +220,7 @@ const BobbyParrishLandingPage = () => {
         {/* ============ 1. HERO ============ */}
 
         {/* MOBILE: stacked layout (below 768px) */}
-        <section className="md:hidden w-full bg-[#FCF7F0]">
+        <section className="md:hidden w-full bg-background">
           <div className="relative w-full aspect-[4/5] overflow-hidden">
             <img
               src={heroImgMobile}
@@ -240,13 +240,13 @@ const BobbyParrishLandingPage = () => {
               </p>
             </Reveal>
             <Reveal>
-              <h1 className="mt-4 font-display font-semibold tracking-[-0.03em] text-[#1a1410] text-[2.125rem] leading-[1.05]">
+              <h1 className="mt-4 font-display font-semibold tracking-[-0.03em] text-foreground text-[2.125rem] leading-[1.05]">
                 Bobby uses EnviroBiotics to clean his home.
                 <span className="block mt-1 text-primary italic font-normal">Now you can too.</span>
               </h1>
             </Reveal>
             <Reveal>
-              <p className="mt-5 text-[0.95rem] font-light leading-[1.6] text-[#4a3f33]">
+              <p className="mt-5 text-[0.95rem] font-light leading-[1.6] text-muted-foreground">
                 The probiotic cleaning system Bobby trusts in his own kitchen, bedroom, and bathroom. Beneficial bacteria working between cleanings. No bleach, no ammonia, no harsh chemicals.
               </p>
             </Reveal>
@@ -258,14 +258,14 @@ const BobbyParrishLandingPage = () => {
                   className="h-[54px] w-full rounded-full bg-primary px-6 text-[0.95rem] font-semibold tracking-[-0.01em] text-white shadow-[0_8px_24px_-8px_rgba(232,93,58,0.55)] hover:bg-primary/90"
                 >
                   <a href={LINKS.bundle} onClick={() => trackEvent("click_hero_shop_picks")}>
-                    See the Bundle — $395
+                    See the Bundle , $395
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
                 <Button
                   asChild
                   size="lg"
-                  className="h-[54px] w-full rounded-full border border-[#1a1410]/15 bg-white px-6 text-[0.95rem] font-semibold tracking-[-0.01em] text-[#1a1410] shadow-none hover:bg-white"
+                  className="h-[54px] w-full rounded-full border border-foreground/15 bg-card px-6 text-[0.95rem] font-semibold tracking-[-0.01em] text-foreground shadow-none hover:bg-card"
                 >
                   <a href="#products" onClick={() => trackEvent("click_hero_shop_singles")}>
                     Shop singles from $83
@@ -274,20 +274,20 @@ const BobbyParrishLandingPage = () => {
               </div>
             </Reveal>
             <Reveal>
-              <div className="mt-6 flex items-center justify-between gap-2 text-[0.7rem] font-medium tracking-[0.02em] text-[#6b5d4f]">
+              <div className="mt-6 flex items-center justify-between gap-2 text-[0.7rem] font-medium tracking-[0.02em] text-muted-foreground">
                 <span>Free shipping</span>
-                <span className="h-1 w-1 rounded-full bg-[#6b5d4f]/40" />
+                <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
                 <span>30-day guarantee</span>
-                <span className="h-1 w-1 rounded-full bg-[#6b5d4f]/40" />
+                <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
                 <span>Cancel anytime</span>
               </div>
             </Reveal>
             <Reveal>
               <figure className="mt-9 border-l-2 border-primary/60 pl-5">
-                <blockquote className="font-display text-[1.05rem] italic leading-[1.45] text-[#2a2620]">
-                  "This is the BioLogic Mini — I keep one in my kitchen and one in our bedroom."
+                <blockquote className="font-display text-[1.05rem] italic leading-[1.45] text-foreground">
+                  "This is the BioLogic Mini , I keep one in my kitchen and one in our bedroom."
                 </blockquote>
-                <figcaption className="mt-3 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-[#6b5d4f]">
+                <figcaption className="mt-3 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   Bobby Parrish · FlavCity
                 </figcaption>
               </figure>
@@ -321,14 +321,14 @@ const BobbyParrishLandingPage = () => {
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-8 pb-16 text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
             <div className="max-w-[36rem] lg:max-w-3xl">
               <Reveal>
-                <h1 className="font-display font-bold tracking-[-0.025em] text-[#1a1410] text-[3rem] leading-[1.05] lg:text-[3.6rem]">
+                <h1 className="font-display font-bold tracking-[-0.025em] text-foreground text-[3rem] leading-[1.05] lg:text-[3.6rem]">
                   <span className="block">Bobby uses EnviroBiotics</span>
                   <span className="block">to clean his home.</span>
                   <span className="block text-primary">Now you can too.</span>
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mt-5 max-w-[34rem] text-[1.05rem] font-light leading-[1.55] text-[#4a3f33]">
+                <p className="mt-5 max-w-[34rem] text-[1.05rem] font-light leading-[1.55] text-muted-foreground">
                   The probiotic cleaning system Bobby trusts in his own kitchen, bedroom, and bathroom. Beneficial bacteria, released into the air and onto surfaces, working between cleanings, no bleach, no ammonia, no harsh chemicals.
                 </p>
               </Reveal>
@@ -347,7 +347,7 @@ const BobbyParrishLandingPage = () => {
                   <Button
                     asChild
                     size="lg"
-                    className="h-14 rounded-full border border-[#1a1410]/15 bg-white px-8 text-base font-semibold text-[#1a1410] hover:bg-white/90"
+                    className="h-14 rounded-full border border-foreground/15 bg-card px-8 text-base font-semibold text-foreground hover:bg-card/90"
                   >
                     <a href="#products" onClick={() => trackEvent("click_hero_shop_singles")}>
                       Shop singles from $83 (15% off)
@@ -356,18 +356,18 @@ const BobbyParrishLandingPage = () => {
                 </div>
               </Reveal>
               <Reveal>
-                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[0.8rem] font-medium text-[#6b5d4f]">
+                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[0.8rem] font-medium text-muted-foreground">
                   <span>✓ Free shipping</span>
                   <span>✓ 30-day money-back</span>
                   <span>✓ Cancel anytime</span>
                 </div>
               </Reveal>
               <Reveal>
-                <div className="mt-8 inline-block max-w-[24rem] rounded-[10px] bg-white/[0.94] px-5 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.18)] backdrop-blur-md">
+                <div className="mt-8 inline-block max-w-[24rem] rounded-[10px] bg-card/[0.94] px-5 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.18)] backdrop-blur-md">
                   <p className="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-primary">
                     Bobby Parrish · FlavCity
                   </p>
-                  <p className="mt-1.5 text-[0.92rem] italic leading-[1.4] text-[#2a2620]">
+                  <p className="mt-1.5 text-[0.92rem] italic leading-[1.4] text-foreground">
                     "This is the BioLogic Mini, I keep one in my kitchen and one in our bedroom."
                   </p>
                 </div>
@@ -379,7 +379,7 @@ const BobbyParrishLandingPage = () => {
 
 
         {/* ============ GUARANTEE STRIP ============ */}
-        <section className="w-full bg-[#FBF8F2]">
+        <section className="w-full bg-background">
           <div className="max-w-3xl mx-auto px-5 py-6 sm:py-8 text-center">
             <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground leading-relaxed">
               Try it for 30 days. Don't love it? Full refund - free return shipping.
@@ -391,7 +391,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 2. STATS STRIP ============ */}
-        <section className="bg-gradient-to-b from-[#FBF8F2] to-[#F4EFE5] py-12 sm:py-20 lg:py-20">
+        <section className="bg-gradient-to-b from-background to-muted py-12 sm:py-20 lg:py-20">
           <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-5 gap-y-8 px-5 sm:gap-10 sm:px-10 lg:grid-cols-4 lg:px-16">
             {[
               { n: "15%", label: "Off with code Bobby" },
@@ -414,7 +414,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 3. FAQ TRUST CARDS ============ */}
-        <section className="relative overflow-hidden bg-[#FBF8F2] py-20 sm:py-28 lg:py-32">
+        <section className="relative overflow-hidden bg-background py-20 sm:py-28 lg:py-32">
           {/* Decorative background flourishes */}
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,_rgba(214,158,46,0.10),_transparent_70%)] blur-3xl" />
@@ -458,13 +458,13 @@ const BobbyParrishLandingPage = () => {
                 },
               ].map((card) => (
                 <Reveal key={card.title}>
-                  <div className="group relative flex h-full flex-col overflow-hidden rounded-[1.25rem] bg-gradient-to-b from-white to-[#FBF8F2] p-8 ring-1 ring-black/[0.05] shadow-[0_1px_2px_rgba(0,0,0,0.04),0_20px_50px_-30px_rgba(120,80,30,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_2px_3px_rgba(0,0,0,0.04),0_40px_80px_-30px_rgba(120,80,30,0.28)] sm:p-10">
+                  <div className="group relative flex h-full flex-col overflow-hidden rounded-[1.25rem] bg-gradient-to-b from-card to-background p-8 ring-1 ring-black/[0.05] shadow-[0_1px_2px_rgba(0,0,0,0.04),0_20px_50px_-30px_rgba(120,80,30,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_2px_3px_rgba(0,0,0,0.04),0_40px_80px_-30px_rgba(120,80,30,0.28)] sm:p-10">
                     {/* Top hairline accent on hover */}
                     <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                     <div className="mb-8 flex items-start justify-between">
                       <div className="relative inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary/15 to-primary/5 ring-1 ring-primary/20">
-                        <card.icon className="h-[18px] w-[18px] text-primary" strokeWidth={1.75} />
+                        <card.icon className="h-[18px] w-[18px] text-primary" strokeWidth={1.5} />
                       </div>
                       <span className="font-display text-xs font-normal italic tracking-[0.2em] text-primary/60">
                         {card.num}
@@ -488,7 +488,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 4. THE PROBLEM ============ */}
-        <section className="bg-[#FEFDFB] py-14 sm:py-24 lg:py-24">
+        <section className="bg-background py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.24)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.28)]">
@@ -583,7 +583,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 5. HOW IT WORKS ============ */}
-        <section id="how-it-works" className="bg-gradient-to-b from-[#FBF8F2] to-[#F4EFE5] py-14 sm:py-24 lg:py-24">
+        <section id="how-it-works" className="bg-gradient-to-b from-background to-muted py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
@@ -641,7 +641,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 5. PRODUCTS ============ */}
-        <section id="products" className="bg-gradient-to-b from-[#FEFDFB] via-white to-[#FBF8F2] py-14 sm:py-24 lg:py-24">
+        <section id="products" className="bg-gradient-to-b from-background via-card to-background py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
@@ -681,15 +681,15 @@ const BobbyParrishLandingPage = () => {
                     </p>
                     <ul className="mt-4 flex flex-1 flex-col gap-2">
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={1.5} />
                         <span>Covers up to 300 sq ft</span>
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={1.5} />
                         <span>Best for one room or apartment</span>
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={1.5} />
                         <span>Easy to move between spaces</span>
                       </li>
                     </ul>
@@ -738,30 +738,30 @@ const BobbyParrishLandingPage = () => {
                     </p>
                     <ul className="mt-5 flex flex-1 flex-col gap-3">
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
                         <span>Covers up to 800 sq ft across multiple rooms</span>
                       </li>
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
                         <span>Two devices: living spaces + bedrooms</span>
                       </li>
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
                         <span>Best value per square foot</span>
                       </li>
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
                         <span>What Bobby uses in his own home</span>
                       </li>
                     </ul>
                     <div className="mt-6 border-t border-border/60 pt-5">
                       <div className="mb-1">
-                        <span className="text-[1.1rem] text-[#9a8a7a] line-through">$495</span>
+                        <span className="text-[1.1rem] text-muted-foreground line-through">$495</span>
                       </div>
                       <div className="flex items-baseline gap-3">
                         <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$395</span>
                       </div>
-                      <p className="mt-1 text-[0.85rem] font-bold text-[#ff7a2f]">Save $100</p>
+                      <p className="mt-1 text-[0.85rem] font-bold text-primary">Save $100</p>
                       <a
                         href={LINKS.bundle}
                         onClick={trackBundle}
@@ -801,15 +801,15 @@ const BobbyParrishLandingPage = () => {
                     </p>
                     <ul className="mt-4 flex flex-1 flex-col gap-2">
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={1.5} />
                         <span>Covers up to 800 sq ft</span>
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={1.5} />
                         <span>Designed for open-plan layouts</span>
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={2.5} />
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={1.5} />
                         <span>Single-device simplicity</span>
                       </li>
                     </ul>
@@ -836,7 +836,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 6. ON THE GO ============ */}
-        <section className="bg-gradient-to-b from-[#FEFDFB] to-[#FBF8F2] py-14 sm:py-24 lg:py-24">
+        <section className="bg-gradient-to-b from-background to-background py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.18)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.18)] lg:grid-cols-2">
@@ -847,7 +847,7 @@ const BobbyParrishLandingPage = () => {
                     className="absolute inset-0 h-full w-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-black/10 bg-white/85 px-4 py-2 backdrop-blur sm:bottom-6 sm:left-6">
+                  <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-black/10 bg-card/85 px-4 py-2 backdrop-blur sm:bottom-6 sm:left-6">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                     <span className="text-xs font-semibold text-foreground">Bobby&apos;s travel essential</span>
                   </div>
@@ -864,15 +864,15 @@ const BobbyParrishLandingPage = () => {
                   </p>
                   <ul className="flex flex-col gap-3">
                     <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                      <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                      <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
                       <span>Fits easily in luggage or a carry-on</span>
                     </li>
                     <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                      <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                      <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
                       <span>Plug in anywhere for instant probiotic coverage</span>
                     </li>
                     <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                      <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={2.5} />
+                      <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
                       <span>Covers up to 300 sq ft - perfect for hotel rooms and rentals</span>
                     </li>
                   </ul>
@@ -937,7 +937,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 8. TESTIMONIALS ============ */}
-        <section className="bg-[#FEFDFB] py-14 sm:py-24 lg:py-24">
+        <section className="bg-background py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
@@ -979,7 +979,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 9. FEATURE ICONS ============ */}
-        <section className="bg-gradient-to-b from-[#FBF8F2] to-[#F4EFE5] py-12 sm:py-20 lg:py-24">
+        <section className="bg-gradient-to-b from-background to-muted py-12 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
@@ -1003,7 +1003,7 @@ const BobbyParrishLandingPage = () => {
                 ].map((b) => (
                   <div key={b.label} className="flex flex-col gap-2">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
-                      <Check className="h-5 w-5" strokeWidth={3} />
+                      <Check className="h-5 w-5" strokeWidth={1.5} />
                     </div>
                     <div className="mt-2 text-base font-bold text-foreground">{b.label}</div>
                     <div className="text-sm leading-relaxed text-muted-foreground">{b.desc}</div>
@@ -1015,7 +1015,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 10. FAQ ============ */}
-        <section className="bg-[#FEFDFB] py-14 sm:py-24 lg:py-24">
+        <section className="bg-background py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-3xl px-5 sm:px-10">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
@@ -1110,7 +1110,7 @@ const BobbyParrishLandingPage = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="h-14 rounded-full border border-foreground/15 bg-white px-8 text-base font-semibold text-foreground hover:bg-white/90"
+                  className="h-14 rounded-full border border-foreground/15 bg-card px-8 text-base font-semibold text-foreground hover:bg-card/90"
                 >
                   <a href="#products" onClick={() => trackEvent("click_final_cta_browse_all")}>
                     Shop singles from $83 (15% off)
