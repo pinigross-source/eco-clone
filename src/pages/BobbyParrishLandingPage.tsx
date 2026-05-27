@@ -27,7 +27,7 @@ import travelImg from "@/assets/bobby-travel.avif";
 const withDiscount = (url: string, code = "Bobby") =>
   `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
 
-const MINI_OFFER_URL = "https://shop.envirobiotics.com/products/biologic-mini-bobby?discount=Bobby";
+const MINI_OFFER_URL = "https://shop.envirobiotics.com/products/biologic-mini-bobby";
 
 const LINKS = {
   mini: MINI_OFFER_URL,
