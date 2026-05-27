@@ -341,7 +341,7 @@ const BobbyParrishLandingPage = () => {
                 </p>
               </Reveal>
               <Reveal>
-                <div className="mt-7 flex flex-row items-center gap-6">
+                <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
                   <Button
                     asChild
                     size="lg"
