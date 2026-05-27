@@ -222,6 +222,7 @@ export const whitePapers: ResearchItem[] = [
     description: "Chlorine-based disinfectants are widely used but offer only short-term efficacy at a huge cost to people and their environment. Other disinfectants show similar risks.",
     category: "white-paper",
     image: researchChlorine,
+    imageAlt: "EnviroBiotics environmental probiotics laboratory testing and microbiome research — chlorine disinfectant impact analysis",
     externalUrl: "https://link.springer.com/article/10.1007/s11356-021-18316-2",
     publishedDate: "2021"
   },
@@ -231,6 +232,7 @@ export const whitePapers: ResearchItem[] = [
     description: "A study of 6,350 adults shows that increased exposure to cleaning materials is linked to a decline in lung function and respiratory health.",
     category: "white-paper",
     image: researchDetergent,
+    imageAlt: "EnviroBiotics environmental probiotics laboratory testing and microbiome research — detergent exposure and lung function study",
     externalUrl: "https://www.atsjournals.org/doi/pdf/10.1164/rccm.201706-1311oc",
     publishedDate: "2018"
   },
@@ -240,6 +242,7 @@ export const whitePapers: ResearchItem[] = [
     description: "Probiotic cleaners deployed in hospitals showed a steep decline in nosocomial infections and much higher overall hygiene levels over multiple years.",
     category: "white-paper",
     image: researchHospital,
+    imageAlt: "EnviroBiotics environmental probiotics laboratory testing and microbiome research — hospital probiotic cleaning multi-year study",
     externalUrl: "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0148857",
     publishedDate: "2016"
   },
