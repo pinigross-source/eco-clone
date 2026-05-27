@@ -736,18 +736,7 @@ const BobbyParrishLandingPage = () => {
                         <span className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground">$83</span>
                         <span className="text-sm text-muted-foreground line-through">$98</span>
                       </div>
-                      <a
-                        href={LINKS.mini}
-                        target="_top"
-                        onClick={openMiniOffer}
-                        onMouseDown={openMiniOffer}
-                        onPointerUp={openMiniOffer}
-                        onTouchEnd={openMiniOffer}
-                        className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
-                      >
-                        Start with the Mini
-                        <ArrowRight className="h-4 w-4" />
-                      </a>
+                      <p className="mt-3 text-center text-sm text-muted-foreground font-medium">Coming soon</p>
                       <p className="mt-2 text-center text-[11px] text-muted-foreground">30-day risk-free trial</p>
                     </div>
                   </div>
@@ -918,16 +907,7 @@ const BobbyParrishLandingPage = () => {
                       <span>Covers up to 300 sq ft - perfect for hotel rooms and rentals</span>
                     </li>
                   </ul>
-                  <Button
-                    asChild
-                    size="lg"
-                    className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
-                  >
-                    <a href={LINKS.mini} target="_top" onClick={openMiniOffer} onMouseDown={openMiniOffer} onPointerUp={openMiniOffer} onTouchEnd={openMiniOffer}>
-                      Get the BioLogic Mini
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
+                  <p className="text-sm text-muted-foreground font-medium">Coming soon</p>
                 </div>
               </div>
             </Reveal>
