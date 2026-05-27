@@ -40,6 +40,8 @@
   --color-secondary-foreground: hsl(var(--secondary-foreground));
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-heading-accent: hsl(var(--heading-accent));
+  --color-eyebrow-accent: hsl(var(--eyebrow-accent));
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
   --color-destructive: hsl(var(--destructive));
@@ -97,6 +99,21 @@
   --sidebar-accent-foreground: 222 47% 11%;
   --sidebar-border: 214 32% 91%;
   --sidebar-ring: 24 95% 53%;
+  --heading-accent: 150 14% 22%;
+  --eyebrow-accent: 150 12% 28%;
+}
+
+/* Bobby landing page — EnviroBiotics editorial palette overrides */
+.bobby-page {
+  --background: 150 20% 97%;
+  --foreground: 0 0% 6%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 6%;
+  --muted: 150 15% 94%;
+  --muted-foreground: 0 0% 30%;
+  --border: 150 15% 87%;
+  --heading-accent: 150 14% 22%;
+  --eyebrow-accent: 150 12% 28%;
 }
 
 .dark {
@@ -132,6 +149,8 @@
   --sidebar-accent-foreground: 210 40% 98%;
   --sidebar-border: 217 33% 20%;
   --sidebar-ring: 24 95% 53%;
+  --heading-accent: 150 18% 78%;
+  --eyebrow-accent: 150 14% 72%;
 }
 
 @layer base {
