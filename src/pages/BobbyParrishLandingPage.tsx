@@ -1158,21 +1158,16 @@ const BobbyParrishLandingPage = () => {
         }`}
       >
         <a
-          href={LINKS.mini}
-          target="_top"
-          onClick={openMiniOffer}
-          onMouseDown={openMiniOffer}
-          onPointerUp={openMiniOffer}
-          onTouchEnd={openMiniOffer}
+          href={LINKS.bundle}
           className="flex items-center justify-between gap-3 px-4 py-3"
-          aria-label="Start with the BioLogic Mini Bobby offer"
+          aria-label="Shop the Home Complete Bundle Bobby offer"
         >
           <div className="min-w-0">
             <p className="text-sm font-semibold text-foreground">Save 15% with code Bobby</p>
             <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
           <span className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90">
-            Start with the Mini
+            Shop the Bundle
           </span>
         </a>
       </div>
