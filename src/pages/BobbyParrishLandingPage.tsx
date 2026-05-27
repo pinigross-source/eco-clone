@@ -324,10 +324,15 @@ const BobbyParrishLandingPage = () => {
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-8 pb-16 text-left md:px-10 md:pb-20 lg:px-16 lg:pb-28">
             <div className="max-w-[36rem] lg:max-w-3xl">
               <Reveal>
-                <h1 className="font-display font-bold tracking-[-0.025em] text-foreground text-[3rem] leading-[1.05] lg:text-[3.6rem]">
-                  <span className="block">Bobby uses EnviroBiotics</span>
-                  <span className="block">to clean his home.</span>
-                  <span className="block text-primary">Now you can too.</span>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="h-px w-8 bg-primary/60" />
+                  <p className="text-[10.5px] font-semibold tracking-[0.32em] uppercase text-muted-foreground/70">
+                    As featured by Bobby Parrish
+                  </p>
+                </div>
+                <h1 className="font-display font-semibold tracking-[-0.04em] text-foreground text-balance text-[3rem] leading-[1.02] lg:text-[3.75rem]">
+                  Bobby uses EnviroBiotics to clean his home.{" "}
+                  <em className="not-italic text-heading-accent">Now you can too.</em>
                 </h1>
               </Reveal>
               <Reveal>
