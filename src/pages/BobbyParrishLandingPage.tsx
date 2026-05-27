@@ -46,13 +46,6 @@ const scrollToHash = (e: React.MouseEvent<HTMLAnchorElement>, hash: string, even
   window.setTimeout(scroll, 800);
 };
 
-const openMiniOfferUrl = () => {
-  trackEvent("click_bobby_mini");
-  window.location.href = MINI_OFFER_URL;
-};
-
-
-/* Reveal-on-scroll (matches dorm page pattern) */
 const Reveal = ({
   children,
   className = "",
