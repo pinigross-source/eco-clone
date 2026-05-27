@@ -1154,16 +1154,17 @@ const BobbyParrishLandingPage = () => {
         }`}
       >
         <a
-          href={LINKS.bundle}
+          href={LINKS.mini}
+          onClick={() => trackEvent("click_mobile_sticky_mini")}
           className="flex items-center justify-between gap-3 px-4 py-3"
-          aria-label="Shop the Home Complete Bundle Bobby offer"
+          aria-label="Shop the BioLogic Mini Bobby offer"
         >
           <div className="min-w-0">
-            <p className="text-sm font-semibold text-foreground">Save 15% with code Bobby</p>
+            <p className="text-sm font-semibold text-foreground">BioLogic Mini · $83</p>
             <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
           <span className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90">
-            Shop the Bundle
+            Start with Mini
           </span>
         </a>
       </div>
