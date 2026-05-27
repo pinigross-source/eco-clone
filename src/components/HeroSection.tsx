@@ -98,8 +98,7 @@ export const HeroSection = ({
 
       <img
         src="/hero-vimeo-poster.jpg"
-        alt=""
-        aria-hidden="true"
+        alt="EnviroBiotics probiotic air purifier device in modern home living room"
         width={1920}
         height={1080}
         className="absolute inset-0 z-[1] h-full w-full object-cover"
