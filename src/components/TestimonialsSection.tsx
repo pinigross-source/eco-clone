@@ -103,6 +103,15 @@ export const TestimonialsSection = () => {
           <p className="mt-4 text-xs text-muted-foreground italic">
             Individual results vary by space and conditions.
           </p>
+          <p className="mt-6 text-sm text-muted-foreground">
+            Want the data behind the experience?{" "}
+            <Link
+              to="/research"
+              className="inline-flex items-center gap-1 font-medium text-primary hover:underline"
+            >
+              See the peer-reviewed research <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </p>
         </ScrollReveal>
 
         <ScrollReveal variant="fadeUp" delay={0.2}>
