@@ -231,7 +231,7 @@ const BobbyParrishLandingPage = () => {
               decoding="async"
             />
             {/* soft fade into cream */}
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#FCF7F0]" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background" />
           </div>
           <div className="px-6 pt-8 pb-12">
             <Reveal>
