@@ -200,7 +200,7 @@ const BobbyParrishLandingPage = () => {
   }, []);
 
   const trackMini = () => trackEvent("click_bobby_mini");
-  const openMiniOffer = (e: React.MouseEvent<HTMLAnchorElement> | React.TouchEvent<HTMLAnchorElement>) => {
+  const openMiniOffer = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     e.stopPropagation();
     if (miniNavigationStarted.current) return;
@@ -737,6 +737,7 @@ const BobbyParrishLandingPage = () => {
                         href={LINKS.mini}
                         target="_top"
                         onClick={openMiniOffer}
+                        onPointerUp={openMiniOffer}
                         onTouchEnd={openMiniOffer}
                         className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
@@ -918,7 +919,7 @@ const BobbyParrishLandingPage = () => {
                     size="lg"
                     className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
                   >
-                    <a href={LINKS.mini} target="_top" onClick={openMiniOffer} onTouchEnd={openMiniOffer}>
+                    <a href={LINKS.mini} target="_top" onClick={openMiniOffer} onPointerUp={openMiniOffer} onTouchEnd={openMiniOffer}>
                       Get the BioLogic Mini
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
@@ -1176,6 +1177,7 @@ const BobbyParrishLandingPage = () => {
           href={LINKS.mini}
           target="_top"
           onClick={openMiniOffer}
+          onPointerUp={openMiniOffer}
           onTouchEnd={openMiniOffer}
           className="flex items-center justify-between gap-3 px-4 py-3"
           aria-label="Start with the BioLogic Mini Bobby offer"
