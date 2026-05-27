@@ -1,4 +1,5 @@
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ArrowRight } from "lucide-react";
+import { Link } from "@/lib/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import testimonialDogOwner from "@/assets/testimonial-dog-owner.avif";
