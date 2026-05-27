@@ -235,14 +235,17 @@ const BobbyParrishLandingPage = () => {
           </div>
           <div className="px-6 pt-8 pb-12">
             <Reveal>
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                As featured by Bobby Parrish
-              </p>
+              <div className="flex items-center gap-3">
+                <span className="h-px w-8 bg-primary/60" />
+                <p className="text-[10.5px] font-semibold tracking-[0.32em] uppercase text-muted-foreground/70">
+                  As featured by Bobby Parrish
+                </p>
+              </div>
             </Reveal>
             <Reveal>
-              <h1 className="mt-4 font-display font-semibold tracking-[-0.03em] text-foreground text-[2.125rem] leading-[1.05]">
-                Bobby uses EnviroBiotics to clean his home.
-                <span className="block mt-1 text-primary italic font-normal">Now you can too.</span>
+              <h1 className="mt-6 font-display font-semibold tracking-[-0.03em] text-foreground text-balance text-[2.125rem] leading-[1.05]">
+                Bobby uses EnviroBiotics to clean his home.{" "}
+                <em className="not-italic text-heading-accent">Now you can too.</em>
               </h1>
             </Reveal>
             <Reveal>
