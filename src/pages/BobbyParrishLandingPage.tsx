@@ -197,6 +197,11 @@ const BobbyParrishLandingPage = () => {
   }, []);
 
   const trackMini = () => trackEvent("click_bobby_mini");
+  const openMiniOffer = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    trackMini();
+    window.location.href = LINKS.mini;
+  };
   const trackBiotica = () => trackEvent("click_bobby_biotica");
   const trackBundle = () => trackEvent("click_bobby_bundle");
 
@@ -724,7 +729,8 @@ const BobbyParrishLandingPage = () => {
                       </div>
                       <a
                         href={LINKS.mini}
-                        onClick={trackMini}
+                        target="_top"
+                        onClick={openMiniOffer}
                         className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
                         Start with the Mini
@@ -900,7 +906,7 @@ const BobbyParrishLandingPage = () => {
                       <span>Covers up to 300 sq ft - perfect for hotel rooms and rentals</span>
                     </li>
                   </ul>
-                  <a href={LINKS.mini} onClick={trackMini}>
+                  <a href={LINKS.mini} target="_top" onClick={openMiniOffer}>
                     <Button
                       size="lg"
                       className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
