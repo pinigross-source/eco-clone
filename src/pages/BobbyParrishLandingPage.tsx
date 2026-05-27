@@ -197,7 +197,8 @@ const BobbyParrishLandingPage = () => {
   }, []);
 
   const trackMini = () => trackEvent("click_bobby_mini");
-  const goToMiniOffer = () => {
+  const goToMiniOffer = (e?: React.MouseEvent<HTMLAnchorElement> | React.TouchEvent<HTMLAnchorElement>) => {
+    e?.preventDefault();
     trackMini();
     window.location.assign(LINKS.mini);
   };
@@ -1169,11 +1170,15 @@ const BobbyParrishLandingPage = () => {
             <p className="text-sm font-semibold text-foreground">Save 15% with code Bobby</p>
             <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
-          <Button asChild className="h-11 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-            <a href={LINKS.mini} target="_top" onClick={goToMiniOffer}>
-              Start with the Mini
-            </a>
-          </Button>
+          <a
+            href={LINKS.mini}
+            target="_top"
+            onClick={goToMiniOffer}
+            onTouchEnd={goToMiniOffer}
+            className="inline-flex h-11 items-center justify-center rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
+          >
+            Start with the Mini
+          </a>
         </div>
       </div>
     </>
