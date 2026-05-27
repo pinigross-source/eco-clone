@@ -217,7 +217,7 @@ const BobbyParrishLandingPage = () => {
             </span>{" "}
             <a
               href="#products"
-              onClick={() => trackEvent("click_sticky_bar_shop")}
+              onClick={(e) => scrollToHash(e, "products", "click_sticky_bar_shop")}
               className="text-sm font-semibold underline underline-offset-2 hover:no-underline whitespace-nowrap"
             >
               Shop now →
@@ -225,11 +225,12 @@ const BobbyParrishLandingPage = () => {
           </div>
           <a
             href="#products"
-            onClick={() => trackEvent("click_sticky_bar_shop_mobile")}
+            onClick={(e) => scrollToHash(e, "products", "click_sticky_bar_shop_mobile")}
             className="block sm:hidden text-center py-2.5 px-3 text-xs font-medium"
           >
             🎁 BOBBY - 15% off +free shipping + 30-day guarantee →
           </a>
+
         </div>
 
         {/* ============ 1. HERO ============ */}
