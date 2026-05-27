@@ -140,6 +140,29 @@ const ResearchPage = () => {
               { name: "Research & Science", url: "/research" },
             ]),
             {
+              "@type": "ScholarlyArticle",
+              "headline": "Research & Science: Environmental Probiotics for Indoor Air and Surfaces",
+              "description": "A reference summary of peer-reviewed studies and clinical evidence for Bacillus-based environmental probiotics — including the University of Genova SARS-CoV-2 study, Indoor Biotechnologies allergen study, and PCHS hospital trials.",
+              "url": "https://envirobiotics.com/research",
+              "mainEntityOfPage": "https://envirobiotics.com/research",
+              "author": { "@type": "Organization", "name": "EnviroBiotics" },
+              "publisher": { "@type": "Organization", "name": "EnviroBiotics", "url": "https://envirobiotics.com" },
+              "about": [
+                "Environmental probiotics",
+                "Bacillus subtilis",
+                "Indoor air quality",
+                "Competitive exclusion",
+                "Antimicrobial resistance",
+              ],
+              "citation": [
+                { "@type": "ScholarlyArticle", "name": "97.7% SARS-CoV-2 surface reduction within 3 hours", "publisher": "University of Genova, Department of Experimental Medicine", "datePublished": "2025", "url": "https://ecologicalbalancing.com/a-new-path-to-suppress-covid-19-on-surfaces/" },
+                { "@type": "ScholarlyArticle", "name": "Allergen reduction by environmental probiotics", "publisher": "Indoor Biotechnologies (Cardiff, UK)", "datePublished": "2024", "url": "https://ecologicalbalancing.com/Asthma-and-Allergies-Prevention/" },
+                { "@type": "ScholarlyArticle", "name": "Reducing HAI with PCHS — Caselli E. et al.", "publisher": "PLOS ONE", "datePublished": "2018", "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0199616" },
+                { "@type": "ScholarlyArticle", "name": "Probiotic-based sanitation & AMR — D'Accolti M. et al.", "publisher": "Microorganisms", "datePublished": "2021", "url": "https://www.mdpi.com/2076-2607/9/2/225" },
+                { "@type": "ScholarlyArticle", "name": "Hard-surface biocontrol — Vandini A. et al.", "publisher": "PLOS ONE", "datePublished": "2014", "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0108598" },
+              ],
+            },
+            {
               "@type": "FAQPage",
               mainEntity: [
                 {
