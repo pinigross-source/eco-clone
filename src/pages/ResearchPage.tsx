@@ -30,7 +30,7 @@ const ResearchCard = ({ item }: { item: ResearchItem }) => {
       <div className="relative h-48 overflow-hidden">
         <img
           src={item.image}
-          alt={item.title}
+          alt={item.imageAlt || item.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           width="800"
           height="544"

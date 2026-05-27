@@ -38,6 +38,7 @@ export interface ResearchItem {
   description: string;
   category: "case-study" | "white-paper" | "research";
   image: string;
+  imageAlt?: string;
   pdfUrl?: string;
   externalUrl?: string;
   highlights?: string[];
