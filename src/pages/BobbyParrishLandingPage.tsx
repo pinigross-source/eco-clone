@@ -439,8 +439,8 @@ const BobbyParrishLandingPage = () => {
                   </p>
                   <span className="h-px w-10 bg-primary/40" />
                 </div>
-                <h2 className="mt-5 max-w-2xl font-display text-3xl font-normal italic tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-                  Considered answers,<br className="hidden sm:block" /> before you ask.
+                <h2 className="mt-5 max-w-2xl font-display text-balance font-semibold tracking-[-0.035em] text-foreground text-[2.5rem] leading-[1.02] sm:text-[3.25rem] md:text-[3.75rem]">
+                  Considered answers, <em className="not-italic text-heading-accent">before you ask.</em>
                 </h2>
               </div>
             </Reveal>
