@@ -3,7 +3,7 @@ import { Link } from "@/lib/link";
 import { Navbar } from "@/components/Navbar";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
-import { ExternalLink, ArrowRight, FileText, Download, Microscope, Building2 } from "lucide-react";
+import { ExternalLink, ArrowRight, FileText, Download, Microscope, Building2, CheckCircle2, BookOpen } from "lucide-react";
 import { ContactFormDialog } from "@/components/ContactFormDialog";
 import { 
   caseStudies, 
