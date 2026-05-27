@@ -707,7 +707,7 @@ const BobbyParrishLandingPage = () => {
                         <span className="text-sm text-muted-foreground line-through">$98</span>
                       </div>
                       <a
-                        href={LINKS.mini}
+                        href="https://shop.envirobiotics.com/products/biologic-mini"
                         onClick={trackMini}
                         className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
