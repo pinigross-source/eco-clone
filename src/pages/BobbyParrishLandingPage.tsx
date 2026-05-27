@@ -193,7 +193,7 @@ const BobbyParrishLandingPage = () => {
         path="/bobby"
       />
 
-      <main className="bg-background text-foreground">
+      <main className="bobby-page bg-background text-foreground">
         {/* ============ STICKY DISCOUNT BAR ============ */}
         <div className="sticky top-0 z-50 bg-foreground text-background border-b border-white/10">
           <div className="hidden sm:block text-center py-2.5 px-4">
