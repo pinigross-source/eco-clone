@@ -33,6 +33,21 @@ const LINKS = {
   bundle: withDiscount("https://shop.envirobiotics.com/products/home-complete-bundle"),
 };
 
+/* Smooth scroll to in-page anchor that re-aligns after layout shifts
+   (Reveal animations + lazy images can throw off the first click on mobile). */
+const scrollToHash = (e: React.MouseEvent<HTMLAnchorElement>, hash: string, eventName?: string) => {
+  e.preventDefault();
+  if (eventName) trackEvent(eventName);
+  const target = document.getElementById(hash);
+  if (!target) return;
+  const scroll = () => target.scrollIntoView({ behavior: "smooth", block: "start" });
+  scroll();
+  // Re-align after images/animations settle so the first tap lands correctly.
+  window.setTimeout(scroll, 350);
+  window.setTimeout(scroll, 800);
+};
+
+
 /* Reveal-on-scroll (matches dorm page pattern) */
 const Reveal = ({
   children,
@@ -202,7 +217,7 @@ const BobbyParrishLandingPage = () => {
             </span>{" "}
             <a
               href="#products"
-              onClick={() => trackEvent("click_sticky_bar_shop")}
+              onClick={(e) => scrollToHash(e, "products", "click_sticky_bar_shop")}
               className="text-sm font-semibold underline underline-offset-2 hover:no-underline whitespace-nowrap"
             >
               Shop now →
@@ -210,11 +225,12 @@ const BobbyParrishLandingPage = () => {
           </div>
           <a
             href="#products"
-            onClick={() => trackEvent("click_sticky_bar_shop_mobile")}
+            onClick={(e) => scrollToHash(e, "products", "click_sticky_bar_shop_mobile")}
             className="block sm:hidden text-center py-2.5 px-3 text-xs font-medium"
           >
             🎁 BOBBY - 15% off +free shipping + 30-day guarantee →
           </a>
+
         </div>
 
         {/* ============ 1. HERO ============ */}
@@ -270,7 +286,7 @@ const BobbyParrishLandingPage = () => {
                   size="lg"
                   className="h-[54px] w-full rounded-full border border-foreground/15 bg-card px-6 text-[0.95rem] font-semibold tracking-[-0.01em] text-foreground shadow-none hover:bg-card"
                 >
-                  <a href="#products" onClick={() => trackEvent("click_hero_shop_singles")}>
+                  <a href="#products" onClick={(e) => scrollToHash(e, "products", "click_hero_shop_singles")}>
                     Shop singles from $83
                   </a>
                 </Button>
@@ -357,7 +373,7 @@ const BobbyParrishLandingPage = () => {
                     size="lg"
                     className="h-14 rounded-full border border-foreground/15 bg-card px-8 text-base font-semibold text-foreground hover:bg-card/90"
                   >
-                    <a href="#products" onClick={() => trackEvent("click_hero_shop_singles")}>
+                    <a href="#products" onClick={(e) => scrollToHash(e, "products", "click_hero_shop_singles")}>
                       Shop singles from $83 (15% off)
                     </a>
                   </Button>
@@ -929,7 +945,7 @@ const BobbyParrishLandingPage = () => {
                     Bobby followers get 15% off with code{" "}
                     <span className="text-primary">Bobby</span>.
                   </p>
-                  <a href="#products" onClick={() => trackEvent("click_bobby_endorsement_cta")}>
+                  <a href="#products" onClick={(e) => scrollToHash(e, "products", "click_bobby_endorsement_cta")}>
                     <Button
                       size="lg"
                       className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
@@ -1120,7 +1136,7 @@ const BobbyParrishLandingPage = () => {
                   size="lg"
                   className="h-14 rounded-full border border-foreground/15 bg-card px-8 text-base font-semibold text-foreground hover:bg-card/90"
                 >
-                  <a href="#products" onClick={() => trackEvent("click_final_cta_browse_all")}>
+                  <a href="#products" onClick={(e) => scrollToHash(e, "products", "click_final_cta_browse_all")}>
                     Shop singles from $83 (15% off)
                   </a>
                 </Button>
@@ -1147,7 +1163,7 @@ const BobbyParrishLandingPage = () => {
             <p className="text-sm font-semibold text-foreground">Save 15% with code Bobby</p>
             <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
-          <a href="#products" onClick={() => trackEvent("click_sticky_bobby_offer")}>
+          <a href="#products" onClick={(e) => scrollToHash(e, "products", "click_sticky_bobby_offer")}>
             <Button className="h-11 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
               Shop offer
             </Button>
