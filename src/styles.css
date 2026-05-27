@@ -149,6 +149,8 @@
   --sidebar-accent-foreground: 210 40% 98%;
   --sidebar-border: 217 33% 20%;
   --sidebar-ring: 24 95% 53%;
+  --heading-accent: 150 18% 78%;
+  --eyebrow-accent: 150 14% 72%;
 }
 
 @layer base {
