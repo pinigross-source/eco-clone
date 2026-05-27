@@ -243,22 +243,31 @@ export const whitePapers: ResearchItem[] = [
 
 export const researchPapers: ResearchItem[] = [
   {
-    slug: "clinical-trial-allergens",
-    title: "Clinical Trial: Probiotic Treatment and Allergen Reduction",
-    description: "Peer reviewed research on the efficacy of environmental probiotics in reducing common indoor allergens.",
+    slug: "caselli-2018-plos-one",
+    title: "Reducing Healthcare-Associated Infections with Bacillus-Based Cleaning (PLOS ONE, 2018)",
+    description: "Caselli E. et al. Multicentre prospective intervention study showing a probiotic-based sanitation system (PCHS) using Bacillus spp. reduced healthcare-associated infections by ~52% versus conventional disinfectants across six hospitals.",
     category: "research",
     image: researchClinical,
-    externalUrl: "https://ecologicalbalancing.com/Asthma-and-Allergies-Prevention/",
-    publishedDate: "2024"
+    externalUrl: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0199616",
+    publishedDate: "2018",
   },
   {
-    slug: "microbial-diversity-study",
-    title: "Indoor Microbial Diversity and Health Outcomes",
-    description: "A longitudinal study examining the relationship between microbial diversity in homes and occupant health.",
+    slug: "daccolti-2021-microorganisms",
+    title: "Probiotic-Based Sanitation Controls Antibiotic Resistance in the Built Environment (Microorganisms, 2021)",
+    description: "D'Accolti M. et al. Demonstrates that continuous application of Bacillus-based probiotic cleaning significantly lowers pathogen load and the spread of antimicrobial resistance genes on indoor surfaces.",
     category: "research",
     image: researchMicrobial,
-    externalUrl: "https://ecologicalbalancing.com/research-case-studies/",
-    publishedDate: "2023"
+    externalUrl: "https://www.mdpi.com/2076-2607/9/2/225",
+    publishedDate: "2021",
+  },
+  {
+    slug: "vandini-2014-plos-one",
+    title: "Hard-Surface Biocontrol in Hospitals Using Bacillus Probiotic Cleaners (PLOS ONE, 2014)",
+    description: "Vandini A. et al. Showed stable, long-term reductions of S. aureus, E. coli, Candida albicans and other pathogens on hospital surfaces treated with a Bacillus subtilis / pumilus / megaterium formulation — competitive exclusion confirmed across an 8-week trial.",
+    category: "research",
+    image: researchSafety,
+    externalUrl: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0108598",
+    publishedDate: "2014",
   },
   {
     slug: "safety-profile-analysis",
