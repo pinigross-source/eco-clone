@@ -197,11 +197,6 @@ const BobbyParrishLandingPage = () => {
   }, []);
 
   const trackMini = () => trackEvent("click_bobby_mini");
-  const openMiniOffer = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    trackMini();
-    window.location.href = LINKS.mini;
-  };
   const trackBiotica = () => trackEvent("click_bobby_biotica");
   const trackBundle = () => trackEvent("click_bobby_bundle");
 
@@ -730,7 +725,7 @@ const BobbyParrishLandingPage = () => {
                       <a
                         href={LINKS.mini}
                         target="_top"
-                        onClick={openMiniOffer}
+                        onClick={trackMini}
                         className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
                         Start with the Mini
@@ -911,7 +906,7 @@ const BobbyParrishLandingPage = () => {
                     size="lg"
                     className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
                   >
-                    <a href={LINKS.mini} target="_top" onClick={openMiniOffer}>
+                    <a href={LINKS.mini} target="_top" onClick={trackMini}>
                       Get the BioLogic Mini
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
@@ -1171,7 +1166,7 @@ const BobbyParrishLandingPage = () => {
             <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
           <Button asChild className="h-11 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-            <a href={LINKS.mini} target="_top" onClick={openMiniOffer}>
+            <a href={LINKS.mini} target="_top" onClick={trackMini}>
               Start with the Mini
             </a>
           </Button>
