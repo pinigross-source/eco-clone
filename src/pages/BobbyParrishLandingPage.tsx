@@ -1169,9 +1169,9 @@ const BobbyParrishLandingPage = () => {
             <p className="text-sm font-semibold text-foreground">Save 15% with code Bobby</p>
             <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
-          <a href="#products" onClick={(e) => scrollToHash(e, "products", "click_sticky_bobby_offer")}>
+          <a href={LINKS.mini} target="_top" onClick={openMiniOffer}>
             <Button className="h-11 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-              Shop offer
+              Start with the Mini
             </Button>
           </a>
         </div>
