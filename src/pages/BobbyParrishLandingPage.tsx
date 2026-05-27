@@ -29,6 +29,7 @@ const withDiscount = (url: string, code = "Bobby") =>
 const LINKS = {
   biotica: withDiscount("https://shop.envirobiotics.com/products/biotica-800-bobby"),
   bundle: withDiscount("https://shop.envirobiotics.com/products/home-complete-bundle"),
+  mini: "https://shop.envirobiotics.com/products/biologic-mini-bobby",
 };
 
 /* Smooth scroll to in-page anchor that re-aligns after layout shifts
@@ -717,7 +718,14 @@ const BobbyParrishLandingPage = () => {
                         <span className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground">$83</span>
                         <span className="text-sm text-muted-foreground line-through">$98</span>
                       </div>
-                      <p className="mt-3 text-center text-sm text-muted-foreground font-medium">Coming soon</p>
+                      <a
+                        href={LINKS.mini}
+                        onClick={() => trackEvent("click_bobby_mini")}
+                        className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+                      >
+                        Start with the Mini
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
                       <p className="mt-2 text-center text-[11px] text-muted-foreground">30-day risk-free trial</p>
                     </div>
                   </div>
@@ -888,7 +896,14 @@ const BobbyParrishLandingPage = () => {
                       <span>Covers up to 300 sq ft - perfect for hotel rooms and rentals</span>
                     </li>
                   </ul>
-                  <p className="text-sm text-muted-foreground font-medium">Coming soon</p>
+                  <a
+                    href={LINKS.mini}
+                    onClick={() => trackEvent("click_travel_mini")}
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-foreground px-6 text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+                  >
+                    Get the BioLogic Mini
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
                 </div>
               </div>
             </Reveal>
