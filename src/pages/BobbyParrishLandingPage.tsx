@@ -197,6 +197,10 @@ const BobbyParrishLandingPage = () => {
   }, []);
 
   const trackMini = () => trackEvent("click_bobby_mini");
+  const goToMiniOffer = () => {
+    trackMini();
+    window.location.assign(LINKS.mini);
+  };
   const trackBiotica = () => trackEvent("click_bobby_biotica");
   const trackBundle = () => trackEvent("click_bobby_bundle");
 
@@ -1166,7 +1170,7 @@ const BobbyParrishLandingPage = () => {
             <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
           <Button asChild className="h-11 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-            <a href={LINKS.mini} target="_top" onClick={trackMini}>
+            <a href={LINKS.mini} target="_top" onClick={goToMiniOffer}>
               Start with the Mini
             </a>
           </Button>
