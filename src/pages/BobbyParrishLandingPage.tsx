@@ -28,7 +28,7 @@ const withDiscount = (url: string, code = "Bobby") =>
   `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
 
 const LINKS = {
-  mini: "https://shop.envirobiotics.com/products/biologic-mini-bobby",
+  mini: withDiscount("https://shop.envirobiotics.com/products/biologic-mini-bobby"),
   biotica: withDiscount("https://shop.envirobiotics.com/products/biotica-800-bobby"),
   bundle: withDiscount("https://shop.envirobiotics.com/products/home-complete-bundle"),
 };
