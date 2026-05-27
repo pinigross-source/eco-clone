@@ -99,6 +99,21 @@
   --sidebar-accent-foreground: 222 47% 11%;
   --sidebar-border: 214 32% 91%;
   --sidebar-ring: 24 95% 53%;
+  --heading-accent: 150 14% 22%;
+  --eyebrow-accent: 150 12% 28%;
+}
+
+/* Bobby landing page — EnviroBiotics editorial palette overrides */
+.bobby-page {
+  --background: 150 20% 97%;
+  --foreground: 0 0% 6%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 6%;
+  --muted: 150 15% 94%;
+  --muted-foreground: 0 0% 30%;
+  --border: 150 15% 87%;
+  --heading-accent: 150 14% 22%;
+  --eyebrow-accent: 150 12% 28%;
 }
 
 .dark {
