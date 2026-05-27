@@ -64,7 +64,6 @@ import { Route as BetterairRebrandRouteImport } from './routes/betterair-rebrand
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AffiliateSignupRouteImport } from './routes/affiliate-signup'
 import { Route as AffiliateDashboardRouteImport } from './routes/affiliate-dashboard'
-import { Route as AeroRouteImport } from './routes/aero'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as AboutRouteImport } from './routes/about'
@@ -358,11 +357,6 @@ const AffiliateDashboardRoute = AffiliateDashboardRouteImport.update({
   path: '/affiliate-dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AeroRoute = AeroRouteImport.update({
-  id: '/aero',
-  path: '/aero',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -452,7 +446,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
   '/admin': typeof AdminRoute
-  '/aero': typeof AeroRoute
   '/affiliate-dashboard': typeof AffiliateDashboardRoute
   '/affiliate-signup': typeof AffiliateSignupRoute
   '/auth': typeof AuthRoute
@@ -526,7 +519,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
   '/admin': typeof AdminRoute
-  '/aero': typeof AeroRoute
   '/affiliate-dashboard': typeof AffiliateDashboardRoute
   '/affiliate-signup': typeof AffiliateSignupRoute
   '/auth': typeof AuthRoute
@@ -601,7 +593,6 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
   '/admin': typeof AdminRoute
-  '/aero': typeof AeroRoute
   '/affiliate-dashboard': typeof AffiliateDashboardRoute
   '/affiliate-signup': typeof AffiliateSignupRoute
   '/auth': typeof AuthRoute
@@ -677,7 +668,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/account'
     | '/admin'
-    | '/aero'
     | '/affiliate-dashboard'
     | '/affiliate-signup'
     | '/auth'
@@ -751,7 +741,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/account'
     | '/admin'
-    | '/aero'
     | '/affiliate-dashboard'
     | '/affiliate-signup'
     | '/auth'
@@ -825,7 +814,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/account'
     | '/admin'
-    | '/aero'
     | '/affiliate-dashboard'
     | '/affiliate-signup'
     | '/auth'
@@ -900,7 +888,6 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AccountRoute: typeof AccountRoute
   AdminRoute: typeof AdminRoute
-  AeroRoute: typeof AeroRoute
   AffiliateDashboardRoute: typeof AffiliateDashboardRoute
   AffiliateSignupRoute: typeof AffiliateSignupRoute
   AuthRoute: typeof AuthRoute
@@ -1355,13 +1342,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AffiliateDashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/aero': {
-      id: '/aero'
-      path: '/aero'
-      fullPath: '/aero'
-      preLoaderRoute: typeof AeroRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/admin': {
       id: '/admin'
       path: '/admin'
@@ -1506,7 +1486,6 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AccountRoute: AccountRoute,
   AdminRoute: AdminRoute,
-  AeroRoute: AeroRoute,
   AffiliateDashboardRoute: AffiliateDashboardRoute,
   AffiliateSignupRoute: AffiliateSignupRoute,
   AuthRoute: AuthRoute,
