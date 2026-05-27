@@ -76,6 +76,8 @@ import { Route as CompareUvcRouteImport } from './routes/compare.uvc'
 import { Route as CompareHepaRouteImport } from './routes/compare.hepa'
 import { Route as CompareChemicalFreshenersRouteImport } from './routes/compare.chemical-fresheners'
 import { Route as CompareBioHealingRouteImport } from './routes/compare.bio-healing'
+import { Route as CompareBetterairVsMolekuleRouteImport } from './routes/compare.betterair-vs-molekule'
+import { Route as CompareBetterairVsBlueairRouteImport } from './routes/compare.betterair-vs-blueair'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AffIdRouteImport } from './routes/aff.$id'
@@ -417,6 +419,18 @@ const CompareBioHealingRoute = CompareBioHealingRouteImport.update({
   path: '/compare/bio-healing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompareBetterairVsMolekuleRoute =
+  CompareBetterairVsMolekuleRouteImport.update({
+    id: '/compare/betterair-vs-molekule',
+    path: '/compare/betterair-vs-molekule',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CompareBetterairVsBlueairRoute =
+  CompareBetterairVsBlueairRouteImport.update({
+    id: '/compare/betterair-vs-blueair',
+    path: '/compare/betterair-vs-blueair',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -497,6 +511,8 @@ export interface FileRoutesByFullPath {
   '/aff/$id': typeof AffIdRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/compare/betterair-vs-blueair': typeof CompareBetterairVsBlueairRoute
+  '/compare/betterair-vs-molekule': typeof CompareBetterairVsMolekuleRoute
   '/compare/bio-healing': typeof CompareBioHealingRoute
   '/compare/chemical-fresheners': typeof CompareChemicalFreshenersRoute
   '/compare/hepa': typeof CompareHepaRoute
@@ -569,6 +585,8 @@ export interface FileRoutesByTo {
   '/aff/$id': typeof AffIdRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/compare/betterair-vs-blueair': typeof CompareBetterairVsBlueairRoute
+  '/compare/betterair-vs-molekule': typeof CompareBetterairVsMolekuleRoute
   '/compare/bio-healing': typeof CompareBioHealingRoute
   '/compare/chemical-fresheners': typeof CompareChemicalFreshenersRoute
   '/compare/hepa': typeof CompareHepaRoute
@@ -642,6 +660,8 @@ export interface FileRoutesById {
   '/aff/$id': typeof AffIdRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/compare/betterair-vs-blueair': typeof CompareBetterairVsBlueairRoute
+  '/compare/betterair-vs-molekule': typeof CompareBetterairVsMolekuleRoute
   '/compare/bio-healing': typeof CompareBioHealingRoute
   '/compare/chemical-fresheners': typeof CompareChemicalFreshenersRoute
   '/compare/hepa': typeof CompareHepaRoute
@@ -716,6 +736,8 @@ export interface FileRouteTypes {
     | '/aff/$id'
     | '/blog/$slug'
     | '/case-studies/$slug'
+    | '/compare/betterair-vs-blueair'
+    | '/compare/betterair-vs-molekule'
     | '/compare/bio-healing'
     | '/compare/chemical-fresheners'
     | '/compare/hepa'
@@ -788,6 +810,8 @@ export interface FileRouteTypes {
     | '/aff/$id'
     | '/blog/$slug'
     | '/case-studies/$slug'
+    | '/compare/betterair-vs-blueair'
+    | '/compare/betterair-vs-molekule'
     | '/compare/bio-healing'
     | '/compare/chemical-fresheners'
     | '/compare/hepa'
@@ -860,6 +884,8 @@ export interface FileRouteTypes {
     | '/aff/$id'
     | '/blog/$slug'
     | '/case-studies/$slug'
+    | '/compare/betterair-vs-blueair'
+    | '/compare/betterair-vs-molekule'
     | '/compare/bio-healing'
     | '/compare/chemical-fresheners'
     | '/compare/hepa'
@@ -932,6 +958,8 @@ export interface RootRouteChildren {
   WarrantyPolicyRoute: typeof WarrantyPolicyRoute
   AffIdRoute: typeof AffIdRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  CompareBetterairVsBlueairRoute: typeof CompareBetterairVsBlueairRoute
+  CompareBetterairVsMolekuleRoute: typeof CompareBetterairVsMolekuleRoute
   CompareBioHealingRoute: typeof CompareBioHealingRoute
   CompareChemicalFreshenersRoute: typeof CompareChemicalFreshenersRoute
   CompareHepaRoute: typeof CompareHepaRoute
@@ -1411,6 +1439,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareBioHealingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare/betterair-vs-molekule': {
+      id: '/compare/betterair-vs-molekule'
+      path: '/compare/betterair-vs-molekule'
+      fullPath: '/compare/betterair-vs-molekule'
+      preLoaderRoute: typeof CompareBetterairVsMolekuleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/betterair-vs-blueair': {
+      id: '/compare/betterair-vs-blueair'
+      path: '/compare/betterair-vs-blueair'
+      fullPath: '/compare/betterair-vs-blueair'
+      preLoaderRoute: typeof CompareBetterairVsBlueairRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/case-studies/$slug': {
       id: '/case-studies/$slug'
       path: '/$slug'
@@ -1522,6 +1564,8 @@ const rootRouteChildren: RootRouteChildren = {
   WarrantyPolicyRoute: WarrantyPolicyRoute,
   AffIdRoute: AffIdRoute,
   BlogSlugRoute: BlogSlugRoute,
+  CompareBetterairVsBlueairRoute: CompareBetterairVsBlueairRoute,
+  CompareBetterairVsMolekuleRoute: CompareBetterairVsMolekuleRoute,
   CompareBioHealingRoute: CompareBioHealingRoute,
   CompareChemicalFreshenersRoute: CompareChemicalFreshenersRoute,
   CompareHepaRoute: CompareHepaRoute,
