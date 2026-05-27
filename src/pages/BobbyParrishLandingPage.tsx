@@ -33,6 +33,21 @@ const LINKS = {
   bundle: withDiscount("https://shop.envirobiotics.com/products/home-complete-bundle"),
 };
 
+/* Smooth scroll to in-page anchor that re-aligns after layout shifts
+   (Reveal animations + lazy images can throw off the first click on mobile). */
+const scrollToHash = (e: React.MouseEvent<HTMLAnchorElement>, hash: string, eventName?: string) => {
+  e.preventDefault();
+  if (eventName) trackEvent(eventName);
+  const target = document.getElementById(hash);
+  if (!target) return;
+  const scroll = () => target.scrollIntoView({ behavior: "smooth", block: "start" });
+  scroll();
+  // Re-align after images/animations settle so the first tap lands correctly.
+  window.setTimeout(scroll, 350);
+  window.setTimeout(scroll, 800);
+};
+
+
 /* Reveal-on-scroll (matches dorm page pattern) */
 const Reveal = ({
   children,
