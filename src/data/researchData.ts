@@ -53,6 +53,7 @@ export const caseStudies: ResearchItem[] = [
     description: "A study by Invetus (Yorklea, Australia) evaluating whether EnviroBiotics can alleviate pruritus and skin odor in dogs with atopic dermatitis over 21 days.",
     category: "case-study",
     image: caseStudyPets,
+    imageAlt: "EnviroBiotics environmental probiotics laboratory testing and microbiome research — pet dermatitis clinical study by Invetus",
     externalUrl: "https://ecologicalbalancing.com/case-study-caring-for-our-pets/",
     highlights: [
       "Statistically significant pruritus reduction",
@@ -107,6 +108,7 @@ export const caseStudies: ResearchItem[] = [
     description: "A study by the University of Genova demonstrating that EnviroBiotics neutralized 97.7% of SARS-CoV-2 virus on surfaces within 3 hours.",
     category: "case-study",
     image: caseStudyCovid,
+    imageAlt: "EnviroBiotics environmental probiotics laboratory testing and microbiome research — SARS-CoV-2 surface neutralization study at University of Genova",
     externalUrl: "https://ecologicalbalancing.com/a-new-path-to-suppress-covid-19-on-surfaces/",
     highlights: [
       "67% viral neutralization in 15 minutes",
@@ -162,6 +164,7 @@ export const caseStudies: ResearchItem[] = [
     description: "Studies by Indoor Biotechnologies (UK) and EMSL Analytical Labs (USA) proving EnviroBiotics dramatically decreases indoor allergen concentrations.",
     category: "case-study",
     image: caseStudyAllergies,
+    imageAlt: "EnviroBiotics environmental probiotics laboratory testing and microbiome research — indoor allergen elimination study by Indoor Biotechnologies",
     externalUrl: "https://ecologicalbalancing.com/Asthma-and-Allergies-Prevention/",
     highlights: [
       "Allergens used as nutrient source by probiotics",
@@ -249,6 +252,7 @@ export const researchPapers: ResearchItem[] = [
     description: "Caselli E. et al. Multicentre prospective intervention study showing a probiotic-based sanitation system (PCHS) using Bacillus spp. reduced healthcare-associated infections by ~52% versus conventional disinfectants across six hospitals.",
     category: "research",
     image: researchClinical,
+    imageAlt: "EnviroBiotics environmental probiotics laboratory testing and microbiome research — healthcare-associated infection reduction study by Caselli et al.",
     externalUrl: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0199616",
     publishedDate: "2018",
   },
@@ -258,6 +262,7 @@ export const researchPapers: ResearchItem[] = [
     description: "D'Accolti M. et al. Demonstrates that continuous application of Bacillus-based probiotic cleaning significantly lowers pathogen load and the spread of antimicrobial resistance genes on indoor surfaces.",
     category: "research",
     image: researchMicrobial,
+    imageAlt: "EnviroBiotics environmental probiotics laboratory testing and microbiome research — antibiotic resistance control study by D'Accolti et al.",
     externalUrl: "https://www.mdpi.com/2076-2607/9/2/225",
     publishedDate: "2021",
   },
@@ -267,6 +272,7 @@ export const researchPapers: ResearchItem[] = [
     description: "Vandini A. et al. Showed stable, long-term reductions of S. aureus, E. coli, Candida albicans and other pathogens on hospital surfaces treated with a Bacillus subtilis / pumilus / megaterium formulation — competitive exclusion confirmed across an 8-week trial.",
     category: "research",
     image: researchSafety,
+    imageAlt: "EnviroBiotics environmental probiotics laboratory testing and microbiome research — hard-surface biocontrol study by Vandini et al.",
     externalUrl: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0108598",
     publishedDate: "2014",
   },
@@ -276,6 +282,7 @@ export const researchPapers: ResearchItem[] = [
     description: "Comprehensive safety analysis of Bacillus based probiotic strains used in indoor environmental applications.",
     category: "research",
     image: researchSafety,
+    imageAlt: "EnviroBiotics environmental probiotics laboratory testing and microbiome research — long-term safety profile analysis of Bacillus probiotic strains",
     externalUrl: "https://ecologicalbalancing.com/research-case-studies/",
     publishedDate: "2024"
   },
