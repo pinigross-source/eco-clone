@@ -197,10 +197,10 @@ const BobbyParrishLandingPage = () => {
   }, []);
 
   const trackMini = () => trackEvent("click_bobby_mini");
-  const openMiniOffer = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+  const goToMiniOffer = (e?: React.MouseEvent<HTMLAnchorElement> | React.TouchEvent<HTMLAnchorElement>) => {
+    e?.preventDefault();
     trackMini();
-    window.location.href = LINKS.mini;
+    window.location.assign(LINKS.mini);
   };
   const trackBiotica = () => trackEvent("click_bobby_biotica");
   const trackBundle = () => trackEvent("click_bobby_bundle");
@@ -730,7 +730,7 @@ const BobbyParrishLandingPage = () => {
                       <a
                         href={LINKS.mini}
                         target="_top"
-                        onClick={openMiniOffer}
+                        onClick={trackMini}
                         className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
                         Start with the Mini
@@ -906,15 +906,16 @@ const BobbyParrishLandingPage = () => {
                       <span>Covers up to 300 sq ft - perfect for hotel rooms and rentals</span>
                     </li>
                   </ul>
-                  <a href={LINKS.mini} target="_top" onClick={openMiniOffer}>
-                    <Button
-                      size="lg"
-                      className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
-                    >
+                  <Button
+                    asChild
+                    size="lg"
+                    className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
+                  >
+                    <a href={LINKS.mini} target="_top" onClick={trackMini}>
                       Get the BioLogic Mini
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </a>
+                    </a>
+                  </Button>
                 </div>
               </div>
             </Reveal>
@@ -1169,10 +1170,14 @@ const BobbyParrishLandingPage = () => {
             <p className="text-sm font-semibold text-foreground">Save 15% with code Bobby</p>
             <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
-          <a href="#products" onClick={(e) => scrollToHash(e, "products", "click_sticky_bobby_offer")}>
-            <Button className="h-11 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-              Shop offer
-            </Button>
+          <a
+            href={LINKS.mini}
+            target="_top"
+            onClick={goToMiniOffer}
+            onTouchEnd={goToMiniOffer}
+            className="inline-flex h-11 items-center justify-center rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
+          >
+            Start with the Mini
           </a>
         </div>
       </div>
