@@ -896,7 +896,14 @@ const BobbyParrishLandingPage = () => {
                       <span>Covers up to 300 sq ft - perfect for hotel rooms and rentals</span>
                     </li>
                   </ul>
-                  <p className="text-sm text-muted-foreground font-medium">Coming soon</p>
+                  <a
+                    href={LINKS.mini}
+                    onClick={() => trackEvent("click_travel_mini")}
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-foreground px-6 text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+                  >
+                    Get the BioLogic Mini
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
                 </div>
               </div>
             </Reveal>
