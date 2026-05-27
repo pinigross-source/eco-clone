@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Star, ShieldCheck, Sparkles, Clock } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
@@ -27,8 +27,10 @@ import travelImg from "@/assets/bobby-travel.avif";
 const withDiscount = (url: string, code = "Bobby") =>
   `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
 
+const MINI_OFFER_URL = "https://shop.envirobiotics.com/products/biologic-mini-bobby?discount=Bobby";
+
 const LINKS = {
-  mini: withDiscount("https://shop.envirobiotics.com/products/biologic-mini-bobby"),
+  mini: MINI_OFFER_URL,
   biotica: withDiscount("https://shop.envirobiotics.com/products/biotica-800-bobby"),
   bundle: withDiscount("https://shop.envirobiotics.com/products/home-complete-bundle"),
 };
@@ -45,6 +47,11 @@ const scrollToHash = (e: React.MouseEvent<HTMLAnchorElement>, hash: string, even
   // Re-align after images/animations settle so the first tap lands correctly.
   window.setTimeout(scroll, 350);
   window.setTimeout(scroll, 800);
+};
+
+const openMiniOfferUrl = () => {
+  trackEvent("click_bobby_mini");
+  window.location.href = MINI_OFFER_URL;
 };
 
 
@@ -189,6 +196,7 @@ const ProductCard = ({
 
 const BobbyParrishLandingPage = () => {
   const [showSticky, setShowSticky] = useState(false);
+  const miniNavigationStarted = useRef(false);
 
   useEffect(() => {
     const onScroll = () => setShowSticky(window.scrollY > 700);
@@ -196,11 +204,12 @@ const BobbyParrishLandingPage = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const trackMini = () => trackEvent("click_bobby_mini");
-  const goToMiniOffer = (e?: React.MouseEvent<HTMLAnchorElement> | React.TouchEvent<HTMLAnchorElement>) => {
-    e?.preventDefault();
-    trackMini();
-    window.location.assign(LINKS.mini);
+  const openMiniOffer = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (miniNavigationStarted.current) return;
+    miniNavigationStarted.current = true;
+    openMiniOfferUrl();
   };
   const trackBiotica = () => trackEvent("click_bobby_biotica");
   const trackBundle = () => trackEvent("click_bobby_bundle");
@@ -730,7 +739,10 @@ const BobbyParrishLandingPage = () => {
                       <a
                         href={LINKS.mini}
                         target="_top"
-                        onClick={trackMini}
+                        onClick={openMiniOffer}
+                        onMouseDown={openMiniOffer}
+                        onPointerUp={openMiniOffer}
+                        onTouchEnd={openMiniOffer}
                         className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
                         Start with the Mini
@@ -911,7 +923,7 @@ const BobbyParrishLandingPage = () => {
                     size="lg"
                     className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
                   >
-                    <a href={LINKS.mini} target="_top" onClick={trackMini}>
+                    <a href={LINKS.mini} target="_top" onClick={openMiniOffer} onMouseDown={openMiniOffer} onPointerUp={openMiniOffer} onTouchEnd={openMiniOffer}>
                       Get the BioLogic Mini
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
@@ -1165,21 +1177,24 @@ const BobbyParrishLandingPage = () => {
           showSticky ? "translate-y-0" : "translate-y-full"
         }`}
       >
-        <div className="flex items-center justify-between gap-3 px-4 py-3">
-          <div>
+        <a
+          href={LINKS.mini}
+          target="_top"
+          onClick={openMiniOffer}
+          onMouseDown={openMiniOffer}
+          onPointerUp={openMiniOffer}
+          onTouchEnd={openMiniOffer}
+          className="flex items-center justify-between gap-3 px-4 py-3"
+          aria-label="Start with the BioLogic Mini Bobby offer"
+        >
+          <div className="min-w-0">
             <p className="text-sm font-semibold text-foreground">Save 15% with code Bobby</p>
             <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
-          <a
-            href={LINKS.mini}
-            target="_top"
-            onClick={goToMiniOffer}
-            onTouchEnd={goToMiniOffer}
-            className="inline-flex h-11 items-center justify-center rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
-          >
+          <span className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90">
             Start with the Mini
-          </a>
-        </div>
+          </span>
+        </a>
       </div>
     </>
   );
