@@ -193,7 +193,7 @@ const BobbyParrishLandingPage = () => {
         path="/bobby"
       />
 
-      <main className="bobby-page bg-background text-foreground">
+      <main className="bobby-page bg-background text-foreground pb-24 sm:pb-0">
         {/* ============ STICKY DISCOUNT BAR ============ */}
         <div className="sticky top-0 z-50 bg-foreground text-background border-b border-white/10">
           <div className="hidden sm:block text-center py-2.5 px-4">
@@ -261,7 +261,7 @@ const BobbyParrishLandingPage = () => {
                   className="h-[54px] w-full rounded-full bg-primary px-6 text-[0.95rem] font-semibold tracking-[-0.01em] text-white shadow-[0_8px_24px_-8px_rgba(232,93,58,0.55)] hover:bg-primary/90"
                 >
                   <a href={LINKS.bundle} onClick={() => trackEvent("click_hero_shop_picks")}>
-                    See the Bundle , $395
+                    See the Bundle · $395
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
@@ -288,7 +288,7 @@ const BobbyParrishLandingPage = () => {
             <Reveal>
               <figure className="mt-9 border-l-2 border-primary/60 pl-5">
                 <blockquote className="font-display text-[1.05rem] italic leading-[1.45] text-foreground">
-                  "This is the BioLogic Mini , I keep one in my kitchen and one in our bedroom."
+                  "This is the BioLogic Mini, I keep one in my kitchen and one in our bedroom."
                 </blockquote>
                 <figcaption className="mt-3 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   Bobby Parrish · FlavCity
