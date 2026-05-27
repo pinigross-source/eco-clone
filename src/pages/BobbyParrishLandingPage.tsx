@@ -49,6 +49,11 @@ const scrollToHash = (e: React.MouseEvent<HTMLAnchorElement>, hash: string, even
   window.setTimeout(scroll, 800);
 };
 
+const openMiniOfferUrl = () => {
+  trackEvent("click_bobby_mini");
+  window.location.href = MINI_OFFER_URL;
+};
+
 
 /* Reveal-on-scroll (matches dorm page pattern) */
 const Reveal = ({
@@ -199,14 +204,12 @@ const BobbyParrishLandingPage = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const trackMini = () => trackEvent("click_bobby_mini");
   const openMiniOffer = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     e.stopPropagation();
     if (miniNavigationStarted.current) return;
     miniNavigationStarted.current = true;
-    trackMini();
-    window.location.href = MINI_OFFER_URL;
+    openMiniOfferUrl();
   };
   const trackBiotica = () => trackEvent("click_bobby_biotica");
   const trackBundle = () => trackEvent("click_bobby_bundle");
