@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Star, ShieldCheck, Sparkles, Clock } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
 import {
   Accordion,
   AccordionContent,
@@ -27,10 +26,7 @@ import travelImg from "@/assets/bobby-travel.avif";
 const withDiscount = (url: string, code = "Bobby") =>
   `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
 
-const MINI_OFFER_URL = "https://shop.envirobiotics.com/products/biologic-mini-bobby";
-
 const LINKS = {
-  mini: MINI_OFFER_URL,
   biotica: withDiscount("https://shop.envirobiotics.com/products/biotica-800-bobby"),
   bundle: withDiscount("https://shop.envirobiotics.com/products/home-complete-bundle"),
 };
@@ -49,13 +45,6 @@ const scrollToHash = (e: React.MouseEvent<HTMLAnchorElement>, hash: string, even
   window.setTimeout(scroll, 800);
 };
 
-const openMiniOfferUrl = () => {
-  trackEvent("click_bobby_mini");
-  window.location.href = MINI_OFFER_URL;
-};
-
-
-/* Reveal-on-scroll (matches dorm page pattern) */
 const Reveal = ({
   children,
   className = "",
@@ -196,7 +185,6 @@ const ProductCard = ({
 
 const BobbyParrishLandingPage = () => {
   const [showSticky, setShowSticky] = useState(false);
-  const miniNavigationStarted = useRef(false);
 
   useEffect(() => {
     const onScroll = () => setShowSticky(window.scrollY > 700);
@@ -204,13 +192,6 @@ const BobbyParrishLandingPage = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const openMiniOffer = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (miniNavigationStarted.current) return;
-    miniNavigationStarted.current = true;
-    openMiniOfferUrl();
-  };
   const trackBiotica = () => trackEvent("click_bobby_biotica");
   const trackBundle = () => trackEvent("click_bobby_bundle");
 
@@ -736,18 +717,7 @@ const BobbyParrishLandingPage = () => {
                         <span className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground">$83</span>
                         <span className="text-sm text-muted-foreground line-through">$98</span>
                       </div>
-                      <a
-                        href={LINKS.mini}
-                        target="_top"
-                        onClick={openMiniOffer}
-                        onMouseDown={openMiniOffer}
-                        onPointerUp={openMiniOffer}
-                        onTouchEnd={openMiniOffer}
-                        className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
-                      >
-                        Start with the Mini
-                        <ArrowRight className="h-4 w-4" />
-                      </a>
+                      <p className="mt-3 text-center text-sm text-muted-foreground font-medium">Coming soon</p>
                       <p className="mt-2 text-center text-[11px] text-muted-foreground">30-day risk-free trial</p>
                     </div>
                   </div>
@@ -918,16 +888,7 @@ const BobbyParrishLandingPage = () => {
                       <span>Covers up to 300 sq ft - perfect for hotel rooms and rentals</span>
                     </li>
                   </ul>
-                  <Button
-                    asChild
-                    size="lg"
-                    className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
-                  >
-                    <a href={LINKS.mini} target="_top" onClick={openMiniOffer} onMouseDown={openMiniOffer} onPointerUp={openMiniOffer} onTouchEnd={openMiniOffer}>
-                      Get the BioLogic Mini
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
+                  <p className="text-sm text-muted-foreground font-medium">Coming soon</p>
                 </div>
               </div>
             </Reveal>
@@ -1178,21 +1139,16 @@ const BobbyParrishLandingPage = () => {
         }`}
       >
         <a
-          href={LINKS.mini}
-          target="_top"
-          onClick={openMiniOffer}
-          onMouseDown={openMiniOffer}
-          onPointerUp={openMiniOffer}
-          onTouchEnd={openMiniOffer}
+          href={LINKS.bundle}
           className="flex items-center justify-between gap-3 px-4 py-3"
-          aria-label="Start with the BioLogic Mini Bobby offer"
+          aria-label="Shop the Home Complete Bundle Bobby offer"
         >
           <div className="min-w-0">
             <p className="text-sm font-semibold text-foreground">Save 15% with code Bobby</p>
             <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
           <span className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90">
-            Start with the Mini
+            Shop the Bundle
           </span>
         </a>
       </div>
