@@ -270,7 +270,7 @@ const BobbyParrishLandingPage = () => {
                   size="lg"
                   className="h-[54px] w-full rounded-full border border-foreground/15 bg-card px-6 text-[0.95rem] font-semibold tracking-[-0.01em] text-foreground shadow-none hover:bg-card"
                 >
-                  <a href="#products" onClick={() => trackEvent("click_hero_shop_singles")}>
+                  <a href={LINKS.mini} onClick={() => trackEvent("click_hero_shop_singles")}>
                     Shop singles from $83
                   </a>
                 </Button>
@@ -357,7 +357,7 @@ const BobbyParrishLandingPage = () => {
                     size="lg"
                     className="h-14 rounded-full border border-foreground/15 bg-card px-8 text-base font-semibold text-foreground hover:bg-card/90"
                   >
-                    <a href="#products" onClick={() => trackEvent("click_hero_shop_singles")}>
+                    <a href={LINKS.mini} onClick={() => trackEvent("click_hero_shop_singles")}>
                       Shop singles from $83 (15% off)
                     </a>
                   </Button>
@@ -1120,7 +1120,7 @@ const BobbyParrishLandingPage = () => {
                   size="lg"
                   className="h-14 rounded-full border border-foreground/15 bg-card px-8 text-base font-semibold text-foreground hover:bg-card/90"
                 >
-                  <a href="#products" onClick={() => trackEvent("click_final_cta_browse_all")}>
+                  <a href={LINKS.mini} onClick={() => trackEvent("click_final_cta_browse_all")}>
                     Shop singles from $83 (15% off)
                   </a>
                 </Button>
