@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Star, ShieldCheck, Sparkles, Clock } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
@@ -27,8 +27,10 @@ import travelImg from "@/assets/bobby-travel.avif";
 const withDiscount = (url: string, code = "Bobby") =>
   `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
 
+const MINI_OFFER_URL = "https://shop.envirobiotics.com/products/biologic-mini-bobby?discount=Bobby";
+
 const LINKS = {
-  mini: withDiscount("https://shop.envirobiotics.com/products/biologic-mini-bobby"),
+  mini: MINI_OFFER_URL,
   biotica: withDiscount("https://shop.envirobiotics.com/products/biotica-800-bobby"),
   bundle: withDiscount("https://shop.envirobiotics.com/products/home-complete-bundle"),
 };
@@ -189,6 +191,7 @@ const ProductCard = ({
 
 const BobbyParrishLandingPage = () => {
   const [showSticky, setShowSticky] = useState(false);
+  const miniNavigationStarted = useRef(false);
 
   useEffect(() => {
     const onScroll = () => setShowSticky(window.scrollY > 700);
@@ -197,6 +200,14 @@ const BobbyParrishLandingPage = () => {
   }, []);
 
   const trackMini = () => trackEvent("click_bobby_mini");
+  const openMiniOffer = (e: React.MouseEvent<HTMLAnchorElement> | React.TouchEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (miniNavigationStarted.current) return;
+    miniNavigationStarted.current = true;
+    trackMini();
+    window.location.href = MINI_OFFER_URL;
+  };
   const trackBiotica = () => trackEvent("click_bobby_biotica");
   const trackBundle = () => trackEvent("click_bobby_bundle");
 
