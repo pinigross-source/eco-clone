@@ -139,7 +139,7 @@ const ProductCard = ({
             key={f}
             className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]"
           >
-            <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
+            <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
             <span className="leading-snug">{f}</span>
           </li>
         ))}
@@ -468,13 +468,13 @@ const BobbyParrishLandingPage = () => {
                 <Reveal key={card.title}>
                   <div className="group relative flex h-full flex-col overflow-hidden rounded-[1.25rem] bg-gradient-to-b from-card to-background p-8 ring-1 ring-black/[0.05] shadow-[0_1px_2px_rgba(0,0,0,0.04),0_20px_50px_-30px_rgba(120,80,30,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_2px_3px_rgba(0,0,0,0.04),0_40px_80px_-30px_rgba(120,80,30,0.28)] sm:p-10">
                     {/* Top hairline accent on hover */}
-                    <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-foreground/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                     <div className="mb-8 flex items-start justify-between">
-                      <div className="relative inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary/15 to-primary/5 ring-1 ring-primary/20">
-                        <card.icon className="h-[18px] w-[18px] text-primary" strokeWidth={1.5} />
+                      <div className="relative inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-foreground/10 to-foreground/5 ring-1 ring-foreground/15">
+                        <card.icon className="h-[18px] w-[18px] text-foreground" strokeWidth={1.5} />
                       </div>
-                      <span className="font-display text-xs font-normal italic tracking-[0.2em] text-primary/60">
+                      <span className="font-display text-xs font-normal italic tracking-[0.2em] text-foreground/50">
                         {card.num}
                       </span>
                     </div>
@@ -483,7 +483,7 @@ const BobbyParrishLandingPage = () => {
                       {card.title}
                     </h3>
 
-                    <div className="mt-5 h-px w-10 bg-primary/30" />
+                    <div className="mt-5 h-px w-10 bg-foreground/20" />
 
                     <p className="mt-5 text-[0.95rem] leading-[1.7] text-muted-foreground">
                       {card.body}
@@ -689,15 +689,15 @@ const BobbyParrishLandingPage = () => {
                     </p>
                     <ul className="mt-4 flex flex-1 flex-col gap-2">
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={1.5} />
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-foreground" strokeWidth={1.5} />
                         <span>Covers up to 300 sq ft</span>
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={1.5} />
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-foreground" strokeWidth={1.5} />
                         <span>Best for one room or apartment</span>
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={1.5} />
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-foreground" strokeWidth={1.5} />
                         <span>Easy to move between spaces</span>
                       </li>
                     </ul>
@@ -746,19 +746,19 @@ const BobbyParrishLandingPage = () => {
                     </p>
                     <ul className="mt-5 flex flex-1 flex-col gap-3">
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
                         <span>Covers up to 800 sq ft across multiple rooms</span>
                       </li>
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
                         <span>Two devices: living spaces + bedrooms</span>
                       </li>
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
                         <span>Best value per square foot</span>
                       </li>
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
                         <span>What Bobby uses in his own home</span>
                       </li>
                     </ul>
@@ -809,15 +809,15 @@ const BobbyParrishLandingPage = () => {
                     </p>
                     <ul className="mt-4 flex flex-1 flex-col gap-2">
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={1.5} />
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-foreground" strokeWidth={1.5} />
                         <span>Covers up to 800 sq ft</span>
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={1.5} />
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-foreground" strokeWidth={1.5} />
                         <span>Designed for open-plan layouts</span>
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-primary" strokeWidth={1.5} />
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-foreground" strokeWidth={1.5} />
                         <span>Single-device simplicity</span>
                       </li>
                     </ul>
@@ -872,15 +872,15 @@ const BobbyParrishLandingPage = () => {
                   </p>
                   <ul className="flex flex-col gap-3">
                     <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                      <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
+                      <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
                       <span>Fits easily in luggage or a carry-on</span>
                     </li>
                     <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                      <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
+                      <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
                       <span>Plug in anywhere for instant probiotic coverage</span>
                     </li>
                     <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                      <Check className="mt-0.5 h-4 w-4 flex-none text-primary" strokeWidth={1.5} />
+                      <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
                       <span>Covers up to 300 sq ft - perfect for hotel rooms and rentals</span>
                     </li>
                   </ul>
@@ -971,7 +971,7 @@ const BobbyParrishLandingPage = () => {
               ].map((t, i) => (
                 <Reveal key={i}>
                   <div className="flex h-full flex-col gap-4 rounded-2xl border border-border/60 bg-card p-5 sm:gap-5 sm:p-7">
-                    <div className="flex gap-0.5 text-primary">
+                    <div className="flex gap-0.5 text-foreground">
                       {[0, 1, 2, 3, 4].map((i) => (
                         <Star key={i} className="h-4 w-4 fill-current" />
                       ))}
@@ -1010,7 +1010,7 @@ const BobbyParrishLandingPage = () => {
                   },
                 ].map((b) => (
                   <div key={b.label} className="flex flex-col gap-2">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-foreground/10 text-foreground">
                       <Check className="h-5 w-5" strokeWidth={1.5} />
                     </div>
                     <div className="mt-2 text-base font-bold text-foreground">{b.label}</div>
