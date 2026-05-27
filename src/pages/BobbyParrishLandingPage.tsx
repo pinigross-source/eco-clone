@@ -906,15 +906,16 @@ const BobbyParrishLandingPage = () => {
                       <span>Covers up to 300 sq ft - perfect for hotel rooms and rentals</span>
                     </li>
                   </ul>
-                  <a href={LINKS.mini} target="_top" onClick={openMiniOffer}>
-                    <Button
-                      size="lg"
-                      className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
-                    >
+                  <Button
+                    asChild
+                    size="lg"
+                    className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90"
+                  >
+                    <a href={LINKS.mini} target="_top" onClick={openMiniOffer}>
                       Get the BioLogic Mini
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </a>
+                    </a>
+                  </Button>
                 </div>
               </div>
             </Reveal>
@@ -1169,11 +1170,11 @@ const BobbyParrishLandingPage = () => {
             <p className="text-sm font-semibold text-foreground">Save 15% with code Bobby</p>
             <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
           </div>
-          <a href={LINKS.mini} target="_top" onClick={openMiniOffer}>
-            <Button className="h-11 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
+          <Button asChild className="h-11 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
+            <a href={LINKS.mini} target="_top" onClick={openMiniOffer}>
               Start with the Mini
-            </Button>
-          </a>
+            </a>
+          </Button>
         </div>
       </div>
     </>
