@@ -186,7 +186,6 @@ const ProductCard = ({
 
 const BobbyParrishLandingPage = () => {
   const [showSticky, setShowSticky] = useState(false);
-  const miniNavigationStarted = useRef(false);
 
   useEffect(() => {
     const onScroll = () => setShowSticky(window.scrollY > 700);
@@ -194,13 +193,6 @@ const BobbyParrishLandingPage = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const openMiniOffer = (e: React.SyntheticEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (miniNavigationStarted.current) return;
-    miniNavigationStarted.current = true;
-    openMiniOfferUrl();
-  };
   const trackBiotica = () => trackEvent("click_bobby_biotica");
   const trackBundle = () => trackEvent("click_bobby_bundle");
 
