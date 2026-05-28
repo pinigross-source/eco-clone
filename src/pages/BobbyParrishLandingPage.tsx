@@ -285,7 +285,7 @@ const BobbyParrishLandingPage = () => {
 
         {/* MOBILE: stacked layout (below 768px) */}
         <section className="md:hidden w-full bg-background">
-          <div className="relative w-full aspect-[4/5] overflow-hidden">
+          <div className="relative w-full aspect-[5/4] overflow-hidden">
             <img
               src={heroImgMobile}
               alt="Bobby Parrish at home"
@@ -295,30 +295,36 @@ const BobbyParrishLandingPage = () => {
               decoding="async"
             />
             {/* soft fade into cream */}
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-background" />
           </div>
-          <div className="px-6 pt-8 pb-12">
+          <div className="px-5 pt-6 pb-10">
             <Reveal>
               <div className="flex items-center gap-3">
-                <span className="h-px w-8 bg-primary/60" />
-                <p className="text-[10.5px] font-semibold tracking-[0.32em] uppercase text-muted-foreground/70">
+                <span className="h-px w-6 bg-primary/60" />
+                <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-muted-foreground/70">
                   As featured by Bobby Parrish
                 </p>
               </div>
             </Reveal>
             <Reveal>
-              <h1 className="mt-6 font-display font-semibold tracking-[-0.03em] text-foreground text-balance text-[2.125rem] leading-[1.05]">
+              <h1 className="mt-4 font-display font-medium tracking-[-0.03em] text-foreground text-balance text-[2rem] leading-[1.08]">
                 The probiotic dispenser{" "}
-                <em className="not-italic text-heading-accent">Bobby Parrish keeps in his home and on the go.</em>
+                <em
+                  className="font-normal italic text-heading-accent"
+                  style={{ fontFamily: "'Instrument Serif', serif" }}
+                >
+                  Bobby Parrish
+                </em>{" "}
+                keeps in his home and on the go.
               </h1>
             </Reveal>
             <Reveal>
-              <p className="mt-5 text-[0.95rem] font-light leading-[1.6] text-muted-foreground">
+              <p className="mt-4 text-[0.9375rem] font-light leading-[1.55] text-muted-foreground">
                 It sprays beneficial probiotics all over your room, air, surfaces, and fabrics, working quietly between cleanings. Small enough to take anywhere. No bleach, no ammonia.
               </p>
             </Reveal>
             <Reveal>
-              <div className="mt-8 flex flex-col gap-3">
+              <div className="mt-6 flex flex-col gap-2.5">
                 <Button
                   asChild
                   size="lg"
@@ -334,30 +340,41 @@ const BobbyParrishLandingPage = () => {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
-                <a
-                  href="#products"
-                  onClick={(e) => scrollToHash(e, "products", "click_hero_bundle_link_mobile")}
-                  className="text-center text-sm font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground"
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="h-[52px] w-full rounded-full bg-white/60 border border-foreground/15 text-foreground text-[0.9rem] font-medium hover:bg-white/85 hover:text-foreground shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)]"
                 >
-                  Want full-home coverage? See the 2-device bundle ↓
-                </a>
+                  <a
+                    href="#products"
+                    onClick={(e) => scrollToHash(e, "products", "click_hero_bundle_link_mobile")}
+                  >
+                    See the 2-device bundle
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
               </div>
             </Reveal>
             <Reveal>
-              <div className="mt-6 flex items-center justify-between gap-2 text-[0.7rem] font-medium tracking-[0.02em] text-muted-foreground">
-                <span>✓ Free shipping</span>
-                <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
-                <span>✓ 30-day money-back</span>
-                <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
-                <span>✓ Cancel anytime</span>
-              </div>
+              <ul className="mt-5 flex flex-col gap-1.5 text-[0.78rem] font-medium text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <Check className="h-3.5 w-3.5 text-primary" strokeWidth={2.5} /> Free shipping
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-3.5 w-3.5 text-primary" strokeWidth={2.5} /> 30-day money-back guarantee
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-3.5 w-3.5 text-primary" strokeWidth={2.5} /> Cancel anytime
+                </li>
+              </ul>
             </Reveal>
             <Reveal>
-              <figure className="mt-9 border-l-2 border-primary/60 pl-5">
-                <blockquote className="font-display text-[1.05rem] italic leading-[1.45] text-foreground">
+              <figure className="mt-8 border-l-2 border-primary/60 pl-4">
+                <blockquote className="font-display text-[1rem] italic leading-[1.5] text-foreground">
                   "This is the BioLogic Mini, I keep one in my kitchen and one in our bedroom."
                 </blockquote>
-                <figcaption className="mt-3 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                <figcaption className="mt-3 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   Bobby Parrish · FlavCity
                 </figcaption>
               </figure>
