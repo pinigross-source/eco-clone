@@ -396,7 +396,7 @@ const BobbyParrishLandingPage = () => {
             decoding="async"
           />
           {/* Readability overlay: strong on the left where text sits, fully clear on the right so Bobby stays visible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 from-0% via-40% to-transparent to-65%" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent from-0% via-55% to-90% lg:via-40% lg:to-65%" />
           <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
 
           <div className="relative mx-auto flex min-h-[88svh] max-w-6xl px-6 py-24 lg:py-32">
@@ -408,7 +408,7 @@ const BobbyParrishLandingPage = () => {
                     As featured by Bobby Parrish
                   </p>
                 </div>
-                <h1 className="font-display font-medium tracking-[-0.025em] text-foreground text-balance text-[3.25rem] leading-[1.05] lg:text-[4.25rem]">
+                <h1 className="font-display font-medium tracking-[-0.025em] text-foreground text-balance text-[2.5rem] leading-[1.05] md:text-[2.75rem] lg:text-[4.25rem]">
                   The probiotic dispenser{" "}
                   <em className="font-normal italic text-heading-accent" style={{ fontFamily: "'Instrument Serif', serif" }}>
                     Bobby Parrish
@@ -422,7 +422,7 @@ const BobbyParrishLandingPage = () => {
                 </p>
               </Reveal>
               <Reveal>
-                <div className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center">
+                <div className="mt-12 flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-6">
                   <Button
                     asChild
                     size="lg"
