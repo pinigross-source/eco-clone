@@ -257,7 +257,7 @@ const BobbyParrishLandingPage = () => {
         <div className="sticky top-0 z-50 bg-foreground text-background border-b border-white/10">
           <div className="hidden sm:block text-center py-2.5 px-4">
             <span className="text-sm font-medium">
-              🎁 Code BOBBY auto-applied — Mini just $83 · free shipping · 30-day money-back
+              🎁 Code BOBBY auto-applied. Mini just $83 · free shipping · 30-day money-back
             </span>{" "}
             <a
               href={LINKS.mini}
