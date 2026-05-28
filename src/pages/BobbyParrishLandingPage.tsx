@@ -420,13 +420,20 @@ const BobbyParrishLandingPage = () => {
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </a>
                   </Button>
-                  <a
-                    href="#products"
-                    onClick={(e) => scrollToHash(e, "products", "click_hero_bundle_link_desktop")}
-                    className="text-sm font-medium text-foreground/80 border-b border-foreground/30 pb-0.5 hover:text-foreground hover:border-foreground transition-colors"
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="h-14 rounded-full bg-white px-10 text-base font-semibold text-foreground border border-foreground/15 hover:bg-white hover:text-foreground group shadow-[0_12px_32px_-12px_rgba(15,15,15,0.18)]"
                   >
-                    Want full-home coverage? See the 2-device bundle ↓
-                  </a>
+                    <a
+                      href="#products"
+                      onClick={(e) => scrollToHash(e, "products", "click_hero_bundle_link_desktop")}
+                    >
+                      Want full-home coverage? See the 2-device bundle
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  </Button>
                 </div>
               </Reveal>
               <Reveal>
