@@ -9,7 +9,7 @@ import {
   Phone, 
   MessageCircle, 
   FileText, 
-  HelpCircle,
+  
   ArrowRight,
   Clock,
   CheckCircle2,
@@ -51,13 +51,6 @@ const supportOptions = [
     action: "Send Message",
     href: "#contact-form",
     scrollTo: true,
-  },
-  {
-    icon: HelpCircle,
-    title: "FAQ",
-    description: "Find quick answers to commonly asked questions.",
-    action: "Browse FAQ",
-    href: "/#faq",
   },
 ];
 
