@@ -29,7 +29,7 @@ const withDiscount = (url: string, code = "Bobby") =>
 const LINKS = {
   biotica: withDiscount("https://shop.envirobiotics.com/products/biotica-800-bobby"),
   bundle: withDiscount("https://shop.envirobiotics.com/products/home-complete-bundle"),
-  mini: "https://shop.envirobiotics.com/products/biologic-mini-bobby?discount=Bobby",
+  mini: withDiscount("https://shop.envirobiotics.com/products/biologic-mini-bobby"),
 };
 
 /* Smooth scroll to in-page anchor that re-aligns after layout shifts
