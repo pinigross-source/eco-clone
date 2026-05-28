@@ -298,7 +298,7 @@ const BobbyParrishLandingPage = () => {
             {/* soft fade into cream */}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-background" />
           </div>
-          <div className="px-5 pt-6 pb-10">
+          <div className="px-4 pt-5 pb-8">
             <Reveal>
               <div className="flex items-center gap-3">
                 <span className="h-px w-6 bg-primary/60" />
@@ -399,7 +399,7 @@ const BobbyParrishLandingPage = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent from-0% via-55% to-90% lg:via-40% lg:to-65%" />
           <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
 
-          <div className="relative mx-auto flex min-h-[88svh] max-w-6xl px-6 py-16 lg:py-24">
+          <div className="relative mx-auto flex min-h-[88svh] max-w-6xl px-4 sm:px-6 lg:px-10 py-12 lg:py-20">
             <div className="max-w-2xl flex flex-col justify-center">
               <Reveal>
                 <div className="flex items-center gap-3 mb-8">
@@ -611,7 +611,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 4. THE PROBLEM ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-24">
+        <section className="bg-background py-12 sm:py-18 lg:py-20">
           <div className="mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.24)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.28)]">
@@ -706,7 +706,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 5. HOW IT WORKS ============ */}
-        <section id="how-it-works" className="scroll-mt-20 sm:scroll-mt-28 bg-gradient-to-b from-background to-muted py-14 sm:py-24 lg:py-24">
+        <section id="how-it-works" className="scroll-mt-20 sm:scroll-mt-28 bg-gradient-to-b from-background to-muted py-12 sm:py-18 lg:py-20">
           <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <div className="max-w-2xl">
@@ -764,7 +764,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 5. PRODUCTS ============ */}
-        <section id="products" className="scroll-mt-20 sm:scroll-mt-28 bg-gradient-to-b from-background via-card to-background py-14 sm:py-24 lg:py-24">
+        <section id="products" className="scroll-mt-20 sm:scroll-mt-28 bg-gradient-to-b from-background via-card to-background py-12 sm:py-18 lg:py-20">
           <div className="mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
@@ -964,7 +964,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 6. ON THE GO ============ */}
-        <section className="bg-gradient-to-b from-background to-background py-14 sm:py-24 lg:py-24">
+        <section className="bg-gradient-to-b from-background to-background py-12 sm:py-18 lg:py-20">
           <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.18)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.18)] lg:grid-cols-2">
@@ -1021,7 +1021,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 7. BOBBY ENDORSEMENT ============ */}
-        <section className="bg-[hsl(var(--primary-soft))] py-14 sm:py-24 lg:py-24">
+        <section className="bg-[hsl(var(--primary-soft))] py-12 sm:py-18 lg:py-20">
           <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.18)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.18)] lg:grid-cols-2">
@@ -1066,7 +1066,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 8. TESTIMONIALS ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-24">
+        <section className="bg-background py-12 sm:py-18 lg:py-20">
           <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
@@ -1108,7 +1108,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 9. FEATURE ICONS ============ */}
-        <section className="bg-gradient-to-b from-background to-muted py-12 sm:py-20 lg:py-24">
+        <section className="bg-gradient-to-b from-background to-muted py-10 sm:py-16 lg:py-20">
           <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
@@ -1144,7 +1144,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 10. FAQ ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-24">
+        <section className="bg-background py-12 sm:py-18 lg:py-20">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
