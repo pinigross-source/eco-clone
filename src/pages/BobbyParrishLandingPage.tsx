@@ -396,7 +396,7 @@ const BobbyParrishLandingPage = () => {
             decoding="async"
           />
           {/* Readability overlay: strong on the left where text sits, fully clear on the right so Bobby stays visible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 from-0% via-40% to-transparent to-65%" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent from-0% via-55% to-90% lg:via-40% lg:to-65%" />
           <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
 
           <div className="relative mx-auto flex min-h-[88svh] max-w-6xl px-6 py-24 lg:py-32">
