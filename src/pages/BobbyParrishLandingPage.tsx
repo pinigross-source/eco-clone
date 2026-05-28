@@ -378,8 +378,8 @@ const BobbyParrishLandingPage = () => {
             decoding="async"
           />
           {/* Readability overlay: stronger on the left where text sits, fading right */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/55 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
 
           <div className="relative mx-auto flex min-h-[88svh] max-w-6xl px-6 py-24 lg:py-32">
             <div className="max-w-2xl flex flex-col justify-center">
