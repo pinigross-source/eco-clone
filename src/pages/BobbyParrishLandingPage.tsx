@@ -514,7 +514,7 @@ const BobbyParrishLandingPage = () => {
             {/* Certifications */}
             <Reveal>
               <div className="mt-10 sm:mt-14">
-                <div className="flex items-center justify-center gap-4 mb-6 sm:mb-8">
+                <div className="flex items-center justify-center gap-4 mb-1 sm:mb-2">
                   <span className="h-px w-10 bg-foreground/15" />
                   <p className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
                     Independently Recognized
@@ -524,7 +524,7 @@ const BobbyParrishLandingPage = () => {
                 <img
                   src={iconsBar}
                   alt="EnviroBiotics certifications: EPA, Instituto de Salud Pública, ISO 9001:2015, AllergyUK, MadeSafe, Sensitive Choice, EcoCert"
-                  className="w-full h-auto opacity-75 hover:opacity-100 transition-opacity duration-500"
+                  className="w-full h-auto -mt-2 opacity-75 hover:opacity-100 transition-opacity duration-500"
                   loading="lazy"
                   decoding="async"
                 />
