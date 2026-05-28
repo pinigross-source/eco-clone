@@ -350,36 +350,39 @@ const BobbyParrishLandingPage = () => {
                   </p>
                 </div>
                 <h1 className="font-display font-semibold tracking-[-0.04em] text-foreground text-balance text-[3rem] leading-[1.02] lg:text-[3.75rem]">
-                  Bobby uses EnviroBiotics to clean his home.{" "}
-                  <em className="not-italic text-heading-accent">Now you can too.</em>
+                  The probiotic dispenser{" "}
+                  <em className="not-italic text-heading-accent">Bobby Parrish keeps in his kitchen and bedroom.</em>
                 </h1>
               </Reveal>
               <Reveal>
                 <p className="mt-5 max-w-[34rem] text-[1.05rem] font-light leading-[1.55] text-muted-foreground">
-                  The probiotic cleaning system Bobby trusts in his own kitchen, bedroom, and bathroom. Beneficial bacteria, released into the air and onto surfaces, working between cleanings, no bleach, no ammonia, no harsh chemicals.
+                  It sprays beneficial probiotics all over your room — air, surfaces, and fabrics — working quietly between cleanings. No bleach, no ammonia, no fragrances.
                 </p>
               </Reveal>
               <Reveal>
-                <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+                <div className="mt-7 flex flex-col gap-3 sm:items-start">
                   <Button
                     asChild
                     size="lg"
                     className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-white hover:bg-primary/90"
                   >
-                    <a href={LINKS.bundle} onClick={() => trackEvent("click_hero_shop_picks")}>
-                      See the Bundle - $395 (Save $100)
+                    <a
+                      href={LINKS.mini}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackEvent("click_hero_mini_desktop")}
+                    >
+                      Get the BioLogic Mini — $83
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
-                  <Button
-                    asChild
-                    size="lg"
-                    className="h-14 rounded-full border border-foreground/15 bg-card px-8 text-base font-semibold text-foreground hover:bg-card/90"
+                  <a
+                    href="#products"
+                    onClick={(e) => scrollToHash(e, "products", "click_hero_bundle_link_desktop")}
+                    className="text-sm font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground"
                   >
-                    <a href="#products" onClick={(e) => scrollToHash(e, "products", "click_hero_shop_singles")}>
-                      Shop singles from $83 (15% off)
-                    </a>
-                  </Button>
+                    Want full-home coverage? See the 2-device bundle ↓
+                  </a>
                 </div>
               </Reveal>
               <Reveal>
