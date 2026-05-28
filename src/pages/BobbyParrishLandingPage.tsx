@@ -330,7 +330,7 @@ const BobbyParrishLandingPage = () => {
                     rel="noopener noreferrer"
                     onClick={() => trackEvent("click_hero_mini_mobile")}
                   >
-                    Get the BioLogic Mini — $83
+                    Get the BioLogic Mini for $83
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
