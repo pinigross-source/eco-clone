@@ -257,7 +257,7 @@ const BobbyParrishLandingPage = () => {
         <div className="sticky top-0 z-50 bg-foreground text-background border-b border-white/10">
           <div className="hidden sm:block text-center py-2.5 px-4">
             <span className="text-sm font-medium">
-              🎁 Code BOBBY auto-applied — Mini just $83 · free shipping · 30-day money-back
+              🎁 Code BOBBY auto-applied. Mini just $83 · free shipping · 30-day money-back
             </span>{" "}
             <a
               href={LINKS.mini}
@@ -276,7 +276,7 @@ const BobbyParrishLandingPage = () => {
             onClick={() => trackEvent("click_sticky_bar_shop_mobile")}
             className="block sm:hidden text-center py-2.5 px-3 text-xs font-medium"
           >
-            🎁 Code BOBBY auto-applied — Mini just $83 · free shipping · 30-day money-back →
+            🎁 Code BOBBY auto-applied. Mini just $83 · free shipping · 30-day money-back →
           </a>
 
         </div>
@@ -314,7 +314,7 @@ const BobbyParrishLandingPage = () => {
             </Reveal>
             <Reveal>
               <p className="mt-5 text-[0.95rem] font-light leading-[1.6] text-muted-foreground">
-                It sprays beneficial probiotics all over your room — air, surfaces, and fabrics — working quietly between cleanings. Small enough to take anywhere. No bleach, no ammonia.
+                It sprays beneficial probiotics all over your room, air, surfaces, and fabrics, working quietly between cleanings. Small enough to take anywhere. No bleach, no ammonia.
               </p>
             </Reveal>
             <Reveal>
@@ -330,7 +330,7 @@ const BobbyParrishLandingPage = () => {
                     rel="noopener noreferrer"
                     onClick={() => trackEvent("click_hero_mini_mobile")}
                   >
-                    Get the BioLogic Mini — $83
+                    Get the BioLogic Mini $83
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
@@ -400,7 +400,7 @@ const BobbyParrishLandingPage = () => {
               </Reveal>
               <Reveal>
                 <p className="mt-8 max-w-xl text-lg lg:text-xl font-light leading-[1.6] text-foreground/75">
-                  It sprays beneficial probiotics all over your room — air, surfaces, and fabrics — working quietly between cleanings. Small enough to take anywhere. No bleach, no ammonia.
+                  It sprays beneficial probiotics all over your room, air, surfaces, and fabrics, working quietly between cleanings. Small enough to take anywhere. No bleach, no ammonia.
                 </p>
               </Reveal>
               <Reveal>
@@ -416,7 +416,7 @@ const BobbyParrishLandingPage = () => {
                       rel="noopener noreferrer"
                       onClick={() => trackEvent("click_hero_mini_desktop")}
                     >
-                      Get the BioLogic Mini — $83
+                      Get the BioLogic Mini $83
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </a>
                   </Button>
@@ -721,7 +721,7 @@ const BobbyParrishLandingPage = () => {
                   Start with the Mini Bobby showed you.
                 </h2>
                 <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  The $83 BioLogic Mini is what Bobby keeps in his kitchen and bedroom. Most families end up with two for full-home coverage — that's the bundle, $100 off.
+                  The $83 BioLogic Mini is what Bobby keeps in his kitchen and bedroom. Most families end up with two for full-home coverage, that's the bundle, $100 off.
                 </p>
               </div>
             </Reveal>
@@ -749,16 +749,16 @@ const BobbyParrishLandingPage = () => {
                       BioLogic Mini
                     </h3>
                     <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
-                      The exact probiotic dispenser Bobby keeps in his kitchen and bedroom. Sprays beneficial probiotics all over the room — air, surfaces, and fabrics — quietly between cleanings.
+                      The exact probiotic dispenser Bobby keeps in his kitchen and bedroom. Sprays beneficial probiotics all over the room, air, surfaces, and fabrics, quietly between cleanings.
                     </p>
                     <ul className="mt-5 flex flex-col gap-3">
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
                         <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
-                        <span>Covers up to 300 sq ft — perfect for kitchen, bedroom, or office</span>
+                        <span>Covers up to 300 sq ft, perfect for kitchen, bedroom, or office</span>
                       </li>
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
                         <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
-                        <span>Compact and quiet — also Bobby's travel essential</span>
+                        <span>Compact and quiet, also Bobby's travel essential</span>
                       </li>
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
                         <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
@@ -778,7 +778,7 @@ const BobbyParrishLandingPage = () => {
                         onClick={() => trackEvent("click_bobby_mini")}
                         className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-primary text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                       >
-                        Get the BioLogic Mini — $83
+                        Get the BioLogic Mini $83
                         <ArrowRight className="h-4 w-4" />
                       </a>
                       <p className="mt-3 text-center text-[11px] text-muted-foreground">
@@ -805,13 +805,13 @@ const BobbyParrishLandingPage = () => {
                   </div>
                   <div className="flex flex-1 flex-col p-6 sm:p-8">
                     <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary mb-2">
-                      MOST PEOPLE GET TWO — SAVE $100
+                      MOST PEOPLE GET TWO. SAVE $100
                     </p>
                     <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
                       Home Bundle
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                      Two devices for full-home coverage — living spaces plus bedrooms. Built for families, pets, and multi-room homes.
+                      Two devices for full-home coverage, living spaces plus bedrooms. Built for families, pets, and multi-room homes.
                     </p>
                     <ul className="mt-5 flex flex-1 flex-col gap-3">
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
@@ -840,7 +840,7 @@ const BobbyParrishLandingPage = () => {
                         onClick={trackBundle}
                         className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
-                        Get the Bundle — $395
+                        Get the Bundle $395
                         <ArrowRight className="h-4 w-4" />
                       </a>
                       <p className="mt-3 text-center text-[11px] text-muted-foreground">
@@ -1245,7 +1245,7 @@ const BobbyParrishLandingPage = () => {
             </button>
             {emailSubmitted ? (
               <div className="py-6 text-center">
-                <p className="font-display text-2xl font-bold text-foreground">Thanks — check your inbox.</p>
+                <p className="font-display text-2xl font-bold text-foreground">Thanks, check your inbox.</p>
                 <p className="mt-2 text-sm text-muted-foreground">Code BOBBY is on its way.</p>
               </div>
             ) : (
