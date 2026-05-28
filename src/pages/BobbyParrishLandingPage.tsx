@@ -1093,7 +1093,7 @@ const BobbyParrishLandingPage = () => {
                   },
                   {
                     label: "No Harsh Chemicals",
-                    desc: "No bleach, no ammonia, no synthetic fragrances. Safe around kids, pets, and sensitive family members.",
+                    desc: "No bleach, no ammonia. Safe around kids, pets, and sensitive family members.",
                   },
                   {
                     label: "Set It and Forget It",
