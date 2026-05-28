@@ -52,13 +52,6 @@ const supportOptions = [
     href: "#contact-form",
     scrollTo: true,
   },
-  {
-    icon: HelpCircle,
-    title: "FAQ",
-    description: "Find quick answers to commonly asked questions.",
-    action: "Browse FAQ",
-    href: "/#faq",
-  },
 ];
 
 const contactInfo = [
