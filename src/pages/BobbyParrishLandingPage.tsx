@@ -734,7 +734,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 5. PRODUCTS ============ */}
-        <section id="products" className="bg-gradient-to-b from-background via-card to-background py-14 sm:py-24 lg:py-24">
+        <section id="products" className="scroll-mt-20 sm:scroll-mt-28 bg-gradient-to-b from-background via-card to-background py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
