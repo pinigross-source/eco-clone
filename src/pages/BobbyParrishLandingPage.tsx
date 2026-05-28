@@ -276,7 +276,7 @@ const BobbyParrishLandingPage = () => {
             onClick={() => trackEvent("click_sticky_bar_shop_mobile")}
             className="block sm:hidden text-center py-2.5 px-3 text-xs font-medium"
           >
-            🎁 Code BOBBY · Mini $83 · free shipping →
+            🎁 Code BOBBY auto-applied — Mini just $83 · free shipping · 30-day money-back →
           </a>
 
         </div>
@@ -309,12 +309,12 @@ const BobbyParrishLandingPage = () => {
             <Reveal>
               <h1 className="mt-6 font-display font-semibold tracking-[-0.03em] text-foreground text-balance text-[2.125rem] leading-[1.05]">
                 The probiotic dispenser{" "}
-                <em className="not-italic text-heading-accent">Bobby Parrish keeps in his kitchen and bedroom.</em>
+                <em className="not-italic text-heading-accent">Bobby Parrish keeps in his home and on the go.</em>
               </h1>
             </Reveal>
             <Reveal>
               <p className="mt-5 text-[0.95rem] font-light leading-[1.6] text-muted-foreground">
-                It sprays beneficial probiotics throughout your room, reaching the air, surfaces, and fabrics. Working quietly between cleanings. No bleach or ammonia.
+                It sprays beneficial probiotics all over your room — air, surfaces, and fabrics — working quietly between cleanings. Small enough to take anywhere. No bleach, no ammonia.
               </p>
             </Reveal>
             <Reveal>
@@ -330,7 +330,7 @@ const BobbyParrishLandingPage = () => {
                     rel="noopener noreferrer"
                     onClick={() => trackEvent("click_hero_mini_mobile")}
                   >
-                    Get the BioLogic Mini for $83
+                    Get the BioLogic Mini — $83
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
@@ -380,12 +380,12 @@ const BobbyParrishLandingPage = () => {
                 <em className="font-normal italic text-heading-accent" style={{ fontFamily: "'Instrument Serif', serif" }}>
                   Bobby Parrish
                 </em>{" "}
-                keeps in his kitchen and bedroom.
+                keeps in his home and on the go.
               </h1>
             </Reveal>
             <Reveal>
               <p className="mt-8 max-w-2xl text-lg lg:text-xl font-light leading-[1.6] text-foreground/70">
-                It sprays beneficial probiotics throughout your room, reaching the air, surfaces, and fabrics. Working quietly between cleanings. No bleach or ammonia.
+                It sprays beneficial probiotics all over your room — air, surfaces, and fabrics — working quietly between cleanings. Small enough to take anywhere. No bleach, no ammonia.
               </p>
             </Reveal>
             <Reveal>
@@ -401,7 +401,7 @@ const BobbyParrishLandingPage = () => {
                     rel="noopener noreferrer"
                     onClick={() => trackEvent("click_hero_mini_desktop")}
                   >
-                    Get the BioLogic Mini for $83
+                    Get the BioLogic Mini — $83
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
                 </Button>
