@@ -549,7 +549,7 @@ const BobbyParrishLandingPage = () => {
                   icon: ShieldCheck,
                   num: "01",
                   title: "Safe around kids and pets?",
-                  body: "Yes. EnviroBiotics uses beneficial environmental probiotics, the same family of microbes naturally present in healthy homes. No harsh chemicals, no fragrances, no respiratory irritants. Safe to run continuously around children, pets, and sensitive family members.",
+                  body: "Yes. EnviroBiotics uses beneficial environmental probiotics, the same family of microbes naturally present in healthy homes. No harsh chemicals, no respiratory irritants. Safe to run continuously around children, pets, and sensitive family members.",
                 },
                 {
                   icon: Sparkles,
