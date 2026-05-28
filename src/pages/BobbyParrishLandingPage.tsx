@@ -1266,29 +1266,92 @@ const BobbyParrishLandingPage = () => {
 
       </main>
 
-      {/* Sticky mobile bar */}
-      <div
-        className={`fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 backdrop-blur sm:hidden transition-transform duration-300 ${
-          showSticky ? "translate-y-0" : "translate-y-full"
-        }`}
-      >
-        <a
-          href={LINKS.mini}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => trackEvent("click_mobile_sticky_mini")}
-          className="flex items-center justify-between gap-3 px-4 py-3"
-          aria-label="Shop the BioLogic Mini Bobby offer"
-        >
+      {/* Sticky mobile buy bar — always visible on mobile */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 backdrop-blur shadow-[0_-4px_20px_rgba(0,0,0,0.12)] sm:hidden">
+        <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div className="min-w-0">
             <p className="text-sm font-semibold text-foreground">BioLogic Mini · $83</p>
-            <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
+            <p className="text-[11px] text-muted-foreground">Code BOBBY applied</p>
           </div>
-          <span className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90">
-            Start with Mini
-          </span>
-        </a>
+          <a
+            href={LINKS.mini}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackEvent("click_mobile_sticky_mini")}
+            className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+            aria-label="Buy the BioLogic Mini with code BOBBY"
+          >
+            Buy with code BOBBY
+          </a>
+        </div>
       </div>
+
+      {/* Email capture modal */}
+      {showEmailModal && !emailModalDismissed && (
+        <div
+          className="fixed inset-0 z-[60] flex items-end justify-center bg-foreground/50 p-4 backdrop-blur-sm sm:items-center"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="bobby-email-heading"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) dismissEmailModal();
+          }}
+        >
+          <div className="relative w-full max-w-md rounded-2xl bg-card p-6 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.4)] sm:p-8">
+            <button
+              type="button"
+              onClick={dismissEmailModal}
+              aria-label="Dismiss"
+              className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground hover:bg-foreground/5 hover:text-foreground"
+            >
+              ✕
+            </button>
+            {emailSubmitted ? (
+              <div className="py-6 text-center">
+                <p className="font-display text-2xl font-bold text-foreground">Thanks — check your inbox.</p>
+                <p className="mt-2 text-sm text-muted-foreground">Code BOBBY is on its way.</p>
+              </div>
+            ) : (
+              <>
+                <p className="text-[10.5px] font-semibold uppercase tracking-[0.28em] text-primary">
+                  Bobby Parrish · FlavCity
+                </p>
+                <h3 id="bobby-email-heading" className="mt-2 font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
+                  Not ready yet?
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                  Get the BOBBY code and a reminder sent to your inbox.
+                </p>
+                <form onSubmit={handleEmailSubmit} className="mt-5 flex flex-col gap-3">
+                  <input
+                    type="email"
+                    required
+                    value={emailValue}
+                    onChange={(e) => setEmailValue(e.target.value)}
+                    placeholder="you@example.com"
+                    className="h-12 w-full rounded-full border border-border bg-background px-5 text-base text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
+                    aria-label="Email address"
+                  />
+                  <button
+                    type="submit"
+                    className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                  >
+                    Send me the code
+                  </button>
+                </form>
+                <button
+                  type="button"
+                  onClick={dismissEmailModal}
+                  className="mt-3 w-full text-center text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground"
+                >
+                  No thanks
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
     </>
   );
 };
