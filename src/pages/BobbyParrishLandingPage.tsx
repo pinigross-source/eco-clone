@@ -440,16 +440,6 @@ const BobbyParrishLandingPage = () => {
                   <span>✓ Cancel anytime</span>
                 </div>
               </Reveal>
-              <Reveal>
-                <div className="mt-8 inline-block max-w-[24rem] rounded-[10px] bg-card/[0.94] px-5 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.18)] backdrop-blur-md">
-                  <p className="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-primary">
-                    Bobby Parrish · FlavCity
-                  </p>
-                  <p className="mt-1.5 text-[0.92rem] italic leading-[1.4] text-foreground">
-                    "This is the BioLogic Mini, I keep one in my kitchen and one in our bedroom."
-                  </p>
-                </div>
-              </Reveal>
             </div>
           </div>
         </section>
