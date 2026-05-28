@@ -424,7 +424,7 @@ const BobbyParrishLandingPage = () => {
                     asChild
                     size="lg"
                     variant="outline"
-                    className="h-14 rounded-full bg-white px-10 text-base font-semibold text-foreground border border-foreground/15 hover:bg-white hover:text-foreground group shadow-[0_12px_32px_-12px_rgba(15,15,15,0.18)]"
+                    className="h-14 rounded-full bg-white/60 px-10 text-base font-semibold text-foreground border border-foreground/15 hover:bg-white/85 hover:text-foreground group shadow-[0_12px_32px_-12px_rgba(15,15,15,0.18)]"
                   >
                     <a
                       href="#products"
