@@ -454,60 +454,6 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ BOBBY'S OWN WORDS ============ */}
-        <section className="bg-background py-12 sm:py-20">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
-            <Reveal>
-              <div className="mb-8 sm:mb-12 text-center">
-                <p className="text-[10.5px] font-semibold tracking-[0.32em] uppercase text-primary">
-                  In Bobby's Own Words
-                </p>
-              </div>
-            </Reveal>
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12 lg:items-center">
-              <Reveal>
-                <div className="mx-auto w-full max-w-[360px] lg:max-w-none">
-                  <div className="relative w-full overflow-hidden rounded-2xl bg-muted ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.25)]" style={{ aspectRatio: "9 / 16" }}>
-                    {/* Replace src with Bobby's Instagram video embed URL */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-foreground/5 to-foreground/[0.02] p-6 text-center">
-                      <div className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                        <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 ml-1"><path d="M8 5v14l11-7z" /></svg>
-                      </div>
-                      <p className="text-sm font-semibold text-foreground">Bobby's Instagram video</p>
-                      <p className="mt-1 text-xs text-muted-foreground">Upload your video file here</p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-              <Reveal>
-                <figure className="relative rounded-2xl bg-card p-8 ring-1 ring-black/[0.06] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.2)] sm:p-10">
-                  <span className="absolute -top-4 left-8 font-display text-[5rem] leading-none text-primary/30">"</span>
-                  <blockquote className="relative font-display text-[1.25rem] leading-[1.5] text-foreground sm:text-[1.5rem] sm:leading-[1.45]">
-                    I finally got the promo code for the probiotic dispenser. It sprays the probiotics all over your room. The BioLogic Mini — <span className="text-primary font-semibold">$83</span>. I get a commission, but I have no affiliation with the company. They make good ones.
-                  </blockquote>
-                  <figcaption className="mt-6 flex items-center gap-3">
-                    <span className="h-px w-8 bg-foreground/30" />
-                    <span className="text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                      Bobby Parrish · FlavCity
-                    </span>
-                  </figcaption>
-                  <div className="mt-7">
-                    <a
-                      href={LINKS.mini}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => trackEvent("click_bobby_words_mini")}
-                      className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-                    >
-                      Get the Mini — $83
-                      <ArrowRight className="h-4 w-4" />
-                    </a>
-                  </div>
-                </figure>
-              </Reveal>
-            </div>
-          </div>
-        </section>
 
 
         {/* ============ GUARANTEE STRIP ============ */}
