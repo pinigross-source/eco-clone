@@ -9,7 +9,7 @@ import {
   Phone, 
   MessageCircle, 
   FileText, 
-  HelpCircle,
+  
   ArrowRight,
   Clock,
   CheckCircle2,
