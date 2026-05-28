@@ -472,51 +472,64 @@ const BobbyParrishLandingPage = () => {
 
 
 
-        {/* ============ GUARANTEE STRIP ============ */}
-        <section className="w-full bg-background">
-          <div className="max-w-3xl mx-auto px-5 pt-6 sm:pt-10 pb-2 sm:pb-3 text-center">
-            <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground leading-relaxed">
-              Try it for 30 days. Don't love it? Full refund - free return shipping.
-            </p>
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mt-2">
-              We're confident you'll feel the difference within the first week.
-            </p>
-          </div>
-        </section>
+        {/* ============ TRUST + STATS BLOCK ============ */}
+        <section className="w-full bg-gradient-to-b from-background via-background to-muted/40">
+          <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-14 sm:pt-20 pb-16 sm:pb-24">
+            {/* Guarantee headline */}
+            <Reveal>
+              <div className="max-w-3xl mx-auto text-center">
+                <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground leading-relaxed">
+                  Try it for 30 days. Don't love it? Full refund — free return shipping.
+                </p>
+                <p className="text-sm sm:text-base text-muted-foreground mt-2">
+                  We're confident you'll feel the difference within the first week.
+                </p>
+              </div>
+            </Reveal>
 
-        {/* ============ ICONS BAR ============ */}
-        <section className="w-full bg-background">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2 sm:py-3">
-            <img
-              src={iconsBar}
-              alt="EnviroBiotics product benefits"
-              className="w-full h-auto"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </section>
-
-        {/* ============ 2. STATS STRIP ============ */}
-        <section className="bg-gradient-to-b from-background to-muted pt-2 pb-12 sm:pt-4 sm:pb-20 lg:pt-6 lg:pb-20">
-          <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-5 gap-y-8 px-5 sm:gap-10 sm:px-10 lg:grid-cols-4 lg:px-16">
-            {[
-              { n: "15%", label: "Off with code Bobby" },
-              { n: "300", label: "sq. ft. Mini coverage" },
-              { n: "800", label: "sq. ft. large space coverage" },
-              { n: "30-day", label: "Risk-free trial" },
-            ].map((s) => (
-              <Reveal key={s.label}>
-                <div className="text-center">
-                  <div className="font-display text-3xl font-bold tracking-[-0.03em] text-primary sm:text-5xl lg:text-[3.5rem]">
-                    {s.n}
-                  </div>
-                  <div className="mt-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground sm:mt-3 sm:text-[11px] sm:tracking-[0.22em]">
-                    {s.label}
-                  </div>
+            {/* Certifications */}
+            <Reveal>
+              <div className="mt-10 sm:mt-14">
+                <div className="flex items-center justify-center gap-4 mb-6 sm:mb-8">
+                  <span className="h-px w-10 bg-foreground/15" />
+                  <p className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+                    Independently Recognized
+                  </p>
+                  <span className="h-px w-10 bg-foreground/15" />
                 </div>
-              </Reveal>
-            ))}
+                <img
+                  src={iconsBar}
+                  alt="EnviroBiotics certifications: EPA, Instituto de Salud Pública, ISO 9001:2015, AllergyUK, MadeSafe, Sensitive Choice, EcoCert"
+                  className="w-full h-auto opacity-75 hover:opacity-100 transition-opacity duration-500"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </Reveal>
+
+            {/* Divider */}
+            <div className="mt-14 sm:mt-20 mx-auto h-px w-24 bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
+
+            {/* Stats */}
+            <div className="mt-12 sm:mt-16 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-10">
+              {[
+                { n: "15%", label: "Off with code Bobby" },
+                { n: "300", label: "sq. ft. Mini coverage" },
+                { n: "800", label: "sq. ft. large space coverage" },
+                { n: "30-day", label: "Risk-free trial" },
+              ].map((s, i) => (
+                <Reveal key={s.label}>
+                  <div className={`text-center ${i > 0 ? "lg:border-l lg:border-foreground/10" : ""}`}>
+                    <div className="font-display text-4xl font-bold tracking-[-0.03em] text-primary sm:text-5xl lg:text-[3.5rem] leading-none">
+                      {s.n}
+                    </div>
+                    <div className="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:mt-4 sm:text-[11px] sm:tracking-[0.24em]">
+                      {s.label}
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
