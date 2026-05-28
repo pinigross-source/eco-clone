@@ -676,7 +676,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 5. HOW IT WORKS ============ */}
-        <section id="how-it-works" className="bg-gradient-to-b from-background to-muted py-14 sm:py-24 lg:py-24">
+        <section id="how-it-works" className="scroll-mt-20 sm:scroll-mt-28 bg-gradient-to-b from-background to-muted py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
