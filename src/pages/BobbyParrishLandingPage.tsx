@@ -185,16 +185,64 @@ const ProductCard = ({
 );
 
 const BobbyParrishLandingPage = () => {
-  const [showSticky, setShowSticky] = useState(false);
+  // Email-capture modal state
+  const [showEmailModal, setShowEmailModal] = useState(false);
+  const [emailModalDismissed, setEmailModalDismissed] = useState(false);
+  const [emailValue, setEmailValue] = useState("");
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setShowSticky(window.scrollY > 700);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    if (typeof window === "undefined") return;
+    if (window.localStorage.getItem("bobby_email_modal_dismissed") === "1") {
+      setEmailModalDismissed(true);
+      return;
+    }
+
+    const open = () => {
+      setShowEmailModal((s) => {
+        if (!s) trackEvent("bobby_email_modal_open");
+        return true;
+      });
+    };
+
+    const timer = window.setTimeout(open, 15000);
+
+    const onMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0) open();
+    };
+    document.addEventListener("mouseleave", onMouseLeave);
+
+    return () => {
+      window.clearTimeout(timer);
+      document.removeEventListener("mouseleave", onMouseLeave);
+    };
   }, []);
+
+  const dismissEmailModal = () => {
+    setShowEmailModal(false);
+    setEmailModalDismissed(true);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("bobby_email_modal_dismissed", "1");
+    }
+  };
+
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!emailValue || !/^\S+@\S+\.\S+$/.test(emailValue)) return;
+    trackEvent("bobby_email_modal_submit");
+    setEmailSubmitted(true);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("bobby_email_modal_dismissed", "1");
+    }
+    window.setTimeout(() => {
+      setShowEmailModal(false);
+      setEmailModalDismissed(true);
+    }, 2000);
+  };
 
   const trackBiotica = () => trackEvent("click_bobby_biotica");
   const trackBundle = () => trackEvent("click_bobby_bundle");
+
 
   return (
     <>
@@ -209,22 +257,26 @@ const BobbyParrishLandingPage = () => {
         <div className="sticky top-0 z-50 bg-foreground text-background border-b border-white/10">
           <div className="hidden sm:block text-center py-2.5 px-4">
             <span className="text-sm font-medium">
-              🎁 Code BOBBY auto-applied - 15% off +free shipping+ 30-day money-back guarantee
+              🎁 Code BOBBY auto-applied — Mini just $83 · free shipping · 30-day money-back
             </span>{" "}
             <a
-              href="#products"
-              onClick={(e) => scrollToHash(e, "products", "click_sticky_bar_shop")}
+              href={LINKS.mini}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("click_sticky_bar_shop")}
               className="text-sm font-semibold underline underline-offset-2 hover:no-underline whitespace-nowrap"
             >
-              Shop now →
+              Get the Mini →
             </a>
           </div>
           <a
-            href="#products"
-            onClick={(e) => scrollToHash(e, "products", "click_sticky_bar_shop_mobile")}
+            href={LINKS.mini}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackEvent("click_sticky_bar_shop_mobile")}
             className="block sm:hidden text-center py-2.5 px-3 text-xs font-medium"
           >
-            🎁 BOBBY - 15% off +free shipping + 30-day guarantee →
+            🎁 Code BOBBY — Mini $83 · free shipping →
           </a>
 
         </div>
@@ -256,13 +308,13 @@ const BobbyParrishLandingPage = () => {
             </Reveal>
             <Reveal>
               <h1 className="mt-6 font-display font-semibold tracking-[-0.03em] text-foreground text-balance text-[2.125rem] leading-[1.05]">
-                Bobby uses EnviroBiotics to clean his home.{" "}
-                <em className="not-italic text-heading-accent">Now you can too.</em>
+                The probiotic dispenser{" "}
+                <em className="not-italic text-heading-accent">Bobby Parrish keeps in his kitchen and bedroom.</em>
               </h1>
             </Reveal>
             <Reveal>
               <p className="mt-5 text-[0.95rem] font-light leading-[1.6] text-muted-foreground">
-                The probiotic cleaning system Bobby trusts in his own kitchen, bedroom, and bathroom. Beneficial bacteria working between cleanings. No bleach, no ammonia, no harsh chemicals.
+                It sprays beneficial probiotics all over your room — air, surfaces, and fabrics — working quietly between cleanings. No bleach, no ammonia, no fragrances.
               </p>
             </Reveal>
             <Reveal>
@@ -272,29 +324,32 @@ const BobbyParrishLandingPage = () => {
                   size="lg"
                   className="h-[54px] w-full rounded-full bg-primary px-6 text-[0.95rem] font-semibold tracking-[-0.01em] text-white shadow-[0_8px_24px_-8px_rgba(232,93,58,0.55)] hover:bg-primary/90"
                 >
-                  <a href={LINKS.bundle} onClick={() => trackEvent("click_hero_shop_picks")}>
-                    See the Bundle · $395
+                  <a
+                    href={LINKS.mini}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent("click_hero_mini_mobile")}
+                  >
+                    Get the BioLogic Mini — $83
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  className="h-[54px] w-full rounded-full border border-foreground/15 bg-card px-6 text-[0.95rem] font-semibold tracking-[-0.01em] text-foreground shadow-none hover:bg-card"
+                <a
+                  href="#products"
+                  onClick={(e) => scrollToHash(e, "products", "click_hero_bundle_link_mobile")}
+                  className="text-center text-sm font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground"
                 >
-                  <a href="#products" onClick={(e) => scrollToHash(e, "products", "click_hero_shop_singles")}>
-                    Shop singles from $83
-                  </a>
-                </Button>
+                  Want full-home coverage? See the 2-device bundle ↓
+                </a>
               </div>
             </Reveal>
             <Reveal>
               <div className="mt-6 flex items-center justify-between gap-2 text-[0.7rem] font-medium tracking-[0.02em] text-muted-foreground">
-                <span>Free shipping</span>
+                <span>✓ Free shipping</span>
                 <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
-                <span>30-day guarantee</span>
+                <span>✓ 30-day money-back</span>
                 <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
-                <span>Cancel anytime</span>
+                <span>✓ Cancel anytime</span>
               </div>
             </Reveal>
             <Reveal>
@@ -343,36 +398,39 @@ const BobbyParrishLandingPage = () => {
                   </p>
                 </div>
                 <h1 className="font-display font-semibold tracking-[-0.04em] text-foreground text-balance text-[3rem] leading-[1.02] lg:text-[3.75rem]">
-                  Bobby uses EnviroBiotics to clean his home.{" "}
-                  <em className="not-italic text-heading-accent">Now you can too.</em>
+                  The probiotic dispenser{" "}
+                  <em className="not-italic text-heading-accent">Bobby Parrish keeps in his kitchen and bedroom.</em>
                 </h1>
               </Reveal>
               <Reveal>
                 <p className="mt-5 max-w-[34rem] text-[1.05rem] font-light leading-[1.55] text-muted-foreground">
-                  The probiotic cleaning system Bobby trusts in his own kitchen, bedroom, and bathroom. Beneficial bacteria, released into the air and onto surfaces, working between cleanings, no bleach, no ammonia, no harsh chemicals.
+                  It sprays beneficial probiotics all over your room — air, surfaces, and fabrics — working quietly between cleanings. No bleach, no ammonia, no fragrances.
                 </p>
               </Reveal>
               <Reveal>
-                <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+                <div className="mt-7 flex flex-col gap-3 sm:items-start">
                   <Button
                     asChild
                     size="lg"
                     className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-white hover:bg-primary/90"
                   >
-                    <a href={LINKS.bundle} onClick={() => trackEvent("click_hero_shop_picks")}>
-                      See the Bundle - $395 (Save $100)
+                    <a
+                      href={LINKS.mini}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackEvent("click_hero_mini_desktop")}
+                    >
+                      Get the BioLogic Mini — $83
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
-                  <Button
-                    asChild
-                    size="lg"
-                    className="h-14 rounded-full border border-foreground/15 bg-card px-8 text-base font-semibold text-foreground hover:bg-card/90"
+                  <a
+                    href="#products"
+                    onClick={(e) => scrollToHash(e, "products", "click_hero_bundle_link_desktop")}
+                    className="text-sm font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground"
                   >
-                    <a href="#products" onClick={(e) => scrollToHash(e, "products", "click_hero_shop_singles")}>
-                      Shop singles from $83 (15% off)
-                    </a>
-                  </Button>
+                    Want full-home coverage? See the 2-device bundle ↓
+                  </a>
                 </div>
               </Reveal>
               <Reveal>
@@ -396,6 +454,60 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
+        {/* ============ BOBBY'S OWN WORDS ============ */}
+        <section className="bg-background py-12 sm:py-20">
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
+            <Reveal>
+              <div className="mb-8 sm:mb-12 text-center">
+                <p className="text-[10.5px] font-semibold tracking-[0.32em] uppercase text-primary">
+                  In Bobby's Own Words
+                </p>
+              </div>
+            </Reveal>
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12 lg:items-center">
+              <Reveal>
+                <div className="mx-auto w-full max-w-[360px] lg:max-w-none">
+                  <div className="relative w-full overflow-hidden rounded-2xl bg-muted ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.25)]" style={{ aspectRatio: "9 / 16" }}>
+                    {/* Replace src with Bobby's Instagram video embed URL */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-foreground/5 to-foreground/[0.02] p-6 text-center">
+                      <div className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                        <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 ml-1"><path d="M8 5v14l11-7z" /></svg>
+                      </div>
+                      <p className="text-sm font-semibold text-foreground">Bobby's Instagram video</p>
+                      <p className="mt-1 text-xs text-muted-foreground">Upload your video file here</p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+              <Reveal>
+                <figure className="relative rounded-2xl bg-card p-8 ring-1 ring-black/[0.06] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.2)] sm:p-10">
+                  <span className="absolute -top-4 left-8 font-display text-[5rem] leading-none text-primary/30">"</span>
+                  <blockquote className="relative font-display text-[1.25rem] leading-[1.5] text-foreground sm:text-[1.5rem] sm:leading-[1.45]">
+                    I finally got the promo code for the probiotic dispenser. It sprays the probiotics all over your room. The BioLogic Mini — <span className="text-primary font-semibold">$83</span>. I get a commission, but I have no affiliation with the company. They make good ones.
+                  </blockquote>
+                  <figcaption className="mt-6 flex items-center gap-3">
+                    <span className="h-px w-8 bg-foreground/30" />
+                    <span className="text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                      Bobby Parrish · FlavCity
+                    </span>
+                  </figcaption>
+                  <div className="mt-7">
+                    <a
+                      href={LINKS.mini}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackEvent("click_bobby_words_mini")}
+                      className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                    >
+                      Get the Mini — $83
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+                  </div>
+                </figure>
+              </Reveal>
+            </div>
+          </div>
+        </section>
 
 
         {/* ============ GUARANTEE STRIP ============ */}
@@ -669,77 +781,83 @@ const BobbyParrishLandingPage = () => {
                   CHOOSE YOUR DEVICE
                 </p>
                 <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
-                  Most Bobby followers go with the Bundle.
+                  Start with the Mini Bobby showed you.
                 </h2>
                 <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  Cover one room, the whole home, or larger spaces. Single devices use code BOBBY for 15% off - the Bundle is already discounted $100 off the full $495 price.
+                  The $83 BioLogic Mini is what Bobby keeps in his kitchen and bedroom. Most families end up with two for full-home coverage — that's the bundle, $100 off.
                 </p>
               </div>
             </Reveal>
 
-            <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 lg:grid-cols-3 lg:gap-6 xl:mt-16">
-              {/* Card 1 - BioLogic Mini (entry) */}
+            {/* FEATURED: BioLogic Mini — first and largest */}
+            <div className="mt-10 sm:mt-14 xl:mt-16">
               <Reveal>
-                <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-muted/40 ring-1 ring-black/[0.06] sm:rounded-3xl">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
+                <div className="relative grid grid-cols-1 overflow-hidden rounded-2xl bg-card ring-2 ring-primary shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.35)] sm:rounded-3xl lg:grid-cols-2">
+                  <div className="absolute right-5 top-5 z-10 rounded-full bg-primary px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
+                    What Bobby Showed You
+                  </div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))] lg:aspect-auto lg:min-h-[420px]">
                     <img
                       src={miniImg}
                       alt="BioLogic Mini"
-                      className="h-full w-full object-contain p-6 sm:p-8"
+                      className="h-full w-full object-contain p-8 sm:p-12"
                       loading="lazy"
                     />
                   </div>
-                  <div className="flex flex-1 flex-col p-5 sm:p-6">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground mb-2">
-                      START SMALL
+                  <div className="flex flex-col p-6 sm:p-10 lg:p-12">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary mb-2">
+                      BOBBY'S PICK · $83
                     </p>
-                    <h3 className="font-display text-xl font-bold tracking-[-0.02em] text-foreground sm:text-2xl">
+                    <h3 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
                       BioLogic Mini
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      Compact and quiet - perfect for one room, a home office, or as Bobby&apos;s travel essential.
+                    <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
+                      The exact probiotic dispenser Bobby keeps in his kitchen and bedroom. Sprays beneficial probiotics all over the room — air, surfaces, and fabrics — quietly between cleanings.
                     </p>
-                    <ul className="mt-4 flex flex-1 flex-col gap-2">
-                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-foreground" strokeWidth={1.5} />
-                        <span>Covers up to 300 sq ft</span>
+                    <ul className="mt-5 flex flex-col gap-3">
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
+                        <span>Covers up to 300 sq ft — perfect for kitchen, bedroom, or office</span>
                       </li>
-                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-foreground" strokeWidth={1.5} />
-                        <span>Best for one room or apartment</span>
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
+                        <span>Compact and quiet — also Bobby's travel essential</span>
                       </li>
-                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-foreground" strokeWidth={1.5} />
-                        <span>Easy to move between spaces</span>
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
+                        <span>No bleach, no ammonia, no fragrances</span>
                       </li>
                     </ul>
-                    <div className="mt-5 border-t border-border/50 pt-5">
-                      <div className="mb-1 flex items-baseline gap-2">
-                        <span className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground">$83</span>
-                        <span className="text-sm text-muted-foreground line-through">$98</span>
+                    <div className="mt-6 border-t border-border/60 pt-5">
+                      <div className="mb-1 flex items-baseline gap-3">
+                        <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">$83</span>
+                        <span className="text-base text-muted-foreground line-through">$98</span>
+                        <span className="text-[0.75rem] font-bold uppercase tracking-[0.12em] text-primary">Code BOBBY applied</span>
                       </div>
                       <a
                         href={LINKS.mini}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => trackEvent("click_bobby_mini")}
-                        className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+                        className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-primary text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                       >
-                        Start with the Mini
+                        Get the BioLogic Mini — $83
                         <ArrowRight className="h-4 w-4" />
                       </a>
-                      <p className="mt-2 text-center text-[11px] text-muted-foreground">30-day risk-free trial</p>
+                      <p className="mt-3 text-center text-[11px] text-muted-foreground">
+                        Free shipping · 30-day money-back · Cancel anytime
+                      </p>
                     </div>
                   </div>
                 </div>
               </Reveal>
+            </div>
 
-              {/* Card 2 - Home Bundle (HERO / Bobby's Pick) */}
+            {/* Upsell row: Bundle (second) + Biotica (third) */}
+            <div className="mt-5 grid grid-cols-1 gap-5 sm:mt-6 lg:grid-cols-2 lg:gap-6">
+              {/* Card 2 - Home Bundle */}
               <Reveal>
-                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-card ring-2 ring-primary shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.3)] sm:rounded-3xl">
-                  <div className="absolute right-5 top-5 z-10 rounded-full bg-primary px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
-                    BOBBY&apos;S PICK
-                  </div>
+                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-card ring-1 ring-black/[0.06] sm:rounded-3xl">
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
                     <img
                       src={bundleImg}
@@ -750,13 +868,13 @@ const BobbyParrishLandingPage = () => {
                   </div>
                   <div className="flex flex-1 flex-col p-6 sm:p-8">
                     <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary mb-2">
-                      BOBBY&apos;S SETUP
+                      MOST PEOPLE GET TWO — SAVE $100
                     </p>
                     <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
                       Home Bundle
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                      The setup Bobby actually uses at home. Two devices for full-home coverage - living spaces plus bedrooms - built for families, pets, and multi-room homes.
+                      Two devices for full-home coverage — living spaces plus bedrooms. Built for families, pets, and multi-room homes.
                     </p>
                     <ul className="mt-5 flex flex-1 flex-col gap-3">
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
@@ -771,10 +889,6 @@ const BobbyParrishLandingPage = () => {
                         <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
                         <span>Best value per square foot</span>
                       </li>
-                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
-                        <span>What Bobby uses in his own home</span>
-                      </li>
                     </ul>
                     <div className="mt-6 border-t border-border/60 pt-5">
                       <div className="mb-1">
@@ -782,14 +896,14 @@ const BobbyParrishLandingPage = () => {
                       </div>
                       <div className="flex items-baseline gap-3">
                         <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$395</span>
+                        <span className="text-[0.85rem] font-bold text-primary">Save $100</span>
                       </div>
-                      <p className="mt-1 text-[0.85rem] font-bold text-primary">Save $100</p>
                       <a
                         href={LINKS.bundle}
                         onClick={trackBundle}
-                        className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                        className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
-                        Get Bobby&apos;s Bundle
+                        Get the Bundle — $395
                         <ArrowRight className="h-4 w-4" />
                       </a>
                       <p className="mt-3 text-center text-[11px] text-muted-foreground">
@@ -811,49 +925,50 @@ const BobbyParrishLandingPage = () => {
                       loading="lazy"
                     />
                   </div>
-                  <div className="flex flex-1 flex-col p-5 sm:p-6">
+                  <div className="flex flex-1 flex-col p-6 sm:p-8">
                     <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground mb-2">
                       LARGER HOMES
                     </p>
-                    <h3 className="font-display text-xl font-bold tracking-[-0.02em] text-foreground sm:text-2xl">
+                    <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
                       Biotica 800
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
                       A single high-coverage device for open-plan homes, basements, and larger spaces up to 800 sq ft.
                     </p>
-                    <ul className="mt-4 flex flex-1 flex-col gap-2">
-                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-foreground" strokeWidth={1.5} />
+                    <ul className="mt-5 flex flex-1 flex-col gap-3">
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
                         <span>Covers up to 800 sq ft</span>
                       </li>
-                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-foreground" strokeWidth={1.5} />
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
                         <span>Designed for open-plan layouts</span>
                       </li>
-                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-none text-foreground" strokeWidth={1.5} />
+                      <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
                         <span>Single-device simplicity</span>
                       </li>
                     </ul>
-                    <div className="mt-5 border-t border-border/50 pt-5">
+                    <div className="mt-6 border-t border-border/60 pt-5">
                       <div className="mb-1 flex items-baseline gap-2">
-                        <span className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground">$254</span>
+                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$254</span>
                         <span className="text-sm text-muted-foreground line-through">$299</span>
                       </div>
                       <a
                         href={LINKS.biotica}
                         onClick={trackBiotica}
-                        className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
+                        className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
-                        Larger home? See this
+                        Larger home? Get the 800
                         <ArrowRight className="h-4 w-4" />
                       </a>
-                      <p className="mt-2 text-center text-[11px] text-muted-foreground">30-day risk-free trial</p>
+                      <p className="mt-3 text-center text-[11px] text-muted-foreground">30-day risk-free trial</p>
                     </div>
                   </div>
                 </div>
               </Reveal>
             </div>
+
           </div>
         </section>
 
@@ -1151,29 +1266,92 @@ const BobbyParrishLandingPage = () => {
 
       </main>
 
-      {/* Sticky mobile bar */}
-      <div
-        className={`fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 backdrop-blur sm:hidden transition-transform duration-300 ${
-          showSticky ? "translate-y-0" : "translate-y-full"
-        }`}
-      >
-        <a
-          href={LINKS.mini}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => trackEvent("click_mobile_sticky_mini")}
-          className="flex items-center justify-between gap-3 px-4 py-3"
-          aria-label="Shop the BioLogic Mini Bobby offer"
-        >
+      {/* Sticky mobile buy bar — always visible on mobile */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 backdrop-blur shadow-[0_-4px_20px_rgba(0,0,0,0.12)] sm:hidden">
+        <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div className="min-w-0">
             <p className="text-sm font-semibold text-foreground">BioLogic Mini · $83</p>
-            <p className="text-xs text-muted-foreground">Bobby followers exclusive</p>
+            <p className="text-[11px] text-muted-foreground">Code BOBBY applied</p>
           </div>
-          <span className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90">
-            Start with Mini
-          </span>
-        </a>
+          <a
+            href={LINKS.mini}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackEvent("click_mobile_sticky_mini")}
+            className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+            aria-label="Buy the BioLogic Mini with code BOBBY"
+          >
+            Buy with code BOBBY
+          </a>
+        </div>
       </div>
+
+      {/* Email capture modal */}
+      {showEmailModal && !emailModalDismissed && (
+        <div
+          className="fixed inset-0 z-[60] flex items-end justify-center bg-foreground/50 p-4 backdrop-blur-sm sm:items-center"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="bobby-email-heading"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) dismissEmailModal();
+          }}
+        >
+          <div className="relative w-full max-w-md rounded-2xl bg-card p-6 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.4)] sm:p-8">
+            <button
+              type="button"
+              onClick={dismissEmailModal}
+              aria-label="Dismiss"
+              className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground hover:bg-foreground/5 hover:text-foreground"
+            >
+              ✕
+            </button>
+            {emailSubmitted ? (
+              <div className="py-6 text-center">
+                <p className="font-display text-2xl font-bold text-foreground">Thanks — check your inbox.</p>
+                <p className="mt-2 text-sm text-muted-foreground">Code BOBBY is on its way.</p>
+              </div>
+            ) : (
+              <>
+                <p className="text-[10.5px] font-semibold uppercase tracking-[0.28em] text-primary">
+                  Bobby Parrish · FlavCity
+                </p>
+                <h3 id="bobby-email-heading" className="mt-2 font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
+                  Not ready yet?
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                  Get the BOBBY code and a reminder sent to your inbox.
+                </p>
+                <form onSubmit={handleEmailSubmit} className="mt-5 flex flex-col gap-3">
+                  <input
+                    type="email"
+                    required
+                    value={emailValue}
+                    onChange={(e) => setEmailValue(e.target.value)}
+                    placeholder="you@example.com"
+                    className="h-12 w-full rounded-full border border-border bg-background px-5 text-base text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
+                    aria-label="Email address"
+                  />
+                  <button
+                    type="submit"
+                    className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                  >
+                    Send me the code
+                  </button>
+                </form>
+                <button
+                  type="button"
+                  onClick={dismissEmailModal}
+                  className="mt-3 w-full text-center text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground"
+                >
+                  No thanks
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
     </>
   );
 };
