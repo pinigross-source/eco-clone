@@ -506,7 +506,7 @@ const BobbyParrishLandingPage = () => {
                   Try it for 30 days. Don't love it? Full refund — free return shipping.
                 </p>
                 <p className="text-sm sm:text-base text-muted-foreground mt-2">
-                  We're confident you'll feel the difference within the first week.
+                  We're confident you'll feel the difference within the first month.
                 </p>
               </div>
             </Reveal>
