@@ -314,7 +314,7 @@ const BobbyParrishLandingPage = () => {
             </Reveal>
             <Reveal>
               <p className="mt-5 text-[0.95rem] font-light leading-[1.6] text-muted-foreground">
-                It sprays beneficial probiotics all over your room — air, surfaces, and fabrics — working quietly between cleanings. No bleach, no ammonia, no fragrances.
+                It sprays beneficial probiotics all over your room — air, surfaces, and fabrics — working quietly between cleanings. No bleach, no ammonia.
               </p>
             </Reveal>
             <Reveal>
