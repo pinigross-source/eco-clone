@@ -347,8 +347,8 @@ const BobbyParrishLandingPage = () => {
                   className="h-[52px] w-full rounded-full bg-white/60 border border-foreground/15 text-foreground text-[0.9rem] font-medium hover:bg-white/85 hover:text-foreground shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)]"
                 >
                   <a
-                    href="#products"
-                    onClick={(e) => scrollToHash(e, "products", "click_hero_bundle_link_mobile")}
+                    href="#bundle"
+                    onClick={(e) => scrollToHash(e, "bundle", "click_hero_bundle_link_mobile")}
                   >
                     See the 2-device bundle
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -444,8 +444,8 @@ const BobbyParrishLandingPage = () => {
                     className="h-14 rounded-full bg-white/60 px-10 text-base font-semibold text-foreground border border-foreground/15 hover:bg-white/85 hover:text-foreground group shadow-[0_12px_32px_-12px_rgba(15,15,15,0.18)]"
                   >
                     <a
-                      href="#products"
-                      onClick={(e) => scrollToHash(e, "products", "click_hero_bundle_link_desktop")}
+                      href="#bundle"
+                      onClick={(e) => scrollToHash(e, "bundle", "click_hero_bundle_link_desktop")}
                     >
                       Want full-home coverage? See the 2-device bundle
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -676,7 +676,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 5. HOW IT WORKS ============ */}
-        <section id="how-it-works" className="bg-gradient-to-b from-background to-muted py-14 sm:py-24 lg:py-24">
+        <section id="how-it-works" className="scroll-mt-20 sm:scroll-mt-28 bg-gradient-to-b from-background to-muted py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
@@ -734,7 +734,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 5. PRODUCTS ============ */}
-        <section id="products" className="bg-gradient-to-b from-background via-card to-background py-14 sm:py-24 lg:py-24">
+        <section id="products" className="scroll-mt-20 sm:scroll-mt-28 bg-gradient-to-b from-background via-card to-background py-14 sm:py-24 lg:py-24">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
@@ -818,7 +818,7 @@ const BobbyParrishLandingPage = () => {
             <div className="mt-5 grid grid-cols-1 gap-5 sm:mt-6 lg:grid-cols-2 lg:gap-6">
               {/* Card 2 - Home Bundle */}
               <Reveal>
-                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-card ring-1 ring-black/[0.06] sm:rounded-3xl">
+                <div id="bundle" className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-card ring-1 ring-black/[0.06] scroll-mt-24 sm:scroll-mt-28 sm:rounded-3xl">
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
                     <img
                       src={bundleImg}
