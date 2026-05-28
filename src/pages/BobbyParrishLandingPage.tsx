@@ -1249,7 +1249,7 @@ const BobbyParrishLandingPage = () => {
             className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
             aria-label="Buy the BioLogic Mini with code BOBBY"
           >
-            Buy with code BOBBY
+            Get the Mini
           </a>
         </div>
       </div>
