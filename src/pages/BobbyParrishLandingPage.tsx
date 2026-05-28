@@ -474,7 +474,7 @@ const BobbyParrishLandingPage = () => {
 
         {/* ============ GUARANTEE STRIP ============ */}
         <section className="w-full bg-background">
-          <div className="max-w-3xl mx-auto px-5 py-6 sm:py-8 text-center">
+          <div className="max-w-3xl mx-auto px-5 pt-6 sm:pt-10 pb-2 sm:pb-3 text-center">
             <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground leading-relaxed">
               Try it for 30 days. Don't love it? Full refund - free return shipping.
             </p>
@@ -486,7 +486,7 @@ const BobbyParrishLandingPage = () => {
 
         {/* ============ ICONS BAR ============ */}
         <section className="w-full bg-background">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2 sm:py-3">
             <img
               src={iconsBar}
               alt="EnviroBiotics product benefits"
@@ -498,7 +498,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 2. STATS STRIP ============ */}
-        <section className="bg-gradient-to-b from-background to-muted py-12 sm:py-20 lg:py-20">
+        <section className="bg-gradient-to-b from-background to-muted pt-2 pb-12 sm:pt-4 sm:pb-20 lg:pt-6 lg:pb-20">
           <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-5 gap-y-8 px-5 sm:gap-10 sm:px-10 lg:grid-cols-4 lg:px-16">
             {[
               { n: "15%", label: "Off with code Bobby" },
