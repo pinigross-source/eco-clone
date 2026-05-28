@@ -186,61 +186,6 @@ const ProductCard = ({
 );
 
 const BobbyParrishLandingPage = () => {
-  // Email-capture modal state
-  const [showEmailModal, setShowEmailModal] = useState(false);
-  const [emailModalDismissed, setEmailModalDismissed] = useState(false);
-  const [emailValue, setEmailValue] = useState("");
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.localStorage.getItem("bobby_email_modal_dismissed") === "1") {
-      setEmailModalDismissed(true);
-      return;
-    }
-
-    const open = () => {
-      setShowEmailModal((s) => {
-        if (!s) trackEvent("bobby_email_modal_open");
-        return true;
-      });
-    };
-
-    const timer = window.setTimeout(open, 15000);
-
-    const onMouseLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0) open();
-    };
-    document.addEventListener("mouseleave", onMouseLeave);
-
-    return () => {
-      window.clearTimeout(timer);
-      document.removeEventListener("mouseleave", onMouseLeave);
-    };
-  }, []);
-
-  const dismissEmailModal = () => {
-    setShowEmailModal(false);
-    setEmailModalDismissed(true);
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem("bobby_email_modal_dismissed", "1");
-    }
-  };
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!emailValue || !/^\S+@\S+\.\S+$/.test(emailValue)) return;
-    trackEvent("bobby_email_modal_submit");
-    setEmailSubmitted(true);
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem("bobby_email_modal_dismissed", "1");
-    }
-    window.setTimeout(() => {
-      setShowEmailModal(false);
-      setEmailModalDismissed(true);
-    }, 2000);
-  };
-
   const trackBiotica = () => trackEvent("click_bobby_biotica");
   const trackBundle = () => trackEvent("click_bobby_bundle");
 
@@ -1283,72 +1228,6 @@ const BobbyParrishLandingPage = () => {
           </a>
         </div>
       </div>
-
-      {/* Email capture modal */}
-      {showEmailModal && !emailModalDismissed && (
-        <div
-          className="fixed inset-0 z-[60] flex items-end justify-center bg-foreground/50 p-4 backdrop-blur-sm sm:items-center"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="bobby-email-heading"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) dismissEmailModal();
-          }}
-        >
-          <div className="relative w-full max-w-md rounded-2xl bg-card p-6 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.4)] sm:p-8">
-            <button
-              type="button"
-              onClick={dismissEmailModal}
-              aria-label="Dismiss"
-              className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground hover:bg-foreground/5 hover:text-foreground"
-            >
-              ✕
-            </button>
-            {emailSubmitted ? (
-              <div className="py-6 text-center">
-                <p className="font-display text-2xl font-bold text-foreground">Thanks, check your inbox.</p>
-                <p className="mt-2 text-sm text-muted-foreground">Code BOBBY is on its way.</p>
-              </div>
-            ) : (
-              <>
-                <p className="text-[10.5px] font-semibold uppercase tracking-[0.28em] text-primary">
-                  Bobby Parrish · FlavCity
-                </p>
-                <h3 id="bobby-email-heading" className="mt-2 font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
-                  Not ready yet?
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                  Get the BOBBY code and a reminder sent to your inbox.
-                </p>
-                <form onSubmit={handleEmailSubmit} className="mt-5 flex flex-col gap-3">
-                  <input
-                    type="email"
-                    required
-                    value={emailValue}
-                    onChange={(e) => setEmailValue(e.target.value)}
-                    placeholder="you@example.com"
-                    className="h-12 w-full rounded-full border border-border bg-background px-5 text-base text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
-                    aria-label="Email address"
-                  />
-                  <button
-                    type="submit"
-                    className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-                  >
-                    Send me the code
-                  </button>
-                </form>
-                <button
-                  type="button"
-                  onClick={dismissEmailModal}
-                  className="mt-3 w-full text-center text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground"
-                >
-                  No thanks
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-      )}
 
     </>
   );
