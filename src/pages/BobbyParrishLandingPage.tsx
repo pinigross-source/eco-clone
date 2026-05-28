@@ -298,7 +298,7 @@ const BobbyParrishLandingPage = () => {
             {/* soft fade into cream */}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-background" />
           </div>
-          <div className="px-5 pt-6 pb-10">
+          <div className="px-4 pt-5 pb-8">
             <Reveal>
               <div className="flex items-center gap-3">
                 <span className="h-px w-6 bg-primary/60" />
@@ -399,7 +399,7 @@ const BobbyParrishLandingPage = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent from-0% via-55% to-90% lg:via-40% lg:to-65%" />
           <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
 
-          <div className="relative mx-auto flex min-h-[88svh] max-w-6xl px-6 py-24 lg:py-32">
+          <div className="relative mx-auto flex min-h-[88svh] max-w-6xl px-4 sm:px-6 lg:px-10 py-12 lg:py-20">
             <div className="max-w-2xl flex flex-col justify-center">
               <Reveal>
                 <div className="flex items-center gap-3 mb-8">
@@ -474,7 +474,7 @@ const BobbyParrishLandingPage = () => {
 
         {/* ============ TRUST + STATS BLOCK ============ */}
         <section className="w-full bg-gradient-to-b from-background via-background to-muted/40">
-          <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-16 sm:pb-24">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 sm:pt-10 pb-12 sm:pb-16">
             {/* Stats — moved up close to hero */}
             <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-10">
               {[
@@ -537,14 +537,14 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 3. FAQ TRUST CARDS ============ */}
-        <section className="relative overflow-hidden bg-background py-20 sm:py-28 lg:py-32">
+        <section className="relative overflow-hidden bg-background py-14 sm:py-20 lg:py-24">
           {/* Decorative background flourishes */}
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,_rgba(214,158,46,0.10),_transparent_70%)] blur-3xl" />
             <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-[radial-gradient(circle,_rgba(193,127,71,0.08),_transparent_70%)] blur-2xl" />
           </div>
 
-          <div className="relative mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
+          <div className="relative mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <div className="mb-14 flex flex-col items-center text-center sm:mb-20">
                 <div className="flex items-center gap-3">
@@ -611,8 +611,8 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 4. THE PROBLEM ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-24">
-          <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
+        <section className="bg-background py-12 sm:py-18 lg:py-20">
+          <div className="mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.24)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.28)]">
                 <img
@@ -706,8 +706,8 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 5. HOW IT WORKS ============ */}
-        <section id="how-it-works" className="scroll-mt-20 sm:scroll-mt-28 bg-gradient-to-b from-background to-muted py-14 sm:py-24 lg:py-24">
-          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
+        <section id="how-it-works" className="scroll-mt-20 sm:scroll-mt-28 bg-gradient-to-b from-background to-muted py-12 sm:py-18 lg:py-20">
+          <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <div className="max-w-2xl">
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
@@ -764,8 +764,8 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 5. PRODUCTS ============ */}
-        <section id="products" className="scroll-mt-20 sm:scroll-mt-28 bg-gradient-to-b from-background via-card to-background py-14 sm:py-24 lg:py-24">
-          <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
+        <section id="products" className="scroll-mt-20 sm:scroll-mt-28 bg-gradient-to-b from-background via-card to-background py-12 sm:py-18 lg:py-20">
+          <div className="mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
@@ -964,8 +964,8 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 6. ON THE GO ============ */}
-        <section className="bg-gradient-to-b from-background to-background py-14 sm:py-24 lg:py-24">
-          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
+        <section className="bg-gradient-to-b from-background to-background py-12 sm:py-18 lg:py-20">
+          <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.18)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.18)] lg:grid-cols-2">
                 <div className="relative min-h-[320px] bg-muted sm:min-h-[480px] lg:order-2">
@@ -1021,8 +1021,8 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 7. BOBBY ENDORSEMENT ============ */}
-        <section className="bg-[hsl(var(--primary-soft))] py-14 sm:py-24 lg:py-24">
-          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
+        <section className="bg-[hsl(var(--primary-soft))] py-12 sm:py-18 lg:py-20">
+          <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.18)] sm:rounded-[2.5rem] sm:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.18)] lg:grid-cols-2">
                 <div className="relative min-h-[280px] bg-muted sm:min-h-[420px]">
@@ -1066,8 +1066,8 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 8. TESTIMONIALS ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-24">
-          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
+        <section className="bg-background py-12 sm:py-18 lg:py-20">
+          <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
                 FROM THE BOBBY COMMUNITY
@@ -1108,8 +1108,8 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 9. FEATURE ICONS ============ */}
-        <section className="bg-gradient-to-b from-background to-muted py-12 sm:py-20 lg:py-24">
-          <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-16">
+        <section className="bg-gradient-to-b from-background to-muted py-10 sm:py-16 lg:py-20">
+          <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
             <Reveal>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
                 {[
@@ -1144,8 +1144,8 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 10. FAQ ============ */}
-        <section className="bg-background py-14 sm:py-24 lg:py-24">
-          <div className="mx-auto max-w-3xl px-5 sm:px-10">
+        <section className="bg-background py-12 sm:py-18 lg:py-20">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
                 Common questions
@@ -1196,7 +1196,7 @@ const BobbyParrishLandingPage = () => {
         </section>
 
         {/* ============ 11. FINAL CTA ============ */}
-        <section className="relative overflow-hidden py-20 sm:py-28">
+        <section className="relative overflow-hidden py-14 sm:py-20">
           <img
             src={ctaBgImg}
             alt=""
