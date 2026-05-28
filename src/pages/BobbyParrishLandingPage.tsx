@@ -365,65 +365,81 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
-        {/* DESKTOP / TABLET: editorial single-column on cream (768px and up) */}
-        <section className="hidden md:block w-full bg-background">
-          <div className="mx-auto flex min-h-[88svh] max-w-3xl flex-col justify-center px-6 py-24 lg:py-32">
-            <Reveal>
-              <div className="flex items-center gap-3 mb-8">
-                <span className="h-px w-8 bg-primary" />
-                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-foreground/60">
-                  As featured by Bobby Parrish
+        {/* DESKTOP / TABLET: editorial single-column with background image (768px and up) */}
+        <section className="hidden md:block relative w-full bg-background overflow-hidden">
+          {/* Background image */}
+          <img
+            src={heroImg}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover object-[50%_30%]"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
+          {/* Readability overlay: stronger on the left where text sits, fading right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+
+          <div className="relative mx-auto flex min-h-[88svh] max-w-6xl px-6 py-24 lg:py-32">
+            <div className="max-w-2xl flex flex-col justify-center">
+              <Reveal>
+                <div className="flex items-center gap-3 mb-8">
+                  <span className="h-px w-8 bg-primary" />
+                  <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-foreground/70">
+                    As featured by Bobby Parrish
+                  </p>
+                </div>
+                <h1 className="font-display font-medium tracking-[-0.025em] text-foreground text-balance text-[3.25rem] leading-[1.05] lg:text-[4.25rem]">
+                  The probiotic dispenser{" "}
+                  <em className="font-normal italic text-heading-accent" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                    Bobby Parrish
+                  </em>{" "}
+                  keeps in his home and on the go.
+                </h1>
+              </Reveal>
+              <Reveal>
+                <p className="mt-8 max-w-xl text-lg lg:text-xl font-light leading-[1.6] text-foreground/75">
+                  It sprays beneficial probiotics all over your room — air, surfaces, and fabrics — working quietly between cleanings. Small enough to take anywhere. No bleach, no ammonia.
                 </p>
-              </div>
-              <h1 className="font-display font-medium tracking-[-0.025em] text-foreground text-balance text-[3.25rem] leading-[1.05] lg:text-[4.25rem]">
-                The probiotic dispenser{" "}
-                <em className="font-normal italic text-heading-accent" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                  Bobby Parrish
-                </em>{" "}
-                keeps in his home and on the go.
-              </h1>
-            </Reveal>
-            <Reveal>
-              <p className="mt-8 max-w-2xl text-lg lg:text-xl font-light leading-[1.6] text-foreground/70">
-                It sprays beneficial probiotics all over your room — air, surfaces, and fabrics — working quietly between cleanings. Small enough to take anywhere. No bleach, no ammonia.
-              </p>
-            </Reveal>
-            <Reveal>
-              <div className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center">
-                <Button
-                  asChild
-                  size="lg"
-                  className="h-14 rounded-full bg-primary px-10 text-base font-semibold text-white hover:bg-primary/90 group"
-                >
-                  <a
-                    href={LINKS.mini}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackEvent("click_hero_mini_desktop")}
+              </Reveal>
+              <Reveal>
+                <div className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="h-14 rounded-full bg-primary px-10 text-base font-semibold text-white hover:bg-primary/90 group shadow-[0_12px_32px_-12px_rgba(232,93,58,0.55)]"
                   >
-                    Get the BioLogic Mini — $83
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <a
+                      href={LINKS.mini}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackEvent("click_hero_mini_desktop")}
+                    >
+                      Get the BioLogic Mini — $83
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  </Button>
+                  <a
+                    href="#products"
+                    onClick={(e) => scrollToHash(e, "products", "click_hero_bundle_link_desktop")}
+                    className="text-sm font-medium text-foreground/80 border-b border-foreground/30 pb-0.5 hover:text-foreground hover:border-foreground transition-colors"
+                  >
+                    Want full-home coverage? See the 2-device bundle ↓
                   </a>
-                </Button>
-                <a
-                  href="#products"
-                  onClick={(e) => scrollToHash(e, "products", "click_hero_bundle_link_desktop")}
-                  className="text-sm font-medium text-foreground/80 border-b border-foreground/20 pb-0.5 hover:text-foreground hover:border-foreground transition-colors"
-                >
-                  Want full-home coverage? See the 2-device bundle ↓
-                </a>
-              </div>
-            </Reveal>
-            <Reveal>
-              <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 pt-6 border-t border-foreground/5">
-                {["Free shipping", "30-day money-back", "Cancel anytime"].map((label) => (
-                  <div key={label} className="flex items-center gap-2 text-xs font-medium text-foreground/50">
-                    <Check className="h-4 w-4 text-heading-accent" strokeWidth={2.5} />
-                    {label}
-                  </div>
-                ))}
-              </div>
-            </Reveal>
+                </div>
+              </Reveal>
+              <Reveal>
+                <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 pt-6 border-t border-foreground/10">
+                  {["Free shipping", "30-day money-back", "Cancel anytime"].map((label) => (
+                    <div key={label} className="flex items-center gap-2 text-xs font-medium text-foreground/60">
+                      <Check className="h-4 w-4 text-heading-accent" strokeWidth={2.5} />
+                      {label}
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
           </div>
         </section>
 
