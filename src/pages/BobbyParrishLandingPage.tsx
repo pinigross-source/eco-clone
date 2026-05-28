@@ -347,8 +347,8 @@ const BobbyParrishLandingPage = () => {
                   className="h-[52px] w-full rounded-full bg-white/60 border border-foreground/15 text-foreground text-[0.9rem] font-medium hover:bg-white/85 hover:text-foreground shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)]"
                 >
                   <a
-                    href="#products"
-                    onClick={(e) => scrollToHash(e, "products", "click_hero_bundle_link_mobile")}
+                    href="#bundle"
+                    onClick={(e) => scrollToHash(e, "bundle", "click_hero_bundle_link_mobile")}
                   >
                     See the 2-device bundle
                     <ArrowRight className="ml-2 h-4 w-4" />
