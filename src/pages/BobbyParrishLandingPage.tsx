@@ -1195,24 +1195,31 @@ const BobbyParrishLandingPage = () => {
               </p>
             </Reveal>
             <Reveal>
-              <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
                 <Button
                   asChild
                   size="lg"
-                  className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground hover:bg-primary/90"
+                  className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-white shadow-[0_12px_32px_-12px_rgba(232,93,58,0.55)] hover:bg-primary/90 group"
                 >
-                  <a href={LINKS.bundle} onClick={() => trackEvent("click_final_cta_bundle")}>
-                    Get the Bundle - $395 (Save $100)
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                  <a
+                    href={LINKS.mini}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent("click_final_cta_mini")}
+                  >
+                    Get the BioLogic Mini $83
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
                 </Button>
                 <Button
                   asChild
                   size="lg"
-                  className="h-14 rounded-full border border-foreground/15 bg-card px-8 text-base font-semibold text-foreground hover:bg-card/90"
+                  variant="outline"
+                  className="h-14 rounded-full bg-white/60 border border-foreground/15 px-8 text-base font-semibold text-foreground hover:bg-white/85 hover:text-foreground shadow-[0_12px_32px_-12px_rgba(15,15,15,0.18)] group"
                 >
-                  <a href="#products" onClick={(e) => scrollToHash(e, "products", "click_final_cta_browse_all")}>
-                    Shop singles from $83 (15% off)
+                  <a href={LINKS.bundle} onClick={() => trackEvent("click_final_cta_bundle")}>
+                    Get the Bundle $395 (Save $100)
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
                 </Button>
               </div>
