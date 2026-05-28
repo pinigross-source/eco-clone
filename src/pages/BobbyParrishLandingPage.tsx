@@ -276,7 +276,7 @@ const BobbyParrishLandingPage = () => {
             onClick={() => trackEvent("click_sticky_bar_shop_mobile")}
             className="block sm:hidden text-center py-2.5 px-3 text-xs font-medium"
           >
-            🎁 Code BOBBY — Mini $83 · free shipping →
+            🎁 Code BOBBY · Mini $83 · free shipping →
           </a>
 
         </div>
