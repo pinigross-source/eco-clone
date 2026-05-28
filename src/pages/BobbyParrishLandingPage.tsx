@@ -29,7 +29,7 @@ const withDiscount = (url: string, code = "Bobby") =>
 const LINKS = {
   biotica: withDiscount("https://shop.envirobiotics.com/products/biotica-800-bobby"),
   bundle: withDiscount("https://shop.envirobiotics.com/products/home-complete-bundle"),
-  mini: "https://shop.envirobiotics.com/products/biologic-mini-bobby",
+  mini: "https://shop.envirobiotics.com/products/biologic-mini-bobby?discount=Bobby",
 };
 
 /* Smooth scroll to in-page anchor that re-aligns after layout shifts
@@ -720,6 +720,8 @@ const BobbyParrishLandingPage = () => {
                       </div>
                       <a
                         href={LINKS.mini}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onClick={() => trackEvent("click_bobby_mini")}
                         className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
@@ -898,6 +900,8 @@ const BobbyParrishLandingPage = () => {
                   </ul>
                   <a
                     href={LINKS.mini}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => trackEvent("click_travel_mini")}
                     className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-foreground px-6 text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                   >
@@ -1155,6 +1159,8 @@ const BobbyParrishLandingPage = () => {
       >
         <a
           href={LINKS.mini}
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={() => trackEvent("click_mobile_sticky_mini")}
           className="flex items-center justify-between gap-3 px-4 py-3"
           aria-label="Shop the BioLogic Mini Bobby offer"
