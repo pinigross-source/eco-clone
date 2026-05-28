@@ -503,7 +503,7 @@ const BobbyParrishLandingPage = () => {
             <Reveal>
               <div className="max-w-3xl mx-auto text-center mt-12 sm:mt-16">
                 <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground leading-relaxed">
-                  Try it for 30 days. Don't love it? Full refund — free return shipping.
+                  Try it for 30 days. Don't love it? Full refund, free return shipping.
                 </p>
                 <p className="text-sm sm:text-base text-muted-foreground mt-2">
                   We're confident you'll feel the difference within the first month.
