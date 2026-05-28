@@ -185,16 +185,64 @@ const ProductCard = ({
 );
 
 const BobbyParrishLandingPage = () => {
-  const [showSticky, setShowSticky] = useState(false);
+  // Email-capture modal state
+  const [showEmailModal, setShowEmailModal] = useState(false);
+  const [emailModalDismissed, setEmailModalDismissed] = useState(false);
+  const [emailValue, setEmailValue] = useState("");
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setShowSticky(window.scrollY > 700);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    if (typeof window === "undefined") return;
+    if (window.localStorage.getItem("bobby_email_modal_dismissed") === "1") {
+      setEmailModalDismissed(true);
+      return;
+    }
+
+    const open = () => {
+      setShowEmailModal((s) => {
+        if (!s) trackEvent("bobby_email_modal_open");
+        return true;
+      });
+    };
+
+    const timer = window.setTimeout(open, 15000);
+
+    const onMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0) open();
+    };
+    document.addEventListener("mouseleave", onMouseLeave);
+
+    return () => {
+      window.clearTimeout(timer);
+      document.removeEventListener("mouseleave", onMouseLeave);
+    };
   }, []);
+
+  const dismissEmailModal = () => {
+    setShowEmailModal(false);
+    setEmailModalDismissed(true);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("bobby_email_modal_dismissed", "1");
+    }
+  };
+
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!emailValue || !/^\S+@\S+\.\S+$/.test(emailValue)) return;
+    trackEvent("bobby_email_modal_submit");
+    setEmailSubmitted(true);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("bobby_email_modal_dismissed", "1");
+    }
+    window.setTimeout(() => {
+      setShowEmailModal(false);
+      setEmailModalDismissed(true);
+    }, 2000);
+  };
 
   const trackBiotica = () => trackEvent("click_bobby_biotica");
   const trackBundle = () => trackEvent("click_bobby_bundle");
+
 
   return (
     <>
