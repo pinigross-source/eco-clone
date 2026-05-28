@@ -22,6 +22,7 @@ import bobbyImg from "@/assets/bobby/bobby-portrait.jpg";
 import particlesImg from "@/assets/bobby/bobby-kitchen.jpg";
 import bathroomImg from "@/assets/bobby/bobby-bedroom.jpg";
 import travelImg from "@/assets/bobby-travel.avif";
+import iconsBar from "@/assets/bobby-icons-bar.svg";
 
 const withDiscount = (url: string, code = "Bobby") =>
   `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
@@ -480,6 +481,19 @@ const BobbyParrishLandingPage = () => {
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground mt-2">
               We're confident you'll feel the difference within the first week.
             </p>
+          </div>
+        </section>
+
+        {/* ============ ICONS BAR ============ */}
+        <section className="w-full bg-background">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+            <img
+              src={iconsBar}
+              alt="EnviroBiotics product benefits"
+              className="w-full h-auto"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </section>
 
