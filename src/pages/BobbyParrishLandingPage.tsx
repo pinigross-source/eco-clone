@@ -818,7 +818,7 @@ const BobbyParrishLandingPage = () => {
             <div className="mt-5 grid grid-cols-1 gap-5 sm:mt-6 lg:grid-cols-2 lg:gap-6">
               {/* Card 2 - Home Bundle */}
               <Reveal>
-                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-card ring-1 ring-black/[0.06] sm:rounded-3xl">
+                <div id="bundle" className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-card ring-1 ring-black/[0.06] scroll-mt-24 sm:scroll-mt-28 sm:rounded-3xl">
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-[hsl(var(--primary-soft))]">
                     <img
                       src={bundleImg}
