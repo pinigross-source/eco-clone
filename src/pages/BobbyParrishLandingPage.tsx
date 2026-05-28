@@ -408,7 +408,7 @@ const BobbyParrishLandingPage = () => {
                     As featured by Bobby Parrish
                   </p>
                 </div>
-                <h1 className="font-display font-medium tracking-[-0.025em] text-foreground text-balance text-[3.25rem] leading-[1.05] lg:text-[4.25rem]">
+                <h1 className="font-display font-medium tracking-[-0.025em] text-foreground text-balance text-[2.5rem] leading-[1.05] md:text-[2.75rem] lg:text-[4.25rem]">
                   The probiotic dispenser{" "}
                   <em className="font-normal italic text-heading-accent" style={{ fontFamily: "'Instrument Serif', serif" }}>
                     Bobby Parrish
