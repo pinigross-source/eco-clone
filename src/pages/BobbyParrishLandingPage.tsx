@@ -484,6 +484,19 @@ const BobbyParrishLandingPage = () => {
           </div>
         </section>
 
+        {/* ============ ICONS BAR ============ */}
+        <section className="w-full bg-background">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+            <img
+              src={iconsBar}
+              alt="EnviroBiotics product benefits"
+              className="w-full h-auto"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </section>
+
         {/* ============ 2. STATS STRIP ============ */}
         <section className="bg-gradient-to-b from-background to-muted py-12 sm:py-20 lg:py-20">
           <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-5 gap-y-8 px-5 sm:gap-10 sm:px-10 lg:grid-cols-4 lg:px-16">
