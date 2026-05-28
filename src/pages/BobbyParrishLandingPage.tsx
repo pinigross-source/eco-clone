@@ -474,10 +474,34 @@ const BobbyParrishLandingPage = () => {
 
         {/* ============ TRUST + STATS BLOCK ============ */}
         <section className="w-full bg-gradient-to-b from-background via-background to-muted/40">
-          <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-14 sm:pt-20 pb-16 sm:pb-24">
+          <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-16 sm:pb-24">
+            {/* Stats — moved up close to hero */}
+            <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-10">
+              {[
+                { n: "15%", label: "Off with code Bobby" },
+                { n: "300", label: "sq. ft. Mini coverage" },
+                { n: "800", label: "sq. ft. large space coverage" },
+                { n: "30-day", label: "Risk-free trial" },
+              ].map((s, i) => (
+                <Reveal key={s.label}>
+                  <div className={`text-center ${i > 0 ? "lg:border-l lg:border-foreground/10" : ""}`}>
+                    <div className="font-display text-4xl font-bold tracking-[-0.03em] text-primary sm:text-5xl lg:text-[3.5rem] leading-none">
+                      {s.n}
+                    </div>
+                    <div className="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:mt-4 sm:text-[11px] sm:tracking-[0.24em]">
+                      {s.label}
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            {/* Divider */}
+            <div className="mt-14 sm:mt-20 mx-auto h-px w-24 bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
+
             {/* Guarantee headline */}
             <Reveal>
-              <div className="max-w-3xl mx-auto text-center">
+              <div className="max-w-3xl mx-auto text-center mt-12 sm:mt-16">
                 <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground leading-relaxed">
                   Try it for 30 days. Don't love it? Full refund — free return shipping.
                 </p>
@@ -506,30 +530,6 @@ const BobbyParrishLandingPage = () => {
                 />
               </div>
             </Reveal>
-
-            {/* Divider */}
-            <div className="mt-14 sm:mt-20 mx-auto h-px w-24 bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
-
-            {/* Stats */}
-            <div className="mt-12 sm:mt-16 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-10">
-              {[
-                { n: "15%", label: "Off with code Bobby" },
-                { n: "300", label: "sq. ft. Mini coverage" },
-                { n: "800", label: "sq. ft. large space coverage" },
-                { n: "30-day", label: "Risk-free trial" },
-              ].map((s, i) => (
-                <Reveal key={s.label}>
-                  <div className={`text-center ${i > 0 ? "lg:border-l lg:border-foreground/10" : ""}`}>
-                    <div className="font-display text-4xl font-bold tracking-[-0.03em] text-primary sm:text-5xl lg:text-[3.5rem] leading-none">
-                      {s.n}
-                    </div>
-                    <div className="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:mt-4 sm:text-[11px] sm:tracking-[0.24em]">
-                      {s.label}
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
           </div>
         </section>
 
