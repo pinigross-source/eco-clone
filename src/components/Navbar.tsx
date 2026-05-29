@@ -255,19 +255,10 @@ export const Navbar = () => {
             />
           </Link>
 
-          {/* Mobile: Cart + Shop CTA on right */}
+          {/* Mobile: Search + Cart on right */}
           <div className="lg:hidden absolute right-3 z-20 flex items-center gap-1.5">
             <div className="hidden sm:block"><Suspense fallback={null}><NavbarSearch /></Suspense></div>
             <ShopifyCartLink />
-            <a
-              href={storeDropdown.href}
-              target="_top"
-              rel="noopener"
-              onClick={() => trackEvent("nav_shop_cta_click", { location: "mobile_navbar" })}
-              className="inline-flex items-center px-3.5 py-2 rounded-full bg-[#ff8036] hover:bg-[#ff6f1f] text-white text-[13px] font-semibold shadow-sm shadow-[#ff8036]/30 active:scale-95 transition-all whitespace-nowrap"
-            >
-              Shop
-            </a>
           </div>
 
           {/* Desktop Navigation — absolutely centered */}
