@@ -1,250 +1,190 @@
 import { useEffect, useRef } from "react";
-import { Link } from "@/lib/link";
-import { shopifyUrl } from "@/lib/shopify";
-import { ArrowRight, Check, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
 import { Button } from "@/components/ui/button";
+import { ParticleField } from "@/components/hero/ParticleField";
+import heroBg from "@/assets/hero-luxury-interior.avif";
 
-export interface HeroSectionProps {
-  /** Video brightness multiplier (1 = normal). Default 1.6 */
-  videoBrightness?: number;
-  /** Video contrast multiplier (1 = normal). Default 1.05 */
-  videoContrast?: number;
-  /** Video saturation multiplier (1 = normal). Default 1.05 */
-  videoSaturation?: number;
-  /** Top overlay darkness (0-1). Default 0.02 (desktop) */
-  overlayTopOpacity?: number;
-  /** Bottom overlay darkness (0-1). Default 0.08 (desktop) */
-  overlayBottomOpacity?: number;
-}
-
-export const HeroSection = ({
-  videoBrightness = 1,
-  videoContrast = 1,
-  videoSaturation = 1,
-  overlayTopOpacity = 0,
-  overlayBottomOpacity = 0,
-}: HeroSectionProps = {}) => {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+export const HeroSection = () => {
+  const imgRef = useRef<HTMLImageElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const iframe = iframeRef.current;
-    if (!iframe) return;
-    const post = (method: string, value?: unknown) => {
-      iframe.contentWindow?.postMessage(JSON.stringify({ method, value }), "*");
-    };
-    const kick = () => {
-      post("setLoop", true);
-      post("setVolume", 0);
-      post("setMuted", true);
-      post("play");
-    };
-    const onMessage = (e: MessageEvent) => {
-      if (typeof e.data !== "string") return;
-      try {
-        const data = JSON.parse(e.data);
-        if (data.event === "ready") {
-          post("addEventListener", "play");
-          post("addEventListener", "playing");
-          post("addEventListener", "pause");
-          post("addEventListener", "ended");
-          post("addEventListener", "timeupdate");
-          kick();
-        }
-        if (data.event === "pause" || data.event === "ended") {
-          // Never stay paused — resume immediately
-          kick();
-        }
-        // no-op
-      } catch {}
-    };
-    window.addEventListener("message", onMessage);
-    const onLoad = () => {
-      post("ping");
-      post("addEventListener", "play");
-      post("addEventListener", "playing");
-      post("addEventListener", "pause");
-      post("addEventListener", "ended");
-      post("addEventListener", "timeupdate");
-      kick();
-    };
-    iframe.addEventListener("load", onLoad);
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) return;
 
-    // Resume when tab becomes visible again or window regains focus
-    const onVisible = () => {
-      if (document.visibilityState === "visible") kick();
+    let ticking = false;
+    const update = () => {
+      const y = window.scrollY;
+      if (imgRef.current) {
+        imgRef.current.style.transform = `translate3d(0, ${y * 0.3}px, 0) scale(1.06)`;
+      }
+      if (contentRef.current) {
+        const fade = Math.max(0, 1 - y / 700);
+        contentRef.current.style.transform = `translate3d(0, ${y * -0.1}px, 0)`;
+        contentRef.current.style.opacity = `${fade}`;
+      }
+      ticking = false;
     };
-    document.addEventListener("visibilitychange", onVisible);
-    window.addEventListener("focus", kick);
 
-    // Safety net: poke play every few seconds in case autoplay is blocked
-    const interval = window.setInterval(kick, 4000);
-
-    return () => {
-      window.removeEventListener("message", onMessage);
-      iframe.removeEventListener("load", onLoad);
-      document.removeEventListener("visibilitychange", onVisible);
-      window.removeEventListener("focus", kick);
-      window.clearInterval(interval);
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
     };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <section
-      className="hero-dark-section relative flex min-h-[100dvh] w-full flex-col justify-end overflow-hidden bg-cover bg-center"
-      style={{ backgroundColor: "#978276", backgroundImage: "url('/hero-vimeo-poster.jpg')" }}
-    >
-      <div className="absolute inset-0 z-0 bg-transparent" />
-
+    <section className="relative flex min-h-[100dvh] w-full flex-col justify-center overflow-hidden bg-background">
       <img
-        src="/hero-vimeo-poster.jpg"
-        alt="EnviroBiotics probiotic air purifier device in modern home living room"
-        width={1920}
-        height={1080}
-        className="absolute inset-0 z-[1] h-full w-full object-cover"
+        ref={imgRef}
+        src={heroBg}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 z-[1] h-[112%] w-full object-cover object-[100%_70%] will-change-transform"
+        style={{ transform: "translate3d(0,0,0) scale(1.06)" }}
         loading="eager"
         fetchPriority="high"
-        decoding="async"
+        width={1920}
+        height={1280}
       />
 
-      <div className="absolute inset-0 z-[2] overflow-hidden">
-        <iframe
-          ref={iframeRef}
-          src="https://player.vimeo.com/video/1121439167?background=1&autoplay=1&loop=1&muted=1&playsinline=1&quality=auto&dnt=1&api=1"
-          title="EnviroBiotics hero background"
-          allow="autoplay; fullscreen; picture-in-picture"
-          loading="eager"
-          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-100"
-          style={{
-            border: "none",
-            width: "max(100vw, 177.78vh)",
-            height: "max(100vh, 56.25vw)",
-            filter: `brightness(${videoBrightness}) contrast(${videoContrast}) saturate(${videoSaturation})`,
-          }}
-        />
-      </div>
-
       <div
-        className="absolute inset-0 z-[3] sm:hidden"
+        className="absolute inset-0 z-[2] sm:hidden"
         style={{
-          background: `linear-gradient(180deg, hsl(var(--foreground) / ${overlayTopOpacity + 0.02}) 0%, hsl(var(--foreground) / ${overlayBottomOpacity + 0.06}) 100%)`,
+          background:
+            "linear-gradient(180deg, hsl(var(--background) / 0.92) 0%, hsl(var(--background) / 0.55) 45%, transparent 75%)",
         }}
       />
       <div
-        className="absolute inset-0 z-[3] hidden sm:block"
+        className="absolute inset-0 z-[2] hidden sm:block lg:hidden"
         style={{
-          background: `linear-gradient(180deg, hsl(var(--foreground) / ${overlayTopOpacity}) 0%, hsl(var(--foreground) / ${overlayBottomOpacity}) 100%)`,
+          background:
+            "linear-gradient(95deg, hsl(var(--background) / 0.95) 0%, hsl(var(--background) / 0.7) 30%, transparent 55%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 z-[2] hidden lg:block"
+        style={{
+          background:
+            "linear-gradient(95deg, hsl(var(--background) / 0.96) 0%, hsl(var(--background) / 0.9) 32%, hsl(var(--background) / 0.55) 50%, transparent 68%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[2] hidden lg:block"
+        style={{
+          background:
+            "radial-gradient(55% 65% at 22% 50%, hsl(var(--background) / 0.7) 0%, transparent 70%)",
         }}
       />
 
-      {/* Top-right certifications strip */}
+      <ParticleField className="absolute inset-0 z-[3] h-full w-full" />
+
       <div
-        className="absolute right-4 top-4 z-10 hidden text-[11px] font-bold uppercase tracking-[0.18em] sm:right-8 sm:top-6 sm:flex sm:items-center sm:gap-3"
-        style={{
-          color: "hsl(var(--primary-foreground))",
-          textShadow: "0 2px 8px hsl(var(--foreground) / 0.9), 0 4px 16px hsl(var(--foreground) / 0.7)",
-        }}
+        ref={contentRef}
+        className="relative z-10 mx-auto w-full max-w-[1440px] px-5 py-24 sm:px-10 sm:py-28 lg:px-16 lg:py-32 will-change-transform"
       >
-        <span>EPA</span>
-        <span className="opacity-50">·</span>
-        <span>FDA GRAS</span>
-        <span className="opacity-50">·</span>
-        <span>MADE SAFE</span>
-        <span className="opacity-50">·</span>
-        <span>ISO</span>
-      </div>
-
-      <div className="container relative z-10 pb-12 pt-24 sm:pb-20 sm:pt-32 lg:pb-24">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-8">
-          <div className="lg:col-span-7 text-left">
-
-
-            <h1
-              className="mb-5 font-display font-bold tracking-[-0.035em] text-[2.25rem] leading-[1.05] sm:mb-7 sm:text-[clamp(2.5rem,6vw,4.75rem)] sm:tracking-[-0.03em] sm:leading-[1.05]"
-              style={{
-                color: "hsl(var(--primary-foreground))",
-                textShadow:
-                  "0 2px 8px hsl(var(--foreground) / 0.85), 0 4px 24px hsl(var(--foreground) / 0.7), 0 0 60px hsl(var(--foreground) / 0.5)",
-              }}
-            >
-              <span className="block">The dust.</span>
-              <span className="block">The mold.</span>
-              <span className="block">The smell that <span className="text-[hsl(24_95%_53%)] whitespace-nowrap">won't leave.</span></span>
-            </h1>
-
+        <div className="max-w-3xl text-left lg:max-w-[640px]">
+          <div className="mb-6 flex items-center gap-3 sm:mb-8">
+            <span
+              className="h-px w-10"
+              style={{ background: "hsl(var(--primary) / 0.7)" }}
+              aria-hidden="true"
+            />
             <p
-              className="mb-8 max-w-[34rem] text-[1rem] font-medium leading-[1.6] sm:mb-10 sm:text-[1.0625rem] sm:leading-[1.65] lg:text-lg"
-              style={{
-                color: "hsl(var(--primary-foreground))",
-                textShadow:
-                  "0 1px 2px hsl(var(--foreground) / 1), 0 2px 12px hsl(var(--foreground) / 0.95), 0 4px 24px hsl(var(--foreground) / 0.85), 0 0 60px hsl(var(--foreground) / 0.6)",
-              }}
+              className="text-[10px] font-semibold uppercase tracking-[0.34em] sm:text-[11px]"
+              style={{ color: "hsl(var(--primary))" }}
             >
-              <span className="block">Air purifiers move air. Sprays mask odors.</span>
-              <span className="block">Our probiotics reach every surface a filter can't.</span>
-              <span className="block">24 hours a day, every day.</span>
+              What allergens do to your home
             </p>
+          </div>
 
-            <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <h1
+            className="mb-7 font-sans font-bold tracking-[-0.04em] text-[2.5rem] leading-[1.02] sm:mb-9 sm:text-[clamp(2.75rem,6vw,4.75rem)] sm:leading-[1]"
+            style={{ color: "hsl(var(--foreground))" }}
+          >
+            Allergens cause more than{" "}
+            <span className="relative inline-block" style={{ color: "hsl(var(--foreground))" }}>
+              allergies.
+            </span>
+          </h1>
+
+          <p
+            className="mb-5 max-w-none text-[1rem] font-semibold tracking-[-0.005em] sm:text-[1.1rem] whitespace-nowrap"
+            style={{ color: "hsl(var(--foreground))" }}
+          >
+            Headaches. Fatigue. Irritated breathing. Restless sleep.
+          </p>
+
+          <p
+            className="mb-10 max-w-[52ch] text-[0.95rem] font-normal leading-[1.7] sm:mb-12 sm:text-[1.05rem] sm:leading-[1.65]"
+            style={{ color: "hsl(var(--foreground) / 0.78)" }}
+          >
+            Dust mites, pet dander, mold spores, and odor-causing bacteria do not
+            just float in the air. They settle on the surfaces your air purifier
+            cannot reach.{" "}
+            <span className="font-semibold" style={{ color: "hsl(var(--foreground))" }}>
+              EnviroBiotics is a probiotic home system that works beyond the air, reaching the surfaces, fabrics, pet areas, and hidden spaces where allergens and unwanted microbes collect.
+            </span>
+          </p>
+
+          <div className="flex flex-col items-start gap-6 sm:gap-7">
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
               <a
-                href={shopifyUrl("/collections/shop-systems", "hero-trial")}
-                target="_top"
-                onClick={() => trackEvent("click_buy_now_hero")}
+                href="#find-my-solution"
+                onClick={() => trackEvent("click_find_your_fit")}
                 className="w-full sm:w-auto"
               >
                 <Button
-                  variant="impact-light"
                   size="impact-md"
-                  className="h-[58px] w-full bg-[hsl(24_95%_53%)] px-7 text-base font-semibold text-white hover:bg-[hsl(24_95%_48%)] sm:h-16 sm:w-auto sm:px-10 sm:text-lg"
+                  className="group h-[60px] w-full rounded-full bg-foreground px-9 text-[13px] font-semibold uppercase tracking-[0.18em] text-background shadow-[0_18px_50px_-18px_hsl(var(--foreground)/0.45)] hover:bg-foreground/90 sm:h-[64px] sm:w-auto sm:px-11 sm:text-[13px]"
                 >
-                  Try our devices, 30 DAYS risk-free
+                  Find Your Fit
+                  <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
 
-              <Link to="/how-it-works" onClick={() => trackEvent("click_see_how_it_works")} className="w-full sm:w-auto">
+              <a
+                href="/how-it-works"
+                onClick={() => trackEvent("click_see_how_it_works")}
+                className="w-full sm:w-auto"
+              >
                 <Button
-                  variant="impact-light"
+                  variant="outline"
                   size="impact-md"
-                  className="group h-[58px] w-full px-7 text-base font-semibold sm:h-16 sm:w-auto sm:px-10 sm:text-lg"
+                  className="h-[60px] w-full rounded-full border-foreground/25 bg-transparent px-9 text-[13px] font-semibold uppercase tracking-[0.18em] text-foreground hover:bg-foreground/5 sm:h-[64px] sm:w-auto sm:px-11"
                 >
-                  See how it works
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-0.5" />
+                  See How It Works
                 </Button>
-              </Link>
+              </a>
             </div>
-          </div>
 
-          {/* Right-side trust card */}
-          <div className="lg:col-span-5 lg:pb-2">
-            <div
-              className="rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-md sm:p-6"
-              style={{ color: "hsl(var(--primary-foreground))" }}
+            <ul
+              className="flex flex-nowrap items-center gap-x-3 sm:gap-x-4 text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap"
+              style={{ color: "hsl(var(--foreground) / 0.65)" }}
             >
-              <div className="flex items-center gap-3 border-b border-white/15 pb-4">
-                <div className="flex items-center gap-0.5 text-[hsl(24_95%_53%)]">
-                  {[0, 1, 2, 3, 4].map((i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <span className="text-sm font-semibold">4.8</span>
-                <span className="text-sm opacity-80">· 12,400 reviews</span>
-              </div>
-              <ul className="mt-4 space-y-3 text-sm sm:text-base">
-                <li className="flex items-center gap-3">
-                  <Check className="h-4 w-4 shrink-0 text-[hsl(24_95%_53%)]" strokeWidth={3} />
-                  <span>Safe for <span className="font-semibold">kids &amp; pets</span></span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="h-4 w-4 shrink-0 text-[hsl(24_95%_53%)]" strokeWidth={3} />
-                  <span><span className="font-semibold">30-day</span> money-back guarantee</span>
-                </li>
-              </ul>
-            </div>
+              <li className="flex items-center gap-1.5">
+                <span style={{ color: "hsl(var(--primary))" }}>4.8★</span>
+                <span className="font-light opacity-85">Verified reviews</span>
+              </li>
+              <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
+              <li>EPA Registered</li>
+              <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
+              <li>FDA GRAS</li>
+              <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
+              <li>Safe for kids &amp; pets</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-[4] h-16 bg-gradient-to-t from-background/90 to-transparent" />
     </section>
   );
 };
