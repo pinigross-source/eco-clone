@@ -271,7 +271,7 @@ export const Navbar = () => {
             ))}
           </nav>
 
-          {/* Desktop: Right side — Shop CTA + icons */}
+          {/* Desktop: Right side icons (search, account, cart) */}
           <div className="hidden lg:flex items-center gap-2 ml-auto">
             <Suspense fallback={null}><NavbarSearch /></Suspense>
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
@@ -283,16 +283,6 @@ export const Navbar = () => {
               </div>
             </Link>
             <ShopifyCartLink />
-            <a
-              href={storeDropdown.href}
-              target="_top"
-              rel="noopener"
-              onClick={() => trackEvent("nav_shop_cta_click", { location: "navbar" })}
-              className="ml-1 inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#ff8036] hover:bg-[#ff6f1f] text-white text-[15px] font-semibold shadow-md shadow-[#ff8036]/20 hover:shadow-lg hover:shadow-[#ff8036]/30 transition-all duration-200 hover:scale-[1.02] active:scale-95 whitespace-nowrap"
-            >
-              Shop Now
-              <ArrowRight className="w-4 h-4" />
-            </a>
           </div>
         </div>
       </header>
