@@ -311,19 +311,7 @@ export const Navbar = () => {
           </button>
         </div>
 
-        {/* Prominent Shop CTA inside drawer */}
-        <div className="px-4 sm:px-6 pb-3">
-          <a
-            href={storeDropdown.href}
-            target="_top"
-            rel="noopener"
-            onClick={() => { trackEvent("nav_shop_cta_click", { location: "mobile_drawer" }); setIsOpen(false); }}
-            className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#ff8036] hover:bg-[#ff6f1f] text-white text-base font-semibold shadow-md shadow-[#ff8036]/25 active:scale-[0.98] transition-all"
-          >
-            Shop Now
-            <ArrowRight className="w-4 h-4" />
-          </a>
-        </div>
+
 
         <nav aria-label="Mobile navigation" className="container pb-4 sm:pb-6 flex flex-col gap-0.5 sm:gap-1 px-4 sm:px-6">
           {navLinks.map((link) => (
