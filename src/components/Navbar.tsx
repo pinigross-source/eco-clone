@@ -29,17 +29,8 @@ type NavItem = {
 };
 
 const navLinks: NavItem[] = [
+  { label: "Home", href: "/" },
   { label: "How It Works", href: "/how-it-works" },
-  {
-    label: "Our Products",
-    href: "/shop",
-    dropdown: [
-      { label: "BioLogic Mini", href: "/product/biologic-mini", icon: Home, desc: "Portable room protection" },
-      { label: "Biotica 800", href: "/product/biotica-800", icon: Layers, desc: "Medium-coverage device" },
-      { label: "BA-2080", href: "/product/ba-2080", icon: Beaker, desc: "Advanced air & surface" },
-      { label: "E-Biotic Pro (HVAC)", href: "/hvac#ebiotic-pro", icon: Fan, desc: "Whole-home via HVAC" },
-    ],
-  },
   {
     label: "Solutions",
     href: "/solutions",
@@ -48,12 +39,22 @@ const navLinks: NavItem[] = [
       { label: "HVAC / Whole Home", href: "/hvac", icon: Building2, desc: "Central air integration" },
     ],
   },
+  { label: "Resources", href: "/resources" },
+  {
+    label: "Shop",
+    href: "https://shop.envirobiotics.com/",
+    dropdown: [
+      { label: "BioLogic Mini", href: "/product/biologic-mini", icon: Home, desc: "Portable room protection" },
+      { label: "Biotica 800", href: "/product/biotica-800", icon: Layers, desc: "Medium-coverage device" },
+      { label: "BA-2080", href: "/product/ba-2080", icon: Beaker, desc: "Advanced air & surface" },
+      { label: "E-Biotic Pro (HVAC)", href: "/hvac#ebiotic-pro", icon: Fan, desc: "Whole-home via HVAC" },
+    ],
+  },
 ];
 
 const storeDropdown: NavItem = {
   label: "Shop",
   href: "https://shop.envirobiotics.com/",
-  bold: true,
 };
 
 // Desktop dropdown component
