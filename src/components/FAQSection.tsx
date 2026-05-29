@@ -17,13 +17,13 @@ const faqs = [
 
 export const FAQSection = () => {
   return (
-    <section id="faq" className="py-28 sm:py-36 lg:py-44 bg-background">
+    <section id="faq" className="py-20 sm:py-28 lg:py-32 bg-background">
       <div className="container max-w-3xl mx-auto">
-        <ScrollReveal variant="fadeUp" className="text-center mb-16">
-          <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6">
+        <ScrollReveal variant="fadeUp" className="text-center mb-12">
+          <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-5">
             FAQ
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-[1.06] tracking-[-0.03em] text-foreground">
+          <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-display font-bold leading-[1.1] tracking-[-0.025em] text-foreground">
             Questions?{" "}
             <span className="text-heading-accent">Answered.</span>
           </h2>
