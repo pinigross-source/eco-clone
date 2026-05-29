@@ -300,7 +300,7 @@ export const Navbar = () => {
           isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         )}
       >
-        <div className="flex items-center justify-between px-4 sm:px-6 pt-4 pb-2">
+        <div className="flex items-center justify-between px-4 sm:px-6 pt-4 pb-3">
           <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Menu</span>
           <button
             onClick={() => setIsOpen(false)}
