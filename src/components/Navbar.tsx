@@ -29,17 +29,8 @@ type NavItem = {
 };
 
 const navLinks: NavItem[] = [
+  { label: "Home", href: "/" },
   { label: "How It Works", href: "/how-it-works" },
-  {
-    label: "Our Products",
-    href: "/shop",
-    dropdown: [
-      { label: "BioLogic Mini", href: "/product/biologic-mini", icon: Home, desc: "Portable room protection" },
-      { label: "Biotica 800", href: "/product/biotica-800", icon: Layers, desc: "Medium-coverage device" },
-      { label: "BA-2080", href: "/product/ba-2080", icon: Beaker, desc: "Advanced air & surface" },
-      { label: "E-Biotic Pro (HVAC)", href: "/hvac#ebiotic-pro", icon: Fan, desc: "Whole-home via HVAC" },
-    ],
-  },
   {
     label: "Solutions",
     href: "/solutions",
@@ -48,12 +39,22 @@ const navLinks: NavItem[] = [
       { label: "HVAC / Whole Home", href: "/hvac", icon: Building2, desc: "Central air integration" },
     ],
   },
+  { label: "Resources", href: "/resources" },
+  {
+    label: "Shop",
+    href: "https://shop.envirobiotics.com/",
+    dropdown: [
+      { label: "BioLogic Mini", href: "/product/biologic-mini", icon: Home, desc: "Portable room protection" },
+      { label: "Biotica 800", href: "/product/biotica-800", icon: Layers, desc: "Medium-coverage device" },
+      { label: "BA-2080", href: "/product/ba-2080", icon: Beaker, desc: "Advanced air & surface" },
+      { label: "E-Biotic Pro (HVAC)", href: "/hvac#ebiotic-pro", icon: Fan, desc: "Whole-home via HVAC" },
+    ],
+  },
 ];
 
 const storeDropdown: NavItem = {
   label: "Shop",
   href: "https://shop.envirobiotics.com/",
-  bold: true,
 };
 
 // Desktop dropdown component
@@ -254,19 +255,10 @@ export const Navbar = () => {
             />
           </Link>
 
-          {/* Mobile: Cart + Shop CTA on right */}
+          {/* Mobile: Search + Cart on right */}
           <div className="lg:hidden absolute right-3 z-20 flex items-center gap-1.5">
             <div className="hidden sm:block"><Suspense fallback={null}><NavbarSearch /></Suspense></div>
             <ShopifyCartLink />
-            <a
-              href={storeDropdown.href}
-              target="_top"
-              rel="noopener"
-              onClick={() => trackEvent("nav_shop_cta_click", { location: "mobile_navbar" })}
-              className="inline-flex items-center px-3.5 py-2 rounded-full bg-[#ff8036] hover:bg-[#ff6f1f] text-white text-[13px] font-semibold shadow-sm shadow-[#ff8036]/30 active:scale-95 transition-all whitespace-nowrap"
-            >
-              Shop
-            </a>
           </div>
 
           {/* Desktop Navigation — absolutely centered */}
@@ -279,7 +271,7 @@ export const Navbar = () => {
             ))}
           </nav>
 
-          {/* Desktop: Right side — Shop CTA + icons */}
+          {/* Desktop: Right side icons (search, account, cart) */}
           <div className="hidden lg:flex items-center gap-2 ml-auto">
             <Suspense fallback={null}><NavbarSearch /></Suspense>
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
@@ -291,16 +283,6 @@ export const Navbar = () => {
               </div>
             </Link>
             <ShopifyCartLink />
-            <a
-              href={storeDropdown.href}
-              target="_top"
-              rel="noopener"
-              onClick={() => trackEvent("nav_shop_cta_click", { location: "navbar" })}
-              className="ml-1 inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#ff8036] hover:bg-[#ff6f1f] text-white text-[15px] font-semibold shadow-md shadow-[#ff8036]/20 hover:shadow-lg hover:shadow-[#ff8036]/30 transition-all duration-200 hover:scale-[1.02] active:scale-95 whitespace-nowrap"
-            >
-              Shop Now
-              <ArrowRight className="w-4 h-4" />
-            </a>
           </div>
         </div>
       </header>
@@ -318,7 +300,7 @@ export const Navbar = () => {
           isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         )}
       >
-        <div className="flex items-center justify-between px-4 sm:px-6 pt-4 pb-2">
+        <div className="flex items-center justify-between px-4 sm:px-6 pt-4 pb-3">
           <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Menu</span>
           <button
             onClick={() => setIsOpen(false)}
@@ -329,19 +311,7 @@ export const Navbar = () => {
           </button>
         </div>
 
-        {/* Prominent Shop CTA inside drawer */}
-        <div className="px-4 sm:px-6 pb-3">
-          <a
-            href={storeDropdown.href}
-            target="_top"
-            rel="noopener"
-            onClick={() => { trackEvent("nav_shop_cta_click", { location: "mobile_drawer" }); setIsOpen(false); }}
-            className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#ff8036] hover:bg-[#ff6f1f] text-white text-base font-semibold shadow-md shadow-[#ff8036]/25 active:scale-[0.98] transition-all"
-          >
-            Shop Now
-            <ArrowRight className="w-4 h-4" />
-          </a>
-        </div>
+
 
         <nav aria-label="Mobile navigation" className="container pb-4 sm:pb-6 flex flex-col gap-0.5 sm:gap-1 px-4 sm:px-6">
           {navLinks.map((link) => (
