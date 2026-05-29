@@ -1,63 +1,26 @@
-## Goal
+The homepage was migrated last turn and already mirrors the reference (hero, certifications bar, "Where the problem actually lives" comparison, "Places filters can't reach" 4-card grid, "A living system / 24/7" with Release-Settle-Keep working steps, Safety-first, testimonials, FAQ, footer). This plan only addresses the visual gaps still visible vs. the screenshot.
 
-Replace this project's `/` (home) page with the exact homepage from the **EnviroBiotics** project (ID `6239b83b…`), matching the uploaded screenshot: hero → certifications bar → "Where the problem actually lives" → "The places filters can't reach" → stats tiles → "A living system. Working while you do." → Safety strip → Testimonials → FAQ → Footer.
+## Gaps to close
 
-The source project uses the same component file names as this one for many sections, but the **contents are a different version**. Port the source versions wholesale so the page looks identical to the screenshot, without touching any other route (`/bobby`, `/parents`, etc. stay as-is).
+1. **Hero stat strip** — target shows `4.8★  VERIFIED REVIEWS | EPA REGISTERED | FDA GRAS | SAFE FOR KIDS & PETS` directly under the CTAs; verify spacing/typography matches and the orange star uses the brand orange.
 
-## Sections / order to match the screenshot
+2. **"Where the problem actually lives" cards** — confirm the EnviroBiotics column is visually emphasized (warm tinted background, `Surfaces + air` / `Continuous` highlighted in orange) exactly like the screenshot. Tighten card padding and the small `COVERAGE / DURATION` row to match.
 
-1. `HeroSection` — "Allergens cause more than allergies." (woman + dog lifestyle image, dark CTA + secondary)
-2. `CertificationsBar` — EPA / AllergyUK / ISO / MADE SAFE / Eco Cert badges row
-3. `ProblemSection` — "Where the problem actually lives." 3-card comparison (Air filters / Cleaning sprays / EnviroBiotics)
-4. `HowItWorksSection` — "The places filters can't reach." 4 image tiles (Soft Surfaces / Pet Dander / Whole-Home / Bacteria & Odor) + Release / Settle / Keep working steps + "A living system. Working while you do." block with 24/7
-5. `SafetyStrip` — "Safety-first. Proof-forward." with EPA + FDA GRAS badges
-6. `TestimonialsSection` — "What people notice." 4 review cards
-7. `FAQSection` + `FinalCTASection`
-8. `Footer`
+3. **"Places filters can't reach" grid** — match the 4-card photo grid: Soft Surfaces 62%, Pet Dander 24/7, Whole-Home 100%, Bacteria & Odor 48h. Confirm the small bookmark icon in the top-right of each card and the two-line caption beneath each stat.
 
-Skipping `FindMySolutionQuiz`, `PersonaTilesSection`, `BlogTeaserSection` since they aren't in the screenshot.
+4. **"A living system" block** — target uses a quieter left visual (small testimonial-style card "EnviroBiotics delivers a uniformly dispersed bacteria into a baby's crib" with a tiny "ALWAYS ON" pill). Re-tune the current baby-image card to that lighter, captioned look and keep the soft green dot + dispersion ring.
 
-## Files to overwrite (port from source project verbatim)
+5. **Safety-first / Proof-forward** — confirm the section renders the small certification mini-card (UPK Org Salud + FDA GRAS badges) on the right at the size shown, over the warm wood background strip.
 
-- `src/pages/Index.tsx` — new section order, swap `react-router-dom`'s `useLocation` for TanStack's, drop the section import names that aren't in the screenshot.
-- `src/components/HeroSection.tsx`
-- `src/components/ProblemSection.tsx`
-- `src/components/HowItWorksSection.tsx`
-- `src/components/SafetyStrip.tsx`
-- `src/components/SafetySection.tsx` (only if still referenced)
-- `src/components/TestimonialsSection.tsx`
-- `src/components/FAQSection.tsx`
-- `src/components/FinalCTASection.tsx`
-- `src/components/Footer.tsx`
-- `src/components/Navbar.tsx` (so the header matches the screenshot)
-- `src/components/SEOHead.tsx` (only the named exports used by the new Index)
-- `src/index.css` / `src/styles.css` — port any new CSS tokens, keyframes (`heroAuraRing`, hero-green palette, `impact-dark-section`, etc.) and utility classes that the ported components rely on. Merge into the existing `src/styles.css` instead of overwriting it.
+6. **"What people notice" testimonials** — match the reference: one featured 5-star quote in a pill card centered at top, then a 3-column row of shorter quotes below. Trim current layout if it differs.
 
-## New files to create
+7. **FAQ + Final CTA** — keep on the page (footer Q&A link points to `#faq`). Visually tone down the giant "Questions? Answered." headline to match the lighter, smaller treatment in the reference.
 
-- `src/components/CertificationsBar.tsx` (doesn't exist here yet)
-- Any sub-component under `src/components/hero/`, `src/components/product/`, or `src/data/` that the ported components import and that this project doesn't already have. I'll diff the dependency tree before copying so we don't miss one and break the build.
+8. **Footer** — already matches structurally; verify column order and the bottom legal row.
 
-## Assets
+## Technical notes
 
-- Copy every image referenced by the ported components from the source project's `src/assets/` into this project's `src/assets/` (hero lifestyle image, the 4 tile images, badge SVGs, etc.). I'll batch these with `cross_project--copy_project_asset` after enumerating imports.
-
-## Stack adaptations (mechanical)
-
-- `react-router-dom` → `@tanstack/react-router`: replace `useLocation`, `Link`, `useNavigate` imports in the ported files. The project already wraps `Link` in `src/lib/link.tsx`; use that where possible.
-- Remove any `<BrowserRouter>` / `<Route>` references — routing stays file-based.
-- Leave `SEOHead` rendering through TanStack Start's head system. If the source `SEOHead` uses `react-helmet`, swap to the existing pattern used elsewhere in this project (`<head>` config inside the route file). The route file `src/routes/index.tsx` already sets canonical/og; I'll update its `head()` to the new title/description: "Reduce Dust Mites, Pet Dander & Mold Spores | EnviroBiotics".
-- Keep `DeferredSection` + `Suspense` lazy-loading pattern (already in both projects).
-
-## What I am NOT changing
-
-- `/bobby`, `/parents`, `/nursery`, `/dorm`, `/pets`, `/sleep`, and every other route stays untouched.
-- No backend, Supabase, Shopify, or auth changes.
-- No new dependencies expected; if a ported component pulls in something like `lottie-react` that isn't installed yet, I'll add it as the only new dep.
-- Not porting the source's `App.tsx`, `main.tsx`, `tailwind.config`, or `index.html` from the handoff doc — this project's TanStack Start shell stays as-is.
-
-## Verification before declaring done
-
-1. Build passes (TS + Vite).
-2. `/` matches the uploaded screenshot section-by-section at desktop and mobile.
-3. `/bobby` and at least one other landing page still render correctly (no regressions from shared component edits — the shared edits target homepage components only, but I'll spot-check).
+- All work is presentation-only in `src/components/{HeroSection,ProblemSection,HowItWorksSection,SafetyStrip,TestimonialsSection,FAQSection,FinalCTASection}.tsx` and tokens in `src/styles.css`.
+- No new routes, no data/auth changes, no new dependencies.
+- Keep the `DeferredSection` lazy-loading wrappers in `src/pages/Index.tsx` untouched.
+- After edits, re-screenshot the full page in the browser and compare side-by-side with the reference before finishing.
