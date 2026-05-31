@@ -13,11 +13,8 @@ export const HowItWorksSection = () => {
     <section id="how-it-works" className="py-28 sm:py-44 lg:py-56 bg-transparent">
       <div className="container max-w-7xl mx-auto px-5 sm:px-6">
         <div className="grid lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] gap-10 lg:gap-20 xl:gap-24 items-center mb-16 sm:mb-24 lg:mb-32">
-          <ScrollReveal variant="fadeUp" className="lg:hidden -mb-6">
-            <p className="text-[10px] font-semibold tracking-[0.3em] uppercase text-muted-foreground/70 text-center">
-              How It Works
-            </p>
-          </ScrollReveal>
+
+
 
           <ScrollReveal variant="fadeUp">
             <div className="relative">
@@ -31,13 +28,7 @@ export const HowItWorksSection = () => {
                 }}
               />
 
-              <div
-                className="relative aspect-[4/5] sm:aspect-[4/3] overflow-hidden rounded-[1.75rem] sm:rounded-[2rem]"
-                style={{
-                  WebkitMaskImage: "radial-gradient(130% 115% at 50% 50%, #000 58%, transparent 100%)",
-                  maskImage: "radial-gradient(130% 115% at 50% 50%, #000 58%, transparent 100%)",
-                }}
-              >
+              <div className="relative aspect-[4/5] sm:aspect-[4/3] overflow-hidden rounded-[1.75rem] sm:rounded-[2rem] shadow-[0_30px_70px_-30px_hsl(var(--foreground)/0.25)]">
                 <img
                   src={livingRoomImage}
                   alt="EnviroBiotics device on a nursery dresser beside a sleeping baby in a crib"
@@ -47,14 +38,6 @@ export const HowItWorksSection = () => {
                   className="w-full h-full object-cover object-center"
                 />
 
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(130% 115% at 50% 50%, transparent 50%, hsl(40 25% 96% / 0.55) 85%, hsl(40 25% 96%) 100%)",
-                  }}
-                />
 
                 <div
                   aria-hidden="true"
@@ -93,25 +76,12 @@ export const HowItWorksSection = () => {
                   })}
                 </div>
 
-                <div className="absolute bottom-4 left-4 right-4 sm:top-8 sm:right-6 sm:bottom-auto sm:left-auto sm:max-w-xs z-10">
-                  <div className="backdrop-blur-xl bg-background/85 border border-border/50 rounded-2xl px-5 py-4 sm:px-6 sm:py-5 shadow-xl">
-                    <p className="text-[10px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-eyebrow-accent mb-1.5 sm:mb-2">
-                      Always on
-                    </p>
-                    <p className="text-sm sm:text-base text-foreground leading-relaxed">
-                      A living layer of protection, working quietly in the background.
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </ScrollReveal>
 
           <ScrollReveal variant="fadeUp" delay={0.1}>
             <div className="min-w-0">
-              <p className="hidden lg:block text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6">
-                How It Works
-              </p>
               <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.8rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance">
                 A living system.
                 <br />
@@ -128,13 +98,11 @@ export const HowItWorksSection = () => {
                   24<span className="text-foreground/20">/</span>7
                 </div>
                 <div className="flex-1">
-                  <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-1">
-                    Always working
-                  </p>
                   <p className="text-[13px] sm:text-base text-foreground leading-snug font-medium">
-                    Continuous protection, even while you sleep.
+                    An Active, Quiet Device that protects us 24/7 even when we sleep.
                   </p>
                 </div>
+
               </div>
             </div>
           </ScrollReveal>
@@ -173,7 +141,7 @@ export const HowItWorksSection = () => {
 
         <ScrollReveal variant="fadeUp" delay={0.4} className="text-center mt-14 sm:mt-20">
           <p className="text-[12px] sm:text-sm text-muted-foreground/70 tracking-wide px-4">
-            No chemicals · No spray · No ozone · Just good bacteria doing what they do in nature
+            No chemicals · No spray · No ozone · Just beneficial probiotic doing what they do in nature
           </p>
         </ScrollReveal>
       </div>

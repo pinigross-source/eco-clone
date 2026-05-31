@@ -7,11 +7,12 @@ import hvacImg from "@/assets/problem-hvac.avif";
 import knitImg from "@/assets/problem-knit.avif";
 
 const surfaces = [
-  { img: pillowImg, label: "Soft Surfaces", note: "Pillows, bedding, upholstery", icon: Bed, stat: "62%", statNote: "of allergens settle in fabrics" },
-  { img: dogFurImg, label: "Pet Dander", note: "Fur, beds, shared corners", icon: PawPrint, stat: "24/7", statNote: "continuous shedding" },
-  { img: hvacImg, label: "Whole-Home", note: "Ducts and shared air paths", icon: AirVent, stat: "100%", statNote: "of rooms share the same air" },
-  { img: knitImg, label: "Bacteria & Odor", note: "Textiles that hold smells", icon: Sparkles, stat: "48h", statNote: "odors linger in soft materials" },
+  { img: pillowImg, label: "Soft, Delicate Surfaces", note: "Pillows, bedding, upholstery", icon: Bed, stat: "62%", statNote: "Soft objects hold odor-generating germs that linger for a long duration." },
+  { img: dogFurImg, label: "Pet Dander", note: "Fur, beds, shared corners", icon: PawPrint, stat: "24/7", statNote: "Continuous shedding settles into fabrics and carpets." },
+  { img: hvacImg, label: "HVAC Ducts", note: "Ducts and shared air paths", icon: AirVent, stat: "100%", statNote: "Air circulates between shared spaces easily." },
+  { img: knitImg, label: "Sensitive Objects", note: "Soft toys, electronics, keyboards", icon: Sparkles, stat: "48h", statNote: "Hidden grooves trap germs detergents can't reach." },
 ];
+
 
 const cards = [
   { title: "Air Purifiers", text: "Air filters trap the air they can suck. They do not reach contaminants that are not airborne — settled on bedding, carpets, fabrics and other objects, including those in pets' areas.", coverage: "Air only", duration: "When running", icon: Wind, highlight: false },
@@ -143,9 +144,10 @@ export const ProblemSection = () => {
                 </p>
               </div>
               <h3 className="font-display font-medium text-foreground tracking-[-0.025em] leading-[1.1] text-[1.9rem] sm:text-[2.25rem] lg:text-[2.75rem] max-w-3xl">
-                The places filters{" "}
-                <em className="not-italic text-heading-accent">can't reach.</em>
+                EnviroBiotics reach and clean{" "}
+                <em className="not-italic text-heading-accent">where no other product does.</em>
               </h3>
+
             </div>
             <div className="lg:col-span-4 lg:pb-3">
               <span className="hidden lg:block h-px w-10 bg-foreground/15 mb-5" />
