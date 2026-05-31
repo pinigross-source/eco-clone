@@ -7,6 +7,7 @@ import { CertificationsBar } from "@/components/CertificationsBar";
 import { DeferredSection } from "@/components/DeferredSection";
 
 const ProblemSection = lazy(() => import("@/components/ProblemSection").then(m => ({ default: m.ProblemSection })));
+const ProductsSection = lazy(() => import("@/components/ProductsSection").then(m => ({ default: m.ProductsSection })));
 const HowItWorksSection = lazy(() => import("@/components/HowItWorksSection").then(m => ({ default: m.HowItWorksSection })));
 const SafetyStrip = lazy(() => import("@/components/SafetyStrip").then(m => ({ default: m.SafetyStrip })));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection").then(m => ({ default: m.TestimonialsSection })));
