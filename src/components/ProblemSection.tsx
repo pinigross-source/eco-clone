@@ -144,9 +144,10 @@ export const ProblemSection = () => {
                 </p>
               </div>
               <h3 className="font-display font-medium text-foreground tracking-[-0.025em] leading-[1.1] text-[1.9rem] sm:text-[2.25rem] lg:text-[2.75rem] max-w-3xl">
-                The places filters{" "}
-                <em className="not-italic text-heading-accent">can't reach.</em>
+                EnviroBiotics reach and clean{" "}
+                <em className="not-italic text-heading-accent">where no other product does.</em>
               </h3>
+
             </div>
             <div className="lg:col-span-4 lg:pb-3">
               <span className="hidden lg:block h-px w-10 bg-foreground/15 mb-5" />
