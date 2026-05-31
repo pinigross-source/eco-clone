@@ -5,6 +5,7 @@ import { shopifyProductUrl } from "@/lib/shopify";
 // Legacy slugs that should 301 to their canonical product URL.
 const LEGACY_SLUG_REDIRECTS: Record<string, string> = {
   "betterair-2080": "ba-2080",
+  "e-biotic-home": "e-biotic-home-and-small-office",
 };
 
 function ProductRedirect() {
