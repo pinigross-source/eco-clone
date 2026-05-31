@@ -122,9 +122,9 @@ export const ProblemSection = () => {
                         Duration
                       </dt>
                       <dd className={cn("text-[13px] font-semibold text-right inline-flex items-center gap-2", highlight ? "text-primary" : "text-foreground/85")}>
-                        {highlight && <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />}
                         {duration}
                       </dd>
+
                     </div>
                   </dl>
                 </div>
