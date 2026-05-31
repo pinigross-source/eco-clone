@@ -21,7 +21,7 @@ const products = [
   },
   {
     category: "HVAC Whole Home",
-    name: "eBiotic Pro",
+    name: "E biotic Home & Office",
     description: "Integrates directly with your HVAC to disperse probiotics through every room, automatically.",
     image: ebioticPro,
     href: "/product/ebiotic-pro",
