@@ -45,6 +45,12 @@ const allTestimonials = [
   },
 ];
 
+const institutions = [
+  { name: "Brooklyn Nets", sub: "Performance facilities" },
+  { name: "Care Partners", sub: "Assisted living" },
+  { name: "PTPA", sub: "Parent Tested, Parent Approved" },
+];
+
 const TestimonialCard = ({ name, category, text, rating, avatar, image }: {
   name: string; category: string; text: string; rating: number; avatar: string; image?: string;
 }) => (
@@ -69,22 +75,32 @@ const TestimonialCard = ({ name, category, text, rating, avatar, image }: {
 
 export const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="py-32 sm:py-44 lg:py-56 bg-card">
+    <section id="testimonials" className="py-28 sm:py-40 lg:py-48 bg-card">
       <div className="container max-w-5xl mx-auto">
-        <ScrollReveal variant="fadeUp" className="text-center mb-16">
-          <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6">
-            Testimonials
+        <ScrollReveal variant="fadeUp" className="text-center mb-14">
+          <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-5">
+            Endorsed globally
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold leading-[1.06] tracking-[-0.03em] text-foreground max-w-3xl mx-auto">
-            What people{" "}
-            <span className="text-heading-accent">notice.</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-display font-bold leading-[1.06] tracking-[-0.03em] text-foreground max-w-3xl mx-auto">
+            Trusted in homes,{" "}
+            <span className="text-heading-accent">teams, and care facilities.</span>
           </h2>
-          <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Real homes. Real surfaces. Real changes.
-          </p>
-          <p className="mt-3 text-xs text-muted-foreground/50 italic">
-            Individual results vary by space and conditions.
-          </p>
+        </ScrollReveal>
+
+        {/* Institutional row */}
+        <ScrollReveal variant="fadeUp" delay={0.05} className="mb-12">
+          <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 text-center">
+            {institutions.map((inst) => (
+              <li key={inst.name} className="flex flex-col items-center">
+                <span className="font-display text-[1.05rem] sm:text-[1.2rem] font-semibold tracking-[-0.01em] text-foreground/80">
+                  {inst.name}
+                </span>
+                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground/70 mt-1">
+                  {inst.sub}
+                </span>
+              </li>
+            ))}
+          </ul>
         </ScrollReveal>
 
         <ScrollReveal variant="fadeUp" delay={0.1} className="mb-12">
@@ -123,6 +139,10 @@ export const TestimonialsSection = () => {
             </div>
           </Carousel>
         </ScrollReveal>
+
+        <p className="mt-8 text-center text-xs text-muted-foreground/60 italic">
+          Individual results vary by space and conditions.
+        </p>
       </div>
     </section>
   );
