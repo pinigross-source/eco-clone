@@ -1,31 +1,18 @@
 import { useEffect, lazy, Suspense } from "react";
 import { useLocation } from "@tanstack/react-router";
-import { SEOHead, organizationJsonLd, websiteJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
+import { SEOHead, organizationJsonLd, websiteJsonLd, homepageFaqJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
+import { CertificationsBar } from "@/components/CertificationsBar";
 import { DeferredSection } from "@/components/DeferredSection";
-import { homepageFaqs } from "@/components/FAQSection";
 
-const ProductsTriadSection = lazy(() => import("@/components/ProductsTriadSection").then(m => ({ default: m.ProductsTriadSection })));
 const ProblemSection = lazy(() => import("@/components/ProblemSection").then(m => ({ default: m.ProblemSection })));
-const BeardedManVideoSection = lazy(() => import("@/components/BeardedManVideoSection").then(m => ({ default: m.BeardedManVideoSection })));
 const HowItWorksSection = lazy(() => import("@/components/HowItWorksSection").then(m => ({ default: m.HowItWorksSection })));
-const DiversificationGallery = lazy(() => import("@/components/DiversificationGallery").then(m => ({ default: m.DiversificationGallery })));
 const SafetyStrip = lazy(() => import("@/components/SafetyStrip").then(m => ({ default: m.SafetyStrip })));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection").then(m => ({ default: m.TestimonialsSection })));
 const FAQSection = lazy(() => import("@/components/FAQSection").then(m => ({ default: m.FAQSection })));
 const FinalCTASection = lazy(() => import("@/components/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
-
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: homepageFaqs.map((f) => ({
-    "@type": "Question",
-    name: f.question,
-    acceptedAnswer: { "@type": "Answer", text: f.answer },
-  })),
-};
 
 const Index = () => {
   const location = useLocation();
@@ -68,7 +55,7 @@ const Index = () => {
           "@graph": [
             organizationJsonLd,
             websiteJsonLd,
-            faqJsonLd,
+            homepageFaqJsonLd,
             makeBreadcrumbJsonLd([{ name: "Home", url: "/" }]),
           ],
         }}
@@ -76,12 +63,7 @@ const Index = () => {
       <Navbar />
       <main id="main-content" className="pb-20 md:pb-0">
         <HeroSection />
-
-        <DeferredSection forceMount={hasHash} minHeight="500px" rootMargin="400px">
-          <Suspense fallback={<div className="min-h-[400px]" />}>
-            <ProductsTriadSection />
-          </Suspense>
-        </DeferredSection>
+        <CertificationsBar />
 
         <DeferredSection forceMount={hasHash} minHeight="600px" rootMargin="400px">
           <Suspense fallback={<div className="min-h-[400px]" />}>
@@ -89,21 +71,9 @@ const Index = () => {
           </Suspense>
         </DeferredSection>
 
-        <DeferredSection forceMount={hasHash} minHeight="600px" rootMargin="400px">
-          <Suspense fallback={<div className="min-h-[400px]" />}>
-            <BeardedManVideoSection />
-          </Suspense>
-        </DeferredSection>
-
         <DeferredSection forceMount={hasHash} minHeight="500px" rootMargin="400px">
           <Suspense fallback={<div className="min-h-[400px]" />}>
             <HowItWorksSection />
-          </Suspense>
-        </DeferredSection>
-
-        <DeferredSection forceMount={hasHash} minHeight="500px" rootMargin="300px">
-          <Suspense fallback={<div className="min-h-[300px]" />}>
-            <DiversificationGallery />
           </Suspense>
         </DeferredSection>
 
