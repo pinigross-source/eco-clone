@@ -31,7 +31,7 @@ export const FinalCTASection = () => {
       <div className="relative py-20 sm:py-24 lg:py-28">
         <div className="container">
           <ScrollReveal variant="fadeUp">
-            <div className="max-w-xl mr-auto ml-0 rounded-[1.5rem] bg-background/70 backdrop-blur-sm ring-1 ring-foreground/5 p-7 sm:p-9 lg:p-10 text-left">
+            <div className="max-w-xl mr-auto ml-0 rounded-[1.5rem] bg-background/95 backdrop-blur-xl ring-1 ring-foreground/10 shadow-2xl p-7 sm:p-9 lg:p-10 text-left">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold leading-[1.15] tracking-[-0.02em] text-foreground mb-8 sm:mb-10">
                 Everywhere you live. Everything you touch.
                 <br />
