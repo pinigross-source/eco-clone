@@ -76,16 +76,6 @@ export const HowItWorksSection = () => {
                   })}
                 </div>
 
-                <div className="absolute bottom-4 left-4 right-4 sm:top-8 sm:right-6 sm:bottom-auto sm:left-auto sm:max-w-xs z-10">
-                  <div className="backdrop-blur-xl bg-background/85 border border-border/50 rounded-2xl px-5 py-4 sm:px-6 sm:py-5 shadow-xl">
-                    <p className="text-[10px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-eyebrow-accent mb-1.5 sm:mb-2">
-                      Always on
-                    </p>
-                    <p className="text-sm sm:text-base text-foreground leading-relaxed">
-                      A living layer of protection, working quietly in the background.
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </ScrollReveal>
