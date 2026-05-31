@@ -93,53 +93,53 @@ export const HeroSection = () => {
         <div className="max-w-3xl text-left lg:max-w-[640px]">
 
           <h1
-            className="mb-7 font-sans font-bold tracking-[-0.04em] text-[2.5rem] leading-[1.02] sm:mb-9 sm:text-[clamp(2.75rem,6vw,4.75rem)] sm:leading-[1]"
+            className="mb-7 font-sans font-bold tracking-[-0.04em] text-[2.25rem] leading-[1.05] sm:mb-9 sm:text-[clamp(2.5rem,5.5vw,4.25rem)] sm:leading-[1.02]"
             style={{ color: "hsl(var(--foreground))" }}
           >
-            Allergens cause more than{" "}
-            <span className="relative inline-block" style={{ color: "hsl(var(--foreground))" }}>
-              allergies.
-            </span>
+            Sickness of our Indoor environments makes us sick.
           </h1>
 
-          <p
-            className="mb-5 max-w-none text-[1rem] font-semibold tracking-[-0.005em] sm:text-[1.1rem] whitespace-nowrap"
+          <ul
+            className="mb-8 space-y-2 text-[1rem] font-semibold tracking-[-0.005em] sm:text-[1.15rem]"
             style={{ color: "hsl(var(--foreground))" }}
           >
-            Headaches. Fatigue. Irritated breathing. Restless sleep.
-          </p>
+            <li>Allergies. Headaches. Depression. Sleeping Disorders. Fatigue.</li>
+            <li>A weaker Immune system that struggles to protect.</li>
+            <li className="font-normal" style={{ color: "hsl(var(--foreground) / 0.78)" }}>
+              Air filters, detergents, UV radiation do little.
+            </li>
+            <li style={{ color: "hsl(var(--primary))" }}>You need EnviroBiotics.</li>
+          </ul>
 
           <p
-            className="mb-10 max-w-[52ch] text-[0.95rem] font-normal leading-[1.7] sm:mb-12 sm:text-[1.05rem] sm:leading-[1.65]"
+            className="mb-10 max-w-[58ch] text-[0.95rem] font-normal leading-[1.7] sm:mb-12 sm:text-[1.05rem] sm:leading-[1.65]"
             style={{ color: "hsl(var(--foreground) / 0.78)" }}
           >
-            Dust mites, pet dander, mold spores, and odor-causing bacteria do not
-            just float in the air. They settle on the surfaces your air purifier
-            cannot reach.{" "}
             <span className="font-semibold" style={{ color: "hsl(var(--foreground))" }}>
-              EnviroBiotics is a probiotic home system that works beyond the air, reaching the surfaces, fabrics, pet areas, and hidden spaces where allergens and unwanted microbes collect.
-            </span>
+              Allergens cause more than Allergies.
+            </span>{" "}
+            Dust mites, pet dander, mold spores, pollen and odor-causing germs settle on the surfaces your air purifier cannot reach. EnviroBiotics Does.
           </p>
 
           <div className="flex flex-col items-start gap-6 sm:gap-7">
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
               <a
                 href="#find-my-solution"
-                onClick={() => trackEvent("click_find_your_fit")}
+                onClick={() => trackEvent("click_review_best_option")}
                 className="w-full sm:w-auto"
               >
                 <Button
                   size="impact-md"
-                  className="group h-[60px] w-full rounded-full bg-foreground px-9 text-[13px] font-semibold uppercase tracking-[0.18em] text-background shadow-[0_18px_50px_-18px_hsl(var(--foreground)/0.45)] hover:bg-foreground/90 sm:h-[64px] sm:w-auto sm:px-11 sm:text-[13px]"
+                  className="group h-[60px] w-full rounded-full bg-foreground px-9 text-[13px] font-bold uppercase tracking-[0.18em] text-background shadow-[0_18px_50px_-18px_hsl(var(--foreground)/0.45)] hover:bg-foreground/90 sm:h-[64px] sm:w-auto sm:px-11 sm:text-[13px]"
                 >
-                  Find Your Fit
+                  Review Best Option
                   <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
 
               <a
                 href="/how-it-works"
-                onClick={() => trackEvent("click_see_how_it_works")}
+                onClick={() => trackEvent("click_watch_how_it_works")}
                 className="w-full sm:w-auto"
               >
                 <Button
@@ -147,7 +147,7 @@ export const HeroSection = () => {
                   size="impact-md"
                   className="h-[60px] w-full rounded-full border-foreground/25 bg-transparent px-9 text-[13px] font-semibold uppercase tracking-[0.18em] text-foreground hover:bg-foreground/5 sm:h-[64px] sm:w-auto sm:px-11"
                 >
-                  See How It Works
+                  Watch How It Works
                 </Button>
               </a>
             </div>
@@ -156,17 +156,19 @@ export const HeroSection = () => {
               className="flex flex-nowrap items-center gap-x-3 sm:gap-x-4 text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap"
               style={{ color: "hsl(var(--foreground) / 0.65)" }}
             >
-              <li className="flex items-center gap-1.5">
-                <span style={{ color: "hsl(var(--primary))" }}>4.8★</span>
-                <span className="font-light opacity-85">Verified reviews</span>
-              </li>
+              <li>Safe for kids &amp; pets</li>
               <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
               <li>EPA Registered</li>
               <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
               <li>FDA GRAS</li>
               <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
-              <li>Safe for kids &amp; pets</li>
+              <li className="flex items-center gap-1.5">
+                <span style={{ color: "hsl(var(--primary))" }}>4.8★</span>
+                <span className="font-light opacity-85">Verified reviews</span>
+              </li>
             </ul>
+          </div>
+
           </div>
         </div>
       </div>
