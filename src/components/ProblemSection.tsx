@@ -7,10 +7,10 @@ import hvacImg from "@/assets/problem-hvac.avif";
 import knitImg from "@/assets/problem-knit.avif";
 
 const surfaces = [
-  { img: pillowImg, label: "Soft, Delicate Surfaces", note: "Pillows, bedding, upholstery", icon: Bed, stat: "62%", statNote: "Soft objects hold odor-generating germs that linger for a long duration." },
-  { img: dogFurImg, label: "Pet Dander", note: "Fur, beds, shared corners", icon: PawPrint, stat: "24/7", statNote: "Continuous shedding settles into fabrics and carpets." },
-  { img: hvacImg, label: "HVAC Ducts", note: "Ducts and shared air paths", icon: AirVent, stat: "100%", statNote: "Air circulates between shared spaces easily." },
-  { img: knitImg, label: "Sensitive Objects", note: "Soft toys, electronics, keyboards", icon: Sparkles, stat: "48h", statNote: "Hidden grooves trap germs detergents can't reach." },
+  { img: pillowImg, label: "Soft, Delicate Surfaces", category: "Surface", note: "Pillows, bedding, upholstery", icon: Bed, stat: "62%", statNote: "Soft objects hold odor-generating germs that linger for a long duration." },
+  { img: dogFurImg, label: "Pet Dander", category: "Airborne", note: "Fur, beds, shared corners", icon: PawPrint, stat: "24/7", statNote: "Continuous shedding settles into fabrics and carpets throughout the home." },
+  { img: hvacImg, label: "HVAC Ducts", category: "Pathways", note: "Ducts and shared air paths", icon: AirVent, stat: "100%", statNote: "Air circulates between shared spaces easily, spreading microscopic debris." },
+  { img: knitImg, label: "Sensitive Objects", category: "Intricacy", note: "Soft toys, electronics, keyboards", icon: Sparkles, stat: "48h", statNote: "Hidden grooves trap germs that conventional detergents simply cannot reach." },
 ];
 
 
