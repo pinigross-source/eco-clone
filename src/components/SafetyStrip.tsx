@@ -41,9 +41,9 @@ export const SafetyStrip = () => {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-7">
             <h2 className="text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4rem] font-display font-bold text-foreground leading-[1.02] tracking-[-0.035em] mb-8 text-balance">
-              Safety-first.
+              Safety is our top priority.
               <br />
-              <span className="text-heading-accent italic font-normal">Proof-forward.</span>
+              <span className="text-heading-accent italic font-normal">Independently verified.</span>
             </h2>
 
             <p className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed mb-10">
