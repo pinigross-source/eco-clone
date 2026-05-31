@@ -168,10 +168,9 @@ export const HeroSection = () => {
               </li>
             </ul>
           </div>
-
-          </div>
         </div>
       </div>
+
 
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-[4] h-16 bg-gradient-to-t from-background/90 to-transparent" />
     </section>
