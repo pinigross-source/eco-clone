@@ -46,7 +46,7 @@ export const TrustedPlacesSection = () => {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="max-h-full w-auto max-w-[220px] object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0 sm:max-w-[260px]"
+                  className="max-h-full w-auto max-w-[220px] object-contain sm:max-w-[260px]"
                   loading="lazy"
                   decoding="async"
                 />
