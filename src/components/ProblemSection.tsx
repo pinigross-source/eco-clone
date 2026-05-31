@@ -14,10 +14,11 @@ const surfaces = [
 ];
 
 const cards = [
-  { title: "Air filters", text: "Trap particles floating in the air.", coverage: "Air only", duration: "When running", icon: Wind, highlight: false },
-  { title: "Cleaning sprays", text: "Clean only where you spray, only for a moment.", coverage: "Spot treatment", duration: "Minutes", icon: Droplets, highlight: false },
-  { title: "EnviroBiotics", text: "Good bacteria settle on surfaces and keep working between cleanings.", coverage: "Surfaces + air", duration: "Continuous", icon: Leaf, highlight: true },
+  { title: "Air Purifiers", text: "Air filters trap the air they can suck. They do not reach contaminants that are not airborne — settled on bedding, carpets, fabrics and other objects, including those in pets' areas.", coverage: "Air only", duration: "When running", icon: Wind, highlight: false },
+  { title: "Detergents & Disinfecting Spray", text: "Evaporate quickly. Do not reach hidden places. Disallowed on delicate objects. Foster germ resistance.", coverage: "Spot treatment", duration: "Minutes", icon: Droplets, highlight: false },
+  { title: "EnviroBiotics", text: "24/7 automated protection by healthy microbial restoration.", coverage: "Everything; Surfaces · Objects · Air", duration: "Continuous", icon: Leaf, highlight: true },
 ];
+
 
 export const ProblemSection = () => {
   return (
