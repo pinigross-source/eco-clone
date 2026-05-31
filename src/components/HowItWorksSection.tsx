@@ -141,7 +141,7 @@ export const HowItWorksSection = () => {
 
         <ScrollReveal variant="fadeUp" delay={0.4} className="text-center mt-14 sm:mt-20">
           <p className="text-[12px] sm:text-sm text-muted-foreground/70 tracking-wide px-4">
-            No chemicals · No spray · No ozone · Just good bacteria doing what they do in nature
+            No chemicals · No spray · No ozone · Just beneficial probiotic doing what they do in nature
           </p>
         </ScrollReveal>
       </div>
