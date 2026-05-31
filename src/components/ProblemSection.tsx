@@ -14,10 +14,11 @@ const surfaces = [
 ];
 
 const cards = [
-  { title: "Air filters", text: "Trap particles floating in the air.", coverage: "Air only", duration: "When running", icon: Wind, highlight: false },
-  { title: "Cleaning sprays", text: "Clean only where you spray, only for a moment.", coverage: "Spot treatment", duration: "Minutes", icon: Droplets, highlight: false },
-  { title: "EnviroBiotics", text: "Good bacteria settle on surfaces and keep working between cleanings.", coverage: "Surfaces + air", duration: "Continuous", icon: Leaf, highlight: true },
+  { title: "Air Purifiers", text: "Air filters trap the air they can suck. They do not reach contaminants that are not airborne — settled on bedding, carpets, fabrics and other objects, including those in pets' areas.", coverage: "Air only", duration: "When running", icon: Wind, highlight: false },
+  { title: "Detergents & Disinfecting Spray", text: "Evaporate quickly. Do not reach hidden places. Disallowed on delicate objects. Foster germ resistance.", coverage: "Spot treatment", duration: "Minutes", icon: Droplets, highlight: false },
+  { title: "EnviroBiotics", text: "24/7 automated protection by healthy microbial restoration.", coverage: "Everything; Surfaces · Objects · Air", duration: "Continuous", icon: Leaf, highlight: true },
 ];
+
 
 export const ProblemSection = () => {
   return (
@@ -42,9 +43,10 @@ export const ProblemSection = () => {
                 </p>
               </div>
               <h2 className="font-display font-semibold text-foreground text-balance leading-[1.02] tracking-[-0.035em] text-[2.5rem] sm:text-[3.25rem] md:text-[4rem] lg:text-[4.5rem]">
-                Where the problem{" "}
-                <em className="not-italic text-heading-accent">actually lives.</em>
+                Solving the Root Cause of{" "}
+                <em className="not-italic text-heading-accent">Building Sickness.</em>
               </h2>
+
             </div>
             <div className="lg:col-span-4 lg:pb-3">
               <span className="hidden lg:block h-px w-10 bg-foreground/15 mb-5" />
@@ -120,9 +122,9 @@ export const ProblemSection = () => {
                         Duration
                       </dt>
                       <dd className={cn("text-[13px] font-semibold text-right inline-flex items-center gap-2", highlight ? "text-primary" : "text-foreground/85")}>
-                        {highlight && <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />}
                         {duration}
                       </dd>
+
                     </div>
                   </dl>
                 </div>
