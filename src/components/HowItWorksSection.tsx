@@ -13,11 +13,8 @@ export const HowItWorksSection = () => {
     <section id="how-it-works" className="py-28 sm:py-44 lg:py-56 bg-transparent">
       <div className="container max-w-7xl mx-auto px-5 sm:px-6">
         <div className="grid lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] gap-10 lg:gap-20 xl:gap-24 items-center mb-16 sm:mb-24 lg:mb-32">
-          <ScrollReveal variant="fadeUp" className="lg:hidden -mb-6">
-            <p className="text-[10px] font-semibold tracking-[0.3em] uppercase text-muted-foreground/70 text-center">
-              How It Works
-            </p>
-          </ScrollReveal>
+
+
 
           <ScrollReveal variant="fadeUp">
             <div className="relative">
