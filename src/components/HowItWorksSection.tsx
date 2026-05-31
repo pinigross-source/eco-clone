@@ -28,13 +28,7 @@ export const HowItWorksSection = () => {
                 }}
               />
 
-              <div
-                className="relative aspect-[4/5] sm:aspect-[4/3] overflow-hidden rounded-[1.75rem] sm:rounded-[2rem]"
-                style={{
-                  WebkitMaskImage: "radial-gradient(130% 115% at 50% 50%, #000 58%, transparent 100%)",
-                  maskImage: "radial-gradient(130% 115% at 50% 50%, #000 58%, transparent 100%)",
-                }}
-              >
+              <div className="relative aspect-[4/5] sm:aspect-[4/3] overflow-hidden rounded-[1.75rem] sm:rounded-[2rem] shadow-[0_30px_70px_-30px_hsl(var(--foreground)/0.25)]">
                 <img
                   src={livingRoomImage}
                   alt="EnviroBiotics device on a nursery dresser beside a sleeping baby in a crib"
@@ -44,14 +38,6 @@ export const HowItWorksSection = () => {
                   className="w-full h-full object-cover object-center"
                 />
 
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(130% 115% at 50% 50%, transparent 50%, hsl(40 25% 96% / 0.55) 85%, hsl(40 25% 96%) 100%)",
-                  }}
-                />
 
                 <div
                   aria-hidden="true"
