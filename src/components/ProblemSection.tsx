@@ -43,9 +43,10 @@ export const ProblemSection = () => {
                 </p>
               </div>
               <h2 className="font-display font-semibold text-foreground text-balance leading-[1.02] tracking-[-0.035em] text-[2.5rem] sm:text-[3.25rem] md:text-[4rem] lg:text-[4.5rem]">
-                Where the problem{" "}
-                <em className="not-italic text-heading-accent">actually lives.</em>
+                Solving the Root Cause of{" "}
+                <em className="not-italic text-heading-accent">Building Sickness.</em>
               </h2>
+
             </div>
             <div className="lg:col-span-4 lg:pb-3">
               <span className="hidden lg:block h-px w-10 bg-foreground/15 mb-5" />
