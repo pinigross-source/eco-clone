@@ -7,10 +7,10 @@ import hvacImg from "@/assets/problem-hvac.avif";
 import knitImg from "@/assets/problem-knit.avif";
 
 const surfaces = [
-  { img: pillowImg, label: "Soft, Delicate Surfaces", note: "Pillows, bedding, upholstery", icon: Bed, stat: "62%", statNote: "Soft objects hold odor-generating germs that linger for a long duration." },
-  { img: dogFurImg, label: "Pet Dander", note: "Fur, beds, shared corners", icon: PawPrint, stat: "24/7", statNote: "Continuous shedding settles into fabrics and carpets." },
-  { img: hvacImg, label: "HVAC Ducts", note: "Ducts and shared air paths", icon: AirVent, stat: "100%", statNote: "Air circulates between shared spaces easily." },
-  { img: knitImg, label: "Sensitive Objects", note: "Soft toys, electronics, keyboards", icon: Sparkles, stat: "48h", statNote: "Hidden grooves trap germs detergents can't reach." },
+  { img: pillowImg, label: "Soft, Delicate Surfaces", category: "Surface", note: "Pillows, bedding, upholstery", icon: Bed, stat: "62%", statNote: "Soft objects hold odor-generating germs that linger for a long duration." },
+  { img: dogFurImg, label: "Pet Dander", category: "Airborne", note: "Fur, beds, shared corners", icon: PawPrint, stat: "24/7", statNote: "Continuous shedding settles into fabrics and carpets throughout the home." },
+  { img: hvacImg, label: "HVAC Ducts", category: "Pathways", note: "Ducts and shared air paths", icon: AirVent, stat: "100%", statNote: "Air circulates between shared spaces easily, spreading microscopic debris." },
+  { img: knitImg, label: "Sensitive Objects", category: "Intricacy", note: "Soft toys, electronics, keyboards", icon: Sparkles, stat: "48h", statNote: "Hidden grooves trap germs that conventional detergents simply cannot reach." },
 ];
 
 
@@ -134,24 +134,19 @@ export const ProblemSection = () => {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal variant="fadeUp" delay={0.15} className="mt-20 lg:mt-28 mb-10 lg:mb-14">
-          <div className="grid lg:grid-cols-12 gap-y-8 lg:gap-x-16 items-end">
-            <div className="lg:col-span-8">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="h-px w-8 bg-primary/60" />
-                <p className="text-[10.5px] font-semibold tracking-[0.32em] uppercase text-muted-foreground/70">
-                  Where it Settles
-                </p>
-              </div>
-              <h3 className="font-display font-medium text-foreground tracking-[-0.025em] leading-[1.1] text-[1.9rem] sm:text-[2.25rem] lg:text-[2.75rem] max-w-3xl">
-                EnviroBiotics reach and clean{" "}
-                <em className="not-italic text-heading-accent">where no other product does.</em>
+        <ScrollReveal variant="fadeUp" delay={0.15} className="mt-24 lg:mt-32">
+          <div className="flex flex-col lg:flex-row justify-between items-baseline border-b border-foreground/[0.1] pb-12 lg:pb-16 mb-16 lg:mb-20 gap-10">
+            <div className="max-w-2xl">
+              <span className="block uppercase tracking-[0.3em] text-[10px] font-semibold text-foreground/40 mb-7">
+                Where It Settles
+              </span>
+              <h3 className="font-display font-normal text-foreground leading-[1.05] tracking-[-0.025em] text-[2.5rem] sm:text-[3.25rem] lg:text-[4rem]">
+                EnviroBiotics reach and clean where{" "}
+                <em className="italic font-normal text-heading-accent">no other product does.</em>
               </h3>
-
             </div>
-            <div className="lg:col-span-4 lg:pb-3">
-              <span className="hidden lg:block h-px w-10 bg-foreground/15 mb-5" />
-              <p className="text-[14px] sm:text-sm text-foreground/75 leading-[1.7] max-w-sm">
+            <div className="max-w-xs">
+              <p className="text-sm leading-[1.7] text-foreground/55 font-light">
                 Soft surfaces and shared rooms hold the allergens and odor-causing
                 bacteria you actually live with. EnviroBiotics works exactly there.
               </p>
@@ -160,66 +155,53 @@ export const ProblemSection = () => {
         </ScrollReveal>
 
         <StaggerContainer
-          className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10 sm:gap-x-7 lg:gap-x-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 lg:gap-x-10 gap-y-14 lg:gap-y-16"
           staggerDelay={0.08}
         >
           {surfaces.map((surface, idx) => {
-            const Icon = surface.icon;
+            const isOffset = idx % 2 === 1;
             return (
               <StaggerItem key={surface.label} variant="fadeUp">
-                <figure className="group relative flex flex-col h-full">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] bg-muted shadow-[0_20px_50px_-30px_hsl(var(--foreground)/0.35)]">
+                <figure className={cn("flex flex-col h-full", isOffset && "lg:translate-y-10")}>
+                  <div className="mb-8 overflow-hidden rounded-sm">
                     <img
                       src={surface.img}
                       alt={surface.label}
                       width={800}
                       height={1000}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
-                      style={{ filter: "saturate(0.78) brightness(1.04) contrast(0.98) hue-rotate(-6deg)" }}
+                      className="aspect-[4/5] w-full object-cover transition-transform duration-[1400ms] ease-out hover:scale-[1.05]"
                     />
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 pointer-events-none mix-blend-soft-light"
-                      style={{ background: "linear-gradient(180deg, hsl(210 30% 96% / 0.35) 0%, hsl(210 20% 92% / 0.18) 100%)" }}
-                    />
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 pointer-events-none"
-                      style={{ background: "linear-gradient(180deg, transparent 50%, hsl(0 0% 0% / 0.18) 78%, hsl(0 0% 0% / 0.55) 100%)" }}
-                    />
-                    <span className="absolute top-3.5 left-4 text-[10px] font-semibold tracking-[0.32em] uppercase text-white/90 tabular-nums">
-                      0{idx + 1}
-                    </span>
-                    <span className="absolute top-3 right-3 w-9 h-9 rounded-full bg-background/85 backdrop-blur-md flex items-center justify-center ring-1 ring-foreground/[0.06] shadow-sm">
-                      <Icon className="w-4 h-4 text-foreground/75" strokeWidth={1.5} />
-                    </span>
-                    <div className="absolute left-4 right-4 bottom-3.5">
-                      <p className="font-display text-[1.05rem] sm:text-[1.15rem] font-semibold text-white tracking-[-0.01em] leading-tight">
+                  </div>
+                  <figcaption className="space-y-6">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-[0.28em] text-foreground/40 font-semibold mb-2 block tabular-nums">
+                        0{idx + 1} — {surface.category}
+                      </span>
+                      <h4 className="font-display text-[1.35rem] sm:text-[1.45rem] font-medium text-foreground tracking-[-0.015em] leading-tight">
                         {surface.label}
+                      </h4>
+                    </div>
+                    <div className="pt-5 border-t border-foreground/[0.1]">
+                      <div className="flex items-baseline mb-3">
+                        <span className="font-display text-[2.5rem] sm:text-[2.75rem] font-light text-heading-accent tracking-[-0.02em] leading-none">
+                          {surface.stat}
+                        </span>
+                      </div>
+                      <p className="text-[13px] leading-[1.65] text-foreground/60 mb-4">
+                        {surface.statNote}
+                      </p>
+                      <p className="text-[9.5px] uppercase tracking-[0.22em] text-foreground/40 font-medium">
+                        {surface.note}
                       </p>
                     </div>
-                  </div>
-
-                  <figcaption className="pt-5 px-0.5">
-                    <div className="flex items-baseline gap-2.5">
-                      <span className="font-display text-[1.4rem] sm:text-[1.55rem] font-semibold text-heading-accent tracking-[-0.02em] leading-none">
-                        {surface.stat}
-                      </span>
-                      <span className="h-px flex-1 bg-foreground/[0.08] translate-y-[-0.15em]" />
-                    </div>
-                    <p className="mt-2.5 text-[12.5px] text-muted-foreground/85 leading-snug">
-                      {surface.statNote}
-                    </p>
-                    <p className="mt-1.5 text-[11px] text-muted-foreground/60 leading-snug">
-                      {surface.note}
-                    </p>
                   </figcaption>
                 </figure>
               </StaggerItem>
             );
           })}
         </StaggerContainer>
+
       </div>
     </section>
   );
