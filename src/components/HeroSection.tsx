@@ -91,19 +91,6 @@ export const HeroSection = () => {
         className="relative z-10 mx-auto w-full max-w-[1440px] px-5 py-24 sm:px-10 sm:py-28 lg:px-16 lg:py-32 will-change-transform"
       >
         <div className="max-w-3xl text-left lg:max-w-[640px]">
-          <div className="mb-6 flex items-center gap-3 sm:mb-8">
-            <span
-              className="h-px w-10"
-              style={{ background: "hsl(var(--primary) / 0.7)" }}
-              aria-hidden="true"
-            />
-            <p
-              className="text-[10px] font-semibold uppercase tracking-[0.34em] sm:text-[11px]"
-              style={{ color: "hsl(var(--primary))" }}
-            >
-              What allergens do to your home
-            </p>
-          </div>
 
           <h1
             className="mb-7 font-sans font-bold tracking-[-0.04em] text-[2.5rem] leading-[1.02] sm:mb-9 sm:text-[clamp(2.75rem,6vw,4.75rem)] sm:leading-[1]"
