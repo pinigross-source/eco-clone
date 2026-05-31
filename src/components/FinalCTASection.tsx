@@ -1,7 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, RotateCcw, ShieldCheck, Truck } from "lucide-react";
+import { RotateCcw, ShieldCheck, Truck } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { trackEvent } from "@/lib/tracking";
 import finalCtaFamily from "@/assets/find-solution-nature.avif";
 
 const promises = [
@@ -30,44 +28,17 @@ export const FinalCTASection = () => {
         }}
       />
 
-      <div className="relative py-24 sm:py-32 lg:py-40">
+      <div className="relative py-20 sm:py-24 lg:py-28">
         <div className="container">
           <ScrollReveal variant="fadeUp">
-            <div className="max-w-xl rounded-[1.5rem] bg-background/55 backdrop-blur-sm ring-1 ring-foreground/5 p-7 sm:p-9 lg:p-10">
-              <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-foreground/70 mb-6">
-                Risk-Free
-              </p>
-
-              <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-5">
-                Try it in your space
+            <div className="max-w-3xl mx-auto rounded-[1.5rem] bg-background/70 backdrop-blur-sm ring-1 ring-foreground/5 p-7 sm:p-9 lg:p-10 text-center">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold leading-[1.15] tracking-[-0.02em] text-foreground mb-8 sm:mb-10">
+                Everywhere you live. Everything you touch.
                 <br />
-                <span className="text-heading-accent">for 30 days.</span>
+                <span className="text-heading-accent">Now actively protected.</span>
               </h2>
 
-              <p className="text-base sm:text-lg text-foreground/80 max-w-md mb-8 leading-relaxed">
-                Plug it in, breathe it in. If it doesn't feel right for your space, return it within 30 days. No pressure, no commitment.
-              </p>
-
-              <div className="flex items-center">
-                <Button
-                  variant="hero"
-                  size="impact-lg"
-                  onClick={() => trackEvent("click_start_trial_final")}
-                  asChild
-                  className="bg-foreground text-background hover:bg-foreground/90"
-                >
-                  <a href="#solutions">
-                    Start My Trial
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </a>
-                </Button>
-              </div>
-
-              <p className="mt-5 text-[11px] sm:text-xs text-foreground/65 tracking-wide">
-                U.S. customers only · Free returns
-              </p>
-
-              <div className="mt-8 pt-7 border-t border-foreground/10 grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+              <div className="pt-7 border-t border-foreground/10 grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 text-left">
                 {promises.map(({ icon: Icon, title, description }) => (
                   <div key={title} className="flex sm:block items-start gap-3">
                     <div className="flex-shrink-0 w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center sm:mb-3">
