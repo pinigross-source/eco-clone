@@ -84,6 +84,12 @@ const Index = () => {
           </Suspense>
         </DeferredSection>
 
+        <DeferredSection forceMount={hasHash} minHeight="500px" rootMargin="300px">
+          <Suspense fallback={<div className="min-h-[400px]" />}>
+            <ProductsSection />
+          </Suspense>
+        </DeferredSection>
+
         <DeferredSection forceMount={hasHash} minHeight="400px" rootMargin="200px">
           <Suspense fallback={<div className="min-h-[200px]" />}>
             <TestimonialsSection />
