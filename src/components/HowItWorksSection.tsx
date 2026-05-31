@@ -98,13 +98,11 @@ export const HowItWorksSection = () => {
                   24<span className="text-foreground/20">/</span>7
                 </div>
                 <div className="flex-1">
-                  <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-1">
-                    Always working
-                  </p>
                   <p className="text-[13px] sm:text-base text-foreground leading-snug font-medium">
-                    Continuous protection, even while you sleep.
+                    An Active, Quiet Device that protects us 24/7 even when we sleep.
                   </p>
                 </div>
+
               </div>
             </div>
           </ScrollReveal>
