@@ -82,9 +82,6 @@ export const HowItWorksSection = () => {
 
           <ScrollReveal variant="fadeUp" delay={0.1}>
             <div className="min-w-0">
-              <p className="hidden lg:block text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6">
-                How It Works
-              </p>
               <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.8rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance">
                 A living system.
                 <br />
