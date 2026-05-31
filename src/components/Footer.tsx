@@ -118,7 +118,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               {exploreLinks.map((link) => {
                 const isExternal = link.href.startsWith("http");
-                const className = "group inline-flex items-center gap-1 text-sm text-background/80 hover:text-primary transition-colors";
+                const className = "group inline-flex items-center gap-1 text-sm text-background/80 hover:text-white hover:font-bold transition-colors";
                 const content = (
                   <>
                     {link.label}
@@ -150,7 +150,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               {resourceLinks.map((link) => {
                 const isExternal = link.href.startsWith("http");
-                const className = "group inline-flex items-center gap-1 text-sm text-background/80 hover:text-primary transition-colors";
+                const className = "group inline-flex items-center gap-1 text-sm text-background/80 hover:text-white hover:font-bold transition-colors";
                 const content = (
                   <>
                     {link.label}
@@ -210,16 +210,16 @@ export const Footer = () => {
               © 2026 Ecological Balancing Technologies Corporation, d/b/a EnviroBiotics. All rights reserved.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-              <Link to="/contact" className="text-xs text-background/70 hover:text-primary transition-colors">
+              <Link to="/contact" className="text-xs text-background/70 hover:text-white hover:font-bold transition-colors">
                 Contact Us
               </Link>
-              <Link to="/privacy" className="text-xs text-background/70 hover:text-primary transition-colors">
+              <Link to="/privacy" className="text-xs text-background/70 hover:text-white hover:font-bold transition-colors">
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-xs text-background/70 hover:text-primary transition-colors">
+              <Link to="/terms" className="text-xs text-background/70 hover:text-white hover:font-bold transition-colors">
                 Terms of Service
               </Link>
-              <Link to="/warranty-policy" className="text-xs text-background/70 hover:text-primary transition-colors">
+              <Link to="/warranty-policy" className="text-xs text-background/70 hover:text-white hover:font-bold transition-colors">
                 Shipping &amp; Returns
               </Link>
             </div>
