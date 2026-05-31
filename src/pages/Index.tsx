@@ -4,6 +4,7 @@ import { SEOHead, organizationJsonLd, websiteJsonLd, homepageFaqJsonLd, makeBrea
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { CertificationsBar } from "@/components/CertificationsBar";
+import { TrustedPlacesSection } from "@/components/TrustedPlacesSection";
 import { DeferredSection } from "@/components/DeferredSection";
 
 const ProblemSection = lazy(() => import("@/components/ProblemSection").then(m => ({ default: m.ProblemSection })));
@@ -65,6 +66,8 @@ const Index = () => {
       <main id="main-content" className="pb-20 md:pb-0">
         <HeroSection />
         <CertificationsBar />
+        <TrustedPlacesSection />
+
 
         <DeferredSection forceMount={hasHash} minHeight="600px" rootMargin="400px">
           <Suspense fallback={<div className="min-h-[400px]" />}>
