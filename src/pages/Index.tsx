@@ -6,7 +6,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { CertificationsBar } from "@/components/CertificationsBar";
 import { TrustedPlacesSection } from "@/components/TrustedPlacesSection";
 import { DeferredSection } from "@/components/DeferredSection";
-import { FindMySolutionQuiz } from "@/components/FindMySolutionQuiz";
+
 
 const ProblemSection = lazy(() => import("@/components/ProblemSection").then(m => ({ default: m.ProblemSection })));
 const ProductsSection = lazy(() => import("@/components/ProductsSection").then(m => ({ default: m.ProductsSection })));
