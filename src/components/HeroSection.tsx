@@ -103,7 +103,7 @@ export const HeroSection = () => {
             className="mb-10 max-w-[58ch] text-[0.95rem] font-normal leading-[1.7] sm:mb-12 sm:text-[1.05rem] sm:leading-[1.65]"
             style={{ color: "hsl(var(--foreground) / 0.78)" }}
           >
-            You take probiotics for your body. EnviroBiotics does the same for the space you live in — using beneficial bacteria, the way nature has kept the world in balance for billions of years, to clear allergens, end odors at their source, and help you breathe and sleep better. Quietly, in the background, around the clock.
+            You take probiotics for your body. EnviroBiotics does the same for the space you live in, using beneficial probiotics, the way nature has kept the world in balance for billions of years, to clear allergens, end odors at their source, and help you breathe and sleep better. Quietly, in the background, around the clock.
           </p>
 
           <div className="flex flex-col items-start gap-6 sm:gap-7">
