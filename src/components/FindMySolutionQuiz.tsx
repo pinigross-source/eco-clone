@@ -496,8 +496,13 @@ export const FindMySolutionQuiz = () => {
       <div className="container px-4 sm:px-6">
         <ScrollReveal>
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-display font-bold text-foreground">
-              Find Your Best Match
+            <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-muted-foreground mb-3 sm:mb-4">
+              Personalized Recommendation
+            </p>
+            <h2 className="font-display font-light text-foreground leading-[1.05] tracking-tight text-4xl sm:text-5xl lg:text-6xl">
+              Find Your
+              <br />
+              <span className="italic font-normal text-primary">Best Match</span>
             </h2>
           </div>
         </ScrollReveal>
