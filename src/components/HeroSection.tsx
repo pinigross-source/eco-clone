@@ -117,7 +117,7 @@ export const HeroSection = () => {
                   size="impact-md"
                   className="group h-[60px] w-full rounded-full bg-foreground px-9 text-[13px] font-bold uppercase tracking-[0.18em] text-background shadow-[0_18px_50px_-18px_hsl(var(--foreground)/0.45)] hover:bg-foreground/90 sm:h-[64px] sm:w-auto sm:px-11 sm:text-[13px]"
                 >
-                  Build My Home Protection
+                  Find Your System
                   <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
