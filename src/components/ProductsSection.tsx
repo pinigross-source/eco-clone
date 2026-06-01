@@ -2,7 +2,10 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "@/lib/link";
 import biologicMini from "@/assets/biologic-mini-nobg-new.avif";
 import biotica800 from "@/assets/shop/biotica-800.png";
-import ebioticPro from "@/assets/ebiotic-pro.avif";
+import hvacHomeAsset from "@/assets/hvac-home.avif.asset.json";
+
+const hvacHome = hvacHomeAsset.url;
+
 
 const roomOptions = [
   {
@@ -34,9 +37,10 @@ const hvacOption = {
     "Connects directly to your home's HVAC system, so your probiotics travel everywhere the air does. Completely hands-off.",
   product: "E-Biotic",
   productNote: "Integrated probiotic coverage for the entire home, refilled on schedule.",
-  image: ebioticPro,
+  image: hvacHome,
   href: "/product/ebiotic-pro",
 };
+
 
 export const ProductsSection = () => {
   return (
@@ -148,52 +152,61 @@ export const ProductsSection = () => {
 
           <Link
             to={hvacOption.href}
-            className="group relative grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] rounded-[28px] overflow-hidden bg-foreground text-background border border-foreground/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_40px_80px_-30px_hsl(var(--foreground)/0.45)]"
+            className="group relative grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] rounded-[28px] overflow-hidden text-white border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_40px_80px_-30px_rgba(255,128,54,0.5)]"
+            style={{
+              backgroundImage:
+                "linear-gradient(135deg, #ff8036 0%, #ff5a4d 45%, #ff3d8a 100%)",
+            }}
           >
-            <div className="relative aspect-[5/4] lg:aspect-auto bg-gradient-to-br from-background/10 via-background/5 to-transparent overflow-hidden flex items-center justify-center order-last lg:order-first">
+            {/* Soft glow accents */}
+            <div className="pointer-events-none absolute -top-24 -left-20 w-80 h-80 rounded-full bg-yellow-300/30 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-32 -right-20 w-96 h-96 rounded-full bg-fuchsia-500/30 blur-3xl" />
+
+            <div className="relative aspect-[5/4] lg:aspect-auto overflow-hidden flex items-center justify-center order-last lg:order-first">
               <img
                 src={hvacOption.image}
                 alt={hvacOption.product}
-                className="w-full h-full object-contain p-10 sm:p-14 transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-              <span className="absolute top-5 left-5 inline-flex items-center px-3 py-1 rounded-full bg-background/15 backdrop-blur-md text-[10px] font-semibold tracking-[0.18em] uppercase text-background border border-background/20">
+              <span className="absolute top-5 left-5 inline-flex items-center px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-semibold tracking-[0.18em] uppercase text-white border border-white/30">
                 Whole-home
               </span>
             </div>
 
-            <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-14">
-              <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.32em] uppercase text-background/60 mb-5">
+            <div className="relative flex flex-col justify-center p-8 sm:p-12 lg:p-14">
+              <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.32em] uppercase text-white/80 mb-5">
                 {hvacOption.sqft}
               </p>
               <h4 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold tracking-[-0.02em] leading-[1.05] mb-6 text-balance">
                 {hvacOption.spaceLabel}
-                <span className="block italic font-normal text-background/70 text-2xl sm:text-3xl md:text-[2rem] mt-2">
+                <span className="block italic font-normal text-white/85 text-2xl sm:text-3xl md:text-[2rem] mt-2">
                   Every room, all at once.
                 </span>
               </h4>
-              <p className="text-base sm:text-lg text-background/75 leading-relaxed mb-8 max-w-md">
+              <p className="text-base sm:text-lg text-white/90 leading-relaxed mb-8 max-w-md">
                 {hvacOption.spaceDescription}
               </p>
 
-              <div className="pt-6 border-t border-background/15">
-                <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-background/55 mb-1.5">
+              <div className="pt-6 border-t border-white/25">
+                <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-white/75 mb-1.5">
                   Paired with
                 </p>
-                <p className="font-display text-xl font-semibold tracking-tight mb-2">
+                <p className="font-display text-xl font-semibold tracking-tight mb-2 text-white">
                   {hvacOption.product}
                 </p>
-                <p className="text-sm text-background/70 leading-relaxed mb-6 max-w-md">
+                <p className="text-sm text-white/85 leading-relaxed mb-6 max-w-md">
                   {hvacOption.productNote}
                 </p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-background border-b border-background/40 group-hover:border-background pb-1 w-fit transition-colors">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-white border-b border-white/50 group-hover:border-white pb-1 w-fit transition-colors">
                   Cover my whole home
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
             </div>
           </Link>
+
 
           <p className="mt-10 text-center text-[12px] sm:text-[13px] text-muted-foreground/80 tracking-wide">
             Every option ships with an automatic probiotic refill subscription — so your space stays balanced without you thinking about it.
