@@ -152,15 +152,15 @@ export const ProductsSection = () => {
 
           <Link
             to={hvacOption.href}
-            className="group relative grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] rounded-[28px] overflow-hidden text-white border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_40px_80px_-30px_rgba(255,128,54,0.5)]"
+            className="group relative grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] rounded-[28px] overflow-hidden text-white border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_40px_80px_-30px_rgba(16,120,90,0.45)]"
             style={{
               backgroundImage:
-                "linear-gradient(135deg, #ff8036 0%, #ff5a4d 45%, #ff3d8a 100%)",
+                "linear-gradient(135deg, #0f4c3a 0%, #1a7a5e 50%, #2dd4a8 100%)",
             }}
           >
             {/* Soft glow accents */}
-            <div className="pointer-events-none absolute -top-24 -left-20 w-80 h-80 rounded-full bg-yellow-300/30 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-32 -right-20 w-96 h-96 rounded-full bg-fuchsia-500/30 blur-3xl" />
+            <div className="pointer-events-none absolute -top-24 -left-20 w-80 h-80 rounded-full bg-emerald-300/25 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-32 -right-20 w-96 h-96 rounded-full bg-teal-400/25 blur-3xl" />
 
             <div className="relative aspect-[5/4] lg:aspect-auto overflow-hidden flex items-center justify-center order-last lg:order-first">
               <img
