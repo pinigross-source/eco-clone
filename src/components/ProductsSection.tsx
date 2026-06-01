@@ -37,9 +37,10 @@ const hvacOption = {
     "Connects directly to your home's HVAC system, so your probiotics travel everywhere the air does. Completely hands-off.",
   product: "E-Biotic",
   productNote: "Integrated probiotic coverage for the entire home, refilled on schedule.",
-  image: ebioticPro,
+  image: hvacHome,
   href: "/product/ebiotic-pro",
 };
+
 
 export const ProductsSection = () => {
   return (
