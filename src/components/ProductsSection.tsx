@@ -2,7 +2,10 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "@/lib/link";
 import biologicMini from "@/assets/biologic-mini-nobg-new.avif";
 import biotica800 from "@/assets/shop/biotica-800.png";
-import ebioticPro from "@/assets/ebiotic-pro.avif";
+import hvacHomeAsset from "@/assets/hvac-home.avif.asset.json";
+
+const hvacHome = hvacHomeAsset.url;
+
 
 const roomOptions = [
   {
