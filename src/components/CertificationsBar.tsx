@@ -11,7 +11,7 @@ export const CertificationsBar = () => {
         <p className="mb-4 text-center text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
           Trusted by leading certifications
         </p>
-        <div className="mx-auto flex w-full max-w-[1240px] items-center justify-center gap-1 sm:gap-2">
+        <div className="mx-auto flex w-full max-w-[1240px] items-center justify-center gap-6 sm:gap-10 lg:gap-14">
           <img
             src={fdaLogo.url}
             alt="FDA GRAS Approved"
