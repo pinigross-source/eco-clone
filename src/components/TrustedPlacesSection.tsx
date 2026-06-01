@@ -60,7 +60,7 @@ export const TrustedPlacesSection = () => {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="max-h-full w-auto max-w-[220px] object-contain grayscale opacity-70 brightness-0 sm:max-w-[260px]"
+                  className="max-h-full w-auto max-w-[220px] object-contain sm:max-w-[260px]"
                   loading="lazy"
                   decoding="async"
                 />
