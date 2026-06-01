@@ -500,11 +500,11 @@ export const FindMySolutionQuiz = () => {
               Personalized Recommendation
             </p>
             <h2 className="font-display font-light text-foreground leading-[1.05] tracking-tight text-4xl sm:text-5xl lg:text-6xl">
-              Find Your
+              Find your system.
               <br />
-              Not an air purifier.
+              One probiotic formula.
               <br />
-              <span className="italic font-normal text-primary">your home.</span>
+              <span className="italic font-normal text-primary">Sized to your space.</span>
             </h2>
           </div>
         </ScrollReveal>
