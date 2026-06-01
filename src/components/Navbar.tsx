@@ -37,6 +37,7 @@ const navLinks: NavItem[] = [
     dropdown: [
       { label: "Room Solutions", href: "/solutions/room", icon: Home, desc: "Single-room protection" },
       { label: "HVAC / Whole Home", href: "/hvac", icon: Building2, desc: "Central air integration" },
+      { label: "For Hotels, Offices, Gyms & Clinics", href: "/business", icon: Building2, desc: "Whole-building probiotic solutions" },
     ],
   },
   { label: "Resources", href: "/resources" },

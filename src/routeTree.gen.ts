@@ -59,6 +59,7 @@ import { Route as ClarityRouteImport } from './routes/clarity'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CartRouteImport } from './routes/cart'
+import { Route as BusinessRouteImport } from './routes/business'
 import { Route as BobbyRouteImport } from './routes/bobby'
 import { Route as BetterairRebrandRouteImport } from './routes/betterair-rebrand'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -332,6 +333,11 @@ const CartRoute = CartRouteImport.update({
   path: '/cart',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessRoute = BusinessRouteImport.update({
+  id: '/business',
+  path: '/business',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BobbyRoute = BobbyRouteImport.update({
   id: '/bobby',
   path: '/bobby',
@@ -451,6 +457,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
   '/bobby': typeof BobbyRoute
+  '/business': typeof BusinessRoute
   '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/checkout': typeof CheckoutRoute
@@ -524,6 +531,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
   '/bobby': typeof BobbyRoute
+  '/business': typeof BusinessRoute
   '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/checkout': typeof CheckoutRoute
@@ -598,6 +606,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
   '/bobby': typeof BobbyRoute
+  '/business': typeof BusinessRoute
   '/cart': typeof CartRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/checkout': typeof CheckoutRoute
@@ -673,6 +682,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/betterair-rebrand'
     | '/bobby'
+    | '/business'
     | '/cart'
     | '/case-studies'
     | '/checkout'
@@ -746,6 +756,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/betterair-rebrand'
     | '/bobby'
+    | '/business'
     | '/cart'
     | '/case-studies'
     | '/checkout'
@@ -819,6 +830,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/betterair-rebrand'
     | '/bobby'
+    | '/business'
     | '/cart'
     | '/case-studies'
     | '/checkout'
@@ -893,6 +905,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   BetterairRebrandRoute: typeof BetterairRebrandRoute
   BobbyRoute: typeof BobbyRoute
+  BusinessRoute: typeof BusinessRoute
   CartRoute: typeof CartRoute
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   CheckoutRoute: typeof CheckoutRoute
@@ -1307,6 +1320,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business': {
+      id: '/business'
+      path: '/business'
+      fullPath: '/business'
+      preLoaderRoute: typeof BusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bobby': {
       id: '/bobby'
       path: '/bobby'
@@ -1491,6 +1511,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   BetterairRebrandRoute: BetterairRebrandRoute,
   BobbyRoute: BobbyRoute,
+  BusinessRoute: BusinessRoute,
   CartRoute: CartRoute,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   CheckoutRoute: CheckoutRoute,

@@ -1,5 +1,7 @@
 import { useEffect, lazy, Suspense } from "react";
 import { useLocation } from "@tanstack/react-router";
+import { Link } from "@/lib/link";
+import { ArrowRight, Building2 } from "lucide-react";
 import { SEOHead, organizationJsonLd, websiteJsonLd, homepageFaqJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
@@ -109,6 +111,31 @@ const Index = () => {
           </Suspense>
         </DeferredSection>
       </main>
+
+      {/* Commercial path — secondary band above footer */}
+      <section className="border-y border-border/60 bg-muted/30">
+        <div className="container px-4 sm:px-6 max-w-6xl mx-auto py-10 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-start gap-4 text-center md:text-left">
+            <div className="hidden md:flex w-11 h-11 rounded-xl bg-primary/10 items-center justify-center flex-shrink-0">
+              <Building2 className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-foreground/60 mb-1.5">For Business</p>
+              <p className="text-lg md:text-xl font-medium text-foreground text-balance">
+                Run a business? See whole-building probiotic solutions.
+              </p>
+            </div>
+          </div>
+          <Link
+            to="/business"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background text-sm font-medium hover:bg-foreground/90 transition-colors whitespace-nowrap"
+          >
+            For Hotels, Offices, Gyms & Clinics
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
       <DeferredSection forceMount={hasHash} minHeight="200px" rootMargin="200px">
         <Suspense fallback={null}>
           <Footer />
