@@ -58,21 +58,21 @@ export const HeroSection = () => {
         className="absolute inset-0 z-[2] sm:hidden"
         style={{
           background:
-            "linear-gradient(180deg, hsl(var(--background) / 0.92) 0%, hsl(var(--background) / 0.55) 45%, transparent 75%)",
+            "linear-gradient(180deg, hsl(var(--background) / 0.96) 0%, hsl(var(--background) / 0.75) 55%, hsl(var(--background) / 0.3) 85%)",
         }}
       />
       <div
         className="absolute inset-0 z-[2] hidden sm:block lg:hidden"
         style={{
           background:
-            "linear-gradient(95deg, hsl(var(--background) / 0.95) 0%, hsl(var(--background) / 0.7) 30%, transparent 55%)",
+            "linear-gradient(95deg, hsl(var(--background) / 0.97) 0%, hsl(var(--background) / 0.85) 40%, hsl(var(--background) / 0.35) 65%, transparent 85%)",
         }}
       />
       <div
         className="absolute inset-0 z-[2] hidden lg:block"
         style={{
           background:
-            "linear-gradient(95deg, hsl(var(--background) / 0.96) 0%, hsl(var(--background) / 0.9) 32%, hsl(var(--background) / 0.55) 50%, transparent 68%)",
+            "linear-gradient(95deg, hsl(var(--background) / 0.98) 0%, hsl(var(--background) / 0.95) 38%, hsl(var(--background) / 0.75) 55%, hsl(var(--background) / 0.25) 75%, transparent 90%)",
         }}
       />
       <div
@@ -80,9 +80,10 @@ export const HeroSection = () => {
         className="pointer-events-none absolute inset-0 z-[2] hidden lg:block"
         style={{
           background:
-            "radial-gradient(55% 65% at 22% 50%, hsl(var(--background) / 0.7) 0%, transparent 70%)",
+            "radial-gradient(60% 70% at 22% 50%, hsl(var(--background) / 0.85) 0%, transparent 72%)",
         }}
       />
+
 
       <ParticleField className="absolute inset-0 z-[3] h-full w-full" />
 
@@ -100,11 +101,12 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mb-10 max-w-[58ch] text-[0.95rem] font-normal leading-[1.7] sm:mb-12 sm:text-[1.05rem] sm:leading-[1.65]"
-            style={{ color: "hsl(var(--foreground) / 0.78)" }}
+            className="mb-10 max-w-[58ch] text-[1rem] font-normal leading-[1.7] sm:mb-12 sm:text-[1.1rem] sm:leading-[1.65]"
+            style={{ color: "hsl(var(--foreground) / 0.92)" }}
           >
             You take probiotics for your body. EnviroBiotics does the same for the space you live in, using beneficial probiotics, the way nature has kept the world in balance for billions of years, to clear allergens, end odors at their source, and help you breathe and sleep better. Quietly, in the background, around the clock.
           </p>
+
 
           <div className="flex flex-col items-start gap-6 sm:gap-7">
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
@@ -138,9 +140,10 @@ export const HeroSection = () => {
             </div>
 
             <ul
-              className="flex flex-nowrap items-center gap-x-3 sm:gap-x-4 text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap"
-              style={{ color: "hsl(var(--foreground) / 0.65)" }}
+              className="flex flex-nowrap items-center gap-x-3 sm:gap-x-4 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap"
+              style={{ color: "hsl(var(--foreground) / 0.85)" }}
             >
+
               <li>Safe for kids &amp; pets</li>
               <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
               <li>EPA Registered</li>
