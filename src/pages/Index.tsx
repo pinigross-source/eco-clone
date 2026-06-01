@@ -94,7 +94,7 @@ const Index = () => {
           </Suspense>
         </DeferredSection>
 
-        <FindMySolutionQuiz />
+
 
         <DeferredSection forceMount={hasHash} minHeight="400px" rootMargin="200px">
           <Suspense fallback={<div className="min-h-[200px]" />}>
