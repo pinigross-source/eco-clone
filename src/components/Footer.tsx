@@ -104,7 +104,7 @@ export const Footer = () => {
             <div className="flex flex-wrap gap-4">
               {trustBadges.map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-2 text-sm text-background/80">
-                  <Icon className="h-4 w-4 text-primary" />
+                  <Icon className="h-4 w-4 text-background" />
                   <span>{label}</span>
                 </div>
               ))}
