@@ -15,7 +15,7 @@ const surfaces = [
 
 
 const cards = [
-  { title: "Air Purifiers", text: "Air filters trap the air they can suck. They do not reach contaminants that are not airborne — settled on bedding, carpets, fabrics and other objects, including those in pets' areas.", coverage: "Air only", duration: "When running", icon: Wind, highlight: false },
+  { title: "Air Purifiers", text: "Air filters trap the air they can suck. They do not reach contaminants that are not airborne. Settled on bedding, carpets, fabrics and other objects, including those in pets' areas.", coverage: "Air only", duration: "When running", icon: Wind, highlight: false },
   { title: "Detergents & Disinfecting Spray", text: "Evaporate quickly. Do not reach hidden places. Disallowed on delicate objects. Foster germ resistance.", coverage: "Spot treatment", duration: "Minutes", icon: Droplets, highlight: false },
   { title: "EnviroBiotics", text: "24/7 automated protection by healthy microbial restoration.", coverage: "Everything; Surfaces · Objects · Air", duration: "Continuous", icon: Leaf, highlight: true },
 ];
@@ -52,7 +52,7 @@ export const ProblemSection = () => {
             <div className="lg:col-span-4 lg:pb-3">
               <span className="hidden lg:block h-px w-10 bg-foreground/15 mb-5" />
               <p className="text-base sm:text-[1.05rem] text-foreground/80 leading-[1.65] max-w-md">
-                Air purifiers move air. Sprays mask odors. Both stop where the real problem lives — on the surfaces and fabrics you touch every day. EnviroBiotics works there.
+                Air purifiers move air. Sprays mask odors. Both stop where the real problem lives on the surfaces and fabrics you touch every day. EnviroBiotics works there.
               </p>
             </div>
           </div>
@@ -174,7 +174,7 @@ export const ProblemSection = () => {
                   <figcaption className="space-y-6">
                     <div>
                       <span className="text-[10px] uppercase tracking-[0.28em] text-foreground/40 font-semibold mb-2 block tabular-nums">
-                        0{idx + 1} — {surface.category}
+                        0{idx + 1}. {surface.category}
                       </span>
                       <h4 className="font-display text-[1.35rem] sm:text-[1.45rem] font-medium text-foreground tracking-[-0.015em] leading-tight">
                         {surface.label}
