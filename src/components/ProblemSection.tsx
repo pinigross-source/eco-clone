@@ -139,8 +139,8 @@ export const ProblemSection = () => {
                 Where It Settles
               </span>
               <h3 className="font-display font-normal text-foreground leading-[1.05] tracking-[-0.025em] text-[2.5rem] sm:text-[3.25rem] lg:text-[4rem]">
-                EnviroBiotics reach and clean where{" "}
-                <em className="italic font-normal text-heading-accent">no other product does.</em>
+                EnviroBiotics reach where{" "}
+                <em className="italic font-normal text-heading-accent">no other product can.</em>
               </h3>
             </div>
             <div className="max-w-xs">
