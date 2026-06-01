@@ -98,7 +98,7 @@ export const HeroSection = () => {
             className="mb-7 font-sans font-bold tracking-[-0.04em] text-[2.25rem] leading-[1.05] sm:mb-9 sm:text-[clamp(2.5rem,5.5vw,4.25rem)] sm:leading-[1.02]"
             style={{ color: "hsl(var(--foreground))" }}
           >
-            Not a cleaner. Not an air purifier. Probiotics for your home.
+            Your Health. Your Choice.
           </h1>
 
           <p
