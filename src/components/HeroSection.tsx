@@ -96,29 +96,14 @@ export const HeroSection = () => {
             className="mb-7 font-sans font-bold tracking-[-0.04em] text-[2.25rem] leading-[1.05] sm:mb-9 sm:text-[clamp(2.5rem,5.5vw,4.25rem)] sm:leading-[1.02]"
             style={{ color: "hsl(var(--foreground))" }}
           >
-            Sickness of our Indoor environments makes us sick.
+            Not a cleaner. Not an air purifier. A probiotic for your home.
           </h1>
-
-          <ul
-            className="mb-8 space-y-2 text-[1rem] font-semibold tracking-[-0.005em] sm:text-[1.15rem]"
-            style={{ color: "hsl(var(--foreground))" }}
-          >
-            <li>Allergies. Headaches. Depression. Sleeping Disorders. Fatigue.</li>
-            <li>A weaker Immune system that struggles to protect.</li>
-            <li className="font-normal" style={{ color: "hsl(var(--foreground) / 0.78)" }}>
-              Air filters, detergents, UV radiation do little.
-            </li>
-            <li style={{ color: "hsl(var(--primary))" }}>You need EnviroBiotics.</li>
-          </ul>
 
           <p
             className="mb-10 max-w-[58ch] text-[0.95rem] font-normal leading-[1.7] sm:mb-12 sm:text-[1.05rem] sm:leading-[1.65]"
             style={{ color: "hsl(var(--foreground) / 0.78)" }}
           >
-            <span className="font-semibold" style={{ color: "hsl(var(--foreground))" }}>
-              Allergens cause more than Allergies.
-            </span>{" "}
-            Dust mites, pet dander, mold spores, pollen and odor-causing germs settle on the surfaces your air purifier cannot reach. EnviroBiotics Does.
+            You take probiotics for your body. EnviroBiotics does the same for the space you live in — using beneficial bacteria, the way nature has kept the world in balance for billions of years, to clear allergens, end odors at their source, and help you breathe and sleep better. Quietly, in the background, around the clock.
           </p>
 
           <div className="flex flex-col items-start gap-6 sm:gap-7">
@@ -132,7 +117,7 @@ export const HeroSection = () => {
                   size="impact-md"
                   className="group h-[60px] w-full rounded-full bg-foreground px-9 text-[13px] font-bold uppercase tracking-[0.18em] text-background shadow-[0_18px_50px_-18px_hsl(var(--foreground)/0.45)] hover:bg-foreground/90 sm:h-[64px] sm:w-auto sm:px-11 sm:text-[13px]"
                 >
-                  Build My Home Protection
+                  Find Your System
                   <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
