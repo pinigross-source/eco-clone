@@ -21,7 +21,7 @@ const defaultProducts: RecommendedProduct[] = [
     price: "$98",
     coverage: "Up to 300 sq ft",
     image: biologicMiniImg,
-    alt: "BioLogic Mini Probiotic Surface Purifier by EnviroBiotics — compact room purifier",
+    alt: "BioLogic Mini Probiotic Surface Purifier by EnviroBiotics compact room purifier",
   },
   {
     name: "Biotica 800",
@@ -29,7 +29,7 @@ const defaultProducts: RecommendedProduct[] = [
     price: "$299",
     coverage: "Up to 800 sq ft",
     image: biotica800Img,
-    alt: "Biotica 800 Probiotic Air Purifier by EnviroBiotics — continuous environmental probiotic dispersion",
+    alt: "Biotica 800 Probiotic Air Purifier by EnviroBiotics continuous environmental probiotic dispersion",
   },
   {
     name: "BA-2080",
@@ -37,7 +37,7 @@ const defaultProducts: RecommendedProduct[] = [
     price: "$995",
     coverage: "Up to 2,600 sq ft",
     image: ba2080Img,
-    alt: "BA-2080 Advanced Probiotic Air Purification System by EnviroBiotics — 2,600 sq ft coverage",
+    alt: "BA-2080 Advanced Probiotic Air Purification System by EnviroBiotics 2,600 sq ft coverage",
   },
 ];
 
