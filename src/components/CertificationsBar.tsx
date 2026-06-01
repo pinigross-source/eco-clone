@@ -24,7 +24,7 @@ export const CertificationsBar = () => {
             alt="EPA Registered, AllergyUK, PTPA, ISO 9001, Italian Certification, Chilean Certification"
             width={1120}
             height={300}
-            className="-ml-4 w-full max-w-[1120px] h-auto object-contain [image-rendering:auto] sm:-ml-5 lg:-ml-6"
+            className="-ml-6 w-full max-w-[1120px] h-auto object-contain [image-rendering:auto] sm:-ml-7 lg:-ml-8"
             loading="lazy"
             decoding="async"
           />
