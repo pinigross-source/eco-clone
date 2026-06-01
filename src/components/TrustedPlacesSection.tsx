@@ -3,8 +3,15 @@ import caSchool from "@/assets/clients/ca-school.png";
 import cityOfDreams from "@/assets/clients/city-of-dreams.png";
 import ganther from "@/assets/clients/ganther.png";
 import grandHyatt from "@/assets/clients/grand-hyatt.png";
-import iconsGroup from "@/assets/clients/icons-group.png";
 import medone from "@/assets/clients/medone.png";
+import brooklynNets from "@/assets/clients/brooklyn-nets.svg.asset.json";
+import cbre from "@/assets/clients/cbre.png.asset.json";
+import kempegowda from "@/assets/clients/kempegowda.png.asset.json";
+import theHari from "@/assets/clients/the-hari.png.asset.json";
+import imgAcademy from "@/assets/clients/img-academy.png.asset.json";
+import morpheusCodNuwa from "@/assets/clients/morpheus-cod-nuwa.png.asset.json";
+import carePartners from "@/assets/clients/care-partners.png.asset.json";
+import melco from "@/assets/clients/melco.png.asset.json";
 
 const logos = [
   { src: grandHyatt, alt: "Grand Hyatt" },
@@ -12,7 +19,14 @@ const logos = [
   { src: caSchool, alt: "Canadian International School of Hong Kong" },
   { src: medone, alt: "MedOne" },
   { src: ganther, alt: "Ganther" },
-  { src: iconsGroup, alt: "Melco, The Hari, Kempegowda International Airport, Brooklyn Nets, Wheelock Properties, Harriman, Care Partners, IMG Academy, Morpheus, COD Macau, CBRE, Waihong Services Group, Nüwa, Citygate Outlets" },
+  { src: melco.url, alt: "Melco" },
+  { src: cbre.url, alt: "CBRE" },
+  { src: theHari.url, alt: "The Hari Hong Kong" },
+  { src: imgAcademy.url, alt: "IMG Academy" },
+  { src: kempegowda.url, alt: "Kempegowda International Airport Bengaluru" },
+  { src: carePartners.url, alt: "Care Partners Country Terrace" },
+  { src: morpheusCodNuwa.url, alt: "Morpheus, COD Macau, Nüwa" },
+  { src: brooklynNets.url, alt: "Brooklyn Nets" },
 ];
 
 const track = [...logos, ...logos];
@@ -46,7 +60,7 @@ export const TrustedPlacesSection = () => {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="max-h-full w-auto max-w-[220px] object-contain sm:max-w-[260px]"
+                  className="max-h-full w-auto max-w-[220px] object-contain grayscale opacity-70 brightness-0 sm:max-w-[260px]"
                   loading="lazy"
                   decoding="async"
                 />
