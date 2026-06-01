@@ -72,7 +72,8 @@ export const Footer = () => {
             {trustBadges.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-2 text-sm text-background/80">
                 <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                  <Icon className="h-4 w-4 text-primary" />
+                  <Icon className="h-4 w-4 text-background" />
+
                 </div>
                 <span className="text-background/80">{label}</span>
               </div>
