@@ -15,7 +15,7 @@ export const CertificationsBar = () => {
           <img
             src={fdaLogo.url}
             alt="FDA GRAS Approved"
-            className="h-10 w-auto shrink-0 sm:h-12 lg:h-14 object-contain"
+            className="h-16 w-auto shrink-0 sm:h-20 lg:h-24 object-contain"
             loading="lazy"
             decoding="async"
           />
