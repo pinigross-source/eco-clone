@@ -58,21 +58,21 @@ export const HeroSection = () => {
         className="absolute inset-0 z-[2] sm:hidden"
         style={{
           background:
-            "linear-gradient(180deg, hsl(var(--background) / 0.92) 0%, hsl(var(--background) / 0.55) 45%, transparent 75%)",
+            "linear-gradient(180deg, hsl(var(--background) / 0.96) 0%, hsl(var(--background) / 0.75) 55%, hsl(var(--background) / 0.3) 85%)",
         }}
       />
       <div
         className="absolute inset-0 z-[2] hidden sm:block lg:hidden"
         style={{
           background:
-            "linear-gradient(95deg, hsl(var(--background) / 0.95) 0%, hsl(var(--background) / 0.7) 30%, transparent 55%)",
+            "linear-gradient(95deg, hsl(var(--background) / 0.97) 0%, hsl(var(--background) / 0.85) 40%, hsl(var(--background) / 0.35) 65%, transparent 85%)",
         }}
       />
       <div
         className="absolute inset-0 z-[2] hidden lg:block"
         style={{
           background:
-            "linear-gradient(95deg, hsl(var(--background) / 0.96) 0%, hsl(var(--background) / 0.9) 32%, hsl(var(--background) / 0.55) 50%, transparent 68%)",
+            "linear-gradient(95deg, hsl(var(--background) / 0.98) 0%, hsl(var(--background) / 0.95) 38%, hsl(var(--background) / 0.75) 55%, hsl(var(--background) / 0.25) 75%, transparent 90%)",
         }}
       />
       <div
@@ -80,9 +80,10 @@ export const HeroSection = () => {
         className="pointer-events-none absolute inset-0 z-[2] hidden lg:block"
         style={{
           background:
-            "radial-gradient(55% 65% at 22% 50%, hsl(var(--background) / 0.7) 0%, transparent 70%)",
+            "radial-gradient(60% 70% at 22% 50%, hsl(var(--background) / 0.85) 0%, transparent 72%)",
         }}
       />
+
 
       <ParticleField className="absolute inset-0 z-[3] h-full w-full" />
 
