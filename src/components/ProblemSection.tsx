@@ -44,17 +44,15 @@ export const ProblemSection = () => {
                 </p>
               </div>
               <h2 className="font-display font-semibold text-foreground text-balance leading-[1.02] tracking-[-0.035em] text-[2.5rem] sm:text-[3.25rem] md:text-[4rem] lg:text-[4.5rem]">
-                Solving the Root Cause of{" "}
-                <em className="not-italic text-heading-accent">Building Sickness.</em>
+                The problem was never the air.{" "}
+                <em className="not-italic text-heading-accent">It's the surfaces.</em>
               </h2>
 
             </div>
             <div className="lg:col-span-4 lg:pb-3">
               <span className="hidden lg:block h-px w-10 bg-foreground/15 mb-5" />
               <p className="text-base sm:text-[1.05rem] text-foreground/80 leading-[1.65] max-w-md">
-                Air filters clean the air that passes through them. The allergens and
-                odor-causing bacteria that bother you most are already settled, on
-                bedding, carpets, furniture, and pet areas.
+                Air purifiers move air. Sprays mask odors. Both stop where the real problem lives — on the surfaces and fabrics you touch every day. EnviroBiotics works there.
               </p>
             </div>
           </div>
