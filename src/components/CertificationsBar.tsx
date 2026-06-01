@@ -11,7 +11,7 @@ export const CertificationsBar = () => {
         <p className="mb-4 text-center text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
           Trusted by leading certifications
         </p>
-        <div className="mx-auto flex w-full max-w-[1240px] items-center justify-center gap-2 sm:gap-3 lg:gap-4">
+        <div className="mx-auto flex w-full max-w-[1240px] items-center justify-center gap-0">
           <img
             src={fdaLogo.url}
             alt="FDA GRAS Approved"
@@ -24,7 +24,7 @@ export const CertificationsBar = () => {
             alt="EPA Registered, AllergyUK, PTPA, ISO 9001, Italian Certification, Chilean Certification"
             width={1120}
             height={300}
-            className="w-full max-w-[1120px] h-auto object-contain [image-rendering:auto]"
+            className="-ml-4 w-full max-w-[1120px] h-auto object-contain [image-rendering:auto] sm:-ml-5 lg:-ml-6"
             loading="lazy"
             decoding="async"
           />
