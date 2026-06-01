@@ -140,9 +140,10 @@ export const HeroSection = () => {
             </div>
 
             <ul
-              className="flex flex-nowrap items-center gap-x-3 sm:gap-x-4 text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap"
-              style={{ color: "hsl(var(--foreground) / 0.65)" }}
+              className="flex flex-nowrap items-center gap-x-3 sm:gap-x-4 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap"
+              style={{ color: "hsl(var(--foreground) / 0.85)" }}
             >
+
               <li>Safe for kids &amp; pets</li>
               <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
               <li>EPA Registered</li>
