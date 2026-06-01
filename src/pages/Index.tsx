@@ -66,14 +66,14 @@ const Index = () => {
       <main id="main-content" className="pb-20 md:pb-0">
         <HeroSection />
         <CertificationsBar />
-        <TrustedPlacesSection />
-
 
         <DeferredSection forceMount={hasHash} minHeight="600px" rootMargin="400px">
           <Suspense fallback={<div className="min-h-[400px]" />}>
             <ProblemSection />
           </Suspense>
         </DeferredSection>
+
+        <TrustedPlacesSection />
 
         <DeferredSection forceMount={hasHash} minHeight="500px" rootMargin="400px">
           <Suspense fallback={<div className="min-h-[400px]" />}>
