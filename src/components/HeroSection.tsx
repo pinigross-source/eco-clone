@@ -95,7 +95,7 @@ export const HeroSection = () => {
         <div className="max-w-3xl text-left lg:max-w-[720px]">
 
           <h1
-            className="mb-2 font-sans font-bold tracking-[-0.04em] text-[2.6rem] leading-[1.05] sm:mb-3 sm:text-[clamp(3.2rem,5.5vw,5rem)] sm:leading-[1.02]"
+            className="mb-2 whitespace-nowrap font-sans font-bold tracking-[-0.04em] text-[1.6rem] leading-[1.05] sm:mb-3 sm:text-[clamp(2rem,4.2vw,4rem)] sm:leading-[1.02]"
             style={{ color: "hsl(var(--foreground))" }}
           >
             Your Health. Your Choice.
