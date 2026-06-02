@@ -103,7 +103,7 @@ export const HeroSection = () => {
           </div>
 
           <h1
-            className="mb-4 whitespace-nowrap font-sans font-bold tracking-[-0.04em] text-[2.4rem] leading-[1] sm:mb-5 sm:text-[clamp(3.5rem,6vw,6rem)] sm:leading-[0.96]"
+            className="mb-4 whitespace-nowrap font-sans font-bold tracking-[-0.04em] text-[2rem] leading-[1] sm:mb-5 sm:text-[clamp(2.5rem,4.5vw,4.5rem)] sm:leading-[0.96]"
             style={{ color: "hsl(var(--foreground))" }}
           >
             Your Health. Your Choice.
@@ -117,7 +117,7 @@ export const HeroSection = () => {
           </p>
 
           <p
-            className="mb-10 max-w-[54ch] text-[0.92rem] font-light leading-[1.65] tracking-[0] sm:mb-12 sm:text-[1rem]"
+            className="mb-10 max-w-[54ch] text-[1rem] font-light leading-[1.65] tracking-[0] sm:mb-12 sm:text-[1.125rem]"
             style={{ color: "hsl(var(--foreground) / 0.72)" }}
           >
             You track your food, train your body, and protect your sleep, yet spend 95% of your time in spaces you've never once treated. Your indoor environment is a living ecosystem. And like your gut, it can be rebalanced.
