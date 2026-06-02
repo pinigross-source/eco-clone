@@ -102,54 +102,38 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mb-5 text-[1.25rem] sm:text-[1.45rem] font-medium leading-[1.35] tracking-[-0.01em]"
+            className="mb-4 max-w-[52ch] text-[1.1rem] sm:text-[1.3rem] font-medium leading-[1.45] tracking-[-0.01em]"
             style={{ color: "hsl(var(--primary))" }}
           >
-            We invest a lot in healthy food, hours in getting in physical shape.
-            We spare no effort, time and money to empower our health and wellbeing.
-          </p>
-
-          <p
-            className="mb-4 max-w-[52ch] text-[1.05rem] font-normal leading-[1.55] sm:text-[1.2rem] sm:leading-[1.5]"
-            style={{ color: "hsl(var(--foreground) / 0.96)" }}
-          >
-            But we ignore equally important tool that impact our wellbeing &amp; health. The health of our indoor environments where we spent 95% of our time
-          </p>
-
-          <p
-            className="mb-4 max-w-[52ch] text-[1.05rem] font-normal leading-[1.55] sm:text-[1.2rem] sm:leading-[1.5]"
-            style={{ color: "hsl(var(--foreground) / 0.96)" }}
-          >
-            Indoors are delicate eco-systems. They can be biologically rebalanced and restore. By well applied biological science
+            You track your food, train your body, and protect your sleep — yet spend 95% of your time in spaces you've never once treated. Your indoor environment is a living ecosystem. And like your gut, it can be rebalanced.
           </p>
 
           <p
             className="mb-10 max-w-[52ch] text-[1.05rem] font-normal leading-[1.55] sm:text-[1.2rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
-            Like probiotics that rebalance our bodies, discover the probiotics that heal your environment.
+            Meet the probiotic for your home.
           </p>
-
 
           <div className="flex flex-col items-start gap-6 sm:gap-7">
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
               <a
-                href="#find-my-solution"
-                onClick={() => trackEvent("click_review_best_option")}
+                href="/how-it-works"
+                onClick={() => trackEvent("click_discover_how_it_works")}
                 className="w-full sm:w-auto"
               >
                 <Button
                   size="impact-md"
                   className="group h-[64px] w-full rounded-full bg-foreground px-9 text-[14px] font-bold uppercase tracking-[0.18em] text-background shadow-[0_18px_50px_-18px_hsl(var(--foreground)/0.45)] hover:bg-foreground/90 sm:h-[68px] sm:w-auto sm:px-12 sm:text-[15px]"
                 >
-                  Find Your System
+                  Discover How It Works
                   <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
 
               <a
-                href="/how-it-works"
-                onClick={() => trackEvent("click_watch_how_it_works")}
+                href="#find-my-solution"
+                onClick={() => trackEvent("click_find_your_system")}
                 className="w-full sm:w-auto"
               >
                 <Button
@@ -157,7 +141,7 @@ export const HeroSection = () => {
                   size="impact-md"
                   className="h-[64px] w-full rounded-full border-foreground/25 bg-transparent px-9 text-[14px] font-semibold uppercase tracking-[0.18em] text-foreground hover:bg-foreground/5 sm:h-[68px] sm:w-auto sm:px-12 sm:text-[15px]"
                 >
-                  Watch How It Works
+                  Find Your System
                 </Button>
               </a>
             </div>
