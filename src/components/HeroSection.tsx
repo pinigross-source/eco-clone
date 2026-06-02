@@ -95,43 +95,43 @@ export const HeroSection = () => {
         <div className="max-w-3xl text-left lg:max-w-[640px]">
 
           <h1
-            className="mb-3 font-sans font-bold tracking-[-0.04em] text-[2.25rem] leading-[1.05] sm:mb-4 sm:text-[clamp(2.5rem,5.5vw,4.25rem)] sm:leading-[1.02]"
+            className="mb-3 font-sans font-bold tracking-[-0.04em] text-[2.75rem] leading-[1.05] sm:mb-4 sm:text-[clamp(3rem,6vw,5rem)] sm:leading-[1.02]"
             style={{ color: "hsl(var(--foreground))" }}
           >
             Your Health. Your Choice.
           </h1>
 
           <p
-            className="mb-6 text-[1.15rem] sm:text-[1.3rem] font-medium leading-[1.4] tracking-[-0.01em]"
+            className="mb-6 text-[1.35rem] sm:text-[1.55rem] font-medium leading-[1.4] tracking-[-0.01em]"
             style={{ color: "hsl(var(--primary))" }}
           >
             Get healthier, Live Better.
           </p>
 
           <p
-            className="mb-6 max-w-[58ch] text-[1rem] font-normal leading-[1.7] sm:text-[1.05rem] sm:leading-[1.65]"
-            style={{ color: "hsl(var(--foreground) / 0.92)" }}
+            className="mb-6 max-w-[56ch] text-[1.1rem] font-normal leading-[1.65] sm:text-[1.2rem] sm:leading-[1.6]"
+            style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
             Urbanization creates comfort, but it comes at a cost of disturbing the natural microbial balance that is critical for our health. For the first time ever, you have a choice and an affordable means to restore health in a way nature keeps eco-balance on our planet. EnviroBiotics expands the use of probiotics to assist with the restoration of re-balancing of our entire indoor spaces where we spend 95% of our time.
           </p>
 
           <p
-            className="mb-4 max-w-[58ch] text-[1rem] font-normal leading-[1.7] sm:text-[1.05rem] sm:leading-[1.65]"
-            style={{ color: "hsl(var(--foreground) / 0.92)" }}
+            className="mb-4 max-w-[56ch] text-[1.1rem] font-normal leading-[1.65] sm:text-[1.2rem] sm:leading-[1.6]"
+            style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
             When you allow the healing of your indoor space, you empower your own health and well-being.
           </p>
 
           <p
-            className="mb-2 max-w-[58ch] text-[0.95rem] font-semibold leading-[1.5] sm:text-[1rem]"
-            style={{ color: "hsl(var(--foreground) / 0.88)" }}
+            className="mb-2 max-w-[56ch] text-[1.05rem] font-semibold leading-[1.5] sm:text-[1.15rem]"
+            style={{ color: "hsl(var(--foreground) / 0.92)" }}
           >
             Completely Safe, Effective, the way Nature does
           </p>
 
           <p
-            className="mb-10 max-w-[58ch] text-[0.95rem] font-normal leading-[1.5] italic sm:text-[1rem]"
-            style={{ color: "hsl(var(--foreground) / 0.75)" }}
+            className="mb-10 max-w-[56ch] text-[1.05rem] font-normal leading-[1.5] italic sm:text-[1.15rem]"
+            style={{ color: "hsl(var(--foreground) / 0.85)" }}
           >
             Nor filtering the air alone, nor disinfecting the targeted area, but a holistic system that automatically fixes all
           </p>
@@ -146,7 +146,7 @@ export const HeroSection = () => {
               >
                 <Button
                   size="impact-md"
-                  className="group h-[60px] w-full rounded-full bg-foreground px-9 text-[13px] font-bold uppercase tracking-[0.18em] text-background shadow-[0_18px_50px_-18px_hsl(var(--foreground)/0.45)] hover:bg-foreground/90 sm:h-[64px] sm:w-auto sm:px-11 sm:text-[13px]"
+                  className="group h-[64px] w-full rounded-full bg-foreground px-9 text-[14px] font-bold uppercase tracking-[0.18em] text-background shadow-[0_18px_50px_-18px_hsl(var(--foreground)/0.45)] hover:bg-foreground/90 sm:h-[68px] sm:w-auto sm:px-12 sm:text-[15px]"
                 >
                   Find Your System
                   <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -161,7 +161,7 @@ export const HeroSection = () => {
                 <Button
                   variant="outline"
                   size="impact-md"
-                  className="h-[60px] w-full rounded-full border-foreground/25 bg-transparent px-9 text-[13px] font-semibold uppercase tracking-[0.18em] text-foreground hover:bg-foreground/5 sm:h-[64px] sm:w-auto sm:px-11"
+                  className="h-[64px] w-full rounded-full border-foreground/25 bg-transparent px-9 text-[14px] font-semibold uppercase tracking-[0.18em] text-foreground hover:bg-foreground/5 sm:h-[68px] sm:w-auto sm:px-12 sm:text-[15px]"
                 >
                   Watch How It Works
                 </Button>
@@ -169,19 +169,19 @@ export const HeroSection = () => {
             </div>
 
             <ul
-              className="flex flex-nowrap items-center gap-x-3 sm:gap-x-4 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap"
-              style={{ color: "hsl(var(--foreground) / 0.85)" }}
+              className="flex flex-nowrap items-center gap-x-3 sm:gap-x-4 text-[11px] sm:text-[13px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap"
+              style={{ color: "hsl(var(--foreground) / 0.9)" }}
             >
 
               <li>Safe for kids &amp; pets</li>
-              <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
+              <li aria-hidden="true" className="h-3 w-px bg-foreground/25" />
               <li>EPA Registered</li>
-              <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
+              <li aria-hidden="true" className="h-3 w-px bg-foreground/25" />
               <li>FDA GRAS</li>
-              <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
+              <li aria-hidden="true" className="h-3 w-px bg-foreground/25" />
               <li className="flex items-center gap-1.5">
                 <span style={{ color: "hsl(var(--primary))" }}>4.8★</span>
-                <span className="font-light opacity-85">Verified reviews</span>
+                <span className="font-light opacity-90">Verified reviews</span>
               </li>
             </ul>
           </div>
