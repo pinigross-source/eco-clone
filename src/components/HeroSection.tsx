@@ -133,7 +133,7 @@ export const HeroSection = () => {
             className="mb-10 max-w-[56ch] text-[1.05rem] font-normal leading-[1.5] italic sm:text-[1.15rem]"
             style={{ color: "hsl(var(--foreground) / 0.85)" }}
           >
-            Not just filtering the air. Not just disinfecting one surface. A holistic system that protects every part of your space — automatically.
+            Not just filtering the air. Not just disinfecting one surface. A holistic system that protects every part of your space automatically.
           </p>
 
 
