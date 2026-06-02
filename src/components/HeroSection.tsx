@@ -98,22 +98,30 @@ export const HeroSection = () => {
             className="mb-3 font-sans font-bold tracking-[-0.04em] text-[3.5rem] leading-[1.02] sm:mb-5 sm:text-[clamp(4.5rem,8vw,7.5rem)] sm:leading-[0.98]"
             style={{ color: "hsl(var(--foreground))" }}
           >
-            Your health.<br />
-            Your choice.
+            Your Health.<br />
+            Your Choice.
           </h1>
 
           <p
             className="mb-8 text-[1.6rem] sm:text-[1.9rem] font-medium leading-[1.35] tracking-[-0.01em]"
             style={{ color: "hsl(var(--primary))" }}
           >
-            Get healthier. Live better.
+            We invest a lot in healthy food, hours in getting in physical shape.
+            We spare no effort, time and money to empower our health and wellbeing.
+          </p>
+
+          <p
+            className="mb-6 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
+            style={{ color: "hsl(var(--foreground) / 0.96)" }}
+          >
+            What if you discover a new tool that may equally contribute to fostering your health but does not require sweat, time and money ?
           </p>
 
           <p
             className="mb-12 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
-            The spaces where you spend 95% of your life shape your health. EnviroBiotics uses <span className="font-bold" style={{ color: "hsl(var(--primary))" }}>nature's own probiotics</span> to rebalance them, safely, and automatically.
+            Life offers gifts if one is ready to accept. Get ready to exploit the magical microscopic world of EnviroBiotics where billion of tiny creatures standing by to empower your immune system, and chase away allergens, germs and bad odors ?
           </p>
 
 
