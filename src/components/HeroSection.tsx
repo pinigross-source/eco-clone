@@ -114,14 +114,21 @@ export const HeroSection = () => {
             className="mb-6 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
-            What if you discover a new tool that may equally contribute to fostering your health but does not require sweat, time and money ?
+            But we ignore equally important tool that impact our wellbeing &amp; health. The health of our indoor environments where we spent 95% of our time
+          </p>
+
+          <p
+            className="mb-6 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
+            style={{ color: "hsl(var(--foreground) / 0.96)" }}
+          >
+            Indoors are delicate eco-systems. They can be biologically rebalanced and restore. By well applied biological science
           </p>
 
           <p
             className="mb-12 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
-            Life offers gifts if one is ready to accept. Get ready to exploit the magical microscopic world of EnviroBiotics where billion of tiny creatures standing by to empower your immune system, and chase away allergens, germs and bad odors ?
+            Like probiotics that rebalance our bodies, discover the probiotics that heal your environment.
           </p>
 
 
