@@ -113,7 +113,7 @@ export const HeroSection = () => {
             className="mb-12 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
-            Modern indoor living quietly disrupts the microbial balance your health depends on. EnviroBiotics restores it, <span className="font-bold" style={{ color: "hsl(var(--primary))" }}>the way nature does.</span>
+            The spaces where you spend 95% of your life shape your health. EnviroBiotics uses nature's own probiotics to rebalance them, safely, and automatically.
           </p>
 
 
