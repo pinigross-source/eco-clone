@@ -95,7 +95,7 @@ export const HeroSection = () => {
         <div className="max-w-3xl text-left lg:max-w-[760px]">
 
           <div
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] backdrop-blur-sm sm:text-[12px]"
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] backdrop-blur-sm sm:text-[11px]"
             style={{ color: "hsl(var(--foreground) / 0.85)" }}
           >
             <span className="h-1.5 w-1.5 rounded-full" style={{ background: "hsl(var(--primary))" }} />
@@ -103,21 +103,21 @@ export const HeroSection = () => {
           </div>
 
           <h1
-            className="mb-5 whitespace-nowrap font-serif font-normal tracking-[-0.035em] text-[2rem] leading-[1] sm:mb-6 sm:text-[clamp(2.75rem,5.6vw,5.25rem)] sm:leading-[0.98]"
+            className="mb-4 whitespace-nowrap font-serif font-normal tracking-[-0.035em] text-[2.4rem] leading-[1] sm:mb-5 sm:text-[clamp(3.5rem,6vw,6rem)] sm:leading-[0.96]"
             style={{ color: "hsl(var(--foreground))" }}
           >
             Your Health. Your Choice.
           </h1>
 
           <p
-            className="mb-6 max-w-[44ch] font-serif italic text-[1.15rem] leading-[1.35] tracking-[-0.01em] sm:mb-7 sm:text-[1.5rem]"
+            className="mb-5 max-w-[44ch] font-serif italic text-[1.05rem] leading-[1.35] tracking-[-0.01em] sm:mb-6 sm:text-[1.35rem]"
             style={{ color: "hsl(var(--primary))" }}
           >
             Meet the probiotic for your home.
           </p>
 
           <p
-            className="mb-12 max-w-[56ch] text-[0.98rem] font-light leading-[1.6] tracking-[0] sm:mb-14 sm:text-[1.075rem]"
+            className="mb-10 max-w-[54ch] text-[0.92rem] font-light leading-[1.65] tracking-[0] sm:mb-12 sm:text-[1rem]"
             style={{ color: "hsl(var(--foreground) / 0.72)" }}
           >
             You track your food, train your body, and protect your sleep, yet spend 95% of your time in spaces you've never once treated. Your indoor environment is a living ecosystem. And like your gut, it can be rebalanced.
