@@ -112,7 +112,7 @@ export const HeroSection = () => {
             className="mb-6 max-w-[56ch] text-[1.1rem] font-normal leading-[1.65] sm:text-[1.2rem] sm:leading-[1.6]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
-            Modern indoor living is comfortable — but it quietly disrupts the natural microbial balance our health depends on. For the first time, there's an affordable way to restore it, using the same balance nature relies on to keep our planet healthy.
+            Modern indoor living is comfortable, but it quietly disrupts the natural microbial balance our health depends on. For the first time, there's an affordable way to restore it, using the same balance nature relies on to keep our planet healthy.
           </p>
 
           <p
