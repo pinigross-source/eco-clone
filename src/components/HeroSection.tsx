@@ -95,15 +95,14 @@ export const HeroSection = () => {
         <div className="max-w-3xl text-left lg:max-w-[720px]">
 
           <h1
-            className="mb-3 font-sans font-bold tracking-[-0.04em] text-[3.5rem] leading-[1.02] sm:mb-5 sm:text-[clamp(4.5rem,8vw,7.5rem)] sm:leading-[0.98]"
+            className="mb-2 font-sans font-bold tracking-[-0.04em] text-[2.6rem] leading-[1.05] sm:mb-3 sm:text-[clamp(3.2rem,5.5vw,5rem)] sm:leading-[1.02]"
             style={{ color: "hsl(var(--foreground))" }}
           >
-            Your Health.<br />
-            Your Choice.
+            Your Health. Your Choice.
           </h1>
 
           <p
-            className="mb-8 text-[1.6rem] sm:text-[1.9rem] font-medium leading-[1.35] tracking-[-0.01em]"
+            className="mb-5 text-[1.25rem] sm:text-[1.45rem] font-medium leading-[1.35] tracking-[-0.01em]"
             style={{ color: "hsl(var(--primary))" }}
           >
             We invest a lot in healthy food, hours in getting in physical shape.
@@ -111,21 +110,21 @@ export const HeroSection = () => {
           </p>
 
           <p
-            className="mb-6 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
+            className="mb-4 max-w-[52ch] text-[1.05rem] font-normal leading-[1.55] sm:text-[1.2rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
             But we ignore equally important tool that impact our wellbeing &amp; health. The health of our indoor environments where we spent 95% of our time
           </p>
 
           <p
-            className="mb-6 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
+            className="mb-4 max-w-[52ch] text-[1.05rem] font-normal leading-[1.55] sm:text-[1.2rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
             Indoors are delicate eco-systems. They can be biologically rebalanced and restore. By well applied biological science
           </p>
 
           <p
-            className="mb-12 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
+            className="mb-10 max-w-[52ch] text-[1.05rem] font-normal leading-[1.55] sm:text-[1.2rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
             Like probiotics that rebalance our bodies, discover the probiotics that heal your environment.
