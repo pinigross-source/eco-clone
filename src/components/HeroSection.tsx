@@ -102,17 +102,17 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mb-4 max-w-[52ch] text-[1.1rem] sm:text-[1.3rem] font-medium leading-[1.45] tracking-[-0.01em]"
-            style={{ color: "hsl(var(--primary))" }}
+            className="mb-3 max-w-[52ch] text-[1.05rem] font-medium leading-[1.45] tracking-[-0.01em] sm:mb-4 sm:text-[1.15rem]"
+            style={{ color: "hsl(var(--foreground) / 0.7)" }}
           >
-            You track your food, train your body, and protect your sleep — yet spend 95% of your time in spaces you've never once treated. Your indoor environment is a living ecosystem. And like your gut, it can be rebalanced.
+            Meet the probiotic for your home.
           </p>
 
           <p
-            className="mb-10 max-w-[52ch] text-[1.05rem] font-normal leading-[1.55] sm:text-[1.2rem] sm:leading-[1.5]"
-            style={{ color: "hsl(var(--foreground) / 0.96)" }}
+            className="mb-10 max-w-[52ch] text-[1.1rem] font-medium leading-[1.45] tracking-[-0.01em] sm:text-[1.3rem]"
+            style={{ color: "hsl(var(--primary))" }}
           >
-            Meet the probiotic for your home.
+            You track your food, train your body, and protect your sleep, yet spend 95% of your time in spaces you've never once treated. Your indoor environment is a living ecosystem. And like your gut, it can be rebalanced.
           </p>
 
           <div className="flex flex-col items-start gap-6 sm:gap-7">
