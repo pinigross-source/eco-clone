@@ -95,15 +95,14 @@ export const HeroSection = () => {
         <div className="max-w-3xl text-left lg:max-w-[720px]">
 
           <h1
-            className="mb-3 font-sans font-bold tracking-[-0.04em] text-[3.5rem] leading-[1.02] sm:mb-5 sm:text-[clamp(4.5rem,8vw,7.5rem)] sm:leading-[0.98]"
+            className="mb-2 font-sans font-bold tracking-[-0.04em] text-[2.6rem] leading-[1.05] sm:mb-3 sm:text-[clamp(3.2rem,5.5vw,5rem)] sm:leading-[1.02]"
             style={{ color: "hsl(var(--foreground))" }}
           >
-            Your Health.<br />
-            Your Choice.
+            Your Health. Your Choice.
           </h1>
 
           <p
-            className="mb-8 text-[1.6rem] sm:text-[1.9rem] font-medium leading-[1.35] tracking-[-0.01em]"
+            className="mb-5 text-[1.25rem] sm:text-[1.45rem] font-medium leading-[1.35] tracking-[-0.01em]"
             style={{ color: "hsl(var(--primary))" }}
           >
             We invest a lot in healthy food, hours in getting in physical shape.
