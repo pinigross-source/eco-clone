@@ -110,21 +110,21 @@ export const HeroSection = () => {
           </p>
 
           <p
-            className="mb-6 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
+            className="mb-4 max-w-[52ch] text-[1.05rem] font-normal leading-[1.55] sm:text-[1.2rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
             But we ignore equally important tool that impact our wellbeing &amp; health. The health of our indoor environments where we spent 95% of our time
           </p>
 
           <p
-            className="mb-6 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
+            className="mb-4 max-w-[52ch] text-[1.05rem] font-normal leading-[1.55] sm:text-[1.2rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
             Indoors are delicate eco-systems. They can be biologically rebalanced and restore. By well applied biological science
           </p>
 
           <p
-            className="mb-12 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
+            className="mb-10 max-w-[52ch] text-[1.05rem] font-normal leading-[1.55] sm:text-[1.2rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
             Like probiotics that rebalance our bodies, discover the probiotics that heal your environment.
