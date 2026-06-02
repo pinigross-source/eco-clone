@@ -92,30 +92,38 @@ export const HeroSection = () => {
         ref={contentRef}
         className="relative z-10 mx-auto w-full max-w-[1440px] px-5 py-24 sm:px-10 sm:py-28 lg:px-16 lg:py-32 will-change-transform"
       >
-        <div className="max-w-3xl text-left lg:max-w-[720px]">
+        <div className="max-w-3xl text-left lg:max-w-[760px]">
+
+          <div
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] backdrop-blur-sm sm:text-[12px]"
+            style={{ color: "hsl(var(--foreground) / 0.85)" }}
+          >
+            <span className="h-1.5 w-1.5 rounded-full" style={{ background: "hsl(var(--primary))" }} />
+            Probiotic Home Care
+          </div>
 
           <h1
-            className="mb-2 whitespace-nowrap font-sans font-bold tracking-[-0.04em] text-[1.6rem] leading-[1.05] sm:mb-3 sm:text-[clamp(2rem,4.2vw,4rem)] sm:leading-[1.02]"
+            className="mb-5 whitespace-nowrap font-serif font-normal tracking-[-0.035em] text-[2rem] leading-[1] sm:mb-6 sm:text-[clamp(2.75rem,5.6vw,5.25rem)] sm:leading-[0.98]"
             style={{ color: "hsl(var(--foreground))" }}
           >
             Your Health. Your Choice.
           </h1>
 
           <p
-            className="mb-3 max-w-[52ch] text-[1.05rem] font-medium leading-[1.45] tracking-[-0.01em] sm:mb-4 sm:text-[1.15rem]"
-            style={{ color: "hsl(var(--foreground) / 0.7)" }}
+            className="mb-6 max-w-[44ch] font-serif italic text-[1.15rem] leading-[1.35] tracking-[-0.01em] sm:mb-7 sm:text-[1.5rem]"
+            style={{ color: "hsl(var(--primary))" }}
           >
             Meet the probiotic for your home.
           </p>
 
           <p
-            className="mb-10 max-w-[52ch] text-[1.1rem] font-medium leading-[1.45] tracking-[-0.01em] sm:text-[1.3rem]"
-            style={{ color: "hsl(var(--primary))" }}
+            className="mb-12 max-w-[56ch] text-[0.98rem] font-light leading-[1.6] tracking-[0] sm:mb-14 sm:text-[1.075rem]"
+            style={{ color: "hsl(var(--foreground) / 0.72)" }}
           >
             You track your food, train your body, and protect your sleep, yet spend 95% of your time in spaces you've never once treated. Your indoor environment is a living ecosystem. And like your gut, it can be rebalanced.
           </p>
 
-          <div className="flex flex-col items-start gap-6 sm:gap-7">
+          <div className="flex flex-col items-start gap-8 sm:gap-9">
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
               <a
                 href="/how-it-works"
@@ -124,7 +132,7 @@ export const HeroSection = () => {
               >
                 <Button
                   size="impact-md"
-                  className="group h-[64px] w-full rounded-full bg-foreground px-9 text-[14px] font-bold uppercase tracking-[0.18em] text-background shadow-[0_18px_50px_-18px_hsl(var(--foreground)/0.45)] hover:bg-foreground/90 sm:h-[68px] sm:w-auto sm:px-12 sm:text-[15px]"
+                  className="group h-[58px] w-full rounded-full bg-foreground px-8 text-[12px] font-semibold uppercase tracking-[0.22em] text-background shadow-[0_18px_50px_-18px_hsl(var(--foreground)/0.45)] hover:bg-foreground/90 sm:h-[62px] sm:w-auto sm:px-11 sm:text-[13px]"
                 >
                   Discover How It Works
                   <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -139,7 +147,7 @@ export const HeroSection = () => {
                 <Button
                   variant="outline"
                   size="impact-md"
-                  className="h-[64px] w-full rounded-full border-foreground/25 bg-transparent px-9 text-[14px] font-semibold uppercase tracking-[0.18em] text-foreground hover:bg-foreground/5 sm:h-[68px] sm:w-auto sm:px-12 sm:text-[15px]"
+                  className="h-[58px] w-full rounded-full border-foreground/25 bg-transparent px-8 text-[12px] font-medium uppercase tracking-[0.22em] text-foreground hover:bg-foreground/5 sm:h-[62px] sm:w-auto sm:px-11 sm:text-[13px]"
                 >
                   Find Your System
                 </Button>
@@ -147,19 +155,18 @@ export const HeroSection = () => {
             </div>
 
             <ul
-              className="flex flex-nowrap items-center gap-x-3 sm:gap-x-4 text-[11px] sm:text-[13px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] whitespace-nowrap"
-              style={{ color: "hsl(var(--foreground) / 0.9)" }}
+              className="flex flex-nowrap items-center gap-x-3 sm:gap-x-5 text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] sm:tracking-[0.24em] whitespace-nowrap"
+              style={{ color: "hsl(var(--foreground) / 0.75)" }}
             >
-
               <li>Safe for kids &amp; pets</li>
-              <li aria-hidden="true" className="h-3 w-px bg-foreground/25" />
+              <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
               <li>EPA Registered</li>
-              <li aria-hidden="true" className="h-3 w-px bg-foreground/25" />
+              <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
               <li>FDA GRAS</li>
-              <li aria-hidden="true" className="h-3 w-px bg-foreground/25" />
+              <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
               <li className="flex items-center gap-1.5">
                 <span style={{ color: "hsl(var(--primary))" }}>4.8★</span>
-                <span className="font-light opacity-90">Verified reviews</span>
+                <span className="font-light opacity-80 normal-case tracking-normal">Verified reviews</span>
               </li>
             </ul>
           </div>
