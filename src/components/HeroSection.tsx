@@ -106,35 +106,14 @@ export const HeroSection = () => {
             className="mb-8 text-[1.6rem] sm:text-[1.9rem] font-medium leading-[1.35] tracking-[-0.01em]"
             style={{ color: "hsl(var(--primary))" }}
           >
-            Get healthier. Live better.
+            The air is only part of the problem. Everything you touch is.
           </p>
 
           <p
-            className="mb-8 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
+            className="mb-12 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
-            Modern indoor living is comfortable, but it quietly disrupts the natural microbial balance our health depends on. For the first time, there's an affordable way to restore it, using the same balance nature relies on to keep our planet healthy.
-          </p>
-
-          <p
-            className="mb-6 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
-            style={{ color: "hsl(var(--foreground) / 0.96)" }}
-          >
-            EnviroBiotics brings probiotics indoors to rebalance the spaces where you spend 95% of your life. When you heal your indoor environment, you empower your own health and wellbeing.
-          </p>
-
-          <p
-            className="mb-3 max-w-[52ch] text-[1.2rem] font-semibold leading-[1.45] sm:text-[1.35rem]"
-            style={{ color: "hsl(var(--foreground) / 0.92)" }}
-          >
-            Completely safe. Effective. The way nature intended.
-          </p>
-
-          <p
-            className="mb-12 max-w-[52ch] text-[1.2rem] font-normal leading-[1.45] italic sm:text-[1.35rem]"
-            style={{ color: "hsl(var(--foreground) / 0.85)" }}
-          >
-            Not just filtering the air. Not just disinfecting one surface. A holistic system that protects every part of your space automatically.
+            EnviroBiotics rebalances your whole space: surfaces, objects, and air, using nothing but nature's probiotics.
           </p>
 
 
