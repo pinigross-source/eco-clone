@@ -103,24 +103,17 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mb-2 text-[1.6rem] sm:text-[1.9rem] font-medium leading-[1.35] tracking-[-0.01em]"
+            className="mb-8 text-[1.6rem] sm:text-[1.9rem] font-medium leading-[1.35] tracking-[-0.01em]"
             style={{ color: "hsl(var(--primary))" }}
           >
-            The air is only part of the problem.
-          </p>
-
-          <p
-            className="mb-8 text-[1.8rem] sm:text-[2.2rem] font-bold leading-[1.3] tracking-[-0.01em] pl-4 border-l-[3px]"
-            style={{ color: "hsl(var(--primary))", borderColor: "hsl(var(--primary))" }}
-          >
-            Everything you touch is.
+            Get healthier. Live better.
           </p>
 
           <p
             className="mb-12 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
-            EnviroBiotics rebalances your whole space: surfaces,<br />objects, and air, using nothing but nature's probiotics.
+            Modern indoor living quietly disrupts the microbial balance your health depends on. EnviroBiotics restores it, <span className="font-bold" style={{ color: "hsl(var(--primary))" }}>the way nature does.</span>
           </p>
 
 
