@@ -98,42 +98,42 @@ export const HeroSection = () => {
             className="mb-3 font-sans font-bold tracking-[-0.04em] text-[2.75rem] leading-[1.05] sm:mb-4 sm:text-[clamp(3rem,6vw,5rem)] sm:leading-[1.02]"
             style={{ color: "hsl(var(--foreground))" }}
           >
-            Your Health. Your Choice.
+            Your health. Your choice.
           </h1>
 
           <p
             className="mb-6 text-[1.35rem] sm:text-[1.55rem] font-medium leading-[1.4] tracking-[-0.01em]"
             style={{ color: "hsl(var(--primary))" }}
           >
-            Get healthier, Live Better.
+            Get healthier. Live better.
           </p>
 
           <p
             className="mb-6 max-w-[56ch] text-[1.1rem] font-normal leading-[1.65] sm:text-[1.2rem] sm:leading-[1.6]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
-            Urbanization creates comfort, but it comes at a cost of disturbing the natural microbial balance that is critical for our health. For the first time ever, you have a choice and an affordable means to restore health in a way nature keeps eco-balance on our planet. EnviroBiotics expands the use of probiotics to assist with the restoration of re-balancing of our entire indoor spaces where we spend 95% of our time.
+            Modern indoor living is comfortable — but it quietly disrupts the natural microbial balance our health depends on. For the first time, there's an affordable way to restore it, using the same balance nature relies on to keep our planet healthy.
           </p>
 
           <p
             className="mb-4 max-w-[56ch] text-[1.1rem] font-normal leading-[1.65] sm:text-[1.2rem] sm:leading-[1.6]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
-            When you allow the healing of your indoor space, you empower your own health and well-being.
+            EnviroBiotics brings probiotics indoors to rebalance the spaces where you spend 95% of your life. When you heal your indoor environment, you empower your own health and wellbeing.
           </p>
 
           <p
             className="mb-2 max-w-[56ch] text-[1.05rem] font-semibold leading-[1.5] sm:text-[1.15rem]"
             style={{ color: "hsl(var(--foreground) / 0.92)" }}
           >
-            Completely Safe, Effective, the way Nature does
+            Completely safe. Effective. The way nature intended.
           </p>
 
           <p
             className="mb-10 max-w-[56ch] text-[1.05rem] font-normal leading-[1.5] italic sm:text-[1.15rem]"
             style={{ color: "hsl(var(--foreground) / 0.85)" }}
           >
-            Nor filtering the air alone, nor disinfecting the targeted area, but a holistic system that automatically fixes all
+            Not just filtering the air. Not just disinfecting one surface. A holistic system that protects every part of your space — automatically.
           </p>
 
 
