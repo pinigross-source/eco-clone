@@ -94,13 +94,6 @@ export const HeroSection = () => {
       >
         <div className="max-w-3xl text-left lg:max-w-[760px]">
 
-          <div
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] backdrop-blur-sm sm:text-[11px]"
-            style={{ color: "hsl(var(--foreground) / 0.85)" }}
-          >
-            <span className="h-1.5 w-1.5 rounded-full" style={{ background: "hsl(var(--primary))" }} />
-            Probiotic Home Care
-          </div>
 
           <h1
             className="mb-4 whitespace-nowrap font-sans font-bold tracking-[-0.04em] text-[2rem] leading-[1] sm:mb-5 sm:text-[clamp(2.5rem,4.5vw,4.5rem)] sm:leading-[0.96]"
