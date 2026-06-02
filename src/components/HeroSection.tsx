@@ -103,10 +103,17 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mb-8 text-[1.6rem] sm:text-[1.9rem] font-medium leading-[1.35] tracking-[-0.01em]"
+            className="mb-2 text-[1.6rem] sm:text-[1.9rem] font-medium leading-[1.35] tracking-[-0.01em]"
             style={{ color: "hsl(var(--primary))" }}
           >
-            The air is only part of the problem. Everything you touch is.
+            The air is only part of the problem.
+          </p>
+
+          <p
+            className="mb-8 text-[1.8rem] sm:text-[2.2rem] font-bold leading-[1.3] tracking-[-0.01em] pl-4 border-l-[3px]"
+            style={{ color: "hsl(var(--primary))", borderColor: "hsl(var(--primary))" }}
+          >
+            Everything you touch is.
           </p>
 
           <p
