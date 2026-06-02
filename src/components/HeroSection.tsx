@@ -120,7 +120,7 @@ export const HeroSection = () => {
             className="mb-12 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
-            EnviroBiotics rebalances your whole space: surfaces, objects, and air, using nothing but nature's probiotics.
+            EnviroBiotics rebalances your whole space: surfaces,<br />objects, and air, using nothing but nature's probiotics.
           </p>
 
 
