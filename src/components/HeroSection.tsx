@@ -112,14 +112,14 @@ export const HeroSection = () => {
             className="mb-6 max-w-[58ch] text-[1rem] font-normal leading-[1.7] sm:text-[1.05rem] sm:leading-[1.65]"
             style={{ color: "hsl(var(--foreground) / 0.92)" }}
           >
-            Urbanization creates comfort, but it comes at the cost of disrupting the natural microbial balance that is critical to our health. For the first time ever, you have a choice and an affordable means to restore health in a way nature keeps the eco-balance on our planet. EnviroBiotics expands the use of probiotics to support the restoration and rebalancing of our indoor spaces, where we spend 95% of our time.
+            Urbanization creates comfort, but it comes at a cost of disturbing the natural microbial balance that is critical for our health. For the first time ever, you have a choice and an affordable means to restore health in a way nature keeps eco-balance on our planet. EnviroBiotics expands the use of probiotics to assist with the restoration of re-balancing of our entire indoor spaces where we spend 95% of our time.
           </p>
 
           <p
             className="mb-4 max-w-[58ch] text-[1rem] font-normal leading-[1.7] sm:text-[1.05rem] sm:leading-[1.65]"
             style={{ color: "hsl(var(--foreground) / 0.92)" }}
           >
-            When you allow your indoor space to heal, you empower your own health and well-being.
+            When you allow the healing of your indoor space, you empower your own health and well-being.
           </p>
 
           <p
@@ -133,7 +133,7 @@ export const HeroSection = () => {
             className="mb-10 max-w-[58ch] text-[0.95rem] font-normal leading-[1.5] italic sm:text-[1rem]"
             style={{ color: "hsl(var(--foreground) / 0.75)" }}
           >
-            Nor filtering the air alone, nor disinfecting the targeted area, but a holistic system that automatically fix all
+            Nor filtering the air alone, nor disinfecting the targeted area, but a holistic system that automatically fixes all
           </p>
 
 
