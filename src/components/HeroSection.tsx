@@ -103,7 +103,7 @@ export const HeroSection = () => {
           </div>
 
           <h1
-            className="mb-4 whitespace-nowrap font-serif font-normal tracking-[-0.035em] text-[2.4rem] leading-[1] sm:mb-5 sm:text-[clamp(3.5rem,6vw,6rem)] sm:leading-[0.96]"
+            className="mb-4 whitespace-nowrap font-sans font-bold tracking-[-0.04em] text-[2.4rem] leading-[1] sm:mb-5 sm:text-[clamp(3.5rem,6vw,6rem)] sm:leading-[0.96]"
             style={{ color: "hsl(var(--foreground))" }}
           >
             Your Health. Your Choice.
