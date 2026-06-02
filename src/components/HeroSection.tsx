@@ -92,10 +92,10 @@ export const HeroSection = () => {
         ref={contentRef}
         className="relative z-10 mx-auto w-full max-w-[1440px] px-5 py-24 sm:px-10 sm:py-28 lg:px-16 lg:py-32 will-change-transform"
       >
-        <div className="max-w-3xl text-left lg:max-w-[640px]">
+        <div className="max-w-3xl text-left lg:max-w-[720px]">
 
           <h1
-            className="mb-3 font-sans font-bold tracking-[-0.04em] text-[2.75rem] leading-[1.05] sm:mb-4 sm:text-[clamp(3rem,6vw,5rem)] sm:leading-[1.02]"
+            className="mb-3 font-sans font-bold tracking-[-0.04em] text-[3.5rem] leading-[1.02] sm:mb-5 sm:text-[clamp(4.5rem,8vw,7.5rem)] sm:leading-[0.98]"
             style={{ color: "hsl(var(--foreground))" }}
           >
             Your health.<br />
@@ -103,35 +103,35 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mb-6 text-[1.35rem] sm:text-[1.55rem] font-medium leading-[1.4] tracking-[-0.01em]"
+            className="mb-8 text-[1.6rem] sm:text-[1.9rem] font-medium leading-[1.35] tracking-[-0.01em]"
             style={{ color: "hsl(var(--primary))" }}
           >
             Get healthier. Live better.
           </p>
 
           <p
-            className="mb-6 max-w-[56ch] text-[1.1rem] font-normal leading-[1.65] sm:text-[1.2rem] sm:leading-[1.6]"
+            className="mb-8 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
             Modern indoor living is comfortable, but it quietly disrupts the natural microbial balance our health depends on. For the first time, there's an affordable way to restore it, using the same balance nature relies on to keep our planet healthy.
           </p>
 
           <p
-            className="mb-4 max-w-[56ch] text-[1.1rem] font-normal leading-[1.65] sm:text-[1.2rem] sm:leading-[1.6]"
+            className="mb-6 max-w-[52ch] text-[1.25rem] font-normal leading-[1.55] sm:text-[1.4rem] sm:leading-[1.5]"
             style={{ color: "hsl(var(--foreground) / 0.96)" }}
           >
             EnviroBiotics brings probiotics indoors to rebalance the spaces where you spend 95% of your life. When you heal your indoor environment, you empower your own health and wellbeing.
           </p>
 
           <p
-            className="mb-2 max-w-[56ch] text-[1.05rem] font-semibold leading-[1.5] sm:text-[1.15rem]"
+            className="mb-3 max-w-[52ch] text-[1.2rem] font-semibold leading-[1.45] sm:text-[1.35rem]"
             style={{ color: "hsl(var(--foreground) / 0.92)" }}
           >
             Completely safe. Effective. The way nature intended.
           </p>
 
           <p
-            className="mb-10 max-w-[56ch] text-[1.05rem] font-normal leading-[1.5] italic sm:text-[1.15rem]"
+            className="mb-12 max-w-[52ch] text-[1.2rem] font-normal leading-[1.45] italic sm:text-[1.35rem]"
             style={{ color: "hsl(var(--foreground) / 0.85)" }}
           >
             Not just filtering the air. Not just disinfecting one surface. A holistic system that protects every part of your space automatically.
