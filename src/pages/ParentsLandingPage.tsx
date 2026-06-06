@@ -75,7 +75,10 @@ const Reveal = ({
 
 type Angle = "a" | "b" | "c";
 
-const ITALIC_FONT: React.CSSProperties = { fontFamily: "'Playfair Display', serif" };
+const ITALIC_FONT: React.CSSProperties = {
+  fontFamily: "'Playfair Display', serif",
+  textShadow: "0 2px 24px rgba(247, 243, 236, 0.65), 0 1px 6px rgba(247, 243, 236, 0.45)",
+};
 
 const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> = {
   a: {
