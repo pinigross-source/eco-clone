@@ -593,7 +593,7 @@ const ParentsLandingPage = () => {
                         <span className="text-[0.78rem] font-bold text-foreground">Save $100</span>
                       </div>
                       <a
-                        href={BUNDLE_URL}
+                        href="https://shop.envirobiotics.com/products/home-complete-bundle"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => trackEvent("click_parents_products_bundle")}
