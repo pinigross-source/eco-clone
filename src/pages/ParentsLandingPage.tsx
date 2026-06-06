@@ -75,7 +75,10 @@ const Reveal = ({
 
 type Angle = "a" | "b" | "c";
 
-const ITALIC_FONT: React.CSSProperties = { fontFamily: "'Playfair Display', serif" };
+const ITALIC_FONT: React.CSSProperties = {
+  fontFamily: "'Playfair Display', serif",
+  textShadow: "0 2px 24px rgba(247, 243, 236, 0.65), 0 1px 6px rgba(247, 243, 236, 0.45)",
+};
 
 const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> = {
   a: {
@@ -83,7 +86,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         Clean air is great.
         <br />
-        <span className="italic font-medium block mt-2" style={ITALIC_FONT}>
+        <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
           But your baby lives on the floor.
         </span>
       </>
@@ -95,7 +98,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         You can&apos;t wipe down the nursery every hour.
         <br />
-        <span className="italic font-medium block mt-2" style={ITALIC_FONT}>
+        <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
           So we made something that does it for you.
         </span>
       </>
@@ -107,7 +110,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         It all ends up in their mouth eventually.
         <br />
-        <span className="italic font-medium block mt-2" style={ITALIC_FONT}>
+        <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
           Start with cleaner surfaces.
         </span>
       </>
@@ -173,12 +176,12 @@ const ParentsLandingPage = () => {
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-center px-5 pb-8 pt-24 text-center sm:items-start sm:px-10 sm:pb-0 sm:pt-0 sm:text-left lg:px-16">
             <div className="mx-auto w-full max-w-[36rem] sm:mx-0 sm:max-w-[48rem]">
               <Reveal>
-                <h1 className="font-display font-semibold tracking-[-0.035em] text-foreground text-[clamp(2.5rem,9vw,3rem)] leading-[1.02] sm:text-[clamp(3.25rem,6vw,4.5rem)] sm:leading-[1.02] lg:text-[clamp(4rem,5.2vw,5.5rem)] lg:leading-[1.0]">
+                <h1 className="font-display font-semibold tracking-[-0.035em] text-foreground text-[clamp(2.5rem,9vw,3rem)] leading-[1.02] sm:text-[clamp(3.25rem,6vw,4.5rem)] sm:leading-[1.02] lg:text-[clamp(4rem,5.2vw,5.5rem)] lg:leading-[1.0]" style={{ textShadow: '0 2px 20px rgba(247,243,236,0.5), 0 1px 4px rgba(247,243,236,0.3)' }}>
                   {hero.headline}
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mx-auto mt-7 max-w-[34rem] text-[1.0625rem] font-normal leading-[1.65] text-foreground/80 sm:mx-0 sm:mt-9 sm:max-w-[34rem] sm:text-[1.15rem] sm:leading-[1.6] lg:text-[1.2rem]">
+                <p className="mx-auto mt-7 max-w-[34rem] text-[1.0625rem] font-normal leading-[1.65] text-foreground/80 sm:mx-0 sm:mt-9 sm:max-w-[34rem] sm:text-[1.15rem] sm:leading-[1.6] lg:text-[1.2rem]" style={{ textShadow: '0 2px 16px rgba(247,243,236,0.5), 0 1px 3px rgba(247,243,236,0.3)' }}>
                   {hero.sub}
                 </p>
               </Reveal>
