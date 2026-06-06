@@ -514,7 +514,7 @@ const AllergyLandingPage = () => {
                     <ul className="mt-5 flex flex-col gap-3">
                       {[
                         "Covers up to 800 sq ft, built for bedrooms and main rooms",
-                        "Silent — runs overnight without the fan noise",
+                        "Silent, runs overnight without the fan noise",
                         "No sprays, no chemicals, no fragrance",
                       ].map((f) => (
                         <li
