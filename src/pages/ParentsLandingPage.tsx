@@ -491,13 +491,15 @@ const ParentsLandingPage = () => {
                   <div className="absolute right-5 top-5 z-10 rounded-full bg-foreground px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-background">
                     Parents' pick
                   </div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] lg:aspect-auto lg:min-h-[420px]">
-                    <img
-                      src={miniImg}
-                      alt="The Mini - nursery probiotic dispenser"
-                      className="h-full w-full object-contain p-8 sm:p-12"
-                      loading="lazy"
-                    />
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-6 lg:aspect-auto lg:min-h-[420px]">
+                    <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
+                      <img
+                        src={miniImg}
+                        alt="The Mini - nursery probiotic dispenser"
+                        className="h-full w-full object-contain p-6 sm:p-10"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                   <div className="flex flex-col p-6 sm:p-10 lg:p-12">
                     <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
@@ -549,13 +551,15 @@ const ParentsLandingPage = () => {
               {/* Home Bundle */}
               <Reveal>
                 <div className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.08]">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6]">
-                    <img
-                      src={bundleImg}
-                      alt="Home Bundle - two devices"
-                      className="h-full w-full object-contain p-6 sm:p-8"
-                      loading="lazy"
-                    />
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-5">
+                    <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
+                      <img
+                        src={bundleImg}
+                        alt="Home Bundle - two devices"
+                        className="h-full w-full object-contain p-4 sm:p-6"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                   <div className="flex flex-1 flex-col p-6 sm:p-8">
                     <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
@@ -606,13 +610,15 @@ const ParentsLandingPage = () => {
               {/* Biotica 800 */}
               <Reveal>
                 <div className="flex h-full flex-col overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.08]">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6]">
-                    <img
-                      src={bioticaImg}
-                      alt="Biotica 800 - larger home coverage"
-                      className="h-full w-full object-contain p-6 sm:p-8"
-                      loading="lazy"
-                    />
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-5">
+                    <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
+                      <img
+                        src={bioticaImg}
+                        alt="Biotica 800 - larger home coverage"
+                        className="h-full w-full object-contain p-4 sm:p-6"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                   <div className="flex flex-1 flex-col p-6 sm:p-8">
                     <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
