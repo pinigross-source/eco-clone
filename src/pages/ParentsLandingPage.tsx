@@ -27,6 +27,7 @@ import bioticaImg from "@/assets/shop/biotica-800.png";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
 import heroAsset from "@/assets/parents-hero.avif.asset.json";
 import nurseryImg from "@/assets/nursery-scandinavian-bright.jpg";
+import ptpaBadge from "@/assets/ptpa-award.png";
 
 const heroImg = heroAsset.url;
 
