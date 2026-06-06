@@ -842,8 +842,8 @@ const AllergyLandingPage = () => {
                       {quizAnswer === "baby"
                         ? "We'd start you with Biotica in the main living space, where dust and dander settle into rugs and upholstery."
                         : quizAnswer === "pets"
-                          ? "We'd start you with Biotica in the room your pet spends the most time — where dander settles into the couch, carpet, and bedding."
-                          : "We'd start you with Biotica in the bedroom — the room with the biggest allergen reservoir and where you spend the most hours."}
+                          ? "We'd start you with Biotica in the room your pet spends the most time, where dander settles into the couch, carpet, and bedding."
+                          : "We'd start you with Biotica in the bedroom, the room with the biggest allergen reservoir and where you spend the most hours."}
                     </p>
                     <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
                       <a href={BIOTICA_URL} onClick={() => trackCta("quiz_add_biotica")}>
@@ -887,7 +887,7 @@ const AllergyLandingPage = () => {
                     Where Household Allergens Actually Live (Hint: Not the Air)
                   </h3>
                   <p className="mt-1.5 text-[14.5px] leading-[1.6] text-muted-foreground sm:text-[15px]">
-                    Why a HEPA purifier alone never clears the dust — and what the filter
+                    Why a HEPA purifier alone never clears the dust, and what the filter
                     can&apos;t reach.
                   </p>
                 </div>
@@ -919,7 +919,7 @@ const AllergyLandingPage = () => {
               </h2>
               <p className="mx-auto mt-6 max-w-xl text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:text-[1.15rem]">
                 Your purifier handles the air. EnviroBiotics handles the surfaces allergens actually
-                settle into — the mattress, the carpet, the couch — quietly, chemical-free, around
+                settle into, the mattress, the carpet, the couch, quietly, chemical-free, around
                 the clock.
               </p>
               <div className="mt-10 flex justify-center">
