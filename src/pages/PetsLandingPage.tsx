@@ -545,15 +545,15 @@ const PetsLandingPage = () => {
             <Reveal>
               <div className="max-w-2xl">
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
-                  How It Works
+                  The Science, Simply
                 </p>
                 <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
-                  Friendly probiotics.
+                  It works like the probiotics
                   <br />
-                  Every surface. All day.
+                  you already trust.
                 </h2>
                 <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  A simple surface-focused system that goes beyond a filter to support the rooms your animals spend the most time in.
+                  You&apos;ve heard of probiotics for your gut &mdash; the good cultures that keep things balanced. And you&apos;ve probably used an enzyme cleaner that breaks a mess down instead of covering it up. EnviroBiotics combines both ideas for your home: good cultures that settle onto surfaces and quietly break down the organic stuff pets leave behind &mdash; dander and odor residue &mdash; the natural way. No harsh chemicals. No fragrance.
                 </p>
               </div>
             </Reveal>
@@ -562,18 +562,18 @@ const PetsLandingPage = () => {
               {[
                 {
                   step: "01",
-                  title: "Disperse",
-                  copy: "The device quietly disperses beneficial environmental probiotics into the room throughout the day.",
+                  title: "Place Biotica",
+                  copy: "Set it in the main living space &mdash; wherever your pet spends the most time.",
                 },
                 {
                   step: "02",
-                  title: "Settle",
-                  copy: "They travel through the air and settle on pet beds, sofas, rugs, floors, crates, and everyday surfaces.",
+                  title: "Switch it on",
+                  copy: "It works silently in the background. No spray, no scent, no fuss.",
                 },
                 {
                   step: "03",
-                  title: "Support",
-                  copy: "They help maintain a fresher surface environment between regular cleaning, vacuuming, and filtration.",
+                  title: "Let it run",
+                  copy: "It keeps breaking down dander and odor at the source, so your surfaces stay cleaner on their own.",
                 },
               ].map((item) => (
                 <li key={item.step} className="border-t border-foreground/15 pt-6">
@@ -583,16 +583,17 @@ const PetsLandingPage = () => {
                   <h3 className="mt-3 text-xl font-semibold text-foreground sm:text-2xl">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-                    {item.copy}
-                  </p>
+                  <p
+                    className="mt-2 text-base leading-relaxed text-muted-foreground"
+                    dangerouslySetInnerHTML={{ __html: item.copy }}
+                  />
                 </li>
               ))}
             </ol>
 
             <Reveal>
               <p className="mt-12 max-w-3xl text-sm italic leading-relaxed text-muted-foreground sm:text-base">
-                EnviroBiotics does not replace cleaning, ventilation, or air filtration. It adds another layer of support for the surfaces pets use most.
+                Keep vacuuming the hair and running the purifier for airborne particles. EnviroBiotics handles what settles into the surfaces: dander and odor.
               </p>
             </Reveal>
           </div>
