@@ -977,12 +977,12 @@ const PetsLandingPage = () => {
       >
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div>
-            <p className="text-sm font-semibold text-foreground">Save 10% with code {PROMO}</p>
-            <p className="text-xs text-muted-foreground">Pet parents exclusive</p>
+            <p className="text-sm font-semibold text-foreground">The pet-proof home, 10% off</p>
+            <p className="text-xs text-muted-foreground">Code {PROMO} · 30-day trial</p>
           </div>
           <a href="#products" onClick={() => trackEvent("click_pets_sticky_shop")}>
             <Button className="h-11 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
-              Shop the Pet Offer
+              Get the Pet-Proof Home
             </Button>
           </a>
         </div>
