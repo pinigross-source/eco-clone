@@ -432,15 +432,15 @@ const PetsLandingPage = () => {
                 <div className="hidden sm:absolute sm:inset-0 sm:block sm:bg-gradient-to-r sm:from-card sm:via-card/80 sm:to-transparent" />
                 <div className="relative flex w-full flex-col justify-center p-6 sm:absolute sm:inset-y-0 sm:left-0 sm:max-w-[480px] sm:p-12 lg:p-16">
                   <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
-                    What Your HEPA Can&apos;t Reach
+                    The Shift
                   </p>
                   <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
-                    The room looks clean.
+                    Don&apos;t just clean the surface.
                     <br />
-                    But the pet bed tells a different story.
+                    Keep it clean.
                   </h2>
                   <p className="mt-4 text-[0.95rem] font-medium leading-relaxed text-foreground/85 sm:mt-5 sm:text-base">
-                    Fur, tracked-in dirt, organic residue, and pet odors settle into the places your pet uses most. EnviroBiotics works where pets actually live &mdash; on pet beds, sofas, rugs, crates, blankets, and floors.
+                    EnviroBiotics settles good cultures onto your soft surfaces, where they quietly break down the dander and odor-causing residue your pet leaves behind &mdash; and keep working between cleanings. Not a scent layered on top. Not a once-and-done wipe. A surface that stays cleaner on its own, long after the vacuum&apos;s put away.
                   </p>
                   <a
                     href="#how-it-works"
