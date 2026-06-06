@@ -227,10 +227,10 @@ const AllergyLandingPage = () => {
                 </p>
                 <p>
                   Here&apos;s what no one selling you a filter mentions: allergens don&apos;t spend
-                  their lives in the air. Dust-mite waste, pollen, pet dander, mold spores — they
+                  their lives in the air. Dust-mite waste, pollen, pet dander, mold spores. They
                   settle, and they live in the soft surfaces of the room. The mattress. The pillows.
                   The carpet. The couch. A purifier can only catch the small fraction that happens to
-                  be airborne at any moment. The reservoir — the part that keeps refilling the air —
+                  be airborne at any moment. The reservoir, the part that keeps refilling the air —
                   sits in your surfaces, completely out of its reach.
                 </p>
               </div>
@@ -260,7 +260,7 @@ const AllergyLandingPage = () => {
                   </h2>
                   <p className="mt-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
                     EnviroBiotics settles good cultures onto the surfaces of the room, where they
-                    quietly break down the organic debris that allergens come from — and keep
+                    quietly break down the organic debris that allergens come from, and keep
                     working between cleanings.
                   </p>
                   <p className="mt-4 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
