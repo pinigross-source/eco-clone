@@ -199,10 +199,10 @@ const ParentsLandingPage = () => {
                   >
                     <Button
                       size="lg"
-                      className="h-[4.5rem] w-full rounded-full bg-foreground px-12 text-[19px] font-semibold tracking-[-0.01em] text-background shadow-[0_24px_60px_-14px_hsl(var(--foreground)/0.7)] hover:bg-foreground/90 sm:h-[5rem] sm:w-auto sm:px-14 sm:text-[22px]"
+                      className="h-[3.75rem] w-full rounded-full bg-foreground px-10 text-[17px] font-semibold tracking-[-0.01em] text-background shadow-[0_20px_50px_-14px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90 sm:h-[4rem] sm:w-auto sm:px-12 sm:text-[18px]"
                     >
                       Secure My Baby&apos;s Space
-                      <ArrowRight className="ml-3 h-6 w-6 sm:h-7 sm:w-7" />
+                      <ArrowRight className="ml-2.5 h-5 w-5 sm:h-6 sm:w-6" />
                     </Button>
                   </a>
                 </div>
