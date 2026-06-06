@@ -210,7 +210,7 @@ const PetsLandingPage = () => {
               </Reveal>
               <Reveal>
                 <p className="mt-5 text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-6 sm:text-[13px]">
-                  Takes 60 seconds · No sprays · No fragrance
+                  Takes 60 seconds · No sprays
                 </p>
               </Reveal>
             </div>
