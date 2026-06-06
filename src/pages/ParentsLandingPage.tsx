@@ -297,7 +297,6 @@ const ParentsLandingPage = () => {
                 {[
                   { label: "Works on", a: "Air passing through the unit", b: "The surfaces baby touches" },
                   { label: "Reaches crib, playmat, floor?", a: "No", b: "Yes" },
-                  { label: "Maintenance", a: "Filter swaps, ongoing cost", b: "None" },
                   { label: "Sound", a: "Constant fan noise", b: "Silent" },
                   { label: "How long it works", a: "Only while running", b: "Continuously" },
                 ].map((row, i) => (
