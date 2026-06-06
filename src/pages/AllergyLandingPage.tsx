@@ -330,13 +330,13 @@ const AllergyLandingPage = () => {
                 The simplest way to explain it
               </p>
               <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                You already know how this works — for your gut.
+                You already know how this works, for your gut.
               </h2>
               <p className="mt-6 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.15rem]">
                 You&apos;ve heard of probiotics for your gut: good cultures that keep things in
                 balance. EnviroBiotics is the same idea for the room. Good cultures settle onto your
                 surfaces and break down the organic debris that dust mites feed on and that
-                allergens cling to — quietly, continuously, the natural way. No harsh chemicals. No
+                allergens cling to, quietly, continuously, the natural way. No harsh chemicals. No
                 fragrance. Less of the buildup that keeps the room from ever feeling clean.
               </p>
             </Reveal>
@@ -362,7 +362,7 @@ const AllergyLandingPage = () => {
                 {
                   step: "01",
                   title: "Place",
-                  copy: "Put Biotica in the bedroom — the room where you spend a third of your life, and where the allergen reservoir is biggest.",
+                  copy: "Put Biotica in the bedroom, the room where you spend a third of your life, and where the allergen reservoir is biggest.",
                 },
                 {
                   step: "02",
