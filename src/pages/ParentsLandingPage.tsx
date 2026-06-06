@@ -77,7 +77,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         Clean air is great.
         <br />
-        But your baby <span className="text-primary">lives on the floor.</span>
+        But your baby <span className="text-foreground">lives on the floor.</span>
       </>
     ),
     sub: "Air purifiers clean the air. EnviroBiotics works on the surfaces your baby actually lives on — crib, playmat, floor. No sprays, no filters, no noise.",
@@ -87,7 +87,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         You can&apos;t wipe down the nursery every hour.
         <br />
-        <span className="text-primary">So we made something that does it for you.</span>
+        <span className="text-foreground">So we made something that does it for you.</span>
       </>
     ),
     sub: "EnviroBiotics keeps working on the surfaces your baby lives on, long after the last wipe-down. No sprays, no filters, no noise.",
@@ -97,7 +97,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         It all ends up in their mouth eventually.
         <br />
-        <span className="text-primary">Start with cleaner surfaces.</span>
+        <span className="text-foreground">Start with cleaner surfaces.</span>
       </>
     ),
     sub: "Air purifiers handle the air. EnviroBiotics works on the floors, mats, and crib your baby actually touches. No sprays, no filters, no noise.",
@@ -161,7 +161,7 @@ const ParentsLandingPage = () => {
             <div className="mx-auto w-full max-w-[36rem] sm:mx-0 sm:max-w-[44rem]">
               <Reveal>
                 <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background/80 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground backdrop-blur">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
                   For the nursery
                 </p>
               </Reveal>
@@ -184,7 +184,7 @@ const ParentsLandingPage = () => {
                   >
                     <Button
                       size="lg"
-                      className="h-[3.5rem] w-full rounded-full bg-primary px-9 text-[16px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.65)] hover:bg-primary/90 sm:w-auto"
+                      className="h-[3.5rem] w-full rounded-full bg-foreground px-9 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.65)] hover:bg-foreground/90 sm:w-auto"
                     >
                       Secure My Baby&apos;s Space
                       <ArrowRight className="ml-2 h-5 w-5" />
@@ -239,7 +239,7 @@ const ParentsLandingPage = () => {
                   />
                 </div>
                 <div>
-                  <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+                  <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
                     The shift
                   </p>
                   <h2 className="font-display text-[1.85rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.4rem] lg:text-[2.75rem]">
@@ -265,7 +265,7 @@ const ParentsLandingPage = () => {
           <div className="mx-auto max-w-[1100px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
                   Two different jobs
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
@@ -279,7 +279,7 @@ const ParentsLandingPage = () => {
                 <div className="grid grid-cols-3 border-b border-border/60 bg-card text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/70 sm:text-[12px]">
                   <div className="px-4 py-4 sm:px-6 sm:py-5"></div>
                   <div className="px-4 py-4 sm:px-6 sm:py-5">Air Purifier</div>
-                  <div className="px-4 py-4 text-primary sm:px-6 sm:py-5">EnviroBiotics</div>
+                  <div className="px-4 py-4 text-foreground sm:px-6 sm:py-5">EnviroBiotics</div>
                 </div>
                 {[
                   { label: "Works on", a: "Air passing through the unit", b: "The surfaces baby touches" },
@@ -316,7 +316,7 @@ const ParentsLandingPage = () => {
         <section className="bg-background py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[820px] px-5 sm:px-10">
             <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
                 The simplest way to explain it
               </p>
               <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
@@ -337,7 +337,7 @@ const ParentsLandingPage = () => {
           <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
                   How it works
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
@@ -368,7 +368,7 @@ const ParentsLandingPage = () => {
                   key={item.step}
                   className="rounded-3xl bg-background p-8 ring-1 ring-black/[0.05] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.18)] sm:p-10"
                 >
-                  <span className="font-display text-[2.5rem] font-bold leading-none tracking-tight text-primary sm:text-[3rem]">
+                  <span className="font-display text-[2.5rem] font-bold leading-none tracking-tight text-foreground sm:text-[3rem]">
                     {item.step}
                   </span>
                   <h3 className="mt-5 font-display text-[1.5rem] font-semibold tracking-tight text-foreground sm:text-[1.7rem]">
@@ -389,7 +389,7 @@ const ParentsLandingPage = () => {
                 >
                   <Button
                     size="lg"
-                    className="h-[3.5rem] rounded-full bg-primary px-10 text-[16px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.6)] hover:bg-primary/90"
+                    className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
                   >
                     Secure My Baby&apos;s Space
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -405,7 +405,7 @@ const ParentsLandingPage = () => {
           <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="max-w-2xl">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
                   The Mini
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
@@ -440,7 +440,7 @@ const ParentsLandingPage = () => {
                 return (
                   <Reveal key={p.title}>
                     <div className="h-full rounded-3xl bg-card p-7 ring-1 ring-black/[0.05] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.18)] sm:p-8">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/15 text-primary">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-foreground/10 text-foreground">
                         <Icon className="h-5 w-5" strokeWidth={2.25} />
                       </div>
                       <h3 className="mt-5 text-[1.05rem] font-semibold text-foreground sm:text-[1.125rem]">
@@ -458,7 +458,7 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ TESTIMONIAL ============ */}
-        <section className="bg-[hsl(var(--primary-soft))] py-16 sm:py-24 lg:py-28">
+        <section className="bg-[#F4EFE6] py-16 sm:py-24 lg:py-28">
           <div className="mx-auto max-w-[860px] px-5 text-center sm:px-10">
             <Reveal>
               <p className="font-display text-[1.4rem] font-medium leading-[1.45] text-foreground sm:text-[1.75rem] lg:text-[2rem]">
@@ -476,7 +476,7 @@ const ParentsLandingPage = () => {
         <section className="bg-background py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[880px] px-5 sm:px-10">
             <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
                 FAQ
               </p>
               <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
@@ -509,7 +509,7 @@ const ParentsLandingPage = () => {
                 <AccordionItem
                   key={idx}
                   value={`q${idx}`}
-                  className="group rounded-2xl border border-border/60 bg-card px-6 transition-all hover:border-primary/30 data-[state=open]:border-primary/40 data-[state=open]:shadow-[0_18px_50px_-30px_rgba(0,0,0,0.18)] sm:px-8"
+                  className="group rounded-2xl border border-border/60 bg-card px-6 transition-all hover:border-foreground/40 data-[state=open]:border-foreground/50 data-[state=open]:shadow-[0_18px_50px_-30px_rgba(0,0,0,0.18)] sm:px-8"
                 >
                   <AccordionTrigger className="py-6 text-left text-[17px] font-semibold text-foreground hover:no-underline sm:py-7 sm:text-[18px]">
                     {item.q}
@@ -527,7 +527,7 @@ const ParentsLandingPage = () => {
         <section id="quiz" className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[820px] px-5 sm:px-10">
             <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
                 Find your fit
               </p>
               <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
@@ -555,11 +555,11 @@ const ParentsLandingPage = () => {
                     }}
                     className={`flex items-center gap-4 rounded-2xl border-2 bg-background p-5 text-left transition-all sm:flex-col sm:items-start sm:gap-3 sm:p-6 ${
                       active
-                        ? "border-primary shadow-[0_18px_50px_-25px_hsl(var(--primary)/0.5)]"
-                        : "border-transparent ring-1 ring-black/[0.05] hover:border-primary/30"
+                        ? "border-foreground shadow-[0_18px_50px_-25px_hsl(var(--foreground)/0.5)]"
+                        : "border-transparent ring-1 ring-black/[0.05] hover:border-foreground/40"
                     }`}
                   >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/15 text-primary">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-foreground/10 text-foreground">
                       <Icon className="h-5 w-5" strokeWidth={2.25} />
                     </div>
                     <span className="text-[15px] font-semibold text-foreground sm:text-[16px]">
@@ -571,13 +571,13 @@ const ParentsLandingPage = () => {
             </div>
 
             {quizAnswer && (
-              <div className="mt-8 rounded-3xl bg-background p-7 ring-1 ring-primary/30 shadow-[0_20px_60px_-30px_hsl(var(--primary)/0.4)] sm:p-9">
+              <div className="mt-8 rounded-3xl bg-background p-7 ring-1 ring-foreground/40 shadow-[0_20px_60px_-30px_hsl(var(--foreground)/0.4)] sm:p-9">
                 <div className="grid grid-cols-1 items-center gap-6 sm:grid-cols-[180px_1fr] sm:gap-8">
-                  <div className="flex h-40 items-center justify-center rounded-2xl bg-[hsl(var(--primary-soft))]">
+                  <div className="flex h-40 items-center justify-center rounded-2xl bg-[#F4EFE6]">
                     <img src={miniImg} alt="The Mini" className="max-h-32 object-contain" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground">
                       Your recommendation
                     </p>
                     <h3 className="mt-2 font-display text-[1.5rem] font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
@@ -594,7 +594,7 @@ const ParentsLandingPage = () => {
                       <a href={MINI_URL} onClick={() => trackCta("quiz_add_mini")}>
                         <Button
                           size="lg"
-                          className="h-[3.25rem] w-full rounded-full bg-primary px-8 text-[15px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.6)] hover:bg-primary/90 sm:w-auto"
+                          className="h-[3.25rem] w-full rounded-full bg-foreground px-8 text-[15px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90 sm:w-auto"
                         >
                           Add The Mini to Cart
                           <ArrowRight className="ml-2 h-4 w-4" />
@@ -622,10 +622,10 @@ const ParentsLandingPage = () => {
               <a
                 href="/blog"
                 onClick={() => trackCta("blog_bridge")}
-                className="group flex flex-col gap-3 rounded-3xl border border-border/60 bg-card p-7 transition hover:border-primary/40 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:p-8"
+                className="group flex flex-col gap-3 rounded-3xl border border-border/60 bg-card p-7 transition hover:border-foreground/50 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:p-8"
               >
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground">
                     Read next
                   </p>
                   <h3 className="mt-2 font-display text-[1.25rem] font-semibold tracking-[-0.015em] text-foreground sm:text-[1.4rem]">
@@ -635,7 +635,7 @@ const ParentsLandingPage = () => {
                     The everyday sources of dust, VOCs, and buildup most parents miss.
                   </p>
                 </div>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
                   Read the guide
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
@@ -645,7 +645,7 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ FINAL CTA ============ */}
-        <section className="relative overflow-hidden bg-[hsl(var(--primary-soft))] py-20 sm:py-28 lg:py-36">
+        <section className="relative overflow-hidden bg-[#F4EFE6] py-20 sm:py-28 lg:py-36">
           <img
             src={heroImg}
             alt=""
@@ -654,7 +654,7 @@ const ParentsLandingPage = () => {
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--primary-soft))] via-[hsl(var(--primary-soft))]/92 to-[hsl(var(--primary-soft))]"
+            className="absolute inset-0 bg-gradient-to-b from-[#F4EFE6] via-[#F4EFE6]/92 to-[#F4EFE6]"
           />
           <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
             <Reveal>
@@ -672,7 +672,7 @@ const ParentsLandingPage = () => {
                 >
                   <Button
                     size="lg"
-                    className="h-[3.5rem] rounded-full bg-primary px-10 text-[16px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.6)] hover:bg-primary/90"
+                    className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
                   >
                     Secure My Baby&apos;s Space
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -681,17 +681,17 @@ const ParentsLandingPage = () => {
               </div>
               <p className="mt-7 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13px] font-medium text-foreground/70 sm:text-sm">
                 <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-primary" strokeWidth={3} />
+                  <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
                   30-night guarantee
                 </span>
                 <span className="opacity-40">·</span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-primary" strokeWidth={3} />
+                  <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
                   Free shipping
                 </span>
                 <span className="opacity-40">·</span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-primary" strokeWidth={3} />
+                  <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
                   Cancel anytime
                 </span>
               </p>
@@ -715,7 +715,7 @@ const ParentsLandingPage = () => {
             href="#quiz"
             onClick={(e) => smoothScroll(e, "quiz", "click_parents_sticky_cta")}
           >
-            <Button className="h-11 shrink-0 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
+            <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
               Secure My Baby&apos;s Space
             </Button>
           </a>
