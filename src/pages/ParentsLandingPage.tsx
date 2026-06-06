@@ -31,7 +31,7 @@ import nurseryImg from "@/assets/nursery-scandinavian-bright.jpg";
 const heroImg = heroAsset.url;
 
 const PROMO = "PARENTS";
-const MINI_URL = `${shopifyProductUrl("biologic-mini", "parents-landing")}?discount=${PROMO}`;
+const MINI_URL = `${shopifyProductUrl("biologic-mini", "parents-landing")}`;
 const BUNDLE_URL = `${shopifyProductUrl("home-complete-bundle", "parents-landing")}?discount=${PROMO}`;
 const BIOTICA_URL = `${shopifyProductUrl("biotica-800", "parents-landing")}?discount=${PROMO}`;
 
@@ -523,9 +523,7 @@ const ParentsLandingPage = () => {
                     </ul>
                     <div className="mt-6 border-t border-border/60 pt-5">
                       <div className="mb-1 flex items-baseline gap-3">
-                        <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">$83</span>
-                        <span className="text-base text-muted-foreground line-through">$98</span>
-                        <span className="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-foreground">Code PARENTS</span>
+                        <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">$98</span>
                       </div>
                       <a
                         href={MINI_URL}
