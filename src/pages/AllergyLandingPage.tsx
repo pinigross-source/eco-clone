@@ -494,7 +494,7 @@ const AllergyLandingPage = () => {
                     <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
                       <img
                         src={bioticaImg}
-                        alt="Biotica — bedroom probiotic device"
+                        alt="Biotica bedroom probiotic device"
                         className="h-full w-full object-contain p-6 sm:p-10"
                         loading="lazy"
                       />
@@ -509,11 +509,11 @@ const AllergyLandingPage = () => {
                     </h3>
                     <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
                       Sits quietly in the room and keeps surfaces, fabrics, and air working in your
-                      favor — between every cleaning.
+                      favor, between every cleaning.
                     </p>
                     <ul className="mt-5 flex flex-col gap-3">
                       {[
-                        "Covers up to 800 sq ft — built for bedrooms and main rooms",
+                        "Covers up to 800 sq ft, built for bedrooms and main rooms",
                         "Silent — runs overnight without the fan noise",
                         "No sprays, no chemicals, no fragrance",
                       ].map((f) => (
