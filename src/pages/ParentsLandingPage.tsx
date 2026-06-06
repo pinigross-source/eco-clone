@@ -667,6 +667,34 @@ const ParentsLandingPage = () => {
           </div>
         </section>
 
+        {/* ============ PTPA TESTIMONIAL ============ */}
+
+        <section className="bg-background py-16 sm:py-20 lg:py-24">
+          <div className="mx-auto max-w-[920px] px-5 sm:px-10">
+            <Reveal>
+              <div className="flex flex-col items-center gap-8 sm:flex-row sm:gap-12">
+                <div className="flex flex-none items-center justify-center">
+                  <img
+                    src="/src/assets/ptpa-award.png"
+                    alt="Parent Tested Parent Approved seal"
+                    className="h-28 w-auto object-contain sm:h-36"
+                  />
+                </div>
+                <div className="text-center sm:text-left">
+                  <p className="font-display text-[1.15rem] font-medium leading-[1.55] text-foreground sm:text-[1.35rem]">
+                    &ldquo;As a mom, I love that I can create a healthier home for my
+                    family without worrying about harsh chemicals. EnviroBiotics gives
+                    me peace of mind.&rdquo;
+                  </p>
+                  <p className="mt-4 text-[12px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                    PTPA Winner &mdash; Parent Tested Parent Approved
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         {/* ============ TESTIMONIAL ============ */}
 
         <section className="bg-[#F4EFE6] py-16 sm:py-24 lg:py-28">
