@@ -461,7 +461,205 @@ const ParentsLandingPage = () => {
           </div>
         </section>
 
+        {/* ============ PRODUCTS — 3 OPTIONS ============ */}
+        <section id="products" className="scroll-mt-24 bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
+          <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
+            <Reveal>
+              <div className="mx-auto max-w-2xl text-center">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+                  Choose your setup
+                </p>
+                <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3.25rem]">
+                  Start with <span className="font-serif italic font-normal">The Mini.</span>
+                </h2>
+                <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
+                  The Mini is what most parents start with for the nursery. Add a second for full-home coverage, or size up for open-plan spaces.
+                </p>
+              </div>
+            </Reveal>
+
+            {/* FEATURED: The Mini */}
+            <div className="mt-12 sm:mt-16">
+              <Reveal>
+                <div className="relative grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-2 ring-foreground shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] lg:grid-cols-2">
+                  <div className="absolute right-5 top-5 z-10 rounded-full bg-foreground px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-background">
+                    Parents' pick
+                  </div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] lg:aspect-auto lg:min-h-[420px]">
+                    <img
+                      src={miniImg}
+                      alt="The Mini — nursery probiotic dispenser"
+                      className="h-full w-full object-contain p-8 sm:p-12"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex flex-col p-6 sm:p-10 lg:p-12">
+                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
+                      The Mini · For the nursery
+                    </p>
+                    <h3 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
+                      The Mini
+                    </h3>
+                    <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
+                      Sits quietly on a shelf and keeps surfaces, fabrics, and air in one room cleaner — between every wipe-down.
+                    </p>
+                    <ul className="mt-5 flex flex-col gap-3">
+                      {[
+                        "Covers up to 300 sq ft — perfect for a nursery",
+                        "Whisper-quiet, nap-safe",
+                        "No sprays, no filters, no chemicals",
+                      ].map((f) => (
+                        <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                          <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-6 border-t border-border/60 pt-5">
+                      <div className="mb-1 flex items-baseline gap-3">
+                        <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">$83</span>
+                        <span className="text-base text-muted-foreground line-through">$98</span>
+                        <span className="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-foreground">Code PARENTS</span>
+                      </div>
+                      <a
+                        href={MINI_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackEvent("click_parents_products_mini")}
+                        className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+                      >
+                        Secure My Baby's Space
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                      <p className="mt-3 text-center text-[11px] text-muted-foreground">
+                        Free shipping · 30-day money-back · Cancel anytime
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Upsell row: Bundle + Biotica 800 */}
+            <div className="mt-5 grid grid-cols-1 gap-5 sm:mt-6 lg:grid-cols-2 lg:gap-6">
+              {/* Home Bundle */}
+              <Reveal>
+                <div className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.08]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6]">
+                    <img
+                      src={bundleImg}
+                      alt="Home Bundle — two devices"
+                      className="h-full w-full object-contain p-6 sm:p-8"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6 sm:p-8">
+                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
+                      Most parents get two · Save $100
+                    </p>
+                    <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
+                      Home Bundle
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                      Two Minis — one for the nursery, one for the living room or your bedroom. Full-home coverage from day one.
+                    </p>
+                    <ul className="mt-5 flex flex-1 flex-col gap-3">
+                      {[
+                        "Covers up to 600 sq ft across two rooms",
+                        "Nursery + main living space",
+                        "Best value per square foot",
+                      ].map((f) => (
+                        <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                          <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-6 border-t border-border/60 pt-5">
+                      <div className="flex items-baseline gap-3">
+                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$395</span>
+                        <span className="text-base text-muted-foreground line-through">$495</span>
+                        <span className="text-[0.78rem] font-bold text-foreground">Save $100</span>
+                      </div>
+                      <a
+                        href={BUNDLE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackEvent("click_parents_products_bundle")}
+                        className="mt-4 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+                      >
+                        Get the Bundle
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                      <p className="mt-3 text-center text-[11px] text-muted-foreground">
+                        30-day risk-free trial · Free shipping
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+
+              {/* Biotica 800 */}
+              <Reveal>
+                <div className="flex h-full flex-col overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.08]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6]">
+                    <img
+                      src={bioticaImg}
+                      alt="Biotica 800 — larger home coverage"
+                      className="h-full w-full object-contain p-6 sm:p-8"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6 sm:p-8">
+                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                      Open-plan homes
+                    </p>
+                    <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
+                      Biotica 800
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                      One high-coverage device for open layouts where baby plays, crawls, and naps across multiple zones.
+                    </p>
+                    <ul className="mt-5 flex flex-1 flex-col gap-3">
+                      {[
+                        "Covers up to 800 sq ft",
+                        "Designed for open-plan layouts",
+                        "Single-device simplicity",
+                      ].map((f) => (
+                        <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
+                          <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-6 border-t border-border/60 pt-5">
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$254</span>
+                        <span className="text-sm text-muted-foreground line-through">$299</span>
+                      </div>
+                      <a
+                        href={BIOTICA_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackEvent("click_parents_products_biotica")}
+                        className="mt-4 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+                      >
+                        Larger home? Get the 800
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                      <p className="mt-3 text-center text-[11px] text-muted-foreground">
+                        30-day risk-free trial
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         {/* ============ TESTIMONIAL ============ */}
+
         <section className="bg-[#F4EFE6] py-16 sm:py-24 lg:py-28">
           <div className="mx-auto max-w-[860px] px-5 text-center sm:px-10">
             <Reveal>
