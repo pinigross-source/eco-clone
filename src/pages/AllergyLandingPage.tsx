@@ -230,7 +230,7 @@ const AllergyLandingPage = () => {
                   their lives in the air. Dust-mite waste, pollen, pet dander, mold spores. They
                   settle, and they live in the soft surfaces of the room. The mattress. The pillows.
                   The carpet. The couch. A purifier can only catch the small fraction that happens to
-                  be airborne at any moment. The reservoir, the part that keeps refilling the air —
+                  be airborne at any moment. The reservoir, the part that keeps refilling the air,
                   sits in your surfaces, completely out of its reach.
                 </p>
               </div>
