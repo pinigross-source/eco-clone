@@ -4,22 +4,17 @@ import Page from "@/pages/ParentsLandingPage";
 export const Route = createFileRoute("/parents")({
   head: () => ({
     meta: [
-      {
-        title: "Probiotic Air & Surface Care for Families | EnviroBiotics",
-      },
+      { title: "Nursery Surface & Air Care for Babies | EnviroBiotics" },
       {
         name: "description",
         content:
-          "Cleaner air and safer surfaces for nurseries, playrooms, and bedrooms. Chemical-free, safe for kids and pets. Save 10% with code PARENTS.",
+          "Air purifiers only clean the air. EnviroBiotics keeps the surfaces your baby lives on cleaner — crib, playmat, floor. No sprays, no filters, no noise. Meet The Mini.",
       },
-      {
-        property: "og:title",
-        content: "Probiotic Air & Surface Care for Families | EnviroBiotics",
-      },
+      { property: "og:title", content: "Nursery Surface & Air Care for Babies | EnviroBiotics" },
       {
         property: "og:description",
         content:
-          "Probiotic protection for the air and every surface your kids touch, cribs, toys, bedding. Safe for kids & pets.",
+          "Air purifiers only clean the air. EnviroBiotics keeps the surfaces your baby lives on cleaner — crib, playmat, floor. Meet The Mini.",
       },
       { property: "og:url", content: "https://envirobiotics.com/parents" },
       { property: "og:type", content: "website" },
