@@ -77,7 +77,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         Clean air is great.
         <br />
-        But your baby <span className="text-foreground">lives on the floor.</span>
+        But your baby <span className="font-serif italic font-normal">lives on the floor.</span>
       </>
     ),
     sub: "Air purifiers clean the air. EnviroBiotics works on the surfaces your baby actually lives on — crib, playmat, floor. No sprays, no filters, no noise.",
@@ -87,7 +87,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         You can&apos;t wipe down the nursery every hour.
         <br />
-        <span className="text-foreground">So we made something that does it for you.</span>
+        <span className="font-serif italic font-normal">So we made something that does it for you.</span>
       </>
     ),
     sub: "EnviroBiotics keeps working on the surfaces your baby lives on, long after the last wipe-down. No sprays, no filters, no noise.",
@@ -97,7 +97,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         It all ends up in their mouth eventually.
         <br />
-        <span className="text-foreground">Start with cleaner surfaces.</span>
+        <span className="font-serif italic font-normal">Start with cleaner surfaces.</span>
       </>
     ),
     sub: "Air purifiers handle the air. EnviroBiotics works on the floors, mats, and crib your baby actually touches. No sprays, no filters, no noise.",
