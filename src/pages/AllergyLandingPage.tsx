@@ -623,7 +623,7 @@ const AllergyLandingPage = () => {
                     <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
                       <img
                         src={miniImg}
-                        alt="The Mini — small-room coverage"
+                        alt="The Mini small-room coverage"
                         className="h-full w-full object-contain p-4 sm:p-6"
                         loading="lazy"
                       />
@@ -637,7 +637,7 @@ const AllergyLandingPage = () => {
                       The Mini
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                      Compact, portable surface coverage for a study, guest room, or hotel — wherever
+                      Compact, portable surface coverage for a study, guest room, or hotel, wherever
                       you sleep.
                     </p>
                     <ul className="mt-5 flex flex-1 flex-col gap-3">
@@ -738,7 +738,7 @@ const AllergyLandingPage = () => {
               {[
                 {
                   q: "Does this replace my air purifier?",
-                  a: "No — they do opposite jobs. The purifier treats airborne particles; EnviroBiotics treats the surfaces those particles settle into. Run both.",
+                  a: "No. They do opposite jobs. The purifier treats airborne particles; EnviroBiotics treats the surfaces those particles settle into. Run both.",
                 },
                 {
                   q: "What does it actually work on?",
