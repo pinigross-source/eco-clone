@@ -243,18 +243,16 @@ const PetsLandingPage = () => {
               </Reveal>
               <Reveal>
                 <h1 className="font-display font-bold tracking-[-0.03em] text-foreground text-[clamp(2.125rem,7.5vw,2.5rem)] leading-[1.06] sm:text-[clamp(2.875rem,5vw,3.375rem)] sm:leading-[1.05] lg:text-[clamp(3.625rem,4.4vw,4.375rem)] lg:leading-[1.04]">
-                  The air feels clean.
+                  It&apos;s not the hair
                   <br />
-                  But filters can&apos;t reach
+                  you can see. It&apos;s the
                   <br />
-                  the <span className="text-primary">pet bed.</span>
+                  <span className="text-primary">dander you can&apos;t.</span>
                 </h1>
               </Reveal>
               <Reveal>
                 <p className="mx-auto mt-5 max-w-[34rem] text-[1rem] font-medium leading-[1.6] text-foreground/85 sm:mx-0 sm:mt-6 sm:max-w-[38.75rem] sm:text-[1.1rem] sm:leading-[1.6] lg:text-[1.15rem]">
-                  EnviroBiotics disperses beneficial probiotics that travel through the room and
-                  settle on pet beds, sofas, rugs, crates, and floors &mdash; the surfaces your
-                  pets actually live on.
+                  The hair you vacuum is the easy part. Dander and odor are microscopic &mdash; they settle deep into the couch, carpet, and bedding your pet loves, where vacuums and filters can&apos;t reach. EnviroBiotics breaks them down right there, at the source.
                 </p>
               </Reveal>
               <Reveal>
@@ -268,7 +266,7 @@ const PetsLandingPage = () => {
                       size="lg"
                       className="h-[3.5rem] w-full rounded-full bg-primary px-9 text-[16px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.65)] hover:bg-primary/90 sm:w-auto"
                     >
-                      Shop the Pet Offer
+                      Get the Pet-Proof Home
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </a>
@@ -283,7 +281,7 @@ const PetsLandingPage = () => {
               </Reveal>
               <Reveal>
                 <p className="mt-7 text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-8 sm:text-[13px]">
-                  Use code <span className="font-bold text-primary">{PROMO}</span> for 10% off · 30-day risk-free trial · No ozone · No harsh chemicals
+                  Takes 60 seconds &middot; No sprays &middot; No fragrance &middot; 30-day risk-free trial
                 </p>
               </Reveal>
             </div>
