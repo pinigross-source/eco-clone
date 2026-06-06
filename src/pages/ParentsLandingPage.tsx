@@ -33,7 +33,7 @@ const heroImg = heroAsset.url;
 const PROMO = "PARENTS";
 const MINI_URL = `${shopifyProductUrl("biologic-mini", "parents-landing")}`;
 const BUNDLE_URL = `${shopifyProductUrl("home-complete-bundle", "parents-landing")}?discount=${PROMO}`;
-const BIOTICA_URL = `${shopifyProductUrl("biotica-800", "parents-landing")}?discount=${PROMO}`;
+const BIOTICA_URL = `${shopifyProductUrl("biotica-800", "parents-landing")}`;
 
 /* Reveal-on-scroll */
 const Reveal = ({
