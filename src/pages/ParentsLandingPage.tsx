@@ -676,7 +676,7 @@ const ParentsLandingPage = () => {
               <div className="flex flex-col items-center gap-8 sm:flex-row sm:gap-12">
                 <div className="flex flex-none items-center justify-center">
                   <img
-                    src="/src/assets/ptpa-award.png"
+                    src={ptpaBadge}
                     alt="Parent Tested Parent Approved seal"
                     className="h-28 w-auto object-contain sm:h-36"
                   />
