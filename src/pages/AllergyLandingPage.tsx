@@ -89,7 +89,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
         </span>
       </>
     ),
-    sub: "A HEPA filter only catches allergens while they're airborne. But most of them live settled into your mattress, pillows, carpet, and couch — out of the filter's reach. EnviroBiotics works on those surfaces, breaking down the organic debris allergens come from, right where it collects.",
+    sub: "A HEPA filter only catches allergens while they're airborne. But most of them live settled into your mattress, pillows, carpet, and couch, out of the filter's reach. EnviroBiotics works on those surfaces, breaking down the organic debris allergens come from, right where it collects.",
   },
   b: {
     headline: (
@@ -100,7 +100,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
         </span>
       </>
     ),
-    sub: "Dust, pollen, dander, and dust-mite waste spend almost all their time settled on surfaces — the bedding, the rug, the upholstery — not in the air. EnviroBiotics works right there, breaking down the debris at the source.",
+    sub: "Dust, pollen, dander, and dust-mite waste spend almost all their time settled on surfaces: the bedding, the rug, the upholstery, not in the air. EnviroBiotics works right there, breaking down the debris at the source.",
   },
   c: {
     headline: (
@@ -146,7 +146,7 @@ const AllergyLandingPage = () => {
     <>
       <SEOHead
         title="Surface Allergen Control for Your Home | EnviroBiotics"
-        description="Air purifiers only catch airborne particles. Most household allergens settle into your mattress, carpet, and couch — out of the filter's reach. EnviroBiotics works on those surfaces. Meet Biotica."
+        description="Air purifiers only catch airborne particles. Most household allergens settle into your mattress, carpet, and couch, out of the filter's reach. EnviroBiotics works on those surfaces. Meet Biotica."
         path="/allergy"
       />
 
@@ -227,10 +227,10 @@ const AllergyLandingPage = () => {
                 </p>
                 <p>
                   Here&apos;s what no one selling you a filter mentions: allergens don&apos;t spend
-                  their lives in the air. Dust-mite waste, pollen, pet dander, mold spores — they
+                  their lives in the air. Dust-mite waste, pollen, pet dander, mold spores. They
                   settle, and they live in the soft surfaces of the room. The mattress. The pillows.
                   The carpet. The couch. A purifier can only catch the small fraction that happens to
-                  be airborne at any moment. The reservoir — the part that keeps refilling the air —
+                  be airborne at any moment. The reservoir, the part that keeps refilling the air,
                   sits in your surfaces, completely out of its reach.
                 </p>
               </div>
@@ -260,7 +260,7 @@ const AllergyLandingPage = () => {
                   </h2>
                   <p className="mt-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
                     EnviroBiotics settles good cultures onto the surfaces of the room, where they
-                    quietly break down the organic debris that allergens come from — and keep
+                    quietly break down the organic debris that allergens come from, and keep
                     working between cleanings.
                   </p>
                   <p className="mt-4 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
@@ -330,13 +330,13 @@ const AllergyLandingPage = () => {
                 The simplest way to explain it
               </p>
               <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                You already know how this works — for your gut.
+                You already know how this works, for your gut.
               </h2>
               <p className="mt-6 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.15rem]">
                 You&apos;ve heard of probiotics for your gut: good cultures that keep things in
                 balance. EnviroBiotics is the same idea for the room. Good cultures settle onto your
                 surfaces and break down the organic debris that dust mites feed on and that
-                allergens cling to — quietly, continuously, the natural way. No harsh chemicals. No
+                allergens cling to, quietly, continuously, the natural way. No harsh chemicals. No
                 fragrance. Less of the buildup that keeps the room from ever feeling clean.
               </p>
             </Reveal>
@@ -362,7 +362,7 @@ const AllergyLandingPage = () => {
                 {
                   step: "01",
                   title: "Place",
-                  copy: "Put Biotica in the bedroom — the room where you spend a third of your life, and where the allergen reservoir is biggest.",
+                  copy: "Put Biotica in the bedroom, the room where you spend a third of your life, and where the allergen reservoir is biggest.",
                 },
                 {
                   step: "02",
@@ -426,7 +426,7 @@ const AllergyLandingPage = () => {
                 {
                   icon: ShieldCheck,
                   title: "Reaches the soft surfaces",
-                  copy: "Mattress, pillows, carpet, upholstery, curtains — where allergens actually settle.",
+                  copy: "Mattress, pillows, carpet, upholstery, curtains, where allergens actually settle.",
                 },
                 {
                   icon: VolumeX,
@@ -436,7 +436,7 @@ const AllergyLandingPage = () => {
                 {
                   icon: Leaf,
                   title: "No chemicals, no fragrance",
-                  copy: "Nothing added to the room — just less of the debris that builds up in it.",
+                  copy: "Nothing added to the room. Just less of the debris that builds up in it.",
                 },
                 {
                   icon: Sparkles,
@@ -477,7 +477,7 @@ const AllergyLandingPage = () => {
                   Start with <span className="font-serif italic font-normal">Biotica.</span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
-                  Biotica is sized for the bedroom or main living room — the rooms with the biggest
+                  Biotica is sized for the bedroom or main living room, the rooms with the biggest
                   allergen reservoirs. Add a Mini for the second room, or size up with the bundle.
                 </p>
               </div>
@@ -494,7 +494,7 @@ const AllergyLandingPage = () => {
                     <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
                       <img
                         src={bioticaImg}
-                        alt="Biotica — bedroom probiotic device"
+                        alt="Biotica bedroom probiotic device"
                         className="h-full w-full object-contain p-6 sm:p-10"
                         loading="lazy"
                       />
@@ -509,12 +509,12 @@ const AllergyLandingPage = () => {
                     </h3>
                     <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
                       Sits quietly in the room and keeps surfaces, fabrics, and air working in your
-                      favor — between every cleaning.
+                      favor, between every cleaning.
                     </p>
                     <ul className="mt-5 flex flex-col gap-3">
                       {[
-                        "Covers up to 800 sq ft — built for bedrooms and main rooms",
-                        "Silent — runs overnight without the fan noise",
+                        "Covers up to 800 sq ft, built for bedrooms and main rooms",
+                        "Silent, runs overnight without the fan noise",
                         "No sprays, no chemicals, no fragrance",
                       ].map((f) => (
                         <li
@@ -559,7 +559,7 @@ const AllergyLandingPage = () => {
                     <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
                       <img
                         src={bundleImg}
-                        alt="Home Bundle — full-home coverage"
+                        alt="Home Bundle full-home coverage"
                         className="h-full w-full object-contain p-4 sm:p-6"
                         loading="lazy"
                       />
@@ -573,8 +573,8 @@ const AllergyLandingPage = () => {
                       Home Bundle
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                      Cover the two rooms with the biggest allergen reservoirs — your bedroom and
-                      living room — from day one.
+                      Cover the two rooms with the biggest allergen reservoirs, your bedroom and
+                      living room, from day one.
                     </p>
                     <ul className="mt-5 flex flex-1 flex-col gap-3">
                       {[
@@ -623,7 +623,7 @@ const AllergyLandingPage = () => {
                     <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
                       <img
                         src={miniImg}
-                        alt="The Mini — small-room coverage"
+                        alt="The Mini small-room coverage"
                         className="h-full w-full object-contain p-4 sm:p-6"
                         loading="lazy"
                       />
@@ -637,7 +637,7 @@ const AllergyLandingPage = () => {
                       The Mini
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                      Compact, portable surface coverage for a study, guest room, or hotel — wherever
+                      Compact, portable surface coverage for a study, guest room, or hotel, wherever
                       you sleep.
                     </p>
                     <ul className="mt-5 flex flex-1 flex-col gap-3">
@@ -738,15 +738,15 @@ const AllergyLandingPage = () => {
               {[
                 {
                   q: "Does this replace my air purifier?",
-                  a: "No — they do opposite jobs. The purifier treats airborne particles; EnviroBiotics treats the surfaces those particles settle into. Run both.",
+                  a: "No. They do opposite jobs. The purifier treats airborne particles; EnviroBiotics treats the surfaces those particles settle into. Run both.",
                 },
                 {
                   q: "What does it actually work on?",
-                  a: "It breaks down the organic debris on your surfaces — the kind dust mites feed on and that dust, dander, and pollen collect in. It works continuously on soft, hard, and high-touch surfaces between cleanings.",
+                  a: "It breaks down the organic debris on your surfaces, the kind dust mites feed on and that dust, dander, and pollen collect in. It works continuously on soft, hard, and high-touch surfaces between cleanings.",
                 },
                 {
                   q: "Is it safe to have in the bedroom?",
-                  a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list (Generally Recognized As Safe) — the same kind of beneficial cultures found in yogurt. Fragrance-free, chemical-free, and independently tested for use in homes with kids and pets.",
+                  a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list (Generally Recognized As Safe), the same kind of beneficial cultures found in yogurt. Fragrance-free, chemical-free, and independently tested for use in homes with kids and pets.",
                 },
                 {
                   q: "Is there anything to spray, refill, or replace?",
@@ -754,7 +754,7 @@ const AllergyLandingPage = () => {
                 },
                 {
                   q: "Will I hear it overnight?",
-                  a: "Silent operation — designed to disappear into the background of a sleeping room. No fan noise.",
+                  a: "Silent operation, designed to disappear into the background of a sleeping room. No fan noise.",
                 },
                 {
                   q: "What if I don't notice a difference?",
@@ -842,8 +842,8 @@ const AllergyLandingPage = () => {
                       {quizAnswer === "baby"
                         ? "We'd start you with Biotica in the main living space, where dust and dander settle into rugs and upholstery."
                         : quizAnswer === "pets"
-                          ? "We'd start you with Biotica in the room your pet spends the most time — where dander settles into the couch, carpet, and bedding."
-                          : "We'd start you with Biotica in the bedroom — the room with the biggest allergen reservoir and where you spend the most hours."}
+                          ? "We'd start you with Biotica in the room your pet spends the most time, where dander settles into the couch, carpet, and bedding."
+                          : "We'd start you with Biotica in the bedroom, the room with the biggest allergen reservoir and where you spend the most hours."}
                     </p>
                     <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
                       <a href={BIOTICA_URL} onClick={() => trackCta("quiz_add_biotica")}>
@@ -887,7 +887,7 @@ const AllergyLandingPage = () => {
                     Where Household Allergens Actually Live (Hint: Not the Air)
                   </h3>
                   <p className="mt-1.5 text-[14.5px] leading-[1.6] text-muted-foreground sm:text-[15px]">
-                    Why a HEPA purifier alone never clears the dust — and what the filter
+                    Why a HEPA purifier alone never clears the dust, and what the filter
                     can&apos;t reach.
                   </p>
                 </div>
@@ -919,7 +919,7 @@ const AllergyLandingPage = () => {
               </h2>
               <p className="mx-auto mt-6 max-w-xl text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:text-[1.15rem]">
                 Your purifier handles the air. EnviroBiotics handles the surfaces allergens actually
-                settle into — the mattress, the carpet, the couch — quietly, chemical-free, around
+                settle into, the mattress, the carpet, the couch, quietly, chemical-free, around
                 the clock.
               </p>
               <div className="mt-10 flex justify-center">
