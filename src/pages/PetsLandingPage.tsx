@@ -211,8 +211,8 @@ const PetsLandingPage = () => {
   return (
     <>
       <SEOHead
-        title="Probiotic Surface Support for Pet Homes | EnviroBiotics"
-        description="A pet air purifier helps the air. EnviroBiotics adds surface-focused support for pet beds, sofas, rugs, crates, and floors. Save 10% with code PETS."
+        title="Pet Dander & Odor Control for Your Home | EnviroBiotics"
+        description="Vacuuming gets the hair. EnviroBiotics gets what you can't see — breaking down pet dander and odor in the couch, carpet, and bedding where they settle. No fragrance, no chemicals. Meet Biotica."
         path="/pets"
       />
 
@@ -243,18 +243,16 @@ const PetsLandingPage = () => {
               </Reveal>
               <Reveal>
                 <h1 className="font-display font-bold tracking-[-0.03em] text-foreground text-[clamp(2.125rem,7.5vw,2.5rem)] leading-[1.06] sm:text-[clamp(2.875rem,5vw,3.375rem)] sm:leading-[1.05] lg:text-[clamp(3.625rem,4.4vw,4.375rem)] lg:leading-[1.04]">
-                  The air feels clean.
+                  It&apos;s not the hair
                   <br />
-                  But filters can&apos;t reach
+                  you can see. It&apos;s the
                   <br />
-                  the <span className="text-primary">pet bed.</span>
+                  <span className="text-primary">dander you can&apos;t.</span>
                 </h1>
               </Reveal>
               <Reveal>
                 <p className="mx-auto mt-5 max-w-[34rem] text-[1rem] font-medium leading-[1.6] text-foreground/85 sm:mx-0 sm:mt-6 sm:max-w-[38.75rem] sm:text-[1.1rem] sm:leading-[1.6] lg:text-[1.15rem]">
-                  EnviroBiotics disperses beneficial probiotics that travel through the room and
-                  settle on pet beds, sofas, rugs, crates, and floors &mdash; the surfaces your
-                  pets actually live on.
+                  The hair you vacuum is the easy part. Dander and odor are microscopic &mdash; they settle deep into the couch, carpet, and bedding your pet loves, where vacuums and filters can&apos;t reach. EnviroBiotics breaks them down right there, at the source.
                 </p>
               </Reveal>
               <Reveal>
@@ -268,7 +266,7 @@ const PetsLandingPage = () => {
                       size="lg"
                       className="h-[3.5rem] w-full rounded-full bg-primary px-9 text-[16px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.65)] hover:bg-primary/90 sm:w-auto"
                     >
-                      Shop the Pet Offer
+                      Get the Pet-Proof Home
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </a>
@@ -283,7 +281,7 @@ const PetsLandingPage = () => {
               </Reveal>
               <Reveal>
                 <p className="mt-7 text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-8 sm:text-[13px]">
-                  Use code <span className="font-bold text-primary">{PROMO}</span> for 10% off · 30-day risk-free trial · No ozone · No harsh chemicals
+                  Takes 60 seconds &middot; No sprays &middot; No fragrance &middot; 30-day risk-free trial
                 </p>
               </Reveal>
             </div>
@@ -318,21 +316,21 @@ const PetsLandingPage = () => {
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
-                  What Your Pet Purifier Can&apos;t Reach
+                  The Real Problem
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.75rem] lg:text-[3.25rem] lg:leading-[1.05]">
-                  A pet purifier helps the air.
+                  You&apos;re not a messy pet owner.
                   <br />
-                  <span className="text-primary">Pets live on everything else.</span>
+                  <span className="text-primary">You&apos;re up against something you can&apos;t see.</span>
                 </h2>
                 <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  Pet hair, dander, and odors do not stay in the air. They settle into beds, blankets, sofas, rugs, crates, and floors. EnviroBiotics adds a surface-focused layer of support where filters cannot directly work.
+                  You vacuum the hair. You wash the covers. You stay on top of it. But two things your pet leaves behind never show up on a lint roller: dander and odor. Both are microscopic. Both settle deep into the soft surfaces where your pet spends its days &mdash; the couch, the rug, the bed, the curtains.
                 </p>
               </div>
             </Reveal>
 
             <div className="mt-12 grid grid-cols-1 gap-5 sm:mt-14 lg:grid-cols-2 lg:gap-7">
-              {/* Purifier column */}
+              {/* What you do now */}
               <Reveal>
                 <div className="flex h-full flex-col rounded-3xl bg-card p-7 ring-1 ring-black/[0.06] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.16)] sm:p-9">
                   <div className="flex items-center gap-3">
@@ -340,23 +338,23 @@ const PetsLandingPage = () => {
                       <Filter className="h-5 w-5" strokeWidth={2} />
                     </div>
                     <h3 className="font-display text-xl font-bold text-foreground sm:text-2xl">
-                      Traditional Pet Air Purifier
+                      What you&apos;re doing now
                     </h3>
                   </div>
                   <ul className="mt-6 flex flex-1 flex-col gap-4">
                     {[
-                      "Pulls airborne particles through a filter",
-                      "Helps with air near the device",
-                      "Focuses on airborne fur, dander, and odors",
-                      "Requires filter replacement and cleaning",
-                      "Does not directly support pet beds, sofas, rugs, or floors",
+                      "Vacuum handles the visible hair — you&apos;ve got this",
+                      "Microscopic dander settles back fast",
+                      "Lingering odor masked by sprays or candles",
+                      "Deep in couch &amp; carpet — out of reach",
+                      "Builds back up between cleanings",
                     ].map((row) => (
                       <li
                         key={row}
                         className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-muted-foreground"
                       >
                         <Dot className="mt-0.5 h-5 w-5 flex-none text-muted-foreground/60" strokeWidth={4} />
-                        <span>{row}</span>
+                        <span dangerouslySetInnerHTML={{ __html: row }} />
                       </li>
                     ))}
                   </ul>
@@ -367,7 +365,7 @@ const PetsLandingPage = () => {
               <Reveal>
                 <div className="relative flex h-full flex-col rounded-3xl bg-card p-7 ring-2 ring-primary/40 shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.35)] sm:p-9">
                   <div className="absolute -top-3 left-7 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary-foreground">
-                    The Missing Layer
+                    The Part That&apos;s Left
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
@@ -379,11 +377,11 @@ const PetsLandingPage = () => {
                   </div>
                   <ul className="mt-6 flex flex-1 flex-col gap-4">
                     {[
-                      "Travels through the room and settles on surfaces",
-                      "Supports pet beds, sofas, rugs, crates, and floors",
-                      "Adds a layer of support between regular cleanings",
-                      "Uses probiotic cartridges",
-                      "Helps maintain a fresher-feeling pet home",
+                      "Breaks down dander on the surface",
+                      "Removes odor at the source — no fragrance layered on top",
+                      "Works right in the couch, rug, and bedding",
+                      "Keeps working continuously between cleanings",
+                      "Chemical-free around the pets and people in the room",
                     ].map((row) => (
                       <li
                         key={row}
@@ -399,13 +397,19 @@ const PetsLandingPage = () => {
             </div>
 
             <Reveal>
+              <p className="mx-auto mt-8 max-w-xl text-center text-sm italic text-muted-foreground sm:text-base">
+                A vacuum gets what you can see. This gets what you can&apos;t.
+              </p>
+            </Reveal>
+
+            <Reveal>
               <div className="mt-10 flex justify-center sm:mt-12">
                 <a href="#products" onClick={() => trackEvent("click_pets_compare_cta")}>
                   <Button
                     size="lg"
                     className="h-14 rounded-full bg-primary px-9 text-[15px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.55)] hover:bg-primary/90"
                   >
-                    Protect the Places Filters Miss
+                    Get the Pet-Proof Home
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
@@ -428,15 +432,15 @@ const PetsLandingPage = () => {
                 <div className="hidden sm:absolute sm:inset-0 sm:block sm:bg-gradient-to-r sm:from-card sm:via-card/80 sm:to-transparent" />
                 <div className="relative flex w-full flex-col justify-center p-6 sm:absolute sm:inset-y-0 sm:left-0 sm:max-w-[480px] sm:p-12 lg:p-16">
                   <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
-                    What Your HEPA Can&apos;t Reach
+                    The Shift
                   </p>
                   <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
-                    The room looks clean.
+                    Don&apos;t just clean the surface.
                     <br />
-                    But the pet bed tells a different story.
+                    Keep it clean.
                   </h2>
                   <p className="mt-4 text-[0.95rem] font-medium leading-relaxed text-foreground/85 sm:mt-5 sm:text-base">
-                    Fur, tracked-in dirt, organic residue, and pet odors settle into the places your pet uses most. EnviroBiotics works where pets actually live &mdash; on pet beds, sofas, rugs, crates, blankets, and floors.
+                    EnviroBiotics settles good cultures onto your soft surfaces, where they quietly break down the dander and odor-causing residue your pet leaves behind &mdash; and keep working between cleanings. Not a scent layered on top. Not a once-and-done wipe. A surface that stays cleaner on its own, long after the vacuum&apos;s put away.
                   </p>
                   <a
                     href="#how-it-works"
@@ -486,10 +490,10 @@ const PetsLandingPage = () => {
             <Reveal>
               <div className="max-w-2xl">
                 <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.875rem]">
-                  Pet mess does not stay in the air.
+                  Dander and odor don&apos;t live in the air.
                 </h2>
                 <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-lg">
-                  It settles into the soft surfaces, corners, and favorite spots your pets return to every day.
+                  They press into the couch, the rug, the bedding your pet curls up on &mdash; below the reach of a vacuum and out of range of a spray.
                 </p>
               </div>
             </Reveal>
@@ -541,15 +545,15 @@ const PetsLandingPage = () => {
             <Reveal>
               <div className="max-w-2xl">
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
-                  How It Works
+                  The Science, Simply
                 </p>
                 <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
-                  Friendly probiotics.
+                  It works like the probiotics
                   <br />
-                  Every surface. All day.
+                  you already trust.
                 </h2>
                 <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  A simple surface-focused system that goes beyond a filter to support the rooms your animals spend the most time in.
+                  You&apos;ve heard of probiotics for your gut &mdash; the good cultures that keep things balanced. And you&apos;ve probably used an enzyme cleaner that breaks a mess down instead of covering it up. EnviroBiotics combines both ideas for your home: good cultures that settle onto surfaces and quietly break down the organic stuff pets leave behind &mdash; dander and odor residue &mdash; the natural way. No harsh chemicals. No fragrance.
                 </p>
               </div>
             </Reveal>
@@ -558,18 +562,18 @@ const PetsLandingPage = () => {
               {[
                 {
                   step: "01",
-                  title: "Disperse",
-                  copy: "The device quietly disperses beneficial environmental probiotics into the room throughout the day.",
+                  title: "Place Biotica",
+                  copy: "Set it in the main living space &mdash; wherever your pet spends the most time.",
                 },
                 {
                   step: "02",
-                  title: "Settle",
-                  copy: "They travel through the air and settle on pet beds, sofas, rugs, floors, crates, and everyday surfaces.",
+                  title: "Switch it on",
+                  copy: "It works silently in the background. No spray, no scent, no fuss.",
                 },
                 {
                   step: "03",
-                  title: "Support",
-                  copy: "They help maintain a fresher surface environment between regular cleaning, vacuuming, and filtration.",
+                  title: "Let it run",
+                  copy: "It keeps breaking down dander and odor at the source, so your surfaces stay cleaner on their own.",
                 },
               ].map((item) => (
                 <li key={item.step} className="border-t border-foreground/15 pt-6">
@@ -579,16 +583,17 @@ const PetsLandingPage = () => {
                   <h3 className="mt-3 text-xl font-semibold text-foreground sm:text-2xl">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-                    {item.copy}
-                  </p>
+                  <p
+                    className="mt-2 text-base leading-relaxed text-muted-foreground"
+                    dangerouslySetInnerHTML={{ __html: item.copy }}
+                  />
                 </li>
               ))}
             </ol>
 
             <Reveal>
               <p className="mt-12 max-w-3xl text-sm italic leading-relaxed text-muted-foreground sm:text-base">
-                EnviroBiotics does not replace cleaning, ventilation, or air filtration. It adds another layer of support for the surfaces pets use most.
+                Keep vacuuming the hair and running the purifier for airborne particles. EnviroBiotics handles what settles into the surfaces: dander and odor.
               </p>
             </Reveal>
           </div>
@@ -600,13 +605,13 @@ const PetsLandingPage = () => {
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
-                  Choose Your Device
+                  Made For Homes With Pets
                 </p>
                 <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
-                  Pick the protection for their favorite spot.
+                  Start with the room your pet loves most.
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  Start with one pet bed, one bedroom, or one favorite corner. Add more coverage whenever your home needs it.
+                  Reaches into soft surfaces a vacuum misses &mdash; couch, rug, curtains, pet bed. Works on dander and odor, not just the smell.
                 </p>
                 <p className="mx-auto mt-3 max-w-md text-sm font-semibold text-primary">
                   Use code {PROMO} for 10% off at checkout.
@@ -931,12 +936,12 @@ const PetsLandingPage = () => {
                 Pet Parents Save 10% &middot; Code <span className="text-primary">{PROMO}</span>
               </p>
               <h2 className="font-display text-[2.5rem] font-bold leading-[1.04] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[4.25rem] lg:leading-[1.02]">
-                Protect the places
+                The pet-proof home,
                 <br />
-                your pet actually lives.
+                without the chemicals.
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base font-medium leading-relaxed text-foreground/85 sm:mt-6 sm:text-lg">
-                Start with one pet bed, one sofa, or one favorite corner. EnviroBiotics supports the surfaces filters cannot directly reach.
+                Keep the cuddles and the chaos. Just not the dander and odor pressing into every soft surface. EnviroBiotics works where your vacuum can&apos;t &mdash; quietly, chemical-free, around the clock.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a href="#products" onClick={() => trackEvent("click_pets_final_shop")}>
@@ -944,7 +949,7 @@ const PetsLandingPage = () => {
                     size="lg"
                     className="h-14 rounded-full bg-primary px-10 text-base font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.55)] hover:bg-primary/90"
                   >
-                    Shop the Pet Offer
+                    Get the Pet-Proof Home
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
@@ -957,8 +962,7 @@ const PetsLandingPage = () => {
                 </a>
               </div>
               <p className="mt-8 text-sm font-medium text-foreground/75">
-                Use code <span className="font-bold text-primary">{PROMO}</span> for 10% off ·
-                30-day risk-free trial · Free shipping
+                30-day guarantee &middot; Free shipping &middot; Use code <span className="font-bold text-primary">{PROMO}</span> for 10% off
               </p>
             </Reveal>
           </div>
@@ -973,12 +977,12 @@ const PetsLandingPage = () => {
       >
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div>
-            <p className="text-sm font-semibold text-foreground">Save 10% with code {PROMO}</p>
-            <p className="text-xs text-muted-foreground">Pet parents exclusive</p>
+            <p className="text-sm font-semibold text-foreground">The pet-proof home, 10% off</p>
+            <p className="text-xs text-muted-foreground">Code {PROMO} · 30-day trial</p>
           </div>
           <a href="#products" onClick={() => trackEvent("click_pets_sticky_shop")}>
             <Button className="h-11 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
-              Shop the Pet Offer
+              Get the Pet-Proof Home
             </Button>
           </a>
         </div>
