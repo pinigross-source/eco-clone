@@ -89,7 +89,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
         </span>
       </>
     ),
-    sub: "A HEPA filter only catches allergens while they're airborne. But most of them live settled into your mattress, pillows, carpet, and couch — out of the filter's reach. EnviroBiotics works on those surfaces, breaking down the organic debris allergens come from, right where it collects.",
+    sub: "A HEPA filter only catches allergens while they're airborne. But most of them live settled into your mattress, pillows, carpet, and couch, out of the filter's reach. EnviroBiotics works on those surfaces, breaking down the organic debris allergens come from, right where it collects.",
   },
   b: {
     headline: (
@@ -100,7 +100,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
         </span>
       </>
     ),
-    sub: "Dust, pollen, dander, and dust-mite waste spend almost all their time settled on surfaces — the bedding, the rug, the upholstery — not in the air. EnviroBiotics works right there, breaking down the debris at the source.",
+    sub: "Dust, pollen, dander, and dust-mite waste spend almost all their time settled on surfaces: the bedding, the rug, the upholstery, not in the air. EnviroBiotics works right there, breaking down the debris at the source.",
   },
   c: {
     headline: (
@@ -146,7 +146,7 @@ const AllergyLandingPage = () => {
     <>
       <SEOHead
         title="Surface Allergen Control for Your Home | EnviroBiotics"
-        description="Air purifiers only catch airborne particles. Most household allergens settle into your mattress, carpet, and couch — out of the filter's reach. EnviroBiotics works on those surfaces. Meet Biotica."
+        description="Air purifiers only catch airborne particles. Most household allergens settle into your mattress, carpet, and couch, out of the filter's reach. EnviroBiotics works on those surfaces. Meet Biotica."
         path="/allergy"
       />
 
