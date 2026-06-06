@@ -33,7 +33,7 @@ const heroImg = heroAsset.url;
 const PROMO = "PARENTS";
 const MINI_URL = `${shopifyProductUrl("biologic-mini", "parents-landing")}`;
 const BUNDLE_URL = `${shopifyProductUrl("home-complete-bundle", "parents-landing")}?discount=${PROMO}`;
-const BIOTICA_URL = `${shopifyProductUrl("biotica-800", "parents-landing")}?discount=${PROMO}`;
+const BIOTICA_URL = `${shopifyProductUrl("biotica-800", "parents-landing")}`;
 
 /* Reveal-on-scroll */
 const Reveal = ({
@@ -638,8 +638,7 @@ const ParentsLandingPage = () => {
                     </ul>
                     <div className="mt-6 border-t border-border/60 pt-5">
                       <div className="flex items-baseline gap-2">
-                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$254</span>
-                        <span className="text-sm text-muted-foreground line-through">$299</span>
+                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$299</span>
                       </div>
                       <a
                         href={BIOTICA_URL}
