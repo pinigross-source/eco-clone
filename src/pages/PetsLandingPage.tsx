@@ -490,10 +490,10 @@ const PetsLandingPage = () => {
             <Reveal>
               <div className="max-w-2xl">
                 <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[2.875rem]">
-                  Pet mess does not stay in the air.
+                  Dander and odor don&apos;t live in the air.
                 </h2>
                 <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-lg">
-                  It settles into the soft surfaces, corners, and favorite spots your pets return to every day.
+                  They press into the couch, the rug, the bedding your pet curls up on &mdash; below the reach of a vacuum and out of range of a spray.
                 </p>
               </div>
             </Reveal>
