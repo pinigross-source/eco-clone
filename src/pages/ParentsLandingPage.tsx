@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/accordion";
 
 import miniImg from "@/assets/shop/biologic-mini.png";
+import bioticaImg from "@/assets/shop/biotica-800.png";
+import bundleImg from "@/assets/shop/home-complete-bundle.avif";
 import heroAsset from "@/assets/parents-hero.avif.asset.json";
 import nurseryImg from "@/assets/nursery-scandinavian-bright.jpg";
 
@@ -30,6 +32,8 @@ const heroImg = heroAsset.url;
 
 const PROMO = "PARENTS";
 const MINI_URL = `${shopifyProductUrl("biologic-mini", "parents-landing")}?discount=${PROMO}`;
+const BUNDLE_URL = `${shopifyProductUrl("home-complete-bundle", "parents-landing")}?discount=${PROMO}`;
+const BIOTICA_URL = `${shopifyProductUrl("biotica-800", "parents-landing")}?discount=${PROMO}`;
 
 /* Reveal-on-scroll */
 const Reveal = ({
