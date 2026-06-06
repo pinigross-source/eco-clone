@@ -164,12 +164,6 @@ const ParentsLandingPage = () => {
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-center px-5 pb-8 pt-24 text-center sm:items-start sm:px-10 sm:pb-0 sm:pt-0 sm:text-left lg:px-16">
             <div className="mx-auto w-full max-w-[36rem] sm:mx-0 sm:max-w-[44rem]">
               <Reveal>
-                <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background/80 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground backdrop-blur">
-                  <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
-                  For the nursery
-                </p>
-              </Reveal>
-              <Reveal>
                 <h1 className="font-display font-bold tracking-[-0.03em] text-foreground text-[clamp(2.125rem,7.5vw,2.625rem)] leading-[1.05] sm:text-[clamp(2.75rem,5vw,3.375rem)] sm:leading-[1.04] lg:text-[clamp(3.25rem,4.2vw,4rem)] lg:leading-[1.02]">
                   {hero.headline}
                 </h1>
