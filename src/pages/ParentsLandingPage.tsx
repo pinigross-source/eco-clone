@@ -650,7 +650,7 @@ const ParentsLandingPage = () => {
                         <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$299</span>
                       </div>
                       <a
-                        href={BIOTICA_URL}
+                        href="https://shop.envirobiotics.com/products/biotica-800"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => trackEvent("click_parents_products_biotica")}
