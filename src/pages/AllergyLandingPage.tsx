@@ -426,7 +426,7 @@ const AllergyLandingPage = () => {
                 {
                   icon: ShieldCheck,
                   title: "Reaches the soft surfaces",
-                  copy: "Mattress, pillows, carpet, upholstery, curtains — where allergens actually settle.",
+                  copy: "Mattress, pillows, carpet, upholstery, curtains, where allergens actually settle.",
                 },
                 {
                   icon: VolumeX,
@@ -436,7 +436,7 @@ const AllergyLandingPage = () => {
                 {
                   icon: Leaf,
                   title: "No chemicals, no fragrance",
-                  copy: "Nothing added to the room — just less of the debris that builds up in it.",
+                  copy: "Nothing added to the room. Just less of the debris that builds up in it.",
                 },
                 {
                   icon: Sparkles,
@@ -477,7 +477,7 @@ const AllergyLandingPage = () => {
                   Start with <span className="font-serif italic font-normal">Biotica.</span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
-                  Biotica is sized for the bedroom or main living room — the rooms with the biggest
+                  Biotica is sized for the bedroom or main living room, the rooms with the biggest
                   allergen reservoirs. Add a Mini for the second room, or size up with the bundle.
                 </p>
               </div>
