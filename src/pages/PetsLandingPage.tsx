@@ -605,13 +605,13 @@ const PetsLandingPage = () => {
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
-                  Choose Your Device
+                  Made For Homes With Pets
                 </p>
                 <h2 className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
-                  Pick the protection for their favorite spot.
+                  Start with the room your pet loves most.
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  Start with one pet bed, one bedroom, or one favorite corner. Add more coverage whenever your home needs it.
+                  Reaches into soft surfaces a vacuum misses &mdash; couch, rug, curtains, pet bed. Works on dander and odor, not just the smell.
                 </p>
                 <p className="mx-auto mt-3 max-w-md text-sm font-semibold text-primary">
                   Use code {PROMO} for 10% off at checkout.
