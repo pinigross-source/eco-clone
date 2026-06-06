@@ -86,7 +86,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         Clean air is great.
         <br />
-        <span className="italic font-medium block mt-2" style={ITALIC_FONT}>
+        <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
           But your baby lives on the floor.
         </span>
       </>
@@ -98,7 +98,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         You can&apos;t wipe down the nursery every hour.
         <br />
-        <span className="italic font-medium block mt-2" style={ITALIC_FONT}>
+        <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
           So we made something that does it for you.
         </span>
       </>
@@ -110,7 +110,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         It all ends up in their mouth eventually.
         <br />
-        <span className="italic font-medium block mt-2" style={ITALIC_FONT}>
+        <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
           Start with cleaner surfaces.
         </span>
       </>
