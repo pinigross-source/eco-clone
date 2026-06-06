@@ -23,8 +23,10 @@ import {
 } from "@/components/ui/accordion";
 
 import miniImg from "@/assets/shop/biologic-mini.png";
-import heroImg from "@/assets/hero-scandinavian-family.jpg";
+import heroAsset from "@/assets/parents-hero.avif.asset.json";
 import nurseryImg from "@/assets/nursery-scandinavian-bright.jpg";
+
+const heroImg = heroAsset.url;
 
 const PROMO = "PARENTS";
 const MINI_URL = `${shopifyProductUrl("biologic-mini", "parents-landing")}?discount=${PROMO}`;
