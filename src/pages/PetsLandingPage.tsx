@@ -316,21 +316,21 @@ const PetsLandingPage = () => {
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-primary sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
-                  What Your Pet Purifier Can&apos;t Reach
+                  The Real Problem
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.75rem] lg:text-[3.25rem] lg:leading-[1.05]">
-                  A pet purifier helps the air.
+                  You&apos;re not a messy pet owner.
                   <br />
-                  <span className="text-primary">Pets live on everything else.</span>
+                  <span className="text-primary">You&apos;re up against something you can&apos;t see.</span>
                 </h2>
                 <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
-                  Pet hair, dander, and odors do not stay in the air. They settle into beds, blankets, sofas, rugs, crates, and floors. EnviroBiotics adds a surface-focused layer of support where filters cannot directly work.
+                  You vacuum the hair. You wash the covers. You stay on top of it. But two things your pet leaves behind never show up on a lint roller: dander and odor. Both are microscopic. Both settle deep into the soft surfaces where your pet spends its days &mdash; the couch, the rug, the bed, the curtains.
                 </p>
               </div>
             </Reveal>
 
             <div className="mt-12 grid grid-cols-1 gap-5 sm:mt-14 lg:grid-cols-2 lg:gap-7">
-              {/* Purifier column */}
+              {/* What you do now */}
               <Reveal>
                 <div className="flex h-full flex-col rounded-3xl bg-card p-7 ring-1 ring-black/[0.06] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.16)] sm:p-9">
                   <div className="flex items-center gap-3">
@@ -338,23 +338,23 @@ const PetsLandingPage = () => {
                       <Filter className="h-5 w-5" strokeWidth={2} />
                     </div>
                     <h3 className="font-display text-xl font-bold text-foreground sm:text-2xl">
-                      Traditional Pet Air Purifier
+                      What you&apos;re doing now
                     </h3>
                   </div>
                   <ul className="mt-6 flex flex-1 flex-col gap-4">
                     {[
-                      "Pulls airborne particles through a filter",
-                      "Helps with air near the device",
-                      "Focuses on airborne fur, dander, and odors",
-                      "Requires filter replacement and cleaning",
-                      "Does not directly support pet beds, sofas, rugs, or floors",
+                      "Vacuum handles the visible hair — you&apos;ve got this",
+                      "Microscopic dander settles back fast",
+                      "Lingering odor masked by sprays or candles",
+                      "Deep in couch &amp; carpet — out of reach",
+                      "Builds back up between cleanings",
                     ].map((row) => (
                       <li
                         key={row}
                         className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-muted-foreground"
                       >
                         <Dot className="mt-0.5 h-5 w-5 flex-none text-muted-foreground/60" strokeWidth={4} />
-                        <span>{row}</span>
+                        <span dangerouslySetInnerHTML={{ __html: row }} />
                       </li>
                     ))}
                   </ul>
@@ -365,7 +365,7 @@ const PetsLandingPage = () => {
               <Reveal>
                 <div className="relative flex h-full flex-col rounded-3xl bg-card p-7 ring-2 ring-primary/40 shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.35)] sm:p-9">
                   <div className="absolute -top-3 left-7 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary-foreground">
-                    The Missing Layer
+                    The Part That&apos;s Left
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
@@ -377,11 +377,11 @@ const PetsLandingPage = () => {
                   </div>
                   <ul className="mt-6 flex flex-1 flex-col gap-4">
                     {[
-                      "Travels through the room and settles on surfaces",
-                      "Supports pet beds, sofas, rugs, crates, and floors",
-                      "Adds a layer of support between regular cleanings",
-                      "Uses probiotic cartridges",
-                      "Helps maintain a fresher-feeling pet home",
+                      "Breaks down dander on the surface",
+                      "Removes odor at the source — no fragrance layered on top",
+                      "Works right in the couch, rug, and bedding",
+                      "Keeps working continuously between cleanings",
+                      "Chemical-free around the pets and people in the room",
                     ].map((row) => (
                       <li
                         key={row}
@@ -397,13 +397,19 @@ const PetsLandingPage = () => {
             </div>
 
             <Reveal>
+              <p className="mx-auto mt-8 max-w-xl text-center text-sm italic text-muted-foreground sm:text-base">
+                A vacuum gets what you can see. This gets what you can&apos;t.
+              </p>
+            </Reveal>
+
+            <Reveal>
               <div className="mt-10 flex justify-center sm:mt-12">
                 <a href="#products" onClick={() => trackEvent("click_pets_compare_cta")}>
                   <Button
                     size="lg"
                     className="h-14 rounded-full bg-primary px-9 text-[15px] font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.55)] hover:bg-primary/90"
                   >
-                    Protect the Places Filters Miss
+                    Get the Pet-Proof Home
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
