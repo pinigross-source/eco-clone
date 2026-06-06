@@ -171,14 +171,14 @@ const ParentsLandingPage = () => {
             className="absolute inset-0 bg-gradient-to-t from-[#f7f3ec]/90 via-[#f7f3ec]/45 to-transparent sm:bg-gradient-to-r sm:from-[#f7f3ec]/92 sm:via-[#f7f3ec]/45 sm:via-40% sm:to-transparent"
           />
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-center px-5 pb-8 pt-24 text-center sm:items-start sm:px-10 sm:pb-0 sm:pt-0 sm:text-left lg:px-16">
-            <div className="mx-auto w-full max-w-[36rem] sm:mx-0 sm:max-w-[44rem]">
+            <div className="mx-auto w-full max-w-[36rem] sm:mx-0 sm:max-w-[48rem]">
               <Reveal>
-                <h1 className="font-display font-bold tracking-[-0.03em] text-foreground text-[clamp(2.125rem,7.5vw,2.625rem)] leading-[1.05] sm:text-[clamp(2.75rem,5vw,3.375rem)] sm:leading-[1.04] lg:text-[clamp(3.25rem,4.2vw,4rem)] lg:leading-[1.02]">
+                <h1 className="font-display font-semibold tracking-[-0.035em] text-foreground text-[clamp(2.5rem,9vw,3rem)] leading-[1.02] sm:text-[clamp(3.25rem,6vw,4.5rem)] sm:leading-[1.02] lg:text-[clamp(4rem,5.2vw,5.5rem)] lg:leading-[1.0]">
                   {hero.headline}
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mx-auto mt-5 max-w-[34rem] text-[1rem] font-medium leading-[1.6] text-foreground/85 sm:mx-0 sm:mt-6 sm:max-w-[37.5rem] sm:text-[1.1rem] sm:leading-[1.6] lg:text-[1.15rem]">
+                <p className="mx-auto mt-7 max-w-[34rem] text-[1.0625rem] font-normal leading-[1.65] text-foreground/80 sm:mx-0 sm:mt-9 sm:max-w-[34rem] sm:text-[1.15rem] sm:leading-[1.6] lg:text-[1.2rem]">
                   {hero.sub}
                 </p>
               </Reveal>
