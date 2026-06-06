@@ -742,11 +742,11 @@ const AllergyLandingPage = () => {
                 },
                 {
                   q: "What does it actually work on?",
-                  a: "It breaks down the organic debris on your surfaces — the kind dust mites feed on and that dust, dander, and pollen collect in. It works continuously on soft, hard, and high-touch surfaces between cleanings.",
+                  a: "It breaks down the organic debris on your surfaces, the kind dust mites feed on and that dust, dander, and pollen collect in. It works continuously on soft, hard, and high-touch surfaces between cleanings.",
                 },
                 {
                   q: "Is it safe to have in the bedroom?",
-                  a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list (Generally Recognized As Safe) — the same kind of beneficial cultures found in yogurt. Fragrance-free, chemical-free, and independently tested for use in homes with kids and pets.",
+                  a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list (Generally Recognized As Safe), the same kind of beneficial cultures found in yogurt. Fragrance-free, chemical-free, and independently tested for use in homes with kids and pets.",
                 },
                 {
                   q: "Is there anything to spray, refill, or replace?",
@@ -754,7 +754,7 @@ const AllergyLandingPage = () => {
                 },
                 {
                   q: "Will I hear it overnight?",
-                  a: "Silent operation — designed to disappear into the background of a sleeping room. No fan noise.",
+                  a: "Silent operation, designed to disappear into the background of a sleeping room. No fan noise.",
                 },
                 {
                   q: "What if I don't notice a difference?",
