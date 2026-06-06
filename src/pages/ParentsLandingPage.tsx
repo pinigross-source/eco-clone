@@ -84,7 +84,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
         But your baby <span className="font-serif italic font-normal">lives on the floor.</span>
       </>
     ),
-    sub: "Air purifiers clean the air. EnviroBiotics works on the surfaces your baby actually lives on — crib, playmat, floor. No sprays, no filters, no noise.",
+    sub: "Air purifiers clean the air. EnviroBiotics works on the surfaces your baby actually lives on - crib, playmat, floor. No sprays, no filters, no noise.",
   },
   b: {
     headline: (
@@ -140,7 +140,7 @@ const ParentsLandingPage = () => {
     <>
       <SEOHead
         title="Nursery Surface & Air Care for Babies | EnviroBiotics"
-        description="Air purifiers only clean the air. EnviroBiotics keeps the surfaces your baby lives on cleaner — crib, playmat, floor. No sprays, no filters, no noise. Meet The Mini."
+        description="Air purifiers only clean the air. EnviroBiotics keeps the surfaces your baby lives on cleaner - crib, playmat, floor. No sprays, no filters, no noise. Meet The Mini."
         path="/parents"
       />
 
@@ -163,12 +163,6 @@ const ParentsLandingPage = () => {
           />
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-center px-5 pb-8 pt-24 text-center sm:items-start sm:px-10 sm:pb-0 sm:pt-0 sm:text-left lg:px-16">
             <div className="mx-auto w-full max-w-[36rem] sm:mx-0 sm:max-w-[44rem]">
-              <Reveal>
-                <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background/80 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground backdrop-blur">
-                  <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
-                  For the nursery
-                </p>
-              </Reveal>
               <Reveal>
                 <h1 className="font-display font-bold tracking-[-0.03em] text-foreground text-[clamp(2.125rem,7.5vw,2.625rem)] leading-[1.05] sm:text-[clamp(2.75rem,5vw,3.375rem)] sm:leading-[1.04] lg:text-[clamp(3.25rem,4.2vw,4rem)] lg:leading-[1.02]">
                   {hero.headline}
@@ -215,13 +209,13 @@ const ParentsLandingPage = () => {
               <div className="mt-7 space-y-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
                 <p>
                   You wash the sheets on hot. You wipe the rails. You run the purifier all night.
-                  And still — the dust comes back, settling on the crib, the carpet, the soft
+                  And still - the dust comes back, settling on the crib, the carpet, the soft
                   corners where your baby spends almost every hour of the day.
                 </p>
                 <p>
                   Here&apos;s the part no one tells you: a purifier only treats the air passing
                   through it. It can&apos;t reach the surfaces. And surfaces are exactly where dust
-                  and everyday buildup settle — right at the level where your baby plays, sleeps,
+                  and everyday buildup settle - right at the level where your baby plays, sleeps,
                   and explores.
                 </p>
               </div>
@@ -250,7 +244,7 @@ const ParentsLandingPage = () => {
                     Stop only cleaning the air. Start keeping the surfaces clean too.
                   </h2>
                   <p className="mt-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
-                    EnviroBiotics works continuously on the surfaces of the room — quietly, in the
+                    EnviroBiotics works continuously on the surfaces of the room - quietly, in the
                     background, long after a wipe-down or a purifier cycle is done. Instead of one
                     more thing to scrub, it keeps the nursery cleaner between cleanings, on its own.
                   </p>
@@ -309,7 +303,7 @@ const ParentsLandingPage = () => {
                 ))}
               </div>
               <p className="mt-5 text-center text-[14px] italic text-muted-foreground sm:text-[15px]">
-                It&apos;s not one or the other. It&apos;s air and surfaces — the two halves of a
+                It&apos;s not one or the other. It&apos;s air and surfaces - the two halves of a
                 clean nursery.
               </p>
             </Reveal>
@@ -327,7 +321,7 @@ const ParentsLandingPage = () => {
                 You already trust this idea for their tummy.
               </h2>
               <p className="mt-6 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.15rem]">
-                You give your little one probiotics — the good cultures in yogurt that keep their
+                You give your little one probiotics - the good cultures in yogurt that keep their
                 gut balanced and healthy. EnviroBiotics works on the same simple idea, for the room:
                 it settles a layer of beneficial cultures onto surfaces that keeps them cleaner and
                 more balanced over time. The gentle, natural way. No harsh chemicals.
@@ -355,7 +349,7 @@ const ParentsLandingPage = () => {
                 {
                   step: "01",
                   title: "Place",
-                  copy: "Place The Mini in the nursery — shelf, dresser, anywhere out of reach.",
+                  copy: "Place The Mini in the nursery - shelf, dresser, anywhere out of reach.",
                 },
                 {
                   step: "02",
@@ -427,7 +421,7 @@ const ParentsLandingPage = () => {
                 {
                   icon: VolumeX,
                   title: "Nap-proof quiet",
-                  copy: "Whisper-soft — designed to disappear into the background.",
+                  copy: "Whisper-soft - designed to disappear into the background.",
                 },
                 {
                   icon: Leaf,
@@ -461,7 +455,7 @@ const ParentsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ PRODUCTS — 3 OPTIONS ============ */}
+        {/* ============ PRODUCTS - 3 OPTIONS ============ */}
         <section id="products" className="scroll-mt-24 bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
@@ -488,7 +482,7 @@ const ParentsLandingPage = () => {
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] lg:aspect-auto lg:min-h-[420px]">
                     <img
                       src={miniImg}
-                      alt="The Mini — nursery probiotic dispenser"
+                      alt="The Mini - nursery probiotic dispenser"
                       className="h-full w-full object-contain p-8 sm:p-12"
                       loading="lazy"
                     />
@@ -501,11 +495,11 @@ const ParentsLandingPage = () => {
                       The Mini
                     </h3>
                     <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
-                      Sits quietly on a shelf and keeps surfaces, fabrics, and air in one room cleaner — between every wipe-down.
+                      Sits quietly on a shelf and keeps surfaces, fabrics, and air in one room cleaner - between every wipe-down.
                     </p>
                     <ul className="mt-5 flex flex-col gap-3">
                       {[
-                        "Covers up to 300 sq ft — perfect for a nursery",
+                        "Covers up to 300 sq ft - perfect for a nursery",
                         "Whisper-quiet, nap-safe",
                         "No sprays, no filters, no chemicals",
                       ].map((f) => (
@@ -548,7 +542,7 @@ const ParentsLandingPage = () => {
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6]">
                     <img
                       src={bundleImg}
-                      alt="Home Bundle — two devices"
+                      alt="Home Bundle - two devices"
                       className="h-full w-full object-contain p-6 sm:p-8"
                       loading="lazy"
                     />
@@ -561,7 +555,7 @@ const ParentsLandingPage = () => {
                       Home Bundle
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                      Two Minis — one for the nursery, one for the living room or your bedroom. Full-home coverage from day one.
+                      Two Minis - one for the nursery, one for the living room or your bedroom. Full-home coverage from day one.
                     </p>
                     <ul className="mt-5 flex flex-1 flex-col gap-3">
                       {[
@@ -605,7 +599,7 @@ const ParentsLandingPage = () => {
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6]">
                     <img
                       src={bioticaImg}
-                      alt="Biotica 800 — larger home coverage"
+                      alt="Biotica 800 - larger home coverage"
                       className="h-full w-full object-contain p-6 sm:p-8"
                       loading="lazy"
                     />
@@ -689,11 +683,11 @@ const ParentsLandingPage = () => {
               {[
                 {
                   q: "Is it safe around babies?",
-                  a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list (Generally Recognized As Safe) — the same kind of beneficial cultures found in yogurt and on healthy skin. It's fragrance-free, chemical-free, and independently tested for use in homes with babies and pets. See our safety page for full certifications and testing.",
+                  a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list (Generally Recognized As Safe) - the same kind of beneficial cultures found in yogurt and on healthy skin. It's fragrance-free, chemical-free, and independently tested for use in homes with babies and pets. See our safety page for full certifications and testing.",
                 },
                 {
                   q: "Do I have to get rid of my air purifier?",
-                  a: "No. They do different jobs — the purifier handles air, EnviroBiotics handles surfaces. Most parents run both.",
+                  a: "No. They do different jobs - the purifier handles air, EnviroBiotics handles surfaces. Most parents run both.",
                 },
                 {
                   q: "Is there anything to spray, refill, or replace?",
@@ -701,7 +695,7 @@ const ParentsLandingPage = () => {
                 },
                 {
                   q: "Will I hear it during naps?",
-                  a: "Whisper-quiet — designed to disappear into the background of a sleeping room.",
+                  a: "Whisper-quiet - designed to disappear into the background of a sleeping room.",
                 },
                 {
                   q: "What if it's not for us?",
@@ -787,10 +781,10 @@ const ParentsLandingPage = () => {
                     </h3>
                     <p className="mt-3 text-[15px] leading-[1.65] text-muted-foreground sm:text-[16px]">
                       {quizAnswer === "baby"
-                        ? "Sized and built for the one room that matters most right now — the nursery."
+                        ? "Sized and built for the one room that matters most right now - the nursery."
                         : quizAnswer === "pets"
-                          ? "Perfect for the room your pet sleeps in — quiet, gentle, and continuously working on the surfaces they touch."
-                          : "Compact enough for a bedroom or living room — set it once and forget the rest."}
+                          ? "Perfect for the room your pet sleeps in - quiet, gentle, and continuously working on the surfaces they touch."
+                          : "Compact enough for a bedroom or living room - set it once and forget the rest."}
                     </p>
                     <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
                       <a href={MINI_URL} onClick={() => trackCta("quiz_add_mini")}>
@@ -864,7 +858,7 @@ const ParentsLandingPage = () => {
                 Give the nursery the other half of clean.
               </h2>
               <p className="mx-auto mt-6 max-w-xl text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:text-[1.15rem]">
-                Air handled. Now handle the surfaces your baby actually lives on — quietly, with
+                Air handled. Now handle the surfaces your baby actually lives on - quietly, with
                 nothing to spray and nothing to remember.
               </p>
               <div className="mt-10 flex justify-center">
