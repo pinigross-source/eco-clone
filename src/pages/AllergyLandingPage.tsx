@@ -559,7 +559,7 @@ const AllergyLandingPage = () => {
                     <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
                       <img
                         src={bundleImg}
-                        alt="Home Bundle — full-home coverage"
+                        alt="Home Bundle full-home coverage"
                         className="h-full w-full object-contain p-4 sm:p-6"
                         loading="lazy"
                       />
@@ -573,8 +573,8 @@ const AllergyLandingPage = () => {
                       Home Bundle
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                      Cover the two rooms with the biggest allergen reservoirs — your bedroom and
-                      living room — from day one.
+                      Cover the two rooms with the biggest allergen reservoirs, your bedroom and
+                      living room, from day one.
                     </p>
                     <ul className="mt-5 flex flex-1 flex-col gap-3">
                       {[
