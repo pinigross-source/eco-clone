@@ -936,12 +936,12 @@ const PetsLandingPage = () => {
                 Pet Parents Save 10% &middot; Code <span className="text-primary">{PROMO}</span>
               </p>
               <h2 className="font-display text-[2.5rem] font-bold leading-[1.04] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[4.25rem] lg:leading-[1.02]">
-                Protect the places
+                The pet-proof home,
                 <br />
-                your pet actually lives.
+                without the chemicals.
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base font-medium leading-relaxed text-foreground/85 sm:mt-6 sm:text-lg">
-                Start with one pet bed, one sofa, or one favorite corner. EnviroBiotics supports the surfaces filters cannot directly reach.
+                Keep the cuddles and the chaos. Just not the dander and odor pressing into every soft surface. EnviroBiotics works where your vacuum can&apos;t &mdash; quietly, chemical-free, around the clock.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a href="#products" onClick={() => trackEvent("click_pets_final_shop")}>
@@ -949,7 +949,7 @@ const PetsLandingPage = () => {
                     size="lg"
                     className="h-14 rounded-full bg-primary px-10 text-base font-semibold text-primary-foreground shadow-[0_18px_40px_-12px_hsl(var(--primary)/0.55)] hover:bg-primary/90"
                   >
-                    Shop the Pet Offer
+                    Get the Pet-Proof Home
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
@@ -962,8 +962,7 @@ const PetsLandingPage = () => {
                 </a>
               </div>
               <p className="mt-8 text-sm font-medium text-foreground/75">
-                Use code <span className="font-bold text-primary">{PROMO}</span> for 10% off ·
-                30-day risk-free trial · Free shipping
+                30-day guarantee &middot; Free shipping &middot; Use code <span className="font-bold text-primary">{PROMO}</span> for 10% off
               </p>
             </Reveal>
           </div>
