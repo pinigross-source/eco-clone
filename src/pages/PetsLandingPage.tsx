@@ -211,8 +211,8 @@ const PetsLandingPage = () => {
   return (
     <>
       <SEOHead
-        title="Probiotic Surface Support for Pet Homes | EnviroBiotics"
-        description="A pet air purifier helps the air. EnviroBiotics adds surface-focused support for pet beds, sofas, rugs, crates, and floors. Save 10% with code PETS."
+        title="Pet Dander & Odor Control for Your Home | EnviroBiotics"
+        description="Vacuuming gets the hair. EnviroBiotics gets what you can't see — breaking down pet dander and odor in the couch, carpet, and bedding where they settle. No fragrance, no chemicals. Meet Biotica."
         path="/pets"
       />
 
