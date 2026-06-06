@@ -638,8 +638,7 @@ const ParentsLandingPage = () => {
                     </ul>
                     <div className="mt-6 border-t border-border/60 pt-5">
                       <div className="flex items-baseline gap-2">
-                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$254</span>
-                        <span className="text-sm text-muted-foreground line-through">$299</span>
+                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$299</span>
                       </div>
                       <a
                         href={BIOTICA_URL}
