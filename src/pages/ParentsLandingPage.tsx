@@ -189,8 +189,10 @@ const ParentsLandingPage = () => {
               <Reveal>
                 <div className="mt-8 flex flex-col items-stretch gap-3.5 sm:mt-10 sm:flex-row sm:items-center sm:gap-5">
                   <a
-                    href="#quiz"
-                    onClick={(e) => smoothScroll(e, "quiz", "click_parents_hero_cta")}
+                    href="https://shop.envirobiotics.com/products/biologic-mini"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent("click_parents_hero_cta")}
                     className="sm:w-auto"
                   >
                     <Button
