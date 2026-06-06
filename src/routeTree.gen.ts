@@ -63,6 +63,7 @@ import { Route as BusinessRouteImport } from './routes/business'
 import { Route as BobbyRouteImport } from './routes/bobby'
 import { Route as BetterairRebrandRouteImport } from './routes/betterair-rebrand'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AllergyRouteImport } from './routes/allergy'
 import { Route as AffiliateSignupRouteImport } from './routes/affiliate-signup'
 import { Route as AffiliateDashboardRouteImport } from './routes/affiliate-dashboard'
 import { Route as AdminRouteImport } from './routes/admin'
@@ -353,6 +354,11 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AllergyRoute = AllergyRouteImport.update({
+  id: '/allergy',
+  path: '/allergy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AffiliateSignupRoute = AffiliateSignupRouteImport.update({
   id: '/affiliate-signup',
   path: '/affiliate-signup',
@@ -454,6 +460,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRoute
   '/affiliate-dashboard': typeof AffiliateDashboardRoute
   '/affiliate-signup': typeof AffiliateSignupRoute
+  '/allergy': typeof AllergyRoute
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
   '/bobby': typeof BobbyRoute
@@ -528,6 +535,7 @@ export interface FileRoutesByTo {
   '/admin': typeof AdminRoute
   '/affiliate-dashboard': typeof AffiliateDashboardRoute
   '/affiliate-signup': typeof AffiliateSignupRoute
+  '/allergy': typeof AllergyRoute
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
   '/bobby': typeof BobbyRoute
@@ -603,6 +611,7 @@ export interface FileRoutesById {
   '/admin': typeof AdminRoute
   '/affiliate-dashboard': typeof AffiliateDashboardRoute
   '/affiliate-signup': typeof AffiliateSignupRoute
+  '/allergy': typeof AllergyRoute
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
   '/bobby': typeof BobbyRoute
@@ -679,6 +688,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/affiliate-dashboard'
     | '/affiliate-signup'
+    | '/allergy'
     | '/auth'
     | '/betterair-rebrand'
     | '/bobby'
@@ -753,6 +763,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/affiliate-dashboard'
     | '/affiliate-signup'
+    | '/allergy'
     | '/auth'
     | '/betterair-rebrand'
     | '/bobby'
@@ -827,6 +838,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/affiliate-dashboard'
     | '/affiliate-signup'
+    | '/allergy'
     | '/auth'
     | '/betterair-rebrand'
     | '/bobby'
@@ -902,6 +914,7 @@ export interface RootRouteChildren {
   AdminRoute: typeof AdminRoute
   AffiliateDashboardRoute: typeof AffiliateDashboardRoute
   AffiliateSignupRoute: typeof AffiliateSignupRoute
+  AllergyRoute: typeof AllergyRoute
   AuthRoute: typeof AuthRoute
   BetterairRebrandRoute: typeof BetterairRebrandRoute
   BobbyRoute: typeof BobbyRoute
@@ -1348,6 +1361,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/allergy': {
+      id: '/allergy'
+      path: '/allergy'
+      fullPath: '/allergy'
+      preLoaderRoute: typeof AllergyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/affiliate-signup': {
       id: '/affiliate-signup'
       path: '/affiliate-signup'
@@ -1508,6 +1528,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRoute: AdminRoute,
   AffiliateDashboardRoute: AffiliateDashboardRoute,
   AffiliateSignupRoute: AffiliateSignupRoute,
+  AllergyRoute: AllergyRoute,
   AuthRoute: AuthRoute,
   BetterairRebrandRoute: BetterairRebrandRoute,
   BobbyRoute: BobbyRoute,
