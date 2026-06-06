@@ -87,7 +87,6 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
     headline: (
       <>
         It&apos;s not the hair you can see.
-        <br />
         <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
           It&apos;s the dander you can&apos;t.
         </span>
