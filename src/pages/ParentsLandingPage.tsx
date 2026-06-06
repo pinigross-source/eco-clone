@@ -176,7 +176,7 @@ const ParentsLandingPage = () => {
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-center px-5 pb-8 pt-24 text-center sm:items-start sm:px-10 sm:pb-0 sm:pt-0 sm:text-left lg:px-16">
             <div className="mx-auto w-full max-w-[36rem] sm:mx-0 sm:max-w-[48rem]">
               <Reveal>
-                <h1 className="font-display font-semibold tracking-[-0.035em] text-foreground text-[clamp(2.5rem,9vw,3rem)] leading-[1.02] sm:text-[clamp(3.25rem,6vw,4.5rem)] sm:leading-[1.02] lg:text-[clamp(4rem,5.2vw,5.5rem)] lg:leading-[1.0]">
+                <h1 className="font-display font-semibold tracking-[-0.035em] text-foreground text-[clamp(2.5rem,9vw,3rem)] leading-[1.02] sm:text-[clamp(3.25rem,6vw,4.5rem)] sm:leading-[1.02] lg:text-[clamp(4rem,5.2vw,5.5rem)] lg:leading-[1.0]" style={{ textShadow: '0 2px 20px rgba(247,243,236,0.5), 0 1px 4px rgba(247,243,236,0.3)' }}>
                   {hero.headline}
                 </h1>
               </Reveal>
