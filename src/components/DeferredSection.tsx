@@ -25,14 +25,9 @@ export const DeferredSection = ({
   forceMount = false,
 }: DeferredSectionProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(forceMount);
 
   useEffect(() => {
-    if (forceMount) {
-      setVisible(true);
-      return;
-    }
-
     const el = ref.current;
     if (!el) return;
 
@@ -48,7 +43,7 @@ export const DeferredSection = ({
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [forceMount, rootMargin]);
+  }, [rootMargin]);
 
   if (visible) {
     return <div className={className}>{children}</div>;

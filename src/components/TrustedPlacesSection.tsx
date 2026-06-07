@@ -12,9 +12,11 @@ import imgAcademy from "@/assets/clients/img-academy.png.asset.json";
 import morpheusCodNuwa from "@/assets/clients/morpheus-cod-nuwa.png.asset.json";
 import carePartners from "@/assets/clients/care-partners.png.asset.json";
 import melco from "@/assets/clients/melco.png.asset.json";
+import shangriLa from "@/assets/clients/shangri-la.png.asset.json";
 
 const logos = [
   { src: grandHyatt, alt: "Grand Hyatt" },
+  { src: shangriLa.url, alt: "Shangri-La Hotels and Resorts" },
   { src: cityOfDreams, alt: "City of Dreams Macau" },
   { src: caSchool, alt: "Canadian International School of Hong Kong" },
   { src: medone, alt: "MedOne" },
@@ -35,21 +37,25 @@ export const TrustedPlacesSection = () => {
   return (
     <section
       aria-label="Trusted by leading venues"
-      className="border-b border-border bg-background"
+      className="border-b border-border bg-white"
     >
-      <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-10 sm:py-16 lg:px-16">
-        <h2 className="mb-8 text-center text-2xl font-semibold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
-          Already protecting the places people trust most
-        </h2>
+      <div className="mx-auto max-w-[1440px] px-5 pt-6 pb-24 sm:px-10 sm:pt-8 sm:pb-32 lg:px-16 lg:pb-40">
+        <div className="mb-10 flex flex-col items-center gap-4 sm:mb-14">
+          <span className="h-px w-12 sm:w-16" style={{ background: "hsl(var(--primary))" }} />
+          <h2 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-foreground/70 sm:text-base lg:text-lg">
+            Already protecting the places people trust most
+          </h2>
+          <span className="h-px w-12 sm:w-16" style={{ background: "hsl(var(--primary))" }} />
+        </div>
 
         <div className="relative overflow-hidden">
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-r from-background to-transparent sm:w-24" />
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-l from-background to-transparent sm:w-24" />
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-24" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-24" />
 
           <motion.div
             className="flex items-center gap-12 sm:gap-16"
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
             style={{ width: "fit-content" }}
           >
             {track.map((logo, i) => (
@@ -60,7 +66,7 @@ export const TrustedPlacesSection = () => {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="max-h-full w-auto max-w-[220px] object-contain sm:max-w-[260px]"
+                  className="h-12 w-auto object-contain sm:h-16"
                   loading="lazy"
                   decoding="async"
                 />

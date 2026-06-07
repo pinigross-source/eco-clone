@@ -12,6 +12,7 @@ const featuredTestimonial = {
   rating: 5,
 };
 
+// Only homepage-promise reviews: sleep, pets, musty odors, allergens, family spaces.
 const allTestimonials = [
   {
     name: "Tina Huang, Ph.D.",
@@ -69,19 +70,17 @@ const TestimonialCard = ({ name, category, text, rating, avatar, image }: {
 
 export const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="py-32 sm:py-44 lg:py-56 bg-card">
+    <section id="testimonials" className="pt-32 pb-12 sm:pt-44 sm:pb-14 lg:pt-56 lg:pb-20 bg-card">
       <div className="container max-w-5xl mx-auto">
         <ScrollReveal variant="fadeUp" className="text-center mb-16">
           <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6">
             Testimonials
           </p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold leading-[1.06] tracking-[-0.03em] text-foreground max-w-3xl mx-auto">
-            What people{" "}
-            <span className="text-heading-accent">notice.</span>
+            Real homes.{" "}
+            <span className="text-heading-accent">Real surfaces.</span>{" "}
+            Real changes.
           </h2>
-          <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Real homes. Real surfaces. Real changes.
-          </p>
           <p className="mt-3 text-xs text-muted-foreground/50 italic">
             Individual results vary by space and conditions.
           </p>
