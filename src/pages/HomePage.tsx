@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+
 import { useEffect, lazy, Suspense } from "react";
 import { useLocation } from "@tanstack/react-router";
 import { SEOHead, organizationJsonLd, websiteJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
