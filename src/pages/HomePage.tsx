@@ -15,19 +15,7 @@ import { TrustedPlacesSection } from "@/components/TrustedPlacesSection";
 
 
 // Lazy-load all below-fold sections
-const FindMySolutionQuiz = lazy(() => import("@/components/FindMySolutionQuiz").then(m => ({ default: m.FindMySolutionQuiz })));
-const ProductShowcase = lazy(() => import("@/components/ProductShowcase").then(m => ({ default: m.ProductShowcase })));
-const ProblemSection = lazy(() => import("@/components/ProblemSection").then(m => ({ default: m.ProblemSection })));
-const ShiftSection = lazy(() => import("@/components/ShiftSection").then(m => ({ default: m.ShiftSection })));
-const HowItWorksSection = lazy(() => import("@/components/HowItWorksSection").then(m => ({ default: m.HowItWorksSection })));
-const ComparisonSection = lazy(() => import("@/components/ComparisonSection").then(m => ({ default: m.ComparisonSection })));
-const SolutionsSection = lazy(() => import("@/components/SolutionsSection").then(m => ({ default: m.SolutionsSection })));
-
-const SafetySection = lazy(() => import("@/components/SafetySection").then(m => ({ default: m.SafetySection })));
-const GuaranteeSection = lazy(() => import("@/components/GuaranteeSection").then(m => ({ default: m.GuaranteeSection })));
 const FinalCTASection = lazy(() => import("@/components/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
-const PersonaTilesSection = lazy(() => import("@/components/PersonaTilesSection").then(m => ({ default: m.PersonaTilesSection })));
-const BlogTeaserSection = lazy(() => import("@/components/BlogTeaserSection").then(m => ({ default: m.BlogTeaserSection })));
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
 
