@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 /**
  * ParticleField — cursor-driven particle emitter.
  * Particles only spawn where the mouse moves, drift briefly, then fade out.
+ * Nothing is rendered until the user moves the pointer over the hero.
  */
 export const ParticleField = ({ className }: { className?: string }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -29,13 +30,28 @@ export const ParticleField = ({ className }: { className?: string }) => {
     resize();
 
     type P = {
-      x: number; y: number; vx: number; vy: number; r: number;
-      life: number; decay: number; hue: 0 | 1 | 2; phase: number;
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      r: number;
+      life: number;
+      decay: number;
+      hue: 0 | 1 | 2;
+      phase: number;
     };
 
     const particles: P[] = [];
     const MAX_PARTICLES = 400;
-    const pointer = { x: 0, y: 0, px: 0, py: 0, active: false, moved: false };
+
+    const pointer = {
+      x: 0,
+      y: 0,
+      px: 0,
+      py: 0,
+      active: false,
+      moved: false,
+    };
 
     const spawn = (x: number, y: number, speed: number) => {
       const count = reduce ? 1 : Math.min(6, 1 + Math.floor(speed * 0.4));
@@ -87,6 +103,7 @@ export const ParticleField = ({ className }: { className?: string }) => {
 
     let raf = 0;
     let t = 0;
+
     const draw = () => {
       t += 0.004;
       ctx.clearRect(0, 0, width, height);
@@ -110,14 +127,21 @@ export const ParticleField = ({ className }: { className?: string }) => {
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i];
         p.life -= p.decay;
-        if (p.life <= 0) { particles.splice(i, 1); continue; }
-        p.vx *= 0.96; p.vy *= 0.96; p.vy -= 0.005;
-        p.x += p.vx; p.y += p.vy;
+        if (p.life <= 0) {
+          particles.splice(i, 1);
+          continue;
+        }
+        p.vx *= 0.96;
+        p.vy *= 0.96;
+        p.vy -= 0.005;
+        p.x += p.vx;
+        p.y += p.vy;
 
         const twinkle = 0.75 + Math.sin(t * 8 + p.phase) * 0.25;
         const alpha = p.life * twinkle;
 
-        let core: string; let mid: string;
+        let core: string;
+        let mid: string;
         if (p.hue === 0) {
           core = `rgba(178, 232, 207, ${alpha})`;
           mid = `rgba(178, 232, 207, ${alpha * 0.28})`;
@@ -139,9 +163,10 @@ export const ParticleField = ({ className }: { className?: string }) => {
         ctx.arc(p.x, p.y, haloR, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = p.hue === 2
-          ? `rgba(255, 245, 220, ${Math.min(1, alpha * 1.1)})`
-          : `rgba(255, 255, 255, ${Math.min(1, alpha * 0.95)})`;
+        ctx.fillStyle =
+          p.hue === 2
+            ? `rgba(255, 245, 220, ${Math.min(1, alpha * 1.1)})`
+            : `rgba(255, 255, 255, ${Math.min(1, alpha * 0.95)})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r * 0.85, 0, Math.PI * 2);
         ctx.fill();

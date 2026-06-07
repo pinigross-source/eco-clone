@@ -1,98 +1,156 @@
-import { useState, lazy, Suspense } from "react";
-import { SprayCan, Grid2X2, ShieldCheck, Repeat, Leaf, Home, Shield, HeartPulse, Gauge, Building2, Check, ArrowRight, Play, Sparkles, AlertTriangle, Wind, Zap } from "lucide-react";
-
-const ActiveDefenseToggle = lazy(() => import("@/components/hero/ActiveDefenseToggle").then(m => ({ default: m.ActiveDefenseToggle })));
-import { SectionLabel } from "@/components/ui/section-label";
+import { lazy, Suspense, useState, useEffect } from "react";
+import { X } from "lucide-react";
+import girlGreen from "@/assets/girl-green.avif.asset.json";
+import {
+  ArrowRight,
+  Sparkles,
+  ShieldCheck,
+  Leaf,
+  Home,
+  Building2,
+  GraduationCap,
+  Stethoscope,
+  Hotel,
+  Building,
+  FileText,
+  SprayCan,
+  XCircle,
+  CheckCircle2,
+  HandMetal,
+  Coffee,
+  Grid2X2,
+  Wind,
+  Users,
+  Shield,
+  Microscope,
+  ClipboardCheck,
+  Mountain,
+  Trees,
+  Waves,
+} from "lucide-react";
 import { Navbar } from "@/components/Navbar";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
-const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-const HVACFlowAnimation = lazy(() => import("@/components/HVACFlowAnimation").then(m => ({ default: m.HVACFlowAnimation })));
-import howItWorksThumb from "@/assets/how-it-works-video-thumb.jpg";
-import howItWorksHeroBg from "@/assets/how-it-works-hero-bg.avif";
-import protectingLivingRoom from "@/assets/protecting-living-room.jpg";
-import sharedSpacesLiving from "@/assets/shared-spaces-living.jpg";
-import wholeHomeHallway from "@/assets/whole-home-hallway.jpg";
-const HowItWorksThumbnailMistOverlay = lazy(() => import("@/components/HowItWorksThumbnailMistOverlay").then(m => ({ default: m.HowItWorksThumbnailMistOverlay })));
 import { SEOHead, howToJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
-const RelatedTopics = lazy(() => import("@/components/RelatedTopics").then(m => ({ default: m.RelatedTopics })));
+import heroBuilding from "@/assets/hiw-hero-building.jpg";
+import heroCutaway from "@/assets/hiw-hero-building-cutaway.jpg.asset.json";
+import heroSpacesWave from "@/assets/home-spaces-wave.jpg.asset.json";
+import ecoSurfaces from "@/assets/hiw-eco-surfaces.jpg";
+import ecoObjects from "@/assets/hiw-eco-objects.jpg";
+import ecoFabrics from "@/assets/hiw-eco-fabrics.jpg";
+import ecoHvac from "@/assets/hiw-eco-hvac.jpg";
+import ecoZones from "@/assets/hiw-eco-zones.jpg";
+import ecoHidden from "@/assets/hiw-eco-hidden.jpg";
+import deviceImg from "@/assets/hiw-device.png";
+
+const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
+
+const spaces = [
+  { icon: Home, label: "Homes" },
+  { icon: Building2, label: "Offices" },
+  { icon: GraduationCap, label: "Schools" },
+  { icon: Stethoscope, label: "Clinics" },
+  { icon: Hotel, label: "Hotels" },
+  { icon: Building, label: "Commercial" },
+];
+
+const compareCols = [
+  {
+    label: "Air Purifiers",
+    icon: FileText,
+    items: [
+      "Treat only the air",
+      "Clean only the air that it can suck and trap",
+      "Does not reach or clean surfaces where the majority of contaminants exist",
+    ],
+    highlight: false,
+  },
+  {
+    label: "Disinfecting with chemicals",
+    icon: SprayCan,
+    items: [
+      "Manually applied with limited reach",
+      "Short-term impact as chemicals promptly evaporate",
+      "Damaging delicate objects",
+      "Release toxic VOCs that may cause allergies and serious illnesses",
+      "Foster microbial resistance over time",
+    ],
+    highlight: false,
+  },
+  {
+    label: "EnviroBiotics",
+    icon: Sparkles,
+    items: [
+      "Foster a harmonious, balanced ecosystem of the entire indoor area",
+      "Biological, non-toxic, safe and effective",
+      "24/7 automated support of entire indoor spaces",
+      "Effectively reaching all areas' surfaces and objects, including hidden spots",
+      "Decrease the microbial resistance of diseases generating microbes",
+      "Reduce harsh chemical use that compromises the health of people and planet Earth",
+    ],
+    highlight: true,
+  },
+];
+
 
 const steps = [
-  {
-    icon: SprayCan,
-    title: "Disperse",
-    text: "Your device automatically releases a fine mist of living probiotics into the air, reaching every room it serves.",
-  },
-  {
-    icon: Grid2X2,
-    title: "Settle",
-    text: "The probiotics land on every surface a filter never reaches. Countertops, bedding, pillows, remotes, vents, corners. Exactly where dust, allergens, and odors collect.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Neutralize",
-    text: "The probiotics break down odors, allergens, and the bacteria that cause them. At the source. Around the clock. Long after they've landed.",
-  },
+  { n: "01", title: "Select", text: "Carefully screened environmental probiotics chosen for safety and effectiveness." },
+  { n: "02", title: "Disperse", text: "Automated devices release accurate amounts continuously throughout the space." },
+  { n: "03", title: "Restore", text: "Supports microbial balance across air, surfaces, and objects for a healthier indoor ecosystem." },
 ];
 
-const hvacBenefits = [
-  "Probiotics travel through ducts, coils, and internal surfaces",
-  "Airflow carries protection to every connected room",
-  "A stable microbial layer suppresses buildup between service intervals",
+const ecosystem = [
+  { img: ecoSurfaces, icon: HandMetal, title: "Surfaces", text: "Desks, counters, floors, walls, furniture." },
+  { img: ecoObjects, icon: Coffee, title: "Objects", text: "Keyboards, electronics, shared equipment, toys." },
+  { img: ecoFabrics, icon: Grid2X2, title: "Fabrics", text: "Carpets, upholstery, bedding, curtains." },
+  { img: ecoHvac, icon: Wind, title: "HVAC Pathways", text: "Ducts, vents, shared airflow routes." },
+  { img: ecoZones, icon: Users, title: "Busy Zones", text: "Offices, classrooms, clinics, lobbies." },
+  { img: ecoHidden, icon: Shield, title: "Hidden Spaces", text: "Corners, grooves, under furniture, hard-to-reach areas." },
 ];
 
-const features = [
-  { icon: Repeat, title: "Continuous", text: "Works between cleanings" },
-  { icon: Leaf, title: "Non-chemical", text: "Supports balance, not harsh removal" },
-  { icon: Home, title: "Designed for real homes", text: "Safe for daily life" },
+const traditional = [
+  "Kills indiscriminately",
+  "Disrupts natural microbial balance",
+  "Temporary effect",
+  "Can leave residues",
+  "Requires frequent reapplication",
 ];
 
-const results = [
-  {
-    icon: HeartPulse,
-    title: "Healthier indoor environments",
-    bullets: [
-      "Elimination of noxious odors",
-      "Reduced circulation of pathogens",
-      "More consistent home comfort",
-    ],
-  },
-  {
-    icon: Gauge,
-    title: "More stable system performance",
-    bullets: [
-      "Cleaner internal surfaces",
-      "Better airflow",
-      "Reduces strain on your HVAC system",
-    ],
-  },
-  {
-    icon: Building2,
-    title: "Long term system value",
-    bullets: [
-      "Less need for intensive maintenance",
-      "Longer HVAC system life",
-      "Protection for the system that serves your home",
-    ],
-  },
+const biological = [
+  "Supports beneficial microbes",
+  "Restores natural balance",
+  "Continuous, long-lasting support",
+  "Non-toxic and residue-free",
+  "Works with your environment",
 ];
 
-const settlingPoints = [
-  "Surfaces you touch every day",
-  "Furniture, carpets, and bedding",
-  "Cracks, crevices, and hidden areas",
-  "HVAC ducts that recirculate air",
+const research = [
+  { icon: Microscope, title: "Years of Development", text: "Dedicated research and optimization" },
+  { icon: Building2, title: "Field Tested", text: "Used in a variety of real-world indoor environments" },
+  { icon: ClipboardCheck, title: "Research-Backed", text: "Supported by laboratory studies and third-party validation" },
+  { icon: Users, title: "Real-World Applications", text: "Trusted by organizations across multiple sectors" },
 ];
+
 
 const HowItWorksPage = () => {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
+
+  useEffect(() => {
+    if (!videoOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setVideoOpen(false);
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [videoOpen]);
 
   return (
     <div className="min-h-screen bg-background">
+
       <SEOHead
-        title="How Probiotic Air & Surface Treatment Works"
-        description="Learn how EnviroBiotics environmental probiotics disperse, settle, and continuously support healthier indoor air and surfaces. Science-backed technology explained."
+        title="How EnviroBiotics Works | Restoring Indoor Ecosystem Balance"
+        description="See how EnviroBiotics restores balance across the entire indoor ecosystem, air, surfaces, objects, fabrics, HVAC pathways, and hidden spaces, continuously."
         path="/how-it-works"
         jsonLd={{
           "@context": "https://schema.org",
@@ -102,605 +160,465 @@ const HowItWorksPage = () => {
               { name: "Home", url: "/" },
               { name: "How It Works", url: "/how-it-works" },
             ]),
-            {
-              "@type": "FAQPage",
-              mainEntity: [
-                {
-                  "@type": "Question",
-                  name: "How does EnviroBiotics work?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "EnviroBiotics devices automatically release beneficial Bacillus probiotics into your space in three steps: (1) Disperse, probiotics are released as an invisible mist, (2) Settle, they land on surfaces, fabrics, and hard-to-reach areas, (3) Support, they suppress harmful bacteria and mold by outcompeting them for nutrients. The cycle runs 24/7 without any manual effort.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "Is probiotic air purification safe?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Yes. The Bacillus probiotics used in EnviroBiotics devices are FDA GRAS (Generally Recognized As Safe) certified, produce no ozone or VOCs, and are MADE SAFE certified. They are safe for daily exposure around children, infants, pregnant women, and pets.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "What is the difference between a probiotic purifier and a HEPA air purifier?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "A HEPA air purifier filters particles that physically pass through the machine, but cannot treat surfaces, fabrics, or areas without airflow. A probiotic purifier like EnviroBiotics releases beneficial bacteria that actively colonize surfaces throughout the room, treating contamination at its source. Many users combine both technologies for comprehensive protection.",
-                  },
-                },
-              ],
-            },
           ],
         }}
       />
       <Navbar />
-      <main>
-      {/* Hero Section — full-bleed Sonos style */}
-      <section className="relative w-full overflow-hidden pt-16 sm:pt-20">
-        <div className="relative min-h-[78vh] md:min-h-[88vh] w-full">
-          <img
-            src={howItWorksHeroBg}
-            alt="A serene Scandinavian interior with soft morning light and clean air"
-            className="absolute inset-0 h-full w-full object-cover"
-            width={1920}
-            height={1280}
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-          />
+
+      <main className="pb-20 md:pb-0">
+        {/* HERO */}
+        <section className="relative overflow-hidden text-foreground pt-0 pb-16 md:pb-28 bg-background">
+          {/* Subtle ambient gradient wash */}
           <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent md:bg-gradient-to-r md:from-black/65 md:via-black/25 md:to-transparent"
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-[0.35]"
+            style={{
+              background:
+                "radial-gradient(80% 60% at 85% 0%, hsl(152 60% 92% / 0.55) 0%, transparent 60%), radial-gradient(60% 50% at 0% 100%, hsl(152 30% 95% / 0.5) 0%, transparent 60%)",
+            }}
           />
-          <div className="relative z-10 flex min-h-[78vh] md:min-h-[88vh] items-end md:items-center">
-            <div className="container px-5 sm:px-6 pb-12 md:pb-0">
-              <div className="max-w-3xl text-white" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.45)" }}>
-                <p className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.28em] uppercase text-white/85 mb-5">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  The Science
-                </p>
-                <h1 className="font-display font-bold tracking-tight text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.04] mb-6 !text-white">
-                  How EnviroBiotics <span className="text-[hsl(24_95%_53%)] whitespace-nowrap">works.</span>
-                </h1>
-                <p className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed max-w-2xl mb-10">
-                  Unlike passive air filters, EnviroBiotics works proactively, continuously cleaning the surfaces, air, and ventilation systems that move air through your home.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <a
-                    href="https://shop.envirobiotics.com/collections/all"
-                    className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-white/95"
-                  >
-                    Explore Solutions
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </div>
-              </div>
-            </div>
+
+          {/* Full-bleed lifestyle image above the hero text */}
+          <div className="mb-12 md:mb-16 w-full">
+            <img
+              src={heroSpacesWave.url}
+              alt="Living room, bedroom, classroom, office, and lobby spaces connected by a flowing biomic mist"
+              className="block w-full h-auto"
+              width={1920}
+              height={800}
+              loading="eager"
+              fetchPriority="high"
+            />
           </div>
-        </div>
-      </section>
 
-      {/* Problem Section - Indoor Contamination */}
-      <section className="section-padding bg-background">
-        <div className="container px-5 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <ScrollReveal variant="fadeUp">
-              <div className="space-y-5 md:space-y-6">
-                <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70">
-                  <AlertTriangle className="w-3.5 h-3.5" />
-                  The Problem
-                </span>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
-                  Why air filtration alone <span className="text-primary whitespace-nowrap">won't</span> keep your home clean.
-                </h2>
+          <div className="relative container max-w-5xl mx-auto px-5 md:px-8 text-center">
 
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  Most of what's in the air doesn't stay there. Dust, allergens, and odor-causing particles settle onto surfaces, fabrics, and objects, then get stirred back into the air with every footstep, door, and breath of moving air. Cleaning the air alone isn't enough. You have to treat the surfaces it lands on.
-                </p>
+            <h1 className="font-display font-bold leading-[0.98] tracking-[-0.035em] text-foreground">
+              <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+                How EnviroBiotics
+              </span>
+              <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] mt-1">
+                Technology{" "}
+                <span className="italic font-normal text-heading-accent">works.</span>
+              </span>
+            </h1>
 
-                <ul className="space-y-4 pt-4">
-                  {settlingPoints.map((point, index) => (
-                    <li key={index} className="flex items-start gap-5 group">
-                      <div className="flex-shrink-0 w-11 h-11 rounded-2xl bg-primary/5 border border-primary/15 flex items-center justify-center text-primary text-xs font-bold tracking-wider transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary group-hover:-translate-y-0.5">
-                        {String(index + 1).padStart(2, "0")}
-                      </div>
-                      <span className="text-base md:text-lg text-foreground/80 leading-relaxed pt-2.5">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </ScrollReveal>
+            <span aria-hidden className="block mx-auto mt-10 h-px w-16 bg-emerald-600/60" />
 
-            <ScrollReveal variant="fadeUp" delay={0.2}>
-              <div className="relative">
-                <div aria-hidden="true" className="absolute -inset-6 bg-foreground/[0.04] rounded-[2.5rem] -rotate-2 -z-10" />
-                <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-black/[0.04] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] bg-background">
-                  <img
-                    src="/assets/surfaces-hero.webp"
-                    alt="Particles settling on surfaces inside a home"
-                    width="512"
-                    height="683"
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Video Section - between Problem and Process */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container px-5 md:px-6">
-          <ScrollReveal variant="fadeUp" className="max-w-5xl mx-auto">
-            <div
-              className="relative rounded-[2rem] overflow-hidden ring-1 ring-black/[0.06] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.25),0_20px_40px_-20px_rgba(0,0,0,0.1)] cursor-pointer group"
-              onClick={() => setIsVideoOpen(true)}
-            >
-              <div className="aspect-video relative">
-                <img
-                  src={howItWorksThumb}
-                  alt="How EnviroBiotics Works video preview"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-
-                <Suspense fallback={null}>
-                  <HowItWorksThumbnailMistOverlay />
-                </Suspense>
-              </div>
-
-              {/* Play Button */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative">
-                  <div className="absolute inset-0 w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/30 animate-ping" />
-                  <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300">
-                    <Play className="w-6 h-6 md:w-7 md:h-7 text-foreground ml-0.5" fill="currentColor" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Labels */}
-              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
-                <span className="text-white text-xs sm:text-sm font-semibold tracking-wide">
-                  Watch How It Works
-                </span>
-                <span className="text-white/90 text-[11px] font-medium px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-md ring-1 ring-inset ring-white/20">
-                  1:40
-                </span>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-
-        {/* Video Dialog */}
-        <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
-          <DialogContent className="sm:max-w-4xl p-0 overflow-hidden bg-background">
-            <DialogTitle className="sr-only">How EnviroBiotics Works Video</DialogTitle>
-            <div className="aspect-video w-full">
-              <iframe
-                src="https://player.vimeo.com/video/1041721190?autoplay=1&title=0&byline=0&portrait=0"
-                className="w-full h-full"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                title="How EnviroBiotics Works"
-              />
-            </div>
-          </DialogContent>
-        </Dialog>
-      </section>
-
-      {/* Steps Section - The 3-Step Process */}
-      <section className="section-padding bg-background">
-        <div className="container px-5 md:px-6">
-          <ScrollReveal variant="fadeUp" className="max-w-3xl mx-auto mb-16 md:mb-24 text-center">
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-6">
-              <Repeat className="w-3.5 h-3.5" />
-              The Process
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-6">
-              A simple 3-step cycle.
-              <br />
-              <span className="text-primary whitespace-nowrap">Always running.</span>
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
-              Plug it in once. EnviroBiotics works automatically in the background, putting a living layer of protection on every surface in your home, 24 hours a day.
+            <p className="mt-10 mx-auto max-w-4xl text-[1.4rem] sm:text-[1.65rem] md:text-[1.85rem] text-foreground/80 leading-[1.55] font-light">
+              Every indoor space is an ecosystem. Air, surfaces, objects, fabrics, HVAC pathways, and hidden spaces, all connected.
             </p>
-          </ScrollReveal>
+            <p className="mt-6 mx-auto max-w-4xl text-[1.4rem] sm:text-[1.65rem] md:text-[1.85rem] leading-[1.55] font-medium text-heading-accent">
+              EnviroBiotics delivers probiotic support throughout it all, continuously.
+            </p>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-6 md:gap-8" staggerDelay={0.15}>
-            {steps.map(({ icon: Icon, title, text }, index) => (
-              <StaggerItem
-                key={title}
-                variant="fadeUp"
-                className={index === 1 ? "md:translate-y-10" : index === 2 ? "md:translate-y-20" : ""}
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-5">
+              <button
+                type="button"
+                onClick={() => setVideoOpen(true)}
+                className="group inline-flex items-center gap-4 pl-7 pr-3 py-3 rounded-full bg-foreground text-background font-medium text-sm tracking-wide hover:bg-foreground/90 transition-all duration-500 shadow-[0_25px_70px_-20px_rgba(0,0,0,0.45)]"
               >
-                <div className="group relative h-full p-10 md:p-12 rounded-[2.5rem] bg-card ring-1 ring-primary/10 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] overflow-hidden transition-all duration-500 hover:shadow-[0_40px_80px_-30px_rgba(249,115,22,0.25)] hover:-translate-y-2">
-                  {/* Watermark numeral */}
-                  <span aria-hidden="true" className="absolute top-6 right-8 text-[7rem] leading-none font-display font-bold text-primary/[0.07] select-none italic">
-                    {index + 1}
-                  </span>
-
-                  <div className="relative z-10 space-y-6">
-                    <div className="w-16 h-16 rounded-3xl bg-primary/8 flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:rotate-3">
-                      <Icon className="h-7 w-7 text-primary transition-colors duration-500 group-hover:text-primary-foreground" />
-                    </div>
-
-                    <div>
-                      <span className="block text-[10px] font-semibold tracking-[0.3em] uppercase text-primary mb-3">
-                        Step {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <h3 className="text-3xl md:text-[2rem] font-display font-bold tracking-tight text-foreground mb-4">
-                        {title}
-                      </h3>
-                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                        {text}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <ScrollReveal variant="fadeUp" delay={0.4} className="mt-32 md:mt-40 text-center">
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-card ring-1 ring-primary/15 shadow-sm">
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs md:text-sm font-medium text-foreground tracking-wide">Runs quietly. Works constantly. Notice nothing but the difference.</span>
+                <span className="uppercase tracking-[0.18em] text-[12px]">
+                  Watch How It Works - 2 min
+                </span>
+                <span className="relative w-11 h-11 rounded-full bg-emerald-500 flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-110">
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 rounded-full bg-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="relative w-4 h-4 text-foreground translate-x-[1px]"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5.5v13l11-6.5L8 5.5z" />
+                  </svg>
+                </span>
+              </button>
             </div>
-          </ScrollReveal>
-        </div>
-      </section>
+          </div>
 
-      {/* Interactive Comparison Animation */}
-      <section className="section-padding bg-background">
-        <div className="container px-5 md:px-6">
-          <Suspense fallback={<div className="w-full max-w-5xl mx-auto aspect-[16/8] bg-muted/20 rounded-2xl animate-pulse" />}>
-            <ActiveDefenseToggle />
-          </Suspense>
-        </div>
-      </section>
+        </section>
 
-      {/* HVAC Section — Whole Home Coverage (editorial) */}
-      <section className="py-20 md:py-28 lg:py-32 bg-background overflow-hidden">
-        <div className="container max-w-7xl mx-auto px-5 md:px-6">
-          <div className="grid lg:grid-cols-[minmax(0,0.95fr)_1.05fr] gap-10 lg:gap-20 xl:gap-24 items-center">
-            {/* Editorial copy */}
-            <ScrollReveal variant="fadeUp">
-              <div className="min-w-0">
-                <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6 inline-flex items-center gap-2">
-                  <Wind className="w-3.5 h-3.5" />
-                  Whole-Home Coverage
+
+
+
+
+        {/* SPACES */}
+        <section
+          id="technology"
+          className="relative pt-20 md:pt-32 pb-16 md:pb-28 bg-[hsl(150_30%_97%)] border-t border-foreground/10"
+        >
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-[0.5]"
+            style={{
+              background:
+                "radial-gradient(60% 50% at 50% 0%, hsl(152 45% 88% / 0.7) 0%, transparent 65%)",
+            }}
+          />
+          <div className="relative container max-w-6xl mx-auto px-5 md:px-8">
+            {/* Editorial intro, centered */}
+            <div className="text-center max-w-5xl mx-auto">
+              <h2 className="font-display font-semibold leading-[0.98] tracking-[-0.035em] text-foreground text-[2.75rem] sm:text-[4rem] lg:text-[5.25rem]">
+                You spend{" "}
+                <span className="italic font-normal text-[#0d8a5a]">90%</span>{" "}
+                of your life indoors.
+              </h2>
+
+              <p className="mt-8 font-display italic text-3xl md:text-4xl lg:text-5xl leading-[1.15] tracking-[-0.02em] text-muted-foreground">
+                Make sure it's in balance.
+              </p>
+
+              <div className="mt-12 mx-auto max-w-3xl">
+                <span className="block mx-auto h-px w-16 bg-[#0d8a5a]/60 mb-8" />
+                <p className="text-[1.2rem] sm:text-[1.35rem] text-foreground/80 leading-[1.65] font-light">
+                  A probiotic system that quietly balances the air, surfaces, and objects in every space you{" "}
+                  <span className="text-foreground font-normal">live</span>,{" "}
+                  <span className="text-foreground font-normal">work</span>, and{" "}
+                  <span className="text-foreground font-normal">rest</span>.
                 </p>
+              </div>
+            </div>
 
-                <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.6rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance">
-                  Probiotic protection
-                  <br />
-                  <span className="text-primary whitespace-nowrap">in every room.</span>
+            {/* Spaces grid below, full width row */}
+            <div className="mt-16 md:mt-24 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-border/60 rounded-2xl overflow-hidden border border-border/60">
+              {spaces.map(({ icon: Icon, label }) => (
+                <div
+                  key={label}
+                  className="group flex flex-col items-center justify-center text-center gap-4 p-8 bg-card hover:bg-muted/30 transition-all"
+                >
+                  <Icon className="w-7 h-7 text-foreground/80 group-hover:scale-110 transition-transform" strokeWidth={1.4} />
+                  <span className="text-[15px] font-medium text-foreground">{label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Ecosystem statement */}
+            <div className="mt-20 md:mt-28 max-w-4xl mx-auto text-center">
+              <p className="text-[1.2rem] sm:text-[1.35rem] text-foreground/85 leading-[1.65] font-light">
+                Indoor environments are complete ecosystems where we live, work, learn, heal, and gather. Each space has unique challenges, but the need for balance is universal.
+              </p>
+            </div>
+          </div>
+        </section>
+
+
+
+        {/* ORIGIN STORY — Finding EnviroBiotics */}
+        <section className="relative overflow-hidden border-t border-border/60 bg-background py-20 md:py-32">
+          {/* ambient backdrop */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-[0.05]"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 20% 30%, hsl(var(--foreground)) 0, transparent 40%), radial-gradient(circle at 80% 70%, hsl(var(--foreground)) 0, transparent 45%)",
+            }}
+          />
+          {/* soft primary wash behind image side */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-32 top-1/2 -translate-y-1/2 h-[680px] w-[680px] rounded-full opacity-[0.18] blur-3xl"
+            style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 65%)" }}
+          />
+
+          <div className="container relative max-w-7xl mx-auto px-5 md:px-8">
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              {/* LEFT: editorial copy */}
+              <div className="lg:col-span-7 order-2 lg:order-1">
+                <h2 className="font-display font-semibold text-foreground text-balance leading-[1.02] tracking-[-0.035em] text-[2.5rem] sm:text-[3.25rem] md:text-[4.25rem]">
+                  Finding{" "}
+                  <em className="not-italic text-heading-accent">EnviroBiotics.</em>
                 </h2>
 
-                <p className="mt-6 sm:mt-8 text-[15px] sm:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  Your HVAC system connects every room in your home. EnviroBiotics works with this natural airflow to deliver a living layer of protection everywhere air travels.
+                <div className="mt-8 flex items-center gap-4">
+                  <span className="h-px w-12 bg-primary/60" />
+                  <span className="text-[10.5px] font-semibold tracking-[0.32em] uppercase text-muted-foreground/80">
+                    A worldwide search
+                  </span>
+                </div>
+
+                <p className="mt-6 text-[1.2rem] sm:text-[1.35rem] text-foreground/80 leading-[1.65] max-w-[60ch]">
+                  Our team climbed mountains, searched jungles, and dove deep
+                  waters, collecting hundreds of samples. Each was screened for
+                  absolute safety, high efficacy, and regulatory compliance.
+                  Only a few passed every test, and became the patented strains
+                  inside{" "}
+                  <span className="text-foreground font-medium">
+                    EnviroBiotics.
+                  </span>
                 </p>
 
-                {/* Hairline-divided benefits — matches Results editorial style */}
-                <div className="mt-10 border-t border-border/60">
-                  {hvacBenefits.map((benefit, index) => (
-                    <div key={index} className="grid grid-cols-[auto_1fr] gap-5 sm:gap-8 py-5 border-b border-border/60 items-start">
-                      <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 tabular-nums pt-1 w-12">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <p className="text-[15px] sm:text-base text-foreground leading-relaxed">
-                        {benefit}
-                      </p>
-                    </div>
-                  ))}
-                </div>
               </div>
-            </ScrollReveal>
 
-            {/* Image with floating caption */}
-            <ScrollReveal variant="fadeUp" delay={0.15}>
-              <div className="relative">
-                <div className="relative aspect-[4/5] sm:aspect-square rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden bg-muted ring-1 ring-black/[0.05] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.28)]">
-                  <img
-                    src={wholeHomeHallway}
-                    alt="Sunlit hallway connecting bedroom, living room, and kitchen — air flowing through every room"
-                    width={1280}
-                    height={1280}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Floating caption — top left */}
-                  <div className="absolute top-5 left-5 sm:top-7 sm:left-7 max-w-[14rem]">
-                    <div className="backdrop-blur-xl bg-background/85 border border-border/50 rounded-2xl px-5 py-4 shadow-xl">
-                      <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-primary mb-1.5">
-                        Carried by airflow
-                      </p>
-                      <p className="text-sm text-foreground leading-relaxed">
-                        Bedroom. Kitchen. Living room. Every connected space.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Stat chip — bottom right */}
-                  <div className="absolute bottom-5 right-5 sm:bottom-7 sm:right-7">
-                    <div className="backdrop-blur-xl bg-background/90 border border-border/50 rounded-2xl px-5 py-4 shadow-xl flex items-end gap-3">
-                      <div className="text-[2.5rem] sm:text-5xl font-display font-bold text-primary leading-none tracking-[-0.04em]">
-                        24<span className="text-foreground/25">/</span>7
-                      </div>
-                      <p className="text-[11px] sm:text-xs text-muted-foreground leading-snug max-w-[8rem] pb-1">
-                        protection moving with the air you already breathe.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* What Makes It Different — editorial split */}
-      <section className="section-padding bg-background overflow-hidden">
-        <div className="container px-5 md:px-6">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-
-            {/* Image — anchors the section */}
-            <ScrollReveal variant="fadeUp" className="lg:col-span-7 order-2 lg:order-1">
-              <div className="relative">
-                {/* Soft ambient glow behind the frame */}
-                <div
-                  aria-hidden
-                  className="absolute -inset-6 md:-inset-10 rounded-[3rem] pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(60% 60% at 30% 40%, rgba(244, 197, 153, 0.35) 0%, rgba(244, 197, 153, 0) 70%)",
-                    filter: "blur(40px)",
-                  }}
-                />
-                <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-black/[0.04] shadow-[0_40px_120px_-40px_rgba(15,23,42,0.35)]">
-                  <img
-                    src={protectingLivingRoom}
-                    alt="Woman relaxing with tea in a calm sunlit living room — a balanced, breathable space"
-                    className="w-full object-cover aspect-[4/5] md:aspect-[5/6]"
-                    width={1280}
-                    height={1280}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  {/* Subtle bottom vignette for text-friendly base */}
+              {/* RIGHT: framed portrait */}
+              <div className="lg:col-span-5 order-1 lg:order-2 relative">
+                <div className="relative mx-auto max-w-[460px] lg:max-w-none">
+                  {/* offset accent frame */}
                   <div
                     aria-hidden
-                    className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
-                    style={{
-                      background:
-                        "linear-gradient(to top, rgba(15,23,42,0.18), rgba(15,23,42,0))",
-                    }}
+                    className="absolute -inset-3 md:-inset-5 rounded-[2rem] border border-primary/30"
+                    style={{ transform: "rotate(-1.5deg)" }}
                   />
-                  {/* Floating quiet caption — Sonos-style overlay */}
-                  <div className="absolute left-5 md:left-7 bottom-5 md:bottom-7 right-5 md:right-7">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/85 backdrop-blur-md ring-1 ring-black/[0.04] shadow-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      <span className="text-[11px] font-medium tracking-[0.12em] uppercase text-slate-700">
-                        Balance maintained
-                      </span>
-                    </div>
+                  {/* subtle leaf glyph */}
+                  <div
+                    aria-hidden
+                    className="absolute -top-6 -left-6 z-10 h-14 w-14 rounded-full bg-background ring-1 ring-foreground/10 shadow-sm flex items-center justify-center"
+                  >
+                    <Leaf className="h-5 w-5 text-primary" strokeWidth={1.6} />
+                  </div>
+
+                  {/* portrait */}
+                  <div className="relative overflow-hidden rounded-[1.75rem] ring-1 ring-foreground/[0.08] shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]">
+                    <img
+                      src={girlGreen.url}
+                      alt="EnviroBiotics, nature meets science"
+                      loading="lazy"
+                      decoding="async"
+                      className="block w-full h-auto object-cover aspect-[4/5]"
+                    />
                   </div>
                 </div>
               </div>
-            </ScrollReveal>
-
-            {/* Copy + features */}
-            <div className="lg:col-span-5 order-1 lg:order-2">
-              <ScrollReveal variant="fadeUp">
-                <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
-                  <Shield className="w-3.5 h-3.5" />
-                  The Difference
-                </span>
-                <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.02] tracking-[-0.03em] text-foreground mb-6">
-                  Stop reacting.
-                  <br />
-                  <span className="text-primary whitespace-nowrap">Start protecting.</span>
-                </h2>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-10 md:mb-12 max-w-md">
-                  Most cleaning happens after the buildup appears. EnviroBiotics
-                  helps maintain balance on surfaces so your home stays more
-                  stable between cleanings.
-                </p>
-              </ScrollReveal>
-
-              {/* Hairline feature rows — quiet, premium */}
-              <StaggerContainer className="divide-y divide-black/[0.06] border-y border-black/[0.06]" staggerDelay={0.1}>
-                {features.map(({ icon: Icon, title, text }, i) => (
-                  <StaggerItem key={title} variant="fadeUp">
-                    <div className="group flex items-start gap-5 py-5 md:py-6 transition-colors">
-                      <span className="text-[11px] font-medium tracking-[0.15em] tabular-nums text-muted-foreground/50 pt-1.5 w-8">
-                        0{i + 1}
-                      </span>
-                      <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/[0.08] flex items-center justify-center mt-0.5 transition-colors group-hover:bg-primary/[0.14]">
-                        <Icon className="h-[18px] w-[18px] text-primary" strokeWidth={1.5} />
-                      </span>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-lg font-display font-semibold tracking-tight text-foreground mb-1">
-                          {title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {text}
-                        </p>
-                      </div>
-                    </div>
-                  </StaggerItem>
-                ))}
-              </StaggerContainer>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Results Grid */}
-      <section className="section-padding bg-background">
-        <div className="container px-5 md:px-6">
-          <ScrollReveal variant="fadeUp" className="max-w-3xl mb-12 md:mb-16">
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
-              <Sparkles className="w-3.5 h-3.5" />
-              The Results
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
-              Long-term benefits
-              <br />
-              for your <span className="text-primary whitespace-nowrap">home and health.</span>
-            </h2>
-          </ScrollReveal>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-px bg-black/[0.06] ring-1 ring-black/[0.06] rounded-[1.75rem] overflow-hidden" staggerDelay={0.12}>
-            {results.map(({ icon: Icon, title, bullets }, idx) => (
-              <StaggerItem key={title} variant="fadeUp">
-                <div className="group relative h-full p-8 md:p-10 bg-card transition-colors duration-500 hover:bg-primary/[0.03]">
-                  <div className="flex items-baseline gap-3 mb-8">
-                    <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 tabular-nums">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    <span className="h-px flex-1 bg-black/[0.08]" />
-                    <Icon className="h-[18px] w-[18px] text-primary/80" strokeWidth={1.5} />
+
+
+        <section className="py-14 md:py-20 border-t border-border/60 bg-[#fafaf7]">
+          <div className="container max-w-7xl mx-auto px-5 md:px-8">
+            <div className="max-w-3xl mb-8 md:mb-10">
+              <h2 className="text-3xl md:text-[2.75rem] font-display font-semibold leading-[1.05] tracking-[-0.03em] text-foreground">
+                Why air-only and chemical-only solutions{" "}
+                <span className="text-muted-foreground">fall short.</span>
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-4 lg:gap-5">
+              {compareCols.map(({ label, icon: Icon, items, highlight }) => (
+                <div
+                  key={label}
+                  className={`relative rounded-3xl p-7 transition-all ${
+                    highlight
+                      ? "bg-gradient-to-br from-[#0f5e3f] via-[#0d8a5a] to-[#2ECC8A] text-white border border-emerald-300/30 shadow-[0_30px_80px_-20px_rgba(46,204,138,0.55)]"
+                      : "bg-card border border-border/60 hover:border-border"
+                  }`}
+                >
+                  {highlight && (
+                    <div className="absolute -top-px left-7 right-7 h-px bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent" />
+                  )}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl ${highlight ? "bg-white/15 backdrop-blur" : "bg-muted/50"}`}>
+                      <Icon className={`w-5 h-5 ${highlight ? "text-white" : "text-muted-foreground"}`} strokeWidth={1.6} />
+                    </div>
+                    {highlight && (
+                      <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-white bg-white/15 border border-white/30 rounded-full px-2.5 py-1">
+                        Recommended
+                      </span>
+                    )}
                   </div>
-                  <h3 className="text-xl md:text-2xl font-display font-semibold tracking-tight text-foreground leading-snug mb-6 max-w-[14ch]">
-                    {title}
+                  <h3 className={`text-lg font-semibold mb-5 ${highlight ? "text-white" : "text-foreground"}`}>
+                    {label}
                   </h3>
-                  <ul className="space-y-0">
-                    {bullets.map((bullet, index) => (
-                      <li
-                        key={index}
-                        className="flex items-start gap-3 py-3 border-t border-black/[0.06] first:border-t-0"
-                      >
-                        <span className="mt-2 w-1 h-1 rounded-full bg-primary/70 flex-shrink-0" />
-                        <span className="text-[15px] text-muted-foreground leading-relaxed">{bullet}</span>
+                  <ul className="space-y-3.5">
+                    {items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-[1.2rem] sm:text-[1.35rem] leading-[1.65]">
+                        {highlight ? (
+                          <CheckCircle2 className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+
+                        ) : (
+                          <XCircle className="w-4 h-4 text-muted-foreground/50 flex-shrink-0 mt-0.5" />
+                        )}
+                        <span className={highlight ? "text-white/85" : "text-muted-foreground"}>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+              ))}
+            </div>
+          </div>
+        </section>
 
-      {/* Shared Spaces Section — editorial */}
-      <section className="py-20 md:py-28 lg:py-32 bg-card overflow-hidden">
-        <div className="container max-w-7xl mx-auto px-5 md:px-6">
-          <div className="grid lg:grid-cols-[1.05fr_minmax(0,0.95fr)] gap-10 lg:gap-20 xl:gap-24 items-center">
-            {/* Image with floating caption + stat chip */}
-            <ScrollReveal variant="fadeUp" className="order-2 lg:order-1">
-              <div className="relative">
-                <div className="relative aspect-[4/5] sm:aspect-square rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden bg-muted ring-1 ring-black/[0.05] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.28)]">
-                  <img
-                    src={sharedSpacesLiving}
-                    alt="A family relaxing in a sunlit open-plan space that flows into a calm work area"
-                    width={1280}
-                    height={1280}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent pointer-events-none" />
+        {/* 3-STEP SYSTEM */}
+        <section className="py-14 md:py-20 border-t border-border/60">
+          <div className="container max-w-7xl mx-auto px-5 md:px-8">
+            <div className="max-w-3xl mx-auto mb-8 md:mb-10 text-center">
+              <h2 className="text-3xl md:text-[2.75rem] font-display font-semibold leading-[1.05] tracking-[-0.03em] text-foreground">
+                A simple{" "}
+                <span className="text-muted-foreground">3-step system.</span>
+              </h2>
+            </div>
 
-                  {/* Floating caption — top right */}
-                  <div className="absolute top-5 right-5 sm:top-7 sm:right-7 max-w-[14rem]">
-                    <div className="backdrop-blur-xl bg-background/85 border border-border/50 rounded-2xl px-5 py-4 shadow-xl">
-                      <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-primary mb-1.5">
-                        Everywhere air goes
-                      </p>
-                      <p className="text-sm text-foreground leading-relaxed">
-                        From the family room to the boardroom.
-                      </p>
-                    </div>
+            <div className="relative grid md:grid-cols-3 gap-px bg-border/60 rounded-3xl overflow-hidden border border-border/60">
+              {steps.map((s) => (
+                <div key={s.n} className="relative p-8 md:p-10 bg-card group">
+                  <div className="flex items-baseline justify-between mb-8">
+                    <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">STEP {s.n}</span>
+                    <span className="text-[5rem] font-display font-semibold leading-none text-foreground/[0.06] group-hover:text-foreground/10 transition-colors">
+                      {s.n}
+                    </span>
                   </div>
+                  <h3 className="text-2xl font-display font-semibold text-foreground tracking-tight">{s.title}</h3>
+                  <p className="mt-3 text-[1.2rem] sm:text-[1.35rem] text-muted-foreground leading-[1.65]">{s.text}</p>
+                </div>
 
-                  {/* Big stat — bottom left */}
-                  <div className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7">
-                    <div className="backdrop-blur-xl bg-background/90 border border-border/50 rounded-2xl px-5 py-4 shadow-xl flex items-end gap-3">
-                      <div className="text-[2.5rem] sm:text-5xl font-display font-bold text-primary leading-none tracking-[-0.04em]">
-                        90<span className="text-foreground/25">%</span>
-                      </div>
-                      <p className="text-[11px] sm:text-xs text-muted-foreground leading-snug max-w-[9rem] pb-1">
-                        of our time is spent indoors, sharing the same air.
-                      </p>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ECOSYSTEM GRID */}
+        <section className="py-14 md:py-20 border-t border-border/60 bg-[#fafaf7]">
+          <div className="container max-w-7xl mx-auto px-5 md:px-8">
+            <div className="max-w-3xl mb-8 md:mb-10">
+              <h2 className="text-3xl md:text-[2.75rem] font-display font-semibold leading-[1.05] tracking-[-0.03em] text-foreground">
+                Designed for the whole{" "}
+                <span className="text-muted-foreground">indoor ecosystem.</span>
+              </h2>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {ecosystem.map(({ img, icon: Icon, title, text }) => (
+                <div
+                  key={title}
+                  className="group relative rounded-2xl overflow-hidden bg-card border border-border/60 hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+                >
+                  <div className="relative aspect-[16/11] overflow-hidden">
+                    <img
+                      src={img}
+                      alt={title}
+                      width={800}
+                      height={550}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent" />
+                    <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center shadow-lg">
+                      <Icon className="w-4.5 h-4.5 text-foreground/80" strokeWidth={1.6} />
                     </div>
+                    <h3 className="absolute bottom-4 left-5 text-white text-lg font-display font-semibold tracking-tight">
+                      {title}
+                    </h3>
+                  </div>
+                  <div className="p-5">
+                    <p className="text-[1.2rem] sm:text-[1.35rem] text-muted-foreground leading-[1.65]">{text}</p>
                   </div>
                 </div>
-              </div>
-            </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
 
-            {/* Editorial copy */}
-            <ScrollReveal variant="fadeUp" delay={0.15} className="order-1 lg:order-2">
-              <div className="min-w-0">
-                <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6 inline-flex items-center gap-2">
-                  <Building2 className="w-3.5 h-3.5" />
-                  Shared Spaces
-                </p>
 
-                <h2 className="text-[2rem] sm:text-5xl lg:text-[2.85rem] xl:text-[3.1rem] 2xl:text-[3.6rem] font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-balance">
-                  The air you share.
-                  <br />
-                  <span className="text-primary whitespace-nowrap">Everyone breathes it.</span>
+
+
+        {/* RESEARCH STRIP */}
+        <section className="py-14 md:py-20 border-t border-border/60 bg-[#fafaf7]">
+          <div className="container max-w-7xl mx-auto px-5 md:px-8">
+            <div className="grid lg:grid-cols-[0.9fr_1.4fr] gap-12 lg:gap-16 items-start">
+              <div>
+                <h2 className="text-2xl md:text-[2rem] font-display font-semibold leading-tight tracking-[-0.025em] text-foreground">
+                  Developed through research, testing, and real-world use.
                 </h2>
-
-                <p className="mt-6 sm:mt-8 text-[15px] sm:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  At home. At work. Across every building you step into. Most of us spend over 90% of our day indoors, breathing air that's circulated, recirculated, and rarely truly clean.
+                <p className="mt-5 text-[1.2rem] sm:text-[1.35rem] text-muted-foreground leading-[1.65] max-w-md">
+                  Our probiotic formula has been optimized, and validated through rigorous laboratory testing and real-world trials executed in collaborations with leading research centers.
                 </p>
-
-                {/* Editorial divider list — 3 contexts */}
-                <div className="mt-10 border-t border-border/60">
-                  {[
-                    { label: "At home", text: "A living layer of protection across every room — even the ones you forget to clean." },
-                    { label: "At work", text: "Quietly working through your HVAC, so shared desks and meeting rooms feel calmer." },
-                    { label: "In between", text: "Lobbies, schools, gyms — the public spaces we all move through every day." },
-                  ].map(({ label, text }, idx) => (
-                    <div key={label} className="grid grid-cols-[auto_1fr] gap-5 sm:gap-8 py-5 border-b border-border/60">
-                      <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 tabular-nums pt-1 w-12">
-                        {String(idx + 1).padStart(2, "0")}
-                      </span>
-                      <div>
-                        <p className="text-base sm:text-lg font-display font-semibold text-foreground tracking-tight">
-                          {label}
-                        </p>
-                        <p className="mt-1 text-[14px] sm:text-[15px] text-muted-foreground leading-relaxed">
-                          {text}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
-                  <a
-                    href="https://shop.envirobiotics.com/collections/all"
-                    className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-foreground/90"
-                  >
-                    Explore Solutions
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                  <p className="text-xs text-muted-foreground tracking-wide">
-                    Safe for families. Trusted in workplaces.
-                  </p>
-                </div>
               </div>
-            </ScrollReveal>
+              <div className="grid sm:grid-cols-2 gap-px bg-border/60 rounded-2xl overflow-hidden border border-border/60">
+                {research.map(({ icon: Icon, title, text }) => (
+                  <div key={title} className="flex flex-col gap-4 p-6 bg-card">
+                    <div className="w-10 h-10 rounded-xl bg-foreground/[0.04] border border-border/60 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-foreground/80" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-semibold text-foreground leading-tight">{title}</h3>
+                      <p className="mt-1.5 text-[1.2rem] sm:text-[1.35rem] text-muted-foreground leading-[1.65]">{text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FINAL CTA — bright, premium */}
+        <section className="relative overflow-hidden bg-[#fafaf7] text-foreground border-t border-border/60">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)",
+              backgroundSize: "64px 64px",
+              maskImage: "radial-gradient(ellipse at center, #000 20%, transparent 70%)",
+            }}
+          />
+          <div
+            aria-hidden="true"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] rounded-full blur-3xl opacity-30 pointer-events-none"
+            style={{
+              background: "radial-gradient(closest-side, hsl(150 60% 45% / 0.35), transparent)",
+            }}
+          />
+          <div className="relative container max-w-4xl mx-auto px-5 md:px-8 py-24 md:py-32 text-center">
+            <h2 className="text-4xl md:text-6xl font-display font-semibold leading-[1.02] tracking-[-0.035em] text-foreground">
+              Ready to find the product that suits you best?
+            </h2>
+            <p className="mt-6 text-[1.2rem] sm:text-[1.35rem] text-foreground/65 max-w-xl mx-auto font-light leading-[1.65]">
+              Discover how EnviroBiotics can help you create healthier indoor environments, naturally.
+            </p>
+            <div className="mt-10 flex flex-wrap justify-center gap-3">
+              <a
+                href="https://shop.envirobiotics.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background font-semibold text-sm hover:bg-foreground/90 transition-all shadow-[0_0_0_1px_rgba(0,0,0,0.08),0_20px_60px_-15px_rgba(0,0,0,0.25)]"
+              >
+                Browse Products
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
+
+      {videoOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 sm:p-8 animate-in fade-in duration-200"
+          onClick={() => setVideoOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Technology video"
+        >
+          <button
+            type="button"
+            onClick={() => setVideoOpen(false)}
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+            aria-label="Close video"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <div
+            className="relative w-full max-w-5xl aspect-video rounded-xl overflow-hidden shadow-2xl bg-black"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              src="https://player.vimeo.com/video/1041721190?autoplay=1&title=0&byline=0&portrait=0"
+              className="absolute inset-0 w-full h-full"
+              frameBorder={0}
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              title="EnviroBiotics Technology"
+            />
           </div>
         </div>
-      </section>
-
-      <section className="container max-w-4xl px-4 pb-16">
-        <RelatedTopics currentPath="/how-it-works" />
-      </section>
-      </main>
-      <Suspense fallback={null}><Footer /></Suspense>
+      )}
     </div>
   );
 };

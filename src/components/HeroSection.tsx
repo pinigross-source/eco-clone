@@ -1,9 +1,8 @@
 import { useEffect, useRef } from "react";
-import { ArrowRight } from "lucide-react";
-import { trackEvent } from "@/lib/tracking";
-import { Button } from "@/components/ui/button";
 import { ParticleField } from "@/components/hero/ParticleField";
-import heroBg from "@/assets/hero-luxury-interior.avif";
+import heroBgAsset from "@/assets/hero-homepage-bg-v2.avif.asset.json";
+
+const heroBg = heroBgAsset.url;
 
 export const HeroSection = () => {
   const imgRef = useRef<HTMLImageElement>(null);
@@ -17,11 +16,11 @@ export const HeroSection = () => {
     const update = () => {
       const y = window.scrollY;
       if (imgRef.current) {
-        imgRef.current.style.transform = `translate3d(0, ${y * 0.3}px, 0) scale(1.06)`;
+        imgRef.current.style.transform = `translate3d(0, ${y * 0.25}px, 0) scale(1.0)`;
       }
       if (contentRef.current) {
         const fade = Math.max(0, 1 - y / 700);
-        contentRef.current.style.transform = `translate3d(0, ${y * -0.1}px, 0)`;
+        contentRef.current.style.transform = `translate3d(0, ${y * -0.08}px, 0)`;
         contentRef.current.style.opacity = `${fade}`;
       }
       ticking = false;
@@ -40,133 +39,93 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative flex min-h-[100dvh] w-full flex-col justify-center overflow-hidden bg-background">
+    <section className="relative flex min-h-[100dvh] w-full flex-col justify-start overflow-hidden bg-background">
+      {/* Wide hero background */}
       <img
         ref={imgRef}
         src={heroBg}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 z-[1] h-[112%] w-full object-cover object-[100%_70%] will-change-transform"
-        style={{ transform: "translate3d(0,0,0) scale(1.06)" }}
+        className="absolute inset-0 z-[1] h-[112%] w-full object-cover will-change-transform"
+        style={{ transform: "translate3d(0,0,0) scale(1.0)", objectPosition: "42% center" }}
         loading="eager"
         fetchPriority="high"
-        width={1920}
-        height={1280}
       />
 
+      {/* Readability overlays — gentle so the photo stays visible */}
       <div
         className="absolute inset-0 z-[2] sm:hidden"
         style={{
           background:
-            "linear-gradient(180deg, hsl(var(--background) / 0.96) 0%, hsl(var(--background) / 0.75) 55%, hsl(var(--background) / 0.3) 85%)",
+            "linear-gradient(180deg, hsl(var(--background) / 0.65) 0%, hsl(var(--background) / 0.25) 55%, transparent 95%)",
         }}
       />
       <div
         className="absolute inset-0 z-[2] hidden sm:block lg:hidden"
         style={{
           background:
-            "linear-gradient(95deg, hsl(var(--background) / 0.95) 0%, hsl(var(--background) / 0.75) 30%, hsl(var(--background) / 0.2) 50%, transparent 65%)",
+            "linear-gradient(95deg, hsl(var(--background) / 0.78) 0%, hsl(var(--background) / 0.35) 38%, transparent 70%)",
         }}
       />
       <div
         className="absolute inset-0 z-[2] hidden lg:block"
         style={{
           background:
-            "linear-gradient(95deg, hsl(var(--background) / 0.97) 0%, hsl(var(--background) / 0.9) 28%, hsl(var(--background) / 0.5) 45%, transparent 60%)",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[2] hidden lg:block"
-        style={{
-          background:
-            "radial-gradient(50% 65% at 20% 50%, hsl(var(--background) / 0.8) 0%, transparent 65%)",
+            "linear-gradient(95deg, hsl(var(--background) / 0.82) 0%, hsl(var(--background) / 0.5) 28%, hsl(var(--background) / 0.15) 50%, transparent 70%)",
         }}
       />
 
+      {/* Cursor particle effect, contained inside hero */}
+      <ParticleField className="pointer-events-none absolute inset-0 z-[3] h-full w-full bg-transparent" />
 
-
-      <ParticleField className="absolute inset-0 z-[3] h-full w-full" />
-
+      {/* Content */}
       <div
         ref={contentRef}
-        className="relative z-10 mx-auto w-full max-w-[1440px] px-5 py-24 sm:px-10 sm:py-28 lg:px-16 lg:py-32 will-change-transform"
+        className="relative z-10 w-full max-w-[1440px] px-5 pt-10 pb-12 sm:px-8 sm:pt-12 sm:pb-14 lg:px-12 lg:pt-14 lg:pb-16 will-change-transform"
       >
-        <div className="max-w-3xl text-left lg:max-w-[760px]">
-
-
-          <h1
-            className="mb-4 whitespace-nowrap font-sans font-bold tracking-[-0.04em] text-[2rem] leading-[1] sm:mb-5 sm:text-[clamp(2.5rem,4.5vw,4.5rem)] sm:leading-[0.96]"
-            style={{ color: "hsl(var(--foreground))" }}
-          >
-            Your Health. Your Choice.
+        <div className="max-w-2xl text-left lg:max-w-[980px] lg:pl-40">
+          <h1 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-8 sm:mb-9 whitespace-nowrap">
+            <span className="text-[2.6rem] sm:text-[3.3rem] md:text-[4rem]">
+              Your Health.
+            </span>{" "}
+            <span className="text-[2.25rem] sm:text-[2.85rem] md:text-[3.55rem] text-heading-accent italic font-normal">
+              Your Choice.
+            </span>
           </h1>
 
           <p
-            className="mb-5 max-w-[44ch] font-serif italic text-[1.05rem] leading-[1.35] tracking-[-0.01em] sm:mb-6 sm:text-[1.35rem]"
-            style={{ color: "hsl(var(--primary))" }}
+            className="mb-7 text-[1.05rem] sm:text-[1.2rem] md:text-[1.3rem] leading-[1.7] font-normal tracking-[0.005em]"
+            style={{ color: "hsl(var(--foreground) / 0.9)" }}
           >
-            Meet the probiotic for your home.
+            You make every effort to stay healthy. You eat well and exercise often because you want to be at your best for yourself and for the people who depend on you.
           </p>
 
           <p
-            className="mb-10 max-w-[54ch] text-[1rem] font-light leading-[1.65] tracking-[0] sm:mb-12 sm:text-[1.125rem]"
-            style={{ color: "hsl(var(--foreground) / 0.72)" }}
+            className="mb-7 font-serif italic font-semibold leading-[1.2] tracking-[-0.015em] text-[2rem] sm:text-[2.55rem] md:text-[3rem]"
+            style={{ color: "hsl(var(--primary))" }}
           >
-            You track your food, train your body, and protect your sleep, yet spend 95% of your time in spaces you've never once treated. Your indoor environment is a living ecosystem. And like your gut, it can be rebalanced.
+            Now, you can add a new <br />
+            layer of wellness <br />
+            with zero extra effort.
           </p>
 
-          <div className="flex flex-col items-start gap-8 sm:gap-9">
-            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
-              <a
-                href="/how-it-works"
-                onClick={() => trackEvent("click_discover_how_it_works")}
-                className="w-full sm:w-auto"
-              >
-                <Button
-                  size="impact-md"
-                  className="group h-[58px] w-full rounded-full bg-foreground px-8 text-[12px] font-semibold uppercase tracking-[0.22em] text-background shadow-[0_18px_50px_-18px_hsl(var(--foreground)/0.45)] hover:bg-foreground/90 sm:h-[62px] sm:w-auto sm:px-11 sm:text-[13px]"
-                >
-                  Discover How It Works
-                  <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </a>
+          <p
+            className="mb-6 text-[1.05rem] sm:text-[1.2rem] md:text-[1.3rem] leading-[1.7] font-normal tracking-[0.005em]"
+            style={{ color: "hsl(var(--foreground) / 0.85)" }}
+          >
+            EnviroBiotics is a smart device that automatically disperses micro-droplets of environmental probiotics into your home or office. It effortlessly restores balance to your indoor spaces, improving your environment's health and protecting everyone under your roof: children, partners, and pets.
+          </p>
 
-              <a
-                href="#find-my-solution"
-                onClick={() => trackEvent("click_find_your_system")}
-                className="w-full sm:w-auto"
-              >
-                <Button
-                  variant="outline"
-                  size="impact-md"
-                  className="h-[58px] w-full rounded-full border-foreground/25 bg-transparent px-8 text-[12px] font-medium uppercase tracking-[0.22em] text-foreground hover:bg-foreground/5 sm:h-[62px] sm:w-auto sm:px-11 sm:text-[13px]"
-                >
-                  Find Your System
-                </Button>
-              </a>
-            </div>
-
-            <ul
-              className="flex flex-nowrap items-center gap-x-3 sm:gap-x-5 text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] sm:tracking-[0.24em] whitespace-nowrap"
-              style={{ color: "hsl(var(--foreground) / 0.75)" }}
-            >
-              <li>Safe for kids &amp; pets</li>
-              <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
-              <li>EPA Registered</li>
-              <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
-              <li>FDA GRAS</li>
-              <li aria-hidden="true" className="h-3 w-px bg-foreground/20" />
-              <li className="flex items-center gap-1.5">
-                <span style={{ color: "hsl(var(--primary))" }}>4.8★</span>
-                <span className="font-light opacity-80 normal-case tracking-normal">Verified reviews</span>
-              </li>
-            </ul>
-          </div>
+          <p
+            className="text-[1.2rem] sm:text-[1.4rem] md:text-[1.55rem] leading-[1.45] font-medium tracking-[-0.005em]"
+            style={{ color: "hsl(var(--foreground))" }}
+          >
+            Choosing EnviroBiotics is choosing health.
+          </p>
         </div>
       </div>
 
-
+      {/* Smooth transition into the next section */}
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-[4] h-16 bg-gradient-to-t from-background/90 to-transparent" />
     </section>
   );
