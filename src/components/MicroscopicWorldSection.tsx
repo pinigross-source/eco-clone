@@ -122,7 +122,7 @@ export const MicroscopicWorldSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-row flex-nowrap items-center gap-3 pt-4 sm:gap-4">
+            <div className="flex flex-col sm:flex-row sm:flex-nowrap items-stretch sm:items-center gap-3 pt-4 sm:gap-4">
               <a
                 href="#find-your-system"
                 className="inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-full px-8 py-4 text-[0.7rem] font-bold uppercase tracking-[0.2em] transition-all duration-500"
