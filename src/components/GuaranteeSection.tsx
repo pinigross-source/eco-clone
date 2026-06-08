@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, RotateCcw, ShieldCheck, Truck } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
+import thirtyDaysMobile from "@/assets/30days-mobile.avif.asset.json";
 import calmHomeImage from "@/assets/guarantee-calm-home.avif";
 
 const promises = [
