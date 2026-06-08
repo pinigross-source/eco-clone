@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Link } from "@/lib/link";
-import { Menu, X, ArrowRight, User, Sparkles, ChevronDown, Home, Fan, Beaker, Layers, ShieldCheck, Leaf, Building2, Baby, ShoppingCart, CreditCard } from "lucide-react";
+import { Menu, X, ArrowRight, User, Sparkles, ChevronDown, Home, Fan, Beaker, Layers, ShieldCheck, Leaf, Building2, Baby, ShoppingCart, CreditCard, Video, BookOpen, FlaskConical, LifeBuoy, HelpCircle, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/tracking";
