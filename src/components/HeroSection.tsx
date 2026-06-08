@@ -130,15 +130,8 @@ export const HeroSection = () => {
             You make every effort to stay healthy — eating well, moving often, showing up for the people who depend on you.
           </p>
 
-          <div className="hidden items-center gap-3 sm:flex">
-            <span
-              className="inline-block h-px w-10"
-              style={{ background: "hsl(var(--foreground) / 0.3)" }}
-            />
-            <span className="text-[0.78rem] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-              Keep scrolling
-            </span>
-          </div>
+
+
 
           <img
             src={heroMobile}
