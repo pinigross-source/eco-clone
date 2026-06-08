@@ -107,7 +107,7 @@ export const HeroSection = () => {
         ref={contentRef}
         className="relative z-10 w-full max-w-[1440px] px-5 pt-10 pb-12 sm:px-8 sm:pt-14 sm:pb-16 lg:px-16 lg:pt-20 lg:pb-20 will-change-transform"
       >
-        <div className="max-w-2xl text-center sm:text-left lg:max-w-[640px]">
+        <div className="max-w-2xl text-center sm:ml-10 sm:text-left md:ml-16 lg:ml-28 lg:max-w-[640px]">
 
           <h1 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-8 sm:mb-9 text-center whitespace-nowrap">
             <span className="text-[2rem] xs:text-[2.4rem] sm:text-[3.3rem] md:text-[4rem]">
