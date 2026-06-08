@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
-import { createPortal } from "react-dom";
 import { Link } from "@/lib/link";
 import { Menu, X, ArrowRight, User, Sparkles, ChevronDown, Home, Fan, Beaker, Layers, ShieldCheck, Leaf, Building2, Baby, ShoppingCart, CreditCard, Video, BookOpen, FlaskConical, LifeBuoy, HelpCircle, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -66,36 +65,16 @@ const storeDropdown: NavItem = {
 // Desktop dropdown component
 const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: boolean; useLight: boolean }) => {
   const [open, setOpen] = useState(false);
-  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-  const triggerRef = useRef<HTMLDivElement>(null);
-
-  const updateDropdownPosition = useCallback(() => {
-    const rect = triggerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    setDropdownPosition({ top: rect.bottom + 8, left: rect.left });
-  }, []);
 
   const handleEnter = useCallback(() => {
     clearTimeout(timeoutRef.current);
-    updateDropdownPosition();
     setOpen(true);
-  }, [updateDropdownPosition]);
+  }, []);
 
   const handleLeave = useCallback(() => {
     timeoutRef.current = setTimeout(() => setOpen(false), 150);
   }, []);
-
-  useEffect(() => {
-    if (!open) return;
-    updateDropdownPosition();
-    window.addEventListener("scroll", updateDropdownPosition, true);
-    window.addEventListener("resize", updateDropdownPosition);
-    return () => {
-      window.removeEventListener("scroll", updateDropdownPosition, true);
-      window.removeEventListener("resize", updateDropdownPosition);
-    };
-  }, [open, updateDropdownPosition]);
 
   if (!item.dropdown) {
     const className = cn(
@@ -135,16 +114,26 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
           : (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
   );
 
-  const dropdown = (
-    <div
-      className={cn(
-        "fixed pt-0 z-[9999] transition-all duration-200",
-        open ? "opacity-100 translate-y-0 visible pointer-events-auto" : "opacity-0 -translate-y-1 invisible pointer-events-none"
+  return (
+    <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+      {isExternal ? (
+        <a href={item.href} target="_top" rel="noopener" className={triggerClassName}>
+          {item.label}
+          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", open && "rotate-180")} />
+        </a>
+      ) : (
+        <Link to={item.href} className={triggerClassName}>
+          {item.label}
+          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", open && "rotate-180")} />
+        </Link>
       )}
-      style={{ top: dropdownPosition.top, left: dropdownPosition.left }}
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-    >
+
+      <div
+        className={cn(
+          "absolute top-full left-0 pt-2 z-[10000] transition-all duration-200",
+          open ? "opacity-100 translate-y-0 visible pointer-events-auto" : "opacity-0 -translate-y-1 invisible pointer-events-none"
+        )}
+      >
       <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[260px]">
         {item.dropdown.map(({ label, href, icon: Icon, desc }) => {
           const itemExternal = /^https?:\/\//.test(href);
@@ -194,23 +183,6 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
           )}
         </div>
       </div>
-    </div>
-  );
-
-  return (
-    <div ref={triggerRef} className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
-      {isExternal ? (
-        <a href={item.href} target="_top" rel="noopener" className={triggerClassName}>
-          {item.label}
-          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", open && "rotate-180")} />
-        </a>
-      ) : (
-        <Link to={item.href} className={triggerClassName}>
-          {item.label}
-          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", open && "rotate-180")} />
-        </Link>
-      )}
-      {typeof document !== "undefined" && createPortal(dropdown, document.body)}
     </div>
   );
 };
@@ -270,7 +242,7 @@ export const Navbar = () => {
     <>
       <header
         className={cn(
-          "fixed top-0 z-[90] w-full transition-all duration-500",
+          "fixed top-0 z-[9999] w-full transition-all duration-500",
           scrolled
             ? "bg-background/95 backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-foreground/5"
             : "bg-background backdrop-blur-xl border-b border-border/50"
