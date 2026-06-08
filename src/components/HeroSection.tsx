@@ -121,8 +121,8 @@ export const HeroSection = () => {
             className="mb-7 font-serif italic font-semibold leading-[1.2] tracking-[-0.015em] text-[2rem] sm:text-[2.55rem] md:text-[3rem]"
             style={{ color: "hsl(var(--primary))" }}
           >
-            Now, you can add a new <br />
-            layer of wellness <br />
+            Now, you can add a new <br className="hidden sm:inline" />
+            layer of wellness <br className="hidden sm:inline" />
             with zero extra effort.
           </p>
 
