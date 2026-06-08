@@ -136,31 +136,31 @@ export const HeroSection = () => {
           />
 
           {/* Below-the-fold continuation */}
-          <div className="mt-16 mb-7 space-y-2 sm:mt-24 lg:mt-32">
-            <h2 className="font-display font-bold leading-[1.05] tracking-[-0.025em] text-[2rem] text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+          <div className="mt-10 mb-5 space-y-2 sm:mt-14 lg:mt-20">
+            <h2 className="font-display font-bold leading-[1.05] tracking-[-0.025em] text-[2.2rem] text-foreground sm:text-[2.75rem] lg:text-[3.25rem]">
               Now, you can add a new layer of wellness.
             </h2>
-            <p className="font-serif text-[1.35rem] italic leading-[1.2] text-foreground sm:text-[1.65rem]">
+            <p className="font-serif text-[1.45rem] italic leading-[1.2] text-foreground sm:text-[1.8rem]">
               With zero extra effort.
             </p>
           </div>
 
           <p
-            className="mb-6 text-[1rem] leading-[1.7] sm:text-[1.0625rem]"
+            className="mb-5 text-[1.05rem] leading-[1.7] sm:text-[1.125rem] lg:text-[1.2rem]"
             style={{ color: "hsl(var(--foreground) / 0.78)" }}
           >
             EnviroBiotics is a smart device that automatically disperses micro-droplets of environmental probiotics into your home or office. It effortlessly restores balance to your indoor spaces, improving your environment's health and protecting everyone under your roof: children, partners, and pets.
           </p>
 
           <div
-            className="mt-2 pt-6"
+            className="mt-2 pt-4"
             style={{ borderTop: "1px solid hsl(var(--foreground) / 0.1)" }}
           >
-            <h3 className="font-display text-[1.25rem] font-bold leading-tight text-foreground">
+            <h3 className="font-display text-[1.35rem] font-bold leading-tight text-foreground sm:text-[1.5rem]">
               Choosing EnviroBiotics is choosing health.
             </h3>
             <p
-              className="mt-1 text-[0.95rem] leading-[1.6]"
+              className="mt-1 text-[1rem] leading-[1.6] sm:text-[1.05rem]"
               style={{ color: "hsl(var(--muted-foreground))" }}
             >
               A simple choice, with daily benefits for everyone under your roof.
