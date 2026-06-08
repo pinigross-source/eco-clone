@@ -200,15 +200,16 @@ export const SizedToYourSpaceSection = () => {
         </ScrollReveal>
 
         <ScrollReveal variant="fadeUp">
-          <article className="rounded-2xl overflow-hidden border border-foreground/10 grid lg:grid-cols-2">
+          <article className="rounded-2xl overflow-hidden border border-foreground/10 grid lg:grid-cols-[6fr_5fr] items-stretch">
             {/* Lifestyle image side */}
-            <div className="relative bg-muted min-h-[320px] lg:min-h-[480px]">
+            <div className="relative bg-muted min-h-[280px] sm:min-h-[360px] lg:min-h-[560px]">
               <img
                 src={ebioticLifestyle}
                 alt="E-Biotic Home integrated with HVAC system"
                 loading="lazy"
                 decoding="async"
                 className="absolute inset-0 w-full h-full object-cover"
+                style={{ objectPosition: "center 65%" }}
               />
               <div className="absolute top-5 left-5">
                 <span className="inline-block text-[10px] font-semibold tracking-[0.2em] uppercase text-foreground bg-background/85 backdrop-blur px-3 py-1.5 rounded-full border border-foreground/10">
@@ -218,7 +219,8 @@ export const SizedToYourSpaceSection = () => {
             </div>
 
             {/* Content side */}
-            <div className="bg-background text-foreground p-10 sm:p-12 lg:p-14 flex flex-col justify-center">
+            <div className="bg-background text-foreground p-6 sm:p-10 lg:p-12 xl:p-14 flex flex-col justify-center">
+
               <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/70 mb-5">
                 Every room, from one device
               </p>
