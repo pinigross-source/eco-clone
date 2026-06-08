@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Link } from "@/lib/link";
-import { Menu, X, ArrowRight, User, Sparkles, ChevronDown, Home, Fan, Beaker, Layers, ShieldCheck, Leaf, Building2, Baby, ShoppingCart, CreditCard } from "lucide-react";
+import { Menu, X, ArrowRight, User, Sparkles, ChevronDown, Home, Fan, Beaker, Layers, ShieldCheck, Leaf, Building2, Baby, ShoppingCart, CreditCard, Video, BookOpen, FlaskConical, LifeBuoy, HelpCircle, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/tracking";
@@ -40,7 +40,18 @@ const navLinks: NavItem[] = [
       { label: "For Hotels, Offices, Gyms & Clinics", href: "/business", icon: Building2, desc: "Whole-building probiotic solutions" },
     ],
   },
-  { label: "Resources", href: "/resources" },
+  {
+    label: "Resources",
+    href: "/education",
+    dropdown: [
+      { label: "Blog", href: "/blog", icon: BookOpen, desc: "Articles & guides" },
+      { label: "Videos", href: "/videos", icon: Video, desc: "Watch our library" },
+      { label: "Research & Case Studies", href: "/research", icon: FlaskConical, desc: "Studies & results" },
+      { label: "Case Studies", href: "/case-studies", icon: FileText, desc: "Real-world outcomes" },
+      { label: "FAQ", href: "/faq", icon: HelpCircle, desc: "Frequently asked questions" },
+      { label: "Help Center", href: "/support", icon: LifeBuoy, desc: "Get support" },
+    ],
+  },
   {
     label: "Shop",
     href: "https://shop.envirobiotics.com/",
