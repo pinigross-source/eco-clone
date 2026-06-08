@@ -40,7 +40,18 @@ const navLinks: NavItem[] = [
       { label: "For Hotels, Offices, Gyms & Clinics", href: "/business", icon: Building2, desc: "Whole-building probiotic solutions" },
     ],
   },
-  { label: "Resources", href: "/resources" },
+  {
+    label: "Resources",
+    href: "/education",
+    dropdown: [
+      { label: "Blog", href: "/blog", icon: BookOpen, desc: "Articles & guides" },
+      { label: "Videos", href: "/videos", icon: Video, desc: "Watch our library" },
+      { label: "Research & Case Studies", href: "/research", icon: FlaskConical, desc: "Studies & results" },
+      { label: "Case Studies", href: "/case-studies", icon: FileText, desc: "Real-world outcomes" },
+      { label: "FAQ", href: "/faq", icon: HelpCircle, desc: "Frequently asked questions" },
+      { label: "Help Center", href: "/support", icon: LifeBuoy, desc: "Get support" },
+    ],
+  },
   {
     label: "Shop",
     href: "https://shop.envirobiotics.com/",
