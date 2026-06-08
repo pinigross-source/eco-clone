@@ -53,7 +53,7 @@ export const TrustedPlacesSection = () => {
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-24" />
 
           <motion.div
-            className="flex items-center gap-12 sm:gap-16"
+            className="flex items-center gap-16 sm:gap-16"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
             style={{ width: "fit-content" }}
@@ -61,12 +61,12 @@ export const TrustedPlacesSection = () => {
             {track.map((logo, i) => (
               <div
                 key={`${logo.alt}-${i}`}
-                className="flex h-20 flex-shrink-0 items-center justify-center sm:h-24"
+                className="flex h-28 flex-shrink-0 items-center justify-center sm:h-24"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-12 w-auto object-contain sm:h-16"
+                  className="h-20 w-auto object-contain sm:h-16"
                   loading="lazy"
                   decoding="async"
                 />
