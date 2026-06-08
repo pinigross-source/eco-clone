@@ -129,8 +129,8 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
       <div
         className={cn(
-          "absolute top-full left-0 pt-2 z-[60] transition-all duration-200",
-          open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"
+          "absolute top-full left-0 pt-2 z-[100] transition-all duration-200",
+          open ? "opacity-100 translate-y-0 visible pointer-events-auto" : "opacity-0 -translate-y-1 invisible pointer-events-none"
         )}
       >
         <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[260px]">
