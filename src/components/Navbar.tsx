@@ -184,6 +184,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
         </div>
       </div>
     </div>
+    </div>
   );
 };
 
