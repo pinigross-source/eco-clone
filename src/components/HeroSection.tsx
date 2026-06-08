@@ -42,13 +42,13 @@ export const HeroSection = () => {
 
   return (
     <section className="relative flex min-h-[100dvh] w-full flex-col justify-start overflow-hidden bg-background">
-      {/* Wide hero background */}
+      {/* Wide hero background - hidden on mobile */}
       <img
         ref={imgRef}
         src={heroBg}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 z-[1] h-[112%] w-full object-cover will-change-transform"
+        className="absolute inset-0 z-[1] hidden h-[112%] w-full object-cover will-change-transform sm:block"
         style={{ transform: "translate3d(0,0,0) scale(1.0)", objectPosition: "42% center" }}
         loading="eager"
         fetchPriority="high"
@@ -86,10 +86,11 @@ export const HeroSection = () => {
         className="relative z-10 w-full max-w-[1440px] px-5 pt-10 pb-12 sm:px-8 sm:pt-12 sm:pb-14 lg:px-12 lg:pt-14 lg:pb-16 will-change-transform"
       >
         <div className="max-w-2xl text-left lg:max-w-[980px] lg:pl-40">
-          <h1 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-8 sm:mb-9 whitespace-nowrap">
+          <h1 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-8 sm:mb-9">
             <span className="text-[2.6rem] sm:text-[3.3rem] md:text-[4rem]">
               Your Health.
-            </span>{" "}
+            </span>
+            <br className="sm:hidden" />
             <span className="text-[2.25rem] sm:text-[2.85rem] md:text-[3.55rem] text-heading-accent italic font-normal">
               Your Choice.
             </span>
