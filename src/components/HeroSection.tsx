@@ -105,35 +105,50 @@ export const HeroSection = () => {
       {/* Content */}
       <div
         ref={contentRef}
-        className="relative z-10 w-full max-w-[1440px] px-5 pt-10 pb-12 sm:px-8 sm:pt-14 sm:pb-16 lg:px-16 lg:pt-20 lg:pb-20 will-change-transform"
+        className="relative z-10 w-full max-w-[1440px] px-5 pt-10 pb-12 sm:px-8 sm:pt-20 sm:pb-16 lg:px-16 lg:pt-28 lg:pb-20 will-change-transform"
       >
-        <div className="max-w-2xl text-center sm:ml-10 sm:text-left md:ml-16 lg:ml-28 lg:max-w-[640px]">
+        <div className="max-w-2xl text-center sm:ml-6 sm:max-w-[520px] sm:text-left md:ml-12 md:max-w-[560px] lg:ml-20 lg:max-w-[620px]">
 
-          <h1 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-8 sm:mb-9 text-center whitespace-nowrap">
-            <span className="text-[2rem] xs:text-[2.4rem] sm:text-[3.3rem] md:text-[4rem]">
+          {/* Above-the-fold wow moment */}
+          <span className="mb-5 hidden text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-heading-accent sm:inline-block">
+            Environmental Probiotics
+          </span>
+
+          <h1 className="font-display font-bold leading-[0.95] tracking-[-0.035em] text-foreground mb-6 sm:mb-7">
+            <span className="block text-[2.4rem] xs:text-[2.8rem] sm:text-[3.6rem] md:text-[4.4rem] lg:text-[5.25rem]">
               Your Health.
-            </span>{" "}
-            <span className="text-[1.75rem] xs:text-[2.1rem] sm:text-[2.85rem] md:text-[3.55rem] text-heading-accent italic font-normal">
+            </span>
+            <span className="block text-[2rem] xs:text-[2.4rem] sm:text-[3.1rem] md:text-[3.8rem] lg:text-[4.5rem] text-heading-accent italic font-normal leading-[1]">
               Your Choice.
             </span>
           </h1>
 
-
           <p
-            className="mb-7 text-[1rem] leading-[1.7] sm:text-[1.0625rem]"
+            className="mb-8 text-[1.05rem] leading-[1.65] sm:text-[1.15rem] sm:max-w-[480px] lg:text-[1.2rem]"
             style={{ color: "hsl(var(--foreground) / 0.78)" }}
           >
-            You make every effort to stay healthy. You eat well and exercise often because you want to be at your best for yourself and for the people who depend on you.
+            You make every effort to stay healthy — eating well, moving often, showing up for the people who depend on you.
           </p>
+
+          <div className="hidden items-center gap-3 sm:flex">
+            <span
+              className="inline-block h-px w-10"
+              style={{ background: "hsl(var(--foreground) / 0.3)" }}
+            />
+            <span className="text-[0.78rem] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              Keep scrolling
+            </span>
+          </div>
 
           <img
             src={heroMobile}
             alt="Healthy lifestyle"
-            className="mb-7 block w-full rounded-2xl object-cover sm:hidden"
+            className="mt-7 mb-7 block w-full rounded-2xl object-cover sm:hidden"
             loading="lazy"
           />
 
-          <div className="mb-7 space-y-2">
+          {/* Below-the-fold continuation */}
+          <div className="mt-16 mb-7 space-y-2 sm:mt-24 lg:mt-32">
             <h2 className="font-display font-bold leading-[1.05] tracking-[-0.025em] text-[2rem] text-foreground sm:text-[2.5rem] lg:text-[3rem]">
               Now, you can add a new layer of wellness.
             </h2>
@@ -165,6 +180,7 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
+
 
       {/* Smooth transition into the next section */}
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-[4] h-16 bg-gradient-to-t from-background/90 to-transparent" />
