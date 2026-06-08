@@ -149,7 +149,7 @@ export const MicroscopicWorldSection = () => {
                   e.currentTarget.style.borderColor = "hsl(var(--foreground) / 0.15)";
                 }}
               >
-                Watch How It Works
+                Watch Our Technology
               </button>
             </div>
           </div>
