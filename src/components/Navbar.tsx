@@ -151,14 +151,27 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
             </Link>
           ))}
           <div className="border-t border-border mt-1 pt-1">
-            <Link
-              to={item.href}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
-              onClick={() => setOpen(false)}
-            >
-              View All {item.label}
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            {isExternal ? (
+              <a
+                href={item.href}
+                target="_top"
+                rel="noopener"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
+                onClick={() => setOpen(false)}
+              >
+                View All {item.label}
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            ) : (
+              <Link
+                to={item.href}
+                className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
+                onClick={() => setOpen(false)}
+              >
+                View All {item.label}
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            )}
           </div>
         </div>
       </div>
