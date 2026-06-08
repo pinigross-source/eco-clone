@@ -35,8 +35,8 @@ const navLinks: NavItem[] = [
     label: "Products",
     href: "https://shop.envirobiotics.com/",
     dropdown: [
-      { label: "BioLogic Mini", href: "/product/biologic-mini", icon: Home, desc: "Portable room protection" },
-      { label: "Biotica 800", href: "/product/biotica-800", icon: Layers, desc: "Medium-coverage device" },
+      { label: "BioLogic Mini", href: "https://shop.envirobiotics.com/products/biologic-mini", icon: Home, desc: "Portable room protection" },
+      { label: "Biotica 800", href: "https://shop.envirobiotics.com/products/biotica-800", icon: Layers, desc: "Medium-coverage device" },
       { label: "E Biotic - Home", href: "/hvac#ebiotic-pro", icon: Fan, desc: "Whole-home via HVAC" },
       { label: "Subscribe & Save", href: "/subscribe", icon: CreditCard, desc: "Recurring refills, save more" },
       { label: "Refills", href: "/product/refills", icon: Beaker, desc: "Probiotic refill cartridges" },
@@ -134,22 +134,30 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
         )}
       >
         <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[260px]">
-          {item.dropdown.map(({ label, href, icon: Icon, desc }) => (
-            <Link
-              key={label}
-              to={href}
-              className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-muted/60 transition-colors group"
-              onClick={() => setOpen(false)}
-            >
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
-                <Icon className="w-4 h-4 text-primary" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-foreground">{label}</p>
-                <p className="text-xs text-muted-foreground">{desc}</p>
-              </div>
-            </Link>
-          ))}
+          {item.dropdown.map(({ label, href, icon: Icon, desc }) => {
+            const itemExternal = /^https?:\/\//.test(href);
+            const itemClass = "flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-muted/60 transition-colors group";
+            const inner = (
+              <>
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
+                  <Icon className="w-4 h-4 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">{label}</p>
+                  <p className="text-xs text-muted-foreground">{desc}</p>
+                </div>
+              </>
+            );
+            return itemExternal ? (
+              <a key={label} href={href} target="_top" rel="noopener" className={itemClass} onClick={() => setOpen(false)}>
+                {inner}
+              </a>
+            ) : (
+              <Link key={label} to={href} className={itemClass} onClick={() => setOpen(false)}>
+                {inner}
+              </Link>
+            );
+          })}
           <div className="border-t border-border mt-1 pt-1">
             {isExternal ? (
               <a
@@ -354,22 +362,26 @@ export const Navbar = () => {
                     expandedMobile === link.label ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                   )}>
                     <div className="pl-4 pr-2 pb-1 space-y-0.5">
-                      {link.dropdown.map(({ label, href, icon: Icon, desc }) => (
-                        <Link
-                          key={label}
-                          to={href}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-muted/50 transition-colors"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                            <Icon className="w-3.5 h-3.5 text-primary" />
-                          </div>
-                          <div>
-                            <p className="text-sm font-medium text-foreground">{label}</p>
-                            <p className="text-[11px] text-muted-foreground">{desc}</p>
-                          </div>
-                        </Link>
-                      ))}
+                      {link.dropdown.map(({ label, href, icon: Icon, desc }) => {
+                        const mExt = /^https?:\/\//.test(href);
+                        const mClass = "flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-muted/50 transition-colors";
+                        const mInner = (
+                          <>
+                            <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                              <Icon className="w-3.5 h-3.5 text-primary" />
+                            </div>
+                            <div>
+                              <p className="text-sm font-medium text-foreground">{label}</p>
+                              <p className="text-[11px] text-muted-foreground">{desc}</p>
+                            </div>
+                          </>
+                        );
+                        return mExt ? (
+                          <a key={label} href={href} target="_top" rel="noopener" className={mClass} onClick={() => setIsOpen(false)}>{mInner}</a>
+                        ) : (
+                          <Link key={label} to={href} className={mClass} onClick={() => setIsOpen(false)}>{mInner}</Link>
+                        );
+                      })}
                       <Link
                         to={link.href}
                         className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-primary"
