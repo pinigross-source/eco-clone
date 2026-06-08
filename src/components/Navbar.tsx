@@ -100,29 +100,36 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
     );
   }
 
+  const isExternal = /^https?:\/\//.test(item.href);
+  const triggerClassName = cn(
+    "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+    item.bold ? "font-bold" : "font-medium",
+    item.bold
+      ? "text-[#ff8036] hover:text-[#ffA060]"
+      : scrolled
+        ? (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
+        : useLight
+          ? (open ? "text-white bg-white/10" : "text-white hover:text-white hover:bg-white/10")
+          : (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
+  );
+
   return (
     <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
-      <Link
-        to={item.href}
-        className={cn(
-          "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
-          item.bold ? "font-bold" : "font-medium",
-          item.bold
-            ? "text-[#ff8036] hover:text-[#ffA060]"
-            : scrolled
-              ? (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
-              : useLight
-                ? (open ? "text-white bg-white/10" : "text-white hover:text-white hover:bg-white/10")
-                : (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
-        )}
-      >
-        {item.label}
-        <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", open && "rotate-180")} />
-      </Link>
+      {isExternal ? (
+        <a href={item.href} target="_top" rel="noopener" className={triggerClassName}>
+          {item.label}
+          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", open && "rotate-180")} />
+        </a>
+      ) : (
+        <Link to={item.href} className={triggerClassName}>
+          {item.label}
+          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", open && "rotate-180")} />
+        </Link>
+      )}
 
       <div
         className={cn(
-          "absolute top-full left-0 pt-2 transition-all duration-200",
+          "absolute top-full left-0 pt-2 z-[60] transition-all duration-200",
           open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"
         )}
       >
@@ -144,14 +151,27 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
             </Link>
           ))}
           <div className="border-t border-border mt-1 pt-1">
-            <Link
-              to={item.href}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
-              onClick={() => setOpen(false)}
-            >
-              View All {item.label}
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            {isExternal ? (
+              <a
+                href={item.href}
+                target="_top"
+                rel="noopener"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
+                onClick={() => setOpen(false)}
+              >
+                View All {item.label}
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            ) : (
+              <Link
+                to={item.href}
+                className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
+                onClick={() => setOpen(false)}
+              >
+                View All {item.label}
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            )}
           </div>
         </div>
       </div>
