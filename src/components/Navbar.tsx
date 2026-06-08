@@ -115,22 +115,22 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
   );
 
   return (
-    <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+    <div className="relative group/dropdown" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
       {isExternal ? (
         <a href={item.href} target="_top" rel="noopener" className={triggerClassName}>
           {item.label}
-          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", open && "rotate-180")} />
+          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200 group-hover/dropdown:rotate-180 group-focus-within/dropdown:rotate-180", open && "rotate-180")} />
         </a>
       ) : (
         <Link to={item.href} className={triggerClassName}>
           {item.label}
-          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", open && "rotate-180")} />
+          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200 group-hover/dropdown:rotate-180 group-focus-within/dropdown:rotate-180", open && "rotate-180")} />
         </Link>
       )}
 
       <div
         className={cn(
-          "absolute top-full left-0 pt-2 z-[10000] transition-all duration-200",
+          "absolute top-full left-0 pt-2 z-[10000] transition-all duration-200 group-hover/dropdown:opacity-100 group-hover/dropdown:translate-y-0 group-hover/dropdown:visible group-hover/dropdown:pointer-events-auto group-focus-within/dropdown:opacity-100 group-focus-within/dropdown:translate-y-0 group-focus-within/dropdown:visible group-focus-within/dropdown:pointer-events-auto",
           open ? "opacity-100 translate-y-0 visible pointer-events-auto" : "opacity-0 -translate-y-1 invisible pointer-events-none"
         )}
       >
