@@ -32,12 +32,14 @@ const navLinks: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "How It Works", href: "/how-it-works" },
   {
-    label: "Solutions",
-    href: "/solutions",
+    label: "Products",
+    href: "https://shop.envirobiotics.com/",
     dropdown: [
-      { label: "Room Solutions", href: "/solutions/room", icon: Home, desc: "Single-room protection" },
-      { label: "HVAC / Whole Home", href: "/hvac", icon: Building2, desc: "Central air integration" },
-      { label: "For Hotels, Offices, Gyms & Clinics", href: "/business", icon: Building2, desc: "Whole-building probiotic solutions" },
+      { label: "BioLogic Mini", href: "/product/biologic-mini", icon: Home, desc: "Portable room protection" },
+      { label: "Biotica 800", href: "/product/biotica-800", icon: Layers, desc: "Medium-coverage device" },
+      { label: "E Biotic - Home", href: "/hvac#ebiotic-pro", icon: Fan, desc: "Whole-home via HVAC" },
+      { label: "Subscribe & Save", href: "/subscribe", icon: CreditCard, desc: "Recurring refills, save more" },
+      { label: "Refills", href: "/product/refills", icon: Beaker, desc: "Probiotic refill cartridges" },
     ],
   },
   {
