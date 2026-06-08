@@ -100,6 +100,18 @@ export const GuaranteeSection = () => {
                 U.S. customers only · Free returns
               </p>
             </ScrollReveal>
+
+            {/* Mobile-only image below the CTA */}
+            <ScrollReveal variant="fadeUp" delay={0.2} className="lg:hidden">
+              <div className="mt-8 overflow-hidden rounded-[1.5rem] shadow-xl ring-1 ring-foreground/5">
+                <img
+                  src={thirtyDaysMobile.url}
+                  alt="30-day risk-free trial"
+                  className="block w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
+            </ScrollReveal>
           </div>
         </div>
 
