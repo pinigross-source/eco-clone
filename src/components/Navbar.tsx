@@ -243,7 +243,7 @@ export const Navbar = () => {
     <>
       <header
         className={cn(
-          "fixed top-0 z-50 w-full transition-all duration-500",
+          "fixed top-0 z-[90] w-full transition-all duration-500",
           scrolled
             ? "bg-background/95 backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-foreground/5"
             : "bg-background backdrop-blur-xl border-b border-border/50"
