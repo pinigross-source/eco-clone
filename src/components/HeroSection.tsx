@@ -48,18 +48,20 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative flex w-full flex-col justify-start overflow-hidden bg-background sm:min-h-[100dvh]">
-      {/* Wide hero background - hidden on mobile */}
-      <img
-        ref={imgRef}
-        src={heroBg}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 z-[1] hidden h-[112%] w-full object-cover will-change-transform sm:block"
-        style={{ transform: "translate3d(0,0,0) scale(1.0)", objectPosition: "75% center" }}
-        loading="eager"
-        fetchPriority="high"
-      />
+    <section className="relative flex w-full flex-col justify-start overflow-hidden bg-background">
+      {/* Wide hero background - hidden on mobile. Capped to viewport so it never stretches with content. */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] hidden h-[100dvh] overflow-hidden sm:block">
+        <img
+          ref={imgRef}
+          src={heroBg}
+          alt=""
+          aria-hidden="true"
+          className="h-[112%] w-full object-cover will-change-transform"
+          style={{ transform: "translate3d(0,0,0) scale(1.0)", objectPosition: "75% center" }}
+          loading="eager"
+          fetchPriority="high"
+        />
+      </div>
 
       {/* Readability overlays — gentle so the photo stays visible */}
       <div
@@ -70,17 +72,28 @@ export const HeroSection = () => {
         }}
       />
       <div
-        className="absolute inset-0 z-[2] hidden sm:block lg:hidden"
+        className="pointer-events-none absolute inset-x-0 top-0 z-[2] hidden h-[100dvh] sm:block lg:hidden"
         style={{
           background:
             "linear-gradient(95deg, hsl(var(--background) / 0.92) 0%, hsl(var(--background) / 0.78) 40%, hsl(var(--background) / 0.3) 65%, transparent 85%)",
         }}
       />
       <div
-        className="absolute inset-0 z-[2] hidden lg:block"
+        className="pointer-events-none absolute inset-x-0 top-0 z-[2] hidden h-[100dvh] lg:block"
         style={{
           background:
             "linear-gradient(95deg, hsl(var(--background) / 0.96) 0%, hsl(var(--background) / 0.9) 38%, hsl(var(--background) / 0.55) 55%, hsl(var(--background) / 0.1) 72%, transparent 85%)",
+        }}
+      />
+
+      {/* Soft fade from image into the page background below */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 z-[2] hidden h-40 sm:block"
+        style={{
+          top: "calc(100dvh - 10rem)",
+          background:
+            "linear-gradient(180deg, transparent 0%, hsl(var(--background) / 0.85) 70%, hsl(var(--background)) 100%)",
         }}
       />
 
@@ -93,15 +106,15 @@ export const HeroSection = () => {
         className="relative z-10 w-full max-w-[1440px] px-5 pt-10 pb-12 sm:px-8 sm:pt-14 sm:pb-16 lg:px-16 lg:pt-20 lg:pb-20 will-change-transform"
       >
         <div className="max-w-2xl text-center sm:text-left lg:max-w-[640px]">
-          <h1 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-8 sm:mb-9 text-center">
-            <span className="text-[2.6rem] sm:text-[3.3rem] md:text-[4rem]">
+          <h1 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-8 sm:mb-9 text-center whitespace-nowrap">
+            <span className="text-[2rem] xs:text-[2.4rem] sm:text-[3.3rem] md:text-[4rem]">
               Your Health.
-            </span>
-            <br className="sm:hidden" />
-            <span className="text-[2.25rem] sm:text-[2.85rem] md:text-[3.55rem] text-heading-accent italic font-normal">
+            </span>{" "}
+            <span className="text-[1.75rem] xs:text-[2.1rem] sm:text-[2.85rem] md:text-[3.55rem] text-heading-accent italic font-normal">
               Your Choice.
             </span>
           </h1>
+
 
           <p
             className="mb-7 text-[1rem] leading-[1.7] sm:text-[1.0625rem]"
