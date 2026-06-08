@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, RotateCcw, ShieldCheck, Truck } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
+import thirtyDaysMobile from "@/assets/30days-mobile.avif.asset.json";
 import calmHomeImage from "@/assets/guarantee-calm-home.avif";
 
 const promises = [
@@ -27,8 +28,8 @@ export const GuaranteeSection = () => {
       <div className="container max-w-6xl mx-auto px-5 sm:px-6">
         {/* Editorial split: image + headline */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-center mb-14 sm:mb-20 lg:mb-28">
-          {/* Image with floating badge (mobile-premium) */}
-          <ScrollReveal variant="fadeUp" delay={0.1}>
+          {/* Image with floating badge (hidden on mobile; mobile shows below text) */}
+          <ScrollReveal variant="fadeUp" delay={0.1} className="hidden lg:block">
             <div className="relative rounded-[1.75rem] sm:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-foreground/5 aspect-[4/5]">
               <img
                 src={calmHomeImage}
@@ -98,6 +99,18 @@ export const GuaranteeSection = () => {
               <p className="mt-5 sm:mt-6 text-[11px] sm:text-xs text-muted-foreground/70 tracking-wide text-center lg:text-left">
                 U.S. customers only · Free returns
               </p>
+            </ScrollReveal>
+
+            {/* Mobile-only image below the CTA */}
+            <ScrollReveal variant="fadeUp" delay={0.2} className="lg:hidden">
+              <div className="mt-8 overflow-hidden rounded-[1.5rem] shadow-xl ring-1 ring-foreground/5">
+                <img
+                  src={thirtyDaysMobile.url}
+                  alt="30-day risk-free trial"
+                  className="block w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
             </ScrollReveal>
           </div>
         </div>

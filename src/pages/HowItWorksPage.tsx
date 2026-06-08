@@ -33,6 +33,7 @@ import { SEOHead, howToJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead
 import heroBuilding from "@/assets/hiw-hero-building.jpg";
 import heroCutaway from "@/assets/hiw-hero-building-cutaway.jpg.asset.json";
 import heroSpacesWave from "@/assets/home-spaces-wave.jpg.asset.json";
+import techHeroMobile from "@/assets/tech-hero-mobile.avif.asset.json";
 import ecoSurfaces from "@/assets/hiw-eco-surfaces.jpg";
 import ecoObjects from "@/assets/hiw-eco-objects.jpg";
 import ecoFabrics from "@/assets/hiw-eco-fabrics.jpg";
@@ -178,8 +179,19 @@ const HowItWorksPage = () => {
             }}
           />
 
-          {/* Full-bleed lifestyle image above the hero text */}
-          <div className="mb-12 md:mb-16 w-full">
+          {/* Mobile hero image (above text), hides desktop background */}
+          <div className="mb-8 w-full md:hidden">
+            <img
+              src={techHeroMobile.url}
+              alt="EnviroBiotics technology"
+              className="block w-full h-auto"
+              loading="eager"
+              fetchPriority="high"
+            />
+          </div>
+
+          {/* Full-bleed lifestyle image above the hero text (desktop/tablet) */}
+          <div className="mb-12 md:mb-16 w-full hidden md:block">
             <img
               src={heroSpacesWave.url}
               alt="Living room, bedroom, classroom, office, and lobby spaces connected by a flowing biomic mist"
