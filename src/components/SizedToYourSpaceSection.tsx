@@ -136,7 +136,7 @@ export const SizedToYourSpaceSection = () => {
           {/* Biotica 800 */}
           <ScrollReveal variant="fadeUp">
             <article className="group rounded-2xl border border-foreground/10 bg-card overflow-hidden hover:border-foreground/20 transition-colors h-full flex flex-col">
-              <div className="relative bg-gradient-to-b from-muted/40 to-muted/10 aspect-[4/3] flex items-center justify-center p-10">
+              <div className="relative w-full bg-gradient-to-b from-muted/40 to-muted/10 aspect-[4/3] min-h-[260px] flex items-center justify-center p-10">
                 <img
                   src={biotica800}
                   alt="Biotica 800 probiotic air purifier for shared spaces"
