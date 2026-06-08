@@ -104,8 +104,8 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mb-7 text-[1.05rem] sm:text-[1.2rem] md:text-[1.3rem] leading-[1.7] font-normal tracking-[0.005em]"
-            style={{ color: "hsl(var(--foreground) / 0.9)" }}
+            className="mb-7 text-[1rem] leading-[1.7] sm:text-[1.0625rem]"
+            style={{ color: "hsl(var(--foreground) / 0.78)" }}
           >
             You make every effort to stay healthy. You eat well and exercise often because you want to be at your best for yourself and for the people who depend on you.
           </p>
@@ -117,28 +117,36 @@ export const HeroSection = () => {
             loading="lazy"
           />
 
-          <p
-            className="mb-7 font-serif italic font-semibold leading-[1.2] tracking-[-0.015em] text-[2rem] sm:text-[2.55rem] md:text-[3rem]"
-            style={{ color: "hsl(var(--primary))" }}
-          >
-            Now, you can add a new <br className="hidden sm:inline" />
-            layer of wellness <br className="hidden sm:inline" />
-            with zero extra effort.
-          </p>
+          <div className="mb-7 space-y-2">
+            <h2 className="font-display font-bold leading-[1.05] tracking-[-0.025em] text-[2rem] text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+              A new layer of wellness.
+            </h2>
+            <p className="font-serif text-[1.35rem] italic leading-[1.2] text-foreground sm:text-[1.65rem]">
+              With zero extra effort.
+            </p>
+          </div>
 
           <p
-            className="mb-6 text-[1.05rem] sm:text-[1.2rem] md:text-[1.3rem] leading-[1.7] font-normal tracking-[0.005em]"
-            style={{ color: "hsl(var(--foreground) / 0.85)" }}
+            className="mb-6 text-[1rem] leading-[1.7] sm:text-[1.0625rem]"
+            style={{ color: "hsl(var(--foreground) / 0.78)" }}
           >
             EnviroBiotics is a smart device that automatically disperses micro-droplets of environmental probiotics into your home or office. It effortlessly restores balance to your indoor spaces, improving your environment's health and protecting everyone under your roof: children, partners, and pets.
           </p>
 
-          <p
-            className="mt-2 text-[1.35rem] sm:text-[1.5rem] md:text-[1.7rem] leading-[1.35] font-bold tracking-[-0.01em] text-center sm:text-left"
-            style={{ color: "hsl(var(--primary))" }}
+          <div
+            className="mt-2 pt-6"
+            style={{ borderTop: "1px solid hsl(var(--foreground) / 0.1)" }}
           >
-            Choosing EnviroBiotics is choosing health.
-          </p>
+            <h3 className="font-display text-[1.25rem] font-bold leading-tight text-foreground">
+              Choosing EnviroBiotics is choosing health.
+            </h3>
+            <p
+              className="mt-1 text-[0.95rem] leading-[1.6]"
+              style={{ color: "hsl(var(--muted-foreground))" }}
+            >
+              A simple choice, with daily benefits for everyone under your roof.
+            </p>
+          </div>
         </div>
       </div>
 
