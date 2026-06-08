@@ -109,22 +109,17 @@ export const HeroSection = () => {
       >
         <div className="max-w-2xl text-center sm:ml-6 sm:max-w-[520px] sm:text-left md:ml-12 md:max-w-[560px] lg:ml-20 lg:max-w-[620px]">
 
-          {/* Above-the-fold wow moment */}
-          <span className="mb-5 hidden text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-heading-accent sm:inline-block">
-            Environmental Probiotics
-          </span>
-
-          <h1 className="font-display font-bold leading-[0.95] tracking-[-0.035em] text-foreground mb-6 sm:mb-7">
-            <span className="block text-[2.4rem] xs:text-[2.8rem] sm:text-[3.6rem] md:text-[4.4rem] lg:text-[5.25rem]">
+          <h1 className="font-display font-bold leading-[0.95] tracking-[-0.035em] text-foreground mb-4 sm:mb-5">
+            <span className="block text-[2.8rem] xs:text-[3.2rem] sm:text-[4rem] md:text-[4.8rem] lg:text-[5.75rem]">
               Your Health.
             </span>
-            <span className="block text-[2rem] xs:text-[2.4rem] sm:text-[3.1rem] md:text-[3.8rem] lg:text-[4.5rem] text-heading-accent italic font-normal leading-[1]">
+            <span className="block text-[2.4rem] xs:text-[2.8rem] sm:text-[3.5rem] md:text-[4.2rem] lg:text-[5rem] text-heading-accent italic font-normal leading-[1]">
               Your Choice.
             </span>
           </h1>
 
           <p
-            className="mb-8 text-[1.05rem] leading-[1.65] sm:text-[1.15rem] sm:max-w-[480px] lg:text-[1.2rem]"
+            className="mb-5 text-[1.15rem] leading-[1.6] sm:text-[1.25rem] sm:max-w-[480px] lg:text-[1.35rem]"
             style={{ color: "hsl(var(--foreground) / 0.78)" }}
           >
             You make every effort to stay healthy — eating well, moving often, showing up for the people who depend on you.
