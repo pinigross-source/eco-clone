@@ -305,14 +305,6 @@ export const Navbar = () => {
 
           {/* Desktop: Right side icons (search, account, cart) */}
           <div className="hidden lg:flex items-center gap-2 ml-auto">
-            <a
-              href="https://shop.envirobiotics.com/"
-              target="_top"
-              rel="noopener"
-              className="px-3 xl:px-4 py-2 text-[17px] xl:text-lg font-bold text-foreground hover:text-foreground/80 transition-colors rounded-lg"
-            >
-              Shop
-            </a>
             <Suspense fallback={null}><NavbarSearch /></Suspense>
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
               <div className={cn(
