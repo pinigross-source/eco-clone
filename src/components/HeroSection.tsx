@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
 import { ParticleField } from "@/components/hero/ParticleField";
 import heroBgAsset from "@/assets/hero-homepage-bg-v2.avif.asset.json";
+import heroMobileAsset from "@/assets/hero-mobile-health.avif.asset.json";
 
 const heroBg = heroBgAsset.url;
+const heroMobile = heroMobileAsset.url;
 
 export const HeroSection = () => {
   const imgRef = useRef<HTMLImageElement>(null);
@@ -99,6 +101,13 @@ export const HeroSection = () => {
           >
             You make every effort to stay healthy. You eat well and exercise often because you want to be at your best for yourself and for the people who depend on you.
           </p>
+
+          <img
+            src={heroMobile}
+            alt="Healthy lifestyle"
+            className="mb-7 block w-full rounded-2xl object-cover sm:hidden"
+            loading="lazy"
+          />
 
           <p
             className="mb-7 font-serif italic font-semibold leading-[1.2] tracking-[-0.015em] text-[2rem] sm:text-[2.55rem] md:text-[3rem]"
