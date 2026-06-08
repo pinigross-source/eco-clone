@@ -85,7 +85,7 @@ export const HeroSection = () => {
         ref={contentRef}
         className="relative z-10 w-full max-w-[1440px] px-5 pt-10 pb-12 sm:px-8 sm:pt-12 sm:pb-14 lg:px-12 lg:pt-14 lg:pb-16 will-change-transform"
       >
-        <div className="max-w-2xl text-left lg:max-w-[980px] lg:pl-40">
+        <div className="max-w-2xl text-center sm:text-left lg:max-w-[980px] lg:pl-40">
           <h1 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-8 sm:mb-9 text-center">
             <span className="text-[2.6rem] sm:text-[3.3rem] md:text-[4rem]">
               Your Health.
