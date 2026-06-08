@@ -109,22 +109,17 @@ export const HeroSection = () => {
       >
         <div className="max-w-2xl text-center sm:ml-6 sm:max-w-[520px] sm:text-left md:ml-12 md:max-w-[560px] lg:ml-20 lg:max-w-[620px]">
 
-          {/* Above-the-fold wow moment */}
-          <span className="mb-5 hidden text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-heading-accent sm:inline-block">
-            Environmental Probiotics
-          </span>
-
-          <h1 className="font-display font-bold leading-[0.95] tracking-[-0.035em] text-foreground mb-6 sm:mb-7">
-            <span className="block text-[2.4rem] xs:text-[2.8rem] sm:text-[3.6rem] md:text-[4.4rem] lg:text-[5.25rem]">
+          <h1 className="font-display font-bold leading-[0.95] tracking-[-0.035em] text-foreground mb-4 sm:mb-5">
+            <span className="block text-[2.8rem] xs:text-[3.2rem] sm:text-[4rem] md:text-[4.8rem] lg:text-[5.75rem]">
               Your Health.
             </span>
-            <span className="block text-[2rem] xs:text-[2.4rem] sm:text-[3.1rem] md:text-[3.8rem] lg:text-[4.5rem] text-heading-accent italic font-normal leading-[1]">
+            <span className="block text-[2.4rem] xs:text-[2.8rem] sm:text-[3.5rem] md:text-[4.2rem] lg:text-[5rem] text-heading-accent italic font-normal leading-[1]">
               Your Choice.
             </span>
           </h1>
 
           <p
-            className="mb-8 text-[1.05rem] leading-[1.65] sm:text-[1.15rem] sm:max-w-[480px] lg:text-[1.2rem]"
+            className="mb-5 text-[1.15rem] leading-[1.6] sm:text-[1.25rem] sm:max-w-[480px] lg:text-[1.35rem]"
             style={{ color: "hsl(var(--foreground) / 0.78)" }}
           >
             You make every effort to stay healthy — eating well, moving often, showing up for the people who depend on you.
@@ -141,31 +136,31 @@ export const HeroSection = () => {
           />
 
           {/* Below-the-fold continuation */}
-          <div className="mt-16 mb-7 space-y-2 sm:mt-24 lg:mt-32">
-            <h2 className="font-display font-bold leading-[1.05] tracking-[-0.025em] text-[2rem] text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+          <div className="mt-10 mb-5 space-y-2 sm:mt-14 lg:mt-20">
+            <h2 className="font-display font-bold leading-[1.05] tracking-[-0.025em] text-[2.2rem] text-foreground sm:text-[2.75rem] lg:text-[3.25rem]">
               Now, you can add a new layer of wellness.
             </h2>
-            <p className="font-serif text-[1.35rem] italic leading-[1.2] text-foreground sm:text-[1.65rem]">
+            <p className="font-serif text-[1.45rem] italic leading-[1.2] text-foreground sm:text-[1.8rem]">
               With zero extra effort.
             </p>
           </div>
 
           <p
-            className="mb-6 text-[1rem] leading-[1.7] sm:text-[1.0625rem]"
+            className="mb-5 text-[1.05rem] leading-[1.7] sm:text-[1.125rem] lg:text-[1.2rem]"
             style={{ color: "hsl(var(--foreground) / 0.78)" }}
           >
             EnviroBiotics is a smart device that automatically disperses micro-droplets of environmental probiotics into your home or office. It effortlessly restores balance to your indoor spaces, improving your environment's health and protecting everyone under your roof: children, partners, and pets.
           </p>
 
           <div
-            className="mt-2 pt-6"
+            className="mt-2 pt-4"
             style={{ borderTop: "1px solid hsl(var(--foreground) / 0.1)" }}
           >
-            <h3 className="font-display text-[1.25rem] font-bold leading-tight text-foreground">
+            <h3 className="font-display text-[1.35rem] font-bold leading-tight text-foreground sm:text-[1.5rem]">
               Choosing EnviroBiotics is choosing health.
             </h3>
             <p
-              className="mt-1 text-[0.95rem] leading-[1.6]"
+              className="mt-1 text-[1rem] leading-[1.6] sm:text-[1.05rem]"
               style={{ color: "hsl(var(--muted-foreground))" }}
             >
               A simple choice, with daily benefits for everyone under your roof.
