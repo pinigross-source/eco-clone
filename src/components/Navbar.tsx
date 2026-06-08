@@ -30,7 +30,6 @@ type NavItem = {
 
 const navLinks: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Shop", href: "https://shop.envirobiotics.com/", bold: true },
   { label: "Technology", href: "/how-it-works" },
   {
     label: "Products",
