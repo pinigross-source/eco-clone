@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { ParticleField } from "@/components/hero/ParticleField";
-import heroBgAsset from "@/assets/hero-homepage-bg-v2.avif.asset.json";
+import heroBgAsset from "@/assets/hero-desktop-family.avif.asset.json";
 import heroMobileAsset from "@/assets/hero-mobile-health.avif.asset.json";
 
 const heroBg = heroBgAsset.url;
