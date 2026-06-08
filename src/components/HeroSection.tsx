@@ -56,7 +56,7 @@ export const HeroSection = () => {
         alt=""
         aria-hidden="true"
         className="absolute inset-0 z-[1] hidden h-[112%] w-full object-cover will-change-transform sm:block"
-        style={{ transform: "translate3d(0,0,0) scale(1.0)", objectPosition: "42% center" }}
+        style={{ transform: "translate3d(0,0,0) scale(1.0)", objectPosition: "75% center" }}
         loading="eager"
         fetchPriority="high"
       />
@@ -73,14 +73,14 @@ export const HeroSection = () => {
         className="absolute inset-0 z-[2] hidden sm:block lg:hidden"
         style={{
           background:
-            "linear-gradient(95deg, hsl(var(--background) / 0.78) 0%, hsl(var(--background) / 0.35) 38%, transparent 70%)",
+            "linear-gradient(95deg, hsl(var(--background) / 0.92) 0%, hsl(var(--background) / 0.78) 40%, hsl(var(--background) / 0.3) 65%, transparent 85%)",
         }}
       />
       <div
         className="absolute inset-0 z-[2] hidden lg:block"
         style={{
           background:
-            "linear-gradient(95deg, hsl(var(--background) / 0.82) 0%, hsl(var(--background) / 0.5) 28%, hsl(var(--background) / 0.15) 50%, transparent 70%)",
+            "linear-gradient(95deg, hsl(var(--background) / 0.96) 0%, hsl(var(--background) / 0.9) 38%, hsl(var(--background) / 0.55) 55%, hsl(var(--background) / 0.1) 72%, transparent 85%)",
         }}
       />
 
@@ -90,9 +90,9 @@ export const HeroSection = () => {
       {/* Content */}
       <div
         ref={contentRef}
-        className="relative z-10 w-full max-w-[1440px] px-5 pt-10 pb-12 sm:px-8 sm:pt-12 sm:pb-14 lg:px-12 lg:pt-14 lg:pb-16 will-change-transform"
+        className="relative z-10 w-full max-w-[1440px] px-5 pt-10 pb-12 sm:px-8 sm:pt-14 sm:pb-16 lg:px-16 lg:pt-20 lg:pb-20 will-change-transform"
       >
-        <div className="max-w-2xl text-center sm:text-left lg:max-w-[980px] lg:pl-40">
+        <div className="max-w-2xl text-center sm:text-left lg:max-w-[640px]">
           <h1 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-8 sm:mb-9 text-center">
             <span className="text-[2.6rem] sm:text-[3.3rem] md:text-[4rem]">
               Your Health.
