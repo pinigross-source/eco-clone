@@ -23,17 +23,10 @@ export const HeroSection = () => {
         imgRef.current.style.transform = `translate3d(0, ${y * 0.25}px, 0) scale(1.0)`;
       }
       if (contentRef.current) {
-        if (isMobile.matches) {
-          contentRef.current.style.transform = "";
-          contentRef.current.style.opacity = "";
-        } else {
-          const fade = Math.max(0, 1 - y / 700);
-          contentRef.current.style.transform = `translate3d(0, ${y * -0.08}px, 0)`;
-          contentRef.current.style.opacity = `${fade}`;
-        }
+        contentRef.current.style.transform = "";
+        contentRef.current.style.opacity = "";
       }
-      ticking = false;
-    };
+
 
     const onScroll = () => {
       if (!ticking) {
