@@ -42,13 +42,13 @@ export const HeroSection = () => {
 
   return (
     <section className="relative flex min-h-[100dvh] w-full flex-col justify-start overflow-hidden bg-background">
-      {/* Wide hero background */}
+      {/* Wide hero background - hidden on mobile */}
       <img
         ref={imgRef}
         src={heroBg}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 z-[1] h-[112%] w-full object-cover will-change-transform"
+        className="absolute inset-0 z-[1] hidden h-[112%] w-full object-cover will-change-transform sm:block"
         style={{ transform: "translate3d(0,0,0) scale(1.0)", objectPosition: "42% center" }}
         loading="eager"
         fetchPriority="high"
