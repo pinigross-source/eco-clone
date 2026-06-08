@@ -134,22 +134,30 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
         )}
       >
         <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[260px]">
-          {item.dropdown.map(({ label, href, icon: Icon, desc }) => (
-            <Link
-              key={label}
-              to={href}
-              className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-muted/60 transition-colors group"
-              onClick={() => setOpen(false)}
-            >
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
-                <Icon className="w-4 h-4 text-primary" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-foreground">{label}</p>
-                <p className="text-xs text-muted-foreground">{desc}</p>
-              </div>
-            </Link>
-          ))}
+          {item.dropdown.map(({ label, href, icon: Icon, desc }) => {
+            const itemExternal = /^https?:\/\//.test(href);
+            const itemClass = "flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-muted/60 transition-colors group";
+            const inner = (
+              <>
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
+                  <Icon className="w-4 h-4 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">{label}</p>
+                  <p className="text-xs text-muted-foreground">{desc}</p>
+                </div>
+              </>
+            );
+            return itemExternal ? (
+              <a key={label} href={href} target="_top" rel="noopener" className={itemClass} onClick={() => setOpen(false)}>
+                {inner}
+              </a>
+            ) : (
+              <Link key={label} to={href} className={itemClass} onClick={() => setOpen(false)}>
+                {inner}
+              </Link>
+            );
+          })}
           <div className="border-t border-border mt-1 pt-1">
             {isExternal ? (
               <a
