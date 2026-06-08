@@ -396,7 +396,10 @@
   mix-blend-mode: multiply;
 }
 
-.homepage-impact > * {
+.homepage-impact > main,
+.homepage-impact > footer,
+.homepage-impact > section,
+.homepage-impact > div:not(.fixed) {
   position: relative;
   z-index: 1;
 }
