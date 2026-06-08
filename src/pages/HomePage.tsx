@@ -128,8 +128,8 @@ const Index = () => {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 pt-4">
-                  <a
-                    href="/technology"
+                  <Link
+                    to="/how-it-works"
                     className="group inline-flex items-center gap-2 rounded-full border px-7 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.22em] transition-all hover:-translate-y-0.5"
                     style={{
                       borderColor: "hsl(var(--foreground) / 0.2)",
@@ -138,7 +138,8 @@ const Index = () => {
                     }}
                   >
                     Our Technology
-                  </a>
+                  </Link>
+
                 </div>
               </div>
             </div>
