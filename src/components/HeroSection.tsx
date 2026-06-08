@@ -26,6 +26,10 @@ export const HeroSection = () => {
         contentRef.current.style.transform = "";
         contentRef.current.style.opacity = "";
       }
+      ticking = false;
+    };
+
+
 
 
     const onScroll = () => {
