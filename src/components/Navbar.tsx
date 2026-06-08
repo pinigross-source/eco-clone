@@ -54,16 +54,6 @@ const navLinks: NavItem[] = [
       { label: "Help Center", href: "/support", icon: LifeBuoy, desc: "Get support" },
     ],
   },
-  {
-    label: "Shop",
-    href: "https://shop.envirobiotics.com/",
-    dropdown: [
-      { label: "BioLogic Mini", href: "/product/biologic-mini", icon: Home, desc: "Portable room protection" },
-      { label: "Biotica 800", href: "/product/biotica-800", icon: Layers, desc: "Medium-coverage device" },
-      { label: "BA-2080", href: "/product/ba-2080", icon: Beaker, desc: "Advanced air & surface" },
-      { label: "E-Biotic Pro (HVAC)", href: "/hvac#ebiotic-pro", icon: Fan, desc: "Whole-home via HVAC" },
-    ],
-  },
 ];
 
 const storeDropdown: NavItem = {
