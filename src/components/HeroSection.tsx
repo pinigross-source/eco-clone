@@ -14,6 +14,8 @@ export const HeroSection = () => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mq.matches) return;
 
+    const isMobile = window.matchMedia("(max-width: 639px)");
+
     let ticking = false;
     const update = () => {
       const y = window.scrollY;
@@ -21,9 +23,14 @@ export const HeroSection = () => {
         imgRef.current.style.transform = `translate3d(0, ${y * 0.25}px, 0) scale(1.0)`;
       }
       if (contentRef.current) {
-        const fade = Math.max(0, 1 - y / 700);
-        contentRef.current.style.transform = `translate3d(0, ${y * -0.08}px, 0)`;
-        contentRef.current.style.opacity = `${fade}`;
+        if (isMobile.matches) {
+          contentRef.current.style.transform = "";
+          contentRef.current.style.opacity = "";
+        } else {
+          const fade = Math.max(0, 1 - y / 700);
+          contentRef.current.style.transform = `translate3d(0, ${y * -0.08}px, 0)`;
+          contentRef.current.style.opacity = `${fade}`;
+        }
       }
       ticking = false;
     };
@@ -41,7 +48,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative flex min-h-[100dvh] w-full flex-col justify-start overflow-hidden bg-background">
+    <section className="relative flex w-full flex-col justify-start overflow-hidden bg-background sm:min-h-[100dvh]">
       {/* Wide hero background - hidden on mobile */}
       <img
         ref={imgRef}
