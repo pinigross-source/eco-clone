@@ -119,7 +119,7 @@ export const HeroSection = () => {
 
           <div className="mb-7 space-y-2">
             <h2 className="font-display font-bold leading-[1.05] tracking-[-0.025em] text-[2rem] text-foreground sm:text-[2.5rem] lg:text-[3rem]">
-              A new layer of wellness.
+              Now, you can add a new layer of wellness.
             </h2>
             <p className="font-serif text-[1.35rem] italic leading-[1.2] text-foreground sm:text-[1.65rem]">
               With zero extra effort.
