@@ -21,10 +21,26 @@ export const SizedToYourSpaceSection = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError(null);
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/public/coming-soon", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, product: "E-Biotic Home" }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
   return (
     <section id="find-your-system" className="py-24 sm:py-32 lg:py-40 bg-background">
@@ -276,15 +292,19 @@ export const SizedToYourSpaceSection = () => {
                       </div>
                       <button
                         type="submit"
-                        className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-full px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:translate-y-[-1px]"
+                        disabled={submitting}
+                        className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-full px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:translate-y-[-1px] disabled:opacity-60 disabled:cursor-not-allowed"
                         style={{
                           background: "hsl(var(--primary))",
                           color: "hsl(var(--primary-foreground))",
                           boxShadow: "0 12px 30px -12px hsl(var(--primary) / 0.55)",
                         }}
                       >
-                        Notify me
+                        {submitting ? "Sending…" : "Notify me"}
                       </button>
+                      {error && (
+                        <p className="text-sm text-destructive text-center">{error}</p>
+                      )}
                     </form>
                   )}
                 </DialogContent>

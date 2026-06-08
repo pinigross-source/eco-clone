@@ -82,6 +82,7 @@ import { Route as CompareBetterairVsBlueairRouteImport } from './routes/compare.
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AffIdRouteImport } from './routes/aff.$id'
+import { Route as ApiPublicComingSoonRouteImport } from './routes/api/public/coming-soon'
 
 const WarrantyPolicyRoute = WarrantyPolicyRouteImport.update({
   id: '/warranty-policy',
@@ -452,6 +453,11 @@ const AffIdRoute = AffIdRouteImport.update({
   path: '/aff/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicComingSoonRoute = ApiPublicComingSoonRouteImport.update({
+  id: '/api/public/coming-soon',
+  path: '/api/public/coming-soon',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -527,6 +533,7 @@ export interface FileRoutesByFullPath {
   '/product/$slug': typeof ProductSlugRoute
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog/': typeof BlogIndexRoute
+  '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -602,6 +609,7 @@ export interface FileRoutesByTo {
   '/product/$slug': typeof ProductSlugRoute
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog': typeof BlogIndexRoute
+  '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -678,6 +686,7 @@ export interface FileRoutesById {
   '/product/$slug': typeof ProductSlugRoute
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog/': typeof BlogIndexRoute
+  '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -755,6 +764,7 @@ export interface FileRouteTypes {
     | '/product/$slug'
     | '/solutions/room'
     | '/blog/'
+    | '/api/public/coming-soon'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -830,6 +840,7 @@ export interface FileRouteTypes {
     | '/product/$slug'
     | '/solutions/room'
     | '/blog'
+    | '/api/public/coming-soon'
   id:
     | '__root__'
     | '/'
@@ -905,6 +916,7 @@ export interface FileRouteTypes {
     | '/product/$slug'
     | '/solutions/room'
     | '/blog/'
+    | '/api/public/coming-soon'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -979,6 +991,7 @@ export interface RootRouteChildren {
   CompareUvcRoute: typeof CompareUvcRoute
   ProductSlugRoute: typeof ProductSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  ApiPublicComingSoonRoute: typeof ApiPublicComingSoonRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1494,6 +1507,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AffIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/coming-soon': {
+      id: '/api/public/coming-soon'
+      path: '/api/public/coming-soon'
+      fullPath: '/api/public/coming-soon'
+      preLoaderRoute: typeof ApiPublicComingSoonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1593,6 +1613,7 @@ const rootRouteChildren: RootRouteChildren = {
   CompareUvcRoute: CompareUvcRoute,
   ProductSlugRoute: ProductSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
+  ApiPublicComingSoonRoute: ApiPublicComingSoonRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
