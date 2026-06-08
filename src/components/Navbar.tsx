@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "@/lib/link";
 import { Menu, X, ArrowRight, User, Sparkles, ChevronDown, Home, Fan, Beaker, Layers, ShieldCheck, Leaf, Building2, Baby, ShoppingCart, CreditCard, Video, BookOpen, FlaskConical, LifeBuoy, HelpCircle, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -65,16 +66,36 @@ const storeDropdown: NavItem = {
 // Desktop dropdown component
 const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: boolean; useLight: boolean }) => {
   const [open, setOpen] = useState(false);
+  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const triggerRef = useRef<HTMLDivElement>(null);
+
+  const updateDropdownPosition = useCallback(() => {
+    const rect = triggerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    setDropdownPosition({ top: rect.bottom + 8, left: rect.left });
+  }, []);
 
   const handleEnter = useCallback(() => {
     clearTimeout(timeoutRef.current);
+    updateDropdownPosition();
     setOpen(true);
-  }, []);
+  }, [updateDropdownPosition]);
 
   const handleLeave = useCallback(() => {
     timeoutRef.current = setTimeout(() => setOpen(false), 150);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    updateDropdownPosition();
+    window.addEventListener("scroll", updateDropdownPosition, true);
+    window.addEventListener("resize", updateDropdownPosition);
+    return () => {
+      window.removeEventListener("scroll", updateDropdownPosition, true);
+      window.removeEventListener("resize", updateDropdownPosition);
+    };
+  }, [open, updateDropdownPosition]);
 
   if (!item.dropdown) {
     const className = cn(
@@ -114,8 +135,70 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
           : (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
   );
 
+  const dropdown = (
+    <div
+      className={cn(
+        "fixed pt-0 z-[9999] transition-all duration-200",
+        open ? "opacity-100 translate-y-0 visible pointer-events-auto" : "opacity-0 -translate-y-1 invisible pointer-events-none"
+      )}
+      style={{ top: dropdownPosition.top, left: dropdownPosition.left }}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
+      <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[260px]">
+        {item.dropdown.map(({ label, href, icon: Icon, desc }) => {
+          const itemExternal = /^https?:\/\//.test(href);
+          const itemClass = "flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-muted/60 transition-colors group";
+          const inner = (
+            <>
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
+                <Icon className="w-4 h-4 text-primary" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-foreground">{label}</p>
+                <p className="text-xs text-muted-foreground">{desc}</p>
+              </div>
+            </>
+          );
+          return itemExternal ? (
+            <a key={label} href={href} target="_top" rel="noopener" className={itemClass} onClick={() => setOpen(false)}>
+              {inner}
+            </a>
+          ) : (
+            <Link key={label} to={href} className={itemClass} onClick={() => setOpen(false)}>
+              {inner}
+            </Link>
+          );
+        })}
+        <div className="border-t border-border mt-1 pt-1">
+          {isExternal ? (
+            <a
+              href={item.href}
+              target="_top"
+              rel="noopener"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
+              onClick={() => setOpen(false)}
+            >
+              View All {item.label}
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          ) : (
+            <Link
+              to={item.href}
+              className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
+              onClick={() => setOpen(false)}
+            >
+              View All {item.label}
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
-    <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+    <div ref={triggerRef} className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
       {isExternal ? (
         <a href={item.href} target="_top" rel="noopener" className={triggerClassName}>
           {item.label}
@@ -127,63 +210,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
           <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", open && "rotate-180")} />
         </Link>
       )}
-
-      <div
-        className={cn(
-          "absolute top-full left-0 pt-2 z-[100] transition-all duration-200",
-          open ? "opacity-100 translate-y-0 visible pointer-events-auto" : "opacity-0 -translate-y-1 invisible pointer-events-none"
-        )}
-      >
-        <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[260px]">
-          {item.dropdown.map(({ label, href, icon: Icon, desc }) => {
-            const itemExternal = /^https?:\/\//.test(href);
-            const itemClass = "flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-muted/60 transition-colors group";
-            const inner = (
-              <>
-                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
-                  <Icon className="w-4 h-4 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-foreground">{label}</p>
-                  <p className="text-xs text-muted-foreground">{desc}</p>
-                </div>
-              </>
-            );
-            return itemExternal ? (
-              <a key={label} href={href} target="_top" rel="noopener" className={itemClass} onClick={() => setOpen(false)}>
-                {inner}
-              </a>
-            ) : (
-              <Link key={label} to={href} className={itemClass} onClick={() => setOpen(false)}>
-                {inner}
-              </Link>
-            );
-          })}
-          <div className="border-t border-border mt-1 pt-1">
-            {isExternal ? (
-              <a
-                href={item.href}
-                target="_top"
-                rel="noopener"
-                className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
-                onClick={() => setOpen(false)}
-              >
-                View All {item.label}
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            ) : (
-              <Link
-                to={item.href}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
-                onClick={() => setOpen(false)}
-              >
-                View All {item.label}
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            )}
-          </div>
-        </div>
-      </div>
+      {typeof document !== "undefined" && createPortal(dropdown, document.body)}
     </div>
   );
 };
