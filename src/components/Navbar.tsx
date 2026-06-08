@@ -54,6 +54,7 @@ const navLinks: NavItem[] = [
       { label: "Help Center", href: "/support", icon: LifeBuoy, desc: "Get support" },
     ],
   },
+  { label: "Shop", href: "https://shop.envirobiotics.com/", bold: true },
 ];
 
 const storeDropdown: NavItem = {
