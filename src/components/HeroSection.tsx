@@ -122,7 +122,7 @@ export const HeroSection = () => {
             className="mb-5 text-[1.15rem] leading-[1.6] sm:text-[1.25rem] sm:max-w-[480px] lg:text-[1.35rem]"
             style={{ color: "hsl(var(--foreground) / 0.78)" }}
           >
-            You make every effort to stay healthy — eating well, moving often, showing up for the people who depend on you.
+            You make every effort to stay healthy. You eat well and exercise often because you want to be at your best for yourself and for the people who depend on you.
           </p>
 
 
