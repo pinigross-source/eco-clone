@@ -30,7 +30,6 @@ type NavItem = {
 
 const navLinks: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Shop", href: "https://shop.envirobiotics.com/", bold: true },
   { label: "Technology", href: "/how-it-works" },
   {
     label: "Products",
@@ -130,8 +129,8 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
       <div
         className={cn(
-          "absolute top-full left-0 pt-2 z-[60] transition-all duration-200",
-          open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"
+          "absolute top-full left-0 pt-2 z-[100] transition-all duration-200",
+          open ? "opacity-100 translate-y-0 visible pointer-events-auto" : "opacity-0 -translate-y-1 invisible pointer-events-none"
         )}
       >
         <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[260px]">
@@ -306,6 +305,14 @@ export const Navbar = () => {
 
           {/* Desktop: Right side icons (search, account, cart) */}
           <div className="hidden lg:flex items-center gap-2 ml-auto">
+            <a
+              href="https://shop.envirobiotics.com/"
+              target="_top"
+              rel="noopener"
+              className="px-3 xl:px-4 py-2 text-[17px] xl:text-lg font-bold text-foreground hover:text-foreground/80 transition-colors rounded-lg"
+            >
+              Shop
+            </a>
             <Suspense fallback={null}><NavbarSearch /></Suspense>
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
               <div className={cn(
