@@ -56,9 +56,9 @@ const ComparisonVideo = () => {
             />
             {/* Gradient wash for premium feel + readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/20 sm:from-black/40 sm:via-transparent sm:to-black/10" />
-            {/* Mobile eyebrow chip */}
-            <div className="sm:hidden absolute top-4 left-4">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/95 backdrop-blur-md px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] uppercase text-foreground shadow-sm">
+            {/* Eyebrow chip */}
+            <div className="absolute top-4 left-4">
+              <span className="inline-flex items-center gap-2 rounded-full bg-black/60 backdrop-blur-md px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] uppercase text-white shadow-sm">
                 Watch · 1 min
               </span>
             </div>
@@ -71,12 +71,12 @@ const ComparisonVideo = () => {
                 </div>
               </div>
             </div>
-            {/* Bottom caption overlay (mobile only) */}
-            <div className="sm:hidden absolute inset-x-0 bottom-0 p-5">
-              <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-white/70 mb-1.5">
+            {/* Bottom caption overlay */}
+            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8">
+              <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-white mb-1.5">
                 See It In Action
               </p>
-              <p className="text-[17px] font-display font-bold text-white leading-tight tracking-[-0.01em]">
+              <p className="text-[17px] sm:text-xl font-display font-bold text-white leading-tight tracking-[-0.01em]">
                 How probiotics protect every surface.
               </p>
             </div>
