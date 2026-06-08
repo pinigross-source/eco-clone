@@ -35,8 +35,8 @@ const navLinks: NavItem[] = [
     label: "Products",
     href: "https://shop.envirobiotics.com/",
     dropdown: [
-      { label: "BioLogic Mini", href: "/product/biologic-mini", icon: Home, desc: "Portable room protection" },
-      { label: "Biotica 800", href: "/product/biotica-800", icon: Layers, desc: "Medium-coverage device" },
+      { label: "BioLogic Mini", href: "https://shop.envirobiotics.com/products/biologic-mini", icon: Home, desc: "Portable room protection" },
+      { label: "Biotica 800", href: "https://shop.envirobiotics.com/products/biotica-800", icon: Layers, desc: "Medium-coverage device" },
       { label: "E Biotic - Home", href: "/hvac#ebiotic-pro", icon: Fan, desc: "Whole-home via HVAC" },
       { label: "Subscribe & Save", href: "/subscribe", icon: CreditCard, desc: "Recurring refills, save more" },
       { label: "Refills", href: "/product/refills", icon: Beaker, desc: "Probiotic refill cartridges" },
