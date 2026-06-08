@@ -88,7 +88,7 @@ export const SizedToYourSpaceSection = () => {
                   Portable
                 </span>
               </div>
-              <div className="relative bg-gradient-to-b from-muted/40 to-muted/10 aspect-[4/3] flex items-center justify-center p-10">
+              <div className="relative w-full bg-gradient-to-b from-muted/40 to-muted/10 aspect-[4/3] min-h-[260px] flex items-center justify-center p-10">
                 <img
                   src={biologicMini}
                   alt="BioLogic Mini portable probiotic purifier"
