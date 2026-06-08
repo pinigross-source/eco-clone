@@ -292,15 +292,19 @@ export const SizedToYourSpaceSection = () => {
                       </div>
                       <button
                         type="submit"
-                        className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-full px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:translate-y-[-1px]"
+                        disabled={submitting}
+                        className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-full px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:translate-y-[-1px] disabled:opacity-60 disabled:cursor-not-allowed"
                         style={{
                           background: "hsl(var(--primary))",
                           color: "hsl(var(--primary-foreground))",
                           boxShadow: "0 12px 30px -12px hsl(var(--primary) / 0.55)",
                         }}
                       >
-                        Notify me
+                        {submitting ? "Sending…" : "Notify me"}
                       </button>
+                      {error && (
+                        <p className="text-sm text-destructive text-center">{error}</p>
+                      )}
                     </form>
                   )}
                 </DialogContent>
