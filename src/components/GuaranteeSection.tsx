@@ -28,8 +28,8 @@ export const GuaranteeSection = () => {
       <div className="container max-w-6xl mx-auto px-5 sm:px-6">
         {/* Editorial split: image + headline */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-center mb-14 sm:mb-20 lg:mb-28">
-          {/* Image with floating badge (mobile-premium) */}
-          <ScrollReveal variant="fadeUp" delay={0.1}>
+          {/* Image with floating badge (hidden on mobile; mobile shows below text) */}
+          <ScrollReveal variant="fadeUp" delay={0.1} className="hidden lg:block">
             <div className="relative rounded-[1.75rem] sm:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-foreground/5 aspect-[4/5]">
               <img
                 src={calmHomeImage}
