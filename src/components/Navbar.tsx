@@ -39,7 +39,6 @@ const navLinks: NavItem[] = [
       { label: "Biotica 800", href: "https://shop.envirobiotics.com/products/biotica-800", icon: Layers, desc: "Medium-coverage device" },
       { label: "E Biotic - Home", href: "/hvac#ebiotic-pro", icon: Fan, desc: "Whole-home via HVAC" },
       { label: "Subscribe & Save", href: "/subscribe", icon: CreditCard, desc: "Recurring refills, save more" },
-      { label: "Refills", href: "/product/refills", icon: Beaker, desc: "Probiotic refill cartridges" },
     ],
   },
   {
