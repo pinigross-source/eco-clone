@@ -115,75 +115,75 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
   );
 
   return (
-    <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+    <div className="relative group/dropdown" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
       {isExternal ? (
         <a href={item.href} target="_top" rel="noopener" className={triggerClassName}>
           {item.label}
-          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", open && "rotate-180")} />
+          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200 group-hover/dropdown:rotate-180 group-focus-within/dropdown:rotate-180", open && "rotate-180")} />
         </a>
       ) : (
         <Link to={item.href} className={triggerClassName}>
           {item.label}
-          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", open && "rotate-180")} />
+          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200 group-hover/dropdown:rotate-180 group-focus-within/dropdown:rotate-180", open && "rotate-180")} />
         </Link>
       )}
 
       <div
         className={cn(
-          "absolute top-full left-0 pt-2 z-[100] transition-all duration-200",
+          "absolute top-full left-0 pt-2 z-[10000] transition-all duration-200 group-hover/dropdown:opacity-100 group-hover/dropdown:translate-y-0 group-hover/dropdown:visible group-hover/dropdown:pointer-events-auto group-focus-within/dropdown:opacity-100 group-focus-within/dropdown:translate-y-0 group-focus-within/dropdown:visible group-focus-within/dropdown:pointer-events-auto",
           open ? "opacity-100 translate-y-0 visible pointer-events-auto" : "opacity-0 -translate-y-1 invisible pointer-events-none"
         )}
       >
-        <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[260px]">
-          {item.dropdown.map(({ label, href, icon: Icon, desc }) => {
-            const itemExternal = /^https?:\/\//.test(href);
-            const itemClass = "flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-muted/60 transition-colors group";
-            const inner = (
-              <>
-                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
-                  <Icon className="w-4 h-4 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-foreground">{label}</p>
-                  <p className="text-xs text-muted-foreground">{desc}</p>
-                </div>
-              </>
-            );
-            return itemExternal ? (
-              <a key={label} href={href} target="_top" rel="noopener" className={itemClass} onClick={() => setOpen(false)}>
-                {inner}
-              </a>
-            ) : (
-              <Link key={label} to={href} className={itemClass} onClick={() => setOpen(false)}>
-                {inner}
-              </Link>
-            );
-          })}
-          <div className="border-t border-border mt-1 pt-1">
-            {isExternal ? (
-              <a
-                href={item.href}
-                target="_top"
-                rel="noopener"
-                className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
-                onClick={() => setOpen(false)}
-              >
-                View All {item.label}
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            ) : (
-              <Link
-                to={item.href}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
-                onClick={() => setOpen(false)}
-              >
-                View All {item.label}
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            )}
-          </div>
+      <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[260px]">
+        {item.dropdown.map(({ label, href, icon: Icon, desc }) => {
+          const itemExternal = /^https?:\/\//.test(href);
+          const itemClass = "flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-muted/60 transition-colors group";
+          const inner = (
+            <>
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
+                <Icon className="w-4 h-4 text-primary" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-foreground">{label}</p>
+                <p className="text-xs text-muted-foreground">{desc}</p>
+              </div>
+            </>
+          );
+          return itemExternal ? (
+            <a key={label} href={href} target="_top" rel="noopener" className={itemClass} onClick={() => setOpen(false)}>
+              {inner}
+            </a>
+          ) : (
+            <Link key={label} to={href} className={itemClass} onClick={() => setOpen(false)}>
+              {inner}
+            </Link>
+          );
+        })}
+        <div className="border-t border-border mt-1 pt-1">
+          {isExternal ? (
+            <a
+              href={item.href}
+              target="_top"
+              rel="noopener"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
+              onClick={() => setOpen(false)}
+            >
+              View All {item.label}
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          ) : (
+            <Link
+              to={item.href}
+              className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
+              onClick={() => setOpen(false)}
+            >
+              View All {item.label}
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          )}
         </div>
       </div>
+    </div>
     </div>
   );
 };
@@ -243,7 +243,7 @@ export const Navbar = () => {
     <>
       <header
         className={cn(
-          "fixed top-0 z-[90] w-full transition-all duration-500",
+          "fixed top-0 z-[9999] w-full transition-all duration-500",
           scrolled
             ? "bg-background/95 backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-foreground/5"
             : "bg-background backdrop-blur-xl border-b border-border/50"
