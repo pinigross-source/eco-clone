@@ -134,8 +134,8 @@ export const HeroSection = () => {
           </p>
 
           <p
-            className="text-[1.2rem] sm:text-[1.4rem] md:text-[1.55rem] leading-[1.45] font-medium tracking-[-0.005em]"
-            style={{ color: "hsl(var(--foreground))" }}
+            className="mt-2 text-[1.35rem] sm:text-[1.5rem] md:text-[1.7rem] leading-[1.35] font-bold tracking-[-0.01em] text-center sm:text-left"
+            style={{ color: "hsl(var(--primary))" }}
           >
             Choosing EnviroBiotics is choosing health.
           </p>
