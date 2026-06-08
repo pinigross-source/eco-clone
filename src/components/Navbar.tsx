@@ -54,6 +54,7 @@ const navLinks: NavItem[] = [
       { label: "Help Center", href: "/support", icon: LifeBuoy, desc: "Get support" },
     ],
   },
+  { label: "Shop", href: "https://shop.envirobiotics.com/", bold: true },
 ];
 
 const storeDropdown: NavItem = {
@@ -79,7 +80,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
     const className = cn(
       "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
       item.bold
-        ? "font-bold text-[#ff8036] hover:text-[#ffA060]"
+        ? "font-bold text-foreground hover:text-foreground/80"
         : scrolled
           ? "font-medium text-foreground hover:text-foreground hover:bg-muted/50"
           : useLight
@@ -305,14 +306,6 @@ export const Navbar = () => {
 
           {/* Desktop: Right side icons (search, account, cart) */}
           <div className="hidden lg:flex items-center gap-2 ml-auto">
-            <a
-              href="https://shop.envirobiotics.com/"
-              target="_top"
-              rel="noopener"
-              className="px-3 xl:px-4 py-2 text-[17px] xl:text-lg font-bold text-foreground hover:text-foreground/80 transition-colors rounded-lg"
-            >
-              Shop
-            </a>
             <Suspense fallback={null}><NavbarSearch /></Suspense>
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
               <div className={cn(
