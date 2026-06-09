@@ -194,7 +194,7 @@ const ResearchPage = () => {
           image={heroResearchLifestyle}
           imageAlt="Scientist examining a sample in a calm Scandinavian lab"
           eyebrow="Research & Science"
-          title={<>The science of <span className="text-heading-accent italic font-normal">cleaner space</span></>}
+          title={<><span className="block">The science of</span><span className="block text-heading-accent italic font-normal">cleaner space</span></>}
           subcopy="Environmental probiotic technology explained."
           ctaLabel="Explore Research"
           ctaHref="#case-studies"
