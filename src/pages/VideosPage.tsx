@@ -8,7 +8,7 @@ import { videoCategories, getVideosByCategory, Video as VideoType } from "@/data
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { LifestyleHero } from "@/components/LifestyleHero";
-import heroVideosLifestyleAsset from "@/assets/resources-hero.avif.asset.json";
+import heroVideosLifestyleAsset from "@/assets/videos-hero.avif.asset.json";
 const heroVideosLifestyle = heroVideosLifestyleAsset.url;
 const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").then(m => ({ default: m.ContentProductCTA })));
 
