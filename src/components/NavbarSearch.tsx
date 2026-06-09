@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Search, X, ShoppingBag, FileText, BookOpen, ArrowRight } from "lucide-react";
+import { ShopSearchIcon } from "@/components/ShopIcons";
 import { cn } from "@/lib/utils";
 import { products, type ProductData } from "@/data/productData";
 import { blogPosts, type BlogPost } from "@/data/blogData";
@@ -140,7 +141,7 @@ export const NavbarSearch = () => {
         className="flex h-10 w-10 items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95"
         aria-label="Search"
       >
-        <Search className="h-[22px] w-[22px]" strokeWidth={1.75} />
+        <ShopSearchIcon className="h-[22px] w-[22px]" />
       </button>
 
       {/* overlay */}
