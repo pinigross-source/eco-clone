@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Link } from "@/lib/link";
-import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { ShopAccountIcon, ShopCartIcon } from "@/components/ShopIcons";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -132,7 +132,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
       <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[240px]">
         {item.dropdown.map(({ label, href }) => {
           const itemExternal = /^https?:\/\//.test(href);
-          const itemClass = "block px-4 py-2.5 rounded-lg hover:bg-muted/60 transition-colors text-[15px] font-semibold text-foreground";
+          const itemClass = "block px-4 py-2.5 rounded-lg hover:bg-muted/60 transition-colors text-[15px] font-bold text-foreground";
           return itemExternal ? (
             <a key={label} href={href} target="_top" rel="noopener" className={itemClass} onClick={() => setOpen(false)}>
               {label}
@@ -149,20 +149,18 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
               href={item.href}
               target="_top"
               rel="noopener"
-              className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
+              className="block px-4 py-2.5 rounded-lg hover:bg-muted/60 transition-colors text-[15px] font-bold text-primary"
               onClick={() => setOpen(false)}
             >
               View All {item.label}
-              <ArrowRight className="w-3.5 h-3.5" />
             </a>
           ) : (
             <Link
               to={item.href}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm font-medium text-primary"
+              className="block px-4 py-2.5 rounded-lg hover:bg-muted/60 transition-colors text-[15px] font-bold text-primary"
               onClick={() => setOpen(false)}
             >
               View All {item.label}
-              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           )}
         </div>
@@ -347,7 +345,7 @@ export const Navbar = () => {
                     <div className="pl-4 pr-2 pb-1 space-y-0.5">
                       {link.dropdown.map(({ label, href }) => {
                         const mExt = /^https?:\/\//.test(href);
-                        const mClass = "block px-3 py-2.5 rounded-lg hover:bg-muted/50 transition-colors text-sm font-semibold text-foreground";
+                        const mClass = "block px-3 py-2.5 rounded-lg hover:bg-muted/50 transition-colors text-sm font-bold text-foreground";
                         return mExt ? (
                           <a key={label} href={href} target="_top" rel="noopener" className={mClass} onClick={() => setIsOpen(false)}>{label}</a>
                         ) : (
@@ -356,11 +354,10 @@ export const Navbar = () => {
                       })}
                       <Link
                         to={link.href}
-                        className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-primary"
+                        className="block px-3 py-2 text-sm font-bold text-primary"
                         onClick={() => setIsOpen(false)}
                       >
                         View All {link.label}
-                        <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
                   </div>
@@ -370,20 +367,18 @@ export const Navbar = () => {
                   href={link.href}
                   target="_top"
                   rel="noopener"
-                  className="text-sm sm:text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
+                  className="text-sm sm:text-base font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{link.label}</span>
-                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-primary" />
                 </a>
               ) : (
                 <Link
                   to={link.href}
-                  className="text-sm sm:text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
+                  className="text-sm sm:text-base font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{link.label}</span>
-                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-primary" />
                 </Link>
               )}
             </div>
