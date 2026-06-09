@@ -51,6 +51,42 @@ const allTestimonials = [
     rating: 5,
     avatar: "E",
   },
+  {
+    name: "Lauren S.",
+    category: "Respiratory & asthma",
+    text: "My two-year-old son suffers from asthma and used to wake up nightly with severe coughing. After using EnviroBiotics in his room for four months, he now sleeps through the night and hasn't had any major episodes.",
+    rating: 5,
+    avatar: "L",
+  },
+  {
+    name: "Amanda I.",
+    category: "Pet odors & allergies",
+    text: "I was on three allergy medications, as were my children. Since using EnviroBiotics, none of us have taken a single allergy medication—and we have pets. Even the odors are gone.",
+    rating: 5,
+    avatar: "A",
+  },
+  {
+    name: "Dr. Todd S.",
+    category: "Whole-home relief",
+    text: "My wife felt like she was literally allergic to our house. After installing EnviroBiotics, that completely changed. We don't have to move—and we're breathing better every morning.",
+    rating: 5,
+    avatar: "T",
+  },
+  {
+    name: "Shannon T.",
+    category: "Schools & classrooms",
+    text: "I've been teaching for 24 years and moved into a classroom with an awful, musty smell. Nothing worked—until EnviroBiotics. After installing two units, the smell disappeared, student attendance improved, and hardly any students are out sick during peak cold and flu season.",
+    rating: 5,
+    avatar: "S",
+  },
+  {
+    name: "Michael D.",
+    category: "Travel & everyday",
+    text: "I travel constantly—airports, planes, hotels. Since using EnviroBiotics everywhere I go, I haven't gotten sick once.",
+    rating: 5,
+    avatar: "M",
+  },
+
 ];
 
 const TestimonialCard = ({ name, category, text, rating, avatar, image }: {
