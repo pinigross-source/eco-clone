@@ -157,7 +157,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
           ) : (
             <Link
               to={item.href}
-              className="block px-4 py-2.5 rounded-lg hover:bg-muted/60 transition-colors text-[15px] font-bold text-primary"
+              className="block px-4 py-2.5 rounded-lg hover:bg-muted/60 transition-colors text-[15px] font-normal text-primary"
               onClick={() => setOpen(false)}
             >
               View All {item.label}
