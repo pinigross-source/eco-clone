@@ -354,7 +354,7 @@ export const Navbar = () => {
                       })}
                       <Link
                         to={link.href}
-                        className="block px-3 py-2 text-sm font-bold text-primary"
+                        className="block px-3 py-2 text-sm font-normal text-primary"
                         onClick={() => setIsOpen(false)}
                       >
                         View All {link.label}
