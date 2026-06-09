@@ -15,9 +15,9 @@ const ShopifyCartLink = () => (
     href={shopifyCart()}
     aria-label="Open cart on Shopify"
     title="Cart"
-    className="w-10 h-10 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95"
+    className="w-11 h-11 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95"
   >
-    <ShopCartIcon className="w-[22px] h-[22px]" />
+    <ShopCartIcon className="w-[26px] h-[26px]" />
   </a>
 );
 
