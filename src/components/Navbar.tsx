@@ -132,7 +132,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
       <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[240px]">
         {item.dropdown.map(({ label, href }) => {
           const itemExternal = /^https?:\/\//.test(href);
-          const itemClass = "block px-4 py-2.5 rounded-lg hover:bg-muted/60 transition-colors text-[15px] font-bold text-foreground";
+          const itemClass = "block px-4 py-2.5 rounded-lg hover:bg-muted/60 transition-colors text-[15px] font-normal text-foreground";
           return itemExternal ? (
             <a key={label} href={href} target="_top" rel="noopener" className={itemClass} onClick={() => setOpen(false)}>
               {label}
