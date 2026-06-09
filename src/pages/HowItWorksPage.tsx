@@ -468,9 +468,6 @@ const HowItWorksPage = () => {
                 <div key={s.n} className="relative p-8 md:p-10 bg-card group">
                   <div className="flex items-baseline justify-between mb-8">
                     <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">STEP {s.n}</span>
-                    <span className="text-[5rem] font-display font-semibold leading-none text-foreground/[0.06] group-hover:text-foreground/10 transition-colors">
-                      {s.n}
-                    </span>
                   </div>
                   <h3 className="text-2xl font-display font-semibold text-foreground tracking-tight">{s.title}</h3>
                   <p className="mt-3 text-[1.2rem] sm:text-[1.35rem] text-muted-foreground leading-[1.65]">{s.text}</p>
