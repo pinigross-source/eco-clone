@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Link } from "@/lib/link";
-import { Menu, X, ArrowRight, Sparkles, ChevronDown, Home, Fan, Beaker, Layers, ShieldCheck, Leaf, Building2, Baby, CreditCard, Video, BookOpen, FlaskConical, LifeBuoy, HelpCircle, FileText } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import { ShopAccountIcon, ShopCartIcon } from "@/components/ShopIcons";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -26,7 +26,7 @@ type NavItem = {
   label: string;
   href: string;
   bold?: boolean;
-  dropdown?: { label: string; href: string; icon: React.ElementType; desc: string }[];
+  dropdown?: { label: string; href: string }[];
 };
 
 const navLinks: NavItem[] = [
@@ -36,22 +36,22 @@ const navLinks: NavItem[] = [
     label: "Products",
     href: "https://shop.envirobiotics.com/",
     dropdown: [
-      { label: "BioLogic Mini", href: "https://shop.envirobiotics.com/products/biologic-mini", icon: Home, desc: "Portable room protection" },
-      { label: "Biotica 800", href: "https://shop.envirobiotics.com/products/biotica-800", icon: Layers, desc: "Medium-coverage device" },
-      { label: "E Biotic - Home", href: "/hvac#ebiotic-pro", icon: Fan, desc: "Whole-home via HVAC" },
-      { label: "Subscribe & Save", href: "/subscribe", icon: CreditCard, desc: "Recurring refills, save more" },
+      { label: "BioLogic Mini", href: "https://shop.envirobiotics.com/products/biologic-mini" },
+      { label: "Biotica 800", href: "https://shop.envirobiotics.com/products/biotica-800" },
+      { label: "E Biotic - Home", href: "/hvac#ebiotic-pro" },
+      { label: "Subscribe & Save", href: "/subscribe" },
     ],
   },
   {
     label: "Resources",
     href: "/education",
     dropdown: [
-      { label: "Blog", href: "/blog", icon: BookOpen, desc: "Articles & guides" },
-      { label: "Videos", href: "/videos", icon: Video, desc: "Watch our library" },
-      { label: "Research & Case Studies", href: "/research", icon: FlaskConical, desc: "Studies & results" },
-      { label: "Case Studies", href: "/case-studies", icon: FileText, desc: "Real-world outcomes" },
-      { label: "FAQ", href: "/faq", icon: HelpCircle, desc: "Frequently asked questions" },
-      { label: "Help Center", href: "/support", icon: LifeBuoy, desc: "Get support" },
+      { label: "Blog", href: "/blog" },
+      { label: "Videos", href: "/videos" },
+      { label: "Research & Case Studies", href: "/research" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Help Center", href: "/support" },
     ],
   },
   { label: "Shop", href: "https://shop.envirobiotics.com/" },
@@ -78,14 +78,12 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   if (!item.dropdown) {
     const className = cn(
-      "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
-      item.bold
-        ? "font-bold text-foreground hover:text-foreground/80"
-        : scrolled
-          ? "font-medium text-foreground hover:text-foreground hover:bg-muted/50"
-          : useLight
-            ? "font-medium text-white hover:text-white hover:bg-white/10"
-            : "font-medium text-foreground hover:text-foreground hover:bg-muted/50"
+      "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+      scrolled
+        ? "text-foreground hover:text-foreground hover:bg-muted/50"
+        : useLight
+          ? "text-white hover:text-white hover:bg-white/10"
+          : "text-foreground hover:text-foreground hover:bg-muted/50"
     );
     if (/^https?:\/\//.test(item.href)) {
       return (
@@ -103,15 +101,12 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   const isExternal = /^https?:\/\//.test(item.href);
   const triggerClassName = cn(
-    "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
-    item.bold ? "font-bold" : "font-medium",
-    item.bold
-      ? "text-foreground hover:text-foreground/80"
-      : scrolled
-        ? (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
-        : useLight
-          ? (open ? "text-white bg-white/10" : "text-white hover:text-white hover:bg-white/10")
-          : (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
+    "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+    scrolled
+      ? (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
+      : useLight
+        ? (open ? "text-white bg-white/10" : "text-white hover:text-white hover:bg-white/10")
+        : (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
   );
 
   return (
@@ -134,28 +129,17 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
           open ? "opacity-100 translate-y-0 visible pointer-events-auto" : "opacity-0 -translate-y-1 invisible pointer-events-none"
         )}
       >
-      <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[260px]">
-        {item.dropdown.map(({ label, href, icon: Icon, desc }) => {
+      <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[240px]">
+        {item.dropdown.map(({ label, href }) => {
           const itemExternal = /^https?:\/\//.test(href);
-          const itemClass = "flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-muted/60 transition-colors group";
-          const inner = (
-            <>
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
-                <Icon className="w-4 h-4 text-primary" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-foreground">{label}</p>
-                <p className="text-xs text-muted-foreground">{desc}</p>
-              </div>
-            </>
-          );
+          const itemClass = "block px-4 py-2.5 rounded-lg hover:bg-muted/60 transition-colors text-[15px] font-semibold text-foreground";
           return itemExternal ? (
             <a key={label} href={href} target="_top" rel="noopener" className={itemClass} onClick={() => setOpen(false)}>
-              {inner}
+              {label}
             </a>
           ) : (
             <Link key={label} to={href} className={itemClass} onClick={() => setOpen(false)}>
-              {inner}
+              {label}
             </Link>
           );
         })}
@@ -349,7 +333,7 @@ export const Navbar = () => {
               {link.dropdown ? (
                 <>
                   <button
-                    className="w-full text-sm sm:text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between"
+                    className="w-full text-sm sm:text-base font-bold text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between"
                     onClick={() => setExpandedMobile(expandedMobile === link.label ? null : link.label)}
                   >
                     <span>{link.label}</span>
@@ -360,24 +344,13 @@ export const Navbar = () => {
                     expandedMobile === link.label ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                   )}>
                     <div className="pl-4 pr-2 pb-1 space-y-0.5">
-                      {link.dropdown.map(({ label, href, icon: Icon, desc }) => {
+                      {link.dropdown.map(({ label, href }) => {
                         const mExt = /^https?:\/\//.test(href);
-                        const mClass = "flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-muted/50 transition-colors";
-                        const mInner = (
-                          <>
-                            <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                              <Icon className="w-3.5 h-3.5 text-primary" />
-                            </div>
-                            <div>
-                              <p className="text-sm font-medium text-foreground">{label}</p>
-                              <p className="text-[11px] text-muted-foreground">{desc}</p>
-                            </div>
-                          </>
-                        );
+                        const mClass = "block px-3 py-2.5 rounded-lg hover:bg-muted/50 transition-colors text-sm font-semibold text-foreground";
                         return mExt ? (
-                          <a key={label} href={href} target="_top" rel="noopener" className={mClass} onClick={() => setIsOpen(false)}>{mInner}</a>
+                          <a key={label} href={href} target="_top" rel="noopener" className={mClass} onClick={() => setIsOpen(false)}>{label}</a>
                         ) : (
-                          <Link key={label} to={href} className={mClass} onClick={() => setIsOpen(false)}>{mInner}</Link>
+                          <Link key={label} to={href} className={mClass} onClick={() => setIsOpen(false)}>{label}</Link>
                         );
                       })}
                       <Link
