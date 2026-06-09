@@ -48,10 +48,10 @@ export const FinalCTASection = () => {
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold leading-[1.05] tracking-[-0.02em] mb-3">
-                  Your Trial.
+                  Easy to return within 30 days for a full refund.
                 </h2>
                 <p className="text-2xl sm:text-3xl font-display italic font-light text-heading-accent mb-10">
-                  Zero risk.
+                  No questions asked.
                 </p>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-6">

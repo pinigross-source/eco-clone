@@ -77,8 +77,9 @@ export const TestimonialsSection = () => {
             Testimonials
           </p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold leading-[1.06] tracking-[-0.03em] text-foreground max-w-3xl mx-auto">
-            Your Home.{" "}
-            <span className="text-heading-accent">Your Results.</span>
+            Real homes.{" "}
+            <span className="text-heading-accent">Real surfaces.</span>{" "}
+            Real changes.
           </h2>
           <p className="mt-3 text-xs text-muted-foreground/50 italic">
             Individual results vary by space and conditions.
