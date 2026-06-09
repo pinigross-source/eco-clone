@@ -17,9 +17,9 @@ import shangriLa from "@/assets/clients/shangri-la.png.asset.json";
 const logos = [
   { src: grandHyatt, alt: "Grand Hyatt" },
   { src: shangriLa.url, alt: "Shangri-La Hotels and Resorts" },
-  { src: cityOfDreams, alt: "City of Dreams Macau" },
+  { src: cityOfDreams, alt: "City of Dreams Macau", scale: 1.6 },
   { src: caSchool, alt: "Canadian International School of Hong Kong" },
-  { src: medone, alt: "MedOne" },
+  { src: medone, alt: "MedOne", scale: 1.6 },
   { src: ganther, alt: "Ganther" },
   { src: melco.url, alt: "Melco" },
   { src: cbre.url, alt: "CBRE" },
@@ -30,6 +30,7 @@ const logos = [
   { src: morpheusCodNuwa.url, alt: "Morpheus, COD Macau, Nüwa" },
   { src: brooklynNets.url, alt: "Brooklyn Nets" },
 ];
+
 
 const track = [...logos, ...logos];
 
@@ -67,6 +68,7 @@ export const TrustedPlacesSection = () => {
                   src={logo.src}
                   alt={logo.alt}
                   className="h-20 w-auto object-contain sm:h-16"
+                  style={logo.scale ? { transform: `scale(${logo.scale})`, transformOrigin: "center" } : undefined}
                   loading="lazy"
                   decoding="async"
                 />
