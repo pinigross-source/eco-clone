@@ -42,8 +42,8 @@ export const SafetyFirstSection = () => {
             className="mb-6 font-sans font-bold tracking-[-0.035em] text-[2.5rem] leading-[1.05] sm:text-[3.25rem] lg:text-[3.75rem]"
             style={{ color: "hsl(var(--foreground))" }}
           >
-            Safety{" "}
-            <span style={{ color: "hsl(var(--primary))" }}>First</span>
+            Your Safety.{" "}
+            <span className="text-heading-accent italic font-normal">Our Promise.</span>
           </h2>
 
           <p
