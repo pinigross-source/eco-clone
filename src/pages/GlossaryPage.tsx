@@ -23,7 +23,6 @@ const glossaryTerms: GlossaryTerm[] = [
     extendedDescription: "Common indoor allergens include dust mite fecal proteins (Der p 1, Der f 1), pet dander proteins (Fel d 1 from cats, Can f 1 from dogs), mold spores, cockroach fragments, and pollen. These particles settle on surfaces and become airborne when disturbed. Environmental probiotics help reduce allergen levels by enzymatically breaking down allergenic proteins on surfaces.",
     relatedLinks: [
       { label: "Mold & Allergen Reduction", url: "/mold-and-allergens" },
-      { label: "Health Benefits", url: "/health-benefits" },
     ],
   },
   {
@@ -133,7 +132,6 @@ const glossaryTerms: GlossaryTerm[] = [
     extendedDescription: "The EPA estimates indoor air can be 2–5× more polluted than outdoor air. Poor IAQ contributes to allergies, asthma, headaches, fatigue, and long-term respiratory disease. Sources of indoor air pollution include VOCs from building materials, biological contaminants (mold, bacteria, dust mite allergens), and particulate matter from cooking and pets. Improving IAQ requires addressing both airborne particles and surface-level contamination — which is why EnviroBiotics treats the entire indoor environment, not just filtered air.",
     relatedLinks: [
       { label: "Education Center", url: "/education" },
-      { label: "Health Benefits", url: "/health-benefits" },
     ],
   },
   {
