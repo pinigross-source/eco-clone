@@ -86,14 +86,6 @@ const Index = () => {
                 "radial-gradient(60% 50% at 80% 20%, hsl(var(--primary) / 0.08) 0%, transparent 60%), radial-gradient(50% 40% at 10% 90%, hsl(var(--primary) / 0.05) 0%, transparent 70%)",
             }}
           />
-          {/* Decorative oversized "10" */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-6 top-6 select-none font-sans font-bold leading-none tracking-[-0.08em] text-[12rem] sm:text-[18rem] lg:text-[22rem] lg:-right-10 lg:top-2"
-            style={{ color: "hsl(var(--primary) / 0.06)" }}
-          >
-            10
-          </div>
 
           <div className="relative mx-auto w-full max-w-[1320px] px-5 py-24 sm:px-10 sm:py-28 lg:px-16 lg:py-32">
             <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-12 lg:gap-20">
