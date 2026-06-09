@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "@/lib/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { ShopAccountIcon, ShopCartIcon } from "@/components/ShopIcons";
@@ -6,19 +6,18 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyCart } from "@/lib/shopify";
+import { NavbarSearch } from "./NavbarSearch";
 // Use public path to avoid bundling; preloaded in index.html
 const logo = "/assets/logo.avif";
-
-const NavbarSearch = lazy(() => import("./NavbarSearch").then(m => ({ default: m.NavbarSearch })));
 
 const ShopifyCartLink = () => (
   <a
     href={shopifyCart()}
     aria-label="Open cart on Shopify"
     title="Cart"
-    className="w-10 h-10 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95"
+    className="w-11 h-11 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95"
   >
-    <ShopCartIcon className="w-[22px] h-[22px]" />
+    <ShopCartIcon className="w-[26px] h-[26px]" />
   </a>
 );
 
@@ -78,7 +77,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   if (!item.dropdown) {
     const className = cn(
-      "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+      "relative px-4 xl:px-5 py-2.5 text-lg xl:text-xl font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
       scrolled
         ? "text-foreground hover:text-foreground hover:bg-muted/50"
         : useLight
@@ -101,7 +100,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   const isExternal = /^https?:\/\//.test(item.href);
   const triggerClassName = cn(
-    "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+    "relative px-4 xl:px-5 py-2.5 text-lg xl:text-xl font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
     scrolled
       ? (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
       : useLight
@@ -241,12 +240,12 @@ export const Navbar = () => {
           style={{ width: `${scrollProgress}%` }}
         />
 
-        <div className="container flex h-18 sm:h-20 md:h-[88px] items-center px-4 sm:px-6 relative">
+        <div className="container flex h-20 sm:h-[88px] md:h-[100px] items-center px-4 sm:px-6 relative">
           {/* Mobile: Hamburger */}
           <div className="lg:hidden absolute left-4 z-20">
             <button
               className={cn(
-                "relative flex h-11 w-11 items-center justify-center rounded-full border shadow-sm transition-all duration-300 active:scale-95",
+                "relative flex h-12 w-12 items-center justify-center rounded-full border shadow-sm transition-all duration-300 active:scale-95",
                 isOpen
                   ? "border-primary/30 bg-primary text-primary-foreground"
                   : "border-border/70 bg-background/92 text-foreground hover:bg-background"
@@ -254,8 +253,8 @@ export const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
-              <X className={cn("h-5 w-5 absolute transition-all duration-200", isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90")} />
-              <Menu className={cn("h-5 w-5 absolute transition-all duration-200", isOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0")} />
+              <X className={cn("h-6 w-6 absolute transition-all duration-200", isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90")} />
+              <Menu className={cn("h-6 w-6 absolute transition-all duration-200", isOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0")} />
             </button>
           </div>
 
@@ -264,7 +263,7 @@ export const Navbar = () => {
             <img
               src={logo}
               alt="EnviroBiotics - Environmental Probiotics"
-              className="h-10 sm:h-12 md:h-[82px] w-auto relative z-10"
+              className="h-12 sm:h-14 md:h-[92px] w-auto relative z-10"
               width="210"
               height="72"
               fetchPriority="high"
@@ -273,7 +272,7 @@ export const Navbar = () => {
 
           {/* Mobile: Search + Cart on right */}
           <div className="lg:hidden absolute right-3 z-20 flex items-center gap-1.5">
-            <div className="hidden sm:block"><Suspense fallback={null}><NavbarSearch /></Suspense></div>
+            <div className="hidden sm:block"><NavbarSearch /></div>
             <ShopifyCartLink />
           </div>
 
@@ -289,10 +288,10 @@ export const Navbar = () => {
 
           {/* Desktop: Right side icons (search, account, cart) */}
           <div className="hidden lg:flex items-center gap-2 ml-auto">
-            <Suspense fallback={null}><NavbarSearch /></Suspense>
+            <NavbarSearch />
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
-              <div className="w-10 h-10 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95">
-                <ShopAccountIcon className={cn("w-[22px] h-[22px]", session && "text-primary")} />
+              <div className="w-11 h-11 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95">
+                <ShopAccountIcon className={cn("w-[26px] h-[26px]", session && "text-primary")} />
               </div>
             </Link>
             <ShopifyCartLink />
@@ -309,7 +308,7 @@ export const Navbar = () => {
       )}
       <div
         className={cn(
-          "lg:hidden fixed top-16 sm:top-18 md:top-20 left-0 right-0 z-[200] bg-background border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
+          "lg:hidden fixed top-20 sm:top-[88px] md:top-[100px] left-0 right-0 z-[200] bg-background border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
           isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         )}
       >
@@ -332,7 +331,7 @@ export const Navbar = () => {
               {link.dropdown ? (
                 <>
                   <button
-                    className="w-full text-sm sm:text-base font-bold text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between"
+                    className="w-full text-base sm:text-lg font-bold text-foreground hover:bg-muted/50 px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all flex items-center justify-between"
                     onClick={() => setExpandedMobile(expandedMobile === link.label ? null : link.label)}
                   >
                     <span>{link.label}</span>
@@ -345,7 +344,7 @@ export const Navbar = () => {
                     <div className="pl-4 pr-2 pb-1 space-y-0.5">
                       {link.dropdown.map(({ label, href }) => {
                         const mExt = /^https?:\/\//.test(href);
-                        const mClass = "block px-3 py-2.5 rounded-lg hover:bg-muted/50 transition-colors text-sm font-normal text-foreground";
+                        const mClass = "block px-3 py-3 rounded-lg hover:bg-muted/50 transition-colors text-base font-normal text-foreground";
                         return mExt ? (
                           <a key={label} href={href} target="_top" rel="noopener" className={mClass} onClick={() => setIsOpen(false)}>{label}</a>
                         ) : (
@@ -354,7 +353,7 @@ export const Navbar = () => {
                       })}
                       <Link
                         to={link.href}
-                        className="block px-3 py-2 text-sm font-normal text-primary"
+                        className="block px-3 py-3 text-base font-normal text-primary"
                         onClick={() => setIsOpen(false)}
                       >
                         View All {link.label}
@@ -367,7 +366,7 @@ export const Navbar = () => {
                   href={link.href}
                   target="_top"
                   rel="noopener"
-                  className="text-sm sm:text-base font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
+                  className="text-base sm:text-lg font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{link.label}</span>
@@ -375,7 +374,7 @@ export const Navbar = () => {
               ) : (
                 <Link
                   to={link.href}
-                  className="text-sm sm:text-base font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
+                  className="text-base sm:text-lg font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{link.label}</span>
