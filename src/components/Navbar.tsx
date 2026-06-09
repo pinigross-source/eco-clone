@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Link } from "@/lib/link";
-import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { ShopAccountIcon, ShopCartIcon } from "@/components/ShopIcons";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
