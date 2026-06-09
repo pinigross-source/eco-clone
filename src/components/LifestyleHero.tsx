@@ -46,27 +46,28 @@ export const LifestyleHero = ({
           decoding="async"
         />
 
-        {/* Soft dark gradient: concentrated behind text (bottom on mobile, left on desktop), photo stays bright elsewhere */}
+        {/* Soft light wash: brightens the photo and keeps black text readable */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent md:bg-gradient-to-r md:from-black/70 md:via-black/30 md:to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/30 to-transparent md:bg-gradient-to-r md:from-white/75 md:via-white/35 md:to-transparent"
         />
 
         {/* Content */}
         <div className="relative z-10 flex min-h-[70vh] md:min-h-[82vh] items-end md:items-center">
           <div className="container px-5 sm:px-6 pb-10 md:pb-0">
-            <div className="max-w-2xl text-white" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.45)" }}>
+            <div className="max-w-2xl text-foreground">
               {eyebrow && (
-                <p className="text-[11px] sm:text-xs font-semibold tracking-[0.28em] uppercase text-white/90 mb-4 sm:mb-5">
+                <p className="text-[11px] sm:text-xs font-semibold tracking-[0.28em] uppercase text-foreground/80 mb-4 sm:mb-5">
                   {eyebrow}
                 </p>
               )}
-              <h1 className="font-display font-bold tracking-tight text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-5 sm:mb-6 !text-white">
+              <h1 className="font-display font-bold tracking-tight text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-5 sm:mb-6 text-foreground">
                 {title}
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed max-w-xl mb-7 sm:mb-9">
+              <p className="text-base sm:text-lg md:text-xl text-foreground/85 leading-relaxed max-w-xl mb-7 sm:mb-9">
                 {subcopy}
               </p>
+
               {onCtaClick ? (
                 <Button variant="hero" size="lg" onClick={onCtaClick} className="rounded-full shadow-none hover:shadow-none transform-none hover:translate-y-0">
                   {ctaContent}
