@@ -131,7 +131,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
       <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[280px]">
         {item.dropdown.map(({ label, href }) => {
           const itemExternal = /^https?:\/\//.test(href);
-          const itemClass = "block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-lg font-normal text-foreground";
+          const itemClass = "block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-xl font-normal text-foreground";
           return itemExternal ? (
             <a key={label} href={href} target="_top" rel="noopener" className={itemClass} onClick={() => setOpen(false)}>
               {label}
@@ -148,7 +148,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
               href={item.href}
               target="_top"
               rel="noopener"
-              className="block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-lg font-normal text-primary"
+              className="block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-xl font-normal text-primary"
               onClick={() => setOpen(false)}
             >
               View All {item.label}
@@ -156,7 +156,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
           ) : (
             <Link
               to={item.href}
-              className="block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-lg font-normal text-primary"
+              className="block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-xl font-normal text-primary"
               onClick={() => setOpen(false)}
             >
               View All {item.label}
@@ -344,7 +344,7 @@ export const Navbar = () => {
                     <div className="pl-4 pr-2 pb-1 space-y-0.5">
                       {link.dropdown.map(({ label, href }) => {
                         const mExt = /^https?:\/\//.test(href);
-                        const mClass = "block px-3 py-3 rounded-lg hover:bg-muted/50 transition-colors text-base font-normal text-foreground";
+                        const mClass = "block px-3 py-3 rounded-lg hover:bg-muted/50 transition-colors text-lg font-normal text-foreground";
                         return mExt ? (
                           <a key={label} href={href} target="_top" rel="noopener" className={mClass} onClick={() => setIsOpen(false)}>{label}</a>
                         ) : (
@@ -353,7 +353,7 @@ export const Navbar = () => {
                       })}
                       <Link
                         to={link.href}
-                        className="block px-3 py-3 text-base font-normal text-primary"
+                        className="block px-3 py-3 text-lg font-normal text-primary"
                         onClick={() => setIsOpen(false)}
                       >
                         View All {link.label}
