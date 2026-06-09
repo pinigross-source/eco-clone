@@ -120,9 +120,6 @@ export const HowItWorksSection = () => {
                     <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-background/70 backdrop-blur-xl flex items-center justify-center shadow-[0_10px_30px_-10px_hsl(var(--foreground)/0.15)] relative z-10">
                       <Icon className="h-6 w-6 md:h-8 md:w-8 text-primary" strokeWidth={1.5} />
                     </div>
-                    <span className="absolute -top-1.5 -right-1.5 md:-top-2 md:-right-2 w-7 h-7 md:w-9 md:h-9 rounded-full bg-primary text-primary-foreground text-[10px] md:text-xs font-bold flex items-center justify-center z-20 shadow-md">
-                      {number}
-                    </span>
                   </div>
 
                   <div className="flex-1 min-w-0 pt-1 md:pt-0">
