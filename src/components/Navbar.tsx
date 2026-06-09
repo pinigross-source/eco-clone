@@ -272,7 +272,7 @@ export const Navbar = () => {
 
           {/* Mobile: Search + Cart on right */}
           <div className="lg:hidden absolute right-3 z-20 flex items-center gap-1.5">
-            <div className="hidden sm:block"><Suspense fallback={null}><NavbarSearch /></Suspense></div>
+            <div className="hidden sm:block"><NavbarSearch /></div>
             <ShopifyCartLink />
           </div>
 
@@ -288,7 +288,7 @@ export const Navbar = () => {
 
           {/* Desktop: Right side icons (search, account, cart) */}
           <div className="hidden lg:flex items-center gap-2 ml-auto">
-            <Suspense fallback={null}><NavbarSearch /></Suspense>
+            <NavbarSearch />
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
               <div className="w-10 h-10 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95">
                 <ShopAccountIcon className={cn("w-[22px] h-[22px]", session && "text-primary")} />
