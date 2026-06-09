@@ -81,7 +81,7 @@ export const TestimonialsSection = () => {
             <span className="text-heading-accent">Real surfaces.</span>{" "}
             Real changes.
           </h2>
-          <p className="mt-3 text-xs text-muted-foreground/50 italic">
+          <p className="mt-4 text-sm text-muted-foreground/60">
             Already at 5000+ homes.
           </p>
         </ScrollReveal>
