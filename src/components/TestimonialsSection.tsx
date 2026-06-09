@@ -82,7 +82,7 @@ export const TestimonialsSection = () => {
             Real changes.
           </h2>
           <p className="mt-3 text-xs text-muted-foreground/50 italic">
-            Already at 5000+ homes. Individual results vary by space and conditions.
+            Already at 5000+ homes.
           </p>
         </ScrollReveal>
 
