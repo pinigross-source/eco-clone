@@ -360,6 +360,42 @@ const GlossaryPage = () => {
           </p>
         )}
 
+        {/* FAQs */}
+        <section className="mt-16 pt-12 border-t border-border">
+          <h2 className="text-3xl font-display font-bold text-foreground mb-8">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-6">
+            {[
+              {
+                q: "What is an environmental probiotic?",
+                a: "An environmental probiotic is a beneficial microorganism — in our case, a Bacillus bacterium — that is released into your indoor space to compete with harmful microbes, allergens, and odors. Unlike dietary probiotics taken for gut health, environmental probiotics work on the air and surfaces around you.",
+              },
+              {
+                q: "How is this different from a HEPA air purifier?",
+                a: "A HEPA filter only treats air that passes through the device. It cannot reach the surfaces, fabrics, or HVAC ducts where up to 80% of allergens settle. Environmental probiotics keep working on every surface in the room, 24/7, between cleanings.",
+              },
+              {
+                q: "Is it safe for children and pets?",
+                a: "Yes. The Bacillus strains we use are FDA GRAS (Generally Recognized As Safe), MADE SAFE® certified, and produce zero ozone. They are designed for continuous exposure in homes with kids, pets, and people with sensitivities.",
+              },
+              {
+                q: "How long does it take to notice a difference?",
+                a: "Most people notice fresher air and fewer odors within a few days. Allergen levels and biofilm reduction build over 3–4 weeks of continuous use as the probiotic layer establishes itself across surfaces.",
+              },
+              {
+                q: "Does it replace cleaning?",
+                a: "No. Cleaning removes the visible mess; probiotics keep working between cleanings on what you can't see — breaking down allergens and competing with harmful microbes on every surface.",
+              },
+            ].map((faq) => (
+              <article key={faq.q} className="rounded-2xl border border-border/60 bg-card p-6">
+                <h3 className="text-lg font-display font-semibold text-foreground mb-2">{faq.q}</h3>
+                <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <RelatedTopics currentPath="/glossary" />
       </main>
       <Footer />
