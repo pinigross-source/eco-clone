@@ -78,14 +78,12 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   if (!item.dropdown) {
     const className = cn(
-      "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
-      item.bold
-        ? "font-bold text-foreground hover:text-foreground/80"
-        : scrolled
-          ? "font-medium text-foreground hover:text-foreground hover:bg-muted/50"
-          : useLight
-            ? "font-medium text-white hover:text-white hover:bg-white/10"
-            : "font-medium text-foreground hover:text-foreground hover:bg-muted/50"
+      "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+      scrolled
+        ? "text-foreground hover:text-foreground hover:bg-muted/50"
+        : useLight
+          ? "text-white hover:text-white hover:bg-white/10"
+          : "text-foreground hover:text-foreground hover:bg-muted/50"
     );
     if (/^https?:\/\//.test(item.href)) {
       return (
@@ -103,15 +101,12 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   const isExternal = /^https?:\/\//.test(item.href);
   const triggerClassName = cn(
-    "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
-    item.bold ? "font-bold" : "font-medium",
-    item.bold
-      ? "text-foreground hover:text-foreground/80"
-      : scrolled
-        ? (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
-        : useLight
-          ? (open ? "text-white bg-white/10" : "text-white hover:text-white hover:bg-white/10")
-          : (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
+    "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+    scrolled
+      ? (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
+      : useLight
+        ? (open ? "text-white bg-white/10" : "text-white hover:text-white hover:bg-white/10")
+        : (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
   );
 
   return (
