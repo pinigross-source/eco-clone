@@ -137,10 +137,10 @@ export const NavbarSearch = () => {
       {/* trigger button */}
       <button
         onClick={() => setOpen(true)}
-        className="flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm transition-colors hover:bg-background hover:scale-105 active:scale-95"
+        className="flex h-10 w-10 items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95"
         aria-label="Search"
       >
-        <Search className="h-5 w-5 text-foreground/80" />
+        <Search className="h-[22px] w-[22px]" strokeWidth={1.75} />
       </button>
 
       {/* overlay */}
