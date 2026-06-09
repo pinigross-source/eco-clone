@@ -94,7 +94,7 @@ const Index = () => {
                   className="font-sans font-normal tracking-[-0.035em] text-[2rem] leading-[1.08] sm:text-[2.75rem] lg:text-[3.25rem] lg:leading-[1.04]"
                   style={{ color: "hsl(var(--foreground))" }}
                 >
-                  Enjoy the benefits of accurately applied research, When you enjoy our planet <span className="font-bold">earth does too.</span>
+                  Enjoy the benefits of accurately applied research. <span className="font-bold">When you thrive, our planet does too.</span>
                 </h2>
 
               </div>
