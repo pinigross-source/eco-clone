@@ -96,7 +96,7 @@ const BlogPage = () => {
           image={heroBlogLifestyle}
           imageAlt="Woman reading by a sunlit window in a calm Scandinavian home"
           eyebrow="Stories & Insights"
-          title={<>Living a little better indoors</>}
+          title={<><span className="block">Living a little better</span><span className="block text-heading-accent italic font-normal">indoors</span></>}
           subcopy="Insights on indoor wellness, probiotic technology, and creating healthier spaces for your family."
           ctaLabel="Read the Latest"
           ctaHref="#latest-posts"
