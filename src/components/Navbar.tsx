@@ -77,7 +77,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   if (!item.dropdown) {
     const className = cn(
-      "relative px-4 xl:px-5 py-2.5 text-lg xl:text-xl font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+      "relative px-2 xl:px-3 py-2 text-base xl:text-lg 2xl:text-xl font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
       scrolled
         ? "text-foreground hover:text-foreground hover:bg-muted/50"
         : useLight
@@ -100,7 +100,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   const isExternal = /^https?:\/\//.test(item.href);
   const triggerClassName = cn(
-    "relative px-4 xl:px-5 py-2.5 text-lg xl:text-xl font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+    "relative px-2 xl:px-3 py-2 text-base xl:text-lg 2xl:text-xl font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
     scrolled
       ? (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
       : useLight
@@ -259,7 +259,7 @@ export const Navbar = () => {
           </div>
 
           {/* Logo */}
-          <Link to="/" className="flex items-center group relative lg:relative mx-auto lg:mx-0 lg:mr-6 xl:mr-8 flex-shrink-0">
+          <Link to="/" className="flex items-center group relative lg:relative mx-auto lg:mx-0 lg:mr-4 xl:mr-6 flex-shrink-0">
             <img
               src={logo}
               alt="EnviroBiotics - Environmental Probiotics"
@@ -276,10 +276,10 @@ export const Navbar = () => {
             <ShopifyCartLink />
           </div>
 
-          {/* Desktop Navigation — absolutely centered */}
+          {/* Desktop Navigation — centered, flex-grow */}
           <nav
             aria-label="Main navigation"
-            className="hidden lg:flex items-center gap-6 xl:gap-10 2xl:gap-14 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+            className="hidden lg:flex flex-1 items-center justify-center gap-3 xl:gap-6 2xl:gap-10"
           >
             {navLinks.map((link) => (
               <NavDropdown key={link.label} item={link} scrolled={scrolled} useLight={useLight} />
@@ -287,7 +287,7 @@ export const Navbar = () => {
           </nav>
 
           {/* Desktop: Right side icons (search, account, cart) */}
-          <div className="hidden lg:flex items-center gap-2 ml-auto">
+          <div className="hidden lg:flex items-center gap-1 flex-shrink-0">
             <NavbarSearch />
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
               <div className="w-11 h-11 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95">
