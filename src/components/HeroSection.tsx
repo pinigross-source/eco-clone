@@ -125,44 +125,6 @@ export const HeroSection = () => {
             You make every effort to stay healthy. You eat well and exercise often because you want to be at your best for yourself and for the people who depend on you.
           </p>
 
-          {/* Primary above-the-fold CTA */}
-          <div className="flex flex-col items-center gap-3 sm:items-start">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
-                href="https://shop.envirobiotics.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-cta="hero_shop"
-                onClick={() => trackEvent("cta_click", { location: "hero", label: "shop_devices" })}
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-7 py-4 text-[0.95rem] font-semibold text-background shadow-[0_10px_30px_-10px_hsl(var(--foreground)/0.4)] transition-all hover:-translate-y-0.5 hover:bg-primary hover:text-primary-foreground"
-              >
-                Shop Devices from $98
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <Link
-                to="/allergy"
-                data-cta="hero_quiz"
-                onClick={() => trackEvent("cta_click", { location: "hero", label: "find_solution" })}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-foreground/20 px-6 py-4 text-[0.9rem] font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:border-foreground/40"
-              >
-                Find My Solution
-              </Link>
-            </div>
-            <div
-              className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[0.8rem] sm:justify-start"
-              style={{ color: "hsl(var(--foreground) / 0.6)" }}
-            >
-              <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck className="h-3.5 w-3.5 text-primary" />
-                30-day money-back
-              </span>
-              <span className="h-1 w-1 rounded-full bg-foreground/25" />
-              <span>Free U.S. shipping</span>
-              <span className="h-1 w-1 rounded-full bg-foreground/25" />
-              <span>5,000+ homes</span>
-            </div>
-          </div>
-
           <img
             src={heroMobile}
             alt="Healthy lifestyle"
