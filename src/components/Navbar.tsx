@@ -77,7 +77,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   if (!item.dropdown) {
     const className = cn(
-      "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+      "relative px-4 xl:px-5 py-2.5 text-lg xl:text-xl font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
       scrolled
         ? "text-foreground hover:text-foreground hover:bg-muted/50"
         : useLight
@@ -100,7 +100,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   const isExternal = /^https?:\/\//.test(item.href);
   const triggerClassName = cn(
-    "relative px-4 xl:px-5 py-2.5 text-[17px] xl:text-lg font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+    "relative px-4 xl:px-5 py-2.5 text-lg xl:text-xl font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
     scrolled
       ? (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
       : useLight
@@ -240,7 +240,7 @@ export const Navbar = () => {
           style={{ width: `${scrollProgress}%` }}
         />
 
-        <div className="container flex h-18 sm:h-20 md:h-[88px] items-center px-4 sm:px-6 relative">
+        <div className="container flex h-20 sm:h-[88px] md:h-[100px] items-center px-4 sm:px-6 relative">
           {/* Mobile: Hamburger */}
           <div className="lg:hidden absolute left-4 z-20">
             <button
@@ -263,7 +263,7 @@ export const Navbar = () => {
             <img
               src={logo}
               alt="EnviroBiotics - Environmental Probiotics"
-              className="h-10 sm:h-12 md:h-[82px] w-auto relative z-10"
+              className="h-12 sm:h-14 md:h-[92px] w-auto relative z-10"
               width="210"
               height="72"
               fetchPriority="high"
@@ -290,8 +290,8 @@ export const Navbar = () => {
           <div className="hidden lg:flex items-center gap-2 ml-auto">
             <NavbarSearch />
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
-              <div className="w-10 h-10 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95">
-                <ShopAccountIcon className={cn("w-[22px] h-[22px]", session && "text-primary")} />
+              <div className="w-11 h-11 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95">
+                <ShopAccountIcon className={cn("w-[26px] h-[26px]", session && "text-primary")} />
               </div>
             </Link>
             <ShopifyCartLink />
@@ -308,7 +308,7 @@ export const Navbar = () => {
       )}
       <div
         className={cn(
-          "lg:hidden fixed top-16 sm:top-18 md:top-20 left-0 right-0 z-[200] bg-background border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
+          "lg:hidden fixed top-20 sm:top-[88px] md:top-[100px] left-0 right-0 z-[200] bg-background border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
           isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         )}
       >
@@ -331,7 +331,7 @@ export const Navbar = () => {
               {link.dropdown ? (
                 <>
                   <button
-                    className="w-full text-sm sm:text-base font-bold text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between"
+                    className="w-full text-base sm:text-lg font-bold text-foreground hover:bg-muted/50 px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all flex items-center justify-between"
                     onClick={() => setExpandedMobile(expandedMobile === link.label ? null : link.label)}
                   >
                     <span>{link.label}</span>
@@ -366,7 +366,7 @@ export const Navbar = () => {
                   href={link.href}
                   target="_top"
                   rel="noopener"
-                  className="text-sm sm:text-base font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
+                  className="text-base sm:text-lg font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{link.label}</span>
@@ -374,7 +374,7 @@ export const Navbar = () => {
               ) : (
                 <Link
                   to={link.href}
-                  className="text-sm sm:text-base font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
+                  className="text-base sm:text-lg font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{link.label}</span>
