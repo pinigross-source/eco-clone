@@ -44,6 +44,13 @@ const allTestimonials = [
     rating: 5,
     avatar: "D",
   },
+  {
+    name: "Eric Feldman",
+    category: "Mold & musty spaces",
+    text: "Years ago, we started to experience a moldy odor in our bedroom. We tried sprays and deodorizers, but the moldy smell always returned. We turned to a local environmental contractor who examined our room for signs of mold, but there was nothing evident. He suggested we try the Biotica800 probiotic purification machine. We were skeptical at first, but it quickly neutralized the odors and it has never returned. The system is compact, takes up little space, and is quiet enough that it doesn't disturb our sleep at all. I highly recommend this system to anyone looking for a more permanent solution to indoor air problems.",
+    rating: 5,
+    avatar: "E",
+  },
 ];
 
 const TestimonialCard = ({ name, category, text, rating, avatar, image }: {
