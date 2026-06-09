@@ -108,9 +108,6 @@ export const SizedToYourSpaceSection = () => {
                   Bedrooms, personal office, vehicle, anywhere you go.
                 </p>
                 <div className="border-t border-foreground/10 pt-5 mt-auto">
-                  <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">
-                    Paired with
-                  </p>
                   <p className="text-base font-semibold text-heading-accent mb-3">BioLogic Mini</p>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                     Your personal portable guardian. Compact and fully portable, plug it in anywhere and pack it when you travel.
@@ -156,9 +153,6 @@ export const SizedToYourSpaceSection = () => {
                   Large halls, common areas, open-plan living.
                 </p>
                 <div className="border-t border-foreground/10 pt-5 mt-auto">
-                  <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">
-                    Paired with
-                  </p>
                   <p className="text-base font-semibold text-heading-accent mb-3">Biotica 800</p>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                     Set-and-forget coverage for the spaces you spend the most time in. Pairs with BioLogic Mini for separated smaller rooms.
@@ -235,9 +229,6 @@ export const SizedToYourSpaceSection = () => {
               </p>
 
               <div className="border-t border-foreground/10 pt-6 mb-8 max-w-md">
-                <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-2">
-                  Paired with
-                </p>
                 <p className="text-lg font-semibold text-heading-accent mb-2">E-Biotic Home</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Integrated probiotic coverage for the entire home, refilled on schedule.
