@@ -58,11 +58,16 @@ export const FinalCTASection = () => {
                   <Button
                     variant="hero"
                     size="impact-lg"
-                    onClick={() => trackEvent("click_start_trial_final")}
+                    onClick={() => trackEvent("cta_click", { location: "final", label: "start_trial" })}
                     asChild
                     className="group bg-foreground text-background hover:bg-primary hover:text-primary-foreground hover:shadow-[0_20px_40px_-10px_hsl(var(--primary)/0.4)] transition-all duration-300 rounded-full"
                   >
-                    <a href="https://shop.envirobiotics.com" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://shop.envirobiotics.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cta="final_start_trial"
+                    >
                       Start My Trial
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </a>
@@ -72,6 +77,8 @@ export const FinalCTASection = () => {
                     <span>U.S. customers only</span>
                     <span className="w-1 h-1 bg-foreground/30 rounded-full" />
                     <span>Free returns</span>
+                    <span className="w-1 h-1 bg-foreground/30 rounded-full" />
+                    <span>5,000+ homes</span>
                   </div>
                 </div>
               </div>

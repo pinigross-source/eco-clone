@@ -73,6 +73,35 @@ const Index = () => {
         <MicroscopicWorldSection />
         <SafetyFirstSection />
         <TestimonialsSection />
+
+        {/* Mid-page conversion band */}
+        <section className="relative w-full border-y border-foreground/10 bg-foreground/[0.02]">
+          <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-6 px-5 py-12 sm:flex-row sm:px-10 sm:py-14 lg:px-16">
+            <div className="text-center sm:text-left">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-primary">Join 5,000+ homes</p>
+              <h3 className="mt-2 font-display text-2xl font-bold leading-tight text-foreground sm:text-3xl">
+                Ready for cleaner surfaces, naturally?
+              </h3>
+              <p className="mt-1 text-sm text-foreground/65 sm:text-base">
+                30-day money-back guarantee · Free U.S. shipping
+              </p>
+            </div>
+            <a
+              href="https://shop.envirobiotics.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta="mid_band_shop"
+              onClick={() => {
+                try { window.dispatchEvent(new CustomEvent('eb_track', { detail: { name: 'cta_click', location: 'mid_band', label: 'shop_devices' } })); } catch {}
+              }}
+              className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-foreground px-7 py-4 text-sm font-semibold text-background transition-all hover:-translate-y-0.5 hover:bg-primary hover:text-primary-foreground"
+            >
+              Shop Devices from $98
+              <span className="transition-transform group-hover:translate-x-1">→</span>
+            </a>
+          </div>
+        </section>
+
         <TrustedPlacesSection />
         <SizedToYourSpaceSection />
 

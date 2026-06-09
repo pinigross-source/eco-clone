@@ -117,6 +117,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
+            __html: `(function(){try{var BENIGN=[/ResizeObserver loop/i,/messageHandlers/i,/window\\.webkit/i];var match=function(m){return typeof m==='string'&&BENIGN.some(function(r){return r.test(m)})};window.addEventListener('error',function(e){if(match(e&&e.message)){e.stopImmediatePropagation();e.preventDefault();}},true);window.addEventListener('unhandledrejection',function(e){var m=e&&e.reason&&(e.reason.message||String(e.reason));if(match(m)){e.stopImmediatePropagation();e.preventDefault();}});}catch(_){}})();`,
+          }}
+        />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
             __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "x3td09c108");`,
           }}
         />
