@@ -240,7 +240,7 @@ const VideosPage = () => {
           image={heroVideosLifestyle}
           imageAlt="Person watching a calm Scandinavian living room scene"
           eyebrow="Watch & Learn"
-          title={<>See it <span className="text-heading-accent italic font-normal">in action</span></>}
+          title={<><span className="block">See it</span><span className="block text-heading-accent italic font-normal">in action</span></>}
           subcopy="Demonstrations, installation walkthroughs, and the science behind environmental probiotics."
           ctaLabel="Browse Videos"
           ctaHref="#video-library"

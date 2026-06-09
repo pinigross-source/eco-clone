@@ -226,7 +226,7 @@ const SupportPage = () => {
         <LifestyleHero
           image={heroSupportLifestyle}
           imageAlt="Calm Scandinavian living room with diffused natural light"
-          title={<>How can we <span className="text-heading-accent italic font-normal">help you?</span></>}
+          title={<><span className="block">How can we</span><span className="block text-heading-accent italic font-normal">help you?</span></>}
           subcopy="Our dedicated support team is here to assist you with any questions about our probiotic solutions for healthier indoor environments."
           ctaLabel="Contact Support"
           ctaHref="#contact-form"
