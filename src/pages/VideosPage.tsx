@@ -8,7 +8,8 @@ import { videoCategories, getVideosByCategory, Video as VideoType } from "@/data
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { LifestyleHero } from "@/components/LifestyleHero";
-import heroVideosLifestyle from "@/assets/hero-videos-lifestyle.jpg";
+import heroVideosLifestyleAsset from "@/assets/resources-hero.avif.asset.json";
+const heroVideosLifestyle = heroVideosLifestyleAsset.url;
 const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").then(m => ({ default: m.ContentProductCTA })));
 
 const videosPageJsonLd = {
@@ -239,8 +240,8 @@ const VideosPage = () => {
           image={heroVideosLifestyle}
           imageAlt="Person watching a calm Scandinavian living room scene"
           eyebrow="Watch & Learn"
-          title={<>See it <span className="text-primary">in action</span></>}
-          subcopy="Demos, installation walkthroughs, and the science behind environmental probiotics, in calm, watchable shorts."
+          title={<>See it <span className="text-heading-accent italic font-normal">in action</span></>}
+          subcopy="Demonstrations, installation walkthroughs, and the science behind environmental probiotics."
           ctaLabel="Browse Videos"
           ctaHref="#video-library"
         />
@@ -257,15 +258,16 @@ const VideosPage = () => {
             >
               <div className="container">
                 <ScrollReveal>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-1 h-8 bg-primary rounded-full" />
+                  <div className="mb-10">
                     <h2 className="text-2xl md:text-3xl font-display font-bold">
                       {category.title}
                     </h2>
+                    {category.description && (
+                      <p className="text-muted-foreground mt-3 max-w-2xl">
+                        {category.description}
+                      </p>
+                    )}
                   </div>
-                  <p className="text-muted-foreground mb-10 max-w-2xl">
-                    {category.description}
-                  </p>
                 </ScrollReveal>
                 
                 <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -285,12 +287,9 @@ const VideosPage = () => {
           <div className="container">
             <ScrollReveal>
               <div className="text-center max-w-3xl mx-auto p-8 md:p-12 rounded-3xl glass-card border border-primary/20">
-                <h2 className="text-2xl md:text-3xl font-display font-bold mb-4">
+                <h2 className="text-2xl md:text-3xl font-display font-bold mb-8">
                   Looking for More Information?
                 </h2>
-                <p className="text-muted-foreground mb-8">
-                  Explore our research, read articles, or get in touch with our support team.
-                </p>
                 <div className="flex flex-wrap gap-4 justify-center">
                   <Link
                     to="/blog"
@@ -321,7 +320,6 @@ const VideosPage = () => {
         <section className="container max-w-4xl px-4">
           <ContentProductCTA
             headline="See the technology in action at home"
-            subtitle="Choose the EnviroBiotics device that fits your space and start experiencing the difference."
           />
         </section>
       </main>

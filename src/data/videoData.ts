@@ -11,13 +11,13 @@ export interface Video {
 export const videoCategories = [
   {
     id: "innovation-mission",
-    title: "Innovation & Mission",
-    description: "Discover our journey and commitment to healthier indoor environments",
+    title: "The Mission and the Team",
+    description: "",
   },
   {
     id: "solving-problems",
     title: "Innovation That Solves Problems",
-    description: "Learn about the challenges we address and our innovative solutions",
+    description: "",
   },
   {
     id: "products",

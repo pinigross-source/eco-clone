@@ -23,7 +23,6 @@ const glossaryTerms: GlossaryTerm[] = [
     extendedDescription: "Common indoor allergens include dust mite fecal proteins (Der p 1, Der f 1), pet dander proteins (Fel d 1 from cats, Can f 1 from dogs), mold spores, cockroach fragments, and pollen. These particles settle on surfaces and become airborne when disturbed. Environmental probiotics help reduce allergen levels by enzymatically breaking down allergenic proteins on surfaces.",
     relatedLinks: [
       { label: "Mold & Allergen Reduction", url: "/mold-and-allergens" },
-      { label: "Health Benefits", url: "/health-benefits" },
     ],
   },
   {
@@ -42,7 +41,7 @@ const glossaryTerms: GlossaryTerm[] = [
     definition: "A structured community of microorganisms that adheres to surfaces and is enclosed in a self-produced protective matrix.",
     extendedDescription: "Biofilms form when bacteria attach to surfaces and produce an extracellular polymeric substance (EPS) — a slimy matrix that shields them from cleaning agents, UV light, and immune responses. Biofilms are found on kitchen counters, bathroom tiles, HVAC ductwork, medical devices, and water pipes. They are extremely difficult to remove with conventional cleaning because the EPS matrix protects embedded organisms. Probiotic-based approaches disrupt biofilm communities by competing for surface space and nutrients, gradually weakening the biofilm structure over time.",
     relatedLinks: [
-      { label: "Education Center", url: "/education" },
+      { label: "Probiotic Air Purification", url: "/probiotic-air-purification" },
       { label: "HVAC Applications", url: "/hvac-applications" },
     ],
   },
@@ -133,7 +132,6 @@ const glossaryTerms: GlossaryTerm[] = [
     extendedDescription: "The EPA estimates indoor air can be 2–5× more polluted than outdoor air. Poor IAQ contributes to allergies, asthma, headaches, fatigue, and long-term respiratory disease. Sources of indoor air pollution include VOCs from building materials, biological contaminants (mold, bacteria, dust mite allergens), and particulate matter from cooking and pets. Improving IAQ requires addressing both airborne particles and surface-level contamination — which is why EnviroBiotics treats the entire indoor environment, not just filtered air.",
     relatedLinks: [
       { label: "Education Center", url: "/education" },
-      { label: "Health Benefits", url: "/health-benefits" },
     ],
   },
   {
@@ -295,15 +293,12 @@ const GlossaryPage = () => {
         </nav>
 
         <ScrollReveal>
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-8">
             <BookOpen className="h-8 w-8 text-primary" />
             <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground">
               Glossary
             </h1>
           </div>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            A comprehensive guide to the science and terminology behind <Link to="/probiotic-air-purification" className="text-primary underline hover:text-primary/80">probiotic air purification</Link>, indoor air quality, and <Link to="/education" className="text-primary underline hover:text-primary/80">environmental probiotics</Link>. Understanding these concepts helps you make informed decisions about protecting your indoor environment.
-          </p>
         </ScrollReveal>
 
         {/* Search + Letter nav */}
@@ -364,6 +359,42 @@ const GlossaryPage = () => {
             No terms match "{filter}". Try a different search.
           </p>
         )}
+
+        {/* FAQs */}
+        <section className="mt-16 pt-12 border-t border-border">
+          <h2 className="text-3xl font-display font-bold text-foreground mb-8">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-6">
+            {[
+              {
+                q: "What is an environmental probiotic?",
+                a: "An environmental probiotic is a beneficial microorganism — in our case, a Bacillus bacterium — that is released into your indoor space to compete with harmful microbes, allergens, and odors. Unlike dietary probiotics taken for gut health, environmental probiotics work on the air and surfaces around you.",
+              },
+              {
+                q: "How is this different from a HEPA air purifier?",
+                a: "A HEPA filter only treats air that passes through the device. It cannot reach the surfaces, fabrics, or HVAC ducts where up to 80% of allergens settle. Environmental probiotics keep working on every surface in the room, 24/7, between cleanings.",
+              },
+              {
+                q: "Is it safe for children and pets?",
+                a: "Yes. The Bacillus strains we use are FDA GRAS (Generally Recognized As Safe), MADE SAFE® certified, and produce zero ozone. They are designed for continuous exposure in homes with kids, pets, and people with sensitivities.",
+              },
+              {
+                q: "How long does it take to notice a difference?",
+                a: "Most people notice fresher air and fewer odors within a few days. Allergen levels and biofilm reduction build over 3–4 weeks of continuous use as the probiotic layer establishes itself across surfaces.",
+              },
+              {
+                q: "Does it replace cleaning?",
+                a: "No. Cleaning removes the visible mess; probiotics keep working between cleanings on what you can't see — breaking down allergens and competing with harmful microbes on every surface.",
+              },
+            ].map((faq) => (
+              <article key={faq.q} className="rounded-2xl border border-border/60 bg-card p-6">
+                <h3 className="text-lg font-display font-semibold text-foreground mb-2">{faq.q}</h3>
+                <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <RelatedTopics currentPath="/glossary" />
       </main>

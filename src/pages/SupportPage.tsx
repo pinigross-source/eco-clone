@@ -34,7 +34,8 @@ import biotica800Img from "@/assets/shop/biotica-800.png";
 import ba2080Img from "@/assets/shop/ba2080.png";
 import ebioticProImg from "@/assets/ebiotic-pro.avif";
 import { LifestyleHero } from "@/components/LifestyleHero";
-import heroSupportLifestyle from "@/assets/hero-support-lifestyle.jpg";
+import heroSupportLifestyleAsset from "@/assets/resources-hero.avif.asset.json";
+const heroSupportLifestyle = heroSupportLifestyleAsset.url;
 
 const supportOptions = [
   {
@@ -225,8 +226,7 @@ const SupportPage = () => {
         <LifestyleHero
           image={heroSupportLifestyle}
           imageAlt="Calm Scandinavian living room with diffused natural light"
-          eyebrow="Customer Support"
-          title={<>How can we <span className="text-primary">help you?</span></>}
+          title={<>How can we <span className="text-heading-accent italic font-normal">help you?</span></>}
           subcopy="Our dedicated support team is here to assist you with any questions about our probiotic solutions for healthier indoor environments."
           ctaLabel="Contact Support"
           ctaHref="#contact-form"
@@ -280,12 +280,9 @@ const SupportPage = () => {
           <div className="container">
             <ScrollReveal>
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+                <h2 className="text-3xl md:text-4xl font-display font-bold">
                   Product Resources & Support
                 </h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Access user manuals, quick start guides, and video tutorials for your EnviroBiotics device.
-                </p>
               </div>
             </ScrollReveal>
 
@@ -391,10 +388,7 @@ const SupportPage = () => {
               {/* Contact Form */}
               <ScrollReveal variant="fadeRight">
                 <div id="contact-form" className="p-8 rounded-2xl glass-card">
-                  <h2 className="text-2xl font-display font-bold mb-2">Send Us a Message</h2>
-                  <p className="text-muted-foreground mb-6">
-                    Fill out the form below and we'll get back to you as soon as possible.
-                  </p>
+                  <h2 className="text-2xl font-display font-bold mb-6">Send Us a Message</h2>
                   
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid sm:grid-cols-2 gap-4">
@@ -472,12 +466,7 @@ const SupportPage = () => {
               {/* Contact Info */}
               <ScrollReveal variant="fadeLeft" delay={0.2}>
                 <div className="space-y-6">
-                  <div>
-                    <h2 className="text-2xl font-display font-bold mb-2">Get in Touch</h2>
-                    <p className="text-muted-foreground">
-                      Prefer to reach out directly? Here's how you can contact us.
-                    </p>
-                  </div>
+                  <h2 className="text-2xl font-display font-bold">Get in Touch</h2>
 
                   <StaggerContainer className="space-y-4">
                     {contactInfo.map((info, index) => (

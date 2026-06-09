@@ -16,7 +16,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { LifestyleHero } from "@/components/LifestyleHero";
-import heroResearchLifestyle from "@/assets/hero-research-lifestyle.jpg";
+import heroResearchLifestyleAsset from "@/assets/resources-hero.avif.asset.json";
+const heroResearchLifestyle = heroResearchLifestyleAsset.url;
 const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").then(m => ({ default: m.ContentProductCTA })));
 
 const ResearchCard = ({ item }: { item: ResearchItem }) => {
@@ -193,8 +194,8 @@ const ResearchPage = () => {
           image={heroResearchLifestyle}
           imageAlt="Scientist examining a sample in a calm Scandinavian lab"
           eyebrow="Research & Science"
-          title={<>The science of <span className="text-primary">cleaner space</span></>}
-          subcopy="Peer-reviewed research, real-world case studies, and behind environmental probiotic technology."
+          title={<>The science of <span className="text-heading-accent italic font-normal">cleaner space</span></>}
+          subcopy="Environmental probiotic technology explained."
           ctaLabel="Explore Research"
           ctaHref="#case-studies"
         />
@@ -210,17 +211,20 @@ const ResearchPage = () => {
                 </div>
                 <ul className="space-y-4">
                   {[
-                    { stat: "97.7% reduction in SARS-CoV-2 on surfaces within 3 hours", source: "University of Genova, Department of Experimental Medicine" },
-                    { stat: "Measurable reduction in indoor allergens within 8 days of continuous use", source: "Indoor Biotechnologies (Cardiff, UK)" },
+                    { stat: "97.7% reduction in SARS-CoV-2 on surfaces within 3 hours", source: "University of Genova, Department of Experimental Medicine", sourceUrl: "https://unige.it/en" },
+                    { stat: "Measurable reduction in indoor allergens within 8 days of continuous use", source: "Indoor Biotechnologies (Cardiff, UK)", sourceUrl: "https://inbio.com/" },
+                    { stat: "Independent veterinary efficacy testing on companion-animal allergens", source: "Invetus (Yorklea, Australia)", sourceUrl: "https://www.invetus.com.au/" },
+                    { stat: "Independent laboratory verification of allergen reduction", source: "EMSL Analytical Labs (USA)", sourceUrl: "https://www.emsl.com/" },
                     { stat: "~52% reduction in healthcare-associated infections vs. conventional disinfectants", source: "Caselli E. et al., PLOS ONE, 2018 (6-hospital trial)" },
-                    { stat: "Deployed in hospitals, schools, nursing homes, and cruise ships worldwide", source: "Multi-site PCHS field deployments" },
                     { stat: "FDA GRAS-certified Bacillus strains — no ozone, no chemicals, safe for children and pets", source: "MADE SAFE® certification & FDA GRAS notice inventory" },
-                  ].map((item) => (
+                  ].map((item: { stat: string; source: string; sourceUrl?: string }) => (
                     <li key={item.stat} className="flex gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-medium text-foreground leading-snug">{item.stat}</p>
-                        <p className="text-xs text-muted-foreground mt-1">— {item.source}</p>
+                        <p className="text-xs text-muted-foreground mt-1">— {item.sourceUrl ? (
+                          <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{item.source}</a>
+                        ) : item.source}</p>
                       </div>
                     </li>
                   ))}
@@ -396,7 +400,7 @@ const ResearchPage = () => {
                 <p className="text-muted-foreground mb-8">
                   Our team is available to discuss specific applications, provide additional research, or help you understand how environmental probiotics can work for your space.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex justify-center">
                   <button
                     onClick={() => setContactOpen(true)}
                     className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors"
@@ -404,12 +408,6 @@ const ResearchPage = () => {
                     Contact Our Team
                     <ArrowRight className="w-4 h-4" />
                   </button>
-                  <Link
-                    to="/how-it-works"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border rounded-xl font-medium hover:bg-muted transition-colors"
-                  >
-                    How It Works
-                  </Link>
                 </div>
               </div>
             </ScrollReveal>
