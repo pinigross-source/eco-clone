@@ -15,9 +15,9 @@ const ShopifyCartLink = () => (
     href={shopifyCart()}
     aria-label="Open cart on Shopify"
     title="Cart"
-    className="w-10 h-10 rounded-xl flex items-center justify-center bg-muted/50 hover:bg-muted transition-colors hover:scale-105 active:scale-95"
+    className="w-10 h-10 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95"
   >
-    <ShoppingCart className="w-5 h-5 text-foreground/80" />
+    <ShoppingCart className="w-[22px] h-[22px]" strokeWidth={1.75} />
   </a>
 );
 
@@ -53,7 +53,7 @@ const navLinks: NavItem[] = [
       { label: "Help Center", href: "/support", icon: LifeBuoy, desc: "Get support" },
     ],
   },
-  { label: "Shop", href: "https://shop.envirobiotics.com/", bold: true },
+  { label: "Shop", href: "https://shop.envirobiotics.com/" },
 ];
 
 const storeDropdown: NavItem = {
@@ -307,11 +307,8 @@ export const Navbar = () => {
           <div className="hidden lg:flex items-center gap-2 ml-auto">
             <Suspense fallback={null}><NavbarSearch /></Suspense>
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
-              <div className={cn(
-                "w-10 h-10 rounded-xl flex items-center justify-center transition-colors hover:scale-105 active:scale-95",
-                scrolled ? "bg-muted/50 hover:bg-muted" : useLight ? "bg-white/10 hover:bg-white/20" : "bg-muted/50 hover:bg-muted"
-              )}>
-                <User className={cn("w-5 h-5", scrolled || !useLight ? (session ? "text-primary" : "text-muted-foreground") : "text-white/80")} />
+              <div className="w-10 h-10 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95">
+                <User className={cn("w-[22px] h-[22px]", session && "text-primary")} strokeWidth={1.75} />
               </div>
             </Link>
             <ShopifyCartLink />
