@@ -42,7 +42,7 @@ const glossaryTerms: GlossaryTerm[] = [
     definition: "A structured community of microorganisms that adheres to surfaces and is enclosed in a self-produced protective matrix.",
     extendedDescription: "Biofilms form when bacteria attach to surfaces and produce an extracellular polymeric substance (EPS) — a slimy matrix that shields them from cleaning agents, UV light, and immune responses. Biofilms are found on kitchen counters, bathroom tiles, HVAC ductwork, medical devices, and water pipes. They are extremely difficult to remove with conventional cleaning because the EPS matrix protects embedded organisms. Probiotic-based approaches disrupt biofilm communities by competing for surface space and nutrients, gradually weakening the biofilm structure over time.",
     relatedLinks: [
-      { label: "Education Center", url: "/education" },
+      { label: "Probiotic Air Purification", url: "/probiotic-air-purification" },
       { label: "HVAC Applications", url: "/hvac-applications" },
     ],
   },
@@ -295,15 +295,12 @@ const GlossaryPage = () => {
         </nav>
 
         <ScrollReveal>
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-8">
             <BookOpen className="h-8 w-8 text-primary" />
             <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground">
               Glossary
             </h1>
           </div>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            A comprehensive guide to the science and terminology behind <Link to="/probiotic-air-purification" className="text-primary underline hover:text-primary/80">probiotic air purification</Link>, indoor air quality, and <Link to="/education" className="text-primary underline hover:text-primary/80">environmental probiotics</Link>. Understanding these concepts helps you make informed decisions about protecting your indoor environment.
-          </p>
         </ScrollReveal>
 
         {/* Search + Letter nav */}
