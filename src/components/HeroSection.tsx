@@ -102,9 +102,9 @@ export const HeroSection = () => {
       {/* Content */}
       <div
         ref={contentRef}
-        className="relative z-10 w-full max-w-[1440px] px-5 pt-28 pb-12 sm:px-8 sm:pt-32 sm:pb-16 lg:px-16 lg:pt-44 lg:pb-20 will-change-transform"
+        className="container relative z-10 px-4 sm:px-6 pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-44 lg:pb-20 will-change-transform"
       >
-        <div className="max-w-2xl text-center sm:ml-6 sm:max-w-[520px] sm:text-left md:ml-12 md:max-w-[560px] lg:ml-20 lg:max-w-[620px]">
+        <div className="max-w-2xl text-center sm:ml-8 sm:max-w-[520px] sm:text-left md:ml-14 md:max-w-[560px] lg:ml-24 xl:ml-20 lg:max-w-[620px]">
 
           <h1 className="font-display font-bold leading-[0.95] tracking-[-0.035em] text-foreground mb-4 sm:mb-5">
             <span className="block text-[2.8rem] xs:text-[3.2rem] sm:text-[4rem] md:text-[4.8rem] lg:text-[5.75rem]">
