@@ -16,7 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { LifestyleHero } from "@/components/LifestyleHero";
-import heroResearchLifestyleAsset from "@/assets/resources-hero.avif.asset.json";
+import heroResearchLifestyleAsset from "@/assets/research-hero.avif.asset.json";
 const heroResearchLifestyle = heroResearchLifestyleAsset.url;
 const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").then(m => ({ default: m.ContentProductCTA })));
 
