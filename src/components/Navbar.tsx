@@ -148,7 +148,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
               href={item.href}
               target="_top"
               rel="noopener"
-              className="block px-4 py-2.5 rounded-lg hover:bg-muted/60 transition-colors text-[15px] font-normal text-primary"
+              className="block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-lg font-normal text-primary"
               onClick={() => setOpen(false)}
             >
               View All {item.label}
@@ -156,7 +156,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
           ) : (
             <Link
               to={item.href}
-              className="block px-4 py-2.5 rounded-lg hover:bg-muted/60 transition-colors text-[15px] font-normal text-primary"
+              className="block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-lg font-normal text-primary"
               onClick={() => setOpen(false)}
             >
               View All {item.label}
