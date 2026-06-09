@@ -279,7 +279,7 @@ export const Navbar = () => {
           {/* Desktop Navigation — absolutely centered */}
           <nav
             aria-label="Main navigation"
-            className="hidden lg:flex items-center gap-2 xl:gap-3 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+            className="hidden lg:flex items-center gap-6 xl:gap-10 2xl:gap-14 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           >
             {navLinks.map((link) => (
               <NavDropdown key={link.label} item={link} scrolled={scrolled} useLight={useLight} />
