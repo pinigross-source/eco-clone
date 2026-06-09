@@ -242,7 +242,7 @@ export const Navbar = () => {
 
         <div className="container flex h-20 sm:h-[88px] md:h-[100px] items-center px-4 sm:px-6 relative">
           {/* Mobile: Hamburger */}
-          <div className="lg:hidden absolute left-4 z-20">
+          <div className="xl:hidden absolute left-4 z-20">
             <button
               className={cn(
                 "relative flex h-12 w-12 items-center justify-center rounded-full border shadow-sm transition-all duration-300 active:scale-95",
@@ -259,7 +259,7 @@ export const Navbar = () => {
           </div>
 
           {/* Logo */}
-          <Link to="/" className="flex items-center group relative lg:relative mx-auto lg:mx-0 lg:mr-4 xl:mr-6 flex-shrink-0">
+          <Link to="/" className="flex items-center group relative xl:relative mx-auto xl:mx-0 xl:mr-4 2xl:mr-6 flex-shrink-0">
             <img
               src={logo}
               alt="EnviroBiotics - Environmental Probiotics"
@@ -271,7 +271,7 @@ export const Navbar = () => {
           </Link>
 
           {/* Mobile: Search + Cart on right */}
-          <div className="lg:hidden absolute right-3 z-20 flex items-center gap-1.5">
+          <div className="xl:hidden absolute right-3 z-20 flex items-center gap-1.5">
             <div className="hidden sm:block"><NavbarSearch /></div>
             <ShopifyCartLink />
           </div>
@@ -279,7 +279,7 @@ export const Navbar = () => {
           {/* Desktop Navigation — centered, flex-grow */}
           <nav
             aria-label="Main navigation"
-            className="hidden lg:flex flex-1 items-center justify-center gap-3 xl:gap-6 2xl:gap-10"
+            className="hidden xl:flex flex-1 items-center justify-center gap-3 xl:gap-6 2xl:gap-10"
           >
             {navLinks.map((link) => (
               <NavDropdown key={link.label} item={link} scrolled={scrolled} useLight={useLight} />
@@ -287,7 +287,7 @@ export const Navbar = () => {
           </nav>
 
           {/* Desktop: Right side icons (search, account, cart) */}
-          <div className="hidden lg:flex items-center gap-1 flex-shrink-0">
+          <div className="hidden xl:flex items-center gap-1 flex-shrink-0">
             <NavbarSearch />
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
               <div className="w-11 h-11 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95">
@@ -302,13 +302,13 @@ export const Navbar = () => {
       {/* Mobile menu */}
       {isOpen && (
         <div
-          className="lg:hidden fixed inset-0 z-[150] bg-foreground/20 backdrop-blur-sm"
+          className="xl:hidden fixed inset-0 z-[150] bg-foreground/20 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
         />
       )}
       <div
         className={cn(
-          "lg:hidden fixed top-20 sm:top-[88px] md:top-[100px] left-0 right-0 z-[200] bg-background border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
+          "xl:hidden fixed top-20 sm:top-[88px] md:top-[100px] left-0 right-0 z-[200] bg-background border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
           isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         )}
       >
