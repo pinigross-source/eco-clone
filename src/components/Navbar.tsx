@@ -226,6 +226,7 @@ export const Navbar = () => {
   return (
     <>
       <header
+        style={{ fontFamily: "'Montserrat', sans-serif" }}
         className={cn(
           "fixed top-0 z-[9999] w-full transition-all duration-500",
           scrolled
