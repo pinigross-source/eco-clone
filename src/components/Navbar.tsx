@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Link } from "@/lib/link";
-import { Menu, X, ArrowRight, User, Sparkles, ChevronDown, Home, Fan, Beaker, Layers, ShieldCheck, Leaf, Building2, Baby, ShoppingCart, CreditCard, Video, BookOpen, FlaskConical, LifeBuoy, HelpCircle, FileText } from "lucide-react";
+import { Menu, X, ArrowRight, Sparkles, ChevronDown, Home, Fan, Beaker, Layers, ShieldCheck, Leaf, Building2, Baby, CreditCard, Video, BookOpen, FlaskConical, LifeBuoy, HelpCircle, FileText } from "lucide-react";
+import { ShopAccountIcon, ShopCartIcon } from "@/components/ShopIcons";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/tracking";
@@ -17,7 +18,7 @@ const ShopifyCartLink = () => (
     title="Cart"
     className="w-10 h-10 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95"
   >
-    <ShoppingCart className="w-[22px] h-[22px]" strokeWidth={1.75} />
+    <ShopCartIcon className="w-[22px] h-[22px]" />
   </a>
 );
 
@@ -308,7 +309,7 @@ export const Navbar = () => {
             <Suspense fallback={null}><NavbarSearch /></Suspense>
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
               <div className="w-10 h-10 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95">
-                <User className={cn("w-[22px] h-[22px]", session && "text-primary")} strokeWidth={1.75} />
+                <ShopAccountIcon className={cn("w-[22px] h-[22px]", session && "text-primary")} />
               </div>
             </Link>
             <ShopifyCartLink />
