@@ -245,7 +245,7 @@ export const Navbar = () => {
           <div className="lg:hidden absolute left-4 z-20">
             <button
               className={cn(
-                "relative flex h-11 w-11 items-center justify-center rounded-full border shadow-sm transition-all duration-300 active:scale-95",
+                "relative flex h-12 w-12 items-center justify-center rounded-full border shadow-sm transition-all duration-300 active:scale-95",
                 isOpen
                   ? "border-primary/30 bg-primary text-primary-foreground"
                   : "border-border/70 bg-background/92 text-foreground hover:bg-background"
@@ -253,8 +253,8 @@ export const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
-              <X className={cn("h-5 w-5 absolute transition-all duration-200", isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90")} />
-              <Menu className={cn("h-5 w-5 absolute transition-all duration-200", isOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0")} />
+              <X className={cn("h-6 w-6 absolute transition-all duration-200", isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90")} />
+              <Menu className={cn("h-6 w-6 absolute transition-all duration-200", isOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0")} />
             </button>
           </div>
 
@@ -344,7 +344,7 @@ export const Navbar = () => {
                     <div className="pl-4 pr-2 pb-1 space-y-0.5">
                       {link.dropdown.map(({ label, href }) => {
                         const mExt = /^https?:\/\//.test(href);
-                        const mClass = "block px-3 py-2.5 rounded-lg hover:bg-muted/50 transition-colors text-sm font-normal text-foreground";
+                        const mClass = "block px-3 py-3 rounded-lg hover:bg-muted/50 transition-colors text-base font-normal text-foreground";
                         return mExt ? (
                           <a key={label} href={href} target="_top" rel="noopener" className={mClass} onClick={() => setIsOpen(false)}>{label}</a>
                         ) : (
@@ -353,7 +353,7 @@ export const Navbar = () => {
                       })}
                       <Link
                         to={link.href}
-                        className="block px-3 py-2 text-sm font-normal text-primary"
+                        className="block px-3 py-3 text-base font-normal text-primary"
                         onClick={() => setIsOpen(false)}
                       >
                         View All {link.label}
