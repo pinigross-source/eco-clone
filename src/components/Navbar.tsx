@@ -48,7 +48,6 @@ const navLinks: NavItem[] = [
       { label: "Blog", href: "/blog" },
       { label: "Videos", href: "/videos" },
       { label: "Research & Case Studies", href: "/research" },
-      { label: "Case Studies", href: "/case-studies" },
       { label: "FAQ", href: "/faq" },
       { label: "Help Center", href: "/support" },
     ],
