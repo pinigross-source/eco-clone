@@ -135,10 +135,10 @@ export const HeroSection = () => {
           {/* Below-the-fold continuation */}
           <div className="mt-10 mb-5 space-y-2 sm:mt-14 lg:mt-20">
             <h2 className="font-display font-bold leading-[1.05] tracking-[-0.025em] text-[2.2rem] text-foreground sm:text-[2.75rem] lg:text-[3.25rem]">
-              Now, you can add a new layer of wellness.
+              Your Wellness.
             </h2>
-            <p className="font-serif text-[1.45rem] italic leading-[1.2] text-foreground sm:text-[1.8rem]">
-              With zero extra effort.
+            <p className="font-serif text-[1.45rem] italic leading-[1.2] text-heading-accent sm:text-[1.8rem]">
+              Effortless.
             </p>
           </div>
 
