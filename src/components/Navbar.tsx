@@ -333,7 +333,7 @@ export const Navbar = () => {
               {link.dropdown ? (
                 <>
                   <button
-                    className="w-full text-sm sm:text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between"
+                    className="w-full text-sm sm:text-base font-bold text-foreground hover:bg-muted/50 px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl transition-all flex items-center justify-between"
                     onClick={() => setExpandedMobile(expandedMobile === link.label ? null : link.label)}
                   >
                     <span>{link.label}</span>
@@ -344,24 +344,13 @@ export const Navbar = () => {
                     expandedMobile === link.label ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                   )}>
                     <div className="pl-4 pr-2 pb-1 space-y-0.5">
-                      {link.dropdown.map(({ label, href, icon: Icon, desc }) => {
+                      {link.dropdown.map(({ label, href }) => {
                         const mExt = /^https?:\/\//.test(href);
-                        const mClass = "flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-muted/50 transition-colors";
-                        const mInner = (
-                          <>
-                            <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                              <Icon className="w-3.5 h-3.5 text-primary" />
-                            </div>
-                            <div>
-                              <p className="text-sm font-medium text-foreground">{label}</p>
-                              <p className="text-[11px] text-muted-foreground">{desc}</p>
-                            </div>
-                          </>
-                        );
+                        const mClass = "block px-3 py-2.5 rounded-lg hover:bg-muted/50 transition-colors text-sm font-semibold text-foreground";
                         return mExt ? (
-                          <a key={label} href={href} target="_top" rel="noopener" className={mClass} onClick={() => setIsOpen(false)}>{mInner}</a>
+                          <a key={label} href={href} target="_top" rel="noopener" className={mClass} onClick={() => setIsOpen(false)}>{label}</a>
                         ) : (
-                          <Link key={label} to={href} className={mClass} onClick={() => setIsOpen(false)}>{mInner}</Link>
+                          <Link key={label} to={href} className={mClass} onClick={() => setIsOpen(false)}>{label}</Link>
                         );
                       })}
                       <Link
