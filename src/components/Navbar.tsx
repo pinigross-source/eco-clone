@@ -345,7 +345,7 @@ export const Navbar = () => {
                     <div className="pl-4 pr-2 pb-1 space-y-0.5">
                       {link.dropdown.map(({ label, href }) => {
                         const mExt = /^https?:\/\//.test(href);
-                        const mClass = "block px-3 py-2.5 rounded-lg hover:bg-muted/50 transition-colors text-sm font-semibold text-foreground";
+                        const mClass = "block px-3 py-2.5 rounded-lg hover:bg-muted/50 transition-colors text-sm font-bold text-foreground";
                         return mExt ? (
                           <a key={label} href={href} target="_top" rel="noopener" className={mClass} onClick={() => setIsOpen(false)}>{label}</a>
                         ) : (
@@ -354,11 +354,10 @@ export const Navbar = () => {
                       })}
                       <Link
                         to={link.href}
-                        className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-primary"
+                        className="block px-3 py-2 text-sm font-bold text-primary"
                         onClick={() => setIsOpen(false)}
                       >
                         View All {link.label}
-                        <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
                   </div>
