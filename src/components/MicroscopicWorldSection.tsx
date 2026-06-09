@@ -86,10 +86,10 @@ export const MicroscopicWorldSection = () => {
 
             <div className="space-y-2">
               <h2 className="font-display font-bold leading-[1.05] tracking-[-0.025em] text-[2.25rem] text-foreground sm:text-[2.75rem] lg:text-[3.25rem]">
-                The magical microscopic world.
+                Your Space.
               </h2>
-              <p className="font-serif text-[1.5rem] italic leading-[1.2] text-foreground sm:text-[1.75rem]">
-                Nature's wisdom, indoors.
+              <p className="font-serif text-[1.5rem] italic leading-[1.2] text-heading-accent sm:text-[1.75rem]">
+                Rebalanced.
               </p>
             </div>
 
@@ -187,10 +187,10 @@ export const MicroscopicWorldSection = () => {
           <div className="mb-14 mx-auto max-w-[60ch] text-center">
             <h3 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
               <span className="block text-2xl sm:text-3xl md:text-4xl">
-                Proactively protect you,
+                Your Protection.
               </span>
               <span className="block text-xl sm:text-2xl md:text-3xl text-heading-accent italic font-normal">
-                around the clock.
+                Around the clock.
               </span>
             </h3>
             <p className="mt-8 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto">
