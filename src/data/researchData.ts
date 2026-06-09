@@ -174,8 +174,8 @@ export const caseStudies: ResearchItem[] = [
     ],
     publishedDate: "2025",
     caseStudyDetail: {
-      challenge: "Modern indoor living fosters the proliferation of contaminants such as mold toxins, dust mite protein waste, pet dander, cockroach waste, and pollen. These allergens trigger allergic attacks. Common remedies – medications and inhalation devices – reduce pain and inflammation but are blind to the root cause. Without dealing with the source, sensitive individuals are bound for continuous suffering.",
-      solution: "EnviroBiotics formula includes probiotic strains that consume allergens as a nutrient source. Bacillus cells secrete proteolytic enzymes that degrade the proteins composing allergenic epitopes, neutralizing them and rendering them harmless. This targets the root cause of allergies rather than just the symptoms.",
+      challenge: "Allergens build up indoors every day — dust mite droppings, pet dander, mold spores, cockroach waste, and pollen all settle into bedding, carpets, and surfaces. Most products on the market only relieve the symptoms (sneezing, itching, congestion). They never address the source, so sensitive people keep reacting day after day.",
+      solution: "EnviroBiotics releases beneficial probiotics that treat the source. These probiotics use the allergens themselves as food, breaking the proteins down on contact so they can no longer trigger an allergic reaction. The result is a steadily lower allergen load — addressing the cause, not just the symptoms.",
       implementation: [
         "Primary study conducted by Indoor Biotechnologies (Cardiff, UK; Charlottesville, VA; Bangalore, India)",
         "Supervised by Dr. Sivasankar Baalasubramanian, Executive Director",

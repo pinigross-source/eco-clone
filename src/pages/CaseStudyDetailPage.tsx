@@ -278,7 +278,7 @@ const CaseStudyDetailPage = () => {
             <ScrollReveal>
               <div className="text-center mb-12">
                 <h2 className="text-2xl md:text-3xl font-display font-bold mb-4">
-                  What They're Saying
+                  TESTIMONIALS
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
                   Hear from the people who experienced the transformation firsthand.
