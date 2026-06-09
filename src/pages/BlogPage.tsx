@@ -7,7 +7,8 @@ import { blogPosts, articlePosts, BlogPost } from "@/data/blogData";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { RelatedTopics } from "@/components/RelatedTopics";
 import { LifestyleHero } from "@/components/LifestyleHero";
-import heroBlogLifestyle from "@/assets/hero-blog-lifestyle.jpg";
+import heroBlogLifestyleAsset from "@/assets/resources-hero.avif.asset.json";
+const heroBlogLifestyle = heroBlogLifestyleAsset.url;
 
 const BlogCard = ({ post }: { post: BlogPost }) => {
   const isExternal = !!post.externalUrl;
@@ -105,12 +106,9 @@ const BlogPage = () => {
         <section id="latest-posts" className="section-padding bg-muted/30 scroll-mt-24">
           <div className="container">
             <ScrollReveal>
-              <div className="flex items-center gap-3 mb-10">
-                <div className="w-1 h-8 bg-primary rounded-full" />
-                <h2 className="text-2xl md:text-3xl font-display font-bold">
-                  Latest Blogs
-                </h2>
-              </div>
+              <h2 className="text-2xl md:text-3xl font-display font-bold mb-10">
+                Latest Blogs
+              </h2>
             </ScrollReveal>
             <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {blogPosts.map((post) => (
@@ -126,12 +124,9 @@ const BlogPage = () => {
         <section className="section-padding">
           <div className="container">
             <ScrollReveal>
-              <div className="flex items-center gap-3 mb-10">
-                <div className="w-1 h-8 bg-accent rounded-full" />
-                <h2 className="text-2xl md:text-3xl font-display font-bold">
-                  Featured Articles
-                </h2>
-              </div>
+              <h2 className="text-2xl md:text-3xl font-display font-bold mb-10">
+                Featured Articles
+              </h2>
             </ScrollReveal>
             <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {articlePosts.map((post) => (

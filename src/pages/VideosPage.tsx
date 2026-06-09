@@ -8,7 +8,8 @@ import { videoCategories, getVideosByCategory, Video as VideoType } from "@/data
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { LifestyleHero } from "@/components/LifestyleHero";
-import heroVideosLifestyle from "@/assets/hero-videos-lifestyle.jpg";
+import heroVideosLifestyleAsset from "@/assets/resources-hero.avif.asset.json";
+const heroVideosLifestyle = heroVideosLifestyleAsset.url;
 const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").then(m => ({ default: m.ContentProductCTA })));
 
 const videosPageJsonLd = {
@@ -239,7 +240,7 @@ const VideosPage = () => {
           image={heroVideosLifestyle}
           imageAlt="Person watching a calm Scandinavian living room scene"
           eyebrow="Watch & Learn"
-          title={<>See it <span className="text-primary">in action</span></>}
+          title={<>See it <span className="text-heading-accent italic font-normal">in action</span></>}
           subcopy="Demonstrations, installation walkthroughs, and the science behind environmental probiotics."
           ctaLabel="Browse Videos"
           ctaHref="#video-library"

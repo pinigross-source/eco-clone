@@ -34,7 +34,8 @@ import biotica800Img from "@/assets/shop/biotica-800.png";
 import ba2080Img from "@/assets/shop/ba2080.png";
 import ebioticProImg from "@/assets/ebiotic-pro.avif";
 import { LifestyleHero } from "@/components/LifestyleHero";
-import heroSupportLifestyle from "@/assets/hero-support-lifestyle.jpg";
+import heroSupportLifestyleAsset from "@/assets/resources-hero.avif.asset.json";
+const heroSupportLifestyle = heroSupportLifestyleAsset.url;
 
 const supportOptions = [
   {
