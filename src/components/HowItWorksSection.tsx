@@ -123,7 +123,7 @@ export const HowItWorksSection = () => {
                   </div>
 
                   <div className="flex-1 min-w-0 pt-1 md:pt-0">
-                    <p className="text-sm md:text-base lg:text-lg font-display font-bold text-primary tracking-[0.15em] uppercase mb-1 md:mb-2">
+                    <p className="text-base md:text-lg lg:text-xl font-display font-bold text-primary tracking-[0.15em] uppercase mb-1 md:mb-2">
                       STEP {number}
                     </p>
                     <h3 className="text-[1.25rem] md:text-2xl lg:text-3xl font-display font-bold text-foreground mb-1.5 md:mb-4 tracking-[-0.02em] leading-tight">
