@@ -26,7 +26,7 @@ type NavItem = {
   label: string;
   href: string;
   bold?: boolean;
-  dropdown?: { label: string; href: string; icon: React.ElementType; desc: string }[];
+  dropdown?: { label: string; href: string }[];
 };
 
 const navLinks: NavItem[] = [
@@ -36,22 +36,22 @@ const navLinks: NavItem[] = [
     label: "Products",
     href: "https://shop.envirobiotics.com/",
     dropdown: [
-      { label: "BioLogic Mini", href: "https://shop.envirobiotics.com/products/biologic-mini", icon: Home, desc: "Portable room protection" },
-      { label: "Biotica 800", href: "https://shop.envirobiotics.com/products/biotica-800", icon: Layers, desc: "Medium-coverage device" },
-      { label: "E Biotic - Home", href: "/hvac#ebiotic-pro", icon: Fan, desc: "Whole-home via HVAC" },
-      { label: "Subscribe & Save", href: "/subscribe", icon: CreditCard, desc: "Recurring refills, save more" },
+      { label: "BioLogic Mini", href: "https://shop.envirobiotics.com/products/biologic-mini" },
+      { label: "Biotica 800", href: "https://shop.envirobiotics.com/products/biotica-800" },
+      { label: "E Biotic - Home", href: "/hvac#ebiotic-pro" },
+      { label: "Subscribe & Save", href: "/subscribe" },
     ],
   },
   {
     label: "Resources",
     href: "/education",
     dropdown: [
-      { label: "Blog", href: "/blog", icon: BookOpen, desc: "Articles & guides" },
-      { label: "Videos", href: "/videos", icon: Video, desc: "Watch our library" },
-      { label: "Research & Case Studies", href: "/research", icon: FlaskConical, desc: "Studies & results" },
-      { label: "Case Studies", href: "/case-studies", icon: FileText, desc: "Real-world outcomes" },
-      { label: "FAQ", href: "/faq", icon: HelpCircle, desc: "Frequently asked questions" },
-      { label: "Help Center", href: "/support", icon: LifeBuoy, desc: "Get support" },
+      { label: "Blog", href: "/blog" },
+      { label: "Videos", href: "/videos" },
+      { label: "Research & Case Studies", href: "/research" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Help Center", href: "/support" },
     ],
   },
   { label: "Shop", href: "https://shop.envirobiotics.com/" },
