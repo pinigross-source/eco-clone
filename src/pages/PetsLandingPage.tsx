@@ -583,20 +583,24 @@ const PetsLandingPage = () => {
                   </div>
                   <div className="flex flex-col p-6 sm:p-10 lg:p-12">
                     <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
-                      Biotica · For the living room
+                      Most popular · For the living room
                     </p>
                     <h3 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
-                      Biotica 800
+                      Pet-Proof Home Starter Kit
                     </h3>
                     <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
-                      Sits quietly in the main living space - where your pet (and the dander) spends
-                      the most time - and keeps soft surfaces cleaner between cleanings.
+                      Built around Biotica 800. Sits quietly in the main living space - where your pet (and the dander) spends the most time - and keeps soft surfaces cleaner between cleanings.
                     </p>
-                    <ul className="mt-5 flex flex-col gap-3">
+                    <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/70">
+                      What&apos;s included
+                    </p>
+                    <ul className="mt-3 flex flex-col gap-3">
                       {[
-                        "Covers up to 800 sq ft - sized for living rooms and open plans",
-                        "Works on the couch, rug, curtains, and pet bed",
-                        "No sprays, no harsh chemicals",
+                        "Biotica 800 - covers up to 800 sq ft, sized for living rooms",
+                        "90-day probiotic cartridge",
+                        "Pet Surface Reset Guide",
+                        "30-day money-back guarantee + free shipping",
+                        "Code PETS saves 10%",
                       ].map((f) => (
                         <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
                           <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
