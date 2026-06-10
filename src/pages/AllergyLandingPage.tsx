@@ -189,8 +189,6 @@ const AllergyLandingPage = () => {
                 <div className="mt-8 flex flex-col items-stretch gap-3.5 sm:mt-10 sm:flex-row sm:items-center sm:gap-5">
                   <a
                     href={BIOTICA_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     onClick={() => trackEvent("click_allergy_hero_cta")}
                     className="sm:w-auto"
                   >
@@ -553,8 +551,6 @@ const AllergyLandingPage = () => {
                       </div>
                       <a
                         href={BIOTICA_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         onClick={() => trackEvent("click_allergy_products_biotica")}
                         className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
@@ -620,8 +616,6 @@ const AllergyLandingPage = () => {
                       </div>
                       <a
                         href={BUNDLE_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         onClick={() => trackEvent("click_allergy_products_bundle")}
                         className="mt-4 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
@@ -651,8 +645,6 @@ const AllergyLandingPage = () => {
                   <div className="flex flex-1 flex-col p-6 sm:p-8">
                     <a
                       href={MINI_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       onClick={() => trackEvent("click_allergy_mini_title")}
                       className="block cursor-pointer no-underline"
                     >
@@ -690,8 +682,6 @@ const AllergyLandingPage = () => {
                       </div>
                       <a
                         href={MINI_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         onClick={() => trackEvent("click_allergy_products_mini")}
                         className="mt-4 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
