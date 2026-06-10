@@ -280,18 +280,19 @@ const AllergyLandingPage = () => {
         <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1100px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <a
-                href="#products"
-                onClick={(e) => smoothScroll(e, "products", "click_allergy_h2_compare")}
-                className="block max-w-2xl cursor-pointer no-underline"
-              >
+              <div className="max-w-2xl">
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
                   Air purifier vs. EnviroBiotics
                 </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]">
+                <h2
+                  role="button"
+                  tabIndex={0}
+                  onClick={(e) => smoothScroll(e as unknown as React.MouseEvent<HTMLAnchorElement>, "products", "click_allergy_h2_compare")}
+                  className="cursor-pointer font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]"
+                >
                   Two halves of one room. You&apos;ve only been treating one.
                 </h2>
-              </a>
+              </div>
             </Reveal>
 
             <Reveal>
@@ -333,18 +334,12 @@ const AllergyLandingPage = () => {
         <section className="bg-background py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[820px] px-5 sm:px-10">
             <Reveal>
-              <a
-                href="#quiz"
-                onClick={(e) => smoothScroll(e, "quiz", "click_allergy_h2_science")}
-                className="block cursor-pointer no-underline"
-              >
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                  The simplest way to explain it
-                </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]">
-                  You already know how this works, for your gut.
-                </h2>
-              </a>
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+                The simplest way to explain it
+              </p>
+              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
+                You already know how this works, for your gut.
+              </h2>
               <p className="mt-6 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.15rem]">
                 You&apos;ve heard of probiotics for your gut: good cultures that keep things in
                 balance. EnviroBiotics is the same idea for the room. Good cultures settle onto your
@@ -407,7 +402,7 @@ const AllergyLandingPage = () => {
 
             <Reveal>
               <div className="mt-12 flex justify-center">
-                <a href="#quiz" onClick={(e) => smoothScroll(e, "quiz", "click_allergy_how_cta")}>
+                <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_allergy_how_cta")}>
                   <Button
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
@@ -425,18 +420,19 @@ const AllergyLandingPage = () => {
         <section className="bg-background py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <a
-                href="#products"
-                onClick={(e) => smoothScroll(e, "products", "click_allergy_h2_built")}
-                className="block max-w-2xl cursor-pointer no-underline"
-              >
+              <div className="max-w-2xl">
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
                   Built for the allergy-aware home
                 </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]">
+                <h2
+                  role="button"
+                  tabIndex={0}
+                  onClick={(e) => smoothScroll(e as unknown as React.MouseEvent<HTMLAnchorElement>, "products", "click_allergy_h2_built")}
+                  className="cursor-pointer font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]"
+                >
                   Covers what a filter can&apos;t.
                 </h2>
-              </a>
+              </div>
             </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
               {[
@@ -781,9 +777,9 @@ const AllergyLandingPage = () => {
                 <AccordionItem
                   key={idx}
                   value={`q${idx}`}
-                  className="group rounded-2xl border border-border/60 bg-card px-6 transition-all hover:border-foreground/40 data-[state=open]:border-foreground/50 data-[state=open]:shadow-[0_18px_50px_-30px_rgba(0,0,0,0.18)] sm:px-8"
+                  className="group rounded-2xl border border-border/60 bg-card px-6 transition-all hover:border-foreground/40 data-[state=open]:border-foreground data-[state=open]:bg-[#F5F3EE] data-[state=open]:shadow-[0_18px_50px_-30px_rgba(0,0,0,0.18)] sm:px-8"
                 >
-                  <AccordionTrigger className="cursor-pointer py-6 text-left text-[17px] font-semibold text-foreground hover:no-underline sm:py-7 sm:text-[18px]">
+                  <AccordionTrigger className="cursor-pointer py-6 text-left text-[17px] font-semibold text-foreground hover:no-underline [&[data-state=open]]:text-foreground [&>svg]:transition-transform [&>svg]:text-foreground/60 [&[data-state=open]>svg]:text-foreground sm:py-7 sm:text-[18px]">
                     {item.q}
                   </AccordionTrigger>
                   <AccordionContent className="pb-6 text-[15px] leading-[1.7] text-muted-foreground sm:text-[16px]">
@@ -849,7 +845,7 @@ const AllergyLandingPage = () => {
                 the clock.
               </p>
               <div className="mt-10 flex justify-center">
-                <a href="#quiz" onClick={(e) => smoothScroll(e, "quiz", "click_allergy_final_cta")}>
+                <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_allergy_final_cta")}>
                   <Button
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
@@ -891,7 +887,7 @@ const AllergyLandingPage = () => {
             <p className="truncate text-sm font-semibold text-foreground">30-day guarantee</p>
             <p className="truncate text-xs text-muted-foreground">Silent · Chemical-free</p>
           </div>
-          <a href="#quiz" onClick={(e) => smoothScroll(e, "quiz", "click_allergy_sticky_cta")}>
+          <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_allergy_sticky_cta")}>
             <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
               Reach What Filter Can&apos;t
             </Button>
