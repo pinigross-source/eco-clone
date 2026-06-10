@@ -444,7 +444,7 @@ const PetsLandingPage = () => {
                 },
                 {
                   icon: Leaf,
-                  title: "No fragrance, no chemicals",
+                  title: "No chemicals",
                   copy: "Removes what&apos;s there instead of covering it. The goal: a room that smells like nothing.",
                 },
                 {
