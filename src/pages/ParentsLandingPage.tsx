@@ -396,8 +396,8 @@ const ParentsLandingPage = () => {
             <Reveal>
               <div className="mt-12 flex justify-center">
                 <a
-                  href="#quiz"
-                  onClick={(e) => smoothScroll(e, "quiz", "click_parents_how_cta")}
+                  href="#products"
+                  onClick={(e) => smoothScroll(e, "products", "click_parents_how_cta")}
                 >
                   <Button
                     size="lg"
@@ -758,97 +758,6 @@ const ParentsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ QUIZ ============ */}
-        <section id="quiz" className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[820px] px-5 sm:px-10">
-            <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                Find your fit
-              </p>
-              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                Not sure where to start? Tell us who&apos;s home.
-              </h2>
-              <p className="mt-4 text-[1rem] leading-[1.7] text-muted-foreground sm:text-[1.05rem]">
-                Who lives in your home?
-              </p>
-            </Reveal>
-
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {[
-                { id: "baby" as const, icon: Baby, label: "A baby or toddler" },
-                { id: "pets" as const, icon: PawPrint, label: "Pets" },
-                { id: "me" as const, icon: User, label: "Just me" },
-              ].map(({ id, icon: Icon, label }) => {
-                const active = quizAnswer === id;
-                return (
-                  <button
-                    key={id}
-                    type="button"
-                    onClick={() => {
-                      setQuizAnswer(id);
-                      trackEvent(`quiz_parents_${id}`);
-                    }}
-                    className={`flex items-center gap-4 rounded-2xl border-2 bg-background p-5 text-left transition-all sm:flex-col sm:items-start sm:gap-3 sm:p-6 ${
-                      active
-                        ? "border-foreground shadow-[0_18px_50px_-25px_hsl(var(--foreground)/0.5)]"
-                        : "border-transparent ring-1 ring-black/[0.05] hover:border-foreground/40"
-                    }`}
-                  >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-foreground/10 text-foreground">
-                      <Icon className="h-5 w-5" strokeWidth={2.25} />
-                    </div>
-                    <span className="text-[15px] font-semibold text-foreground sm:text-[16px]">
-                      {label}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-
-            {quizAnswer && (
-              <div className="mt-8 rounded-3xl bg-background p-7 ring-1 ring-foreground/40 shadow-[0_20px_60px_-30px_hsl(var(--foreground)/0.4)] sm:p-9">
-                <div className="grid grid-cols-1 items-center gap-6 sm:grid-cols-[180px_1fr] sm:gap-8">
-                  <div className="flex h-40 items-center justify-center rounded-2xl bg-[#F4EFE6]">
-                    <img src={miniImg} alt="The Mini" className="max-h-32 object-contain" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground">
-                      Your recommendation
-                    </p>
-                    <h3 className="mt-2 font-display text-[1.5rem] font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
-                      Start with The Mini
-                    </h3>
-                    <p className="mt-3 text-[15px] leading-[1.65] text-muted-foreground sm:text-[16px]">
-                      {quizAnswer === "baby"
-                        ? "Sized and built for the one room that matters most right now - the nursery."
-                        : quizAnswer === "pets"
-                          ? "Perfect for the room your pet sleeps in - quiet, gentle, and continuously working on the surfaces they touch."
-                          : "Compact enough for a bedroom or living room - set it once and forget the rest."}
-                    </p>
-                    <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-                      <a href={MINI_URL} onClick={() => trackCta("quiz_add_mini")}>
-                        <Button
-                          size="lg"
-                          className="h-[3.25rem] w-full rounded-full bg-foreground px-8 text-[15px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90 sm:w-auto"
-                        >
-                          Add The Mini to Cart
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </a>
-                      <a
-                        href="/shop"
-                        onClick={() => trackCta("quiz_see_range")}
-                        className="inline-flex h-[3.25rem] items-center justify-center rounded-full border border-foreground/25 bg-background px-7 text-[14px] font-semibold text-foreground transition hover:bg-foreground/5"
-                      >
-                        See the full range
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
 
         {/* ============ BLOG BRIDGE ============ */}
         <section className="bg-background py-14 sm:py-20">
@@ -902,8 +811,8 @@ const ParentsLandingPage = () => {
               </p>
               <div className="mt-10 flex justify-center">
                 <a
-                  href="#quiz"
-                  onClick={(e) => smoothScroll(e, "quiz", "click_parents_final_cta")}
+                  href="#products"
+                  onClick={(e) => smoothScroll(e, "products", "click_parents_final_cta")}
                 >
                   <Button
                     size="lg"
@@ -947,8 +856,8 @@ const ParentsLandingPage = () => {
             <p className="truncate text-xs text-muted-foreground">Quiet · Chemical-free</p>
           </div>
           <a
-            href="#quiz"
-            onClick={(e) => smoothScroll(e, "quiz", "click_parents_sticky_cta")}
+            href="#products"
+            onClick={(e) => smoothScroll(e, "products", "click_parents_sticky_cta")}
           >
             <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
               Secure My Baby&apos;s Space
