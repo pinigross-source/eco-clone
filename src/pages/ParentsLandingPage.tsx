@@ -192,8 +192,6 @@ const ParentsLandingPage = () => {
                 <div className="mt-8 flex flex-col items-stretch gap-3.5 sm:mt-10 sm:flex-row sm:items-center sm:gap-5">
                   <a
                     href="https://shop.envirobiotics.com/products/biologic-mini"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     onClick={() => trackEvent("click_parents_hero_cta")}
                     className="sm:w-auto"
                   >
@@ -533,8 +531,6 @@ const ParentsLandingPage = () => {
                       </div>
                       <a
                         href={MINI_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         onClick={() => trackEvent("click_parents_products_mini")}
                         className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
@@ -595,8 +591,6 @@ const ParentsLandingPage = () => {
                       </div>
                       <a
                         href="https://shop.envirobiotics.com/products/home-complete-bundle"
-                        target="_blank"
-                        rel="noopener noreferrer"
                         onClick={() => trackEvent("click_parents_products_bundle")}
                         className="mt-4 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
@@ -652,8 +646,6 @@ const ParentsLandingPage = () => {
                       </div>
                       <a
                         href="https://shop.envirobiotics.com/products/biotica-800"
-                        target="_blank"
-                        rel="noopener noreferrer"
                         onClick={() => trackEvent("click_parents_products_biotica")}
                         className="mt-4 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >

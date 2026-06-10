@@ -540,8 +540,6 @@ const PetsLandingPage = () => {
                       </div>
                       <a
                         href={BIOTICA_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         onClick={() => trackEvent("click_pets_products_biotica")}
                         className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
@@ -601,8 +599,6 @@ const PetsLandingPage = () => {
                       </div>
                       <a
                         href={BUNDLE_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         onClick={() => trackEvent("click_pets_products_bundle")}
                         className="mt-4 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
@@ -659,8 +655,6 @@ const PetsLandingPage = () => {
                       </div>
                       <a
                         href={MINI_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         onClick={() => trackEvent("click_pets_products_mini")}
                         className="mt-4 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
@@ -818,8 +812,6 @@ const PetsLandingPage = () => {
                     <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
                       <a
                         href={quizAnswer === "pets" ? BIOTICA_URL : MINI_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         onClick={() => trackCta(`quiz_add_${quizAnswer}`)}
                       >
                         <Button
