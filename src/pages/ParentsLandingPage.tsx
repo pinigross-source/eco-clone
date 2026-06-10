@@ -730,7 +730,7 @@ const ParentsLandingPage = () => {
               {[
                 {
                   q: "Is it safe around babies?",
-                  a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list (Generally Recognized As Safe) - the same kind of beneficial cultures found in yogurt and on healthy skin. It's fragrance-free, chemical-free, and independently tested for use in homes with babies and pets. See our safety page for full certifications and testing.",
+                  a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list (Generally Recognized As Safe) - the same kind of beneficial cultures found in yogurt and on healthy skin. It's chemical-free and independently tested for use in homes with babies and pets. See our safety page for full certifications and testing.",
                 },
                 {
                   q: "Do I have to get rid of my air purifier?",
