@@ -152,7 +152,7 @@ const PetsLandingPage = () => {
     <>
       <SEOHead
         title="Pet Dander & Odor Control for Your Home | EnviroBiotics"
-        description="Vacuuming gets the hair. EnviroBiotics gets what you can't see - breaking down pet dander and odor in the couch, carpet, and bedding where they settle. No fragrance, no chemicals. Meet Biotica."
+        description="Vacuuming gets the hair. EnviroBiotics gets what you can't see - breaking down pet dander and odor in the couch, carpet, and bedding where they settle. No chemicals. Meet Biotica."
         path="/pets"
       />
 
