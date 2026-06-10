@@ -479,20 +479,87 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ PRODUCTS - 3 OPTIONS ============ */}
+        {/* ============ PET OWNER PROBLEM STACK ============ */}
+        <section className="bg-background py-16 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-[1100px] px-5 sm:px-10 lg:px-16">
+            <Reveal>
+              <div className="mx-auto max-w-2xl text-center">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+                  The pet owner problem stack
+                </p>
+                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.4rem] lg:text-[2.85rem]">
+                  You&apos;re already doing the work. <span className="font-serif italic font-normal">Here&apos;s what each step misses.</span>
+                </h2>
+                <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                  Pet allergens become airborne and stick to furniture, bedding, and fabrics. Most pet-home routines only cover part of the picture.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="mt-10 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.18)] sm:mt-14">
+                {/* Header row - desktop */}
+                <div className="hidden grid-cols-3 gap-0 border-b border-border/60 bg-[#F4EFE6] px-6 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/70 sm:grid sm:px-8">
+                  <div>What pet owners try</div>
+                  <div>Why it&apos;s not enough</div>
+                  <div>What EnviroBiotics adds</div>
+                </div>
+                {[
+                  { try: "Vacuuming", gap: "Removes visible hair", adds: "Helps address what settles deeper into surfaces" },
+                  { try: "Candles / sprays", gap: "Covers odor", adds: "Works without fragrance" },
+                  { try: "Air purifier", gap: "Helps airborne particles", adds: "Adds surface-level support" },
+                  { try: "Washing covers", gap: "Helps temporarily", adds: "Keeps working between cleanings" },
+                ].map((row, i) => (
+                  <div
+                    key={row.try}
+                    className={`grid grid-cols-1 gap-3 px-6 py-5 sm:grid-cols-3 sm:gap-6 sm:px-8 sm:py-6 ${
+                      i !== 3 ? "border-b border-border/50" : ""
+                    }`}
+                  >
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/60 sm:hidden">
+                        What you try
+                      </p>
+                      <p className="font-display text-[1.05rem] font-semibold text-foreground sm:text-[1.125rem]">
+                        {row.try}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/60 sm:hidden">
+                        Why it&apos;s not enough
+                      </p>
+                      <p className="text-[14.5px] leading-[1.6] text-muted-foreground sm:text-[15px]">
+                        {row.gap}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/60 sm:hidden">
+                        What EnviroBiotics adds
+                      </p>
+                      <p className="text-[14.5px] leading-[1.6] text-foreground sm:text-[15px]">
+                        {row.adds}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ============ PRODUCTS - PET-PROOF HOME PLAN ============ */}
         <section id="products" className="scroll-mt-24 bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                  Choose your setup
+                  Choose your Pet-Proof Home Plan
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3.25rem]">
-                  Start with <span className="font-serif italic font-normal">Biotica.</span>
+                  Start with the <span className="font-serif italic font-normal">Starter Kit.</span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
-                  Biotica is the living-room-sized device most pet owners start with. Add the Mini
-                  for a bedroom, or grab the Bundle for full-home coverage.
+                  Built around Biotica 800 - sized for the living room, where your pet (and the dander) spends the most time. Add a Mini for the bedroom or pet zone with the Multi-Pet Bundle.
                 </p>
               </div>
             </Reveal>
