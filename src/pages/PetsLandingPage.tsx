@@ -180,7 +180,10 @@ const PetsLandingPage = () => {
                   className="font-display font-semibold tracking-[-0.035em] text-foreground text-[clamp(2.25rem,8vw,2.75rem)] leading-[1.04] sm:text-[clamp(3rem,5.6vw,4.25rem)] sm:leading-[1.02] lg:text-[clamp(3.75rem,4.8vw,5.25rem)] lg:leading-[1.0]"
                   style={{ textShadow: "0 2px 20px rgba(247,243,236,0.5), 0 1px 4px rgba(247,243,236,0.3)" }}
                 >
-                  {hero.headline}
+                  Your home should smell clean
+                  <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
+                    even with pets on the couch.
+                  </span>
                 </h1>
               </Reveal>
               <Reveal>
@@ -188,7 +191,7 @@ const PetsLandingPage = () => {
                   className="mx-auto mt-7 max-w-[36rem] text-[1.15rem] font-normal leading-[1.6] text-foreground/80 sm:mx-0 sm:mt-9 sm:max-w-[38rem] sm:text-[1.3rem] sm:leading-[1.55] lg:text-[1.4rem]"
                   style={{ textShadow: "0 2px 16px rgba(247,243,236,0.5), 0 1px 3px rgba(247,243,236,0.3)" }}
                 >
-                  {hero.sub}
+                  Pet hair is the easy part. Dander and odor settle deep into couches, rugs, bedding, curtains, and pet zones where vacuums, candles, and air purifiers do not fully reach. EnviroBiotics works on those surfaces continuously, with no sprays, fragrance, or harsh chemicals.
                 </p>
               </Reveal>
               <Reveal>
@@ -202,15 +205,15 @@ const PetsLandingPage = () => {
                       size="lg"
                       className="h-[3.75rem] w-full rounded-full bg-foreground px-10 text-[17px] font-semibold tracking-[-0.01em] text-background shadow-[0_20px_50px_-14px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90 sm:h-[4rem] sm:w-auto sm:px-12 sm:text-[18px]"
                     >
-                      Get the Pet-Proof Home
+                      Get the Pet-Proof Home Kit
                       <ArrowRight className="ml-2.5 h-5 w-5 sm:h-6 sm:w-6" />
                     </Button>
                   </a>
                 </div>
               </Reveal>
               <Reveal>
-                <p className="mt-5 text-center text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-6 sm:text-[13px]">
-                  Takes 60 seconds · No sprays
+                <p className="mt-5 text-center text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-6 sm:text-[13px] sm:text-left">
+                  Takes 60 seconds · No sprays · Works between cleanings · 30-day guarantee · Code {PROMO} saves 10%
                 </p>
               </Reveal>
             </div>
@@ -476,20 +479,87 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ PRODUCTS - 3 OPTIONS ============ */}
+        {/* ============ PET OWNER PROBLEM STACK ============ */}
+        <section className="bg-background py-16 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-[1100px] px-5 sm:px-10 lg:px-16">
+            <Reveal>
+              <div className="mx-auto max-w-2xl text-center">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+                  The pet owner problem stack
+                </p>
+                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.4rem] lg:text-[2.85rem]">
+                  You&apos;re already doing the work. <span className="font-serif italic font-normal">Here&apos;s what each step misses.</span>
+                </h2>
+                <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                  Pet allergens become airborne and stick to furniture, bedding, and fabrics. Most pet-home routines only cover part of the picture.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="mt-10 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.18)] sm:mt-14">
+                {/* Header row - desktop */}
+                <div className="hidden grid-cols-3 gap-0 border-b border-border/60 bg-[#F4EFE6] px-6 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/70 sm:grid sm:px-8">
+                  <div>What pet owners try</div>
+                  <div>Why it&apos;s not enough</div>
+                  <div>What EnviroBiotics adds</div>
+                </div>
+                {[
+                  { try: "Vacuuming", gap: "Removes visible hair", adds: "Helps address what settles deeper into surfaces" },
+                  { try: "Candles / sprays", gap: "Covers odor", adds: "Works without fragrance" },
+                  { try: "Air purifier", gap: "Helps airborne particles", adds: "Adds surface-level support" },
+                  { try: "Washing covers", gap: "Helps temporarily", adds: "Keeps working between cleanings" },
+                ].map((row, i) => (
+                  <div
+                    key={row.try}
+                    className={`grid grid-cols-1 gap-3 px-6 py-5 sm:grid-cols-3 sm:gap-6 sm:px-8 sm:py-6 ${
+                      i !== 3 ? "border-b border-border/50" : ""
+                    }`}
+                  >
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/60 sm:hidden">
+                        What you try
+                      </p>
+                      <p className="font-display text-[1.05rem] font-semibold text-foreground sm:text-[1.125rem]">
+                        {row.try}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/60 sm:hidden">
+                        Why it&apos;s not enough
+                      </p>
+                      <p className="text-[14.5px] leading-[1.6] text-muted-foreground sm:text-[15px]">
+                        {row.gap}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/60 sm:hidden">
+                        What EnviroBiotics adds
+                      </p>
+                      <p className="text-[14.5px] leading-[1.6] text-foreground sm:text-[15px]">
+                        {row.adds}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ============ PRODUCTS - PET-PROOF HOME PLAN ============ */}
         <section id="products" className="scroll-mt-24 bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                  Choose your setup
+                  Choose your Pet-Proof Home Plan
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3.25rem]">
-                  Start with <span className="font-serif italic font-normal">Biotica.</span>
+                  Start with the <span className="font-serif italic font-normal">Starter Kit.</span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
-                  Biotica is the living-room-sized device most pet owners start with. Add the Mini
-                  for a bedroom, or grab the Bundle for full-home coverage.
+                  Built around Biotica 800 - sized for the living room, where your pet (and the dander) spends the most time. Add a Mini for the bedroom or pet zone with the Multi-Pet Bundle.
                 </p>
               </div>
             </Reveal>
@@ -513,20 +583,24 @@ const PetsLandingPage = () => {
                   </div>
                   <div className="flex flex-col p-6 sm:p-10 lg:p-12">
                     <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
-                      Biotica · For the living room
+                      Most popular · For the living room
                     </p>
                     <h3 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
-                      Biotica 800
+                      Pet-Proof Home Starter Kit
                     </h3>
                     <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
-                      Sits quietly in the main living space - where your pet (and the dander) spends
-                      the most time - and keeps soft surfaces cleaner between cleanings.
+                      Built around Biotica 800. Sits quietly in the main living space - where your pet (and the dander) spends the most time - and keeps soft surfaces cleaner between cleanings.
                     </p>
-                    <ul className="mt-5 flex flex-col gap-3">
+                    <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/70">
+                      What&apos;s included
+                    </p>
+                    <ul className="mt-3 flex flex-col gap-3">
                       {[
-                        "Covers up to 800 sq ft - sized for living rooms and open plans",
-                        "Works on the couch, rug, curtains, and pet bed",
-                        "No sprays, no harsh chemicals",
+                        "Biotica 800 - covers up to 800 sq ft, sized for living rooms",
+                        "90-day probiotic cartridge",
+                        "Pet Surface Reset Guide",
+                        "30-day money-back guarantee + free shipping",
+                        "Code PETS saves 10%",
                       ].map((f) => (
                         <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
                           <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
@@ -575,11 +649,10 @@ const PetsLandingPage = () => {
                       Multi-pet homes · Best value
                     </p>
                     <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
-                      Home Bundle
+                      Multi-Pet Home Bundle
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                      Cover the living room and the bedroom in one go. Consistent support wherever
-                      your pet roams.
+                      Biotica 800 for the living room + Mini for the bedroom or pet zone. Consistent support wherever your pet roams.
                     </p>
                     <ul className="mt-5 flex flex-1 flex-col gap-3">
                       {[
