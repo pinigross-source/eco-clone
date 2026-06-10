@@ -551,8 +551,6 @@ const AllergyLandingPage = () => {
                       </div>
                       <a
                         href={BIOTICA_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         onClick={() => trackEvent("click_allergy_products_biotica")}
                         className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
