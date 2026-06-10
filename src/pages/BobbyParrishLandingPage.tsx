@@ -761,7 +761,7 @@ const BobbyParrishLandingPage = () => {
                       </li>
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
                         <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
-                        <span>No bleach, no ammonia, no fragrances</span>
+                        <span>No bleach, no ammonia</span>
                       </li>
                     </ul>
                     <div className="mt-6 border-t border-border/60 pt-5">
@@ -986,7 +986,7 @@ const BobbyParrishLandingPage = () => {
                     Probiotics that clean your home the way nature intended.
                   </h2>
                   <p className="text-[0.95rem] leading-relaxed text-muted-foreground sm:text-lg">
-                    No harsh chemical sprays. No artificial masking fragrances. No complicated
+                    No harsh chemical sprays. No complicated
                     routine. EnviroBiotics works quietly in the background, releasing beneficial
                     environmental probiotics that help support a cleaner, fresher indoor environment
                     every day.
@@ -1100,7 +1100,7 @@ const BobbyParrishLandingPage = () => {
               {[
                 {
                   q: "Is EnviroBiotics safe for kids and pets?",
-                  a: "Yes. EnviroBiotics uses beneficial environmental probiotics - the same family of microbes naturally present in healthy homes. No harsh chemicals, no fragrances, no respiratory irritants. Safe to run continuously around children, pets, and sensitive family members.",
+                  a: "Yes. EnviroBiotics uses beneficial environmental probiotics - the same family of microbes naturally present in healthy homes. No harsh chemicals, no respiratory irritants. Safe to run continuously around children, pets, and sensitive family members.",
                 },
                 {
                   q: "Do I need to stop using my regular cleaners?",

@@ -152,7 +152,7 @@ const PetsLandingPage = () => {
     <>
       <SEOHead
         title="Pet Dander & Odor Control for Your Home | EnviroBiotics"
-        description="Vacuuming gets the hair. EnviroBiotics gets what you can't see - breaking down pet dander and odor in the couch, carpet, and bedding where they settle. No fragrance, no chemicals. Meet Biotica."
+        description="Vacuuming gets the hair. EnviroBiotics gets what you can't see - breaking down pet dander and odor in the couch, carpet, and bedding where they settle. No chemicals. Meet Biotica."
         path="/pets"
       />
 
@@ -346,7 +346,7 @@ const PetsLandingPage = () => {
                 stuff pets leave behind - dander and odor residue - continuously, the natural way.
               </p>
               <p className="mt-4 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.15rem]">
-                No harsh chemicals. No fragrance. Just less of what you can&apos;t see.
+                No harsh chemicals. Just less of what you can&apos;t see.
               </p>
             </Reveal>
           </div>
@@ -444,7 +444,7 @@ const PetsLandingPage = () => {
                 },
                 {
                   icon: Leaf,
-                  title: "No fragrance, no chemicals",
+                  title: "No chemicals",
                   copy: "Removes what&apos;s there instead of covering it. The goal: a room that smells like nothing.",
                 },
                 {
@@ -526,7 +526,7 @@ const PetsLandingPage = () => {
                       {[
                         "Covers up to 800 sq ft - sized for living rooms and open plans",
                         "Works on the couch, rug, curtains, and pet bed",
-                        "No sprays, no fragrance, no harsh chemicals",
+                        "No sprays, no harsh chemicals",
                       ].map((f) => (
                         <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
                           <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
@@ -712,7 +712,7 @@ const PetsLandingPage = () => {
                 },
                 {
                   q: "Is it safe around my pets and family?",
-                  a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list (Generally Recognized As Safe) - the same kind of beneficial cultures found in yogurt and on healthy skin. It's fragrance-free, chemical-free, and designed for use in homes with cats, dogs, and kids. See our safety page for full certifications and testing.",
+                  a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list (Generally Recognized As Safe) - the same kind of beneficial cultures found in yogurt and on healthy skin. It's chemical-free and designed for use in homes with cats, dogs, and kids. See our safety page for full certifications and testing.",
                 },
                 {
                   q: "Will my house smell like fragrance or chemicals?",
@@ -938,7 +938,7 @@ const PetsLandingPage = () => {
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-foreground">30-day guarantee</p>
-            <p className="truncate text-xs text-muted-foreground">No fragrance · Pet-safe</p>
+            <p className="truncate text-xs text-muted-foreground">Pet-safe</p>
           </div>
           <a href="#quiz" onClick={(e) => smoothScroll(e, "quiz", "click_pets_sticky_cta")}>
             <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
