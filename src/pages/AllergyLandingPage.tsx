@@ -335,12 +335,18 @@ const AllergyLandingPage = () => {
         <section className="bg-background py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[820px] px-5 sm:px-10">
             <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                The simplest way to explain it
-              </p>
-              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                You already know how this works, for your gut.
-              </h2>
+              <a
+                href="#quiz"
+                onClick={(e) => smoothScroll(e, "quiz", "click_allergy_h2_science")}
+                className="block cursor-pointer no-underline"
+              >
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+                  The simplest way to explain it
+                </p>
+                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]">
+                  You already know how this works, for your gut.
+                </h2>
+              </a>
               <p className="mt-6 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.15rem]">
                 You&apos;ve heard of probiotics for your gut: good cultures that keep things in
                 balance. EnviroBiotics is the same idea for the room. Good cultures settle onto your
