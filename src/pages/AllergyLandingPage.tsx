@@ -402,7 +402,7 @@ const AllergyLandingPage = () => {
 
             <Reveal>
               <div className="mt-12 flex justify-center">
-                <a href="#quiz" onClick={(e) => smoothScroll(e, "quiz", "click_allergy_how_cta")}>
+                <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_allergy_how_cta")}>
                   <Button
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
