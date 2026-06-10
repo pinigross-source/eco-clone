@@ -346,7 +346,7 @@ const PetsLandingPage = () => {
                 stuff pets leave behind - dander and odor residue - continuously, the natural way.
               </p>
               <p className="mt-4 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.15rem]">
-                No harsh chemicals. No fragrance. Just less of what you can&apos;t see.
+                No harsh chemicals. Just less of what you can&apos;t see.
               </p>
             </Reveal>
           </div>
