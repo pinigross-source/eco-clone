@@ -217,7 +217,12 @@ const AllergyLandingPage = () => {
         <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[880px] px-5 sm:px-10">
             <Reveal>
-              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
+              <h2
+                role="button"
+                tabIndex={0}
+                onClick={(e) => smoothScroll(e as unknown as React.MouseEvent<HTMLAnchorElement>, "products", "click_allergy_h2_pain")}
+                className="cursor-pointer font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]"
+              >
                 You did everything right. The purifier still isn&apos;t enough.
               </h2>
               <div className="mt-7 space-y-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
