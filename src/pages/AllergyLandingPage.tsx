@@ -651,8 +651,6 @@ const AllergyLandingPage = () => {
                   <div className="flex flex-1 flex-col p-6 sm:p-8">
                     <a
                       href={MINI_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       onClick={() => trackEvent("click_allergy_mini_title")}
                       className="block cursor-pointer no-underline"
                     >
