@@ -207,8 +207,6 @@ const BobbyParrishLandingPage = () => {
             </span>{" "}
             <a
               href={LINKS.mini}
-              target="_blank"
-              rel="noopener noreferrer"
               onClick={() => trackEvent("click_sticky_bar_shop")}
               className="text-sm font-semibold underline underline-offset-2 hover:no-underline whitespace-nowrap"
             >
@@ -217,8 +215,6 @@ const BobbyParrishLandingPage = () => {
           </div>
           <a
             href={LINKS.mini}
-            target="_blank"
-            rel="noopener noreferrer"
             onClick={() => trackEvent("click_sticky_bar_shop_mobile")}
             className="block sm:hidden text-center py-2.5 px-3 text-xs font-medium"
           >
@@ -278,8 +274,6 @@ const BobbyParrishLandingPage = () => {
                 >
                   <a
                     href={LINKS.mini}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     onClick={() => trackEvent("click_hero_mini_mobile")}
                   >
                     Get the BioLogic Mini $83
@@ -375,8 +369,6 @@ const BobbyParrishLandingPage = () => {
                   >
                     <a
                       href={LINKS.mini}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       onClick={() => trackEvent("click_hero_mini_desktop")}
                     >
                       Get the BioLogic Mini $83
@@ -772,8 +764,6 @@ const BobbyParrishLandingPage = () => {
                       </div>
                       <a
                         href={LINKS.mini}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         onClick={() => trackEvent("click_bobby_mini")}
                         className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-primary text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                       >
@@ -951,8 +941,6 @@ const BobbyParrishLandingPage = () => {
                   </ul>
                   <a
                     href={LINKS.mini}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     onClick={() => trackEvent("click_travel_mini")}
                     className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-foreground px-6 text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                   >
@@ -1178,8 +1166,6 @@ const BobbyParrishLandingPage = () => {
                 >
                   <a
                     href={LINKS.mini}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     onClick={() => trackEvent("click_final_cta_mini")}
                   >
                     Get the BioLogic Mini $83
@@ -1218,8 +1204,6 @@ const BobbyParrishLandingPage = () => {
           </div>
           <a
             href={LINKS.mini}
-            target="_blank"
-            rel="noopener noreferrer"
             onClick={() => trackEvent("click_mobile_sticky_mini")}
             className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
             aria-label="Buy the BioLogic Mini with code BOBBY"
