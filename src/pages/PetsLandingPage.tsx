@@ -191,7 +191,7 @@ const PetsLandingPage = () => {
                   className="mx-auto mt-7 max-w-[36rem] text-[1.15rem] font-normal leading-[1.6] text-foreground/80 sm:mx-0 sm:mt-9 sm:max-w-[38rem] sm:text-[1.3rem] sm:leading-[1.55] lg:text-[1.4rem]"
                   style={{ textShadow: "0 2px 16px rgba(247,243,236,0.5), 0 1px 3px rgba(247,243,236,0.3)" }}
                 >
-                  Pet hair is the easy part. Dander and odor settle deep into couches, rugs, bedding, curtains, and pet zones where vacuums, candles, and air purifiers do not fully reach. EnviroBiotics works on those surfaces continuously, with no sprays, fragrance, or harsh chemicals.
+                  Pet hair is the easy part. Dander and odor settle deep into couches, rugs, bedding, curtains, and pet zones where vacuums, candles, and air purifiers do not fully reach. EnviroBiotics works on those surfaces continuously, with no sprays or harsh chemicals.
                 </p>
               </Reveal>
               <Reveal>
