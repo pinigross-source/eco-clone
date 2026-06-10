@@ -649,12 +649,20 @@ const AllergyLandingPage = () => {
                     </div>
                   </div>
                   <div className="flex flex-1 flex-col p-6 sm:p-8">
-                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                      Small rooms & travel
-                    </p>
-                    <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
-                      The Mini
-                    </h3>
+                    <a
+                      href={MINI_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackEvent("click_allergy_mini_title")}
+                      className="block cursor-pointer no-underline"
+                    >
+                      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                        Small rooms & travel
+                      </p>
+                      <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground transition-colors hover:text-foreground/80 sm:text-[1.75rem]">
+                        The Mini
+                      </h3>
+                    </a>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
                       Compact, portable surface coverage for a study, guest room, or hotel, wherever
                       you sleep.
