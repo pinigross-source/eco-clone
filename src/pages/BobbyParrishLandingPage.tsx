@@ -986,7 +986,7 @@ const BobbyParrishLandingPage = () => {
                     Probiotics that clean your home the way nature intended.
                   </h2>
                   <p className="text-[0.95rem] leading-relaxed text-muted-foreground sm:text-lg">
-                    No harsh chemical sprays. No artificial masking fragrances. No complicated
+                    No harsh chemical sprays. No complicated
                     routine. EnviroBiotics works quietly in the background, releasing beneficial
                     environmental probiotics that help support a cleaner, fresher indoor environment
                     every day.
