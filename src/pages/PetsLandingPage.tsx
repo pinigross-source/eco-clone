@@ -177,12 +177,11 @@ const PetsLandingPage = () => {
           <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-center px-5 pb-8 pt-24 text-center sm:items-start sm:px-10 sm:pb-0 sm:pt-0 sm:text-left lg:px-16">
             <div className="mx-auto w-full max-w-[36rem] sm:mx-0 sm:max-w-[48rem]">
               <Reveal>
-                <h1
-                  className="font-display font-semibold tracking-[-0.035em] text-foreground text-[clamp(2.25rem,8vw,2.75rem)] leading-[1.04] sm:text-[clamp(3rem,5.6vw,4.25rem)] sm:leading-[1.02] lg:text-[clamp(3.75rem,4.8vw,5.25rem)] lg:leading-[1.0]"
-                  style={{ textShadow: "0 2px 20px rgba(247,243,236,0.5), 0 1px 4px rgba(247,243,236,0.3)" }}
-                >
-                  Your home should smell clean
-                  <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
+                <h1 className="font-display font-bold tracking-[-0.035em] leading-[0.95] text-foreground">
+                  <span className="block text-[clamp(2.25rem,8vw,2.75rem)] sm:text-[clamp(3rem,5.6vw,4.25rem)] lg:text-[clamp(3.75rem,4.8vw,5.25rem)]">
+                    Your home should smell clean
+                  </span>
+                  <span className="block mt-2 text-heading-accent italic font-normal leading-[1] text-[clamp(2rem,7vw,2.5rem)] sm:text-[clamp(2.6rem,4.8vw,3.8rem)] lg:text-[clamp(3.25rem,4.2vw,4.5rem)]">
                     even with pets on the couch.
                   </span>
                 </h1>
