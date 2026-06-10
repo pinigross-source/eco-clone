@@ -1100,7 +1100,7 @@ const BobbyParrishLandingPage = () => {
               {[
                 {
                   q: "Is EnviroBiotics safe for kids and pets?",
-                  a: "Yes. EnviroBiotics uses beneficial environmental probiotics - the same family of microbes naturally present in healthy homes. No harsh chemicals, no fragrances, no respiratory irritants. Safe to run continuously around children, pets, and sensitive family members.",
+                  a: "Yes. EnviroBiotics uses beneficial environmental probiotics - the same family of microbes naturally present in healthy homes. No harsh chemicals, no respiratory irritants. Safe to run continuously around children, pets, and sensitive family members.",
                 },
                 {
                   q: "Do I need to stop using my regular cleaners?",
