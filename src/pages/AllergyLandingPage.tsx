@@ -375,7 +375,7 @@ const AllergyLandingPage = () => {
                 {
                   step: "02",
                   title: "Switch on",
-                  copy: "It works silently in the background. No filter swaps, no spray, no fragrance.",
+                  copy: "It works silently in the background. No filter swaps, no spray.",
                 },
                 {
                   step: "03",
@@ -448,7 +448,7 @@ const AllergyLandingPage = () => {
                 },
                 {
                   icon: Leaf,
-                  title: "No chemicals, no fragrance",
+                  title: "No chemicals",
                   copy: "Nothing added to the room. Just less of the debris that builds up in it.",
                 },
                 {
@@ -528,7 +528,7 @@ const AllergyLandingPage = () => {
                       {[
                         "Covers up to 800 sq ft, built for bedrooms and main rooms",
                         "Silent, runs overnight without the fan noise",
-                        "No sprays, no chemicals, no fragrance",
+                        "No sprays, no chemicals",
                       ].map((f) => (
                         <li
                           key={f}
