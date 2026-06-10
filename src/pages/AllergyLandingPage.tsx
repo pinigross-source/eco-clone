@@ -189,8 +189,6 @@ const AllergyLandingPage = () => {
                 <div className="mt-8 flex flex-col items-stretch gap-3.5 sm:mt-10 sm:flex-row sm:items-center sm:gap-5">
                   <a
                     href={BIOTICA_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     onClick={() => trackEvent("click_allergy_hero_cta")}
                     className="sm:w-auto"
                   >
