@@ -213,7 +213,7 @@ const PetsLandingPage = () => {
               </Reveal>
               <Reveal>
                 <p className="mt-5 text-center text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-6 sm:text-[13px] sm:text-left">
-                  Takes 60 seconds · No sprays · Works between cleanings · 30-day guarantee · Code {PROMO} saves 10%
+                  Takes 60 seconds · No sprays · Works between cleanings · 30-day guarantee
                 </p>
               </Reveal>
             </div>
@@ -600,7 +600,6 @@ const PetsLandingPage = () => {
                         "90-day probiotic cartridge",
                         "Pet Surface Reset Guide",
                         "30-day money-back guarantee + free shipping",
-                        "Code PETS saves 10%",
                       ].map((f) => (
                         <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
                           <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
@@ -621,7 +620,7 @@ const PetsLandingPage = () => {
                         <ArrowRight className="h-4 w-4" />
                       </a>
                       <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                        Free shipping · 30-day money-back · Code {PROMO} saves 10%
+                        Free shipping · 30-day money-back
                       </p>
                     </div>
                   </div>
@@ -883,11 +882,6 @@ const PetsLandingPage = () => {
                 <span className="inline-flex items-center gap-1.5">
                   <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
                   Free shipping
-                </span>
-                <span className="opacity-40">·</span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
-                  Code {PROMO} saves 10%
                 </span>
               </p>
             </Reveal>
