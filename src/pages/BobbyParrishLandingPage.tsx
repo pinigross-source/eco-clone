@@ -761,7 +761,7 @@ const BobbyParrishLandingPage = () => {
                       </li>
                       <li className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
                         <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.5} />
-                        <span>No bleach, no ammonia, no fragrances</span>
+                        <span>No bleach, no ammonia</span>
                       </li>
                     </ul>
                     <div className="mt-6 border-t border-border/60 pt-5">
