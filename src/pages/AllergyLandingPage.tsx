@@ -280,18 +280,19 @@ const AllergyLandingPage = () => {
         <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1100px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <a
-                href="#products"
-                onClick={(e) => smoothScroll(e, "products", "click_allergy_h2_compare")}
-                className="block max-w-2xl cursor-pointer no-underline"
-              >
+              <div className="max-w-2xl">
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
                   Air purifier vs. EnviroBiotics
                 </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]">
+                <h2
+                  role="button"
+                  tabIndex={0}
+                  onClick={(e) => smoothScroll(e as unknown as React.MouseEvent<HTMLAnchorElement>, "products", "click_allergy_h2_compare")}
+                  className="cursor-pointer font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]"
+                >
                   Two halves of one room. You&apos;ve only been treating one.
                 </h2>
-              </a>
+              </div>
             </Reveal>
 
             <Reveal>
