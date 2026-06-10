@@ -396,8 +396,8 @@ const ParentsLandingPage = () => {
             <Reveal>
               <div className="mt-12 flex justify-center">
                 <a
-                  href="#quiz"
-                  onClick={(e) => smoothScroll(e, "quiz", "click_parents_how_cta")}
+                  href="#products"
+                  onClick={(e) => smoothScroll(e, "products", "click_parents_how_cta")}
                 >
                   <Button
                     size="lg"
@@ -902,8 +902,8 @@ const ParentsLandingPage = () => {
               </p>
               <div className="mt-10 flex justify-center">
                 <a
-                  href="#quiz"
-                  onClick={(e) => smoothScroll(e, "quiz", "click_parents_final_cta")}
+                  href="#products"
+                  onClick={(e) => smoothScroll(e, "products", "click_parents_final_cta")}
                 >
                   <Button
                     size="lg"
@@ -947,8 +947,8 @@ const ParentsLandingPage = () => {
             <p className="truncate text-xs text-muted-foreground">Quiet · Chemical-free</p>
           </div>
           <a
-            href="#quiz"
-            onClick={(e) => smoothScroll(e, "quiz", "click_parents_sticky_cta")}
+            href="#products"
+            onClick={(e) => smoothScroll(e, "products", "click_parents_sticky_cta")}
           >
             <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
               Secure My Baby&apos;s Space

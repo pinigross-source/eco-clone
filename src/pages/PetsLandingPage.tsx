@@ -194,8 +194,8 @@ const PetsLandingPage = () => {
               <Reveal>
                 <div className="mt-8 flex flex-col items-stretch gap-3.5 sm:mt-10 sm:flex-row sm:items-center sm:gap-5">
                   <a
-                    href="#quiz"
-                    onClick={(e) => smoothScroll(e, "quiz", "click_pets_hero_cta")}
+                    href="#products"
+                    onClick={(e) => smoothScroll(e, "products", "click_pets_hero_cta")}
                     className="sm:w-auto"
                   >
                     <Button
@@ -403,7 +403,7 @@ const PetsLandingPage = () => {
 
             <Reveal>
               <div className="mt-12 flex justify-center">
-                <a href="#quiz" onClick={(e) => smoothScroll(e, "quiz", "click_pets_how_cta")}>
+                <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_how_cta")}>
                   <Button
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
@@ -890,7 +890,7 @@ const PetsLandingPage = () => {
                 chemical-free, around the clock.
               </p>
               <div className="mt-10 flex justify-center">
-                <a href="#quiz" onClick={(e) => smoothScroll(e, "quiz", "click_pets_final_cta")}>
+                <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_final_cta")}>
                   <Button
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
@@ -932,7 +932,7 @@ const PetsLandingPage = () => {
             <p className="truncate text-sm font-semibold text-foreground">30-day guarantee</p>
             <p className="truncate text-xs text-muted-foreground">Pet-safe</p>
           </div>
-          <a href="#quiz" onClick={(e) => smoothScroll(e, "quiz", "click_pets_sticky_cta")}>
+          <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_sticky_cta")}>
             <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
               Get the Pet-Proof Home
             </Button>
