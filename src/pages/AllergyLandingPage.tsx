@@ -887,7 +887,7 @@ const AllergyLandingPage = () => {
             <p className="truncate text-sm font-semibold text-foreground">30-day guarantee</p>
             <p className="truncate text-xs text-muted-foreground">Silent · Chemical-free</p>
           </div>
-          <a href="#quiz" onClick={(e) => smoothScroll(e, "quiz", "click_allergy_sticky_cta")}>
+          <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_allergy_sticky_cta")}>
             <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
               Reach What Filter Can&apos;t
             </Button>
