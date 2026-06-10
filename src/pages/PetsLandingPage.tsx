@@ -712,7 +712,7 @@ const PetsLandingPage = () => {
                 },
                 {
                   q: "Is it safe around my pets and family?",
-                  a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list (Generally Recognized As Safe) - the same kind of beneficial cultures found in yogurt and on healthy skin. It's fragrance-free, chemical-free, and designed for use in homes with cats, dogs, and kids. See our safety page for full certifications and testing.",
+                  a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list (Generally Recognized As Safe) - the same kind of beneficial cultures found in yogurt and on healthy skin. It's chemical-free and designed for use in homes with cats, dogs, and kids. See our safety page for full certifications and testing.",
                 },
                 {
                   q: "Will my house smell like fragrance or chemicals?",
