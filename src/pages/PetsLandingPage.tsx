@@ -24,7 +24,8 @@ import {
 import miniImg from "@/assets/shop/biologic-mini.png";
 import bioticaImg from "@/assets/shop/biotica-800.png";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
-import heroImg from "@/assets/pet-scandinavian-bright.jpg";
+import heroAsset from "@/assets/pets-lp-hero.avif.asset.json";
+const heroImg = heroAsset.url;
 import petBedImg from "@/assets/difference-petbed.jpg";
 import familyImg from "@/assets/family-clean-home.avif";
 
