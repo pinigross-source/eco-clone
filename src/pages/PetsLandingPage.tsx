@@ -526,7 +526,7 @@ const PetsLandingPage = () => {
                       {[
                         "Covers up to 800 sq ft - sized for living rooms and open plans",
                         "Works on the couch, rug, curtains, and pet bed",
-                        "No sprays, no fragrance, no harsh chemicals",
+                        "No sprays, no harsh chemicals",
                       ].map((f) => (
                         <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
                           <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
