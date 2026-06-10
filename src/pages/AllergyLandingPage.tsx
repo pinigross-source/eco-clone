@@ -801,18 +801,24 @@ const AllergyLandingPage = () => {
         <section id="quiz" className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[820px] px-5 sm:px-10">
             <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                Find your fit
-              </p>
-              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                Not sure where to start? Tell us who&apos;s home.
-              </h2>
+              <a
+                href="#quiz-options"
+                onClick={(e) => smoothScroll(e, "quiz-options", "click_allergy_h2_quiz")}
+                className="block cursor-pointer no-underline"
+              >
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+                  Find your fit
+                </p>
+                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]">
+                  Not sure where to start? Tell us who&apos;s home.
+                </h2>
+              </a>
               <p className="mt-4 text-[1rem] leading-[1.7] text-muted-foreground sm:text-[1.05rem]">
                 Who lives in your home?
               </p>
             </Reveal>
 
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div id="quiz-options" className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
               {[
                 { id: "baby" as const, icon: Baby, label: "A baby or toddler" },
                 { id: "pets" as const, icon: PawPrint, label: "Pets" },
