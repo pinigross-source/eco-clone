@@ -649,11 +649,10 @@ const PetsLandingPage = () => {
                       Multi-pet homes · Best value
                     </p>
                     <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
-                      Home Bundle
+                      Multi-Pet Home Bundle
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                      Cover the living room and the bedroom in one go. Consistent support wherever
-                      your pet roams.
+                      Biotica 800 for the living room + Mini for the bedroom or pet zone. Consistent support wherever your pet roams.
                     </p>
                     <ul className="mt-5 flex flex-1 flex-col gap-3">
                       {[
