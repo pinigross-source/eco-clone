@@ -938,7 +938,7 @@ const PetsLandingPage = () => {
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-foreground">30-day guarantee</p>
-            <p className="truncate text-xs text-muted-foreground">No fragrance · Pet-safe</p>
+            <p className="truncate text-xs text-muted-foreground">Pet-safe</p>
           </div>
           <a href="#quiz" onClick={(e) => smoothScroll(e, "quiz", "click_pets_sticky_cta")}>
             <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
