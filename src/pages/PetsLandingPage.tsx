@@ -180,7 +180,10 @@ const PetsLandingPage = () => {
                   className="font-display font-semibold tracking-[-0.035em] text-foreground text-[clamp(2.25rem,8vw,2.75rem)] leading-[1.04] sm:text-[clamp(3rem,5.6vw,4.25rem)] sm:leading-[1.02] lg:text-[clamp(3.75rem,4.8vw,5.25rem)] lg:leading-[1.0]"
                   style={{ textShadow: "0 2px 20px rgba(247,243,236,0.5), 0 1px 4px rgba(247,243,236,0.3)" }}
                 >
-                  {hero.headline}
+                  Your home should smell clean
+                  <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
+                    even with pets on the couch.
+                  </span>
                 </h1>
               </Reveal>
               <Reveal>
@@ -188,7 +191,7 @@ const PetsLandingPage = () => {
                   className="mx-auto mt-7 max-w-[36rem] text-[1.15rem] font-normal leading-[1.6] text-foreground/80 sm:mx-0 sm:mt-9 sm:max-w-[38rem] sm:text-[1.3rem] sm:leading-[1.55] lg:text-[1.4rem]"
                   style={{ textShadow: "0 2px 16px rgba(247,243,236,0.5), 0 1px 3px rgba(247,243,236,0.3)" }}
                 >
-                  {hero.sub}
+                  Pet hair is the easy part. Dander and odor settle deep into couches, rugs, bedding, curtains, and pet zones where vacuums, candles, and air purifiers do not fully reach. EnviroBiotics works on those surfaces continuously, with no sprays, fragrance, or harsh chemicals.
                 </p>
               </Reveal>
               <Reveal>
@@ -202,15 +205,15 @@ const PetsLandingPage = () => {
                       size="lg"
                       className="h-[3.75rem] w-full rounded-full bg-foreground px-10 text-[17px] font-semibold tracking-[-0.01em] text-background shadow-[0_20px_50px_-14px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90 sm:h-[4rem] sm:w-auto sm:px-12 sm:text-[18px]"
                     >
-                      Get the Pet-Proof Home
+                      Get the Pet-Proof Home Kit
                       <ArrowRight className="ml-2.5 h-5 w-5 sm:h-6 sm:w-6" />
                     </Button>
                   </a>
                 </div>
               </Reveal>
               <Reveal>
-                <p className="mt-5 text-center text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-6 sm:text-[13px]">
-                  Takes 60 seconds · No sprays
+                <p className="mt-5 text-center text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-6 sm:text-[13px] sm:text-left">
+                  Takes 60 seconds · No sprays · Works between cleanings · 30-day guarantee · Code {PROMO} saves 10%
                 </p>
               </Reveal>
             </div>
