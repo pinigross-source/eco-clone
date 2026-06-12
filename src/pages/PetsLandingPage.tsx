@@ -913,12 +913,10 @@ const PetsLandingPage = () => {
           <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
             <Reveal>
               <h2 className="font-display text-[2.1rem] font-bold leading-[1.08] tracking-[-0.03em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem]">
-                The pet-proof home, without the chemicals.
+                Pet odor isn&apos;t in the air. <span className="font-serif italic font-normal">It&apos;s on your surfaces.</span>
               </h2>
               <p className="mx-auto mt-6 max-w-xl text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:text-[1.15rem]">
-                Keep the cuddles and the chaos. Just not the dander and odor pressing into every
-                soft surface. EnviroBiotics works where your vacuum can&apos;t - quietly,
-                chemical-free, around the clock.
+                Keep the cuddles, the couch naps, the bedroom-door-open chaos. Skip the candles, sprays, and recurring smell. The Pet-Proof Home Starter Kit works where your vacuum, purifier, and cleaning routine can&apos;t — quietly, chemical-free, around the clock.
               </p>
               <div className="mt-10 flex justify-center">
                 <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_final_cta")}>
