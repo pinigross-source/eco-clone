@@ -519,15 +519,13 @@ const PetsLandingPage = () => {
               {/* BioLogic Mini */}
               <Reveal>
                 <div className="flex h-full flex-col overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.08]">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-5">
-                    <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
-                      <img
-                        src={miniImg}
-                        alt="BioLogic Mini - compact device for bedrooms and pet zones"
-                        className="h-full w-full object-contain p-4 sm:p-6"
-                        loading="lazy"
-                      />
-                    </div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6]">
+                    <img
+                      src={miniImg}
+                      alt="BioLogic Mini on a bedroom nightstand next to a sleeping dog"
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="flex flex-1 flex-col p-6 sm:p-8">
                     <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
