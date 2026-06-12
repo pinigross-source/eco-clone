@@ -137,10 +137,8 @@ const PetsLandingPage = () => {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const trackCta = (where: string) => trackEvent(`click_pets_${where}`);
 
-  // Quiz state
-  const [quizAnswer, setQuizAnswer] = useState<"baby" | "pets" | "me" | null>(null);
+
 
   return (
     <>
