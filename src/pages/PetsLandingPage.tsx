@@ -220,25 +220,57 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
+        {/* ============ EARLY OFFER + MECHANISM BAND ============ */}
+        <section className="bg-foreground text-background py-10 sm:py-14">
+          <div className="mx-auto flex max-w-[1240px] flex-col items-center gap-6 px-5 sm:px-10 lg:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+            <div className="text-center lg:text-left">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-background/70">
+                The mechanism, in one line
+              </p>
+              <p className="mt-2 font-display text-[1.5rem] font-bold leading-[1.2] tracking-[-0.02em] sm:text-[1.85rem] lg:text-[2.15rem]">
+                Pet odor isn&apos;t in the air. <span className="italic font-normal">It&apos;s on your surfaces.</span>
+              </p>
+              <p className="mt-2 text-[14px] leading-[1.6] text-background/75 sm:text-[15px]">
+                Couch, rug, pet bed, curtains, bedroom corners — that&apos;s where dander and odor settle and rebuild between cleanings.
+              </p>
+            </div>
+            <div className="flex flex-col items-center gap-2 lg:items-end">
+              <a
+                href="#products"
+                onClick={(e) => smoothScroll(e, "products", "click_pets_band_cta")}
+              >
+                <Button
+                  size="lg"
+                  className="h-[3.25rem] rounded-full bg-background px-8 text-[15px] font-semibold text-foreground hover:bg-background/90 sm:text-[16px]"
+                >
+                  Get the Pet-Proof Home Starter Kit
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </a>
+              <p className="text-[12px] text-background/70">From $299 · 30-day guarantee · Free shipping</p>
+            </div>
+          </div>
+        </section>
+
         {/* ============ PROBLEM / PAIN ============ */}
         <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[880px] px-5 sm:px-10">
             <Reveal>
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+                You&apos;re not failing at cleaning
+              </p>
               <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                You&apos;re not a messy pet owner. You&apos;re up against something you can&apos;t see.
+                You&apos;re not failing at cleaning. You&apos;re solving the wrong layer of the problem.
               </h2>
               <div className="mt-7 space-y-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
                 <p>
-                  You vacuum the hair. You wash the covers. You stay on top of it. But two things
-                  your pet leaves behind never show up on a lint roller: dander and odor.
+                  You vacuum the couch. You wash the pet bed covers. You light a candle before guests come over. But two things your pet leaves behind never show up on a lint roller: dander and odor.
                 </p>
                 <p>
-                  Both are microscopic. Both settle deep into the soft surfaces where your pet
-                  spends its days - the couch, the rug, the bed, the curtains. Dander is the part
-                  that actually sets off allergies. Odor is the part that lingers no matter how much
-                  you clean. And neither one is floating in the air where a purifier can catch it -
-                  they&apos;re pressed into the fabric, below the reach of a vacuum and out of range
-                  of a spray.
+                  Both are microscopic. Both settle deep into the soft surfaces where your pet spends its days — the couch, the rug, the bedroom corner, the curtains, the spot near the litter box. Dander is the part that sets off allergies. Odor is the recurring smell that comes back two days after you cleaned. And neither one lives in the air where a purifier can catch it — they&apos;re pressed into the fabric, below the reach of a vacuum and out of range of a spray.
+                </p>
+                <p className="font-display text-[1.15rem] font-semibold text-foreground sm:text-[1.25rem]">
+                  Pet odor isn&apos;t in the air. It&apos;s on your surfaces. That&apos;s the layer nothing in your routine is built for.
                 </p>
               </div>
             </Reveal>
