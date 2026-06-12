@@ -361,30 +361,6 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ THE SCIENCE, GENTLY ============ */}
-        <section className="bg-background py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[820px] px-5 sm:px-10">
-            <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                The simplest way to explain it
-              </p>
-              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                It works like the probiotics you already trust.
-              </h2>
-              <p className="mt-6 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.15rem]">
-                You&apos;ve heard of probiotics for your gut - the good cultures that keep things
-                balanced and healthy. And you&apos;ve probably used an enzyme cleaner that breaks a
-                mess down instead of covering it up. EnviroBiotics combines both ideas for your
-                home: good cultures that settle onto surfaces and quietly break down the organic
-                stuff pets leave behind - dander and odor residue - continuously, the natural way.
-              </p>
-              <p className="mt-4 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.15rem]">
-                No harsh chemicals. Just less of what you can&apos;t see.
-              </p>
-            </Reveal>
-          </div>
-        </section>
-
         {/* ============ HOW IT WORKS ============ */}
         <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
