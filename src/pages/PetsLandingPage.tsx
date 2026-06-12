@@ -653,10 +653,11 @@ const PetsLandingPage = () => {
                     </p>
                     <ul className="mt-3 flex flex-col gap-3">
                       {[
-                        "Biotica 800 - covers up to 800 sq ft, sized for living rooms",
-                        "90-day probiotic cartridge",
-                        "Pet Surface Reset Guide",
-                        "30-day money-back guarantee + free shipping",
+                        "Biotica 800 device — covers up to 800 sq ft, sized for living rooms",
+                        "90-day probiotic cartridge — the good cultures that do the work",
+                        "Surface support: Pet Reset Guide for couch, rug, pet bed & litter-box zone",
+                        "Continuous freshness routine — keeps working between vacuums and washes",
+                        "30-day money-back guarantee + free U.S. shipping",
                       ].map((f) => (
                         <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
                           <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
