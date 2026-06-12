@@ -218,97 +218,115 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ EARLY OFFER + MECHANISM BAND ============ */}
-        <section className="bg-foreground text-background py-10 sm:py-14">
-          <div className="mx-auto flex max-w-[1240px] flex-col items-center gap-6 px-5 sm:px-10 lg:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
-            <div className="text-center lg:text-left">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-background/70">
-                The mechanism, in one line
-              </p>
-              <p className="mt-2 font-display text-[1.5rem] font-bold leading-[1.2] tracking-[-0.02em] sm:text-[1.85rem] lg:text-[2.15rem]">
-                Pet odor isn&apos;t in the air. <span className="italic font-normal">It&apos;s on your surfaces.</span>
-              </p>
-              <p className="mt-2 text-[14px] leading-[1.6] text-background/75 sm:text-[15px]">
-                Couch, rug, pet bed, curtains, bedroom corners — that&apos;s where dander and odor settle and rebuild between cleanings.
-              </p>
-            </div>
-            <div className="flex flex-col items-center gap-2 lg:items-end">
-              <a
-                href="#products"
-                onClick={(e) => smoothScroll(e, "products", "click_pets_band_cta")}
-              >
-                <Button
-                  size="lg"
-                  className="h-[3.25rem] rounded-full bg-background px-8 text-[15px] font-semibold text-foreground hover:bg-background/90 sm:text-[16px]"
-                >
-                  Get the Pet-Proof Home Starter Kit
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </a>
-              <p className="text-[12px] text-background/70">From $299 · 30-day guarantee · Free shipping</p>
-            </div>
-          </div>
-        </section>
-
-        {/* ============ PROBLEM / PAIN ============ */}
-        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[880px] px-5 sm:px-10">
-            <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                You&apos;re not failing at cleaning
-              </p>
-              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                You&apos;re not failing at cleaning. You&apos;re solving the wrong layer of the problem.
-              </h2>
-              <div className="mt-7 space-y-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
-                <p>
-                  You vacuum the couch. You wash the pet bed covers. You light a candle before guests come over. But two things your pet leaves behind never show up on a lint roller: dander and odor.
-                </p>
-                <p>
-                  Both are microscopic. Both settle deep into the soft surfaces where your pet spends its days — the couch, the rug, the bedroom corner, the curtains, the spot near the litter box. Dander is the part that sets off allergies. Odor is the recurring smell that comes back two days after you cleaned. And neither one lives in the air where a purifier can catch it — they&apos;re pressed into the fabric, below the reach of a vacuum and out of range of a spray.
-                </p>
-                <p className="font-display text-[1.15rem] font-semibold text-foreground sm:text-[1.25rem]">
-                  Pet odor isn&apos;t in the air. It&apos;s on your surfaces. That&apos;s the layer nothing in your routine is built for.
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* ============ THE SHIFT ============ */}
-        <section className="bg-background py-16 sm:py-24 lg:py-32">
+        {/* ============ STARTER KIT — MOVED UP ============ */}
+        <section id="products" className="scroll-mt-24 bg-background py-14 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-                <div className="overflow-hidden rounded-3xl ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.22)]">
-                  <img
-                    src={petBedImg}
-                    alt="A pet curled on a clean modern couch"
-                    className="h-72 w-full object-cover sm:h-[460px]"
-                    loading="lazy"
-                  />
+              <div className="relative grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-2 ring-foreground shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] lg:grid-cols-[1.05fr_1fr]">
+                <div className="absolute right-5 top-5 z-10 rounded-full bg-foreground px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-background">
+                  Pet parents&apos; pick
                 </div>
-                <div>
-                  <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                    The shift
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-6 lg:aspect-auto lg:min-h-[460px]">
+                  <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
+                    <img
+                      src={bioticaImg}
+                      alt="Biotica 800 — living-room probiotic device"
+                      className="h-full w-full object-contain p-6 sm:p-10"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col p-6 sm:p-10 lg:p-12">
+                  <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
+                    Most popular · For the living room
                   </p>
-                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.4rem] lg:text-[2.75rem]">
-                    Don&apos;t just clean the surface. Keep it clean.
+                  <h2 className="font-display text-[1.85rem] font-bold tracking-[-0.02em] text-foreground sm:text-[2.4rem] lg:text-[2.6rem] leading-[1.05]">
+                    Pet-Proof Home <span className="font-serif italic font-normal">Starter Kit</span>
                   </h2>
-                  <p className="mt-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
-                    EnviroBiotics settles good cultures onto your soft surfaces, where they quietly
-                    break down the dander and odor-causing residue your pet leaves behind - and
-                    keep working between cleanings.
+                  <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
+                    Built around Biotica 800. The layer your vacuum, candle, and air purifier keep missing — couch, rug, pet bed.
                   </p>
-                  <p className="mt-4 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
-                    Not a scent layered on top. Not a once-and-done wipe. A surface that stays
-                    cleaner on its own, long after the vacuum&apos;s put away.
-                  </p>
+                  <ul className="mt-5 flex flex-col gap-2.5">
+                    {[
+                      "Biotica 800 device — up to 800 sq ft",
+                      "90-day probiotic cartridge",
+                      "Pet Reset Guide: couch, rug, pet bed, litter zone",
+                      "Continuous freshness between cleanings",
+                    ].map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-[14px] text-foreground/80 sm:text-[15px]">
+                        <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={2.25} />
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6 border-t border-border/60 pt-5">
+                    <div className="mb-1 flex items-baseline gap-3">
+                      <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">$299</span>
+                      <span className="text-[12px] text-muted-foreground">Free shipping · 30-day guarantee</span>
+                    </div>
+                    <a
+                      href={BIOTICA_URL}
+                      onClick={() => trackEvent("click_pets_top_biotica")}
+                      className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+                    >
+                      Get the Pet-Proof Home Starter Kit
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </Reveal>
+
+            {/* Quick proof strip */}
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-3 sm:gap-5">
+              {[
+                { q: "The couch stopped smelling like dog two weeks in.", who: "Golden retriever home" },
+                { q: "My eyes stopped itching when I sit down. Litter corner feels lighter too.", who: "Two cats" },
+                { q: "I stopped lighting candles before guests come over.", who: "Three-dog household" },
+              ].map((t) => (
+                <figure key={t.who} className="rounded-2xl bg-card p-5 ring-1 ring-black/[0.06] sm:p-6">
+                  <blockquote className="font-display text-[15px] font-medium leading-[1.5] text-foreground sm:text-[15.5px]">
+                    &ldquo;{t.q}&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-3 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-foreground/60">
+                    {t.who}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </section>
+
+        {/* ============ MECHANISM + EMPATHY ============ */}
+        <section className="bg-[#F5F3EE] py-14 sm:py-20">
+          <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-10 px-5 sm:px-10 lg:grid-cols-2 lg:gap-16 lg:px-16">
+            <Reveal>
+              <div className="overflow-hidden rounded-3xl ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.22)]">
+                <img
+                  src={petBedImg}
+                  alt="A pet curled on a clean modern couch"
+                  className="h-64 w-full object-cover sm:h-[420px]"
+                  loading="lazy"
+                />
+              </div>
+            </Reveal>
+            <Reveal>
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+                The whole point
+              </p>
+              <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.3rem] lg:text-[2.6rem]">
+                Pet odor isn&apos;t in the air. <span className="font-serif italic font-normal">It&apos;s on your surfaces.</span>
+              </h2>
+              <p className="mt-5 text-[15.5px] leading-[1.65] text-foreground/80 sm:text-[16.5px]">
+                You&apos;re not failing at cleaning. You&apos;re solving the wrong layer of the problem. Dander and odor settle into the couch, rug, pet bed, and bedroom corners — below the reach of a vacuum, out of range of a spray, where no air purifier can catch them.
+              </p>
+              <p className="mt-4 text-[15.5px] leading-[1.65] text-foreground/80 sm:text-[16.5px]">
+                EnviroBiotics works right there, quietly, between cleanings.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
 
         {/* ============ COMPARISON TABLE ============ */}
         <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
