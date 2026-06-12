@@ -14,12 +14,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import miniImg from "@/assets/shop/biologic-mini.png";
-import bioticaImg from "@/assets/shop/biotica-800.png";
-import bundleImg from "@/assets/shop/home-complete-bundle.avif";
-import heroAsset from "@/assets/pets-lp-hero.avif.asset.json";
-const heroImg = heroAsset.url;
-import petBedImg from "@/assets/difference-petbed.jpg";
+import heroImg from "@/assets/pets/hero-living-room.jpg";
+import bioticaImg from "@/assets/pets/biotica-lifestyle.jpg";
+import bundleImg from "@/assets/pets/bundle-lifestyle.jpg";
+import miniImg from "@/assets/pets/mini-lifestyle.jpg";
+import petBedImg from "@/assets/pets/surfaces-lifestyle.jpg";
 import familyImg from "@/assets/family-clean-home.avif";
 
 const PROMO = "PETS";
@@ -222,15 +221,13 @@ const PetsLandingPage = () => {
                 <div className="absolute right-5 top-5 z-10 rounded-full bg-foreground px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-background">
                   Pet parents&apos; pick
                 </div>
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-6 lg:aspect-auto lg:min-h-[460px]">
-                  <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
-                    <img
-                      src={bioticaImg}
-                      alt="Biotica 800 — living-room probiotic device"
-                      className="h-full w-full object-contain p-6 sm:p-10"
-                      loading="lazy"
-                    />
-                  </div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] lg:aspect-auto lg:min-h-[460px]">
+                  <img
+                    src={bioticaImg}
+                    alt="Biotica 800 on an oak side table in a sunlit living room with a cat resting nearby"
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="flex flex-col p-6 sm:p-10 lg:p-12">
                   <div className="mb-3 flex items-center gap-2">
@@ -469,15 +466,13 @@ const PetsLandingPage = () => {
               {/* Home Bundle */}
               <Reveal>
                 <div className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.08]">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-5">
-                    <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
-                      <img
-                        src={bundleImg}
-                        alt="Home Bundle - multi-room coverage"
-                        className="h-full w-full object-contain p-4 sm:p-6"
-                        loading="lazy"
-                      />
-                    </div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6]">
+                    <img
+                      src={bundleImg}
+                      alt="Biotica 800 and BioLogic Mini styled together on an oak surface"
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="flex flex-1 flex-col p-6 sm:p-8">
                     <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
@@ -524,15 +519,13 @@ const PetsLandingPage = () => {
               {/* BioLogic Mini */}
               <Reveal>
                 <div className="flex h-full flex-col overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.08]">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-5">
-                    <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
-                      <img
-                        src={miniImg}
-                        alt="BioLogic Mini - compact device for bedrooms and pet zones"
-                        className="h-full w-full object-contain p-4 sm:p-6"
-                        loading="lazy"
-                      />
-                    </div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6]">
+                    <img
+                      src={miniImg}
+                      alt="BioLogic Mini on a bedroom nightstand next to a sleeping dog"
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="flex flex-1 flex-col p-6 sm:p-8">
                     <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
