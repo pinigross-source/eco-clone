@@ -196,13 +196,18 @@ const PetsLandingPage = () => {
                       size="lg"
                       className="h-[3.5rem] w-full rounded-full bg-foreground px-9 text-[16px] font-semibold tracking-[-0.01em] text-background shadow-[0_20px_50px_-14px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90 sm:h-[3.75rem] sm:w-auto sm:px-11 sm:text-[17px]"
                     >
-                      Get the Starter Kit — $299
+                      Get the Starter Kit — $229
                       <ArrowRight className="ml-2.5 h-5 w-5" />
                     </Button>
                   </a>
-                  <p className="text-[12.5px] font-medium leading-tight text-foreground/70 sm:text-[13px]">
-                    Free shipping · 30-day guarantee
-                  </p>
+                  <div className="flex flex-col items-center gap-1 sm:items-start">
+                    <span className="inline-flex items-center rounded-full bg-[#D92B2B] px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white">
+                      Code: PETS
+                    </span>
+                    <p className="text-[12.5px] font-medium leading-tight text-foreground/70 sm:text-[13px]">
+                      <span className="line-through opacity-50">$299</span> · Free shipping · 30-day guarantee
+                    </p>
+                  </div>
                 </div>
               </Reveal>
             </div>
@@ -228,9 +233,14 @@ const PetsLandingPage = () => {
                   </div>
                 </div>
                 <div className="flex flex-col p-6 sm:p-10 lg:p-12">
-                  <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
-                    Most popular · For the living room
-                  </p>
+                  <div className="mb-3 flex items-center gap-2">
+                    <span className="inline-flex items-center rounded-full bg-[#D92B2B] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+                      Special Offer
+                    </span>
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/70">
+                      Code: PETS
+                    </span>
+                  </div>
                   <h2 className="font-display text-[1.85rem] font-bold tracking-[-0.02em] text-foreground sm:text-[2.4rem] lg:text-[2.6rem] leading-[1.05]">
                     Pet-Proof Home <span className="font-serif italic font-normal">Starter Kit</span>
                   </h2>
@@ -252,7 +262,8 @@ const PetsLandingPage = () => {
                   </ul>
                   <div className="mt-6 border-t border-border/60 pt-5">
                     <div className="mb-1 flex items-baseline gap-3">
-                      <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">$299</span>
+                      <span className="font-display text-4xl font-bold tracking-[-0.02em] text-[#D92B2B]">$229</span>
+                      <span className="font-display text-2xl font-medium tracking-[-0.01em] text-foreground/40 line-through">$299</span>
                       <span className="text-[12px] text-muted-foreground">Free shipping · 30-day guarantee</span>
                     </div>
                     <a
@@ -420,16 +431,19 @@ const PetsLandingPage = () => {
             </ol>
 
             <Reveal>
-              <div className="mt-12 flex justify-center">
+              <div className="mt-12 flex flex-col items-center gap-3">
                 <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_how_cta")}>
                   <Button
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
                   >
-                    Get the Pet-Proof Home Starter Kit
+                    Get the Starter Kit — $229
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
+                <span className="text-[12px] text-muted-foreground">
+                  <span className="line-through opacity-50">$299</span> with code <span className="font-semibold text-foreground">PETS</span>
+                </span>
               </div>
             </Reveal>
           </div>
@@ -653,16 +667,19 @@ const PetsLandingPage = () => {
               <p className="mx-auto mt-6 max-w-xl text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:text-[1.15rem]">
                 Keep the cuddles, the couch naps, the bedroom-door-open chaos. Skip the candles, sprays, and recurring smell. The Pet-Proof Home Starter Kit works where your vacuum, purifier, and cleaning routine can&apos;t — quietly, chemical-free, around the clock.
               </p>
-              <div className="mt-10 flex justify-center">
+              <div className="mt-10 flex flex-col items-center gap-3">
                 <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_final_cta")}>
                   <Button
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
                   >
-                    Get the Pet-Proof Home Starter Kit
+                    Get the Starter Kit — $229
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
+                <span className="text-[12px] text-muted-foreground">
+                  <span className="line-through opacity-50">$299</span> with code <span className="font-semibold text-foreground">PETS</span> · Free shipping
+                </span>
               </div>
               <p className="mt-7 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13px] font-medium text-foreground/70 sm:text-sm">
                 <span className="inline-flex items-center gap-1.5">
@@ -688,12 +705,12 @@ const PetsLandingPage = () => {
       >
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-foreground">30-day guarantee</p>
-            <p className="truncate text-xs text-muted-foreground">Pet-safe</p>
+            <p className="truncate text-sm font-semibold text-foreground">Starter Kit — <span className="text-[#D92B2B]">$229</span></p>
+            <p className="truncate text-xs text-muted-foreground"><span className="line-through opacity-50">$299</span> · Code: PETS</p>
           </div>
           <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_sticky_cta")}>
             <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-              Get the Starter Kit
+              Get it now
             </Button>
           </a>
         </div>
