@@ -205,7 +205,7 @@ const PetsLandingPage = () => {
                       size="lg"
                       className="h-[3.75rem] w-full rounded-full bg-foreground px-10 text-[17px] font-semibold tracking-[-0.01em] text-background shadow-[0_20px_50px_-14px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90 sm:h-[4rem] sm:w-auto sm:px-12 sm:text-[18px]"
                     >
-                      Get the Pet-Proof Home Kit
+                      Get the Pet-Proof Home Starter Kit
                       <ArrowRight className="ml-2.5 h-5 w-5 sm:h-6 sm:w-6" />
                     </Button>
                   </a>
@@ -220,25 +220,57 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
+        {/* ============ EARLY OFFER + MECHANISM BAND ============ */}
+        <section className="bg-foreground text-background py-10 sm:py-14">
+          <div className="mx-auto flex max-w-[1240px] flex-col items-center gap-6 px-5 sm:px-10 lg:px-16 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+            <div className="text-center lg:text-left">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-background/70">
+                The mechanism, in one line
+              </p>
+              <p className="mt-2 font-display text-[1.5rem] font-bold leading-[1.2] tracking-[-0.02em] sm:text-[1.85rem] lg:text-[2.15rem]">
+                Pet odor isn&apos;t in the air. <span className="italic font-normal">It&apos;s on your surfaces.</span>
+              </p>
+              <p className="mt-2 text-[14px] leading-[1.6] text-background/75 sm:text-[15px]">
+                Couch, rug, pet bed, curtains, bedroom corners — that&apos;s where dander and odor settle and rebuild between cleanings.
+              </p>
+            </div>
+            <div className="flex flex-col items-center gap-2 lg:items-end">
+              <a
+                href="#products"
+                onClick={(e) => smoothScroll(e, "products", "click_pets_band_cta")}
+              >
+                <Button
+                  size="lg"
+                  className="h-[3.25rem] rounded-full bg-background px-8 text-[15px] font-semibold text-foreground hover:bg-background/90 sm:text-[16px]"
+                >
+                  Get the Pet-Proof Home Starter Kit
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </a>
+              <p className="text-[12px] text-background/70">From $299 · 30-day guarantee · Free shipping</p>
+            </div>
+          </div>
+        </section>
+
         {/* ============ PROBLEM / PAIN ============ */}
         <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[880px] px-5 sm:px-10">
             <Reveal>
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+                You&apos;re not failing at cleaning
+              </p>
               <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                You&apos;re not a messy pet owner. You&apos;re up against something you can&apos;t see.
+                You&apos;re not failing at cleaning. You&apos;re solving the wrong layer of the problem.
               </h2>
               <div className="mt-7 space-y-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
                 <p>
-                  You vacuum the hair. You wash the covers. You stay on top of it. But two things
-                  your pet leaves behind never show up on a lint roller: dander and odor.
+                  You vacuum the couch. You wash the pet bed covers. You light a candle before guests come over. But two things your pet leaves behind never show up on a lint roller: dander and odor.
                 </p>
                 <p>
-                  Both are microscopic. Both settle deep into the soft surfaces where your pet
-                  spends its days - the couch, the rug, the bed, the curtains. Dander is the part
-                  that actually sets off allergies. Odor is the part that lingers no matter how much
-                  you clean. And neither one is floating in the air where a purifier can catch it -
-                  they&apos;re pressed into the fabric, below the reach of a vacuum and out of range
-                  of a spray.
+                  Both are microscopic. Both settle deep into the soft surfaces where your pet spends its days — the couch, the rug, the bedroom corner, the curtains, the spot near the litter box. Dander is the part that sets off allergies. Odor is the recurring smell that comes back two days after you cleaned. And neither one lives in the air where a purifier can catch it — they&apos;re pressed into the fabric, below the reach of a vacuum and out of range of a spray.
+                </p>
+                <p className="font-display text-[1.15rem] font-semibold text-foreground sm:text-[1.25rem]">
+                  Pet odor isn&apos;t in the air. It&apos;s on your surfaces. That&apos;s the layer nothing in your routine is built for.
                 </p>
               </div>
             </Reveal>
@@ -411,7 +443,7 @@ const PetsLandingPage = () => {
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
                   >
-                    Get the Pet-Proof Home
+                    Get the Pet-Proof Home Starter Kit
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
@@ -547,22 +579,47 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
+        {/* ============ PROOF BEFORE OFFER ============ */}
+        <section className="bg-background pt-14 pb-6 sm:pt-20 sm:pb-10">
+          <div className="mx-auto max-w-[1180px] px-5 sm:px-10 lg:px-16">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6">
+              {[
+                { q: "The couch stopped smelling like dog two weeks in. Guests notice — I notice.", who: "Golden retriever home" },
+                { q: "My eyes used to itch the second I sat down. Not anymore — and the litter-box corner feels lighter too.", who: "Two cats, one bedroom" },
+                { q: "I stopped lighting candles before people come over. The room just smells like nothing.", who: "Three-dog household" },
+              ].map((t) => (
+                <Reveal key={t.who}>
+                  <figure className="flex h-full flex-col justify-between rounded-3xl bg-card p-6 ring-1 ring-black/[0.06] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.18)] sm:p-7">
+                    <blockquote className="font-display text-[1.05rem] font-medium leading-[1.5] text-foreground sm:text-[1.125rem]">
+                      &ldquo;{t.q}&rdquo;
+                    </blockquote>
+                    <figcaption className="mt-5 text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/70">
+                      {t.who}
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ============ PRODUCTS - PET-PROOF HOME PLAN ============ */}
         <section id="products" className="scroll-mt-24 bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                  Choose your Pet-Proof Home Plan
+                  The Pet-Proof Home Starter Kit
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3.25rem]">
-                  Start with the <span className="font-serif italic font-normal">Starter Kit.</span>
+                  One kit for the layer <span className="font-serif italic font-normal">your routine keeps missing.</span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
-                  Built around Biotica 800 - sized for the living room, where your pet (and the dander) spends the most time. Add a Mini for the bedroom or pet zone with the Multi-Pet Bundle.
+                  Device + probiotic cartridge + surface support + a continuous freshness routine — sized for the living room, where your pet (and the dander) spends the most time.
                 </p>
               </div>
             </Reveal>
+
 
             {/* FEATURED: Biotica 800 */}
             <div className="mt-12 sm:mt-16">
@@ -596,10 +653,11 @@ const PetsLandingPage = () => {
                     </p>
                     <ul className="mt-3 flex flex-col gap-3">
                       {[
-                        "Biotica 800 - covers up to 800 sq ft, sized for living rooms",
-                        "90-day probiotic cartridge",
-                        "Pet Surface Reset Guide",
-                        "30-day money-back guarantee + free shipping",
+                        "Biotica 800 device — covers up to 800 sq ft, sized for living rooms",
+                        "90-day probiotic cartridge — the good cultures that do the work",
+                        "Surface support: Pet Reset Guide for couch, rug, pet bed & litter-box zone",
+                        "Continuous freshness routine — keeps working between vacuums and washes",
+                        "30-day money-back guarantee + free U.S. shipping",
                       ].map((f) => (
                         <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
                           <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
@@ -616,7 +674,7 @@ const PetsLandingPage = () => {
                         onClick={() => trackEvent("click_pets_products_biotica")}
                         className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
-                        Get the Pet-Proof Home
+                        Get the Pet-Proof Home Starter Kit
                         <ArrowRight className="h-4 w-4" />
                       </a>
                       <p className="mt-3 text-center text-[11px] text-muted-foreground">
@@ -855,12 +913,10 @@ const PetsLandingPage = () => {
           <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
             <Reveal>
               <h2 className="font-display text-[2.1rem] font-bold leading-[1.08] tracking-[-0.03em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem]">
-                The pet-proof home, without the chemicals.
+                Pet odor isn&apos;t in the air. <span className="font-serif italic font-normal">It&apos;s on your surfaces.</span>
               </h2>
               <p className="mx-auto mt-6 max-w-xl text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:text-[1.15rem]">
-                Keep the cuddles and the chaos. Just not the dander and odor pressing into every
-                soft surface. EnviroBiotics works where your vacuum can&apos;t - quietly,
-                chemical-free, around the clock.
+                Keep the cuddles, the couch naps, the bedroom-door-open chaos. Skip the candles, sprays, and recurring smell. The Pet-Proof Home Starter Kit works where your vacuum, purifier, and cleaning routine can&apos;t — quietly, chemical-free, around the clock.
               </p>
               <div className="mt-10 flex justify-center">
                 <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_final_cta")}>
@@ -868,7 +924,7 @@ const PetsLandingPage = () => {
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
                   >
-                    Get the Pet-Proof Home
+                    Get the Pet-Proof Home Starter Kit
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
@@ -902,7 +958,7 @@ const PetsLandingPage = () => {
           </div>
           <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_sticky_cta")}>
             <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-              Get the Pet-Proof Home
+              Get the Starter Kit
             </Button>
           </a>
         </div>
