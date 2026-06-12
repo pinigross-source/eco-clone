@@ -205,7 +205,7 @@ const PetsLandingPage = () => {
                       size="lg"
                       className="h-[3.75rem] w-full rounded-full bg-foreground px-10 text-[17px] font-semibold tracking-[-0.01em] text-background shadow-[0_20px_50px_-14px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90 sm:h-[4rem] sm:w-auto sm:px-12 sm:text-[18px]"
                     >
-                      Get the Pet-Proof Home Kit
+                      Get the Pet-Proof Home Starter Kit
                       <ArrowRight className="ml-2.5 h-5 w-5 sm:h-6 sm:w-6" />
                     </Button>
                   </a>
