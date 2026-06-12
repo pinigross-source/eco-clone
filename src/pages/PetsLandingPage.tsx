@@ -3,13 +3,6 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
   Check,
-  ShieldCheck,
-  VolumeX,
-  Leaf,
-  Sparkles,
-  Baby,
-  PawPrint,
-  User,
 } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
