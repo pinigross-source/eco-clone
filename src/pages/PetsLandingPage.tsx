@@ -431,16 +431,19 @@ const PetsLandingPage = () => {
             </ol>
 
             <Reveal>
-              <div className="mt-12 flex justify-center">
+              <div className="mt-12 flex flex-col items-center gap-3">
                 <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_how_cta")}>
                   <Button
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
                   >
-                    Get the Pet-Proof Home Starter Kit
+                    Get the Starter Kit — $229
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
+                <span className="text-[12px] text-muted-foreground">
+                  <span className="line-through opacity-50">$299</span> with code <span className="font-semibold text-foreground">PETS</span>
+                </span>
               </div>
             </Reveal>
           </div>
@@ -664,16 +667,19 @@ const PetsLandingPage = () => {
               <p className="mx-auto mt-6 max-w-xl text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:text-[1.15rem]">
                 Keep the cuddles, the couch naps, the bedroom-door-open chaos. Skip the candles, sprays, and recurring smell. The Pet-Proof Home Starter Kit works where your vacuum, purifier, and cleaning routine can&apos;t — quietly, chemical-free, around the clock.
               </p>
-              <div className="mt-10 flex justify-center">
+              <div className="mt-10 flex flex-col items-center gap-3">
                 <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_final_cta")}>
                   <Button
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
                   >
-                    Get the Pet-Proof Home Starter Kit
+                    Get the Starter Kit — $229
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
+                <span className="text-[12px] text-muted-foreground">
+                  <span className="line-through opacity-50">$299</span> with code <span className="font-semibold text-foreground">PETS</span> · Free shipping
+                </span>
               </div>
               <p className="mt-7 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13px] font-medium text-foreground/70 sm:text-sm">
                 <span className="inline-flex items-center gap-1.5">
@@ -699,12 +705,12 @@ const PetsLandingPage = () => {
       >
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-foreground">30-day guarantee</p>
-            <p className="truncate text-xs text-muted-foreground">Pet-safe</p>
+            <p className="truncate text-sm font-semibold text-foreground">Starter Kit — <span className="text-[#D92B2B]">$229</span></p>
+            <p className="truncate text-xs text-muted-foreground"><span className="line-through opacity-50">$299</span> · Code: PETS</p>
           </div>
           <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_sticky_cta")}>
             <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-              Get the Starter Kit
+              Get it now
             </Button>
           </a>
         </div>
