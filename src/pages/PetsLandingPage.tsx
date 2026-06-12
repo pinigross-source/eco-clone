@@ -188,14 +188,14 @@ const PetsLandingPage = () => {
               </Reveal>
               <Reveal>
                 <p
-                  className="mx-auto mt-7 max-w-[36rem] text-[1.15rem] font-normal leading-[1.6] text-foreground/80 sm:mx-0 sm:mt-9 sm:max-w-[38rem] sm:text-[1.3rem] sm:leading-[1.55] lg:text-[1.4rem]"
+                  className="mx-auto mt-6 max-w-[34rem] text-[1.05rem] font-normal leading-[1.55] text-foreground/80 sm:mx-0 sm:mt-7 sm:max-w-[34rem] sm:text-[1.15rem] lg:text-[1.2rem]"
                   style={{ textShadow: "0 2px 16px rgba(247,243,236,0.5), 0 1px 3px rgba(247,243,236,0.3)" }}
                 >
-                  Pet hair is the easy part. Dander and odor settle deep into couches, rugs, bedding, curtains, and pet zones where vacuums, candles, and air purifiers do not fully reach. EnviroBiotics works on those surfaces continuously, with no sprays or harsh chemicals.
+                  Pet odor isn&apos;t in the air. It&apos;s on your couch, rug, and pet bed. EnviroBiotics handles that layer — quietly, chemical-free.
                 </p>
               </Reveal>
               <Reveal>
-                <div className="mt-8 flex flex-col items-stretch gap-3.5 sm:mt-10 sm:flex-row sm:items-center sm:gap-5">
+                <div className="mt-7 flex flex-col items-stretch gap-3.5 sm:mt-8 sm:flex-row sm:items-center sm:gap-5">
                   <a
                     href="#products"
                     onClick={(e) => smoothScroll(e, "products", "click_pets_hero_cta")}
@@ -203,18 +203,16 @@ const PetsLandingPage = () => {
                   >
                     <Button
                       size="lg"
-                      className="h-[3.75rem] w-full rounded-full bg-foreground px-10 text-[17px] font-semibold tracking-[-0.01em] text-background shadow-[0_20px_50px_-14px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90 sm:h-[4rem] sm:w-auto sm:px-12 sm:text-[18px]"
+                      className="h-[3.5rem] w-full rounded-full bg-foreground px-9 text-[16px] font-semibold tracking-[-0.01em] text-background shadow-[0_20px_50px_-14px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90 sm:h-[3.75rem] sm:w-auto sm:px-11 sm:text-[17px]"
                     >
-                      Get the Pet-Proof Home Starter Kit
-                      <ArrowRight className="ml-2.5 h-5 w-5 sm:h-6 sm:w-6" />
+                      Get the Starter Kit — $299
+                      <ArrowRight className="ml-2.5 h-5 w-5" />
                     </Button>
                   </a>
+                  <p className="text-[12.5px] font-medium leading-tight text-foreground/70 sm:text-[13px]">
+                    Free shipping · 30-day guarantee
+                  </p>
                 </div>
-              </Reveal>
-              <Reveal>
-                <p className="mt-5 text-center text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-6 sm:text-[13px] sm:text-left">
-                  Takes 60 seconds · No sprays · Works between cleanings · 30-day guarantee
-                </p>
               </Reveal>
             </div>
           </div>
