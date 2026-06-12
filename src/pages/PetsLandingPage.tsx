@@ -221,15 +221,13 @@ const PetsLandingPage = () => {
                 <div className="absolute right-5 top-5 z-10 rounded-full bg-foreground px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-background">
                   Pet parents&apos; pick
                 </div>
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-6 lg:aspect-auto lg:min-h-[460px]">
-                  <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
-                    <img
-                      src={bioticaImg}
-                      alt="Biotica 800 — living-room probiotic device"
-                      className="h-full w-full object-contain p-6 sm:p-10"
-                      loading="lazy"
-                    />
-                  </div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] lg:aspect-auto lg:min-h-[460px]">
+                  <img
+                    src={bioticaImg}
+                    alt="Biotica 800 on an oak side table in a sunlit living room with a cat resting nearby"
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="flex flex-col p-6 sm:p-10 lg:p-12">
                   <div className="mb-3 flex items-center gap-2">
