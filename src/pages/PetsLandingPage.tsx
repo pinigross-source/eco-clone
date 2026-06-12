@@ -14,12 +14,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import miniImg from "@/assets/shop/biologic-mini.png";
-import bioticaImg from "@/assets/shop/biotica-800.png";
-import bundleImg from "@/assets/shop/home-complete-bundle.avif";
-import heroAsset from "@/assets/pets-lp-hero.avif.asset.json";
-const heroImg = heroAsset.url;
-import petBedImg from "@/assets/difference-petbed.jpg";
+import heroImg from "@/assets/pets/hero-living-room.jpg";
+import bioticaImg from "@/assets/pets/biotica-lifestyle.jpg";
+import bundleImg from "@/assets/pets/bundle-lifestyle.jpg";
+import miniImg from "@/assets/pets/mini-lifestyle.jpg";
+import petBedImg from "@/assets/pets/surfaces-lifestyle.jpg";
 import familyImg from "@/assets/family-clean-home.avif";
 
 const PROMO = "PETS";
