@@ -934,7 +934,7 @@ const PetsLandingPage = () => {
           </div>
           <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_sticky_cta")}>
             <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-              Get the Pet-Proof Home
+              Get the Starter Kit
             </Button>
           </a>
         </div>
