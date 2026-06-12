@@ -579,22 +579,47 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
+        {/* ============ PROOF BEFORE OFFER ============ */}
+        <section className="bg-background pt-14 pb-6 sm:pt-20 sm:pb-10">
+          <div className="mx-auto max-w-[1180px] px-5 sm:px-10 lg:px-16">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6">
+              {[
+                { q: "The couch stopped smelling like dog two weeks in. Guests notice — I notice.", who: "Golden retriever home" },
+                { q: "My eyes used to itch the second I sat down. Not anymore — and the litter-box corner feels lighter too.", who: "Two cats, one bedroom" },
+                { q: "I stopped lighting candles before people come over. The room just smells like nothing.", who: "Three-dog household" },
+              ].map((t) => (
+                <Reveal key={t.who}>
+                  <figure className="flex h-full flex-col justify-between rounded-3xl bg-card p-6 ring-1 ring-black/[0.06] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.18)] sm:p-7">
+                    <blockquote className="font-display text-[1.05rem] font-medium leading-[1.5] text-foreground sm:text-[1.125rem]">
+                      &ldquo;{t.q}&rdquo;
+                    </blockquote>
+                    <figcaption className="mt-5 text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/70">
+                      {t.who}
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ============ PRODUCTS - PET-PROOF HOME PLAN ============ */}
         <section id="products" className="scroll-mt-24 bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                  Choose your Pet-Proof Home Plan
+                  The Pet-Proof Home Starter Kit
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3.25rem]">
-                  Start with the <span className="font-serif italic font-normal">Starter Kit.</span>
+                  One kit for the layer <span className="font-serif italic font-normal">your routine keeps missing.</span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
-                  Built around Biotica 800 - sized for the living room, where your pet (and the dander) spends the most time. Add a Mini for the bedroom or pet zone with the Multi-Pet Bundle.
+                  Device + probiotic cartridge + surface support + a continuous freshness routine — sized for the living room, where your pet (and the dander) spends the most time.
                 </p>
               </div>
             </Reveal>
+
 
             {/* FEATURED: Biotica 800 */}
             <div className="mt-12 sm:mt-16">
