@@ -601,88 +601,20 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ PRODUCTS - PET-PROOF HOME PLAN ============ */}
-        <section id="products" className="scroll-mt-24 bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
+        {/* ============ PRODUCTS - MORE OPTIONS ============ */}
+        <section id="more-options" className="scroll-mt-24 bg-[#F5F3EE] py-14 sm:py-20 lg:py-24">
+          <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                  The Pet-Proof Home Starter Kit
+                  More options
                 </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3.25rem]">
-                  One kit for the layer <span className="font-serif italic font-normal">your routine keeps missing.</span>
+                <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.4rem] lg:text-[2.75rem]">
+                  Bigger home? <span className="font-serif italic font-normal">Add a bedroom or pet zone.</span>
                 </h2>
-                <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
-                  Device + probiotic cartridge + surface support + a continuous freshness routine — sized for the living room, where your pet (and the dander) spends the most time.
-                </p>
               </div>
             </Reveal>
 
-
-            {/* FEATURED: Biotica 800 */}
-            <div className="mt-12 sm:mt-16">
-              <Reveal>
-                <div className="relative grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-2 ring-foreground shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] lg:grid-cols-2">
-                  <div className="absolute right-5 top-5 z-10 rounded-full bg-foreground px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-background">
-                    Pet parents&apos; pick
-                  </div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-6 lg:aspect-auto lg:min-h-[420px]">
-                    <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
-                      <img
-                        src={bioticaImg}
-                        alt="Biotica 800 - living-room probiotic device"
-                        className="h-full w-full object-contain p-6 sm:p-10"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col p-6 sm:p-10 lg:p-12">
-                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
-                      Most popular · For the living room
-                    </p>
-                    <h3 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
-                      Pet-Proof Home Starter Kit
-                    </h3>
-                    <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
-                      Built around Biotica 800. Sits quietly in the main living space - where your pet (and the dander) spends the most time - and keeps soft surfaces cleaner between cleanings.
-                    </p>
-                    <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/70">
-                      What&apos;s included
-                    </p>
-                    <ul className="mt-3 flex flex-col gap-3">
-                      {[
-                        "Biotica 800 device — covers up to 800 sq ft, sized for living rooms",
-                        "90-day probiotic cartridge — the good cultures that do the work",
-                        "Surface support: Pet Reset Guide for couch, rug, pet bed & litter-box zone",
-                        "Continuous freshness routine — keeps working between vacuums and washes",
-                        "30-day money-back guarantee + free U.S. shipping",
-                      ].map((f) => (
-                        <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]">
-                          <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
-                          <span>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-6 border-t border-border/60 pt-5">
-                      <div className="mb-1 flex items-baseline gap-3">
-                        <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">$299</span>
-                      </div>
-                      <a
-                        href={BIOTICA_URL}
-                        onClick={() => trackEvent("click_pets_products_biotica")}
-                        className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
-                      >
-                        Get the Pet-Proof Home Starter Kit
-                        <ArrowRight className="h-4 w-4" />
-                      </a>
-                      <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                        Free shipping · 30-day money-back
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
 
             {/* Upsell row: Bundle + Mini */}
             <div className="mt-5 grid grid-cols-1 gap-5 sm:mt-6 lg:grid-cols-2 lg:gap-6">
