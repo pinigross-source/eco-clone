@@ -648,7 +648,7 @@ const PetsLandingPage = () => {
                         onClick={() => trackEvent("click_pets_products_biotica")}
                         className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
-                        Get the Pet-Proof Home
+                        Get the Pet-Proof Home Starter Kit
                         <ArrowRight className="h-4 w-4" />
                       </a>
                       <p className="mt-3 text-center text-[11px] text-muted-foreground">
