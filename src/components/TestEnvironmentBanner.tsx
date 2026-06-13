@@ -13,7 +13,7 @@ export function TestEnvironmentBanner() {
     >
       <div className="mx-auto flex max-w-screen-2xl items-center justify-center gap-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider">
         <AlertTriangle className="h-3.5 w-3.5" aria-hidden="true" />
-        <span>Test environment — not production. Orders, analytics, and content are sandboxed.</span>
+        <span>Test environment  not production. Orders, analytics, and content are sandboxed.</span>
         <a
           href="/dev-tools"
           className="ml-2 underline underline-offset-2 hover:no-underline"

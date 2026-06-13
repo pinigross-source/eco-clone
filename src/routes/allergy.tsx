@@ -8,7 +8,7 @@ export const Route = createFileRoute("/allergy")({
       {
         name: "description",
         content:
-          "Air purifiers only catch airborne particles. Most household allergens settle into your mattress, carpet, and couch — out of the filter's reach. EnviroBiotics works on those surfaces. Meet Biotica.",
+          "Air purifiers only catch airborne particles. Most household allergens settle into your mattress, carpet, and couch  out of the filter's reach. EnviroBiotics works on those surfaces. Meet Biotica.",
       },
       { property: "og:title", content: "Surface Allergen Control for Your Home | EnviroBiotics" },
       {

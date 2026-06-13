@@ -49,7 +49,7 @@ const BetterAirRebrandPage = () => {
             name: "Are BetterAir products still available?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes. All former BetterAir products — including the Biotica 800, BioLogic Mini, BA-2080, and eBiotic Pro — are still available under the EnviroBiotics brand with the same formulations, certifications, and warranties.",
+              text: "Yes. All former BetterAir products  including the Biotica 800, BioLogic Mini, BA-2080, and eBiotic Pro  are still available under the EnviroBiotics brand with the same formulations, certifications, and warranties.",
             },
           },
           {
@@ -90,7 +90,7 @@ const BetterAirRebrandPage = () => {
           </h1>
 
           <p className="text-xl text-muted-foreground leading-relaxed mb-4">
-            If you're looking for <strong>BetterAir</strong>, you're in the right place. In 2024, BetterAir officially rebranded to <strong>EnviroBiotics</strong> — a new name that better represents our complete approach to indoor environmental health.
+            If you're looking for <strong>BetterAir</strong>, you're in the right place. In 2024, BetterAir officially rebranded to <strong>EnviroBiotics</strong>  a new name that better represents our complete approach to indoor environmental health.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed mb-10">
             The technology hasn't changed. The team hasn't changed. The certifications haven't changed. We simply outgrew a name that only described part of what we do.
@@ -104,13 +104,13 @@ const BetterAirRebrandPage = () => {
               Why Did BetterAir Rebrand to EnviroBiotics?
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              "BetterAir" suggested our probiotic technology only treated air. In reality, our environmental probiotics treat <strong>surfaces, fabrics, cracks, HVAC ductwork, and air</strong> — every part of your indoor environment where harmful organisms actually live and multiply.
+              "BetterAir" suggested our probiotic technology only treated air. In reality, our environmental probiotics treat <strong>surfaces, fabrics, cracks, HVAC ductwork, and air</strong>  every part of your indoor environment where harmful organisms actually live and multiply.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-4">
               The name <strong>EnviroBiotics</strong> (Environmental + Probiotics) communicates the full scope of what our technology delivers: a continuously active probiotic ecosystem that protects your entire indoor environment, not just the air passing through a filter.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              This rebrand also reflects our expansion into <Link to="/hvac-applications" className="text-primary underline hover:text-primary/80">commercial HVAC applications</Link>, <Link to="/nursery" className="text-primary underline hover:text-primary/80">nursery-specific solutions</Link>, and <Link to="/subscribe" className="text-primary underline hover:text-primary/80">subscription-based refill programs</Link> — all areas where "BetterAir" didn't capture the full picture.
+              This rebrand also reflects our expansion into <Link to="/hvac-applications" className="text-primary underline hover:text-primary/80">commercial HVAC applications</Link>, <Link to="/nursery" className="text-primary underline hover:text-primary/80">nursery-specific solutions</Link>, and <Link to="/subscribe" className="text-primary underline hover:text-primary/80">subscription-based refill programs</Link>  all areas where "BetterAir" didn't capture the full picture.
             </p>
           </section>
         </ScrollReveal>
@@ -140,7 +140,7 @@ const BetterAirRebrandPage = () => {
         <ScrollReveal>
           <section className="mb-14">
             <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
-              Former BetterAir Products — Now Under EnviroBiotics
+              Former BetterAir Products  Now Under EnviroBiotics
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               Every product you knew from BetterAir is still available with the same specifications, safety certifications, and performance:
@@ -182,7 +182,7 @@ const BetterAirRebrandPage = () => {
               <div>
                 <h3 className="text-lg font-medium text-foreground mb-2">Are BetterAir products still available?</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Yes. All former BetterAir products — Biotica 800, BioLogic Mini, BA-2080, and eBiotic Pro — are available under the EnviroBiotics brand with the same formulations, certifications, and warranties.
+                  Yes. All former BetterAir products  Biotica 800, BioLogic Mini, BA-2080, and eBiotic Pro  are available under the EnviroBiotics brand with the same formulations, certifications, and warranties.
                 </p>
               </div>
               <div>

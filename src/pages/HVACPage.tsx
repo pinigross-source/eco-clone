@@ -369,7 +369,7 @@ const HVACPage = () => {
       />
       <Navbar />
       <main>
-        {/* Hero Section — full-bleed Sonos style */}
+        {/* Hero Section  full-bleed Sonos style */}
         <section className="relative w-full overflow-hidden pt-16 sm:pt-20">
           <div className="relative min-h-[78vh] md:min-h-[88vh] w-full">
             <img

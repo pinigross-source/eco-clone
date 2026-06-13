@@ -33,7 +33,7 @@ const VideoCard = ({ video, onClick }: { video: VideoType; onClick: () => void }
   const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
 
   const shareUrl = `https://vimeo.com/${video.vimeoId}`;
-  const shareText = `${video.title} — ${video.description}`;
+  const shareText = `${video.title}  ${video.description}`;
   const whatsappShareUrl = `https://wa.me/?text=${encodeURIComponent(`${shareText}\n${shareUrl}`)}`;
   const emailShareUrl = `mailto:?subject=${encodeURIComponent(video.title)}&body=${encodeURIComponent(`${video.description}\n\n${shareUrl}`)}`;
 

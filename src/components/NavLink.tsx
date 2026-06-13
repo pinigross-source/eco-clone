@@ -1,4 +1,4 @@
-// Compat NavLink — react-router-dom-style activeClassName API on top of TanStack Link.
+// Compat NavLink  react-router-dom-style activeClassName API on top of TanStack Link.
 import { Link, useRouterState } from "@tanstack/react-router";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";

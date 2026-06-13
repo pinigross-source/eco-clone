@@ -412,7 +412,7 @@ const BobbyParrishLandingPage = () => {
         {/* ============ TRUST + STATS BLOCK ============ */}
         <section className="w-full bg-gradient-to-b from-background via-background to-muted/40">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 sm:pt-10 pb-12 sm:pb-16">
-            {/* Stats — moved up close to hero */}
+            {/* Stats  moved up close to hero */}
             <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-10">
               {[
                 { n: "15%", label: "Off with code Bobby" },
@@ -717,7 +717,7 @@ const BobbyParrishLandingPage = () => {
               </div>
             </Reveal>
 
-            {/* FEATURED: BioLogic Mini — first and largest */}
+            {/* FEATURED: BioLogic Mini  first and largest */}
             <div className="mt-10 sm:mt-14 xl:mt-16">
               <Reveal>
                 <div className="relative grid grid-cols-1 overflow-hidden rounded-2xl bg-card ring-2 ring-primary shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.35)] sm:rounded-3xl lg:grid-cols-2">
@@ -1195,7 +1195,7 @@ const BobbyParrishLandingPage = () => {
 
       </main>
 
-      {/* Sticky mobile buy bar — always visible on mobile */}
+      {/* Sticky mobile buy bar  always visible on mobile */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 backdrop-blur shadow-[0_-4px_20px_rgba(0,0,0,0.12)] sm:hidden">
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div className="min-w-0">

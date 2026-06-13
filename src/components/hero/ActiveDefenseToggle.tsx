@@ -17,7 +17,7 @@ const ACCENT_SOFT = "rgba(14, 165, 233, 0.18)";
 const CONFIRM = "rgb(16, 185, 129)";       // emerald-500
 const NEUTRAL = "rgb(71, 85, 105)";        // slate-600
 
-// Center of the canvas — the device sits here
+// Center of the canvas  the device sits here
 const CENTER = { x: 50, y: 52 };
 
 // Hotspots ordered clockwise from top-left so the reach reads as a sweep
@@ -118,7 +118,7 @@ export const ActiveDefenseToggle = () => {
         transition={{ delay: 0.15 + index * 0.03, duration: 0.7, ease: EASE_OUT_EXPO }}
       >
         <div className="relative -translate-x-1/2 -translate-y-1/2">
-          {/* Halo — fades in when treating, brightens when protected */}
+          {/* Halo  fades in when treating, brightens when protected */}
           <motion.div
             className="absolute rounded-full blur-xl pointer-events-none"
             style={{ width: 64, height: 64, left: -10, top: -10 }}
@@ -196,7 +196,7 @@ export const ActiveDefenseToggle = () => {
             }}
           />
 
-          {/* Beam layer — one line per hotspot, drawn from device outward */}
+          {/* Beam layer  one line per hotspot, drawn from device outward */}
           <svg
             key={waveKey}
             className="absolute inset-0 w-full h-full z-10 pointer-events-none"
@@ -204,7 +204,7 @@ export const ActiveDefenseToggle = () => {
             preserveAspectRatio="none"
           >
             <defs>
-              {/* Bright at the device, fading to transparent at the surface — reads as breath, not a beam */}
+              {/* Bright at the device, fading to transparent at the surface  reads as breath, not a beam */}
               <linearGradient id="beamGradient" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0%"   stopColor="rgba(14,165,233,0.55)" />
                 <stop offset="60%"  stopColor="rgba(14,165,233,0.18)" />
@@ -246,7 +246,7 @@ export const ActiveDefenseToggle = () => {
             })}
           </svg>
 
-          {/* Soft bloom at each hotspot the moment it's reached — calm exhale, no projectile */}
+          {/* Soft bloom at each hotspot the moment it's reached  calm exhale, no projectile */}
           <AnimatePresence>
             {isActive && orderedHotspots.map((spot, i) => {
               if (hotspotStates[i] === "idle") return null;
@@ -274,7 +274,7 @@ export const ActiveDefenseToggle = () => {
           {/* Hotspots */}
           {orderedHotspots.map((spot, i) => renderHotspot(spot, i))}
 
-          {/* Single slow expanding ring — only while still reaching */}
+          {/* Single slow expanding ring  only while still reaching */}
           <AnimatePresence>
             {isActive && !allProtected && (
               <motion.div
@@ -302,7 +302,7 @@ export const ActiveDefenseToggle = () => {
             )}
           </AnimatePresence>
 
-          {/* Status pill — counts surfaces as the wave reaches them */}
+          {/* Status pill  counts surfaces as the wave reaches them */}
           {(() => {
             const reachedCount = hotspotStates.filter(s => s !== "idle").length;
             const total = orderedHotspots.length;
@@ -451,7 +451,7 @@ export const ActiveDefenseToggle = () => {
         <div className="relative border-t border-slate-100 p-3 md:p-5 bg-white">
           <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6">
 
-            {/* Power button — quieter */}
+            {/* Power button  quieter */}
             <div className="flex flex-col items-center gap-1.5">
               <button
                 onClick={() => setIsActive(!isActive)}
@@ -494,14 +494,14 @@ export const ActiveDefenseToggle = () => {
                   </p>
                   <p className="text-sm md:text-[15px] text-slate-500 leading-relaxed hidden md:block">
                     {isActive
-                      ? "Beneficial probiotics spread throughout your space — to door handles, vents, keyboards, and every surface where bacteria hide."
+                      ? "Beneficial probiotics spread throughout your space  to door handles, vents, keyboards, and every surface where bacteria hide."
                       : "Air filters only treat what passes through them. Surfaces, where 90% of contaminants live, remain completely untouched."}
                   </p>
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            {/* Legend — quieter */}
+            {/* Legend  quieter */}
             <div className="hidden md:flex md:flex-col gap-1.5 text-xs">
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />

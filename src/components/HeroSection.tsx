@@ -72,7 +72,7 @@ export const HeroSection = () => {
         }}
       />
 
-      {/* DESKTOP readability overlay — keep the LEFT side (where text sits) bright and readable, photo visible on the right */}
+      {/* DESKTOP readability overlay  keep the LEFT side (where text sits) bright and readable, photo visible on the right */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 z-[2] hidden h-[100dvh] sm:block lg:hidden"
         style={{

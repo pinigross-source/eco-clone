@@ -275,7 +275,7 @@ export const Navbar = () => {
             <ShopifyCartLink />
           </div>
 
-          {/* Desktop Navigation — centered, flex-grow */}
+          {/* Desktop Navigation  centered, flex-grow */}
           <nav
             aria-label="Main navigation"
             className="hidden xl:flex flex-1 items-center justify-center gap-3 xl:gap-6 2xl:gap-10"

@@ -473,7 +473,7 @@ export function DashboardOverviewSection() {
                     <td className="py-2.5 pr-4 text-muted-foreground">{i + 1}</td>
                     <td className="py-2.5 pr-4 font-medium truncate max-w-[300px]">{p.name}</td>
                     <td className="py-2.5 pr-4 text-right">{p.qty}</td>
-                    <td className="py-2.5 pr-4 text-right text-muted-foreground">{p.qty > 0 ? fmt(p.rev / p.qty) : "—"}</td>
+                    <td className="py-2.5 pr-4 text-right text-muted-foreground">{p.qty > 0 ? fmt(p.rev / p.qty) : ""}</td>
                     <td className="py-2.5 text-right font-medium">{fmt(p.rev)}</td>
                   </tr>
                 ))}

@@ -4,7 +4,7 @@ import { useSearchParams } from "@/lib/router-compat";
 import { supabase } from "@/integrations/supabase/client";
 
 /**
- * Handles /aff/:id/ URLs — looks up the affiliate by numeric ID,
+ * Handles /aff/:id/ URLs  looks up the affiliate by numeric ID,
  * then redirects to /?ref=CODE to trigger the tracking system.
  */
 const AffiliateRedirectPage = ({ defaultDest }: { defaultDest?: string }) => {

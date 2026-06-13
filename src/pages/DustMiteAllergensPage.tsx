@@ -5,7 +5,7 @@ export default function DustMiteAllergensPage() {
     <EducationArticle
       category="Allergens & health"
       title="Dust Mite Allergens"
-      lede="Der p1 and Der f1 are among the most common triggers of indoor allergy and asthma. They live deep in mattresses, bedding, and upholstery — and resuspend into the air with every movement."
+      lede="Der p1 and Der f1 are among the most common triggers of indoor allergy and asthma. They live deep in mattresses, bedding, and upholstery  and resuspend into the air with every movement."
       path="/dust-mite-allergens"
       seoTitle="Dust Mite Allergens (Der p1 & Der f1) Explained | EnviroBiotics Education"
       seoDescription="What dust mite allergens are, where they accumulate in the home, why they are difficult to remove, and how probiotic surface support reduces them at the source."
@@ -18,7 +18,7 @@ export default function DustMiteAllergensPage() {
         {
           heading: "What dust mite allergens are",
           body: [
-            "Dust mites are microscopic arachnids that live in almost every home in the world. They do not bite. The allergic reaction they cause comes from proteins in their fecal pellets and shed body fragments — primarily Der p1 and Der f1.",
+            "Dust mites are microscopic arachnids that live in almost every home in the world. They do not bite. The allergic reaction they cause comes from proteins in their fecal pellets and shed body fragments  primarily Der p1 and Der f1.",
             "These two proteins are among the most studied indoor allergens in the world. They are well-established triggers of perennial allergic rhinitis, asthma exacerbations, and atopic dermatitis (eczema).",
           ],
         },
@@ -37,7 +37,7 @@ export default function DustMiteAllergensPage() {
         {
           heading: "Why they are so hard to remove",
           body: [
-            "Der p1 and Der f1 are sticky and physically stable. They bind to fabric fibers and persist for months even after the mites themselves are gone. Standard washing helps but does not eliminate them — laundering must be done at temperatures above about 130 °F (55 °C) to denature the protein.",
+            "Der p1 and Der f1 are sticky and physically stable. They bind to fabric fibers and persist for months even after the mites themselves are gone. Standard washing helps but does not eliminate them  laundering must be done at temperatures above about 130 °F (55 °C) to denature the protein.",
             "HEPA vacuuming reduces surface dust but cannot reach allergens embedded deep in the mattress core or upholstery padding. And every time someone sits down, lies down, or walks across a carpet, allergen-laden particles are resuspended into the air for 20–30 minutes before they settle again.",
           ],
         },

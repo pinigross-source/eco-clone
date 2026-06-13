@@ -58,7 +58,7 @@ const NurseryLandingPage = () => {
           Safe for babies &amp; kids
         </div>
 
-        {/* ═══════════════════════ 1. HERO — Identity Hook ═══════════════════════ */}
+        {/* ═══════════════════════ 1. HERO  Identity Hook ═══════════════════════ */}
         <section className="relative overflow-hidden bg-gradient-to-b from-primary-soft/60 via-primary-soft/20 to-background">
           {/* Decorative background elements */}
           <div className="absolute top-10 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
@@ -107,7 +107,7 @@ const NurseryLandingPage = () => {
           </div>
         </section>
 
-        {/* ═══════════════════════ 2. RELATABLE PAIN — Agitate ═══════════════════════ */}
+        {/* ═══════════════════════ 2. RELATABLE PAIN  Agitate ═══════════════════════ */}
         <section className="py-10 md:py-14 bg-background">
            <div className="container max-w-2xl mx-auto px-5 sm:max-w-3xl">
              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
@@ -136,7 +136,7 @@ const NurseryLandingPage = () => {
           </div>
         </section>
 
-        {/* ═══════════════════════ 3. MICRO TESTIMONIAL — Early Social Proof ═══════════════════════ */}
+        {/* ═══════════════════════ 3. MICRO TESTIMONIAL  Early Social Proof ═══════════════════════ */}
         <section className="py-8 md:py-10 bg-muted/30">
           <div className="container max-w-xl mx-auto px-5 text-center">
             <div className="flex items-center justify-center gap-0.5 mb-3">
@@ -219,7 +219,7 @@ const NurseryLandingPage = () => {
           </div>
         </section>
 
-        {/* ═══════════════════════ 5. PRODUCT INTRO — The Solution ═══════════════════════ */}
+        {/* ═══════════════════════ 5. PRODUCT INTRO  The Solution ═══════════════════════ */}
         <section className="py-10 md:py-14 bg-muted/30">
           <div className="container max-w-3xl mx-auto px-5">
             <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
@@ -292,7 +292,7 @@ const NurseryLandingPage = () => {
 
 
 
-        {/* ═══════════════════════ 6.5. SAFETY BAND — Full-width green ═══════════════════════ */}
+        {/* ═══════════════════════ 6.5. SAFETY BAND  Full-width green ═══════════════════════ */}
         <section className="py-10 md:py-14" style={{ backgroundColor: '#3A6B4A' }}>
           <div className="container max-w-3xl mx-auto px-5 text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
@@ -309,7 +309,7 @@ const NurseryLandingPage = () => {
           </div>
         </section>
 
-        {/* ═══════════════════════ 7. SAFETY — Overcome #1 Objection ═══════════════════════ */}
+        {/* ═══════════════════════ 7. SAFETY  Overcome #1 Objection ═══════════════════════ */}
         <section className="py-10 md:py-14 bg-muted/30">
           <div className="container max-w-2xl mx-auto px-5">
             <div className="bg-card border border-border/50 rounded-2xl p-6 md:p-8">
@@ -335,11 +335,11 @@ const NurseryLandingPage = () => {
           </div>
         </section>
 
-        {/* ═══════════════════════ 8. 30-DAY RISK-FREE — Risk Reversal Before CTA ═══════════════════════ */}
+        {/* ═══════════════════════ 8. 30-DAY RISK-FREE  Risk Reversal Before CTA ═══════════════════════ */}
         <section className="py-10 md:py-14 bg-primary-soft/40 overflow-hidden">
           <div className="container max-w-4xl mx-auto px-5">
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-              {/* Lifestyle image 2 — organic blob shape */}
+              {/* Lifestyle image 2  organic blob shape */}
               <div className="w-full md:w-2/5 flex justify-center">
                 <div
                   className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl shadow-primary/10 border-4 border-background/80 ring-2 ring-primary/10"
@@ -383,7 +383,7 @@ const NurseryLandingPage = () => {
           </div>
         </section>
 
-        {/* ═══════════════════════ 9. CTA — Shop-Style Product Card ═══════════════════════ */}
+        {/* ═══════════════════════ 9. CTA  Shop-Style Product Card ═══════════════════════ */}
         <section id="nursery-cta" className="py-10 md:py-14 bg-muted/30">
           <div className="container max-w-lg mx-auto px-5">
             {/* Header */}
@@ -397,7 +397,7 @@ const NurseryLandingPage = () => {
               </p>
             </div>
 
-            {/* Single Product Card — matching shop style */}
+            {/* Single Product Card  matching shop style */}
             <div className="group rounded-2xl bg-card overflow-hidden border border-border hover:border-primary/30 transition-all duration-300 shadow-lg hover:shadow-xl">
               {/* Product Image */}
               <div className="aspect-square overflow-hidden bg-gradient-to-br from-background via-background to-muted/30 border-b border-border/50 flex items-center justify-center p-8">
@@ -503,9 +503,9 @@ const NurseryLandingPage = () => {
           </div>
         </section>
 
-        {/* Subscription upsell modal removed — checkout now happens on Shopify */}
+        {/* Subscription upsell modal removed  checkout now happens on Shopify */}
 
-        {/* ═══════════════════════ 10. SOCIAL PROOF — Reinforce After Price ═══════════════════════ */}
+        {/* ═══════════════════════ 10. SOCIAL PROOF  Reinforce After Price ═══════════════════════ */}
         <section className="py-10 md:py-14 bg-muted/30">
           <div className="container max-w-2xl mx-auto px-5 text-center">
             <div className="flex items-center justify-center gap-1 mb-2">
@@ -530,7 +530,7 @@ const NurseryLandingPage = () => {
           </div>
         </section>
 
-        {/* ═══════════════════════ 11. WHAT'S IN THE BOX — Post-CTA Detail ═══════════════════════ */}
+        {/* ═══════════════════════ 11. WHAT'S IN THE BOX  Post-CTA Detail ═══════════════════════ */}
         <section className="py-10 md:py-14 bg-background">
           <div className="container max-w-3xl mx-auto px-5">
             <div className="grid md:grid-cols-2 gap-6">

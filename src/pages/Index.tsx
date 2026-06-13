@@ -112,7 +112,7 @@ const Index = () => {
         </DeferredSection>
       </main>
 
-      {/* Commercial path — secondary band above footer */}
+      {/* Commercial path  secondary band above footer */}
       <section className="border-y border-border/60 bg-muted/30">
         <div className="container px-4 sm:px-6 max-w-6xl mx-auto py-10 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-start gap-4 text-center md:text-left">

@@ -8,7 +8,7 @@ export default function ProbioticVsChemicalPage() {
       lede="Chemical disinfectants can be fast, but they leave residues, disrupt microbial balance, and stop working the moment the chemistry breaks down. Probiotic hygiene takes a longer-term, biologically balanced approach."
       path="/probiotic-vs-chemical"
       seoTitle="Probiotic vs. Chemical Disinfection | EnviroBiotics Education"
-      seoDescription="A side-by-side comparison of probiotic surface hygiene and traditional chemical disinfection — what each one does, what it leaves behind, and where each approach fits."
+      seoDescription="A side-by-side comparison of probiotic surface hygiene and traditional chemical disinfection  what each one does, what it leaves behind, and where each approach fits."
       keyPoints={[
         { label: "Chemical disinfection", value: "Fast, broad, short-lived; kills beneficial microbes alongside pathogens and leaves residue." },
         { label: "Probiotic hygiene", value: "Slow, targeted, continuous; outcompetes pathogens and maintains microbial balance over time." },
@@ -18,13 +18,13 @@ export default function ProbioticVsChemicalPage() {
         {
           heading: "Two fundamentally different approaches",
           body: [
-            "Chemical disinfection works by killing — broadly, quickly, and indiscriminately. It is the right tool when you need a sterile surface in a moment, like a clinical procedure or after a known contamination event.",
-            "Probiotic hygiene works by occupying — seeding surfaces with beneficial microbes that compete with unwanted ones for space, nutrients, and adhesion sites. It is the right tool for ongoing, day-to-day balance in spaces where people live and breathe continuously.",
+            "Chemical disinfection works by killing  broadly, quickly, and indiscriminately. It is the right tool when you need a sterile surface in a moment, like a clinical procedure or after a known contamination event.",
+            "Probiotic hygiene works by occupying  seeding surfaces with beneficial microbes that compete with unwanted ones for space, nutrients, and adhesion sites. It is the right tool for ongoing, day-to-day balance in spaces where people live and breathe continuously.",
           ],
         },
         {
           heading: "What chemical disinfection leaves behind",
-          body: "When a chemical disinfectant kills everything on a surface, it creates an empty microbial niche. Within hours, microbes from the air, dust, skin, and HVAC will recolonize that surface. Whichever organism arrives first wins the niche by default — and that is often an opportunistic pathogen, not a beneficial microbe. This is why chemically sanitized environments can show pathogen rebound between cleanings.",
+          body: "When a chemical disinfectant kills everything on a surface, it creates an empty microbial niche. Within hours, microbes from the air, dust, skin, and HVAC will recolonize that surface. Whichever organism arrives first wins the niche by default  and that is often an opportunistic pathogen, not a beneficial microbe. This is why chemically sanitized environments can show pathogen rebound between cleanings.",
           bullets: [
             "Chemical residues that can irritate airways and skin",
             "Empty surfaces vulnerable to recolonization by opportunistic organisms",
@@ -41,7 +41,7 @@ export default function ProbioticVsChemicalPage() {
         },
         {
           heading: "When to use each",
-          body: "These approaches are complementary, not competing. Use chemical disinfection for what it is good at — outbreak response, surgical environments, food-prep contact surfaces after raw meat, and known contamination events. Use probiotic hygiene for what chemicals cannot do: continuous, surface-level microbial balance in homes, bedrooms, nurseries, HVAC systems, and any space where people spend long periods of time.",
+          body: "These approaches are complementary, not competing. Use chemical disinfection for what it is good at  outbreak response, surgical environments, food-prep contact surfaces after raw meat, and known contamination events. Use probiotic hygiene for what chemicals cannot do: continuous, surface-level microbial balance in homes, bedrooms, nurseries, HVAC systems, and any space where people spend long periods of time.",
           bullets: [
             "Chemical disinfection: outbreaks, clinical settings, raw-food cross-contamination, known biohazards",
             "Probiotic hygiene: bedrooms, living areas, HVAC, pet areas, allergen reduction, long-term balance",
@@ -50,7 +50,7 @@ export default function ProbioticVsChemicalPage() {
         },
         {
           heading: "Why this approach is gaining traction",
-          body: "Probiotic surface care is now part of published hospital hygiene guidelines in some European institutions, with peer-reviewed studies showing sustained reductions in pathogen load and antibiotic-resistant organisms compared with chemical-only protocols. The same principle — competitive exclusion — has been used in agriculture and food safety for decades.",
+          body: "Probiotic surface care is now part of published hospital hygiene guidelines in some European institutions, with peer-reviewed studies showing sustained reductions in pathogen load and antibiotic-resistant organisms compared with chemical-only protocols. The same principle  competitive exclusion  has been used in agriculture and food safety for decades.",
         },
       ]}
       faqs={[

@@ -303,7 +303,7 @@ export default function AuthPage() {
       <main className="pt-24 pb-20">
         <div className="container max-w-md mx-auto px-4 space-y-4">
 
-          {/* CHANGE 1 — Subscriber Banner */}
+          {/* CHANGE 1  Subscriber Banner */}
           {mode === "login" && (
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -314,7 +314,7 @@ export default function AuthPage() {
             </motion.div>
           )}
 
-          {/* CHANGE 2 — Legacy Customer Banner */}
+          {/* CHANGE 2  Legacy Customer Banner */}
           {mode === "login" && (
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -325,7 +325,7 @@ export default function AuthPage() {
             </motion.div>
           )}
 
-          {/* CHANGE 3 — Sign In Form (visually secondary) */}
+          {/* CHANGE 3  Sign In Form (visually secondary) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -354,7 +354,7 @@ export default function AuthPage() {
                 <AlertTriangle className="w-4 h-4 text-destructive mt-0.5 shrink-0" />
                 <div className="space-y-2">
                   <p className="text-sm text-destructive">{inlineError}</p>
-                  {/* CHANGE 5 — Claim from login error */}
+                  {/* CHANGE 5  Claim from login error */}
                   {showLoginFailedClaim && (
                     <div className="space-y-1.5">
                       <Button
@@ -580,7 +580,7 @@ export default function AuthPage() {
       </main>
       <Footer />
 
-      {/* CHANGE 4 — Claim Account Modal */}
+      {/* CHANGE 4  Claim Account Modal */}
       <ClaimAccountModal open={claimModalOpen} onOpenChange={setClaimModalOpen} />
     </div>
   );

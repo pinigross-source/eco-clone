@@ -128,7 +128,7 @@ const CompareMolekulePage = () => {
         {/* How PECO Works */}
         <section className="section-padding py-12 bg-muted/30">
           <div className="container max-w-4xl mx-auto px-5">
-            <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">How PECO Technology Works — and Its Limitations</h2>
+            <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">How PECO Technology Works  and Its Limitations</h2>
             <p className="text-muted-foreground mb-4">
               PECO (Photo Electrochemical Oxidation) is Molekule's proprietary technology that uses UV-A light to activate a nanocatalyst filter. The catalyst creates a chemical reaction that claims to break down pollutants, allergens, and VOCs at a molecular level rather than just trapping them like a HEPA filter.
             </p>
@@ -140,10 +140,10 @@ const CompareMolekulePage = () => {
                 <AlertTriangle className="w-5 h-5" /> Key Limitations of PECO
               </h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Only treats air passing through the unit — surface contaminants are unaffected</li>
+                <li>• Only treats air passing through the unit  surface contaminants are unaffected</li>
                 <li>• PECO filters are expensive ($80-$150) and require replacement every 6 months</li>
                 <li>• Higher noise levels (39-65 dB) can disrupt sleep and daily life</li>
-                <li>• Uses UV light and chemical oxidation — not ideal for sensitive individuals</li>
+                <li>• Uses UV light and chemical oxidation  not ideal for sensitive individuals</li>
                 <li>• Zero protection when the device is turned off</li>
               </ul>
             </div>
@@ -158,10 +158,10 @@ const CompareMolekulePage = () => {
               EnviroBiotics takes a fundamentally different approach to indoor air quality. Instead of trying to destroy pollutants with energy or chemicals, our devices disperse beneficial <Link to="/glossary" className="text-primary hover:underline">Bacillus probiotics</Link> into your indoor environment.
             </p>
             <p className="text-muted-foreground mb-4">
-              These beneficial bacteria travel with natural airflow and settle on every surface — countertops, fabrics, inside HVAC ducts, and into cracks that no filter can reach. Once established, they consume the organic nutrients that harmful organisms need to survive, a process called competitive exclusion.
+              These beneficial bacteria travel with natural airflow and settle on every surface  countertops, fabrics, inside HVAC ducts, and into cracks that no filter can reach. Once established, they consume the organic nutrients that harmful organisms need to survive, a process called competitive exclusion.
             </p>
             <p className="text-muted-foreground">
-              This biological layer remains active for days between device cycles, providing continuous protection even when the device is off. There are zero byproducts, zero UV exposure risks, and zero chemicals — just naturally occurring bacteria classified as FDA GRAS (Generally Recognized As Safe).
+              This biological layer remains active for days between device cycles, providing continuous protection even when the device is off. There are zero byproducts, zero UV exposure risks, and zero chemicals  just naturally occurring bacteria classified as FDA GRAS (Generally Recognized As Safe).
             </p>
           </div>
         </section>

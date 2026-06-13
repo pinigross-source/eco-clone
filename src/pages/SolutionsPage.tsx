@@ -138,7 +138,7 @@ const SolutionsPage = () => {
       />
       <Navbar />
       <main>
-        {/* ═══════ Hero — Sonos style with background image ═══════ */}
+        {/* ═══════ Hero  Sonos style with background image ═══════ */}
         <section className="relative pt-24 pb-16 overflow-hidden">
           <div className="container relative z-10">
             <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] ring-1 ring-black/[0.06] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.35),0_20px_40px_-20px_rgba(0,0,0,0.15)]">
@@ -185,7 +185,7 @@ const SolutionsPage = () => {
           </div>
         </section>
 
-        {/* ═══════ Problem — Sonos editorial split ═══════ */}
+        {/* ═══════ Problem  Sonos editorial split ═══════ */}
         <section className="py-20 md:py-28 lg:py-32 bg-background relative">
           <div className="container px-5 md:px-6">
             <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-10 lg:gap-16 xl:gap-20 items-center">
@@ -267,7 +267,7 @@ const SolutionsPage = () => {
           </div>
         </section>
 
-        {/* ═══════ Nature's Answer — Sonos editorial split ═══════ */}
+        {/* ═══════ Nature's Answer  Sonos editorial split ═══════ */}
         <section className="py-20 md:py-28 lg:py-32 bg-background relative">
           <div className="container px-5 md:px-6">
             <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-10 lg:gap-16 xl:gap-20 items-center">
@@ -365,7 +365,7 @@ const SolutionsPage = () => {
           </div>
         </section>
 
-        {/* ═══════ Traditional vs EnviroBiotics — Sonos editorial comparison ═══════ */}
+        {/* ═══════ Traditional vs EnviroBiotics  Sonos editorial comparison ═══════ */}
         <section className="py-20 md:py-28 lg:py-32 bg-card relative">
           <div className="container px-5 md:px-6 max-w-6xl">
             {/* Editorial header */}
@@ -415,7 +415,7 @@ const SolutionsPage = () => {
                 </div>
               </ScrollReveal>
 
-              {/* EnviroBiotics column — light, accented */}
+              {/* EnviroBiotics column  light, accented */}
               <ScrollReveal variant="fadeUp" delay={0.1}>
                 <div className="relative h-full rounded-[1.75rem] sm:rounded-3xl bg-background ring-1 ring-primary/30 p-7 sm:p-9 md:p-10 shadow-[0_40px_100px_-40px_rgba(234,88,12,0.18)] overflow-hidden">
                   {/* Soft warm wash */}
@@ -465,7 +465,7 @@ const SolutionsPage = () => {
 
             <ScrollReveal variant="fadeUp">
               <p className="text-sm sm:text-[15px] text-muted-foreground text-center max-w-2xl mx-auto">
-                Same goal. Two completely different approaches. One reacts to what's already there — the other prevents it from settling in.
+                Same goal. Two completely different approaches. One reacts to what's already there  the other prevents it from settling in.
               </p>
             </ScrollReveal>
           </div>
@@ -493,7 +493,7 @@ const SolutionsPage = () => {
                         : "bg-background ring-1 ring-border/60 hover:ring-border hover:-translate-y-1"
                     }`}
                   >
-                    {/* Visual header — soft gradient panel with icon */}
+                    {/* Visual header  soft gradient panel with icon */}
                     <div
                       className={`relative aspect-[5/3] w-full overflow-hidden ${
                         featured
@@ -510,7 +510,7 @@ const SolutionsPage = () => {
                       />
                       {/* Numbered eyebrow */}
                       <span className="absolute top-5 left-6 text-[11px] font-semibold tracking-[0.25em] uppercase text-foreground/50 tabular-nums">
-                        {String(idx + 1).padStart(2, "0")} — {badge ?? "Solution"}
+                        {String(idx + 1).padStart(2, "0")}  {badge ?? "Solution"}
                       </span>
                       {/* Icon mark */}
                       <div className="absolute bottom-5 left-6 w-14 h-14 rounded-2xl bg-background ring-1 ring-border/60 flex items-center justify-center shadow-sm">
@@ -578,7 +578,7 @@ const SolutionsPage = () => {
           </div>
         </section>
 
-        {/* ═══════ Testimonial — Sonos quiet quote ═══════ */}
+        {/* ═══════ Testimonial  Sonos quiet quote ═══════ */}
         {featuredTestimonial && (
           <section className="py-16 md:py-24 bg-background">
             <div className="container px-5 md:px-6 max-w-3xl">
@@ -601,7 +601,7 @@ const SolutionsPage = () => {
           </section>
         )}
 
-        {/* ═══════ Final CTA — Sonos primary-tinted card ═══════ */}
+        {/* ═══════ Final CTA  Sonos primary-tinted card ═══════ */}
         <section className="py-16 md:py-24 bg-background">
           <div className="container px-5 md:px-6 max-w-5xl">
             <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-primary/5 ring-1 ring-primary/15 p-10 md:p-16 text-center">

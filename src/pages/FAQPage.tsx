@@ -289,7 +289,7 @@ const FAQPage = () => {
               </section>
             ))}
 
-          {/* All categories — hidden but in DOM for SEO / AI crawlers */}
+          {/* All categories  hidden but in DOM for SEO / AI crawlers */}
           <div className="sr-only" aria-hidden="true">
             {faqCategories
               .filter((cat) => cat.id !== activeCategory)

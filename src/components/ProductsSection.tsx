@@ -13,7 +13,7 @@ const roomOptions = [
     sqft: "Up to 300 sq ft",
     spaceDescription: "Bedroom, nursery, or home office.",
     product: "BioLogic Mini",
-    productNote: "Compact and fully portable. Plug it in anywhere — and pack it when you travel.",
+    productNote: "Compact and fully portable. Plug it in anywhere  and pack it when you travel.",
     image: biologicMini,
     href: "/product/biologic-mini",
     badge: "Portable",
@@ -61,12 +61,12 @@ export const ProductsSection = () => {
             <span className="text-heading-accent italic font-normal">Sized to your space.</span>
           </h2>
           <p className="mt-6 sm:mt-8 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            The same proven probiotics power every device. Just pick the space you want to balance —
+            The same proven probiotics power every device. Just pick the space you want to balance 
             we'll match you with the right one and keep it refilled automatically.
           </p>
         </div>
 
-        {/* SECTION 1 — Room-by-room */}
+        {/* SECTION 1  Room-by-room */}
         <div className="mb-20 sm:mb-28">
           <div className="flex items-baseline justify-between gap-6 mb-8 sm:mb-10 pb-5 border-b border-border/60">
             <div className="flex items-baseline gap-4 sm:gap-5">
@@ -134,7 +134,7 @@ export const ProductsSection = () => {
           </div>
         </div>
 
-        {/* SECTION 2 — Whole home / HVAC */}
+        {/* SECTION 2  Whole home / HVAC */}
         <div>
           <div className="flex items-baseline justify-between gap-6 mb-8 sm:mb-10 pb-5 border-b border-border/60">
             <div className="flex items-baseline gap-4 sm:gap-5">
@@ -209,7 +209,7 @@ export const ProductsSection = () => {
 
 
           <p className="mt-10 text-center text-[12px] sm:text-[13px] text-muted-foreground/80 tracking-wide">
-            Every option ships with an automatic probiotic refill subscription — so your space stays balanced without you thinking about it.
+            Every option ships with an automatic probiotic refill subscription  so your space stays balanced without you thinking about it.
           </p>
         </div>
       </div>

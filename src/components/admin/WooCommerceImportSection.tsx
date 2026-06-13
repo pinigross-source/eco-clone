@@ -120,7 +120,7 @@ export function WooCommerceImportSection() {
       const subId = item.getElementsByTagName("wp:post_id")[0]?.textContent || "";
       const periodEnd = getMetaValue("_schedule_next_payment") || getMetaValue("_schedule_end") || "";
 
-      // Get product name — try multiple strategies
+      // Get product name  try multiple strategies
       let productName = "";
       // 1. Direct meta keys
       for (const mk of ["_subscription_line_item_name", "_product_name", "_product_title"]) {
@@ -430,7 +430,7 @@ export function WooCommerceImportSection() {
           <div className="flex items-center gap-2">
             <FileSpreadsheet className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium">
-              Preview — {preview.rows.length} row(s){" "}
+              Preview  {preview.rows.length} row(s){" "}
               {preview.rows.length > 10 && "(showing first 10)"}
             </span>
             <span className="text-xs text-muted-foreground">
@@ -459,7 +459,7 @@ export function WooCommerceImportSection() {
                     <TableCell className="text-xs text-muted-foreground">{ri + 1}</TableCell>
                     {visibleHeaders.map((_, ci) => (
                       <TableCell key={ci} className="text-xs max-w-[200px] truncate">
-                        {row[ci] || "—"}
+                        {row[ci] || ""}
                       </TableCell>
                     ))}
                     {preview.headers.length > 8 && (

@@ -148,7 +148,7 @@ const PetsLandingPage = () => {
       />
 
       <main className="bg-background text-foreground">
-        {/* ============ HERO — matches homepage look & feel ============ */}
+        {/* ============ HERO  matches homepage look & feel ============ */}
         <section className="relative w-full overflow-hidden bg-background text-foreground">
           <style>{`
             @keyframes pets-rise { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
@@ -172,7 +172,7 @@ const PetsLandingPage = () => {
           <div className="relative mx-auto w-full max-w-[1320px] px-5 pt-20 pb-16 sm:px-10 sm:pt-28 sm:pb-24 lg:px-16 lg:pt-32 lg:pb-28">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
 
-              {/* TEXT — left, ~7 cols */}
+              {/* TEXT  left, ~7 cols */}
               <div className="lg:col-span-7">
                 <div className="pets-rise inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background/60 px-3 py-1.5 backdrop-blur">
                   <span className="pets-pulse inline-block h-1.5 w-1.5 rounded-full bg-primary" />
@@ -205,7 +205,7 @@ const PetsLandingPage = () => {
                   className="pets-rise mt-7 max-w-[58ch] text-[1.05rem] leading-[1.65] sm:text-[1.15rem]"
                   style={{ color: "hsl(var(--foreground) / 0.78)", animationDelay: "0.16s" }}
                 >
-                  Dander and odor settle into the rug, the bedding, the places your pet loves — where vacuums and air filters can&apos;t reach. EnviroBiotics works right there, quietly, between cleanings. No chemicals.
+                  Dander and odor settle into the rug, the bedding, the places your pet loves  where vacuums and air filters can&apos;t reach. EnviroBiotics works right there, quietly, between cleanings. No chemicals.
                 </p>
 
                 <div className="pets-rise mt-9 flex flex-wrap items-center gap-3" style={{ animationDelay: "0.24s" }}>
@@ -214,7 +214,7 @@ const PetsLandingPage = () => {
                     onClick={(e) => smoothScroll(e, "products", "click_pets_hero_cta")}
                     className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-8 py-4 text-sm font-semibold text-background transition-all hover:-translate-y-0.5 hover:bg-primary hover:text-primary-foreground"
                   >
-                    Get the Starter Kit — $229
+                    Get the Starter Kit  $229
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
                   <a
@@ -249,7 +249,7 @@ const PetsLandingPage = () => {
                 </p>
               </div>
 
-              {/* IMAGE — right, ~5 cols */}
+              {/* IMAGE  right, ~5 cols */}
               <div className="lg:col-span-5">
                 <figure className="pets-fade relative" style={{ animationDelay: "0.15s" }}>
                   <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-foreground/[0.04] ring-1 ring-foreground/10 shadow-[0_30px_80px_-30px_hsl(var(--foreground)/0.35)]">
@@ -265,13 +265,13 @@ const PetsLandingPage = () => {
                     />
                   </div>
 
-                  {/* Floating caption card — homepage button vocabulary */}
+                  {/* Floating caption card  homepage button vocabulary */}
                   <figcaption className="absolute -bottom-6 left-4 right-4 rounded-2xl bg-background/95 px-5 py-4 ring-1 ring-foreground/10 shadow-[0_20px_50px_-20px_hsl(var(--foreground)/0.3)] backdrop-blur sm:left-6 sm:right-auto sm:max-w-[280px]">
                     <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary">
                       Surface tech
                     </p>
                     <p className="mt-1 text-[0.95rem] font-medium leading-snug text-foreground">
-                      Works on couches, rugs &amp; pet beds — quietly, 24/7.
+                      Works on couches, rugs &amp; pet beds  quietly, 24/7.
                     </p>
                   </figcaption>
                 </figure>
@@ -280,7 +280,7 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ STARTER KIT — MOVED UP ============ */}
+        {/* ============ STARTER KIT  MOVED UP ============ */}
         <section id="products" className="scroll-mt-24 bg-background py-14 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
             <Reveal>
@@ -309,11 +309,11 @@ const PetsLandingPage = () => {
                     Pet-Proof Home <span className="font-serif italic font-normal">Starter Kit</span>
                   </h2>
                   <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
-                    Built around Biotica 800. The layer your vacuum, candle, and air purifier keep missing — couch, rug, pet bed.
+                    Built around Biotica 800. The layer your vacuum, candle, and air purifier keep missing  couch, rug, pet bed.
                   </p>
                   <ul className="mt-5 flex flex-col gap-2.5">
                     {[
-                      "Biotica 800 device — up to 800 sq ft",
+                      "Biotica 800 device  up to 800 sq ft",
                       "90-day probiotic cartridge",
                       "Pet Reset Guide: couch, rug, pet bed, litter zone",
                       "Continuous freshness between cleanings",
@@ -430,7 +430,7 @@ const PetsLandingPage = () => {
                 {
                   step: "01",
                   title: "Place it",
-                  copy: "Place it wherever your pet spends the most time — the living room, the bedroom, or the spot they always come back to.",
+                  copy: "Place it wherever your pet spends the most time  the living room, the bedroom, or the spot they always come back to.",
                 },
                 {
                   step: "02",
@@ -467,7 +467,7 @@ const PetsLandingPage = () => {
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
                   >
-                    Get the Starter Kit — $229
+                    Get the Starter Kit  $229
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
@@ -691,7 +691,7 @@ const PetsLandingPage = () => {
                 Pet odor isn&apos;t in the air. <span className="font-serif italic font-normal">It&apos;s on your surfaces.</span>
               </h2>
               <p className="mx-auto mt-6 max-w-xl text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:text-[1.15rem]">
-                Keep the cuddles, the couch naps, the bedroom-door-open chaos. Skip the candles, sprays, and recurring smell. The Pet-Proof Home Starter Kit works where your vacuum, purifier, and cleaning routine can&apos;t — quietly, chemical-free, around the clock.
+                Keep the cuddles, the couch naps, the bedroom-door-open chaos. Skip the candles, sprays, and recurring smell. The Pet-Proof Home Starter Kit works where your vacuum, purifier, and cleaning routine can&apos;t  quietly, chemical-free, around the clock.
               </p>
               <div className="mt-10 flex flex-col items-center gap-3">
                 <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_final_cta")}>
@@ -699,7 +699,7 @@ const PetsLandingPage = () => {
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
                   >
-                    Get the Starter Kit — $229
+                    Get the Starter Kit  $229
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
@@ -731,7 +731,7 @@ const PetsLandingPage = () => {
       >
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-foreground">Starter Kit — <span className="text-[#D92B2B]">$229</span></p>
+            <p className="truncate text-sm font-semibold text-foreground">Starter Kit  <span className="text-[#D92B2B]">$229</span></p>
             <p className="truncate text-xs text-muted-foreground"><span className="line-through opacity-50">$299</span> · Code: PETS</p>
           </div>
           <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_pets_sticky_cta")}>

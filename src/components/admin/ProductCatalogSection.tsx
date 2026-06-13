@@ -390,7 +390,7 @@ export function ProductCatalogSection({ isAdmin }: { isAdmin: boolean }) {
                     value={editProduct.price_cents}
                     onChange={(e) => setEditProduct({ ...editProduct, price_cents: parseInt(e.target.value) || 0 })}
                   />
-                  <p className="text-xs text-muted-foreground mt-1">Display only — Stripe stays authoritative</p>
+                  <p className="text-xs text-muted-foreground mt-1">Display only  Stripe stays authoritative</p>
                 </div>
                 <div>
                   <Label>Category</Label>
@@ -456,7 +456,7 @@ export function ProductCatalogSection({ isAdmin }: { isAdmin: boolean }) {
       <Dialog open={adjustDialogOpen} onOpenChange={setAdjustDialogOpen}>
         <DialogContent className="max-w-sm">
           <DialogHeader>
-            <DialogTitle>Adjust Stock — {adjustProduct?.name}</DialogTitle>
+            <DialogTitle>Adjust Stock  {adjustProduct?.name}</DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
             <p className="text-sm text-muted-foreground">
@@ -502,7 +502,7 @@ export function ProductCatalogSection({ isAdmin }: { isAdmin: boolean }) {
       <Dialog open={logDialogOpen} onOpenChange={setLogDialogOpen}>
         <DialogContent className="max-w-lg max-h-[70vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>Inventory History — {logProduct?.name}</DialogTitle>
+            <DialogTitle>Inventory History  {logProduct?.name}</DialogTitle>
           </DialogHeader>
           {logsLoading ? (
             <div className="flex justify-center py-8">

@@ -8,13 +8,13 @@ export const Route = createFileRoute("/parents")({
       {
         name: "description",
         content:
-          "Air purifiers only clean the air. EnviroBiotics keeps the surfaces your baby lives on cleaner — crib, playmat, floor. No sprays, no filters, no noise. Meet The Mini.",
+          "Air purifiers only clean the air. EnviroBiotics keeps the surfaces your baby lives on cleaner  crib, playmat, floor. No sprays, no filters, no noise. Meet The Mini.",
       },
       { property: "og:title", content: "Nursery Surface & Air Care for Babies | EnviroBiotics" },
       {
         property: "og:description",
         content:
-          "Air purifiers only clean the air. EnviroBiotics keeps the surfaces your baby lives on cleaner — crib, playmat, floor. Meet The Mini.",
+          "Air purifiers only clean the air. EnviroBiotics keeps the surfaces your baby lives on cleaner  crib, playmat, floor. Meet The Mini.",
       },
       { property: "og:url", content: "https://envirobiotics.com/parents" },
       { property: "og:type", content: "website" },

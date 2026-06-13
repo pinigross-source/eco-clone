@@ -331,15 +331,15 @@ export default function AffiliateDashboardPage() {
                               <td className="px-4 py-3">
                                 {new Date(ref.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
                               </td>
-                              <td className="px-4 py-3">{ref.customer_name || "—"}</td>
-                              <td className="px-4 py-3 font-mono text-xs">{ref.order_number || "—"}</td>
+                              <td className="px-4 py-3">{ref.customer_name || ""}</td>
+                              <td className="px-4 py-3 font-mono text-xs">{ref.order_number || ""}</td>
                               <td className="px-4 py-3">
                                 <Badge variant="outline" className={statusColor(ref.status)}>
                                   {ref.status}
                                 </Badge>
                               </td>
                               <td className="px-4 py-3 text-right font-medium">
-                                {ref.amount ? `$${Number(ref.amount).toFixed(2)}` : "—"}
+                                {ref.amount ? `$${Number(ref.amount).toFixed(2)}` : ""}
                               </td>
                             </tr>
                           ))}
@@ -376,8 +376,8 @@ export default function AffiliateDashboardPage() {
                               <td className="px-4 py-3">
                                 {new Date(ref.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
                               </td>
-                              <td className="px-4 py-3">{ref.customer_name || "—"}</td>
-                              <td className="px-4 py-3 font-mono text-xs">{ref.order_number || "—"}</td>
+                              <td className="px-4 py-3">{ref.customer_name || ""}</td>
+                              <td className="px-4 py-3 font-mono text-xs">{ref.order_number || ""}</td>
                               <td className="px-4 py-3">
                                 {ref.converted ? (
                                   <CheckCircle2 className="w-4 h-4 text-emerald-500" />
@@ -389,7 +389,7 @@ export default function AffiliateDashboardPage() {
                                 <Badge variant="outline" className={statusColor(ref.status)}>{ref.status}</Badge>
                               </td>
                               <td className="px-4 py-3 text-right font-medium">
-                                {ref.amount ? `$${Number(ref.amount).toFixed(2)}` : "—"}
+                                {ref.amount ? `$${Number(ref.amount).toFixed(2)}` : ""}
                               </td>
                             </tr>
                           ))}
@@ -425,8 +425,8 @@ export default function AffiliateDashboardPage() {
                               <td className="px-4 py-3">
                                 {new Date(com.paid_date || com.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
                               </td>
-                              <td className="px-4 py-3">{com.customer_name || "—"}</td>
-                              <td className="px-4 py-3 font-mono text-xs">{com.order_number || "—"}</td>
+                              <td className="px-4 py-3">{com.customer_name || ""}</td>
+                              <td className="px-4 py-3 font-mono text-xs">{com.order_number || ""}</td>
                               <td className="px-4 py-3">
                                 <Badge variant="outline" className={statusColor(com.status)}>{com.status}</Badge>
                               </td>

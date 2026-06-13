@@ -35,13 +35,13 @@ export const Route = createFileRoute("/product/$slug")({
     return {
       meta: [
         { title: isBA2080 ? "BA-2080 Probiotic Air Purification System | EnviroBiotics" : "Product | EnviroBiotics" },
-        { name: "description", content: isBA2080 ? "BA-2080 Advanced Probiotic Air Purification System — covers up to 800 sq ft. Uses EnviroBiotics® environmental probiotics to rebalance your indoor microbiome." : "Shop EnviroBiotics probiotic air and surface purifiers. Safe for families and pets." },
+        { name: "description", content: isBA2080 ? "BA-2080 Advanced Probiotic Air Purification System  covers up to 800 sq ft. Uses EnviroBiotics® environmental probiotics to rebalance your indoor microbiome." : "Shop EnviroBiotics probiotic air and surface purifiers. Safe for families and pets." },
         { property: "og:title", content: isBA2080 ? "BA-2080 Probiotic Air Purification System | EnviroBiotics" : "Product | EnviroBiotics" },
-        { property: "og:description", content: isBA2080 ? "BA-2080 Advanced Probiotic Air Purification System — covers up to 800 sq ft. Uses EnviroBiotics® environmental probiotics to rebalance your indoor microbiome." : "Shop EnviroBiotics probiotic air and surface purifiers. Safe for families and pets." },
+        { property: "og:description", content: isBA2080 ? "BA-2080 Advanced Probiotic Air Purification System  covers up to 800 sq ft. Uses EnviroBiotics® environmental probiotics to rebalance your indoor microbiome." : "Shop EnviroBiotics probiotic air and surface purifiers. Safe for families and pets." },
         { property: "og:url", content: `https://envirobiotics.com/product/${params.slug}` },
         { property: "og:type", content: "product" },
         { name: "twitter:title", content: isBA2080 ? "BA-2080 Probiotic Air Purification System | EnviroBiotics" : "Product | EnviroBiotics" },
-        { name: "twitter:description", content: isBA2080 ? "BA-2080 Advanced Probiotic Air Purification System — covers up to 800 sq ft. Uses EnviroBiotics® environmental probiotics to rebalance your indoor microbiome." : "Shop EnviroBiotics probiotic air and surface purifiers. Safe for families and pets." },
+        { name: "twitter:description", content: isBA2080 ? "BA-2080 Advanced Probiotic Air Purification System  covers up to 800 sq ft. Uses EnviroBiotics® environmental probiotics to rebalance your indoor microbiome." : "Shop EnviroBiotics probiotic air and surface purifiers. Safe for families and pets." },
       ],
       links: [
         { rel: "canonical", href: `https://envirobiotics.com/product/${params.slug}` },

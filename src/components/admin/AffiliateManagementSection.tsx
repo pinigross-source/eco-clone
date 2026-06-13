@@ -74,7 +74,7 @@ interface Commission {
 }
 
 const getCommissionReference = (commission: Commission) => {
-  return commission.payout_reference || commission.notes || "—";
+  return commission.payout_reference || commission.notes || "";
 };
 
 const statusColors: Record<string, string> = {
@@ -311,8 +311,8 @@ export function AffiliateManagementSection() {
     for (const c of toExport) {
       csvRows.push([
         `"${formatDate(c.paid_date || c.created_at)}"`,
-        `"${(c.customer_name || "—").replace(/"/g, '""')}"`,
-        `"${c.order_number || "—"}"`,
+        `"${(c.customer_name || "").replace(/"/g, '""')}"`,
+        `"${c.order_number || ""}"`,
         `"${getCommissionReference(c).replace(/"/g, '""')}"`,
         `"${c.status}"`,
         `"$${c.amount.toFixed(2)}"`,
@@ -644,7 +644,7 @@ export function AffiliateManagementSection() {
                 return (
                   <tr key={a.id} className="border-b border-border last:border-0 hover:bg-muted/30 transition-colors">
                     <td className="px-4 py-3">
-                      <span className="font-mono font-semibold">{a.affiliate_number ?? "—"}</span>
+                      <span className="font-mono font-semibold">{a.affiliate_number ?? ""}</span>
                     </td>
                     <td className="px-4 py-3">
                       <div>
@@ -740,7 +740,7 @@ export function AffiliateManagementSection() {
               {/* Sharing URL Block */}
               <div className="bg-muted/50 border border-border rounded-lg p-4 mb-4">
                 <Label className="text-xs text-muted-foreground mb-1 block">Affiliate ID</Label>
-                <p className="font-mono font-semibold text-lg mb-3">{selectedAffiliate.affiliate_number ?? "—"}</p>
+                <p className="font-mono font-semibold text-lg mb-3">{selectedAffiliate.affiliate_number ?? ""}</p>
                 <Label className="text-xs text-muted-foreground mb-1 block">Sharing URL</Label>
                 <div className="flex items-center gap-2">
                   <code className="flex-1 text-sm bg-background px-3 py-2 rounded border border-border break-all">
@@ -766,7 +766,7 @@ export function AffiliateManagementSection() {
                 </div>
                 <div>
                   <Label className="text-xs text-muted-foreground">Coupon Code</Label>
-                  <p className="font-mono">{selectedAffiliate.coupon_code || "—"}</p>
+                  <p className="font-mono">{selectedAffiliate.coupon_code || ""}</p>
                 </div>
                 <div>
                   <Label className="text-xs text-muted-foreground">Commission Rate</Label>
@@ -774,7 +774,7 @@ export function AffiliateManagementSection() {
                 </div>
                 <div>
                   <Label className="text-xs text-muted-foreground">Payment Method</Label>
-                  <p className="capitalize">{selectedAffiliate.payment_method?.replace("_", " ") || "—"}</p>
+                  <p className="capitalize">{selectedAffiliate.payment_method?.replace("_", " ") || ""}</p>
                 </div>
                 <div>
                   <Label className="text-xs text-muted-foreground">Status</Label>
@@ -851,8 +851,8 @@ export function AffiliateManagementSection() {
                               />
                             </td>
                             <td className="px-3 py-2">{formatDate(c.paid_date || c.created_at)}</td>
-                            <td className="px-3 py-2">{c.customer_name || "—"}</td>
-                            <td className="px-3 py-2 font-mono text-xs">{c.order_number || "—"}</td>
+                            <td className="px-3 py-2">{c.customer_name || ""}</td>
+                            <td className="px-3 py-2 font-mono text-xs">{c.order_number || ""}</td>
                             <td className="px-3 py-2 max-w-[260px] text-xs text-muted-foreground align-top">
                               <span className="block whitespace-normal break-words">{getCommissionReference(c)}</span>
                             </td>
@@ -1078,7 +1078,7 @@ export function AffiliateManagementSection() {
                     <div className="max-h-32 overflow-y-auto text-xs space-y-1">
                       {importResults.errors.map((e, i) => (
                         <p key={i} className="text-muted-foreground">
-                          Row {e.index}: {e.email} — {e.reason}
+                          Row {e.index}: {e.email}  {e.reason}
                         </p>
                       ))}
                     </div>

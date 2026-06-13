@@ -34,9 +34,9 @@ export default function DevToolsPage() {
     try {
       const res = await inspectShopifyToken();
       if (res.ok) {
-        setTokenStatus(`✅ ${res.message} — ${res.preview}`);
+        setTokenStatus(`✅ ${res.message}  ${res.preview}`);
       } else {
-        setTokenStatus(`❌ ${res.error}${"preview" in res && res.preview ? ` — ${res.preview}` : ""}`);
+        setTokenStatus(`❌ ${res.error}${"preview" in res && res.preview ? `  ${res.preview}` : ""}`);
       }
     } catch (e) {
       setTokenStatus(`❌ ${e instanceof Error ? e.message : String(e)}`);
@@ -52,7 +52,7 @@ export default function DevToolsPage() {
     try {
       const res = await pingShopify();
       if (res.ok) {
-        setShopifyStatus(`✅ Connected to "${res.shop}" (${res.domain}) — ${res.currency}`);
+        setShopifyStatus(`✅ Connected to "${res.shop}" (${res.domain})  ${res.currency}`);
       } else {
         setShopifyStatus(`❌ ${res.error}`);
       }
@@ -97,7 +97,7 @@ export default function DevToolsPage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Dev Tools — EnviroBiotics Test Hub"
+        title="Dev Tools  EnviroBiotics Test Hub"
         description="Test-environment utilities: clear cart, reset session, inspect config."
         path="/dev-tools"
       />

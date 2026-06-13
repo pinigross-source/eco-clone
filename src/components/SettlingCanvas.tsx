@@ -152,9 +152,9 @@ const STEP_LABELS = [
 ];
 
 const CALLOUT_MSGS = [
-  { h: "Invisible particles fill the air around you", s: "Dust · Dander · Allergens · Mold spores — suspended right now" },
+  { h: "Invisible particles fill the air around you", s: "Dust · Dander · Allergens · Mold spores  suspended right now" },
   { h: "Every particle is falling, continuously", s: "Gravity pulls them onto every surface in your home" },
-  { h: "Surfaces become the contamination reservoir", s: "90% of indoor pollutants live here — air filters never reach it" },
+  { h: "Surfaces become the contamination reservoir", s: "90% of indoor pollutants live here  air filters never reach it" },
 ];
 
 export const SettlingCanvas = () => {
