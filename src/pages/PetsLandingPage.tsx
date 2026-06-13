@@ -148,204 +148,143 @@ const PetsLandingPage = () => {
       />
 
       <main className="bg-background text-foreground">
-        {/* ============ HERO ============ */}
-        <section className="relative w-full overflow-hidden bg-[#f7f3ec] min-h-[100svh] flex items-center">
-          {/* local kinetic styles */}
+        {/* ============ HERO — editorial / museum-grade ============ */}
+        <section className="relative w-full overflow-hidden bg-[#F2EDE4] text-[#161616]">
           <style>{`
-            @keyframes pets-scroll-y { 0%{transform:translateY(0)} 100%{transform:translateY(-50%)} }
-            .pets-ticker { animation: pets-scroll-y 22s linear infinite; }
-            @keyframes pets-scroll-x { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-            .pets-marquee { animation: pets-scroll-x 38s linear infinite; }
-            .pets-marquee-rev { animation: pets-scroll-x 52s linear infinite reverse; }
-            @keyframes pets-pulse-gentle { 0%,100%{transform:scale(1);opacity:.15} 50%{transform:scale(1.18);opacity:.32} }
-            .pets-blob { animation: pets-pulse-gentle 5s ease-in-out infinite; }
-            @keyframes pets-blob-2 { 0%,100%{transform:translate(0,0) scale(1);opacity:.18} 50%{transform:translate(20px,-30px) scale(1.2);opacity:.32} }
-            .pets-blob-2 { animation: pets-blob-2 9s ease-in-out infinite; }
-            @keyframes pets-ping-soft { 0%{transform:scale(1);opacity:.9} 75%,100%{transform:scale(2.4);opacity:0} }
-            .pets-ping::after { content:""; position:absolute; inset:0; border-radius:9999px; background:#8A9A8A; animation: pets-ping-soft 2.2s cubic-bezier(0,0,.2,1) infinite; }
-            @keyframes pets-float { 0%,100%{transform:translateY(0) rotate(-1deg)} 50%{transform:translateY(-14px) rotate(-1deg)} }
-            .pets-float { animation: pets-float 7s ease-in-out infinite; }
-            @keyframes pets-rise { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
-            .pets-rise { animation: pets-rise 1s cubic-bezier(.2,.7,.2,1) both; }
-            @keyframes pets-shimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
-            .pets-shimmer { background: linear-gradient(90deg, #1A1F2C 0%, #1A1F2C 40%, #E67E66 50%, #1A1F2C 60%, #1A1F2C 100%); background-size:200% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation: pets-shimmer 6s linear infinite; }
-            @keyframes pets-grain { 0%,100%{transform:translate(0,0)} 25%{transform:translate(-3%,2%)} 50%{transform:translate(2%,-2%)} 75%{transform:translate(-1%,3%)} }
-            .pets-grain { animation: pets-grain 6s steps(4) infinite; }
-            @keyframes pets-orbit { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-            .pets-orbit { animation: pets-orbit 40s linear infinite; }
+            @keyframes pets-rise { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+            .pets-rise { animation: pets-rise 1.1s cubic-bezier(.2,.7,.2,1) both; }
+            @keyframes pets-fade { from{opacity:0} to{opacity:1} }
+            .pets-fade { animation: pets-fade 1.6s ease-out both; }
+            @keyframes pets-rule { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+            .pets-rule { transform-origin:left; animation: pets-rule 1.2s cubic-bezier(.2,.7,.2,1) .2s both; }
+            @keyframes pets-mark-blink { 0%,100%{opacity:1} 50%{opacity:.35} }
+            .pets-mark { animation: pets-mark-blink 2.6s ease-in-out infinite; }
           `}</style>
 
-          {/* GIANT background marquees */}
-          <div aria-hidden className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-between py-8 overflow-hidden select-none">
-            <div className="pets-marquee flex whitespace-nowrap text-foreground/[0.045] font-display font-black tracking-[-0.04em] text-[18vw] leading-none">
-              <span className="pr-12">DANDER · ODOR · SURFACES ·&nbsp;</span>
-              <span className="pr-12">DANDER · ODOR · SURFACES ·&nbsp;</span>
+          {/* Top editorial header rail */}
+          <div className="relative z-10 mx-auto flex w-full max-w-[1480px] items-end justify-between gap-6 px-5 pt-8 sm:px-10 sm:pt-10 lg:px-16 lg:pt-12">
+            <div className="flex items-center gap-3">
+              <span className="pets-mark inline-block h-1.5 w-1.5 rounded-full bg-[#161616]" />
+              <span className="text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/70" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
+                Vol. 01 — Pet-Led Home Care
+              </span>
             </div>
-            <div className="pets-marquee-rev flex whitespace-nowrap text-[#E67E66]/[0.07] font-display font-black italic tracking-[-0.04em] text-[18vw] leading-none">
-              <span className="pr-12">probiotic · probiotic ·&nbsp;</span>
-              <span className="pr-12">probiotic · probiotic ·&nbsp;</span>
-            </div>
+            <span className="hidden text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/50 sm:inline" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
+              EST. 2018 · ENVIROBIOTICS™
+            </span>
           </div>
 
-          {/* Ambient blobs */}
-          <div aria-hidden className="pets-blob pointer-events-none absolute -top-32 -left-32 h-[520px] w-[520px] rounded-full bg-[#E67E66] opacity-25 blur-[120px]" />
-          <div aria-hidden className="pets-blob-2 pointer-events-none absolute bottom-[-160px] right-[-120px] h-[560px] w-[560px] rounded-full bg-[#8A9A8A] opacity-25 blur-[140px]" />
+          {/* Hairline rule */}
+          <div className="relative z-10 mx-auto mt-6 w-full max-w-[1480px] px-5 sm:px-10 lg:px-16">
+            <div className="pets-rule h-px w-full bg-[#161616]/15" />
+          </div>
 
-          {/* Grain */}
-          <div
-            aria-hidden
-            className="pets-grain pointer-events-none absolute inset-0 z-[1] opacity-[0.12] mix-blend-multiply"
-            style={{
-              backgroundImage:
-                "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>\")",
-            }}
-          />
+          <div className="relative z-10 mx-auto grid w-full max-w-[1480px] grid-cols-12 gap-x-6 gap-y-12 px-5 pb-20 pt-14 sm:px-10 sm:pb-28 sm:pt-20 lg:px-16 lg:pt-24">
 
-          <div className="relative z-10 mx-auto grid w-full max-w-[1480px] grid-cols-1 gap-0 px-4 py-12 sm:px-8 sm:py-16 lg:grid-cols-12 lg:gap-0 lg:px-12 lg:py-20">
+            {/* LEFT — Index / chapter list */}
+            <aside className="col-span-12 lg:col-span-2 lg:pt-2">
+              <p className="text-[10.5px] font-medium uppercase tracking-[0.3em] text-[#161616]/45" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
+                Index
+              </p>
+              <ol className="mt-5 space-y-3 text-[12px] leading-tight text-[#161616]/70" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
+                {[
+                  ["I", "The Problem"],
+                  ["II", "The Method"],
+                  ["III", "The Kit"],
+                  ["IV", "The Promise"],
+                ].map(([n, t]) => (
+                  <li key={n} className="flex items-baseline gap-3">
+                    <span className="w-5 text-[#161616]/40">{n}</span>
+                    <span className="border-b border-transparent pb-px transition-colors hover:border-[#161616]/40">{t}</span>
+                  </li>
+                ))}
+              </ol>
+            </aside>
 
-            {/* Vertical ticker rail */}
-            <div className="relative hidden lg:col-span-1 lg:flex flex-col items-center justify-center overflow-hidden border-r border-foreground/10 py-12">
-              <div className="pets-ticker flex flex-col gap-10 whitespace-nowrap">
-                {[...Array(2)].flatMap((_, k) =>
-                  ["Better Air", "Clean Surfaces", "Pet Logic", "Probiotic Mist", "No Chemicals", "Always On"].map((t, i) => (
-                    <span key={`${k}-${i}`} className="rotate-90 text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30">
-                      {t}
-                    </span>
-                  ))
-                )}
+            {/* CENTER — Headline */}
+            <div className="col-span-12 lg:col-span-7">
+              <p className="pets-fade text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/55" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
+                A study in what your vacuum leaves behind
+              </p>
+
+              <h1
+                className="pets-rise mt-8 font-normal text-[#161616]"
+                style={{
+                  fontFamily: "'Instrument Serif', 'Playfair Display', Georgia, serif",
+                  fontSize: "clamp(3.2rem, 9.5vw, 9.5rem)",
+                  lineHeight: 0.92,
+                  letterSpacing: "-0.025em",
+                }}
+              >
+                Odor doesn&apos;t
+                <br />
+                live in the
+                <br />
+                <span className="italic text-[#7A8B6E]">air.</span>
+                <span className="ml-3 align-baseline text-[0.42em] tracking-[0.32em] text-[#161616]/40" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
+                  — IT LIVES IN THE COUCH.
+                </span>
+              </h1>
+
+              {/* Body + meta */}
+              <div className="pets-rise mt-12 grid grid-cols-1 gap-10 sm:grid-cols-[1fr_auto] sm:items-end" style={{ animationDelay: "0.15s" }}>
+                <p className="max-w-md text-[17px] leading-[1.55] text-[#161616]/75">
+                  Dander and odor settle into the rug, the bedding, the places your pet loves. EnviroBiotics works there — quietly, between cleanings, without chemistry.
+                </p>
+                <div className="flex flex-col gap-1 sm:items-end sm:text-right">
+                  <span className="text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/45" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
+                    Issue / Pets
+                  </span>
+                  <span className="text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/45" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
+                    Folio — 01 / 04
+                  </span>
+                </div>
+              </div>
+
+              {/* CTA row — restrained */}
+              <div className="pets-rise mt-12 flex flex-wrap items-center gap-x-10 gap-y-4" style={{ animationDelay: "0.3s" }}>
+                <a
+                  href="#products"
+                  onClick={(e) => smoothScroll(e, "products", "click_pets_hero_cta")}
+                  className="group inline-flex items-center gap-4 border-b border-[#161616] pb-2 text-[14px] font-medium uppercase tracking-[0.28em] text-[#161616] transition-colors hover:text-[#7A8B6E] hover:border-[#7A8B6E]"
+                >
+                  Begin the kit — $229
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" strokeWidth={1.75} />
+                </a>
+                <span className="text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/55" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
+                  Code <span className="text-[#161616]">PETS</span> · applied at checkout
+                </span>
               </div>
             </div>
 
-            {/* Main content */}
-            <div className="grid grid-cols-1 items-center gap-10 lg:col-span-11 lg:grid-cols-11 lg:gap-12">
-
-              {/* Image stack */}
-              <div className="relative order-2 lg:order-1 lg:col-span-6 pets-rise" style={{ animationDelay: "0.15s" }}>
-                {/* Orbiting badge */}
-                <div aria-hidden className="pets-orbit pointer-events-none absolute -top-10 -right-6 h-28 w-28 hidden lg:block">
-                  <svg viewBox="0 0 100 100" className="h-full w-full">
-                    <defs>
-                      <path id="petsCircle" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
-                    </defs>
-                    <text className="fill-foreground/70" style={{ fontSize: 9, letterSpacing: 3, fontWeight: 700 }}>
-                      <textPath href="#petsCircle">CHEMICAL FREE · PET SAFE · ALWAYS ON · </textPath>
-                    </text>
-                  </svg>
-                </div>
-
-                <div className="pets-float relative z-10 overflow-hidden rounded-[28px] border border-foreground/5 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.45)] lg:-rotate-1">
-                  <img
-                    src={heroImg}
-                    alt="A calm dog resting on a beige sofa in a sunlit modern living room with the Biotica device nearby"
-                    className="aspect-[4/3] w-full object-cover scale-[1.02]"
-                    fetchPriority="high"
-                    loading="eager"
-                    decoding="async"
-                    width={1200}
-                    height={900}
-                  />
-                  {/* Gradient veil */}
-                  <div aria-hidden className="absolute inset-0 bg-gradient-to-tr from-foreground/40 via-transparent to-transparent" />
-
-                  {/* Top metric chip */}
-                  <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full bg-background/85 backdrop-blur px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-foreground shadow-lg">
-                    <span className="pets-ping relative inline-block h-1.5 w-1.5 rounded-full bg-[#8A9A8A]" />
-                    Live · 800 sq ft shield
-                  </div>
-
-                  {/* Floating spec badge */}
-                  <div className="absolute bottom-5 right-5 rounded-xl bg-foreground p-4 text-background shadow-2xl sm:bottom-6 sm:right-6 max-w-[200px]">
-                    <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-[#E67E66]">Surface Tech</p>
-                    <p className="text-[13px] font-medium leading-tight sm:text-sm">
-                      Works on couches, rugs<br />&amp; pet beds — 24/7
-                    </p>
-                  </div>
-                </div>
-
-                {/* Decorative sage offset */}
-                <div
-                  aria-hidden
-                  className="absolute -bottom-4 -right-4 -z-10 h-full w-full translate-x-4 translate-y-4 rounded-[28px] border-2 border-[#8A9A8A]"
+            {/* RIGHT — Editorial image plate */}
+            <figure className="col-span-12 lg:col-span-3 lg:pt-2">
+              <div className="pets-fade relative aspect-[3/4] w-full overflow-hidden bg-[#E8E1D2]" style={{ animationDelay: "0.2s" }}>
+                <img
+                  src={heroImg}
+                  alt="A dog at rest in a sunlit room"
+                  className="h-full w-full object-cover"
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
                 />
-
-                {/* Stat card — floating bottom-left */}
-                <div className="absolute -bottom-8 -left-4 z-20 hidden sm:block rounded-2xl bg-background px-5 py-4 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)] ring-1 ring-foreground/5">
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-display text-3xl font-bold tracking-tight text-foreground">94%</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#8A9A8A]">odor drop</span>
-                  </div>
-                  <p className="mt-0.5 text-[11px] text-foreground/60">14 days · pet households</p>
-                </div>
               </div>
-
-              {/* Kinetic typography */}
-              <div className="order-1 flex flex-col gap-7 lg:order-2 lg:col-span-5">
-                <div className="pets-rise">
-                  <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#8A9A8A] bg-background/60 backdrop-blur px-3 py-1">
-                    <span className="pets-ping relative inline-block h-2 w-2 rounded-full bg-[#8A9A8A]" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-foreground">Live Probiotic Shield</span>
-                  </div>
-                </div>
-
-                <div className="pets-rise" style={{ animationDelay: "0.1s" }}>
-                  <h1 className="font-display text-[3.2rem] font-bold leading-[0.85] tracking-[-0.04em] text-foreground sm:text-7xl lg:text-[5.5rem]">
-                    Pet odor<br />
-                    isn&apos;t <span className="pets-shimmer italic font-serif font-normal">just</span><br />
-                    in the air.
-                  </h1>
-                </div>
-
-                <div className="pets-rise" style={{ animationDelay: "0.2s" }}>
-                  <p className="max-w-md text-lg font-medium leading-snug text-foreground/75 sm:text-xl">
-                    It&apos;s on the couch. It&apos;s in the rug. It&apos;s where they sleep.
-                    <span className="block mt-1 text-foreground">EnviroBiotics cleans where it matters — chemical-free.</span>
-                  </p>
-                </div>
-
-                <div className="pets-rise" style={{ animationDelay: "0.3s" }}>
-                  <div className="group relative">
-                    <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-sm bg-foreground transition-transform group-hover:translate-x-0 group-hover:translate-y-0" />
-                    <a
-                      href="#products"
-                      onClick={(e) => smoothScroll(e, "products", "click_pets_hero_cta")}
-                      className="relative flex w-full items-center justify-between bg-[#E67E66] px-6 py-5 text-background transition-transform active:scale-[0.98] sm:px-8 sm:py-6 overflow-hidden"
-                    >
-                      <span aria-hidden className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-                      <span className="relative text-lg font-bold uppercase tracking-tighter sm:text-2xl">
-                        Get the Starter Kit — $229
-                      </span>
-                      <ArrowRight className="relative h-7 w-7 transition-transform group-hover:translate-x-2" strokeWidth={3} />
-                    </a>
-                    <div className="mt-4 flex flex-wrap items-center gap-3">
-                      <span className="rounded-full bg-[#D92B2B] px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white">
-                        Code: PETS
-                      </span>
-                      <span className="text-xs font-bold uppercase tracking-widest text-foreground">Applied at checkout</span>
-                      <div className="hidden h-px flex-grow bg-foreground/10 sm:block" />
-                      <span className="text-xs font-bold text-[#8A9A8A]">Ships Free</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Inline trust row */}
-                <div className="pets-rise flex items-center gap-5 pt-2" style={{ animationDelay: "0.4s" }}>
-                  <div className="flex -space-x-2">
-                    {["#E67E66", "#8A9A8A", "#1A1F2C", "#D4A574"].map((c) => (
-                      <span key={c} className="h-7 w-7 rounded-full ring-2 ring-[#f7f3ec]" style={{ background: c }} />
-                    ))}
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-widest text-foreground">12,000+ pet homes</p>
-                    <p className="text-[11px] text-foreground/60">★★★★★ 4.8 · verified buyers</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <figcaption className="mt-4 flex items-start justify-between gap-4 text-[10.5px] font-medium uppercase tracking-[0.3em] text-[#161616]/55" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
+                <span>Plate 01<br /><span className="text-[#161616]/40">The living room, 4:12pm</span></span>
+                <span className="text-right text-[#161616]/40">Photographed<br />in a pet home</span>
+              </figcaption>
+            </figure>
           </div>
 
-          {/* Bottom scroll cue */}
-          <div aria-hidden className="pointer-events-none absolute bottom-4 left-1/2 z-10 -translate-x-1/2 text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/40">
-            scroll
+          {/* Bottom rail — running footer like a magazine */}
+          <div className="relative z-10 mx-auto w-full max-w-[1480px] border-t border-[#161616]/15 px-5 py-5 sm:px-10 lg:px-16">
+            <div className="flex flex-wrap items-center justify-between gap-y-3 gap-x-8 text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/55" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
+              <span>— Chemical free</span>
+              <span>— Safe for cats &amp; dogs</span>
+              <span>— Works on surfaces, not just air</span>
+              <span>— 12,000+ homes</span>
+              <span className="hidden lg:inline">★ 4.8 / 5</span>
+            </div>
           </div>
         </section>
 
