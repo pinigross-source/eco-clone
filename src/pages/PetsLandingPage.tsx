@@ -629,7 +629,7 @@ const PetsLandingPage = () => {
                 FAQ
               </p>
               <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                Pet parent questions, answered.
+                Pet owner questions, answered.
               </h2>
             </Reveal>
             <Accordion type="single" collapsible className="mt-10 w-full space-y-4 sm:mt-12">
