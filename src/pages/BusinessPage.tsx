@@ -8,7 +8,7 @@ import { ContactFormDialog } from "@/components/ContactFormDialog";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
 const verticals = [
-  { icon: Hotel, label: "Hotels & Hospitality", desc: "Cleaner-smelling rooms, lobbies, and back-of-house — without chemical maskers." },
+  { icon: Hotel, label: "Hotels & Hospitality", desc: "Cleaner-smelling rooms, lobbies, and back-of-house  without chemical maskers." },
   { icon: Briefcase, label: "Offices & Co-working", desc: "Reduce dust, dander, and musty odors across shared HVAC zones." },
   { icon: Dumbbell, label: "Gyms & Studios", desc: "Continuously address sweat, mat, and locker-room bacteria on surfaces and in the air." },
   { icon: Stethoscope, label: "Clinics & Wellness", desc: "Probiotic support that complements existing IAQ and cleaning protocols." },
@@ -17,7 +17,7 @@ const verticals = [
 const benefits = [
   "Whole-building coverage via HVAC integration",
   "Works 24/7 on surfaces and in the air",
-  "FDA GRAS organisms — safe for occupants",
+  "FDA GRAS organisms  safe for occupants",
   "No ozone, no harsh chemicals, no downtime",
   "Service plans with monitoring and refills",
   "Documented protocols for facility teams",
@@ -61,7 +61,7 @@ export default function BusinessPage() {
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10">
             Continuous probiotic air and surface support, integrated into your HVAC and operations.
-            Designed for hotels, offices, gyms, and clinics — never a retail add-to-cart.
+            Designed for hotels, offices, gyms, and clinics  never a retail add-to-cart.
           </p>
           <div className="flex justify-center">{cta}</div>
           <p className="text-xs text-muted-foreground/80 mt-4">No obligation. Walk-through, scope, and quote.</p>

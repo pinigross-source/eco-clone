@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * ParticleField — cursor-driven particle emitter.
+ * ParticleField  cursor-driven particle emitter.
  * Particles only spawn where the mouse moves, drift briefly, then fade out.
  * Nothing is rendered until the user moves the pointer over the hero.
  */

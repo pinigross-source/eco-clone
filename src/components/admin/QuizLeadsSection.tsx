@@ -176,7 +176,7 @@ export function QuizLeadsSection() {
                         {lead.discount_code}
                       </Badge>
                     ) : (
-                      <span className="text-muted-foreground">—</span>
+                      <span className="text-muted-foreground"></span>
                     )}
                   </TableCell>
                   <TableCell>

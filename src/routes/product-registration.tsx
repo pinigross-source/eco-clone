@@ -77,7 +77,7 @@ function ProductRegistrationPage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Product Registration — EnviroBiotics"
+        title="Product Registration  EnviroBiotics"
         description="Register your EnviroBiotics product to activate your warranty and get support."
         path="/product-registration"
       />
@@ -96,7 +96,7 @@ function ProductRegistrationPage() {
             <CheckCircle2 className="mx-auto h-12 w-12 text-primary" />
             <h2 className="mt-4 text-2xl font-display font-semibold text-foreground">You're registered!</h2>
             <p className="mt-2 text-muted-foreground">
-              Thanks — we've recorded your registration. You'll receive a confirmation by email shortly.
+              Thanks  we've recorded your registration. You'll receive a confirmation by email shortly.
             </p>
             <Button className="mt-6" onClick={() => setSubmitted(false)} variant="outline">
               Register another product

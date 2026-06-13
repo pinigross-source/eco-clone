@@ -33,7 +33,7 @@ function LinkCheckPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead title="Link Check — Internal Crawler" description="Scan the site for broken internal links." path="/link-check" />
+      <SEOHead title="Link Check  Internal Crawler" description="Scan the site for broken internal links." path="/link-check" />
       <Navbar />
       <main className="mx-auto max-w-4xl px-4 py-12">
         <header className="mb-8">

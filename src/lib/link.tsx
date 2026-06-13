@@ -1,4 +1,4 @@
-// Permissive Link wrapper — relaxes TanStack's strict route-literal typing
+// Permissive Link wrapper  relaxes TanStack's strict route-literal typing
 // so legacy components ported from react-router-dom keep working.
 //
 // Shop integration: any link to /shop or /product/* is redirected to the

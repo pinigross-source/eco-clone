@@ -317,7 +317,7 @@ const HowItWorksPage = () => {
 
 
 
-        {/* ORIGIN STORY — Finding EnviroBiotics */}
+        {/* ORIGIN STORY  Finding EnviroBiotics */}
         <section className="relative overflow-hidden border-t border-border/60 bg-background py-20 md:py-32">
           {/* ambient backdrop */}
           <div
@@ -552,7 +552,7 @@ const HowItWorksPage = () => {
           </div>
         </section>
 
-        {/* FINAL CTA — bright, premium */}
+        {/* FINAL CTA  bright, premium */}
         <section className="relative overflow-hidden bg-[#fafaf7] text-foreground border-t border-border/60">
           <div
             aria-hidden="true"

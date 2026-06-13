@@ -128,7 +128,7 @@ const CompareBlueairPage = () => {
         {/* How HEPASilent Works */}
         <section className="section-padding py-12 bg-muted/30">
           <div className="container max-w-4xl mx-auto px-5">
-            <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">How Blueair HEPASilent Works — and Its Limitations</h2>
+            <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">How Blueair HEPASilent Works  and Its Limitations</h2>
             <p className="text-muted-foreground mb-4">
               HEPASilent is Blueair's proprietary combination of mechanical filtration and electrostatic charging. As air enters the unit, particles receive an electrostatic charge that causes them to adhere more effectively to the filter fibers. This allows Blueair to claim capture of particles smaller than standard HEPA while maintaining high airflow rates.
             </p>
@@ -136,7 +136,7 @@ const CompareBlueairPage = () => {
               Blueair units are well-regarded for their stylish design, relatively quiet operation (on lower settings), and efficient airborne particle capture. However, the fundamental limitation remains: HEPASilent, like all mechanical purifiers, only treats air that passes through the unit.
             </p>
             <p className="text-muted-foreground">
-              Indoor allergens like pet dander, dust mite waste, and mold spores settle onto surfaces within minutes of becoming airborne. Once settled, no air purifier — regardless of filtration technology — can reach them. This is why many Blueair owners still experience allergy symptoms despite running their units continuously.
+              Indoor allergens like pet dander, dust mite waste, and mold spores settle onto surfaces within minutes of becoming airborne. Once settled, no air purifier  regardless of filtration technology  can reach them. This is why many Blueair owners still experience allergy symptoms despite running their units continuously.
             </p>
           </div>
         </section>
@@ -146,10 +146,10 @@ const CompareBlueairPage = () => {
           <div className="container max-w-4xl mx-auto px-5">
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">How EnviroBiotics Works Differently</h2>
             <p className="text-muted-foreground mb-4">
-              EnviroBiotics devices disperse beneficial Bacillus probiotics into your indoor environment on a timed cycle. These microscopic organisms travel with natural airflow and settle on every surface — countertops, fabrics, inside HVAC ducts, and into cracks that no filter can reach.
+              EnviroBiotics devices disperse beneficial Bacillus probiotics into your indoor environment on a timed cycle. These microscopic organisms travel with natural airflow and settle on every surface  countertops, fabrics, inside HVAC ducts, and into cracks that no filter can reach.
             </p>
             <p className="text-muted-foreground mb-4">
-              Once established on surfaces, the probiotics consume the organic matter (dead skin cells, dust mite waste, mold nutrients) that harmful microorganisms need to survive. This process, called <Link to="/glossary" className="text-primary hover:underline">competitive exclusion</Link>, doesn't just capture allergens — it removes the food source that allows them to multiply.
+              Once established on surfaces, the probiotics consume the organic matter (dead skin cells, dust mite waste, mold nutrients) that harmful microorganisms need to survive. This process, called <Link to="/glossary" className="text-primary hover:underline">competitive exclusion</Link>, doesn't just capture allergens  it removes the food source that allows them to multiply.
             </p>
             <p className="text-muted-foreground">
               The result is continuous, surface-level protection that works even when the device is between cycles. Unlike a mechanical filter that stops protecting the moment you turn it off, the probiotic layer remains active on surfaces for days.

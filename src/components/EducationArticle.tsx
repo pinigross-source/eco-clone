@@ -135,7 +135,7 @@ export const EducationArticle = ({
           </section>
         )}
 
-        {/* Body sections — alternating light backgrounds */}
+        {/* Body sections  alternating light backgrounds */}
         {sections.map((s, i) => {
           const bg = i % 2 === 1 ? "bg-muted/40" : "";
           const paragraphs = Array.isArray(s.body) ? s.body : [s.body];

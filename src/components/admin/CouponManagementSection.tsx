@@ -269,7 +269,7 @@ export function CouponManagementSection({ isAdmin }: CouponManagementSectionProp
   };
 
   const formatDate = (dateString: string | null) => {
-    if (!dateString) return "—";
+    if (!dateString) return "";
     return new Date(dateString).toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",

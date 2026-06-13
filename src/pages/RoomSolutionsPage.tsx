@@ -211,7 +211,7 @@ const RoomSolutionsPage = () => {
       />
       <Navbar />
       <main>
-        {/* ═══════ Hero — full-bleed Sonos style ═══════ */}
+        {/* ═══════ Hero  full-bleed Sonos style ═══════ */}
         <section className="relative w-full overflow-hidden pt-16 sm:pt-20">
           <div className="relative min-h-[78vh] md:min-h-[88vh] w-full">
             <img
@@ -256,7 +256,7 @@ const RoomSolutionsPage = () => {
           </div>
         </section>
 
-        {/* ═══════ Problem Sources — Sonos clean grid ═══════ */}
+        {/* ═══════ Problem Sources  Sonos clean grid ═══════ */}
         <section className="py-24 md:py-32 bg-background relative">
           <div className="container relative z-10 px-5 md:px-6">
             <ScrollReveal variant="fadeUp" className="max-w-3xl mb-14 md:mb-20">
@@ -292,7 +292,7 @@ const RoomSolutionsPage = () => {
           </div>
         </section>
 
-        {/* ═══════ Where Problems Hide — Sonos split card ═══════ */}
+        {/* ═══════ Where Problems Hide  Sonos split card ═══════ */}
         <section className="py-16 md:py-24 bg-background relative">
           <div className="container px-5 md:px-6">
             <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-muted/40 ring-1 ring-border/50">
@@ -338,7 +338,7 @@ const RoomSolutionsPage = () => {
           </div>
         </section>
 
-        {/* ═══════ We Treat the Source — Sonos editorial split ═══════ */}
+        {/* ═══════ We Treat the Source  Sonos editorial split ═══════ */}
         <section className="py-16 md:py-24 bg-background relative">
           <div className="container px-5 md:px-6">
             <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-muted/40 ring-1 ring-border/50">
@@ -400,7 +400,7 @@ const RoomSolutionsPage = () => {
           </div>
         </section>
 
-        {/* ═══════ Comparison — Sonos refined ═══════ */}
+        {/* ═══════ Comparison  Sonos refined ═══════ */}
         <section className="py-24 md:py-32 bg-background relative">
           <div className="container relative z-10 px-5 md:px-6">
             <ScrollReveal variant="fadeUp" className="max-w-3xl mb-12 md:mb-16">
@@ -615,7 +615,7 @@ const RoomSolutionsPage = () => {
           </div>
         </section>
 
-        {/* ═══════ HVAC — Sonos card ═══════ */}
+        {/* ═══════ HVAC  Sonos card ═══════ */}
         <section className="py-16 md:py-24 bg-background">
           <div className="container px-5 md:px-6">
             <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-primary/5 ring-1 ring-primary/15 p-10 sm:p-12 md:p-14 min-h-[360px] flex flex-col justify-end">

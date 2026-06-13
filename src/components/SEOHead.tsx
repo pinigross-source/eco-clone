@@ -73,7 +73,7 @@ export const SEOHead = ({ title, description, path, type = "website", image, key
   return null;
 };
 
-// Organization schema used across the site (no @context — used inside @graph)
+// Organization schema used across the site (no @context  used inside @graph)
 export const organizationJsonLd = {
   "@type": "Organization",
   "@id": "https://envirobiotics.com/#organization",
@@ -179,7 +179,7 @@ export const websiteJsonLd = {
   },
 };
 
-// Breadcrumb helper — pass ordered items: [{ name, url }] (no @context — used inside @graph)
+// Breadcrumb helper  pass ordered items: [{ name, url }] (no @context  used inside @graph)
 export const makeBreadcrumbJsonLd = (items: { name: string; url: string }[]) => ({
   "@type": "BreadcrumbList",
   itemListElement: items.map((item, i) => ({
@@ -267,27 +267,27 @@ export const makeProductJsonLd = (opts: {
     {
       "@type": "PropertyValue",
       name: "FDA GRAS Certified",
-      value: "Yes — all probiotic strains are FDA Generally Recognized As Safe",
+      value: "Yes  all probiotic strains are FDA Generally Recognized As Safe",
     },
     {
       "@type": "PropertyValue",
       name: "EPA Registered",
-      value: "Yes — EPA registered probiotic strains",
+      value: "Yes  EPA registered probiotic strains",
     },
     {
       "@type": "PropertyValue",
       name: "MADE SAFE Certified",
-      value: "Yes — certified safe for humans, animals, and environment",
+      value: "Yes  certified safe for humans, animals, and environment",
     },
     {
       "@type": "PropertyValue",
       name: "AllergyUK Approved",
-      value: "Yes — endorsed by AllergyUK",
+      value: "Yes  endorsed by AllergyUK",
     },
     {
       "@type": "PropertyValue",
       name: "Ozone Emissions",
-      value: "Zero — produces no ozone, no VOCs, no chemical residues",
+      value: "Zero  produces no ozone, no VOCs, no chemical residues",
     },
     {
       "@type": "PropertyValue",
@@ -297,7 +297,7 @@ export const makeProductJsonLd = (opts: {
   ],
 });
 
-// HowTo schema for the How It Works page (no @context — used inside @graph)
+// HowTo schema for the How It Works page (no @context  used inside @graph)
 export const howToJsonLd = {
   "@type": "HowTo",
   name: "How EnviroBiotics Probiotic Air & Surface Treatment Works",
@@ -330,7 +330,7 @@ export const howToJsonLd = {
   ],
 };
 
-// Expanded homepage FAQ for AEO (no @context — used inside @graph)
+// Expanded homepage FAQ for AEO (no @context  used inside @graph)
 export const homepageFaqJsonLd = {
   "@type": "FAQPage",
   mainEntity: [

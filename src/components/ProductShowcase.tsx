@@ -18,7 +18,7 @@ const products = [
     coverage: "300 sq ft",
     description: "Compact and rechargeable. Perfect for travel, offices, or any small space.",
     image: biologicMini,
-    alt: "BioLogic Mini Probiotic Surface Purifier by EnviroBiotics — compact room purifier",
+    alt: "BioLogic Mini Probiotic Surface Purifier by EnviroBiotics  compact room purifier",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const products = [
     coverage: "800 sq ft",
     description: "Full-room coverage with continuous surface protection for large living spaces.",
     image: biotica800,
-    alt: "Biotica 800 Probiotic Air Purifier by EnviroBiotics — continuous environmental probiotic dispersion",
+    alt: "Biotica 800 Probiotic Air Purifier by EnviroBiotics  continuous environmental probiotic dispersion",
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const products = [
     coverage: "2,600 sq ft",
     description: "Probiotic and advanced HEPA combined for ultimate purification in large spaces.",
     image: betterairUnit,
-    alt: "BA-2080 Advanced Probiotic Air Purification System by EnviroBiotics — 2,600 sq ft coverage",
+    alt: "BA-2080 Advanced Probiotic Air Purification System by EnviroBiotics  2,600 sq ft coverage",
   },
   {
     id: 4,

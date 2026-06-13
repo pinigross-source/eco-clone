@@ -45,7 +45,7 @@ export const Route = createFileRoute("/api/public/coming-soon")({
               from: "EnviroBiotics Website <onboarding@resend.dev>",
               to: ["contact@envirobiotics.com"],
               reply_to: email,
-              subject: `New "Coming Soon" signup — ${product}`,
+              subject: `New "Coming Soon" signup  ${product}`,
               html,
             }),
           });

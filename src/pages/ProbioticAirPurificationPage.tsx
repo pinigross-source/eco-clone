@@ -173,7 +173,7 @@ const ProbioticAirPurificationPage = () => {
       <Navbar />
 
       {/* ════════════════════════════════════════════════════
-          HERO — Full-width cinematic intro
+          HERO  Full-width cinematic intro
           ════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
         {/* Ambient blurs */}
@@ -221,7 +221,7 @@ const ProbioticAirPurificationPage = () => {
       </section>
 
       {/* ════════════════════════════════════════════════════
-          WHAT IS — Definition section
+          WHAT IS  Definition section
           ════════════════════════════════════════════════════ */}
       <section className="section-padding gradient-section-reverse">
         <div className="container px-5 md:px-6 max-w-4xl mx-auto">
@@ -262,7 +262,7 @@ const ProbioticAirPurificationPage = () => {
       </section>
 
       {/* ════════════════════════════════════════════════════
-          HOW IT WORKS — 4 Steps
+          HOW IT WORKS  4 Steps
           ════════════════════════════════════════════════════ */}
       <section className="section-padding">
         <div className="container px-5 md:px-6 max-w-5xl mx-auto">
@@ -300,7 +300,7 @@ const ProbioticAirPurificationPage = () => {
       </section>
 
       {/* ════════════════════════════════════════════════════
-          WHAT IT ADDRESSES — Contaminants
+          WHAT IT ADDRESSES  Contaminants
           ════════════════════════════════════════════════════ */}
       <section className="section-padding gradient-section">
         <div className="container px-5 md:px-6 max-w-4xl mx-auto">
@@ -332,7 +332,7 @@ const ProbioticAirPurificationPage = () => {
       </section>
 
       {/* ════════════════════════════════════════════════════
-          COMPARISON TABLE — HEPA vs Probiotic
+          COMPARISON TABLE  HEPA vs Probiotic
           ════════════════════════════════════════════════════ */}
       <section className="section-padding">
         <div className="container px-5 md:px-6 max-w-4xl mx-auto">
@@ -385,7 +385,7 @@ const ProbioticAirPurificationPage = () => {
       </section>
 
       {/* ════════════════════════════════════════════════════
-          SAFETY — Certifications
+          SAFETY  Certifications
           ════════════════════════════════════════════════════ */}
       <section className="section-padding gradient-section-reverse">
         <div className="container px-5 md:px-6 max-w-4xl mx-auto">
@@ -425,7 +425,7 @@ const ProbioticAirPurificationPage = () => {
       </section>
 
       {/* ════════════════════════════════════════════════════
-          SCIENCE — Research evidence
+          SCIENCE  Research evidence
           ════════════════════════════════════════════════════ */}
       <section className="section-padding">
         <div className="container px-5 md:px-6 max-w-4xl mx-auto">
@@ -464,7 +464,7 @@ const ProbioticAirPurificationPage = () => {
       </section>
 
       {/* ════════════════════════════════════════════════════
-          WHO BENEFITS — Audience segments
+          WHO BENEFITS  Audience segments
           ════════════════════════════════════════════════════ */}
       <section className="section-padding gradient-section">
         <div className="container px-5 md:px-6 max-w-4xl mx-auto">
@@ -497,7 +497,7 @@ const ProbioticAirPurificationPage = () => {
       </section>
 
       {/* ════════════════════════════════════════════════════
-          HOW TO CHOOSE — Checklist
+          HOW TO CHOOSE  Checklist
           ════════════════════════════════════════════════════ */}
       <section className="section-padding">
         <div className="container px-5 md:px-6 max-w-4xl mx-auto">
@@ -534,7 +534,7 @@ const ProbioticAirPurificationPage = () => {
       </section>
 
       {/* ════════════════════════════════════════════════════
-          FAQ — Accordion
+          FAQ  Accordion
           ════════════════════════════════════════════════════ */}
       <section className="section-padding gradient-section-reverse">
         <div className="container px-5 md:px-6 max-w-3xl mx-auto">

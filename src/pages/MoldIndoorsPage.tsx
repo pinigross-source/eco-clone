@@ -5,21 +5,21 @@ export default function MoldIndoorsPage() {
     <EducationArticle
       category="Allergens & health"
       title="Mold Indoors"
-      lede="Mold grows wherever moisture, organic matter, and poor airflow meet. Visible mold is often only part of the problem — spores and fragments spread silently into dust and air long before a stain appears on the wall."
+      lede="Mold grows wherever moisture, organic matter, and poor airflow meet. Visible mold is often only part of the problem  spores and fragments spread silently into dust and air long before a stain appears on the wall."
       path="/mold-indoors"
       seoTitle="Mold Indoors: Sources, Health Effects, and Probiotic Control | EnviroBiotics Education"
-      seoDescription="A practical guide to indoor mold — how it grows, the health effects of spores and mycotoxins, and how probiotic purification supports continuous mold control on indoor surfaces."
+      seoDescription="A practical guide to indoor mold  how it grows, the health effects of spores and mycotoxins, and how probiotic purification supports continuous mold control on indoor surfaces."
       keyPoints={[
         { label: "What it needs", value: "Moisture, organic matter, and limited airflow." },
         { label: "Where it hides", value: "Bathrooms, basements, HVAC systems, behind walls, around windows." },
-        { label: "Why it persists", value: "Spores reproduce wherever conditions repeat — fixing one spot rarely solves the problem." },
+        { label: "Why it persists", value: "Spores reproduce wherever conditions repeat  fixing one spot rarely solves the problem." },
       ]}
       sections={[
         {
           heading: "How indoor mold actually grows",
           body: [
             "Mold is a fungus. It reproduces by releasing microscopic spores that float through the air, settle on surfaces, and germinate when they find moisture and organic material to feed on. Drywall paper, wood, dust, soap residue, and grout are all suitable food sources.",
-            "Indoor mold is rarely a one-time event. Spores are everywhere — outdoors, in HVAC ducts, in household dust. The reason mold appears in the same spots repeatedly is that those spots offer the conditions mold needs to grow: moisture and limited airflow.",
+            "Indoor mold is rarely a one-time event. Spores are everywhere  outdoors, in HVAC ducts, in household dust. The reason mold appears in the same spots repeatedly is that those spots offer the conditions mold needs to grow: moisture and limited airflow.",
           ],
         },
         {
@@ -37,7 +37,7 @@ export default function MoldIndoorsPage() {
         {
           heading: "Health effects of indoor mold",
           body: [
-            "Most people react to mold through inhalation of spores and fragments. Common reactions include allergic rhinitis, sinus congestion, coughing, and asthma exacerbations. Sensitive individuals — especially infants, the elderly, people with asthma, and the immunocompromised — can experience more significant respiratory symptoms.",
+            "Most people react to mold through inhalation of spores and fragments. Common reactions include allergic rhinitis, sinus congestion, coughing, and asthma exacerbations. Sensitive individuals  especially infants, the elderly, people with asthma, and the immunocompromised  can experience more significant respiratory symptoms.",
             "Some mold species also produce mycotoxins, which are secondary metabolites that can cause irritation and, in higher exposures, more serious health effects. Visible mold is not always the most harmful kind, and dangerous spore loads can exist with no visible mold at all.",
           ],
         },
@@ -59,7 +59,7 @@ export default function MoldIndoorsPage() {
       faqs={[
         {
           q: "Will probiotics fix an active water leak or wet drywall?",
-          a: "No — moisture problems must be fixed at the source. Probiotic purification helps maintain microbial balance on dry surfaces and reduce ongoing recolonization, but a leaking pipe, flooded basement, or saturated wall requires repair and remediation.",
+          a: "No  moisture problems must be fixed at the source. Probiotic purification helps maintain microbial balance on dry surfaces and reduce ongoing recolonization, but a leaking pipe, flooded basement, or saturated wall requires repair and remediation.",
         },
         {
           q: "Is EnviroBiotics safe to use if I am sensitive to mold?",

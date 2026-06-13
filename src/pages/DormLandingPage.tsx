@@ -620,7 +620,7 @@ const DormLandingPage = () => {
         </div>
       </div>
 
-      {/* Subscription upsell + in-app cart removed — checkout happens on Shopify */}
+      {/* Subscription upsell + in-app cart removed  checkout happens on Shopify */}
     </>
   );
 };

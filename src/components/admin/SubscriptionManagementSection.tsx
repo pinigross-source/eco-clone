@@ -127,18 +127,18 @@ export function SubscriptionManagementSection() {
           id: `stripe-${sub.id}`,
           rawId: sub.id,
           email: sub.email,
-          name: sub.display_name || "—",
+          name: sub.display_name || "",
           product: sub.stripe_product_id ? (PRODUCT_NAMES[sub.stripe_product_id] || sub.stripe_product_id) : "Unknown",
           source: sub.source,
           status: sub.subscription_status || "unknown",
-          amount: "—",
+          amount: "",
           amountRaw: null,
-          billingInterval: "—",
-          startDate: sub.created_at ? formatDate(sub.created_at) : "—",
-          nextBillingDate: sub.current_period_end ? formatDate(sub.current_period_end) : "—",
+          billingInterval: "",
+          startDate: sub.created_at ? formatDate(sub.created_at) : "",
+          nextBillingDate: sub.current_period_end ? formatDate(sub.current_period_end) : "",
           nextBillingRaw: sub.current_period_end,
-          stripeCustomerId: sub.stripe_customer_id || "—",
-          stripeSubscriptionId: sub.stripe_subscription_id || "—",
+          stripeCustomerId: sub.stripe_customer_id || "",
+          stripeSubscriptionId: sub.stripe_subscription_id || "",
           billedExternally: false,
         });
       }
@@ -148,18 +148,18 @@ export function SubscriptionManagementSection() {
           id: `woo-${sub.id}`,
           rawId: sub.id,
           email: sub.email,
-          name: "—",
+          name: "",
           product: sub.product_name,
           source: "woocommerce",
           status: sub.status,
-          amount: sub.amount ? `$${(sub.amount / 100).toFixed(2)}` : "—",
+          amount: sub.amount ? `$${(sub.amount / 100).toFixed(2)}` : "",
           amountRaw: sub.amount,
-          billingInterval: sub.billing_interval || "—",
-          startDate: "—",
-          nextBillingDate: sub.current_period_end ? formatDate(sub.current_period_end) : "—",
+          billingInterval: sub.billing_interval || "",
+          startDate: "",
+          nextBillingDate: sub.current_period_end ? formatDate(sub.current_period_end) : "",
           nextBillingRaw: sub.current_period_end,
-          stripeCustomerId: "—",
-          stripeSubscriptionId: sub.woo_subscription_id || "—",
+          stripeCustomerId: "",
+          stripeSubscriptionId: sub.woo_subscription_id || "",
           billedExternally: true,
         });
       }
@@ -279,7 +279,7 @@ export function SubscriptionManagementSection() {
     setDetailSub(sub);
     setEditStatus(sub.status);
     setEditAmount(sub.amountRaw != null ? (sub.amountRaw / 100).toFixed(2) : "");
-    setEditInterval(sub.billingInterval === "—" ? "" : sub.billingInterval);
+    setEditInterval(sub.billingInterval === "" ? "" : sub.billingInterval);
     setEditNextBilling(toDateInputValue(sub.nextBillingRaw));
     setEditProduct(sub.product);
     setDetailOpen(true);
@@ -454,7 +454,7 @@ export function SubscriptionManagementSection() {
 
       <p className="text-sm text-muted-foreground">
         Showing {filtered.length} of {subscriptions.length} subscriptions
-        <span className="ml-2 text-xs text-muted-foreground/60">— Double-click a row to view details</span>
+        <span className="ml-2 text-xs text-muted-foreground/60"> Double-click a row to view details</span>
       </p>
 
       {/* Table with sticky header */}
@@ -507,7 +507,7 @@ export function SubscriptionManagementSection() {
                     </TableCell>
                     <TableCell className="px-2">
                       <p className="font-medium text-sm truncate max-w-[200px]">{sub.email}</p>
-                      {sub.name !== "—" && (
+                      {sub.name !== "" && (
                         <p className="text-xs text-muted-foreground">{sub.name}</p>
                       )}
                     </TableCell>
@@ -541,7 +541,7 @@ export function SubscriptionManagementSection() {
                     </TableCell>
                     <TableCell className="px-2">
                       <div className="text-xs space-y-0.5">
-                        {sub.startDate !== "—" && (
+                        {sub.startDate !== "" && (
                           <p className="text-muted-foreground">Start: {sub.startDate}</p>
                         )}
                         <p className="flex items-center gap-1">
@@ -585,7 +585,7 @@ export function SubscriptionManagementSection() {
                     {sourceLabel(detailSub.source)}
                   </Badge>
                 </div>
-                {detailSub.name !== "—" && (
+                {detailSub.name !== "" && (
                   <div>
                     <p className="text-xs text-muted-foreground mb-0.5">Name</p>
                     <p className="text-sm">{detailSub.name}</p>
@@ -595,7 +595,7 @@ export function SubscriptionManagementSection() {
                   <p className="text-xs text-muted-foreground mb-0.5">Subscription ID</p>
                   <p className="text-xs font-mono text-muted-foreground">{detailSub.stripeSubscriptionId}</p>
                 </div>
-                {detailSub.stripeCustomerId !== "—" && (
+                {detailSub.stripeCustomerId !== "" && (
                   <div>
                     <p className="text-xs text-muted-foreground mb-0.5">Customer ID</p>
                     <p className="text-xs font-mono text-muted-foreground">{detailSub.stripeCustomerId}</p>

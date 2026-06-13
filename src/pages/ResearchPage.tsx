@@ -143,7 +143,7 @@ const ResearchPage = () => {
             {
               "@type": "ScholarlyArticle",
               "headline": "Research & Science: Environmental Probiotics for Indoor Air and Surfaces",
-              "description": "A reference summary of peer-reviewed studies and clinical evidence for Bacillus-based environmental probiotics — including the University of Genova SARS-CoV-2 study, Indoor Biotechnologies allergen study, and PCHS hospital trials.",
+              "description": "A reference summary of peer-reviewed studies and clinical evidence for Bacillus-based environmental probiotics  including the University of Genova SARS-CoV-2 study, Indoor Biotechnologies allergen study, and PCHS hospital trials.",
               "url": "https://envirobiotics.com/research",
               "mainEntityOfPage": "https://envirobiotics.com/research",
               "author": { "@type": "Organization", "name": "EnviroBiotics" },
@@ -158,9 +158,9 @@ const ResearchPage = () => {
               "citation": [
                 { "@type": "ScholarlyArticle", "name": "97.7% SARS-CoV-2 surface reduction within 3 hours", "publisher": "University of Genova, Department of Experimental Medicine", "datePublished": "2025", "url": "https://ecologicalbalancing.com/a-new-path-to-suppress-covid-19-on-surfaces/" },
                 { "@type": "ScholarlyArticle", "name": "Allergen reduction by environmental probiotics", "publisher": "Indoor Biotechnologies (Cardiff, UK)", "datePublished": "2024", "url": "https://ecologicalbalancing.com/Asthma-and-Allergies-Prevention/" },
-                { "@type": "ScholarlyArticle", "name": "Reducing HAI with PCHS — Caselli E. et al.", "publisher": "PLOS ONE", "datePublished": "2018", "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0199616" },
-                { "@type": "ScholarlyArticle", "name": "Probiotic-based sanitation & AMR — D'Accolti M. et al.", "publisher": "Microorganisms", "datePublished": "2021", "url": "https://www.mdpi.com/2076-2607/9/2/225" },
-                { "@type": "ScholarlyArticle", "name": "Hard-surface biocontrol — Vandini A. et al.", "publisher": "PLOS ONE", "datePublished": "2014", "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0108598" },
+                { "@type": "ScholarlyArticle", "name": "Reducing HAI with PCHS  Caselli E. et al.", "publisher": "PLOS ONE", "datePublished": "2018", "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0199616" },
+                { "@type": "ScholarlyArticle", "name": "Probiotic-based sanitation & AMR  D'Accolti M. et al.", "publisher": "Microorganisms", "datePublished": "2021", "url": "https://www.mdpi.com/2076-2607/9/2/225" },
+                { "@type": "ScholarlyArticle", "name": "Hard-surface biocontrol  Vandini A. et al.", "publisher": "PLOS ONE", "datePublished": "2014", "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0108598" },
               ],
             },
             {
@@ -200,7 +200,7 @@ const ResearchPage = () => {
           ctaHref="#case-studies"
         />
 
-        {/* Key Findings — featured-snippet / AI Overview target */}
+        {/* Key Findings  featured-snippet / AI Overview target */}
         <section className="section-padding">
           <div className="container max-w-4xl">
             <ScrollReveal>
@@ -216,13 +216,13 @@ const ResearchPage = () => {
                     { stat: "Independent veterinary efficacy testing on companion-animal allergens", source: "Invetus (Yorklea, Australia)", sourceUrl: "https://www.invetus.com.au/" },
                     { stat: "Independent laboratory verification of allergen reduction", source: "EMSL Analytical Labs (USA)", sourceUrl: "https://www.emsl.com/" },
                     { stat: "~52% reduction in healthcare-associated infections vs. conventional disinfectants", source: "Caselli E. et al., PLOS ONE, 2018 (6-hospital trial)" },
-                    { stat: "FDA GRAS-certified Bacillus strains — no ozone, no chemicals, safe for children and pets", source: "MADE SAFE® certification & FDA GRAS notice inventory" },
+                    { stat: "FDA GRAS-certified Bacillus strains  no ozone, no chemicals, safe for children and pets", source: "MADE SAFE® certification & FDA GRAS notice inventory" },
                   ].map((item: { stat: string; source: string; sourceUrl?: string }) => (
                     <li key={item.stat} className="flex gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-medium text-foreground leading-snug">{item.stat}</p>
-                        <p className="text-xs text-muted-foreground mt-1">— {item.sourceUrl ? (
+                        <p className="text-xs text-muted-foreground mt-1"> {item.sourceUrl ? (
                           <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{item.source}</a>
                         ) : item.source}</p>
                       </div>
@@ -245,7 +245,7 @@ const ResearchPage = () => {
           </div>
         </section>
 
-        {/* Cited Studies — full reference blocks for citation-grade content */}
+        {/* Cited Studies  full reference blocks for citation-grade content */}
         <section id="cited-studies" className="section-padding bg-muted/30 scroll-mt-24">
           <div className="container max-w-4xl">
             <ScrollReveal>
@@ -261,13 +261,13 @@ const ResearchPage = () => {
             <div className="space-y-8">
               {[
                 {
-                  authors: "University of Genova — Department of Experimental Medicine",
+                  authors: "University of Genova  Department of Experimental Medicine",
                   year: "2025",
                   title: "Suppressing SARS-CoV-2 on Surfaces with Environmental Probiotics",
                   method: "EnviroBiotics suspension incubated with SARS-CoV-2 viral particles; measurements at 15 min, 1 h, and 3 h. Spike-protein inactivation confirmed via colony-forming assay against untreated controls.",
                   result: "67% viral neutralization within 15 minutes, 97.7% within 3 hours. Control surfaces showed no spontaneous decline.",
                   url: "https://ecologicalbalancing.com/a-new-path-to-suppress-covid-19-on-surfaces/",
-                  productLine: <>Direct evidence for room-level surface defense — see how the <Link to="/product/ba-2080" className="text-primary font-medium hover:underline">BA-2080</Link> applies this in a home setting.</>,
+                  productLine: <>Direct evidence for room-level surface defense  see how the <Link to="/product/ba-2080" className="text-primary font-medium hover:underline">BA-2080</Link> applies this in a home setting.</>,
                 },
                 {
                   authors: "Indoor Biotechnologies (Cardiff, UK; Charlottesville, VA; Bangalore, India)",
@@ -276,7 +276,7 @@ const ResearchPage = () => {
                   method: "8-day controlled application supervised by Dr. Sivasankar Baalasubramanian, with a parallel longer-period simulation at EMSL Analytical Laboratories (NJ). Allergen concentrations measured against baseline.",
                   result: "Cumulative, statistically meaningful decrease in dust-mite, pet-dander, and mold allergens. Probiotic Bacillus cells secrete proteolytic enzymes that degrade allergenic epitopes.",
                   url: "https://ecologicalbalancing.com/Asthma-and-Allergies-Prevention/",
-                  productLine: <>Direct evidence for surface allergen activity — see how the <Link to="/product/biologic-mini" className="text-primary font-medium hover:underline">BioLogic Mini</Link> and <Link to="/product/biotica-800" className="text-primary font-medium hover:underline">Biotica 800</Link> deliver this in homes and nurseries.</>,
+                  productLine: <>Direct evidence for surface allergen activity  see how the <Link to="/product/biologic-mini" className="text-primary font-medium hover:underline">BioLogic Mini</Link> and <Link to="/product/biotica-800" className="text-primary font-medium hover:underline">Biotica 800</Link> deliver this in homes and nurseries.</>,
                 },
                 {
                   authors: "Caselli E., Brusaferro S., Coccagna M. et al.",
@@ -285,7 +285,7 @@ const ResearchPage = () => {
                   method: "Multicentre prospective trial across six Italian hospitals. Conventional chemical disinfection was replaced by a Bacillus-based probiotic cleaning system (PCHS). HAI rates and antimicrobial use tracked over the intervention period.",
                   result: "~52% reduction in cumulative HAI incidence and a parallel reduction in antimicrobial drug consumption. Published in PLOS ONE.",
                   url: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0199616",
-                  productLine: <>Whole-facility, HVAC-level evidence — closest in scale to the <Link to="/product/ebiotic-pro" className="text-primary font-medium hover:underline">E-Biotic Pro</Link> deployed across whole homes and small commercial spaces.</>,
+                  productLine: <>Whole-facility, HVAC-level evidence  closest in scale to the <Link to="/product/ebiotic-pro" className="text-primary font-medium hover:underline">E-Biotic Pro</Link> deployed across whole homes and small commercial spaces.</>,
                 },
                 {
                   authors: "D'Accolti M., Soffritti I., Mazzacane S., Caselli E.",
@@ -294,16 +294,16 @@ const ResearchPage = () => {
                   method: "Review and field data on the impact of Bacillus-based probiotic sanitation (PCHS) on the resistome of indoor environments, with metagenomic profiling of antimicrobial resistance genes (ARGs).",
                   result: "Continuous probiotic cleaning significantly lowered pathogen load and the abundance of ARGs on indoor surfaces vs. chemical disinfection. Published in Microorganisms (MDPI).",
                   url: "https://www.mdpi.com/2076-2607/9/2/225",
-                  productLine: <>Mechanism evidence for competitive exclusion at scale — relevant to the <Link to="/product/ebiotic-pro" className="text-primary font-medium hover:underline">E-Biotic Pro</Link> for whole-home HVAC integration.</>,
+                  productLine: <>Mechanism evidence for competitive exclusion at scale  relevant to the <Link to="/product/ebiotic-pro" className="text-primary font-medium hover:underline">E-Biotic Pro</Link> for whole-home HVAC integration.</>,
                 },
                 {
                   authors: "Vandini A., Temmerman R., Frabetti A. et al.",
                   year: "2014",
                   title: "Hard surface biocontrol in hospitals using microbial-based cleaning products",
                   method: "8-week trial comparing conventional disinfectants vs. a probiotic cleaner containing Bacillus subtilis, B. pumilus, and B. megaterium on hospital hard surfaces. Surface swabs analyzed for S. aureus, E. coli, Candida albicans and other pathogens.",
-                  result: "Stable, long-term reduction of pathogens on treated surfaces — competitive exclusion confirmed across the full trial. Published in PLOS ONE.",
+                  result: "Stable, long-term reduction of pathogens on treated surfaces  competitive exclusion confirmed across the full trial. Published in PLOS ONE.",
                   url: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0108598",
-                  productLine: <>Foundational competitive-exclusion evidence — applies to every device in the lineup, including the <Link to="/product/biotica-800" className="text-primary font-medium hover:underline">Biotica 800</Link> for medium-sized rooms.</>,
+                  productLine: <>Foundational competitive-exclusion evidence  applies to every device in the lineup, including the <Link to="/product/biotica-800" className="text-primary font-medium hover:underline">Biotica 800</Link> for medium-sized rooms.</>,
                 },
               ].map((c) => (
                 <ScrollReveal key={c.title}>

@@ -43,7 +43,7 @@ export const ShiftSection = () => {
         >
           {stats.map(({ value, text, negative }) => (
             <StaggerItem key={value} variant="fadeUp">
-              {/* Number on top, copy below inside the card — gives text full width on tablet so it stops wrapping into a narrow column */}
+              {/* Number on top, copy below inside the card  gives text full width on tablet so it stops wrapping into a narrow column */}
               <div className="flex items-center gap-5 sm:flex-col sm:items-start sm:gap-3 lg:flex-row lg:items-center lg:gap-5 rounded-2xl border border-border/60 bg-background/60 px-5 py-5 sm:px-6 sm:py-6 shadow-sm h-full">
                 <div
                   className={`text-[2.75rem] sm:text-5xl lg:text-[3.5rem] font-display font-bold tracking-[-0.03em] leading-none flex-shrink-0 ${

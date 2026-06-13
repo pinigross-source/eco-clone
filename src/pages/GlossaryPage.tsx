@@ -39,7 +39,7 @@ const glossaryTerms: GlossaryTerm[] = [
     term: "Biofilm",
     slug: "biofilm",
     definition: "A structured community of microorganisms that adheres to surfaces and is enclosed in a self-produced protective matrix.",
-    extendedDescription: "Biofilms form when bacteria attach to surfaces and produce an extracellular polymeric substance (EPS) — a slimy matrix that shields them from cleaning agents, UV light, and immune responses. Biofilms are found on kitchen counters, bathroom tiles, HVAC ductwork, medical devices, and water pipes. They are extremely difficult to remove with conventional cleaning because the EPS matrix protects embedded organisms. Probiotic-based approaches disrupt biofilm communities by competing for surface space and nutrients, gradually weakening the biofilm structure over time.",
+    extendedDescription: "Biofilms form when bacteria attach to surfaces and produce an extracellular polymeric substance (EPS)  a slimy matrix that shields them from cleaning agents, UV light, and immune responses. Biofilms are found on kitchen counters, bathroom tiles, HVAC ductwork, medical devices, and water pipes. They are extremely difficult to remove with conventional cleaning because the EPS matrix protects embedded organisms. Probiotic-based approaches disrupt biofilm communities by competing for surface space and nutrients, gradually weakening the biofilm structure over time.",
     relatedLinks: [
       { label: "Probiotic Air Purification", url: "/probiotic-air-purification" },
       { label: "HVAC Applications", url: "/hvac-applications" },
@@ -78,7 +78,7 @@ const glossaryTerms: GlossaryTerm[] = [
     term: "Environmental Probiotics",
     slug: "environmental-probiotics",
     definition: "Beneficial microorganisms deliberately introduced into indoor environments to improve air and surface quality by suppressing harmful organisms.",
-    extendedDescription: "Unlike dietary probiotics (consumed for gut health), environmental probiotics are dispersed into living and working spaces to create a healthier indoor microbiome. They are typically Bacillus-genus bacteria that produce enzymes to break down organic pollutants, allergens, and the nutrient sources that harmful organisms depend on. Environmental probiotics work continuously, treating surfaces, fabrics, HVAC ductwork, and air — areas that traditional air purifiers and cleaning products cannot reach or protect between cleanings.",
+    extendedDescription: "Unlike dietary probiotics (consumed for gut health), environmental probiotics are dispersed into living and working spaces to create a healthier indoor microbiome. They are typically Bacillus-genus bacteria that produce enzymes to break down organic pollutants, allergens, and the nutrient sources that harmful organisms depend on. Environmental probiotics work continuously, treating surfaces, fabrics, HVAC ductwork, and air  areas that traditional air purifiers and cleaning products cannot reach or protect between cleanings.",
     relatedLinks: [
       { label: "How It Works", url: "/how-it-works" },
       { label: "Probiotic Air Purification", url: "/probiotic-air-purification" },
@@ -98,7 +98,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "FDA GRAS",
     slug: "fda-gras",
-    definition: "Generally Recognized As Safe — an FDA designation indicating a substance is considered safe for its intended use based on scientific consensus.",
+    definition: "Generally Recognized As Safe  an FDA designation indicating a substance is considered safe for its intended use based on scientific consensus.",
     extendedDescription: "The GRAS designation from the U.S. Food and Drug Administration confirms that qualified experts have determined a substance is safe under the conditions of its intended use. For EnviroBiotics' Bacillus probiotic strains, GRAS status means the organisms have a well-documented safety profile and are considered safe for continuous exposure in occupied indoor environments, including around infants, children, pregnant women, and pets.",
     relatedLinks: [
       { label: "Safety & Certifications", url: "/safety" },
@@ -107,8 +107,8 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "HEPA Filter",
     slug: "hepa-filter",
-    definition: "High-Efficiency Particulate Air filter — a mechanical filter that captures at least 99.97% of airborne particles 0.3 microns or larger.",
-    extendedDescription: "HEPA filters are the gold standard for airborne particle filtration and are widely used in hospitals, laboratories, and consumer air purifiers. However, HEPA filters only treat air that passes through them. They cannot address particles that have settled on surfaces, fabrics, or in cracks — where up to 80% of indoor allergens reside. The BA-2080 from EnviroBiotics combines HEPA filtration with probiotic dispersion to address both airborne and surface-level contamination.",
+    definition: "High-Efficiency Particulate Air filter  a mechanical filter that captures at least 99.97% of airborne particles 0.3 microns or larger.",
+    extendedDescription: "HEPA filters are the gold standard for airborne particle filtration and are widely used in hospitals, laboratories, and consumer air purifiers. However, HEPA filters only treat air that passes through them. They cannot address particles that have settled on surfaces, fabrics, or in cracks  where up to 80% of indoor allergens reside. The BA-2080 from EnviroBiotics combines HEPA filtration with probiotic dispersion to address both airborne and surface-level contamination.",
     relatedLinks: [
       { label: "BA-2080 Product", url: "/product/ba-2080" },
       { label: "Probiotic vs HEPA Comparison", url: "/probiotic-air-purification" },
@@ -117,8 +117,8 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "HVAC System",
     slug: "hvac-system",
-    definition: "Heating, Ventilation, and Air Conditioning — the ductwork and mechanical systems that distribute air throughout a building.",
-    extendedDescription: "HVAC systems are often described as the 'lungs of a building.' They circulate air through supply and return ducts, passing through filters and climate-control units. However, HVAC ductwork can harbor biofilm, mold, and dust buildup that re-contaminates indoor air with every cycle. The eBiotic Pro integrates directly into HVAC systems, continuously dispersing environmental probiotics throughout the entire duct network to treat surfaces inside the system and every room it serves — up to 25,000 sq ft.",
+    definition: "Heating, Ventilation, and Air Conditioning  the ductwork and mechanical systems that distribute air throughout a building.",
+    extendedDescription: "HVAC systems are often described as the 'lungs of a building.' They circulate air through supply and return ducts, passing through filters and climate-control units. However, HVAC ductwork can harbor biofilm, mold, and dust buildup that re-contaminates indoor air with every cycle. The eBiotic Pro integrates directly into HVAC systems, continuously dispersing environmental probiotics throughout the entire duct network to treat surfaces inside the system and every room it serves  up to 25,000 sq ft.",
     relatedLinks: [
       { label: "HVAC Solutions", url: "/hvac" },
       { label: "HVAC Applications", url: "/hvac-applications" },
@@ -129,7 +129,7 @@ const glossaryTerms: GlossaryTerm[] = [
     term: "Indoor Air Quality (IAQ)",
     slug: "indoor-air-quality",
     definition: "A measure of the air quality within and around buildings, assessed by the concentration of pollutants, temperature, humidity, and ventilation adequacy.",
-    extendedDescription: "The EPA estimates indoor air can be 2–5× more polluted than outdoor air. Poor IAQ contributes to allergies, asthma, headaches, fatigue, and long-term respiratory disease. Sources of indoor air pollution include VOCs from building materials, biological contaminants (mold, bacteria, dust mite allergens), and particulate matter from cooking and pets. Improving IAQ requires addressing both airborne particles and surface-level contamination — which is why EnviroBiotics treats the entire indoor environment, not just filtered air.",
+    extendedDescription: "The EPA estimates indoor air can be 2–5× more polluted than outdoor air. Poor IAQ contributes to allergies, asthma, headaches, fatigue, and long-term respiratory disease. Sources of indoor air pollution include VOCs from building materials, biological contaminants (mold, bacteria, dust mite allergens), and particulate matter from cooking and pets. Improving IAQ requires addressing both airborne particles and surface-level contamination  which is why EnviroBiotics treats the entire indoor environment, not just filtered air.",
     relatedLinks: [
       { label: "Education Center", url: "/education" },
     ],
@@ -148,7 +148,7 @@ const glossaryTerms: GlossaryTerm[] = [
     term: "Microbiome",
     slug: "microbiome",
     definition: "The complete community of microorganisms (bacteria, fungi, viruses) living in a specific environment, such as the human gut or an indoor space.",
-    extendedDescription: "Every indoor environment has a microbiome — a complex ecosystem of billions of microorganisms on surfaces, in the air, and within HVAC systems. A balanced indoor microbiome, with a healthy proportion of beneficial organisms, supports better air quality and reduces the dominance of harmful pathogens. Environmental probiotics shift the indoor microbiome toward a healthier balance by introducing beneficial Bacillus bacteria that outcompete harmful organisms through competitive exclusion.",
+    extendedDescription: "Every indoor environment has a microbiome  a complex ecosystem of billions of microorganisms on surfaces, in the air, and within HVAC systems. A balanced indoor microbiome, with a healthy proportion of beneficial organisms, supports better air quality and reduces the dominance of harmful pathogens. Environmental probiotics shift the indoor microbiome toward a healthier balance by introducing beneficial Bacillus bacteria that outcompete harmful organisms through competitive exclusion.",
     relatedLinks: [
       { label: "How It Works", url: "/how-it-works" },
       { label: "Education Center", url: "/education" },
@@ -168,7 +168,7 @@ const glossaryTerms: GlossaryTerm[] = [
     term: "Ozone-Free",
     slug: "ozone-free",
     definition: "A product designation indicating that no ozone (O₃) is produced during operation, avoiding a known respiratory irritant.",
-    extendedDescription: "Some air purifiers, particularly those using ionization or UV-C technology, produce ozone as a byproduct. Ozone is a respiratory irritant that can aggravate asthma and other lung conditions. The California Air Resources Board (CARB) requires ozone emission testing for air purifiers sold in California. All EnviroBiotics devices produce zero ozone — they use biological probiotics rather than chemical or electrical processes to improve indoor air quality.",
+    extendedDescription: "Some air purifiers, particularly those using ionization or UV-C technology, produce ozone as a byproduct. Ozone is a respiratory irritant that can aggravate asthma and other lung conditions. The California Air Resources Board (CARB) requires ozone emission testing for air purifiers sold in California. All EnviroBiotics devices produce zero ozone  they use biological probiotics rather than chemical or electrical processes to improve indoor air quality.",
     relatedLinks: [
       { label: "Safety & Certifications", url: "/safety" },
     ],
@@ -197,7 +197,7 @@ const glossaryTerms: GlossaryTerm[] = [
     term: "Probiotic Air Purification System",
     slug: "probiotic-air-purification-system",
     definition: "A technology system that uses environmental probiotics for continuous air and surface treatment in indoor spaces.",
-    extendedDescription: "A probiotic air purification system goes beyond traditional filtration by deploying living beneficial microorganisms into the environment. The system operates on a timed cycle, automatically dispersing calibrated doses of Bacillus probiotics throughout the day. These organisms settle on surfaces, in fabric fibers, and inside HVAC ductwork — areas that no filter can reach. Through competitive exclusion and enzymatic activity, the probiotic layer continuously suppresses harmful organisms, reduces allergen levels, and neutralizes odors without chemicals or ozone.",
+    extendedDescription: "A probiotic air purification system goes beyond traditional filtration by deploying living beneficial microorganisms into the environment. The system operates on a timed cycle, automatically dispersing calibrated doses of Bacillus probiotics throughout the day. These organisms settle on surfaces, in fabric fibers, and inside HVAC ductwork  areas that no filter can reach. Through competitive exclusion and enzymatic activity, the probiotic layer continuously suppresses harmful organisms, reduces allergen levels, and neutralizes odors without chemicals or ozone.",
     relatedLinks: [
       { label: "How It Works", url: "/how-it-works" },
       { label: "Probiotic Air Purification", url: "/probiotic-air-purification" },
@@ -207,7 +207,7 @@ const glossaryTerms: GlossaryTerm[] = [
     term: "Surface Contamination",
     slug: "surface-contamination",
     definition: "The accumulation of harmful microorganisms, allergens, and organic pollutants on indoor surfaces.",
-    extendedDescription: "Research shows that up to 80% of indoor allergens and biological contaminants reside on surfaces — not in the air. Countertops, furniture, bedding, carpets, and HVAC ductwork harbor bacteria, mold, dust mite allergens, and pet dander that re-contaminate the air every time they are disturbed. Traditional cleaning provides temporary relief but contamination returns within hours. Environmental probiotics create a persistent protective layer on surfaces that actively competes with harmful organisms 24/7, extending protection between cleanings.",
+    extendedDescription: "Research shows that up to 80% of indoor allergens and biological contaminants reside on surfaces  not in the air. Countertops, furniture, bedding, carpets, and HVAC ductwork harbor bacteria, mold, dust mite allergens, and pet dander that re-contaminate the air every time they are disturbed. Traditional cleaning provides temporary relief but contamination returns within hours. Environmental probiotics create a persistent protective layer on surfaces that actively competes with harmful organisms 24/7, extending protection between cleanings.",
     relatedLinks: [
       { label: "Probiotic Air Purification", url: "/probiotic-air-purification" },
       { label: "Product Use Cases", url: "/product-use-cases" },
@@ -369,7 +369,7 @@ const GlossaryPage = () => {
             {[
               {
                 q: "What is an environmental probiotic?",
-                a: "An environmental probiotic is a beneficial microorganism — in our case, a Bacillus bacterium — that is released into your indoor space to compete with harmful microbes, allergens, and odors. Unlike dietary probiotics taken for gut health, environmental probiotics work on the air and surfaces around you.",
+                a: "An environmental probiotic is a beneficial microorganism  in our case, a Bacillus bacterium  that is released into your indoor space to compete with harmful microbes, allergens, and odors. Unlike dietary probiotics taken for gut health, environmental probiotics work on the air and surfaces around you.",
               },
               {
                 q: "How is this different from a HEPA air purifier?",
@@ -385,7 +385,7 @@ const GlossaryPage = () => {
               },
               {
                 q: "Does it replace cleaning?",
-                a: "No. Cleaning removes the visible mess; probiotics keep working between cleanings on what you can't see — breaking down allergens and competing with harmful microbes on every surface.",
+                a: "No. Cleaning removes the visible mess; probiotics keep working between cleanings on what you can't see  breaking down allergens and competing with harmful microbes on every surface.",
               },
             ].map((faq) => (
               <article key={faq.q} className="rounded-2xl border border-border/60 bg-card p-6">

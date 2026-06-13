@@ -22,7 +22,7 @@ const buttonVariants = cva(
         "hero-outline": "border border-foreground/20 bg-transparent text-foreground hover:bg-foreground/5 hover:border-foreground/40 shadow-none",
         premium: "bg-foreground text-background hover:bg-foreground/90 shadow-none",
         glass: "bg-background/70 backdrop-blur-md border border-border/50 text-foreground hover:bg-background/90",
-        // Impact theme variants — already Sonos-aligned
+        // Impact theme variants  already Sonos-aligned
         impact: "bg-foreground text-background hover:bg-foreground/90 shadow-none",
         "impact-outline": "bg-transparent border border-foreground/20 text-foreground hover:bg-foreground/5 hover:border-foreground/40 shadow-none",
         "impact-light": "bg-white text-black hover:bg-white/90 shadow-none",
