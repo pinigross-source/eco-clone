@@ -381,13 +381,13 @@ const PetsLandingPage = () => {
                 The whole point
               </p>
               <h2 className="font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.3rem] lg:text-[2.6rem]">
-                Pet odor isn&apos;t in the air. <span className="font-serif italic font-normal">It&apos;s on your surfaces.</span>
+                You&apos;re up against <span className="font-serif italic font-normal">something you can&apos;t see.</span>
               </h2>
-              <p className="mt-5 text-[15.5px] leading-[1.65] text-foreground/80 sm:text-[16.5px]">
-                You&apos;re not failing at cleaning. You&apos;re solving the wrong layer of the problem. Dander and odor settle into the couch, rug, pet bed, and bedroom corners — below the reach of a vacuum, out of range of a spray, where no air purifier can catch them.
+              <p className="mt-4 text-[15px] font-semibold uppercase tracking-[0.18em] text-foreground/70">
+                Pet dander and odor are microscopic.
               </p>
-              <p className="mt-4 text-[15.5px] leading-[1.65] text-foreground/80 sm:text-[16.5px]">
-                EnviroBiotics works right there, quietly, between cleanings.
+              <p className="mt-5 text-[15.5px] leading-[1.65] text-foreground/80 sm:text-[16.5px]">
+                You vacuum the hair and wash the covers, but the real problem settles deep into the couch, carpet, bedding, and other soft surfaces your pet loves. Dander is what triggers allergies, while odor lingers long after cleaning. Because these particles are embedded in fabric&mdash;not floating in the air&mdash;they&apos;re beyond the reach of vacuums, sprays, and air purifiers. EnviroBiotics works right at the source, breaking them down where they live.
               </p>
             </Reveal>
           </div>
