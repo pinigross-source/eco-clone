@@ -429,8 +429,8 @@ const PetsLandingPage = () => {
               {[
                 {
                   step: "01",
-                  title: "Place Biotica",
-                  copy: "Set it in the main living space - wherever your pet spends the most time.",
+                  title: "Place it",
+                  copy: "Place it wherever your pet spends the most time — the living room, the bedroom, or the spot they always come back to.",
                 },
                 {
                   step: "02",
