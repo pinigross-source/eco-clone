@@ -148,142 +148,134 @@ const PetsLandingPage = () => {
       />
 
       <main className="bg-background text-foreground">
-        {/* ============ HERO — editorial / museum-grade ============ */}
-        <section className="relative w-full overflow-hidden bg-[#F2EDE4] text-[#161616]">
+        {/* ============ HERO — matches homepage look & feel ============ */}
+        <section className="relative w-full overflow-hidden bg-background text-foreground">
           <style>{`
-            @keyframes pets-rise { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
-            .pets-rise { animation: pets-rise 1.1s cubic-bezier(.2,.7,.2,1) both; }
+            @keyframes pets-rise { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+            .pets-rise { animation: pets-rise 1s cubic-bezier(.2,.7,.2,1) both; }
             @keyframes pets-fade { from{opacity:0} to{opacity:1} }
-            .pets-fade { animation: pets-fade 1.6s ease-out both; }
-            @keyframes pets-rule { from{transform:scaleX(0)} to{transform:scaleX(1)} }
-            .pets-rule { transform-origin:left; animation: pets-rule 1.2s cubic-bezier(.2,.7,.2,1) .2s both; }
-            @keyframes pets-mark-blink { 0%,100%{opacity:1} 50%{opacity:.35} }
-            .pets-mark { animation: pets-mark-blink 2.6s ease-in-out infinite; }
+            .pets-fade { animation: pets-fade 1.4s ease-out both; }
+            @keyframes pets-pulse { 0%,100%{transform:scale(1);opacity:.9} 50%{transform:scale(1.15);opacity:.6} }
+            .pets-pulse { animation: pets-pulse 2.2s ease-in-out infinite; }
           `}</style>
 
-          {/* Top editorial header rail */}
-          <div className="relative z-10 mx-auto flex w-full max-w-[1480px] items-end justify-between gap-6 px-5 pt-8 sm:px-10 sm:pt-10 lg:px-16 lg:pt-12">
-            <div className="flex items-center gap-3">
-              <span className="pets-mark inline-block h-1.5 w-1.5 rounded-full bg-[#161616]" />
-              <span className="text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/70" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
-                Vol. 01 — Pet-Led Home Care
-              </span>
-            </div>
-            <span className="hidden text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/50 sm:inline" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
-              EST. 2018 · ENVIROBIOTICS™
-            </span>
-          </div>
+          {/* Soft ambient backdrop, same vocabulary as homepage */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-70"
+            style={{
+              background:
+                "radial-gradient(60% 50% at 78% 18%, hsl(var(--primary) / 0.10) 0%, transparent 60%), radial-gradient(50% 40% at 8% 88%, hsl(var(--primary) / 0.06) 0%, transparent 70%)",
+            }}
+          />
 
-          {/* Hairline rule */}
-          <div className="relative z-10 mx-auto mt-6 w-full max-w-[1480px] px-5 sm:px-10 lg:px-16">
-            <div className="pets-rule h-px w-full bg-[#161616]/15" />
-          </div>
+          <div className="relative mx-auto w-full max-w-[1320px] px-5 pt-20 pb-16 sm:px-10 sm:pt-28 sm:pb-24 lg:px-16 lg:pt-32 lg:pb-28">
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
 
-          <div className="relative z-10 mx-auto grid w-full max-w-[1480px] grid-cols-12 gap-x-6 gap-y-12 px-5 pb-20 pt-14 sm:px-10 sm:pb-28 sm:pt-20 lg:px-16 lg:pt-24">
-
-            {/* LEFT — Index / chapter list */}
-            <aside className="col-span-12 lg:col-span-2 lg:pt-2">
-              <p className="text-[10.5px] font-medium uppercase tracking-[0.3em] text-[#161616]/45" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
-                Index
-              </p>
-              <ol className="mt-5 space-y-3 text-[12px] leading-tight text-[#161616]/70" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
-                {[
-                  ["I", "The Problem"],
-                  ["II", "The Method"],
-                  ["III", "The Kit"],
-                  ["IV", "The Promise"],
-                ].map(([n, t]) => (
-                  <li key={n} className="flex items-baseline gap-3">
-                    <span className="w-5 text-[#161616]/40">{n}</span>
-                    <span className="border-b border-transparent pb-px transition-colors hover:border-[#161616]/40">{t}</span>
-                  </li>
-                ))}
-              </ol>
-            </aside>
-
-            {/* CENTER — Headline */}
-            <div className="col-span-12 lg:col-span-7">
-              <p className="pets-fade text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/55" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
-                A study in what your vacuum leaves behind
-              </p>
-
-              <h1
-                className="pets-rise mt-8 font-normal text-[#161616]"
-                style={{
-                  fontFamily: "'Instrument Serif', 'Playfair Display', Georgia, serif",
-                  fontSize: "clamp(3.2rem, 9.5vw, 9.5rem)",
-                  lineHeight: 0.92,
-                  letterSpacing: "-0.025em",
-                }}
-              >
-                Odor doesn&apos;t
-                <br />
-                live in the
-                <br />
-                <span className="italic text-[#7A8B6E]">air.</span>
-                <span className="ml-3 align-baseline text-[0.42em] tracking-[0.32em] text-[#161616]/40" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
-                  — IT LIVES IN THE COUCH.
-                </span>
-              </h1>
-
-              {/* Body + meta */}
-              <div className="pets-rise mt-12 grid grid-cols-1 gap-10 sm:grid-cols-[1fr_auto] sm:items-end" style={{ animationDelay: "0.15s" }}>
-                <p className="max-w-md text-[17px] leading-[1.55] text-[#161616]/75">
-                  Dander and odor settle into the rug, the bedding, the places your pet loves. EnviroBiotics works there — quietly, between cleanings, without chemistry.
-                </p>
-                <div className="flex flex-col gap-1 sm:items-end sm:text-right">
-                  <span className="text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/45" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
-                    Issue / Pets
-                  </span>
-                  <span className="text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/45" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
-                    Folio — 01 / 04
+              {/* TEXT — left, ~7 cols */}
+              <div className="lg:col-span-7">
+                <div className="pets-rise inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background/60 px-3 py-1.5 backdrop-blur">
+                  <span className="pets-pulse inline-block h-1.5 w-1.5 rounded-full bg-primary" />
+                  <span className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-primary">
+                    For homes with pets
                   </span>
                 </div>
-              </div>
 
-              {/* CTA row — restrained */}
-              <div className="pets-rise mt-12 flex flex-wrap items-center gap-x-10 gap-y-4" style={{ animationDelay: "0.3s" }}>
-                <a
-                  href="#products"
-                  onClick={(e) => smoothScroll(e, "products", "click_pets_hero_cta")}
-                  className="group inline-flex items-center gap-4 border-b border-[#161616] pb-2 text-[14px] font-medium uppercase tracking-[0.28em] text-[#161616] transition-colors hover:text-[#7A8B6E] hover:border-[#7A8B6E]"
+                <h1
+                  className="pets-rise mt-7 font-display font-bold tracking-[-0.035em] text-foreground"
+                  style={{
+                    fontSize: "clamp(2.75rem, 7.2vw, 5.75rem)",
+                    lineHeight: 0.95,
+                    animationDelay: "0.08s",
+                  }}
                 >
-                  Begin the kit — $229
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" strokeWidth={1.75} />
-                </a>
-                <span className="text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/55" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
-                  Code <span className="text-[#161616]">PETS</span> · applied at checkout
-                </span>
-              </div>
-            </div>
+                  Pet odor isn&apos;t just in the air.
+                  <span
+                    className="mt-3 block font-serif font-normal italic text-heading-accent"
+                    style={{
+                      fontSize: "clamp(2.25rem, 6vw, 4.75rem)",
+                      lineHeight: 1.02,
+                    }}
+                  >
+                    It&apos;s in the couch.
+                  </span>
+                </h1>
 
-            {/* RIGHT — Editorial image plate */}
-            <figure className="col-span-12 lg:col-span-3 lg:pt-2">
-              <div className="pets-fade relative aspect-[3/4] w-full overflow-hidden bg-[#E8E1D2]" style={{ animationDelay: "0.2s" }}>
-                <img
-                  src={heroImg}
-                  alt="A dog at rest in a sunlit room"
-                  className="h-full w-full object-cover"
-                  fetchPriority="high"
-                  loading="eager"
-                  decoding="async"
-                />
-              </div>
-              <figcaption className="mt-4 flex items-start justify-between gap-4 text-[10.5px] font-medium uppercase tracking-[0.3em] text-[#161616]/55" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
-                <span>Plate 01<br /><span className="text-[#161616]/40">The living room, 4:12pm</span></span>
-                <span className="text-right text-[#161616]/40">Photographed<br />in a pet home</span>
-              </figcaption>
-            </figure>
-          </div>
+                <p
+                  className="pets-rise mt-7 max-w-[58ch] text-[1.05rem] leading-[1.65] sm:text-[1.15rem]"
+                  style={{ color: "hsl(var(--foreground) / 0.78)", animationDelay: "0.16s" }}
+                >
+                  Dander and odor settle into the rug, the bedding, the places your pet loves — where vacuums and air filters can&apos;t reach. EnviroBiotics works right there, quietly, between cleanings. No chemicals.
+                </p>
 
-          {/* Bottom rail — running footer like a magazine */}
-          <div className="relative z-10 mx-auto w-full max-w-[1480px] border-t border-[#161616]/15 px-5 py-5 sm:px-10 lg:px-16">
-            <div className="flex flex-wrap items-center justify-between gap-y-3 gap-x-8 text-[10.5px] font-medium uppercase tracking-[0.32em] text-[#161616]/55" style={{ fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace" }}>
-              <span>— Chemical free</span>
-              <span>— Safe for cats &amp; dogs</span>
-              <span>— Works on surfaces, not just air</span>
-              <span>— 12,000+ homes</span>
-              <span className="hidden lg:inline">★ 4.8 / 5</span>
+                <div className="pets-rise mt-9 flex flex-wrap items-center gap-3" style={{ animationDelay: "0.24s" }}>
+                  <a
+                    href="#products"
+                    onClick={(e) => smoothScroll(e, "products", "click_pets_hero_cta")}
+                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-8 py-4 text-sm font-semibold text-background transition-all hover:-translate-y-0.5 hover:bg-primary hover:text-primary-foreground"
+                  >
+                    Get the Starter Kit — $229
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                  <a
+                    href="#products"
+                    onClick={(e) => smoothScroll(e, "products", "click_pets_hero_secondary")}
+                    className="inline-flex items-center gap-2 rounded-full border border-foreground/20 bg-transparent px-7 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-foreground transition-all hover:-translate-y-0.5"
+                  >
+                    How it works
+                  </a>
+                </div>
+
+                <div className="pets-rise mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.78rem]" style={{ color: "hsl(var(--foreground) / 0.7)", animationDelay: "0.32s" }}>
+                  <span>
+                    Code <span className="font-semibold text-foreground">PETS</span> applied at checkout
+                  </span>
+                  <span aria-hidden className="h-1 w-1 rounded-full bg-foreground/25" />
+                  <span>Free U.S. shipping</span>
+                  <span aria-hidden className="h-1 w-1 rounded-full bg-foreground/25" />
+                  <span>30-day guarantee</span>
+                </div>
+
+                {/* Mission-statement style follow-on, identical voice to homepage */}
+                <p
+                  className="pets-rise mt-10 max-w-[52ch] border-l-2 pl-5 text-[1rem] italic leading-[1.6] sm:text-[1.05rem]"
+                  style={{
+                    color: "hsl(var(--foreground) / 0.75)",
+                    borderColor: "hsl(var(--primary) / 0.5)",
+                    animationDelay: "0.4s",
+                  }}
+                >
+                  A new layer of home care that works where your vacuum, candle, and air purifier can&apos;t reach.
+                </p>
+              </div>
+
+              {/* IMAGE — right, ~5 cols */}
+              <div className="lg:col-span-5">
+                <figure className="pets-fade relative" style={{ animationDelay: "0.15s" }}>
+                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-foreground/[0.04] ring-1 ring-foreground/10 shadow-[0_30px_80px_-30px_hsl(var(--foreground)/0.35)]">
+                    <img
+                      src={heroImg}
+                      alt="A calm dog resting on a sofa in a sunlit modern living room with the Biotica device nearby"
+                      className="h-full w-full object-cover"
+                      fetchPriority="high"
+                      loading="eager"
+                      decoding="async"
+                      width={1200}
+                      height={1500}
+                    />
+                  </div>
+
+                  {/* Floating caption card — homepage button vocabulary */}
+                  <figcaption className="absolute -bottom-6 left-4 right-4 rounded-2xl bg-background/95 px-5 py-4 ring-1 ring-foreground/10 shadow-[0_20px_50px_-20px_hsl(var(--foreground)/0.3)] backdrop-blur sm:left-6 sm:right-auto sm:max-w-[280px]">
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary">
+                      Surface tech
+                    </p>
+                    <p className="mt-1 text-[0.95rem] font-medium leading-snug text-foreground">
+                      Works on couches, rugs &amp; pet beds — quietly, 24/7.
+                    </p>
+                  </figcaption>
+                </figure>
+              </div>
             </div>
           </div>
         </section>
