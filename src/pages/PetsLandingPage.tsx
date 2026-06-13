@@ -149,66 +149,109 @@ const PetsLandingPage = () => {
 
       <main className="bg-background text-foreground">
         {/* ============ HERO ============ */}
-        <section className="relative w-full overflow-hidden h-[92svh] min-h-[620px] sm:h-[760px] lg:h-[780px]">
-          <img
-            src={heroImg}
-            alt="A calm dog and owner in a bright, airy Scandinavian living room"
-            className="absolute inset-0 h-full w-full object-cover object-[60%_40%] sm:object-[58%_center] lg:object-[55%_center]"
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-            width={1920}
-            height={1080}
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-[#f7f3ec]/90 via-[#f7f3ec]/45 to-transparent sm:bg-gradient-to-r sm:from-[#f7f3ec]/92 sm:via-[#f7f3ec]/45 sm:via-40% sm:to-transparent"
-          />
-          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-center px-5 pb-8 pt-24 text-center sm:items-start sm:px-10 sm:pb-0 sm:pt-0 sm:text-left lg:px-16">
-            <div className="mx-auto w-full max-w-[36rem] sm:mx-0 sm:max-w-[48rem]">
-              <Reveal>
-                <h1 className="font-display font-bold tracking-[-0.035em] leading-[0.95] text-foreground">
-                  <span className="block text-[clamp(2.25rem,8vw,2.75rem)] sm:text-[clamp(3rem,5.6vw,4.25rem)] lg:text-[clamp(3.75rem,4.8vw,5.25rem)]">
-                    Your home should smell clean
-                  </span>
-                  <span className="block mt-2 text-heading-accent italic font-normal leading-[1] text-[clamp(2rem,7vw,2.5rem)] sm:text-[clamp(2.6rem,4.8vw,3.8rem)] lg:text-[clamp(3.25rem,4.2vw,4.5rem)]">
-                    even with pets on the couch.
-                  </span>
-                </h1>
-              </Reveal>
-              <Reveal>
-                <p
-                  className="mx-auto mt-6 max-w-[34rem] text-[1.05rem] font-normal leading-[1.55] text-foreground/80 sm:mx-0 sm:mt-7 sm:max-w-[34rem] sm:text-[1.15rem] lg:text-[1.2rem]"
-                  style={{ textShadow: "0 2px 16px rgba(247,243,236,0.5), 0 1px 3px rgba(247,243,236,0.3)" }}
-                >
-                  Pet odor isn&apos;t in the air. It&apos;s on your couch, rug, and pet bed. EnviroBiotics handles that layer — quietly, chemical-free.
-                </p>
-              </Reveal>
-              <Reveal>
-                <div className="mt-7 flex flex-col items-stretch gap-3.5 sm:mt-8 sm:flex-row sm:items-center sm:gap-5">
-                  <a
-                    href="#products"
-                    onClick={(e) => smoothScroll(e, "products", "click_pets_hero_cta")}
-                    className="sm:w-auto"
-                  >
-                    <Button
-                      size="lg"
-                      className="h-[3.5rem] w-full rounded-full bg-foreground px-9 text-[16px] font-semibold tracking-[-0.01em] text-background shadow-[0_20px_50px_-14px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90 sm:h-[3.75rem] sm:w-auto sm:px-11 sm:text-[17px]"
-                    >
-                      Get the Starter Kit — $229
-                      <ArrowRight className="ml-2.5 h-5 w-5" />
-                    </Button>
-                  </a>
-                  <div className="flex flex-col items-center gap-1 sm:items-start">
-                    <span className="inline-flex items-center rounded-full bg-[#D92B2B] px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white">
-                      Code: PETS
+        <section className="relative w-full overflow-hidden bg-[#f7f3ec]">
+          {/* local kinetic styles */}
+          <style>{`
+            @keyframes pets-scroll-y { 0%{transform:translateY(0)} 100%{transform:translateY(-50%)} }
+            .pets-ticker { animation: pets-scroll-y 22s linear infinite; }
+            @keyframes pets-pulse-gentle { 0%,100%{transform:scale(1);opacity:.15} 50%{transform:scale(1.15);opacity:.3} }
+            .pets-blob { animation: pets-pulse-gentle 5s ease-in-out infinite; }
+            @keyframes pets-ping-soft { 0%{transform:scale(1);opacity:.9} 75%,100%{transform:scale(2.4);opacity:0} }
+            .pets-ping::after { content:""; position:absolute; inset:0; border-radius:9999px; background:#8A9A8A; animation: pets-ping-soft 2.2s cubic-bezier(0,0,.2,1) infinite; }
+          `}</style>
+
+          <div className="mx-auto grid w-full max-w-[1480px] grid-cols-1 gap-0 px-4 py-10 sm:px-8 sm:py-14 lg:grid-cols-12 lg:gap-0 lg:px-12 lg:py-20">
+
+            {/* Vertical ticker rail */}
+            <div className="relative hidden lg:col-span-1 lg:flex flex-col items-center justify-center overflow-hidden border-r border-foreground/10 py-12">
+              <div className="pets-ticker flex flex-col gap-10 whitespace-nowrap">
+                {[...Array(2)].flatMap((_, k) =>
+                  ["Better Air", "Clean Surfaces", "Pet Logic", "Probiotic Mist", "No Chemicals", "Always On"].map((t, i) => (
+                    <span key={`${k}-${i}`} className="rotate-90 text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30">
+                      {t}
                     </span>
-                    <p className="text-[12.5px] font-medium leading-tight text-foreground/70 sm:text-[13px]">
-                      <span className="line-through opacity-50">$299</span> · Free shipping · 30-day guarantee
+                  ))
+                )}
+              </div>
+            </div>
+
+            {/* Main content */}
+            <div className="grid grid-cols-1 items-center gap-10 lg:col-span-11 lg:grid-cols-11 lg:gap-12">
+
+              {/* Image stack */}
+              <div className="relative order-2 lg:order-1 lg:col-span-6">
+                <div className="pets-blob absolute -left-6 -top-6 h-32 w-32 rounded-full bg-[#E67E66] opacity-20 mix-blend-multiply blur-2xl" />
+                <div className="relative z-10 overflow-hidden rounded-2xl border border-foreground/5 shadow-2xl transition-transform duration-700 hover:rotate-0 lg:-rotate-1">
+                  <img
+                    src={heroImg}
+                    alt="A calm dog resting on a beige sofa in a sunlit modern living room with the Biotica device nearby"
+                    className="aspect-[4/3] w-full object-cover"
+                    fetchPriority="high"
+                    loading="eager"
+                    decoding="async"
+                    width={1200}
+                    height={900}
+                  />
+                  {/* Floating spec badge */}
+                  <div className="absolute bottom-5 right-5 rounded-lg bg-foreground p-4 text-background shadow-xl sm:bottom-6 sm:right-6">
+                    <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-[#8A9A8A]">Surface Tech</p>
+                    <p className="text-[13px] font-medium leading-tight sm:text-sm">
+                      Works on couches, rugs<br />&amp; pet beds — 24/7
                     </p>
                   </div>
                 </div>
-              </Reveal>
+                {/* Decorative sage offset */}
+                <div
+                  aria-hidden
+                  className="absolute -bottom-4 -right-4 -z-10 h-full w-full translate-x-4 translate-y-4 rounded-2xl border-2 border-[#8A9A8A]"
+                />
+              </div>
+
+              {/* Kinetic typography */}
+              <div className="order-1 flex flex-col gap-8 lg:order-2 lg:col-span-5">
+                <Reveal>
+                  <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#8A9A8A] bg-[#8A9A8A]/10 px-3 py-1">
+                    <span className="pets-ping relative inline-block h-2 w-2 rounded-full bg-[#8A9A8A]" />
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-foreground">Live Probiotic Shield</span>
+                  </div>
+                </Reveal>
+
+                <Reveal>
+                  <h1 className="font-display text-[2.75rem] font-bold leading-[0.88] tracking-[-0.035em] text-foreground sm:text-6xl lg:text-7xl">
+                    Pet odor isn&apos;t <span className="text-[#E67E66]">just</span> in the air.
+                  </h1>
+                </Reveal>
+
+                <Reveal>
+                  <p className="max-w-sm text-lg font-medium leading-snug text-foreground/80 sm:text-xl">
+                    It&apos;s on the couch. It&apos;s in the rug. It&apos;s where they sleep. EnviroBiotics cleans where it matters — chemical-free.
+                  </p>
+                </Reveal>
+
+                <Reveal>
+                  <div className="group relative">
+                    <div className="absolute inset-0 translate-x-1 translate-y-1 rounded-sm bg-foreground transition-transform group-hover:translate-x-0 group-hover:translate-y-0" />
+                    <a
+                      href="#products"
+                      onClick={(e) => smoothScroll(e, "products", "click_pets_hero_cta")}
+                      className="relative flex w-full items-center justify-between bg-[#E67E66] px-6 py-5 text-background transition-transform active:scale-[0.98] sm:px-8 sm:py-6"
+                    >
+                      <span className="text-lg font-bold uppercase tracking-tighter sm:text-2xl">
+                        Get the Starter Kit — $229
+                      </span>
+                      <ArrowRight className="h-7 w-7 transition-transform group-hover:translate-x-2" strokeWidth={3} />
+                    </a>
+                    <div className="mt-4 flex flex-wrap items-center gap-3">
+                      <span className="rounded-full bg-[#D92B2B] px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white">
+                        Code: PETS
+                      </span>
+                      <span className="text-xs font-bold uppercase tracking-widest text-foreground">Applied at checkout</span>
+                      <div className="hidden h-px flex-grow bg-foreground/10 sm:block" />
+                      <span className="text-xs font-bold text-[#8A9A8A]">Ships Free</span>
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
             </div>
           </div>
         </section>
