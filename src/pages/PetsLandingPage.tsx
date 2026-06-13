@@ -420,7 +420,7 @@ const PetsLandingPage = () => {
                   How it works
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                  Set it once. Let it handle the rest.
+                  Set it once. <span className="font-serif italic font-normal">It handles the rest.</span>
                 </h2>
               </div>
             </Reveal>
