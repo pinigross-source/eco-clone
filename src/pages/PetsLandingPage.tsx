@@ -394,52 +394,18 @@ const PetsLandingPage = () => {
         </section>
 
 
-        {/* ============ COMPARISON TABLE ============ */}
-        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[1100px] px-5 sm:px-10 lg:px-16">
+        {/* ============ THE SHIFT ============ */}
+        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-[900px] px-5 text-center sm:px-10 lg:px-16">
             <Reveal>
-              <div className="max-w-2xl">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                  What&apos;s left after the vacuum
-                </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                  You&apos;ve got the hair handled. Here&apos;s the part that&apos;s left.
-                </h2>
-              </div>
-            </Reveal>
-
-            <Reveal>
-              <div className="mt-10 overflow-hidden rounded-3xl bg-background ring-1 ring-black/[0.06] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.2)]">
-                <div className="grid grid-cols-3 border-b border-border/60 bg-card text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/70 sm:text-[12px]">
-                  <div className="px-4 py-4 sm:px-6 sm:py-5"></div>
-                  <div className="px-4 py-4 sm:px-6 sm:py-5">What you do now</div>
-                  <div className="px-4 py-4 text-foreground sm:px-6 sm:py-5">EnviroBiotics</div>
-                </div>
-                {[
-                  { label: "Visible hair", a: "Vacuum handles it - you've got this", b: "You've got this" },
-                  { label: "Microscopic dander", a: "Settles back fast", b: "Breaks it down on the surface" },
-                  { label: "Lingering odor", a: "Masked by sprays or candles", b: "Removed at the source" },
-                  { label: "Deep in couch & carpet", a: "Out of reach", b: "Works right there" },
-                  { label: "Between cleanings", a: "Builds back up", b: "Keeps working continuously" },
-                ].map((row, i) => (
-                  <div
-                    key={row.label}
-                    className={`grid grid-cols-3 text-[14px] leading-snug sm:text-[15px] ${
-                      i % 2 === 1 ? "bg-[#FBF9F4]" : ""
-                    }`}
-                  >
-                    <div className="px-4 py-4 font-semibold text-foreground sm:px-6 sm:py-5">
-                      {row.label}
-                    </div>
-                    <div className="px-4 py-4 text-muted-foreground sm:px-6 sm:py-5">{row.a}</div>
-                    <div className="px-4 py-4 font-medium text-foreground sm:px-6 sm:py-5">
-                      {row.b}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-5 text-center text-[14px] italic text-muted-foreground sm:text-[15px]">
-                A vacuum gets what you can see. This gets what you can&apos;t.
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+                The shift
+              </p>
+              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
+                Keep your <span className="font-serif italic font-normal">surfaces clean.</span>
+              </h2>
+              <p className="mx-auto mt-6 max-w-[58ch] text-[15.5px] leading-[1.7] text-foreground/80 sm:text-[16.5px]">
+                Vacuuming lifts the hair you can see. EnviroBiotics keeps working on what you can&apos;t&mdash;the dander and odor woven into the couch, the rug, and the pet bed&mdash;quietly, between cleanings.
               </p>
             </Reveal>
           </div>
