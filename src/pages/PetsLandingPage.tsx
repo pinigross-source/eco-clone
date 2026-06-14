@@ -154,7 +154,7 @@ const PetsLandingPage = () => {
               </h1>
 
               <p className="mt-6 max-w-[46ch] text-[1.05rem] leading-[1.55] text-black/75 sm:text-[1.15rem]">
-                Powerful probiotics that break down pet dander and odor where they live — in the couch, the rug, and the pet bed. No sprays. No chemicals.
+                Powerful probiotics that break down pet dander and odor where they live - in the couch, the rug, and the pet bed. No sprays. No chemicals.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -300,7 +300,7 @@ const PetsLandingPage = () => {
                   </div>
                   <div className="flex flex-1 flex-col px-7 pb-8 pt-6 sm:px-8 sm:pb-10">
                     <div className="flex items-baseline gap-2">
-                      <span className="font-display text-3xl font-extrabold text-black">$399</span>
+                      <span className="font-display text-3xl font-extrabold text-black">$395</span>
                     </div>
                     <a
                       href={BUNDLE_URL}
