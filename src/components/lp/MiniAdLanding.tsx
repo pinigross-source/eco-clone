@@ -74,14 +74,14 @@ export const MiniAdLanding = ({
     trackEvent("cta_click", { location: `lp_${variant}`, label });
 
   return (
-    <main className="min-h-screen bg-[#fbf9f5] text-foreground">
+    <main className="min-h-screen bg-white text-foreground">
       {/* Minimal top bar (no site nav) */}
-      <header className="border-b border-foreground/10 bg-[#fbf9f5]/95 backdrop-blur sticky top-0 z-30">
+      <header className="border-b border-foreground/5 bg-white/95 backdrop-blur sticky top-0 z-30">
         <div className="container flex items-center justify-between py-3.5">
           <div className="font-display font-bold tracking-tight text-lg">
             BioLogic Mini
           </div>
-          <div className="text-[11px] uppercase tracking-[0.22em] text-foreground/60">
+          <div className="text-[11px] uppercase tracking-[0.22em] text-foreground/40">
             {variant.toUpperCase()}
           </div>
         </div>
