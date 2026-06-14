@@ -136,20 +136,15 @@ export const MiniAdLanding = ({
           </div>
 
           <div className="relative">
-            <div className="relative aspect-[4/5] sm:aspect-[5/6] rounded-[2rem] overflow-hidden bg-[#efe9df]">
+            <div className="relative aspect-[4/5] sm:aspect-[5/6] rounded-[2rem] overflow-hidden bg-white border border-foreground/5 flex items-center justify-center">
               <img
                 src={heroImage}
                 alt={heroImageAlt}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="max-h-[85%] max-w-[85%] object-contain"
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
               />
-              <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/95 backdrop-blur px-4 py-3 shadow-lg">
-                <p className="text-xs sm:text-sm font-medium text-foreground/80">
-                  Your child touches more surfaces than you think.
-                </p>
-              </div>
             </div>
           </div>
         </div>
