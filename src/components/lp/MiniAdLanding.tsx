@@ -178,7 +178,7 @@ export const MiniAdLanding = ({
       </section>
 
       {/* BLOCK */}
-      <section className="bg-[#f3ede2]">
+      <section className="bg-white border-y border-foreground/5">
         <div className="container py-14 sm:py-20 grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="font-display font-bold tracking-tight text-3xl sm:text-4xl lg:text-5xl mb-5">
@@ -188,7 +188,7 @@ export const MiniAdLanding = ({
               {blockBody}
             </p>
           </div>
-          <div className="relative aspect-square rounded-[2rem] overflow-hidden bg-white shadow-sm flex items-center justify-center">
+          <div className="relative aspect-square rounded-[2rem] overflow-hidden bg-white flex items-center justify-center">
             <img
               src={miniDevice}
               alt="BioLogic Mini device"
