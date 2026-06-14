@@ -74,14 +74,14 @@ export const MiniAdLanding = ({
     trackEvent("cta_click", { location: `lp_${variant}`, label });
 
   return (
-    <main className="min-h-screen bg-[#fbf9f5] text-foreground">
+    <main className="min-h-screen bg-white text-foreground">
       {/* Minimal top bar (no site nav) */}
-      <header className="border-b border-foreground/10 bg-[#fbf9f5]/95 backdrop-blur sticky top-0 z-30">
+      <header className="border-b border-foreground/5 bg-white/95 backdrop-blur sticky top-0 z-30">
         <div className="container flex items-center justify-between py-3.5">
           <div className="font-display font-bold tracking-tight text-lg">
             BioLogic Mini
           </div>
-          <div className="text-[11px] uppercase tracking-[0.22em] text-foreground/60">
+          <div className="text-[11px] uppercase tracking-[0.22em] text-foreground/40">
             {variant.toUpperCase()}
           </div>
         </div>
@@ -136,20 +136,15 @@ export const MiniAdLanding = ({
           </div>
 
           <div className="relative">
-            <div className="relative aspect-[4/5] sm:aspect-[5/6] rounded-[2rem] overflow-hidden bg-[#efe9df]">
+            <div className="relative aspect-[4/5] sm:aspect-[5/6] rounded-[2rem] overflow-hidden bg-white border border-foreground/5 flex items-center justify-center">
               <img
                 src={heroImage}
                 alt={heroImageAlt}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="max-h-[85%] max-w-[85%] object-contain"
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
               />
-              <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/95 backdrop-blur px-4 py-3 shadow-lg">
-                <p className="text-xs sm:text-sm font-medium text-foreground/80">
-                  Your child touches more surfaces than you think.
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -183,7 +178,7 @@ export const MiniAdLanding = ({
       </section>
 
       {/* BLOCK */}
-      <section className="bg-[#f3ede2]">
+      <section className="bg-white border-y border-foreground/5">
         <div className="container py-14 sm:py-20 grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="font-display font-bold tracking-tight text-3xl sm:text-4xl lg:text-5xl mb-5">
@@ -193,7 +188,7 @@ export const MiniAdLanding = ({
               {blockBody}
             </p>
           </div>
-          <div className="relative aspect-square rounded-[2rem] overflow-hidden bg-white shadow-sm flex items-center justify-center">
+          <div className="relative aspect-square rounded-[2rem] overflow-hidden bg-white flex items-center justify-center">
             <img
               src={miniDevice}
               alt="BioLogic Mini device"
