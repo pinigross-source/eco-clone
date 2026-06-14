@@ -137,7 +137,7 @@ const PetsLandingPage = () => {
                   ))}
                 </div>
                 <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-black">
-                  10K+ Pet Parents
+                  2K+ PET PARENTS
                 </span>
               </div>
 
