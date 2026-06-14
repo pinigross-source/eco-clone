@@ -73,6 +73,10 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as SolutionsRoomRouteImport } from './routes/solutions.room'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
+import { Route as LpP4Learn5j6wRouteImport } from './routes/lp.p4-learn-5j6w'
+import { Route as LpP3Between3n8qRouteImport } from './routes/lp.p3-between-3n8q'
+import { Route as LpP2Floor9x4rRouteImport } from './routes/lp.p2-floor-9x4r'
+import { Route as LpP1Air7k2mRouteImport } from './routes/lp.p1-air-7k2m'
 import { Route as CompareUvcRouteImport } from './routes/compare.uvc'
 import { Route as CompareHepaRouteImport } from './routes/compare.hepa'
 import { Route as CompareChemicalFreshenersRouteImport } from './routes/compare.chemical-fresheners'
@@ -405,6 +409,26 @@ const ProductSlugRoute = ProductSlugRouteImport.update({
   path: '/product/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LpP4Learn5j6wRoute = LpP4Learn5j6wRouteImport.update({
+  id: '/lp/p4-learn-5j6w',
+  path: '/lp/p4-learn-5j6w',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpP3Between3n8qRoute = LpP3Between3n8qRouteImport.update({
+  id: '/lp/p3-between-3n8q',
+  path: '/lp/p3-between-3n8q',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpP2Floor9x4rRoute = LpP2Floor9x4rRouteImport.update({
+  id: '/lp/p2-floor-9x4r',
+  path: '/lp/p2-floor-9x4r',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpP1Air7k2mRoute = LpP1Air7k2mRouteImport.update({
+  id: '/lp/p1-air-7k2m',
+  path: '/lp/p1-air-7k2m',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CompareUvcRoute = CompareUvcRouteImport.update({
   id: '/compare/uvc',
   path: '/compare/uvc',
@@ -530,6 +554,10 @@ export interface FileRoutesByFullPath {
   '/compare/chemical-fresheners': typeof CompareChemicalFreshenersRoute
   '/compare/hepa': typeof CompareHepaRoute
   '/compare/uvc': typeof CompareUvcRoute
+  '/lp/p1-air-7k2m': typeof LpP1Air7k2mRoute
+  '/lp/p2-floor-9x4r': typeof LpP2Floor9x4rRoute
+  '/lp/p3-between-3n8q': typeof LpP3Between3n8qRoute
+  '/lp/p4-learn-5j6w': typeof LpP4Learn5j6wRoute
   '/product/$slug': typeof ProductSlugRoute
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog/': typeof BlogIndexRoute
@@ -606,6 +634,10 @@ export interface FileRoutesByTo {
   '/compare/chemical-fresheners': typeof CompareChemicalFreshenersRoute
   '/compare/hepa': typeof CompareHepaRoute
   '/compare/uvc': typeof CompareUvcRoute
+  '/lp/p1-air-7k2m': typeof LpP1Air7k2mRoute
+  '/lp/p2-floor-9x4r': typeof LpP2Floor9x4rRoute
+  '/lp/p3-between-3n8q': typeof LpP3Between3n8qRoute
+  '/lp/p4-learn-5j6w': typeof LpP4Learn5j6wRoute
   '/product/$slug': typeof ProductSlugRoute
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog': typeof BlogIndexRoute
@@ -683,6 +715,10 @@ export interface FileRoutesById {
   '/compare/chemical-fresheners': typeof CompareChemicalFreshenersRoute
   '/compare/hepa': typeof CompareHepaRoute
   '/compare/uvc': typeof CompareUvcRoute
+  '/lp/p1-air-7k2m': typeof LpP1Air7k2mRoute
+  '/lp/p2-floor-9x4r': typeof LpP2Floor9x4rRoute
+  '/lp/p3-between-3n8q': typeof LpP3Between3n8qRoute
+  '/lp/p4-learn-5j6w': typeof LpP4Learn5j6wRoute
   '/product/$slug': typeof ProductSlugRoute
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog/': typeof BlogIndexRoute
@@ -761,6 +797,10 @@ export interface FileRouteTypes {
     | '/compare/chemical-fresheners'
     | '/compare/hepa'
     | '/compare/uvc'
+    | '/lp/p1-air-7k2m'
+    | '/lp/p2-floor-9x4r'
+    | '/lp/p3-between-3n8q'
+    | '/lp/p4-learn-5j6w'
     | '/product/$slug'
     | '/solutions/room'
     | '/blog/'
@@ -837,6 +877,10 @@ export interface FileRouteTypes {
     | '/compare/chemical-fresheners'
     | '/compare/hepa'
     | '/compare/uvc'
+    | '/lp/p1-air-7k2m'
+    | '/lp/p2-floor-9x4r'
+    | '/lp/p3-between-3n8q'
+    | '/lp/p4-learn-5j6w'
     | '/product/$slug'
     | '/solutions/room'
     | '/blog'
@@ -913,6 +957,10 @@ export interface FileRouteTypes {
     | '/compare/chemical-fresheners'
     | '/compare/hepa'
     | '/compare/uvc'
+    | '/lp/p1-air-7k2m'
+    | '/lp/p2-floor-9x4r'
+    | '/lp/p3-between-3n8q'
+    | '/lp/p4-learn-5j6w'
     | '/product/$slug'
     | '/solutions/room'
     | '/blog/'
@@ -989,6 +1037,10 @@ export interface RootRouteChildren {
   CompareChemicalFreshenersRoute: typeof CompareChemicalFreshenersRoute
   CompareHepaRoute: typeof CompareHepaRoute
   CompareUvcRoute: typeof CompareUvcRoute
+  LpP1Air7k2mRoute: typeof LpP1Air7k2mRoute
+  LpP2Floor9x4rRoute: typeof LpP2Floor9x4rRoute
+  LpP3Between3n8qRoute: typeof LpP3Between3n8qRoute
+  LpP4Learn5j6wRoute: typeof LpP4Learn5j6wRoute
   ProductSlugRoute: typeof ProductSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   ApiPublicComingSoonRoute: typeof ApiPublicComingSoonRoute
@@ -1444,6 +1496,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lp/p4-learn-5j6w': {
+      id: '/lp/p4-learn-5j6w'
+      path: '/lp/p4-learn-5j6w'
+      fullPath: '/lp/p4-learn-5j6w'
+      preLoaderRoute: typeof LpP4Learn5j6wRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lp/p3-between-3n8q': {
+      id: '/lp/p3-between-3n8q'
+      path: '/lp/p3-between-3n8q'
+      fullPath: '/lp/p3-between-3n8q'
+      preLoaderRoute: typeof LpP3Between3n8qRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lp/p2-floor-9x4r': {
+      id: '/lp/p2-floor-9x4r'
+      path: '/lp/p2-floor-9x4r'
+      fullPath: '/lp/p2-floor-9x4r'
+      preLoaderRoute: typeof LpP2Floor9x4rRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lp/p1-air-7k2m': {
+      id: '/lp/p1-air-7k2m'
+      path: '/lp/p1-air-7k2m'
+      fullPath: '/lp/p1-air-7k2m'
+      preLoaderRoute: typeof LpP1Air7k2mRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/compare/uvc': {
       id: '/compare/uvc'
       path: '/compare/uvc'
@@ -1611,6 +1691,10 @@ const rootRouteChildren: RootRouteChildren = {
   CompareChemicalFreshenersRoute: CompareChemicalFreshenersRoute,
   CompareHepaRoute: CompareHepaRoute,
   CompareUvcRoute: CompareUvcRoute,
+  LpP1Air7k2mRoute: LpP1Air7k2mRoute,
+  LpP2Floor9x4rRoute: LpP2Floor9x4rRoute,
+  LpP3Between3n8qRoute: LpP3Between3n8qRoute,
+  LpP4Learn5j6wRoute: LpP4Learn5j6wRoute,
   ProductSlugRoute: ProductSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   ApiPublicComingSoonRoute: ApiPublicComingSoonRoute,
