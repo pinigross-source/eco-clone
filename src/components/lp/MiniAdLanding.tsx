@@ -27,7 +27,7 @@ export interface FAQ {
 export interface MiniAdLandingProps {
   variant: "v1" | "v2" | "v3" | "v4";
   campaign: string;
-  eyebrow: string;
+  eyebrow?: string;
   headline: ReactNode;
   subhead: string;
   heroImage: string;
@@ -91,9 +91,11 @@ export const MiniAdLanding = ({
       <section className="relative overflow-hidden">
         <div className="container pt-10 sm:pt-16 pb-12 sm:pb-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
-            <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-[#d4641e] mb-4">
-              {eyebrow}
-            </p>
+            {eyebrow && (
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-[#d4641e] mb-4">
+                {eyebrow}
+              </p>
+            )}
             <h1 className="font-display font-bold tracking-tight text-balance text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mb-5">
               {headline}
             </h1>
