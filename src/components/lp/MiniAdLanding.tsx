@@ -27,7 +27,7 @@ export interface FAQ {
 export interface MiniAdLandingProps {
   variant: "v1" | "v2" | "v3" | "v4";
   campaign: string;
-  eyebrow: string;
+  eyebrow?: string;
   headline: ReactNode;
   subhead: string;
   heroImage: string;
