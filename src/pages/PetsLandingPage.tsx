@@ -10,10 +10,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import heroImg from "@/assets/pets/hero-living-room.jpg";
+import heroImg from "@/assets/pets/hero-soft.jpg";
 import bioticaProduct from "@/assets/biotica-800.png";
 import miniProduct from "@/assets/biologic-mini-nobg-new.png";
-import surfacesImg from "@/assets/pets/surfaces-lifestyle.jpg";
+import surfacesImg from "@/assets/pets/surfaces-soft.jpg";
 
 const PROMO = "PETS";
 const withDiscount = (url: string, code = PROMO) =>
@@ -88,7 +88,7 @@ const PetsLandingPage = () => {
       />
 
       {/* ============ UTILITY BAR ============ */}
-      <div className="w-full bg-black text-white">
+      <div className="w-full bg-[#FDE7DA] text-[#2A2118]">
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-5 py-2.5 text-[12px] sm:px-10">
           <span className="font-medium tracking-tight">Free U.S. shipping on orders $75+</span>
           <a
@@ -101,63 +101,64 @@ const PetsLandingPage = () => {
         </div>
       </div>
 
-      <main className="bg-white text-black" style={{ fontFamily: DISPLAY }}>
-        {/* ============ HERO — full-bleed editorial product moment ============ */}
-        <section className="relative w-full overflow-hidden bg-[#0A0A0A] text-white">
-          {/* Background image, cool tinted */}
-          <div className="absolute inset-0">
-            <img
-              src={heroImg}
-              alt=""
-              aria-hidden
-              className="h-full w-full object-cover opacity-[0.55]"
-              fetchPriority="high"
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(8,12,16,0.55) 0%, rgba(8,12,16,0.35) 45%, rgba(8,12,16,0.95) 100%)",
-              }}
-            />
-          </div>
-
-          <div className="relative mx-auto flex min-h-[88vh] max-w-[1600px] flex-col justify-end px-5 pb-14 pt-28 sm:px-10 sm:pb-20 sm:pt-36 lg:min-h-[92vh] lg:px-16 lg:pb-24 lg:pt-44">
-            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/70">
-              Pets · EnviroBiotics
-            </p>
-            <h1
-              className="max-w-[18ch] font-bold tracking-[-0.035em] text-white"
-              style={{
-                fontSize: "clamp(2.6rem, 7.2vw, 6.4rem)",
-                lineHeight: 0.94,
-              }}
-            >
-              Engineered for homes with pets.
-            </h1>
-            <p className="mt-7 max-w-[52ch] text-[15.5px] leading-[1.55] text-white/80 sm:text-[17px]">
-              Vacuums get the hair. EnviroBiotics goes after the dander and odor woven into the
-              couch, the rug, and the bedding — where filters can&apos;t reach.
-            </p>
-
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <a
-                href="#products"
-                onClick={(e) => scrollTo(e, "products", "click_pets_hero_cta")}
-                className="group inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-[13px] font-semibold tracking-tight text-black transition-colors hover:bg-white/90"
+      <main className="bg-white text-[#1A1A1A]" style={{ fontFamily: DISPLAY }}>
+        {/* ============ HERO — soft pastel editorial ============ */}
+        <section
+          className="relative w-full overflow-hidden"
+          style={{
+            background:
+              "linear-gradient(120deg, #FDE7DA 0%, #F5E4F0 45%, #D8E8F4 100%)",
+          }}
+        >
+          <div className="relative mx-auto grid max-w-[1600px] grid-cols-1 items-end gap-10 px-5 pb-14 pt-20 sm:px-10 sm:pb-20 sm:pt-28 lg:grid-cols-12 lg:gap-12 lg:px-16 lg:pb-24 lg:pt-32">
+            <div className="lg:col-span-6">
+              <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">
+                Pets · EnviroBiotics
+              </p>
+              <h1
+                className="max-w-[18ch] font-bold tracking-[-0.035em] text-[#1A1A1A]"
+                style={{
+                  fontSize: "clamp(2.4rem, 6.4vw, 5.6rem)",
+                  lineHeight: 0.96,
+                }}
               >
-                Shop the range
-                <span className="grid h-7 w-7 place-items-center rounded-full bg-black text-white transition-transform group-hover:translate-x-0.5">
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </a>
-              <a
-                href="#how"
-                onClick={(e) => scrollTo(e, "how", "click_pets_hero_how")}
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 px-7 py-4 text-[13px] font-semibold tracking-tight text-white transition-colors hover:bg-white/10"
-              >
-                How it works
-              </a>
+                Engineered for homes with pets.
+              </h1>
+              <p className="mt-7 max-w-[52ch] text-[15.5px] leading-[1.55] text-[#1A1A1A]/70 sm:text-[17px]">
+                Vacuums get the hair. EnviroBiotics goes after the dander and odor woven into the
+                couch, the rug, and the bedding — where filters can&apos;t reach.
+              </p>
+
+              <div className="mt-9 flex flex-wrap items-center gap-3">
+                <a
+                  href="#products"
+                  onClick={(e) => scrollTo(e, "products", "click_pets_hero_cta")}
+                  className="group inline-flex items-center gap-3 rounded-full bg-[#1A1A1A] px-7 py-4 text-[13px] font-semibold tracking-tight text-white transition-colors hover:bg-[#2A2A2A]"
+                >
+                  Shop the range
+                  <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-[#1A1A1A] transition-transform group-hover:translate-x-0.5">
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </a>
+                <a
+                  href="#how"
+                  onClick={(e) => scrollTo(e, "how", "click_pets_hero_how")}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#1A1A1A]/20 bg-white/40 px-7 py-4 text-[13px] font-semibold tracking-tight text-[#1A1A1A] backdrop-blur transition-colors hover:bg-white/70"
+                >
+                  How it works
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6">
+              <div className="relative overflow-hidden rounded-[28px] shadow-[0_30px_80px_-30px_rgba(122,90,71,0.35)]">
+                <img
+                  src={heroImg}
+                  alt="Golden retriever resting on a cream sofa in a sunlit pastel living room"
+                  className="h-full w-full object-cover"
+                  fetchPriority="high"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -275,14 +276,14 @@ const PetsLandingPage = () => {
                 <a
                   href={BUNDLE_URL}
                   onClick={() => trackEvent("click_pets_card_bundle")}
-                  className="group block h-full overflow-hidden rounded-2xl bg-[#0A0A0A] text-white transition-colors hover:bg-[#141414]"
+                  className="group block h-full overflow-hidden rounded-2xl bg-[#F0E6F2] transition-colors hover:bg-[#E7DBEB]"
                 >
                   <div className="relative aspect-[4/3.4] w-full overflow-hidden">
                     <div
                       className="absolute inset-0"
                       style={{
                         background:
-                          "radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,0.08) 0%, rgba(10,10,10,0) 70%)",
+                          "radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,0.7) 0%, rgba(240,230,242,0) 70%)",
                       }}
                     />
                     <div className="absolute inset-0 flex items-center justify-center gap-3 px-6">
@@ -293,7 +294,7 @@ const PetsLandingPage = () => {
                         loading="lazy"
                         className="h-[68%] w-auto object-contain transition-transform duration-700 group-hover:scale-[1.04]"
                       />
-                      <Plus className="h-6 w-6 text-white/40" strokeWidth={1.5} />
+                      <Plus className="h-6 w-6 text-[#1A1A1A]/30" strokeWidth={1.5} />
                       <img
                         src={miniProduct}
                         alt=""
@@ -302,21 +303,21 @@ const PetsLandingPage = () => {
                         className="h-[52%] w-auto object-contain transition-transform duration-700 group-hover:scale-[1.04]"
                       />
                     </div>
-                    <span className="absolute left-5 top-5 rounded-full bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-black">
+                    <span className="absolute left-5 top-5 rounded-full bg-[#1A1A1A] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white">
                       Best value
                     </span>
                   </div>
                   <div className="flex items-end justify-between px-6 pb-7 pt-6 sm:px-7">
                     <div>
-                      <h3 className="text-[19px] font-semibold tracking-tight text-white sm:text-[20px]">
+                      <h3 className="text-[19px] font-semibold tracking-tight text-[#1A1A1A] sm:text-[20px]">
                         Home Bundle
                       </h3>
-                      <p className="mt-1.5 text-[13.5px] text-white/60">
+                      <p className="mt-1.5 text-[13.5px] text-[#1A1A1A]/60">
                         Biotica 800 + BioLogic Mini · multi-pet homes
                       </p>
-                      <p className="mt-3 text-[15px] font-semibold text-white">$395</p>
+                      <p className="mt-3 text-[15px] font-semibold text-[#1A1A1A]">$395</p>
                     </div>
-                    <span className="grid h-10 w-10 place-items-center rounded-full bg-white text-black transition-transform group-hover:translate-x-0.5">
+                    <span className="grid h-10 w-10 place-items-center rounded-full bg-[#1A1A1A] text-white transition-transform group-hover:translate-x-0.5">
                       <ArrowRight className="h-4 w-4" />
                     </span>
                   </div>
@@ -331,45 +332,39 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ FEATURE STRIP — dark editorial ============ */}
-        <section className="relative w-full overflow-hidden bg-black text-white">
-          <div className="absolute inset-0">
-            <img
-              src={surfacesImg}
-              alt=""
-              aria-hidden
-              loading="lazy"
-              className="h-full w-full object-cover opacity-50"
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.2) 100%)",
-              }}
-            />
-          </div>
-          <div className="relative mx-auto grid max-w-[1600px] grid-cols-1 gap-12 px-5 py-20 sm:px-10 sm:py-28 lg:grid-cols-12 lg:gap-16 lg:px-16 lg:py-36">
-            <div className="lg:col-span-7">
+        {/* ============ FEATURE STRIP — soft pastel editorial ============ */}
+        <section className="relative w-full overflow-hidden bg-[#FBF3EC]">
+          <div className="relative mx-auto grid max-w-[1600px] grid-cols-1 items-center gap-12 px-5 py-20 sm:px-10 sm:py-28 lg:grid-cols-12 lg:gap-16 lg:px-16 lg:py-32">
+            <div className="lg:col-span-6">
               <Reveal>
-                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/60">
+                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">
                   The problem
                 </p>
                 <h2
-                  className="font-semibold tracking-[-0.03em] text-white"
+                  className="font-semibold tracking-[-0.03em] text-[#1A1A1A]"
                   style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)", lineHeight: 1.02 }}
                 >
                   It&apos;s not the hair. It&apos;s what you can&apos;t see.
                 </h2>
-                <p className="mt-6 max-w-[58ch] text-[16px] leading-[1.6] text-white/75 sm:text-[17.5px]">
+                <p className="mt-6 max-w-[58ch] text-[16px] leading-[1.6] text-[#1A1A1A]/70 sm:text-[17.5px]">
                   The dander and odor that trigger allergies and lingering smell are microscopic —
                   woven into the couch, the rug, the bedding. Filters can&apos;t reach them. Sprays
                   just mask them.
                 </p>
-                <p className="mt-4 max-w-[58ch] text-[16px] font-medium leading-[1.6] text-white sm:text-[17.5px]">
+                <p className="mt-4 max-w-[58ch] text-[16px] font-medium leading-[1.6] text-[#1A1A1A] sm:text-[17.5px]">
                   EnviroBiotics works right where they live.
                 </p>
               </Reveal>
+            </div>
+            <div className="lg:col-span-6">
+              <div className="relative overflow-hidden rounded-[28px] shadow-[0_30px_80px_-30px_rgba(122,90,71,0.25)]">
+                <img
+                  src={surfacesImg}
+                  alt="Cat curled on a cream rug in a soft pastel sunlit room"
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -521,17 +516,23 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ FINAL CTA — dark Dyson outro ============ */}
-        <section className="relative w-full overflow-hidden bg-black text-white">
+        {/* ============ FINAL CTA — soft pastel outro ============ */}
+        <section
+          className="relative w-full overflow-hidden"
+          style={{
+            background:
+              "linear-gradient(120deg, #D8E8F4 0%, #F5E4F0 50%, #FDE7DA 100%)",
+          }}
+        >
           <div className="mx-auto max-w-[1600px] px-5 py-24 sm:px-10 sm:py-32 lg:px-16">
             <Reveal>
               <h2
-                className="max-w-[20ch] font-semibold tracking-[-0.03em] text-white"
+                className="max-w-[20ch] font-semibold tracking-[-0.03em] text-[#1A1A1A]"
                 style={{ fontSize: "clamp(2.2rem, 5.4vw, 4.4rem)", lineHeight: 1 }}
               >
                 A fresher home for you and your pet.
               </h2>
-              <p className="mt-7 max-w-[55ch] text-[16px] leading-[1.55] text-white/70 sm:text-[17.5px]">
+              <p className="mt-7 max-w-[55ch] text-[16px] leading-[1.55] text-[#1A1A1A]/70 sm:text-[17.5px]">
                 Keep the cuddles, the couch naps, the open-door chaos. Skip the candles, sprays, and
                 the lingering smell.
               </p>
@@ -539,15 +540,15 @@ const PetsLandingPage = () => {
                 <a
                   href="#products"
                   onClick={(e) => scrollTo(e, "products", "click_pets_final_cta")}
-                  className="group inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-[13px] font-semibold tracking-tight text-black transition-colors hover:bg-white/90"
+                  className="group inline-flex items-center gap-3 rounded-full bg-[#1A1A1A] px-8 py-4 text-[13px] font-semibold tracking-tight text-white transition-colors hover:bg-[#2A2A2A]"
                 >
                   Shop the range
-                  <span className="grid h-7 w-7 place-items-center rounded-full bg-black text-white transition-transform group-hover:translate-x-0.5">
+                  <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-[#1A1A1A] transition-transform group-hover:translate-x-0.5">
                     <ArrowRight className="h-3.5 w-3.5" />
                   </span>
                 </a>
-                <span className="text-[12px] text-white/55">
-                  Code <span className="font-semibold text-white">PETS</span> · Free shipping · 30-day guarantee
+                <span className="text-[12px] text-[#1A1A1A]/55">
+                  Code <span className="font-semibold text-[#1A1A1A]">PETS</span> · Free shipping · 30-day guarantee
                 </span>
               </div>
             </Reveal>
