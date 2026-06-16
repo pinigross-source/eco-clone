@@ -11,10 +11,10 @@ import {
 } from "@/components/ui/accordion";
 
 import heroImg from "@/assets/pets/hero-soft.jpg";
-import bioticaProduct from "@/assets/biotica-800.png";
-import miniProduct from "@/assets/biologic-mini-nobg-new.png";
+import bioticaProduct from "@/assets/biotica-clean.png";
+import miniProduct from "@/assets/mini-clean.png";
 import surfacesImg from "@/assets/pets/surfaces-soft.jpg";
-import bundleAsset from "@/assets/bundle-product.webp.asset.json";
+import bundleProduct from "@/assets/bundle-clean.png";
 
 const PROMO = "PETS";
 const withDiscount = (url: string, code = PROMO) =>
