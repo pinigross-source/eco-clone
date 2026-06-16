@@ -331,7 +331,7 @@ const ParentsLandingPage = () => {
                 The simplest way to explain it
               </p>
               <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                You already trust this idea for their tummy.
+                You already trust this idea.
               </h2>
               <p className="mt-6 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.15rem]">
                 You give your little one probiotics - the good cultures in yogurt that keep their
