@@ -15,6 +15,7 @@ import bioticaProduct from "@/assets/biotica-800.png";
 import miniProduct from "@/assets/biologic-mini-nobg-new.png";
 import surfacesImg from "@/assets/pets/surfaces-soft.jpg";
 import bundleAsset from "@/assets/bundle-product.webp.asset.json";
+import testimonialDogOwner from "@/assets/testimonial-dog-owner.avif";
 
 const PROMO = "PETS";
 const withDiscount = (url: string, code = PROMO) =>
