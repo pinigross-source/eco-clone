@@ -244,49 +244,38 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ PRODUCT TILES — Dyson grid ============ */}
-        <section id="products" className="scroll-mt-20 bg-white pb-20 pt-10 sm:pb-28 sm:pt-14">
-          <div className="mx-auto max-w-[1600px] px-5 sm:px-10 lg:px-16">
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+        {/* ============ PRODUCT TILES — premium pet wellness ============ */}
+        <section id="products" className="scroll-mt-20 bg-white pb-24 pt-10 sm:pb-32 sm:pt-14">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {/* Biotica 800 */}
               <Reveal>
                 <a
                   href={BIOTICA_URL}
                   onClick={() => trackEvent("click_pets_card_biotica")}
-                  className="group block h-full overflow-hidden rounded-2xl bg-[#EEF2F4] transition-colors hover:bg-[#E5EBEE]"
+                  className="group relative block h-full rounded-[2.5rem] border border-white/40 bg-[#f1f4f9] p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
                 >
-                  <div className="relative aspect-[4/3.4] w-full overflow-hidden">
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background:
-                          "radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,0.7) 0%, rgba(238,242,244,0) 70%)",
-                      }}
-                    />
+                  <span className="absolute left-6 top-6 z-10 rounded-full bg-black px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-white">
+                    Best for Pets
+                  </span>
+                  <div className="mb-10 flex aspect-square items-center justify-center">
                     <img
                       src={bioticaProduct}
                       alt="Biotica 800"
                       loading="lazy"
-                      className="absolute inset-0 m-auto h-[75%] w-auto max-w-[75%] object-contain transition-transform duration-700 group-hover:scale-[1.04]"
+                      className="h-4/5 w-4/5 object-contain transition-transform duration-700 group-hover:scale-110"
                     />
-                    <span className="absolute left-5 top-5 rounded-full bg-black px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white">
-                      Best for pets
-                    </span>
                   </div>
-                  <div className="flex items-end justify-between px-6 pb-7 pt-6 sm:px-7">
-                    <div>
-                      <h3 className="text-[19px] font-semibold tracking-tight text-black sm:text-[20px]">
-                        Biotica 800
-                      </h3>
-                      <p className="mt-1.5 text-[13.5px] text-black/60">
-                        Living rooms & open-plan homes up to 800 sq ft
-                      </p>
-                      <p className="mt-3 text-[15px] font-semibold text-black">
-                        $299
-                      </p>
-                    </div>
-                    <span className="grid h-10 w-10 place-items-center rounded-full bg-black text-white transition-transform group-hover:translate-x-0.5">
-                      <ArrowRight className="h-4 w-4" />
+                  <div className="mb-6 space-y-1">
+                    <h3 className="text-[22px] font-bold tracking-tight text-neutral-900">Biotica 800</h3>
+                    <p className="text-[13.5px] leading-snug text-neutral-500">
+                      Living rooms & open-plan homes up to 800 sq ft
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[20px] font-bold tracking-tight text-neutral-900">$299</span>
+                    <span className="grid h-12 w-12 place-items-center rounded-full bg-black text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-800">
+                      <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-45" />
                     </span>
                   </div>
                 </a>
@@ -297,35 +286,26 @@ const PetsLandingPage = () => {
                 <a
                   href={MINI_URL}
                   onClick={() => trackEvent("click_pets_card_mini")}
-                  className="group block h-full overflow-hidden rounded-2xl bg-[#F1EEEA] transition-colors hover:bg-[#E9E5E0]"
+                  className="group relative block h-full rounded-[2.5rem] border border-white/40 bg-[#f7f5f2] p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
                 >
-                  <div className="relative aspect-[4/3.4] w-full overflow-hidden">
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background:
-                          "radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,0.7) 0%, rgba(241,238,234,0) 70%)",
-                      }}
-                    />
+                  <div className="mb-10 flex aspect-square items-center justify-center">
                     <img
                       src={miniProduct}
                       alt="BioLogic Mini"
                       loading="lazy"
-                      className="absolute inset-0 m-auto h-[75%] w-auto max-w-[75%] object-contain transition-transform duration-700 group-hover:scale-[1.04]"
+                      className="h-4/5 w-3/5 object-contain transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
-                  <div className="flex items-end justify-between px-6 pb-7 pt-6 sm:px-7">
-                    <div>
-                      <h3 className="text-[19px] font-semibold tracking-tight text-black sm:text-[20px]">
-                        BioLogic Mini
-                      </h3>
-                      <p className="mt-1.5 text-[13.5px] text-black/60">
-                        Bedrooms, crates & the corner where your pet naps
-                      </p>
-                      <p className="mt-3 text-[15px] font-semibold text-black">$98</p>
-                    </div>
-                    <span className="grid h-10 w-10 place-items-center rounded-full bg-black text-white transition-transform group-hover:translate-x-0.5">
-                      <ArrowRight className="h-4 w-4" />
+                  <div className="mb-6 space-y-1">
+                    <h3 className="text-[22px] font-bold tracking-tight text-neutral-900">BioLogic Mini</h3>
+                    <p className="text-[13.5px] leading-snug text-neutral-500">
+                      Bedrooms, crates & the corner where your pet naps
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[20px] font-bold tracking-tight text-neutral-900">$98</span>
+                    <span className="grid h-12 w-12 place-items-center rounded-full bg-black text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-800">
+                      <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-45" />
                     </span>
                   </div>
                 </a>
@@ -336,44 +316,34 @@ const PetsLandingPage = () => {
                 <a
                   href={BUNDLE_URL}
                   onClick={() => trackEvent("click_pets_card_bundle")}
-                  className="group block h-full overflow-hidden rounded-2xl bg-[#F0E6F2] transition-colors hover:bg-[#E7DBEB]"
+                  className="group relative block h-full rounded-[2.5rem] border border-white/40 bg-[#f3edf7] p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
                 >
-                  <div className="relative aspect-[4/3.4] w-full overflow-hidden">
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background:
-                          "radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,0.7) 0%, rgba(240,230,242,0) 70%)",
-                      }}
-                    />
+                  <span className="absolute left-6 top-6 z-10 rounded-full bg-black px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-white">
+                    Best Value
+                  </span>
+                  <div className="mb-10 flex aspect-square items-center justify-center">
                     <img
                       src={bundleAsset.url}
                       alt="Home Complete Bundle — Biotica 800 with two BioLogic Mini units"
                       loading="lazy"
-                      className="absolute inset-0 m-auto h-[75%] w-auto max-w-[75%] object-contain transition-transform duration-700 group-hover:scale-[1.04]"
+                      className="h-4/5 w-11/12 object-contain transition-transform duration-700 group-hover:scale-105"
                     />
-                    <span className="absolute left-5 top-5 rounded-full bg-[#1A1A1A] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white">
-                      Best value
-                    </span>
                   </div>
-                  <div className="flex items-end justify-between px-6 pb-7 pt-6 sm:px-7">
-                    <div>
-                      <h3 className="text-[19px] font-semibold tracking-tight text-[#1A1A1A] sm:text-[20px]">
-                        Home Bundle
-                      </h3>
-                      <p className="mt-1.5 text-[13.5px] text-[#1A1A1A]/60">
-                        Biotica 800 + BioLogic Mini · multi-pet homes
-                      </p>
-                      <p className="mt-3 text-[15px] font-semibold text-[#1A1A1A]">$395</p>
-                    </div>
-                    <span className="grid h-10 w-10 place-items-center rounded-full bg-[#1A1A1A] text-white transition-transform group-hover:translate-x-0.5">
-                      <ArrowRight className="h-4 w-4" />
+                  <div className="mb-6 space-y-1">
+                    <h3 className="text-[22px] font-bold tracking-tight text-neutral-900">Home Bundle</h3>
+                    <p className="text-[13.5px] leading-snug text-neutral-500">
+                      Biotica 800 + BioLogic Mini · multi-pet homes
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[20px] font-bold tracking-tight text-neutral-900">$395</span>
+                    <span className="grid h-12 w-12 place-items-center rounded-full bg-black text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-800">
+                      <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-45" />
                     </span>
                   </div>
                 </a>
               </Reveal>
             </div>
-
           </div>
         </section>
 
