@@ -126,8 +126,8 @@ const PetsLandingPage = () => {
 
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
-                  href={BUNDLE_URL}
-                  onClick={() => trackEvent("click_pets_hero_cta")}
+                  href="#best-for-pets"
+                  onClick={(e) => scrollTo(e, "best-for-pets", "click_pets_hero_cta")}
                   className="group inline-flex items-center rounded-full bg-neutral-900 px-8 py-4 text-[14px] font-medium text-white transition-all hover:bg-neutral-800"
                 >
                   Shop pet solutions
