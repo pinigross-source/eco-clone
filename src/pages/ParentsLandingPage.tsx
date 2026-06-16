@@ -94,7 +94,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
         </span>
       </>
     ),
-    sub: "Air purifiers clean the air. EnviroBiotics works on the surfaces your baby actually lives on - crib, playmat, floor. No sprays, no filters, no noise.",
+    sub: "Air purifiers clean the air. EnviroBiotics works on the surfaces your baby touches - crib, playmat, floor. No sprays, no filters, no noise.",
   },
   b: {
     headline: (
@@ -806,7 +806,7 @@ const ParentsLandingPage = () => {
                 Give the nursery the other half of clean.
               </h2>
               <p className="mx-auto mt-6 max-w-xl text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:text-[1.15rem]">
-                Air handled. Now handle the surfaces your baby actually lives on - quietly, with
+                Air handled. Now handle the surfaces your baby touches - quietly, with
                 nothing to spray and nothing to remember.
               </p>
               <div className="mt-10 flex justify-center">
