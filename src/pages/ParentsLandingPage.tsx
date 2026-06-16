@@ -219,7 +219,7 @@ const ParentsLandingPage = () => {
           <div className="mx-auto max-w-[880px] px-5 sm:px-10">
             <Reveal>
               <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                You clean everything. So why does it never feel like enough?
+                You clean everything. So why is it never enough?
               </h2>
               <div className="mt-7 space-y-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
                 <p>
