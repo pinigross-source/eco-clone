@@ -356,13 +356,6 @@ const PetsLandingPage = () => {
                     >
                       Buy
                     </a>
-                    <a
-                      href="#best-for-pets"
-                      onClick={(e) => scrollTo(e, "best-for-pets", "click_pets_card_biotica_learn")}
-                      className="text-[14px] font-medium text-[#0066cc] hover:underline"
-                    >
-                      Learn more →
-                    </a>
                   </div>
                 </div>
               </Reveal>
