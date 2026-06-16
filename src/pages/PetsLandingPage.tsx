@@ -374,21 +374,21 @@ const PetsLandingPage = () => {
 
             <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-black/10 bg-black/10 sm:grid-cols-3">
               {[
-                {
-                  step: "01",
-                  title: "Place it",
-                  copy: "Set it where your pet spends time — living room, bedroom, the favorite spot.",
-                },
-                {
-                  step: "02",
-                  title: "Switch it on",
-                  copy: "It runs silently in the background. No spray, no fragrance, no upkeep.",
-                },
-                {
-                  step: "03",
-                  title: "Let it run",
-                  copy: "It keeps breaking down dander and odor at the source so surfaces stay cleaner.",
-                },
+              {
+                step: "01",
+                title: "Place it",
+                copy: "Set it where your pet spends time — living room, bedroom, the favorite spot.",
+              },
+              {
+                step: "02",
+                title: "Switch it on",
+                copy: "It runs silently in the background. No fragrance, no upkeep.",
+              },
+              {
+                step: "03",
+                title: "Let it run",
+                copy: "It breaks down dander and odor embedded in fabric — where your vacuum can't reach.",
+              },
               ].map((item) => (
                 <div key={item.step} className="bg-white p-8 sm:p-10">
                   <span className="text-[12px] font-semibold tracking-[0.24em] text-black/40">
