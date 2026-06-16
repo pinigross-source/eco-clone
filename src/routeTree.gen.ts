@@ -21,6 +21,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as ResearchRouteImport } from './routes/research'
+import { Route as ProsubRouteImport } from './routes/prosub'
 import { Route as ProofAndTrustRouteImport } from './routes/proof-and-trust'
 import { Route as ProductUseCasesRouteImport } from './routes/product-use-cases'
 import { Route as ProductRegistrationRouteImport } from './routes/product-registration'
@@ -146,6 +147,11 @@ const SafetyRoute = SafetyRouteImport.update({
 const ResearchRoute = ResearchRouteImport.update({
   id: '/research',
   path: '/research',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProsubRoute = ProsubRouteImport.update({
+  id: '/prosub',
+  path: '/prosub',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProofAndTrustRoute = ProofAndTrustRouteImport.update({
@@ -533,6 +539,7 @@ export interface FileRoutesByFullPath {
   '/product-registration': typeof ProductRegistrationRoute
   '/product-use-cases': typeof ProductUseCasesRoute
   '/proof-and-trust': typeof ProofAndTrustRoute
+  '/prosub': typeof ProsubRoute
   '/research': typeof ResearchRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
@@ -613,6 +620,7 @@ export interface FileRoutesByTo {
   '/product-registration': typeof ProductRegistrationRoute
   '/product-use-cases': typeof ProductUseCasesRoute
   '/proof-and-trust': typeof ProofAndTrustRoute
+  '/prosub': typeof ProsubRoute
   '/research': typeof ResearchRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
@@ -694,6 +702,7 @@ export interface FileRoutesById {
   '/product-registration': typeof ProductRegistrationRoute
   '/product-use-cases': typeof ProductUseCasesRoute
   '/proof-and-trust': typeof ProofAndTrustRoute
+  '/prosub': typeof ProsubRoute
   '/research': typeof ResearchRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
@@ -776,6 +785,7 @@ export interface FileRouteTypes {
     | '/product-registration'
     | '/product-use-cases'
     | '/proof-and-trust'
+    | '/prosub'
     | '/research'
     | '/safety'
     | '/shop'
@@ -856,6 +866,7 @@ export interface FileRouteTypes {
     | '/product-registration'
     | '/product-use-cases'
     | '/proof-and-trust'
+    | '/prosub'
     | '/research'
     | '/safety'
     | '/shop'
@@ -936,6 +947,7 @@ export interface FileRouteTypes {
     | '/product-registration'
     | '/product-use-cases'
     | '/proof-and-trust'
+    | '/prosub'
     | '/research'
     | '/safety'
     | '/shop'
@@ -1017,6 +1029,7 @@ export interface RootRouteChildren {
   ProductRegistrationRoute: typeof ProductRegistrationRoute
   ProductUseCasesRoute: typeof ProductUseCasesRoute
   ProofAndTrustRoute: typeof ProofAndTrustRoute
+  ProsubRoute: typeof ProsubRoute
   ResearchRoute: typeof ResearchRoute
   SafetyRoute: typeof SafetyRoute
   ShopRoute: typeof ShopRoute
@@ -1130,6 +1143,13 @@ declare module '@tanstack/react-router' {
       path: '/research'
       fullPath: '/research'
       preLoaderRoute: typeof ResearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prosub': {
+      id: '/prosub'
+      path: '/prosub'
+      fullPath: '/prosub'
+      preLoaderRoute: typeof ProsubRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/proof-and-trust': {
@@ -1671,6 +1691,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProductRegistrationRoute: ProductRegistrationRoute,
   ProductUseCasesRoute: ProductUseCasesRoute,
   ProofAndTrustRoute: ProofAndTrustRoute,
+  ProsubRoute: ProsubRoute,
   ResearchRoute: ResearchRoute,
   SafetyRoute: SafetyRoute,
   ShopRoute: ShopRoute,
@@ -1702,13 +1723,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
