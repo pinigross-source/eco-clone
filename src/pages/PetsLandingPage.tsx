@@ -39,6 +39,19 @@ const BUNDLE_URL = withDiscount(shopifyUrl("/products/home-complete-bundle", "pe
 /* Dyson-inspired type stack: heavy, neutral, technical */
 const DISPLAY = `"Helvetica Neue", "Inter", system-ui, -apple-system, sans-serif`;
 
+const certifications = [
+  { label: "EPA Registered", image: epaAsset.url },
+  { label: "FDA GRAS", image: fdaGrasAsset.url },
+  { label: "PTPA Winner", image: ptpaAsset.url },
+  { label: "Instituto de Salud Pública", image: ispAsset.url },
+  { label: "Società Italiana di Medicina Ambientale", image: simaAsset.url },
+  { label: "ISO 9001:2015", image: isoAsset.url },
+  { label: "AllergyUK", image: allergyAsset.url },
+  { label: "MADE SAFE®", image: madeSafeAsset.url },
+  { label: "Sensitive Choice", image: sensitiveAsset.url },
+  { label: "EcoCert", image: ecocertAsset.url },
+];
+
 /* Reveal-on-scroll */
 const Reveal = ({
   children,
