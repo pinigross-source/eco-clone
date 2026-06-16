@@ -531,6 +531,62 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
+        {/* ============ CERTIFICATIONS ============ */}
+        <section className="relative w-full overflow-hidden bg-white py-20 sm:py-28">
+          <div className="relative mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
+            <Reveal>
+              <div className="mx-auto mb-12 flex max-w-3xl flex-col items-center text-center sm:mb-16">
+                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">
+                  Safety First
+                </p>
+                <h2
+                  className="font-semibold tracking-[-0.025em] text-[#1A1A1A]"
+                  style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", lineHeight: 1.05 }}
+                >
+                  Independently verified for safety
+                </h2>
+                <p className="mt-4 max-w-[58ch] text-[15.5px] leading-[1.6] text-[#1A1A1A]/70 sm:text-[17px]">
+                  Collected from nature in its pure state, never modified and free of added chemicals. Our probiotics are safe for children, people with illnesses, pets, and the elderly.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6 lg:grid-cols-5 lg:gap-7">
+              {certifications.map((c) => (
+                <div
+                  key={c.label}
+                  title={c.label}
+                  className="group relative flex aspect-square items-center justify-center rounded-2xl bg-white p-6 transition-all duration-300 hover:-translate-y-1 sm:p-8"
+                  style={{
+                    border: "1px solid rgba(0,0,0,0.08)",
+                    boxShadow: "0 1px 2px rgba(0,0,0,0.04), 0 24px 48px -28px rgba(122,90,71,0.28)",
+                  }}
+                >
+                  <img
+                    src={c.image}
+                    alt={`${c.label} certification`}
+                    loading="lazy"
+                    className="max-h-[78%] max-w-[82%] object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-center lg:mt-16">
+              <span className="text-[13px] font-semibold uppercase tracking-[0.28em] text-neutral-500">
+                Pure, beneficial probiotics from nature
+              </span>
+              <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[13px] font-medium uppercase tracking-[0.22em] text-neutral-400">
+                <span>No chemicals</span>
+                <span className="text-[#7A5A47]">·</span>
+                <span>No gases</span>
+                <span className="text-[#7A5A47]">·</span>
+                <span>No artificial substances</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ============ TESTIMONIALS ============ */}
         <section className="bg-[#F4F5F6] py-20 sm:py-28">
           <div className="mx-auto max-w-[1600px] px-5 sm:px-10 lg:px-16">
