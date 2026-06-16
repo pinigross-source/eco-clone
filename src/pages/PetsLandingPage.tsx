@@ -356,13 +356,6 @@ const PetsLandingPage = () => {
                     >
                       Buy
                     </a>
-                    <a
-                      href="#best-for-pets"
-                      onClick={(e) => scrollTo(e, "best-for-pets", "click_pets_card_biotica_learn")}
-                      className="text-[14px] font-medium text-[#0066cc] hover:underline"
-                    >
-                      Learn more →
-                    </a>
                   </div>
                 </div>
               </Reveal>
@@ -398,13 +391,6 @@ const PetsLandingPage = () => {
                       className="inline-flex items-center justify-center rounded-full bg-[#0071e3] px-7 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-[#0077ed]"
                     >
                       Buy
-                    </a>
-                    <a
-                      href="#best-for-pets"
-                      onClick={(e) => scrollTo(e, "best-for-pets", "click_pets_card_mini_learn")}
-                      className="text-[14px] font-medium text-[#0066cc] hover:underline"
-                    >
-                      Learn more →
                     </a>
                   </div>
                 </div>
@@ -444,13 +430,6 @@ const PetsLandingPage = () => {
                       className="inline-flex items-center justify-center rounded-full bg-[#0071e3] px-7 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-[#0077ed]"
                     >
                       Buy
-                    </a>
-                    <a
-                      href="#best-for-pets"
-                      onClick={(e) => scrollTo(e, "best-for-pets", "click_pets_card_bundle_learn")}
-                      className="text-[14px] font-medium text-[#0066cc] hover:underline"
-                    >
-                      Learn more →
                     </a>
                   </div>
                 </div>
