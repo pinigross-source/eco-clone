@@ -121,11 +121,8 @@ const PetsLandingPage = () => {
                 <a
                   href="#products"
                   onClick={(e) => scrollTo(e, "products", "click_pets_hero_cta")}
-                  className="group relative inline-flex items-center gap-3 rounded-full bg-[#1A1A1A] px-7 py-4 text-[13px] font-semibold tracking-tight text-white transition-colors hover:bg-[#2A2A2A]"
+                  className="group inline-flex items-center gap-3 rounded-full bg-[#1A1A1A] px-7 py-4 text-[13px] font-semibold tracking-tight text-white transition-colors hover:bg-[#2A2A2A]"
                 >
-                  <span className="absolute -top-3 -right-2 rounded-lg bg-[#E85A5A] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-md">
-                    Save 20%
-                  </span>
                   Shop pet solutions
                   <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-[#1A1A1A] transition-transform group-hover:translate-x-0.5">
                     <ArrowRight className="h-3.5 w-3.5" />
