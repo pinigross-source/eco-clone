@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowRight, Plus, X, Check } from "lucide-react";
+import { ArrowRight, X, Check } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
@@ -14,7 +14,7 @@ import heroImg from "@/assets/pets/hero-soft.jpg";
 import bioticaProduct from "@/assets/biotica-800.png";
 import miniProduct from "@/assets/biologic-mini-nobg-new.png";
 import surfacesImg from "@/assets/pets/surfaces-soft.jpg";
-import bundleImg from "@/assets/pets/bundle-soft.jpg";
+import bundleAsset from "@/assets/bundle-product.webp.asset.json";
 
 const PROMO = "PETS";
 const withDiscount = (url: string, code = PROMO) =>
@@ -348,23 +348,12 @@ const PetsLandingPage = () => {
                           "radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,0.7) 0%, rgba(240,230,242,0) 70%)",
                       }}
                     />
-                    <div className="absolute inset-0 flex items-center justify-center gap-3 px-6">
-                      <img
-                        src={bioticaProduct}
-                        alt=""
-                        aria-hidden
-                        loading="lazy"
-                        className="h-[68%] w-auto object-contain transition-transform duration-700 group-hover:scale-[1.04]"
-                      />
-                      <Plus className="h-6 w-6 text-[#1A1A1A]/30" strokeWidth={1.5} />
-                      <img
-                        src={miniProduct}
-                        alt=""
-                        aria-hidden
-                        loading="lazy"
-                        className="h-[52%] w-auto object-contain transition-transform duration-700 group-hover:scale-[1.04]"
-                      />
-                    </div>
+                    <img
+                      src={bundleAsset.url}
+                      alt="Home Complete Bundle — Biotica 800 with two BioLogic Mini units"
+                      loading="lazy"
+                      className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.04]"
+                    />
                     <span className="absolute left-5 top-5 rounded-full bg-[#1A1A1A] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white">
                       Best value
                     </span>
