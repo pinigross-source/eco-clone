@@ -181,7 +181,7 @@ const PetsLandingPage = () => {
               {[
                 "Reaches where vacuums can't",
                 "Breaks down dander and odor",
-                "No fragrance, no chemicals",
+                "No chemicals",
                 "Safe around the people you love",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
