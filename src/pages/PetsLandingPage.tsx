@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowRight, Plus, X, Check } from "lucide-react";
+import { ArrowRight, X, Check } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
