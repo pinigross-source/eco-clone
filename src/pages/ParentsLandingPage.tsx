@@ -224,13 +224,13 @@ const ParentsLandingPage = () => {
               <div className="mt-7 space-y-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
                 <p>
                   You wash the sheets on hot. You wipe the rails. You run the purifier all night.
-                  And still - the dust comes back, settling on the crib, the carpet, the soft
-                  corners where your baby spends almost every hour of the day.
+                  And still - the dust returns, settling on the crib, the carpet, the soft
+                  spaces where your baby spends almost every hour of the day.
                 </p>
                 <p>
-                  Here&apos;s the part no one tells you: a purifier only treats the air passing
-                  through it. It can&apos;t reach the surfaces. And surfaces are exactly where dust
-                  and everyday buildup settle - right at the level where your baby plays, sleeps,
+                  Here&apos;s what no one tells you: a purifier only treats the air passing
+                  through it. It can&apos;t reach surfaces. And surfaces are where dust
+                  and everyday buildup settles - exactly where your baby plays, sleeps,
                   and explores.
                 </p>
               </div>
