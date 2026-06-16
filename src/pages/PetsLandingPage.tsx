@@ -302,7 +302,7 @@ const PetsLandingPage = () => {
                   title: "Home Bundle",
                   subtitle: "Biotica 800 + BioLogic Mini · multi-pet homes",
                   price: "$395",
-                  image: bundleAsset.url,
+                  image: bundleProduct,
                   cardBg: "bg-[#f1eaf5]",
                   glowFrom: "from-white",
                   glowVia: "via-[#e5d8ee]",
