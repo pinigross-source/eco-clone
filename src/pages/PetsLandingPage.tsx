@@ -518,7 +518,41 @@ const PetsLandingPage = () => {
                 Owners notice the difference.
               </h2>
             </Reveal>
-            <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
+
+            {/* Featured testimonial with photo */}
+            <Reveal>
+              <div className="mt-10 overflow-hidden rounded-[2rem] bg-white shadow-[0_20px_60px_-20px_rgba(15,23,42,0.08)] sm:rounded-[2.5rem]">
+                <div className="grid grid-cols-1 items-center lg:grid-cols-12">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden lg:col-span-5 lg:aspect-auto lg:h-full">
+                    <img
+                      src={testimonialDogOwner}
+                      alt="Happy pet owner with their dog"
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center p-8 sm:p-12 lg:col-span-7 lg:p-16">
+                    <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">
+                      Pet owner
+                    </p>
+                    <blockquote className="text-[18px] font-medium leading-[1.5] tracking-[-0.005em] text-neutral-900 sm:text-[21px]">
+                      &ldquo;Six months in. I sleep through the night now. My wife says the bedroom doesn&apos;t feel like our cats live there anymore.&rdquo;
+                    </blockquote>
+                    <div className="mt-8 flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-[13px] font-bold text-white">
+                        M
+                      </div>
+                      <div>
+                        <p className="text-[14px] font-semibold text-neutral-900">Marcus R.</p>
+                        <p className="text-[12px] text-neutral-500">Verified buyer</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
               {[
                 {
                   q: "The couch stopped smelling like dog two weeks in.",
