@@ -163,6 +163,83 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
+        {/* ============ COMPARISON — Filter vs Surface ============ */}
+        <section className="bg-[#F4F6F5] py-20 sm:py-28">
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
+            <Reveal>
+              <p className="mb-4 text-center text-[11px] font-semibold uppercase tracking-[0.28em] text-[#10B981]">
+                Why not air purifiers?
+              </p>
+              <h2
+                className="mx-auto max-w-[20ch] text-center font-semibold tracking-[-0.025em] text-black"
+                style={{ fontSize: "clamp(1.9rem, 3.8vw, 3rem)", lineHeight: 1.1 }}
+              >
+                Air purifiers stop at the filter.
+                <br />
+                We start at the surface.
+              </h2>
+              <p className="mx-auto mt-5 max-w-[58ch] text-center text-[15px] leading-[1.6] text-black/60 sm:text-[16.5px]">
+                80% of infections move by touch — not through the air. Traditional purifiers only
+                treat what floats past. EnviroBiotics treats everything.
+              </p>
+            </Reveal>
+
+            <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
+              <Reveal>
+                <div className="h-full rounded-2xl bg-white p-7 shadow-[0_2px_18px_-6px_rgba(0,0,0,0.06)] sm:p-9">
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-black/5 text-black/50">
+                      <X className="h-4 w-4" strokeWidth={2.5} />
+                    </span>
+                    <h3 className="text-[18px] font-semibold tracking-tight text-black">
+                      Traditional Purifiers
+                    </h3>
+                  </div>
+                  <ul className="mt-6 space-y-3.5 text-[14.5px] leading-[1.5] text-black/60">
+                    {[
+                      "Only filter air particles",
+                      "Can't reach surfaces where 80% of germs live",
+                      "Passive — waits for air to circulate",
+                      "Creates a sterile, unnatural environment",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <X className="mt-0.5 h-4 w-4 shrink-0 text-black/30" strokeWidth={2} />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+
+              <Reveal>
+                <div className="h-full rounded-2xl bg-white p-7 shadow-[0_2px_18px_-6px_rgba(16,185,129,0.18)] ring-1 ring-[#10B981]/30 sm:p-9">
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-[#10B981] text-white">
+                      <Check className="h-4 w-4" strokeWidth={3} />
+                    </span>
+                    <h3 className="text-[18px] font-semibold tracking-tight text-black">
+                      EnviroBiotics
+                    </h3>
+                  </div>
+                  <ul className="mt-6 space-y-3.5 text-[14.5px] leading-[1.5] text-black/75">
+                    {[
+                      "Treats air and every surface in your home",
+                      "1-micron probiotics penetrate fabrics, keyboards, counters",
+                      "Active — continuously disperses beneficial bacteria",
+                      "Creates a balanced biome that strengthens your immune system",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#10B981]" strokeWidth={2.5} />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         {/* ============ SECTION TITLE — Dyson-style 'Air treatment' header ============ */}
         <section className="bg-white pt-16 sm:pt-24 lg:pt-28">
           <div className="mx-auto max-w-[1600px] px-5 sm:px-10 lg:px-16">
