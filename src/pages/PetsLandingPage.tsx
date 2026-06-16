@@ -440,6 +440,14 @@ const PetsLandingPage = () => {
               <p className="text-[18px] font-semibold text-[#1d1d1f]">
                 30-day money-back guarantee&nbsp;
               </p>
+              <a
+                href="#products"
+                onClick={(e) => scrollTo(e, "products", "click_pets_guarantee_cta")}
+                className="group mt-6 inline-flex items-center rounded-full bg-neutral-900 px-8 py-4 text-[14px] font-medium text-white transition-all hover:bg-neutral-800"
+              >
+                Shop pet solutions
+                <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
             </div>
           </div>
         </section>
