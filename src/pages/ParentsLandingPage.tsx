@@ -417,7 +417,7 @@ const ParentsLandingPage = () => {
             <Reveal>
               <div className="max-w-2xl">
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                  The Mini
+                  {"\n"}
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
                   Made with the nursery in mind.
