@@ -133,13 +133,6 @@ const PetsLandingPage = () => {
                   Shop pet solutions
                   <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
-                <a
-                  href="#how"
-                  onClick={(e) => scrollTo(e, "how", "click_pets_hero_how")}
-                  className="inline-flex items-center rounded-full border border-neutral-200 bg-white/60 px-8 py-4 text-[14px] font-medium text-neutral-900 backdrop-blur-md transition-all hover:border-neutral-300 hover:bg-white"
-                >
-                  See how it stops dander
-                </a>
               </div>
 
               <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-neutral-500">
