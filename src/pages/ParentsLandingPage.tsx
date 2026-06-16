@@ -259,13 +259,12 @@ const ParentsLandingPage = () => {
                     {"\u00a0 \u00a0\u00a0\u00a0\n\n\u00a0\u00a0\u00a0 "}Stop only cleaning the air. Start cleaning the surfaces too.
                   </h2>
                   <p className="mt-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
-                    EnviroBiotics works continuously on the surfaces of the room - quietly, in the
-                    background, long after a wipe-down or a purifier cycle is done. Instead of one
-                    more thing to scrub, it keeps the nursery cleaner between cleanings, on its own.
+                    EnviroBiotics works continuously on the surfaces in the room - quietly, in the
+                    background, long after a wipe-down or a purifier cycle is done. EnviroBiotics
+                    keeps the nursery cleaner between cleanings all by itself.
                   </p>
                   <p className="mt-4 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
-                    No chemicals to spray near the crib. No filters to replace. No noise to
-                    interrupt a nap.
+                    No chemicals. No filters. No noise.
                   </p>
                 </div>
               </div>
