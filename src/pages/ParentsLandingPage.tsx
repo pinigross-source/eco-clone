@@ -206,87 +206,11 @@ const ParentsLandingPage = () => {
                 </div>
               </Reveal>
               <Reveal>
-                <div className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:mt-6 sm:justify-start">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-foreground/10 px-3 py-1.5 text-[12px] font-semibold text-foreground">
-                    <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2.25} />
-                    30-day money-back guarantee
-                  </span>
-                  <p className="text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:text-[13px]">
-                    From $98 · Free shipping · Cancel anytime
-                  </p>
-                </div>
+                <p className="mt-5 text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-6 sm:text-[13px]">
+                  Takes 60 seconds · No filters to buy · Quiet by design
+                </p>
               </Reveal>
             </div>
-          </div>
-        </section>
-
-        {/* ============ EARLY OFFER INTRO ============ */}
-        <section className="bg-background py-12 sm:py-16 lg:py-20">
-          <div className="mx-auto max-w-[1180px] px-5 sm:px-10 lg:px-16">
-            <Reveal>
-              <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.25)] lg:grid-cols-[1.1fr_1fr]">
-                <div className="relative overflow-hidden bg-[#F4EFE6] p-6 sm:p-8 lg:p-10">
-                  <div className="absolute left-5 top-5 z-10 rounded-full bg-foreground px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-background">
-                    Parents&apos; pick
-                  </div>
-                  <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl bg-white lg:aspect-auto lg:h-full">
-                    <img
-                      src={miniImg}
-                      alt="The Mini - nursery probiotic dispenser"
-                      className="h-full w-full object-contain p-6 sm:p-10"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col p-6 sm:p-8 lg:p-10">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/70">
-                    The Mini · For the nursery
-                  </p>
-                  <h2 className="mt-2 font-display text-[1.85rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.25rem] lg:text-[2.5rem]">
-                    A cleaner nursery, on its own.
-                  </h2>
-                  <p className="mt-3 text-[1rem] leading-[1.65] text-muted-foreground sm:text-[1.05rem]">
-                    Sits quietly on a shelf and keeps the surfaces baby actually touches cleaner — between every wipe-down.
-                  </p>
-                  <ul className="mt-5 flex flex-col gap-2.5">
-                    {[
-                      "Covers up to 300 sq ft — perfect for a nursery",
-                      "Whisper-quiet · No filters · No chemicals",
-                      "Works continuously, even when you can't",
-                    ].map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-[14.5px] text-foreground/85 sm:text-[15px]">
-                        <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={2} />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-6 flex items-baseline gap-3">
-                    <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">$98</span>
-                    <span className="text-[13px] font-medium text-muted-foreground">Free shipping</span>
-                  </div>
-
-                  <a
-                    href={MINI_URL}
-                    onClick={() => trackEvent("click_parents_early_offer_cta")}
-                    className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.55)] transition-colors hover:bg-foreground/90"
-                  >
-                    Secure My Baby&apos;s Space
-                    <ArrowRight className="h-5 w-5" />
-                  </a>
-
-                  <div className="mt-5 flex items-start gap-3 rounded-2xl bg-[#F4EFE6] p-4">
-                    <ShieldCheck className="mt-0.5 h-5 w-5 flex-none text-foreground" strokeWidth={2.25} />
-                    <div>
-                      <p className="text-[13.5px] font-semibold text-foreground">30-day money-back guarantee</p>
-                      <p className="mt-0.5 text-[12.5px] leading-snug text-muted-foreground">
-                        Try it in the nursery for a full month. If it&apos;s not right, send it back for a full refund — no questions asked.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
           </div>
         </section>
 
