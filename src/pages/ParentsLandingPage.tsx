@@ -256,7 +256,7 @@ const ParentsLandingPage = () => {
                     The shift
                   </p>
                   <h2 className="font-display text-[1.85rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.4rem] lg:text-[2.75rem]">
-                    Stop only cleaning the air. Start keeping the surfaces clean too.
+                    {"\u00a0 \u00a0\u00a0\u00a0\n\n\u00a0\u00a0\u00a0 "}Stop only cleaning the air. Start cleaning the surfaces too.
                   </h2>
                   <p className="mt-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
                     EnviroBiotics works continuously on the surfaces of the room - quietly, in the
