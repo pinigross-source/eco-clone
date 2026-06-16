@@ -308,141 +308,153 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ PRODUCT TILES - premium pet wellness ============ */}
-        <section id="products" className="scroll-mt-20 bg-white pb-24 pt-10 sm:pb-32 sm:pt-14">
+        {/* ============ PRODUCT LINEUP - Apple minimalist ============ */}
+        <section id="products" className="scroll-mt-20 bg-[#f5f5f7] py-20 sm:py-28">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
-            <div className="mb-12 flex items-end justify-between gap-6">
-              <div>
-                <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-neutral-400">
-                  The lineup
-                </p>
-                <h2
-                  className="font-bold tracking-tight text-neutral-900"
-                  style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", lineHeight: 1.02 }}
-                >
-                  Pick the size of your home.
-                </h2>
-              </div>
+            <div className="mb-14 text-center sm:mb-16">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#86868b]">
+                The lineup
+              </p>
+              <h2
+                className="mt-3 font-semibold tracking-tight text-[#1d1d1f]"
+                style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", lineHeight: 1.02 }}
+              >
+                Pick the size of your home.
+              </h2>
             </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {[
-                {
-                  href: BIOTICA_URL,
-                  event: "click_pets_card_biotica",
-                  badge: "Best for pets",
-                  title: "Biotica 800",
-                  subtitle: "Living rooms & open-plan homes up to 800 sq ft",
-                  price: "$299",
-                  image: bioticaProduct,
-                  cardBg: "bg-[#eef3f8]",
-                  glowFrom: "from-white",
-                  glowVia: "via-[#dbe7f2]",
-                  orb: "bg-sky-200/60",
-                  imgScale: "scale-[1.15]",
-                  hoverScale: "group-hover:scale-[1.22]",
-                  chip: "800 sq ft",
-                },
-                {
-                  href: MINI_URL,
-                  event: "click_pets_card_mini",
-                  badge: null,
-                  title: "BioLogic Mini",
-                  subtitle: "Bedrooms, crates & the corner where your pet naps",
-                  price: "$98",
-                  image: miniProduct,
-                  cardBg: "bg-[#f6f3ee]",
-                  glowFrom: "from-white",
-                  glowVia: "via-[#ece5d8]",
-                  orb: "bg-amber-200/40",
-                  imgScale: "scale-[1.0]",
-                  hoverScale: "group-hover:scale-[1.08]",
-                  chip: "Portable",
-                },
-                {
-                  href: BUNDLE_URL,
-                  event: "click_pets_card_bundle",
-                  badge: "Best value",
-                  title: "Home Bundle",
-                  subtitle: "Biotica 800 + 2 BioLogic Mini · multi-pet homes",
-                  price: "$395",
-                  image: bundleAsset.url,
-                  cardBg: "bg-[#f1eaf5]",
-                  glowFrom: "from-white",
-                  glowVia: "via-[#e5d8ee]",
-                  orb: "bg-fuchsia-200/40",
-                  imgScale: "scale-[1.15]",
-                  hoverScale: "group-hover:scale-[1.22]",
-                  chip: "Save $100",
-                },
-              ].map((p) => (
-                <Reveal key={p.title}>
-                  <a
-                    href={p.href}
-                    onClick={() => trackEvent(p.event)}
-                    className={`group relative block h-full overflow-hidden rounded-[2.5rem] border border-white/60 ${p.cardBg} p-8 shadow-[0_1px_0_rgba(255,255,255,0.8)_inset] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(15,23,42,0.18)]`}
-                  >
-                    {/* Decorative orb */}
-                    <div
-                      className={`pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full ${p.orb} blur-3xl transition-opacity duration-700 group-hover:opacity-80`}
-                    />
-
-                    {/* Top row: badge + spec chip */}
-                    <div className="relative z-10 mb-2 flex items-start justify-between">
-                      {p.badge ? (
-                        <span className="rounded-full bg-neutral-900 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-white shadow-sm">
-                          {p.badge}
-                        </span>
-                      ) : (
-                        <span />
-                      )}
-                      <span className="rounded-full border border-neutral-900/10 bg-white/70 px-3 py-1 text-[10px] font-semibold tracking-tight text-neutral-700 backdrop-blur">
-                        {p.chip}
-                      </span>
-                    </div>
-
-                    {/* Product stage */}
-                    <div className="relative mx-auto mt-2 mb-8 aspect-square w-full">
-                      {/* Radial spotlight halo */}
-                      <div
-                        className={`pointer-events-none absolute inset-0 rounded-full bg-gradient-radial ${p.glowFrom} ${p.glowVia} to-transparent opacity-90`}
-                        style={{
-                          background:
-                            "radial-gradient(closest-side, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,0) 75%)",
-                        }}
-                      />
-                      {/* Product image - blend white background into card */}
+              {/* Biotica 800 */}
+              <Reveal>
+                <div className="group flex h-full flex-col items-center rounded-[32px] bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_rgba(0,0,0,0.06)] sm:p-10">
+                  <div className="mb-10 flex w-full items-center justify-center">
+                    <div className="relative aspect-square w-full max-w-[280px]">
                       <img
-                        src={p.image}
-                        alt={p.title}
+                        src={bioticaProduct}
+                        alt="Biotica 800"
                         loading="lazy"
-                        className={`absolute inset-0 m-auto h-full w-full object-contain mix-blend-multiply transition-transform duration-700 ease-out ${p.imgScale} ${p.hoverScale} drop-shadow-[0_30px_30px_rgba(15,23,42,0.18)]`}
+                        className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
                       />
-                      {/* Soft floor reflection */}
-                      <div className="pointer-events-none absolute inset-x-8 bottom-3 h-4 rounded-[50%] bg-neutral-900/15 blur-xl" />
                     </div>
+                  </div>
+                  <div className="flex flex-1 flex-col items-center text-center">
+                    <h3 className="text-[22px] font-semibold tracking-tight text-[#1d1d1f] sm:text-[24px]">
+                      Biotica 800
+                    </h3>
+                    <p className="mt-2 max-w-[28ch] text-[15px] leading-relaxed text-[#86868b] sm:text-[16px]">
+                      Living rooms & open-plan homes up to 800 sq ft
+                    </p>
+                    <div className="mt-4 text-[21px] font-medium text-[#1d1d1f]">
+                      $299
+                    </div>
+                  </div>
+                  <div className="mt-8 flex w-full flex-col items-center gap-3">
+                    <a
+                      href={BIOTICA_URL}
+                      onClick={() => trackEvent("click_pets_card_biotica")}
+                      className="inline-flex items-center justify-center rounded-full bg-[#0071e3] px-7 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-[#0077ed]"
+                    >
+                      Buy
+                    </a>
+                    <a
+                      href="#best-for-pets"
+                      onClick={(e) => scrollTo(e, "best-for-pets", "click_pets_card_biotica_learn")}
+                      className="text-[14px] font-medium text-[#0066cc] hover:underline"
+                    >
+                      Learn more →
+                    </a>
+                  </div>
+                </div>
+              </Reveal>
 
-                    {/* Meta */}
-                    <div className="relative z-10 mb-6 space-y-1.5">
-                      <h3 className="text-[22px] font-bold tracking-tight text-neutral-900">
-                        {p.title}
-                      </h3>
-                      <p className="text-[13.5px] leading-snug text-neutral-500">
-                        {p.subtitle}
-                      </p>
+              {/* BioLogic Mini */}
+              <Reveal>
+                <div className="group flex h-full flex-col items-center rounded-[32px] bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_rgba(0,0,0,0.06)] sm:p-10">
+                  <div className="mb-10 flex w-full items-center justify-center">
+                    <div className="relative aspect-square w-full max-w-[280px]">
+                      <img
+                        src={miniProduct}
+                        alt="BioLogic Mini"
+                        loading="lazy"
+                        className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
+                  </div>
+                  <div className="flex flex-1 flex-col items-center text-center">
+                    <h3 className="text-[22px] font-semibold tracking-tight text-[#1d1d1f] sm:text-[24px]">
+                      BioLogic Mini
+                    </h3>
+                    <p className="mt-2 max-w-[28ch] text-[15px] leading-relaxed text-[#86868b] sm:text-[16px]">
+                      Bedrooms, crates & the corner where your pet naps
+                    </p>
+                    <div className="mt-4 text-[21px] font-medium text-[#1d1d1f]">
+                      $98
+                    </div>
+                  </div>
+                  <div className="mt-8 flex w-full flex-col items-center gap-3">
+                    <a
+                      href={MINI_URL}
+                      onClick={() => trackEvent("click_pets_card_mini")}
+                      className="inline-flex items-center justify-center rounded-full bg-[#0071e3] px-7 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-[#0077ed]"
+                    >
+                      Buy
+                    </a>
+                    <a
+                      href="#best-for-pets"
+                      onClick={(e) => scrollTo(e, "best-for-pets", "click_pets_card_mini_learn")}
+                      className="text-[14px] font-medium text-[#0066cc] hover:underline"
+                    >
+                      Learn more →
+                    </a>
+                  </div>
+                </div>
+              </Reveal>
 
-                    <div className="relative z-10 flex items-center justify-between">
-                      <span className="text-[22px] font-bold tracking-tight text-neutral-900">
-                        {p.price}
-                      </span>
-                      <span className="grid h-12 w-12 place-items-center rounded-full bg-neutral-900 text-white shadow-lg shadow-neutral-900/20 transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-800">
-                        <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-45" />
-                      </span>
+              {/* Home Bundle */}
+              <Reveal>
+                <div className="group flex h-full flex-col items-center rounded-[32px] bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_rgba(0,0,0,0.06)] sm:p-10">
+                  <div className="mb-10 flex w-full items-center justify-center">
+                    <div className="relative aspect-square w-full max-w-[280px]">
+                      <img
+                        src={bundleAsset.url}
+                        alt="Home Bundle"
+                        loading="lazy"
+                        className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
-                  </a>
-                </Reveal>
-              ))}
+                  </div>
+                  <div className="flex flex-1 flex-col items-center text-center">
+                    <span className="mb-2 inline-block rounded-md bg-[#f5f5f7] px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-[#bf4800]">
+                      Best value
+                    </span>
+                    <h3 className="text-[22px] font-semibold tracking-tight text-[#1d1d1f] sm:text-[24px]">
+                      Home Bundle
+                    </h3>
+                    <p className="mt-2 max-w-[28ch] text-[15px] leading-relaxed text-[#86868b] sm:text-[16px]">
+                      Biotica 800 + 2 BioLogic Mini · multi-pet homes
+                    </p>
+                    <div className="mt-4 text-[21px] font-medium text-[#1d1d1f]">
+                      $395
+                    </div>
+                  </div>
+                  <div className="mt-8 flex w-full flex-col items-center gap-3">
+                    <a
+                      href={BUNDLE_URL}
+                      onClick={() => trackEvent("click_pets_card_bundle")}
+                      className="inline-flex items-center justify-center rounded-full bg-[#0071e3] px-7 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-[#0077ed]"
+                    >
+                      Buy
+                    </a>
+                    <a
+                      href="#best-for-pets"
+                      onClick={(e) => scrollTo(e, "best-for-pets", "click_pets_card_bundle_learn")}
+                      className="text-[14px] font-medium text-[#0066cc] hover:underline"
+                    >
+                      Learn more →
+                    </a>
+                  </div>
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>
