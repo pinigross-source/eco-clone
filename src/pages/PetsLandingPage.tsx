@@ -595,7 +595,7 @@ const PetsLandingPage = () => {
                 Give your pet the clean home they deserve.
               </h2>
               <p className="mt-7 max-w-[55ch] text-[16px] leading-[1.55] text-[#1A1A1A]/70 sm:text-[17.5px]">
-                Bundle both units and save $100 with code PETS. Free shipping, 30-day guarantee — because your furry family deserves the best.
+                Bundle and save $100. Free shipping, 30-day guarantee — because your furry family deserves the best.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
