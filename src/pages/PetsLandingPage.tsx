@@ -197,17 +197,58 @@ const PetsLandingPage = () => {
         <section className="bg-[#F4F6F5] py-20 sm:py-28">
           <div className="mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <h2
-                className="mx-auto max-w-[20ch] text-center font-semibold tracking-[-0.025em] text-black"
-                style={{ fontSize: "clamp(1.9rem, 3.8vw, 3rem)", lineHeight: 1.1 }}
-              >
-                The simplest way to explain it
-              </h2>
-              <p className="mx-auto mt-6 max-w-[64ch] text-center text-[16px] leading-[1.6] text-black/65 sm:text-[17.5px]">
-                You've heard of probiotics for your gut - the beneficial microbes that help keep things balanced and healthy. EnviroBiotics brings that same idea to your home: beneficial probiotics settle onto surfaces and quietly break down the organic residue pets leave behind - dander and odor-causing compounds - continuously and naturally.
-              </p>
+              <div className="relative overflow-hidden rounded-[2.5rem] border border-white bg-white px-8 py-16 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.08)] sm:px-12 sm:py-20 lg:px-20">
+                {/* Decorative orbs */}
+                <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-orange-200/30 blur-3xl" />
+                <div className="pointer-events-none absolute -bottom-32 -right-24 h-96 w-96 rounded-full bg-sky-200/25 blur-3xl" />
+
+                <div className="relative grid grid-cols-1 items-start gap-12 md:grid-cols-2 md:gap-16">
+                  {/* Headline */}
+                  <div>
+                    <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#EB8B59]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#B4623A]">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#EB8B59]" />
+                      How it works
+                    </div>
+                    <h2
+                      className="font-semibold tracking-[-0.025em] text-neutral-900"
+                      style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.05 }}
+                    >
+                      The simplest way to{" "}
+                      <span
+                        className="italic font-normal text-[#B4623A]"
+                        style={{ fontFamily: `"Playfair Display", Georgia, serif` }}
+                      >
+                        explain it.
+                      </span>
+                    </h2>
+                  </div>
+
+                  {/* Explanation */}
+                  <div className="relative md:pl-8 md:border-l md:border-neutral-200">
+                    <p className="text-[16.5px] leading-[1.65] text-neutral-600 sm:text-[18px]">
+                      You've heard of probiotics for your gut - the beneficial microbes that keep things balanced and healthy.{" "}
+                      <span className="font-semibold text-neutral-900">
+                        EnviroBiotics brings that same idea to your home.
+                      </span>
+                    </p>
+                    <p className="mt-5 text-[16.5px] leading-[1.65] text-neutral-600 sm:text-[18px]">
+                      Beneficial probiotics settle onto surfaces and quietly break down the organic residue pets leave behind - dander and odor-causing compounds - <span className="text-[#B4623A] font-medium">continuously and naturally</span>.
+                    </p>
+
+                    <div className="mt-8 flex items-center gap-3 border-t border-neutral-100 pt-6">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-900 text-[11px] font-bold text-white">
+                        Bio
+                      </div>
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-500">
+                        Proven probiotic technology
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </Reveal>
           </div>
+
         </section>
 
         {/* ============ MADE FOR HOMES WITH PETS - Biotica highlight ============ */}
