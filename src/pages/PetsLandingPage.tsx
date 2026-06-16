@@ -87,18 +87,6 @@ const PetsLandingPage = () => {
         path="/pets"
       />
 
-      {/* ============ UTILITY BAR ============ */}
-      <div className="w-full bg-[#FDE7DA] text-[#2A2118]">
-        <div className="mx-auto flex max-w-[1600px] items-center justify-end px-5 py-2.5 text-[12px] sm:px-10">
-          <a
-            href="#products"
-            onClick={(e) => scrollTo(e, "products", "click_pets_promobar")}
-            className="inline-flex items-center gap-1.5 font-semibold tracking-tight underline-offset-4 hover:underline"
-          >
-            Shop pet solutions <ArrowRight className="h-3 w-3" />
-          </a>
-        </div>
-      </div>
 
       <main className="bg-white text-[#1A1A1A]" style={{ fontFamily: DISPLAY }}>
         {/* ============ HERO — soft pastel editorial ============ */}
