@@ -210,16 +210,13 @@ const PetsLandingPage = () => {
                       How it works
                     </div>
                     <h2
-                      className="font-semibold tracking-[-0.025em] text-neutral-900"
-                      style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.05 }}
+                      className="font-bold tracking-tight text-neutral-900"
+                      style={{
+                        fontSize: "clamp(2.6rem, 6vw, 4.8rem)",
+                        lineHeight: 0.92,
+                      }}
                     >
-                      The simplest way to{" "}
-                      <span
-                        className="italic font-normal text-[#B4623A]"
-                        style={{ fontFamily: `"Playfair Display", Georgia, serif` }}
-                      >
-                        explain it.
-                      </span>
+                      The simplest way to explain it.
                     </h2>
                   </div>
 
