@@ -536,7 +536,7 @@ const PetsLandingPage = () => {
           className="relative w-full overflow-hidden"
           style={{
             background:
-              "linear-gradient(120deg, #D8E8F4 0%, #F5E4F0 50%, #FDE7DA 100%)",
+              "linear-gradient(to top right, #f0f9ff 0%, #f8f7ff 50%, #fff7f0 100%)",
           }}
         >
           <div className="mx-auto max-w-[1600px] px-5 py-24 sm:px-10 sm:py-32 lg:px-16">
