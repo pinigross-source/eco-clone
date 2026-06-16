@@ -14,6 +14,7 @@ import heroImg from "@/assets/pets/hero-soft.jpg";
 import bioticaProduct from "@/assets/biotica-800.png";
 import miniProduct from "@/assets/biologic-mini-nobg-new.png";
 import surfacesImg from "@/assets/pets/surfaces-soft.jpg";
+import bundleImg from "@/assets/pets/bundle-soft.jpg";
 
 const PROMO = "PETS";
 const withDiscount = (url: string, code = PROMO) =>
