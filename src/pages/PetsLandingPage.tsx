@@ -11,10 +11,10 @@ import {
 } from "@/components/ui/accordion";
 
 import heroImg from "@/assets/pets/hero-soft.jpg";
-import bioticaProduct from "@/assets/biotica-clean.png";
-import miniProduct from "@/assets/mini-clean.png";
+import bioticaProduct from "@/assets/biotica-800.png";
+import miniProduct from "@/assets/biologic-mini-nobg-new.png";
 import surfacesImg from "@/assets/pets/surfaces-soft.jpg";
-import bundleProduct from "@/assets/bundle-clean.png";
+import bundleAsset from "@/assets/bundle-product.webp.asset.json";
 
 const PROMO = "PETS";
 const withDiscount = (url: string, code = PROMO) =>
@@ -302,7 +302,7 @@ const PetsLandingPage = () => {
                   title: "Home Bundle",
                   subtitle: "Biotica 800 + BioLogic Mini · multi-pet homes",
                   price: "$395",
-                  image: bundleProduct,
+                  image: bundleAsset.url,
                   cardBg: "bg-[#f1eaf5]",
                   glowFrom: "from-white",
                   glowVia: "via-[#e5d8ee]",
@@ -316,60 +316,65 @@ const PetsLandingPage = () => {
                   <a
                     href={p.href}
                     onClick={() => trackEvent(p.event)}
-                    className="group relative block h-full overflow-hidden rounded-[2.5rem] border border-neutral-100 bg-white shadow-[0_1px_0_rgba(255,255,255,0.8)_inset] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(15,23,42,0.18)]"
+                    className={`group relative block h-full overflow-hidden rounded-[2.5rem] border border-white/60 ${p.cardBg} p-8 shadow-[0_1px_0_rgba(255,255,255,0.8)_inset] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(15,23,42,0.18)]`}
                   >
-                    {/* Product image stage — clean white background */}
-                    <div className="relative flex items-center justify-center px-6 pt-8 pb-2">
-                      {/* Subtle radial glow behind product */}
-                      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                        <div className="h-[70%] w-[70%] rounded-full bg-neutral-100/80 blur-3xl" />
-                      </div>
+                    {/* Decorative orb */}
+                    <div
+                      className={`pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full ${p.orb} blur-3xl transition-opacity duration-700 group-hover:opacity-80`}
+                    />
+
+                    {/* Top row: badge + spec chip */}
+                    <div className="relative z-10 mb-2 flex items-start justify-between">
+                      {p.badge ? (
+                        <span className="rounded-full bg-neutral-900 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-white shadow-sm">
+                          {p.badge}
+                        </span>
+                      ) : (
+                        <span />
+                      )}
+                      <span className="rounded-full border border-neutral-900/10 bg-white/70 px-3 py-1 text-[10px] font-semibold tracking-tight text-neutral-700 backdrop-blur">
+                        {p.chip}
+                      </span>
+                    </div>
+
+                    {/* Product stage */}
+                    <div className="relative mx-auto mt-2 mb-8 aspect-square w-full">
+                      {/* Radial spotlight halo */}
+                      <div
+                        className={`pointer-events-none absolute inset-0 rounded-full bg-gradient-radial ${p.glowFrom} ${p.glowVia} to-transparent opacity-90`}
+                        style={{
+                          background:
+                            "radial-gradient(closest-side, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,0) 75%)",
+                        }}
+                      />
+                      {/* Product image — blend white background into card */}
                       <img
                         src={p.image}
                         alt={p.title}
                         loading="lazy"
-                        className={`relative z-10 mx-auto h-56 w-full object-contain transition-transform duration-700 ease-out ${p.imgScale} ${p.hoverScale} drop-shadow-[0_20px_25px_rgba(15,23,42,0.12)]`}
+                        className={`absolute inset-0 m-auto h-full w-full object-contain mix-blend-multiply transition-transform duration-700 ease-out ${p.imgScale} ${p.hoverScale} drop-shadow-[0_30px_30px_rgba(15,23,42,0.18)]`}
                       />
+                      {/* Soft floor reflection */}
+                      <div className="pointer-events-none absolute inset-x-8 bottom-3 h-4 rounded-[50%] bg-neutral-900/15 blur-xl" />
                     </div>
 
-                    {/* Colored text band at bottom */}
-                    <div className={`relative mx-3 mb-3 rounded-[1.5rem] ${p.cardBg} p-5`}>
-                      {/* Decorative orb inside band */}
-                      <div
-                        className={`pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full ${p.orb} blur-3xl opacity-60 transition-opacity duration-700 group-hover:opacity-80`}
-                      />
+                    {/* Meta */}
+                    <div className="relative z-10 mb-6 space-y-1.5">
+                      <h3 className="text-[22px] font-bold tracking-tight text-neutral-900">
+                        {p.title}
+                      </h3>
+                      <p className="text-[13.5px] leading-snug text-neutral-500">
+                        {p.subtitle}
+                      </p>
+                    </div>
 
-                      {/* Top row: badge + spec chip */}
-                      <div className="relative z-10 mb-3 flex items-start justify-between">
-                        {p.badge ? (
-                          <span className="rounded-full bg-neutral-900 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-white shadow-sm">
-                            {p.badge}
-                          </span>
-                        ) : (
-                          <span />
-                        )}
-                        <span className="rounded-full border border-neutral-900/10 bg-white/70 px-3 py-1 text-[10px] font-semibold tracking-tight text-neutral-700 backdrop-blur">
-                          {p.chip}
-                        </span>
-                      </div>
-
-                      <div className="relative z-10 mb-5 space-y-1">
-                        <h3 className="text-[22px] font-bold tracking-tight text-neutral-900">
-                          {p.title}
-                        </h3>
-                        <p className="text-[13.5px] leading-snug text-neutral-500">
-                          {p.subtitle}
-                        </p>
-                      </div>
-
-                      <div className="relative z-10 flex items-center justify-between">
-                        <span className="text-[22px] font-bold tracking-tight text-neutral-900">
-                          {p.price}
-                        </span>
-                        <span className="grid h-12 w-12 place-items-center rounded-full bg-neutral-900 text-white shadow-lg shadow-neutral-900/20 transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-800">
-                          <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-45" />
-                        </span>
-                      </div>
+                    <div className="relative z-10 flex items-center justify-between">
+                      <span className="text-[22px] font-bold tracking-tight text-neutral-900">
+                        {p.price}
+                      </span>
+                      <span className="grid h-12 w-12 place-items-center rounded-full bg-neutral-900 text-white shadow-lg shadow-neutral-900/20 transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-800">
+                        <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-45" />
+                      </span>
                     </div>
                   </a>
                 </Reveal>
