@@ -110,11 +110,13 @@ const PetsLandingPage = () => {
                   lineHeight: 0.96,
                 }}
               >
-                Engineered for homes with pets.
+                You're up against something you can't see.
               </h1>
-              <p className="mt-7 max-w-[52ch] text-[15.5px] leading-[1.55] text-[#1A1A1A]/70 sm:text-[17px]">
-                Vacuums get the hair. EnviroBiotics goes after the dander and odor woven into the
-                couch, the rug, and the bedding — where filters can&apos;t reach.
+              <p className="mt-5 max-w-[52ch] text-[16px] font-semibold leading-[1.5] text-[#1A1A1A]/80 sm:text-[18px]">
+                Pet dander and odor are microscopic.
+              </p>
+              <p className="mt-4 max-w-[52ch] text-[15.5px] leading-[1.55] text-[#1A1A1A]/70 sm:text-[17px]">
+                You vacuum the hair and wash the covers, but the real problem settles deep into the couch, carpet, bedding, and other soft surfaces your pet loves. Dander is what triggers allergies, while odor lingers long after cleaning. Because these particles are embedded in fabric—not floating in the air—they're beyond the reach of vacuums, sprays, and air purifiers. EnviroBiotics works right at the source, breaking them down where they live.
               </p>
 
               <div className="mt-9 flex flex-wrap items-center gap-3">
