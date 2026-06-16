@@ -249,7 +249,7 @@ const PetsLandingPage = () => {
         </section>
 
         {/* ============ MADE FOR HOMES WITH PETS - Biotica highlight ============ */}
-        <section className="bg-white py-20 sm:py-28">
+        <section id="best-for-pets" className="scroll-mt-20 bg-white py-20 sm:py-28">
           <div className="mx-auto max-w-[1600px] px-5 sm:px-10 lg:px-16">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
               <div className="lg:col-span-6">
