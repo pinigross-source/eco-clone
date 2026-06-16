@@ -437,7 +437,7 @@ const PetsLandingPage = () => {
             </div>
 
             <div className="mt-12 text-center sm:mt-16">
-              <p className="text-[14px] font-medium text-[#86868b]">
+              <p className="text-[18px] font-semibold text-[#1d1d1f]">
                 30-day money-back guarantee&nbsp;
               </p>
             </div>
