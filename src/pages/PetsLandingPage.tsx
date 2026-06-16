@@ -91,55 +91,58 @@ const PetsLandingPage = () => {
 
       <main className="bg-white text-[#1A1A1A]" style={{ fontFamily: DISPLAY }}>
         {/* ============ HERO — soft pastel editorial ============ */}
-        <section
-          className="relative w-full overflow-hidden"
-          style={{
-            background:
-              "linear-gradient(120deg, #FDE7DA 0%, #F5E4F0 45%, #D8E8F4 100%)",
-          }}
-        >
-          <div className="relative mx-auto grid max-w-[1600px] grid-cols-1 items-end gap-10 px-5 pb-14 pt-20 sm:px-10 sm:pb-20 sm:pt-28 lg:grid-cols-12 lg:gap-12 lg:px-16 lg:pb-24 lg:pt-32">
-            <div className="lg:col-span-6">
-              <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">
-                Pets · EnviroBiotics
-              </p>
+        <section className="relative w-full overflow-hidden">
+          <div
+            className="absolute inset-0 -z-0"
+            style={{
+              background:
+                "linear-gradient(to top right, #fff7f0 0%, #f8f7ff 50%, #f0f9ff 100%)",
+            }}
+          />
+          <div className="relative z-10 mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 pb-20 pt-20 sm:px-10 sm:pb-24 sm:pt-28 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:pb-32 lg:pt-32">
+            <div className="max-w-xl">
+              <div className="mb-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">
+                <span>Pets</span>
+                <span className="h-1 w-1 rounded-full bg-neutral-300" />
+                <span>EnviroBiotics</span>
+              </div>
               <h1
-                className="max-w-[18ch] font-bold tracking-[-0.035em] text-[#1A1A1A]"
+                className="font-bold tracking-tight text-neutral-900"
                 style={{
-                  fontSize: "clamp(2.4rem, 6.4vw, 5.6rem)",
-                  lineHeight: 0.96,
+                  fontSize: "clamp(2.6rem, 6vw, 4.8rem)",
+                  lineHeight: 0.92,
                 }}
               >
                 You're up against something you can't see.
               </h1>
-              <p className="mt-5 max-w-[52ch] text-[16px] font-semibold leading-[1.5] text-[#1A1A1A]/80 sm:text-[18px]">
-                Pet dander and odor are microscopic.
-              </p>
-              <p className="mt-4 max-w-[52ch] text-[15.5px] leading-[1.55] text-[#1A1A1A]/70 sm:text-[17px]">
-                You vacuum the hair and wash the covers, but the real problem settles deep into the couch, carpet, bedding, and other soft surfaces your pet loves. Dander is what triggers allergies, while odor lingers long after cleaning. Because these particles are embedded in fabric—not floating in the air—they're beyond the reach of vacuums, sprays, and air purifiers. EnviroBiotics works right at the source, breaking them down where they live.
-              </p>
+              <div className="mt-8 space-y-6">
+                <p className="text-[18px] font-semibold text-neutral-800">
+                  Pet dander and odor are microscopic.
+                </p>
+                <p className="max-w-md text-[15.5px] leading-relaxed text-neutral-600">
+                  You vacuum the hair and wash the covers, but the real problem settles deep into the couch, carpet, bedding, and other soft surfaces your pet loves. EnviroBiotics works at the source, breaking them down where they live.
+                </p>
+              </div>
 
-              <div className="mt-9 flex flex-wrap items-center gap-3">
+              <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
                   href={BUNDLE_URL}
                   onClick={() => trackEvent("click_pets_hero_cta")}
-                  className="group inline-flex items-center gap-3 rounded-full bg-[#1A1A1A] px-7 py-4 text-[13px] font-semibold tracking-tight text-white transition-colors hover:bg-[#2A2A2A]"
+                  className="group inline-flex items-center rounded-full bg-neutral-900 px-8 py-4 text-[14px] font-medium text-white transition-all hover:bg-neutral-800"
                 >
                   Shop pet solutions
-                  <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-[#1A1A1A] transition-transform group-hover:translate-x-0.5">
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
+                  <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
                 <a
                   href="#how"
                   onClick={(e) => scrollTo(e, "how", "click_pets_hero_how")}
-                  className="inline-flex items-center gap-2 rounded-full border border-[#1A1A1A]/20 bg-white/40 px-7 py-4 text-[13px] font-semibold tracking-tight text-[#1A1A1A] backdrop-blur transition-colors hover:bg-white/70"
+                  className="inline-flex items-center rounded-full border border-neutral-200 bg-white/60 px-8 py-4 text-[14px] font-medium text-neutral-900 backdrop-blur-md transition-all hover:border-neutral-300 hover:bg-white"
                 >
                   See how it stops dander
                 </a>
               </div>
 
-              <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-[#1A1A1A]/55">
+              <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-neutral-500">
                 <span className="inline-flex items-center gap-1.5">
                   <Check className="h-3.5 w-3.5 text-[#10B981]" strokeWidth={3} />
                   100% pet-safe
@@ -155,8 +158,8 @@ const PetsLandingPage = () => {
               </div>
             </div>
 
-            <div className="lg:col-span-6">
-              <div className="relative overflow-hidden rounded-[28px] shadow-[0_30px_80px_-30px_rgba(122,90,71,0.35)]">
+            <div className="relative">
+              <div className="aspect-[16/11] overflow-hidden rounded-[2.5rem] bg-neutral-100 shadow-2xl">
                 <img
                   src={heroImg}
                   alt="Golden retriever resting on a cream sofa in a sunlit pastel living room"
@@ -164,6 +167,8 @@ const PetsLandingPage = () => {
                   fetchPriority="high"
                 />
               </div>
+              <div className="absolute -bottom-6 -left-6 -z-10 h-32 w-32 rounded-full bg-indigo-100/40 blur-3xl" />
+              <div className="absolute -top-6 -right-6 -z-10 h-32 w-32 rounded-full bg-orange-100/50 blur-3xl" />
             </div>
           </div>
         </section>
