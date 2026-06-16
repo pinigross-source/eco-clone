@@ -308,7 +308,7 @@ const PetsLandingPage = () => {
                   event: "click_pets_card_bundle",
                   badge: "Best value",
                   title: "Home Bundle",
-                  subtitle: "Biotica 800 + BioLogic Mini · multi-pet homes",
+                  subtitle: "Biotica 800 + 2 BioLogic Mini · multi-pet homes",
                   price: "$395",
                   image: bundleAsset.url,
                   cardBg: "bg-[#f1eaf5]",
