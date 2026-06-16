@@ -543,7 +543,7 @@ const PetsLandingPage = () => {
                         M
                       </div>
                       <div>
-                        <p className="text-[14px] font-semibold text-neutral-900">Marcus R.</p>
+                        <p className="text-[14px] font-semibold text-neutral-900">Jay NJ&nbsp;</p>
                         <p className="text-[12px] text-neutral-500">Verified buyer</p>
                       </div>
                     </div>
