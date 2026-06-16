@@ -608,9 +608,6 @@ const PetsLandingPage = () => {
                     <ArrowRight className="h-3.5 w-3.5" />
                   </span>
                 </a>
-                <span className="rounded-full bg-white/60 px-4 py-2 text-[12px] text-[#1A1A1A]/70 backdrop-blur">
-                  Code <span className="font-semibold text-[#1A1A1A]">PETS</span> saves $70 · Free shipping
-                </span>
               </div>
             </Reveal>
           </div>
