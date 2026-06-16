@@ -228,6 +228,14 @@ const PetsLandingPage = () => {
                   <p className="mt-6 max-w-[58ch] text-[16px] leading-[1.6] text-[#1A1A1A]/70 sm:text-[17.5px]">
                     The Biotica 800 covers up to 800 sq ft - living rooms, open-plan spaces, and anywhere your pet roams. It continuously releases beneficial probiotics that break down dander and odor woven into fabric surfaces, so your home stays fresher without sprays or fragrances.
                   </p>
+                  <a
+                    href={BIOTICA_URL}
+                    onClick={() => trackEvent("click_pets_biotica_cta")}
+                    className="group mt-8 inline-flex items-center rounded-full bg-neutral-900 px-8 py-4 text-[14px] font-medium text-white transition-all hover:bg-neutral-800"
+                  >
+                    Buy Biotica 800
+                    <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </a>
                 </Reveal>
               </div>
               <div className="lg:col-span-6">
