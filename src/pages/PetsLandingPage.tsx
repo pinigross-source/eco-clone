@@ -121,9 +121,12 @@ const PetsLandingPage = () => {
                 <a
                   href="#products"
                   onClick={(e) => scrollTo(e, "products", "click_pets_hero_cta")}
-                  className="group inline-flex items-center gap-3 rounded-full bg-[#1A1A1A] px-7 py-4 text-[13px] font-semibold tracking-tight text-white transition-colors hover:bg-[#2A2A2A]"
+                  className="group relative inline-flex items-center gap-3 rounded-full bg-[#1A1A1A] px-7 py-4 text-[13px] font-semibold tracking-tight text-white transition-colors hover:bg-[#2A2A2A]"
                 >
-                  Shop the range
+                  <span className="absolute -top-3 -right-2 rounded-lg bg-[#E85A5A] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-md">
+                    Save 20%
+                  </span>
+                  Shop pet solutions
                   <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-[#1A1A1A] transition-transform group-hover:translate-x-0.5">
                     <ArrowRight className="h-3.5 w-3.5" />
                   </span>
@@ -133,8 +136,23 @@ const PetsLandingPage = () => {
                   onClick={(e) => scrollTo(e, "how", "click_pets_hero_how")}
                   className="inline-flex items-center gap-2 rounded-full border border-[#1A1A1A]/20 bg-white/40 px-7 py-4 text-[13px] font-semibold tracking-tight text-[#1A1A1A] backdrop-blur transition-colors hover:bg-white/70"
                 >
-                  How it works
+                  See how it stops dander
                 </a>
+              </div>
+
+              <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-[#1A1A1A]/55">
+                <span className="inline-flex items-center gap-1.5">
+                  <Check className="h-3.5 w-3.5 text-[#10B981]" strokeWidth={3} />
+                  100% pet-safe
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Check className="h-3.5 w-3.5 text-[#10B981]" strokeWidth={3} />
+                  Non-toxic probiotics
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Check className="h-3.5 w-3.5 text-[#10B981]" strokeWidth={3} />
+                  30-day guarantee
+                </span>
               </div>
             </div>
 
