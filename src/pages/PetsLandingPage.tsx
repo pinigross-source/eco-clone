@@ -169,21 +169,73 @@ const PetsLandingPage = () => {
         </section>
 
 
-        {/* ============ SECTION TITLE — Dyson-style 'Air treatment' header ============ */}
-        <section className="bg-white pt-16 sm:pt-24 lg:pt-28">
+        {/* ============ BENEFIT STRIP ============ */}
+        <section className="bg-white border-b border-black/5 py-12 sm:py-16">
           <div className="mx-auto max-w-[1600px] px-5 sm:px-10 lg:px-16">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+              {[
+                "Reaches where vacuums can't",
+                "Breaks down dander and odor",
+                "No fragrance, no chemicals",
+                "Safe around the people you love",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#10B981]" strokeWidth={2.5} />
+                  <span className="text-[15px] font-medium leading-[1.4] text-black/80">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============ THE SIMPLEST WAY — probiotics explanation ============ */}
+        <section className="bg-[#F4F6F5] py-20 sm:py-28">
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <h2
-                className="font-semibold tracking-[-0.025em] text-black"
-                style={{ fontSize: "clamp(2rem, 4.4vw, 3.4rem)", lineHeight: 1.05 }}
+                className="mx-auto max-w-[20ch] text-center font-semibold tracking-[-0.025em] text-black"
+                style={{ fontSize: "clamp(1.9rem, 3.8vw, 3rem)", lineHeight: 1.1 }}
               >
-                Pet care.
+                The simplest way to explain it
               </h2>
-              <p className="mt-5 max-w-[60ch] text-[16px] leading-[1.55] text-black/65 sm:text-[17.5px]">
-                Shop the EnviroBiotics range for pet households — engineered to break down dander and
-                odor where they settle, quietly, around the clock.
+              <p className="mx-auto mt-6 max-w-[64ch] text-center text-[16px] leading-[1.6] text-black/65 sm:text-[17.5px]">
+                You've heard of probiotics for your gut — the beneficial microbes that help keep things balanced and healthy. EnviroBiotics brings that same idea to your home: beneficial probiotics settle onto surfaces and quietly break down the organic residue pets leave behind — dander and odor-causing compounds — continuously and naturally.
               </p>
             </Reveal>
+          </div>
+        </section>
+
+        {/* ============ MADE FOR HOMES WITH PETS — Biotica highlight ============ */}
+        <section className="bg-white py-20 sm:py-28">
+          <div className="mx-auto max-w-[1600px] px-5 sm:px-10 lg:px-16">
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+              <div className="lg:col-span-6">
+                <Reveal>
+                  <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">
+                    Best for pets
+                  </p>
+                  <h2
+                    className="font-semibold tracking-[-0.03em] text-[#1A1A1A]"
+                    style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)", lineHeight: 1.02 }}
+                  >
+                    Made for homes with pets
+                  </h2>
+                  <p className="mt-6 max-w-[58ch] text-[16px] leading-[1.6] text-[#1A1A1A]/70 sm:text-[17.5px]">
+                    The Biotica 800 covers up to 800 sq ft — living rooms, open-plan spaces, and anywhere your pet roams. It continuously releases beneficial probiotics that break down dander and odor woven into fabric surfaces, so your home stays fresher without sprays or fragrances.
+                  </p>
+                </Reveal>
+              </div>
+              <div className="lg:col-span-6">
+                <div className="relative overflow-hidden rounded-[28px] shadow-[0_30px_80px_-30px_rgba(122,90,71,0.25)]">
+                  <img
+                    src={bioticaProduct}
+                    alt="Biotica 800 unit designed for homes with pets"
+                    loading="lazy"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -210,7 +262,7 @@ const PetsLandingPage = () => {
                       src={bioticaProduct}
                       alt="Biotica 800"
                       loading="lazy"
-                      className="absolute inset-0 m-auto h-[78%] w-auto max-w-[78%] object-contain transition-transform duration-700 group-hover:scale-[1.04]"
+                      className="absolute inset-0 m-auto h-[75%] w-auto max-w-[75%] object-contain transition-transform duration-700 group-hover:scale-[1.04]"
                     />
                     <span className="absolute left-5 top-5 rounded-full bg-black px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white">
                       Best for pets
@@ -254,7 +306,7 @@ const PetsLandingPage = () => {
                       src={miniProduct}
                       alt="BioLogic Mini"
                       loading="lazy"
-                      className="absolute inset-0 m-auto h-[70%] w-auto max-w-[58%] object-contain transition-transform duration-700 group-hover:scale-[1.04]"
+                      className="absolute inset-0 m-auto h-[75%] w-auto max-w-[75%] object-contain transition-transform duration-700 group-hover:scale-[1.04]"
                     />
                   </div>
                   <div className="flex items-end justify-between px-6 pb-7 pt-6 sm:px-7">
@@ -293,7 +345,7 @@ const PetsLandingPage = () => {
                       src={bundleAsset.url}
                       alt="Home Complete Bundle — Biotica 800 with two BioLogic Mini units"
                       loading="lazy"
-                      className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.04]"
+                      className="absolute inset-0 m-auto h-[75%] w-auto max-w-[75%] object-contain transition-transform duration-700 group-hover:scale-[1.04]"
                     />
                     <span className="absolute left-5 top-5 rounded-full bg-[#1A1A1A] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white">
                       Best value
@@ -368,7 +420,7 @@ const PetsLandingPage = () => {
                 className="max-w-[20ch] font-semibold tracking-[-0.025em] text-black"
                 style={{ fontSize: "clamp(2rem, 4.4vw, 3.4rem)", lineHeight: 1.05 }}
               >
-                Keep your surfaces clean.
+                Set it once. It handles the rest.
               </h2>
             </Reveal>
 
@@ -377,7 +429,7 @@ const PetsLandingPage = () => {
               {
                 step: "01",
                 title: "Place it",
-                copy: "Set it where your pet spends time — living room, bedroom, the favorite spot.",
+                copy: "Place it wherever your pet spends the most time.",
               },
               {
                 step: "02",
@@ -479,7 +531,7 @@ const PetsLandingPage = () => {
                   },
                   {
                     q: "Does it replace my air purifier or vacuum?",
-                    a: "No — different jobs. Keep vacuuming the hair and running the purifier for airborne particles. EnviroBiotics handles what settles into the surfaces.",
+                    a: "No — they do different jobs. Keep vacuuming the pet hair and running the purifier for airborne particles. EnviroBiotics handles the dander and odor that settle into the surfaces.",
                   },
                   {
                     q: "What if it doesn't work for us?",
