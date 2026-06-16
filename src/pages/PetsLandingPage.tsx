@@ -610,7 +610,7 @@ const PetsLandingPage = () => {
             onClick={() => trackEvent("click_pets_sticky_cta")}
             className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-black text-[13px] font-semibold tracking-tight text-white"
           >
-            Shop Biotica · $299
+            Get the pet bundle — $299
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>
