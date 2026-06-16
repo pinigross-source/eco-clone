@@ -281,7 +281,7 @@ const ParentsLandingPage = () => {
                   {"\n"}
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                  Two different jobs. Your nursery needs both.
+                  The purifier handles air, EnviroBiotics handles surfaces. Your nursery needs both.
                 </h2>
               </div>
             </Reveal>
