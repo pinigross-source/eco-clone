@@ -84,13 +84,13 @@ const PetsLandingPage = () => {
     <>
       <SEOHead
         title="Pet Dander & Odor Control for Your Home | EnviroBiotics"
-        description="Engineered for homes with pets. EnviroBiotics breaks down dander and odor at the surface — in the couch, the rug, the bedding — where filters can't reach."
+        description="Engineered for homes with pets. EnviroBiotics breaks down dander and odor at the surface - in the couch, the rug, the bedding - where filters can't reach."
         path="/pets"
       />
 
 
       <main className="bg-white text-[#1A1A1A]" style={{ fontFamily: DISPLAY }}>
-        {/* ============ HERO — soft pastel editorial ============ */}
+        {/* ============ HERO - soft pastel editorial ============ */}
         <section className="relative w-full overflow-hidden">
           <div
             className="absolute inset-0 -z-0"
@@ -193,7 +193,7 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ THE SIMPLEST WAY — probiotics explanation ============ */}
+        {/* ============ THE SIMPLEST WAY - probiotics explanation ============ */}
         <section className="bg-[#F4F6F5] py-20 sm:py-28">
           <div className="mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
             <Reveal>
@@ -204,13 +204,13 @@ const PetsLandingPage = () => {
                 The simplest way to explain it
               </h2>
               <p className="mx-auto mt-6 max-w-[64ch] text-center text-[16px] leading-[1.6] text-black/65 sm:text-[17.5px]">
-                You've heard of probiotics for your gut — the beneficial microbes that help keep things balanced and healthy. EnviroBiotics brings that same idea to your home: beneficial probiotics settle onto surfaces and quietly break down the organic residue pets leave behind — dander and odor-causing compounds — continuously and naturally.
+                You've heard of probiotics for your gut - the beneficial microbes that help keep things balanced and healthy. EnviroBiotics brings that same idea to your home: beneficial probiotics settle onto surfaces and quietly break down the organic residue pets leave behind - dander and odor-causing compounds - continuously and naturally.
               </p>
             </Reveal>
           </div>
         </section>
 
-        {/* ============ MADE FOR HOMES WITH PETS — Biotica highlight ============ */}
+        {/* ============ MADE FOR HOMES WITH PETS - Biotica highlight ============ */}
         <section className="bg-white py-20 sm:py-28">
           <div className="mx-auto max-w-[1600px] px-5 sm:px-10 lg:px-16">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
@@ -226,7 +226,7 @@ const PetsLandingPage = () => {
                     Made for homes with pets
                   </h2>
                   <p className="mt-6 max-w-[58ch] text-[16px] leading-[1.6] text-[#1A1A1A]/70 sm:text-[17.5px]">
-                    The Biotica 800 covers up to 800 sq ft — living rooms, open-plan spaces, and anywhere your pet roams. It continuously releases beneficial probiotics that break down dander and odor woven into fabric surfaces, so your home stays fresher without sprays or fragrances.
+                    The Biotica 800 covers up to 800 sq ft - living rooms, open-plan spaces, and anywhere your pet roams. It continuously releases beneficial probiotics that break down dander and odor woven into fabric surfaces, so your home stays fresher without sprays or fragrances.
                   </p>
                 </Reveal>
               </div>
@@ -244,7 +244,7 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ PRODUCT TILES — premium pet wellness ============ */}
+        {/* ============ PRODUCT TILES - premium pet wellness ============ */}
         <section id="products" className="scroll-mt-20 bg-white pb-24 pt-10 sm:pb-32 sm:pt-14">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
             <div className="mb-12 flex items-end justify-between gap-6">
@@ -347,7 +347,7 @@ const PetsLandingPage = () => {
                             "radial-gradient(closest-side, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,0) 75%)",
                         }}
                       />
-                      {/* Product image — blend white background into card */}
+                      {/* Product image - blend white background into card */}
                       <img
                         src={p.image}
                         alt={p.title}
@@ -383,7 +383,7 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ FEATURE STRIP — soft pastel editorial ============ */}
+        {/* ============ FEATURE STRIP - soft pastel editorial ============ */}
         <section className="relative w-full overflow-hidden bg-[#FBF3EC]">
           <div className="relative mx-auto grid max-w-[1600px] grid-cols-1 items-center gap-12 px-5 py-20 sm:px-10 sm:py-28 lg:grid-cols-12 lg:gap-16 lg:px-16 lg:py-32">
             <div className="lg:col-span-6">
@@ -398,7 +398,7 @@ const PetsLandingPage = () => {
                   It&apos;s not the hair. It&apos;s what you can&apos;t see.
                 </h2>
                 <p className="mt-6 max-w-[58ch] text-[16px] leading-[1.6] text-[#1A1A1A]/70 sm:text-[17.5px]">
-                  The dander and odor that trigger allergies and lingering smell are microscopic —
+                  The dander and odor that trigger allergies and lingering smell are microscopic -
                   woven into the couch, the rug, the bedding. Filters can&apos;t reach them. Sprays
                   just mask them.
                 </p>
@@ -420,7 +420,7 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ HOW IT WORKS — Dyson tech-spec rhythm ============ */}
+        {/* ============ HOW IT WORKS - Dyson tech-spec rhythm ============ */}
         <section id="how" className="scroll-mt-20 bg-white py-20 sm:py-28">
           <div className="mx-auto max-w-[1600px] px-5 sm:px-10 lg:px-16">
             <Reveal>
@@ -450,7 +450,7 @@ const PetsLandingPage = () => {
               {
                 step: "03",
                 title: "Let it run",
-                copy: "It breaks down dander and odor embedded in fabric — where your vacuum can't reach.",
+                copy: "It breaks down dander and odor embedded in fabric - where your vacuum can't reach.",
               },
               ].map((item) => (
                 <div key={item.step} className="bg-white p-8 sm:p-10">
@@ -530,19 +530,19 @@ const PetsLandingPage = () => {
                 {[
                   {
                     q: "What about pet dander and allergies?",
-                    a: "EnviroBiotics breaks down the dander that settles on your soft surfaces, so less of it builds up where you sit and sleep. It's not a medical treatment — if you have a clinical allergy, keep following your doctor's plan.",
+                    a: "EnviroBiotics breaks down the dander that settles on your soft surfaces, so less of it builds up where you sit and sleep. It's not a medical treatment - if you have a clinical allergy, keep following your doctor's plan.",
                   },
                   {
                     q: "Is it safe around my pets and family?",
-                    a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list — the same kind of beneficial cultures found in yogurt. Chemical-free and designed for homes with cats, dogs, and kids.",
+                    a: "Yes. EnviroBiotics uses probiotics from the FDA's GRAS list - the same kind of beneficial cultures found in yogurt. Chemical-free and designed for homes with cats, dogs, and kids.",
                   },
                   {
                     q: "Will my house smell like fragrance or chemicals?",
-                    a: "No. EnviroBiotics removes odor at the source rather than adding scent — the goal is a room that smells like nothing in particular.",
+                    a: "No. EnviroBiotics removes odor at the source rather than adding scent - the goal is a room that smells like nothing in particular.",
                   },
                   {
                     q: "Does it replace my air purifier or vacuum?",
-                    a: "No — they do different jobs. Keep vacuuming the pet hair and running the purifier for airborne particles. EnviroBiotics handles the dander and odor that settle into the surfaces.",
+                    a: "No - they do different jobs. Keep vacuuming the pet hair and running the purifier for airborne particles. EnviroBiotics handles the dander and odor that settle into the surfaces.",
                   },
                   {
                     q: "What if it doesn't work for us?",
@@ -567,7 +567,7 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ FINAL CTA — soft pastel outro ============ */}
+        {/* ============ FINAL CTA - soft pastel outro ============ */}
         <section
           className="relative w-full overflow-hidden"
           style={{
@@ -584,7 +584,7 @@ const PetsLandingPage = () => {
                 Give your pet the clean home they deserve.
               </h2>
               <p className="mt-7 max-w-[55ch] text-[16px] leading-[1.55] text-[#1A1A1A]/70 sm:text-[17.5px]">
-                Bundle and save $100. Free shipping, 30-day guarantee — because your furry family deserves the best.
+                Bundle and save $100. Free shipping, 30-day guarantee - because your furry family deserves the best.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
@@ -611,7 +611,7 @@ const PetsLandingPage = () => {
             onClick={() => trackEvent("click_pets_sticky_cta")}
             className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-black text-[13px] font-semibold tracking-tight text-white"
           >
-            Get the pet bundle — $299
+            Get the pet bundle - $299
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>
