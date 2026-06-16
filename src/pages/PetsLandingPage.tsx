@@ -387,10 +387,6 @@ const PetsLandingPage = () => {
               </Reveal>
             </div>
 
-            <p className="mt-8 text-[13px] text-black/55">
-              Use code <span className="font-semibold text-black">PETS</span> for $70 off · Free
-              U.S. shipping · 30-day money-back guarantee
-            </p>
           </div>
         </section>
 
