@@ -35,7 +35,7 @@ const Reveal = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [ref, setRef] = useState<HTMLDivElement | null>(null);
   useEffect(() => {
     if (!ref) return;
@@ -48,7 +48,7 @@ const Reveal = ({
           }
         });
       },
-      { threshold: 0.12 },
+      { threshold: 0.12, rootMargin: "200px" },
     );
     io.observe(ref);
     return () => io.disconnect();
