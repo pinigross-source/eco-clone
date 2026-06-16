@@ -247,102 +247,138 @@ const PetsLandingPage = () => {
         {/* ============ PRODUCT TILES — premium pet wellness ============ */}
         <section id="products" className="scroll-mt-20 bg-white pb-24 pt-10 sm:pb-32 sm:pt-14">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
+            <div className="mb-12 flex items-end justify-between gap-6">
+              <div>
+                <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-neutral-400">
+                  The lineup
+                </p>
+                <h2
+                  className="font-bold tracking-tight text-neutral-900"
+                  style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", lineHeight: 1.02 }}
+                >
+                  Pick the size of your home.
+                </h2>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {/* Biotica 800 */}
-              <Reveal>
-                <a
-                  href={BIOTICA_URL}
-                  onClick={() => trackEvent("click_pets_card_biotica")}
-                  className="group relative block h-full rounded-[2.5rem] border border-white/40 bg-[#f1f4f9] p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
-                >
-                  <span className="absolute left-6 top-6 z-10 rounded-full bg-black px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-white">
-                    Best for Pets
-                  </span>
-                  <div className="mb-10 flex aspect-square items-center justify-center">
-                    <img
-                      src={bioticaProduct}
-                      alt="Biotica 800"
-                      loading="lazy"
-                      className="h-4/5 w-4/5 object-contain transition-transform duration-700 group-hover:scale-110"
+              {[
+                {
+                  href: BIOTICA_URL,
+                  event: "click_pets_card_biotica",
+                  badge: "Best for pets",
+                  title: "Biotica 800",
+                  subtitle: "Living rooms & open-plan homes up to 800 sq ft",
+                  price: "$299",
+                  image: bioticaProduct,
+                  cardBg: "bg-[#eef3f8]",
+                  glowFrom: "from-white",
+                  glowVia: "via-[#dbe7f2]",
+                  orb: "bg-sky-200/60",
+                  imgScale: "scale-[1.15]",
+                  hoverScale: "group-hover:scale-[1.22]",
+                  chip: "800 sq ft",
+                },
+                {
+                  href: MINI_URL,
+                  event: "click_pets_card_mini",
+                  badge: null,
+                  title: "BioLogic Mini",
+                  subtitle: "Bedrooms, crates & the corner where your pet naps",
+                  price: "$98",
+                  image: miniProduct,
+                  cardBg: "bg-[#f6f3ee]",
+                  glowFrom: "from-white",
+                  glowVia: "via-[#ece5d8]",
+                  orb: "bg-amber-200/40",
+                  imgScale: "scale-[1.0]",
+                  hoverScale: "group-hover:scale-[1.08]",
+                  chip: "Portable",
+                },
+                {
+                  href: BUNDLE_URL,
+                  event: "click_pets_card_bundle",
+                  badge: "Best value",
+                  title: "Home Bundle",
+                  subtitle: "Biotica 800 + BioLogic Mini · multi-pet homes",
+                  price: "$395",
+                  image: bundleAsset.url,
+                  cardBg: "bg-[#f1eaf5]",
+                  glowFrom: "from-white",
+                  glowVia: "via-[#e5d8ee]",
+                  orb: "bg-fuchsia-200/40",
+                  imgScale: "scale-[1.15]",
+                  hoverScale: "group-hover:scale-[1.22]",
+                  chip: "Save $100",
+                },
+              ].map((p) => (
+                <Reveal key={p.title}>
+                  <a
+                    href={p.href}
+                    onClick={() => trackEvent(p.event)}
+                    className={`group relative block h-full overflow-hidden rounded-[2.5rem] border border-white/60 ${p.cardBg} p-8 shadow-[0_1px_0_rgba(255,255,255,0.8)_inset] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(15,23,42,0.18)]`}
+                  >
+                    {/* Decorative orb */}
+                    <div
+                      className={`pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full ${p.orb} blur-3xl transition-opacity duration-700 group-hover:opacity-80`}
                     />
-                  </div>
-                  <div className="mb-6 space-y-1">
-                    <h3 className="text-[22px] font-bold tracking-tight text-neutral-900">Biotica 800</h3>
-                    <p className="text-[13.5px] leading-snug text-neutral-500">
-                      Living rooms & open-plan homes up to 800 sq ft
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[20px] font-bold tracking-tight text-neutral-900">$299</span>
-                    <span className="grid h-12 w-12 place-items-center rounded-full bg-black text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-800">
-                      <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-45" />
-                    </span>
-                  </div>
-                </a>
-              </Reveal>
 
-              {/* BioLogic Mini */}
-              <Reveal>
-                <a
-                  href={MINI_URL}
-                  onClick={() => trackEvent("click_pets_card_mini")}
-                  className="group relative block h-full rounded-[2.5rem] border border-white/40 bg-[#f7f5f2] p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
-                >
-                  <div className="mb-10 flex aspect-square items-center justify-center">
-                    <img
-                      src={miniProduct}
-                      alt="BioLogic Mini"
-                      loading="lazy"
-                      className="h-4/5 w-3/5 object-contain transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="mb-6 space-y-1">
-                    <h3 className="text-[22px] font-bold tracking-tight text-neutral-900">BioLogic Mini</h3>
-                    <p className="text-[13.5px] leading-snug text-neutral-500">
-                      Bedrooms, crates & the corner where your pet naps
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[20px] font-bold tracking-tight text-neutral-900">$98</span>
-                    <span className="grid h-12 w-12 place-items-center rounded-full bg-black text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-800">
-                      <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-45" />
-                    </span>
-                  </div>
-                </a>
-              </Reveal>
+                    {/* Top row: badge + spec chip */}
+                    <div className="relative z-10 mb-2 flex items-start justify-between">
+                      {p.badge ? (
+                        <span className="rounded-full bg-neutral-900 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-white shadow-sm">
+                          {p.badge}
+                        </span>
+                      ) : (
+                        <span />
+                      )}
+                      <span className="rounded-full border border-neutral-900/10 bg-white/70 px-3 py-1 text-[10px] font-semibold tracking-tight text-neutral-700 backdrop-blur">
+                        {p.chip}
+                      </span>
+                    </div>
 
-              {/* Home Bundle */}
-              <Reveal>
-                <a
-                  href={BUNDLE_URL}
-                  onClick={() => trackEvent("click_pets_card_bundle")}
-                  className="group relative block h-full rounded-[2.5rem] border border-white/40 bg-[#f3edf7] p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
-                >
-                  <span className="absolute left-6 top-6 z-10 rounded-full bg-black px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-white">
-                    Best Value
-                  </span>
-                  <div className="mb-10 flex aspect-square items-center justify-center">
-                    <img
-                      src={bundleAsset.url}
-                      alt="Home Complete Bundle — Biotica 800 with two BioLogic Mini units"
-                      loading="lazy"
-                      className="h-4/5 w-11/12 object-contain transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="mb-6 space-y-1">
-                    <h3 className="text-[22px] font-bold tracking-tight text-neutral-900">Home Bundle</h3>
-                    <p className="text-[13.5px] leading-snug text-neutral-500">
-                      Biotica 800 + BioLogic Mini · multi-pet homes
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[20px] font-bold tracking-tight text-neutral-900">$395</span>
-                    <span className="grid h-12 w-12 place-items-center rounded-full bg-black text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-800">
-                      <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-45" />
-                    </span>
-                  </div>
-                </a>
-              </Reveal>
+                    {/* Product stage */}
+                    <div className="relative mx-auto mt-2 mb-8 aspect-square w-full">
+                      {/* Radial spotlight halo */}
+                      <div
+                        className={`pointer-events-none absolute inset-0 rounded-full bg-gradient-radial ${p.glowFrom} ${p.glowVia} to-transparent opacity-90`}
+                        style={{
+                          background:
+                            "radial-gradient(closest-side, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,0) 75%)",
+                        }}
+                      />
+                      {/* Product image — blend white background into card */}
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        loading="lazy"
+                        className={`absolute inset-0 m-auto h-full w-full object-contain mix-blend-multiply transition-transform duration-700 ease-out ${p.imgScale} ${p.hoverScale} drop-shadow-[0_30px_30px_rgba(15,23,42,0.18)]`}
+                      />
+                      {/* Soft floor reflection */}
+                      <div className="pointer-events-none absolute inset-x-8 bottom-3 h-4 rounded-[50%] bg-neutral-900/15 blur-xl" />
+                    </div>
+
+                    {/* Meta */}
+                    <div className="relative z-10 mb-6 space-y-1.5">
+                      <h3 className="text-[22px] font-bold tracking-tight text-neutral-900">
+                        {p.title}
+                      </h3>
+                      <p className="text-[13.5px] leading-snug text-neutral-500">
+                        {p.subtitle}
+                      </p>
+                    </div>
+
+                    <div className="relative z-10 flex items-center justify-between">
+                      <span className="text-[22px] font-bold tracking-tight text-neutral-900">
+                        {p.price}
+                      </span>
+                      <span className="grid h-12 w-12 place-items-center rounded-full bg-neutral-900 text-white shadow-lg shadow-neutral-900/20 transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-800">
+                        <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-45" />
+                      </span>
+                    </div>
+                  </a>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
