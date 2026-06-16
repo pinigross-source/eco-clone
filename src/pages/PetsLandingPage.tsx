@@ -119,8 +119,8 @@ const PetsLandingPage = () => {
 
               <div className="mt-9 flex flex-wrap items-center gap-3">
                 <a
-                  href="#products"
-                  onClick={(e) => scrollTo(e, "products", "click_pets_hero_cta")}
+                  href={BUNDLE_URL}
+                  onClick={() => trackEvent("click_pets_hero_cta")}
                   className="group inline-flex items-center gap-3 rounded-full bg-[#1A1A1A] px-7 py-4 text-[13px] font-semibold tracking-tight text-white transition-colors hover:bg-[#2A2A2A]"
                 >
                   Shop pet solutions
@@ -595,12 +595,12 @@ const PetsLandingPage = () => {
                 Give your pet the clean home they deserve.
               </h2>
               <p className="mt-7 max-w-[55ch] text-[16px] leading-[1.55] text-[#1A1A1A]/70 sm:text-[17.5px]">
-                Bundle both units and save $70 with code PETS. Free shipping, 30-day guarantee — because your furry family deserves the best.
+                Bundle both units and save $100 with code PETS. Free shipping, 30-day guarantee — because your furry family deserves the best.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
-                  href="#products"
-                  onClick={(e) => scrollTo(e, "products", "click_pets_final_cta")}
+                  href={BUNDLE_URL}
+                  onClick={() => trackEvent("click_pets_final_cta")}
                   className="group inline-flex items-center gap-3 rounded-full bg-[#1A1A1A] px-8 py-4 text-[13px] font-semibold tracking-tight text-white transition-colors hover:bg-[#2A2A2A]"
                 >
                   Shop pet solutions
