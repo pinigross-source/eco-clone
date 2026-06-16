@@ -296,10 +296,7 @@ const PetsLandingPage = () => {
                         Living rooms & open-plan homes up to 800 sq ft
                       </p>
                       <p className="mt-3 text-[15px] font-semibold text-black">
-                        $229{" "}
-                        <span className="ml-1 text-[13px] font-medium text-black/40 line-through">
-                          $299
-                        </span>
+                        $299
                       </p>
                     </div>
                     <span className="grid h-10 w-10 place-items-center rounded-full bg-black text-white transition-transform group-hover:translate-x-0.5">
@@ -641,7 +638,7 @@ const PetsLandingPage = () => {
             onClick={() => trackEvent("click_pets_sticky_cta")}
             className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-black text-[13px] font-semibold tracking-tight text-white"
           >
-            Shop Biotica · $229
+            Shop Biotica · $299
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>
