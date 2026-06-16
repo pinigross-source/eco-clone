@@ -577,11 +577,10 @@ const PetsLandingPage = () => {
                 className="max-w-[20ch] font-semibold tracking-[-0.03em] text-[#1A1A1A]"
                 style={{ fontSize: "clamp(2.2rem, 5.4vw, 4.4rem)", lineHeight: 1 }}
               >
-                A fresher home for you and your pet.
+                Give your pet the clean home they deserve.
               </h2>
               <p className="mt-7 max-w-[55ch] text-[16px] leading-[1.55] text-[#1A1A1A]/70 sm:text-[17.5px]">
-                Keep the cuddles, the couch naps, the open-door chaos. Skip the candles, sprays, and
-                the lingering smell.
+                Bundle both units and save $70 with code PETS. Free shipping, 30-day guarantee — because your furry family deserves the best.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
@@ -589,13 +588,13 @@ const PetsLandingPage = () => {
                   onClick={(e) => scrollTo(e, "products", "click_pets_final_cta")}
                   className="group inline-flex items-center gap-3 rounded-full bg-[#1A1A1A] px-8 py-4 text-[13px] font-semibold tracking-tight text-white transition-colors hover:bg-[#2A2A2A]"
                 >
-                  Shop the range
+                  Shop pet solutions
                   <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-[#1A1A1A] transition-transform group-hover:translate-x-0.5">
                     <ArrowRight className="h-3.5 w-3.5" />
                   </span>
                 </a>
-                <span className="text-[12px] text-[#1A1A1A]/55">
-                  Code <span className="font-semibold text-[#1A1A1A]">PETS</span> · Free shipping · 30-day guarantee
+                <span className="rounded-full bg-white/60 px-4 py-2 text-[12px] text-[#1A1A1A]/70 backdrop-blur">
+                  Code <span className="font-semibold text-[#1A1A1A]">PETS</span> saves $70 · Free shipping
                 </span>
               </div>
             </Reveal>
