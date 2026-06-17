@@ -677,7 +677,8 @@ const ParentsLandingPage = () => {
                         <ArrowRight className="h-4 w-4" />
                       </a>
                       <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                        30-day risk-free trial
+                        30-day risk-free trial-Free Shipping
+
                       </p>
                     </div>
                   </div>
