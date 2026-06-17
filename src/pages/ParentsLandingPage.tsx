@@ -248,13 +248,19 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ PROBLEM / PAIN ============ */}
-        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[880px] px-5 sm:px-10">
+        <section className="bg-[#F5F3EE] py-20 sm:py-28 lg:py-40">
+          <div className="mx-auto max-w-[920px] px-6 text-center">
             <Reveal>
-              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                You clean everything. So why is it never enough?
+              <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                The problem
+              </p>
+              <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                You clean everything.
+                <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  So why is it never enough?
+                </span>
               </h2>
-              <div className="mt-7 space-y-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
+              <div className="mx-auto mt-8 max-w-[680px] space-y-5 text-[1.05rem] leading-[1.7] text-foreground/70 sm:text-[1.15rem]">
                 <p>
                   You wash the sheets on hot. You wipe the rails. You run the purifier all night.
                   And still - the dust returns, settling on the crib, the carpet, the soft
@@ -270,6 +276,7 @@ const ParentsLandingPage = () => {
             </Reveal>
           </div>
         </section>
+
 
         {/* ============ THE SHIFT ============ */}
         <section className="bg-background py-16 sm:py-24 lg:py-32">
