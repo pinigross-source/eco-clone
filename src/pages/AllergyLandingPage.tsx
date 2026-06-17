@@ -215,10 +215,7 @@ const AllergyLandingPage = () => {
                 The problem
               </p>
               <h2
-                role="button"
-                tabIndex={0}
-                onClick={(e) => smoothScroll(e as unknown as React.MouseEvent<HTMLAnchorElement>, "products", "click_allergy_h2_pain")}
-                className="cursor-pointer font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground transition-colors hover:text-foreground/80 text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]"
+                className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground transition-colors hover:text-foreground/80 text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]"
               >
                 You did everything right.
                 <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
@@ -283,10 +280,7 @@ const AllergyLandingPage = () => {
                   Air purifier vs. EnviroBiotics
                 </p>
                 <h2
-                  role="button"
-                  tabIndex={0}
-                  onClick={(e) => smoothScroll(e as unknown as React.MouseEvent<HTMLAnchorElement>, "products", "click_allergy_h2_compare")}
-                  className="cursor-pointer font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]"
+                  className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]"
                 >
                   Two halves of one room. You&apos;ve only been treating one.
                 </h2>
@@ -398,19 +392,6 @@ const AllergyLandingPage = () => {
               ))}
             </ol>
 
-            <Reveal>
-              <div className="mt-12 flex justify-center">
-                <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_allergy_how_cta")}>
-                  <Button
-                    size="lg"
-                    className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
-                  >
-                    Reach What Your Filter Can&apos;t
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </a>
-              </div>
-            </Reveal>
           </div>
         </section>
 
@@ -423,10 +404,7 @@ const AllergyLandingPage = () => {
                   Built for the allergy-aware home
                 </p>
                 <h2
-                  role="button"
-                  tabIndex={0}
-                  onClick={(e) => smoothScroll(e as unknown as React.MouseEvent<HTMLAnchorElement>, "products", "click_allergy_h2_built")}
-                  className="cursor-pointer font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]"
+                  className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]"
                 >
                   Covers what a filter can&apos;t.
                 </h2>
@@ -790,35 +768,6 @@ const AllergyLandingPage = () => {
         </section>
 
 
-        {/* ============ BLOG BRIDGE ============ */}
-        <section className="bg-background py-14 sm:py-20">
-          <div className="mx-auto max-w-[820px] px-5 sm:px-10">
-            <Reveal>
-              <a
-                href="/blog"
-                onClick={() => trackCta("blog_bridge")}
-                className="group flex flex-col gap-3 rounded-3xl border border-border/60 bg-card p-7 transition hover:border-foreground/50 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:p-8"
-              >
-                <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground">
-                    Read next
-                  </p>
-                  <h3 className="mt-2 font-display text-[1.25rem] font-semibold tracking-[-0.015em] text-foreground sm:text-[1.4rem]">
-                    Where Household Allergens Actually Live (Hint: Not the Air)
-                  </h3>
-                  <p className="mt-1.5 text-[14.5px] leading-[1.6] text-muted-foreground sm:text-[15px]">
-                    Why a HEPA purifier alone never clears the dust, and what the filter
-                    can&apos;t reach.
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
-                  Read the guide
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </a>
-            </Reveal>
-          </div>
-        </section>
 
         {/* ============ FINAL CTA ============ */}
         <section className="relative overflow-hidden bg-[#0a0a0a] py-24 sm:py-32 lg:py-40">
@@ -844,22 +793,14 @@ const AllergyLandingPage = () => {
                 Your purifier handles the air. EnviroBiotics handles the surfaces allergens settle
                 into, quietly, chemical-free, around the clock.
               </p>
-              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+              <div className="mt-10 flex flex-col items-center justify-center">
                 <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_allergy_final_cta")}>
                   <Button
                     size="lg"
                     className="h-[3.5rem] rounded-full bg-white px-10 text-[16px] font-medium tracking-[-0.01em] text-[#0a0a0a] hover:bg-white/90"
                   >
-                    Reach What Your Filter Can&apos;t
+                    Choose your setup
                   </Button>
-                </a>
-                <a
-                  href="#products"
-                  onClick={(e) => smoothScroll(e, "products", "click_allergy_final_learn")}
-                  className="group inline-flex items-center gap-1.5 text-[16px] font-medium text-white/80 hover:text-white"
-                >
-                  See the lineup
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
               <p className="mt-8 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13px] font-medium text-white/55 sm:text-sm">
@@ -883,24 +824,6 @@ const AllergyLandingPage = () => {
         </section>
       </main>
 
-      {/* Sticky mobile bar */}
-      <div
-        className={`fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 backdrop-blur sm:hidden transition-transform duration-300 ${
-          showSticky ? "translate-y-0" : "translate-y-full"
-        }`}
-      >
-        <div className="flex items-center justify-between gap-3 px-4 py-3">
-          <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-foreground">30-day guarantee</p>
-            <p className="truncate text-xs text-muted-foreground">Silent · Chemical-free</p>
-          </div>
-          <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_allergy_sticky_cta")}>
-            <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-              Reach What Filter Can&apos;t
-            </Button>
-          </a>
-        </div>
-      </div>
     </>
   );
 };
