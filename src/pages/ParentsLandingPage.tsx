@@ -367,9 +367,9 @@ const ParentsLandingPage = () => {
                 The simplest way to explain it
               </p>
               <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
-                You already trust
+                You already know how this works,
                 <span className="block italic font-normal !text-[length:inherit] text-foreground/70" style={ITALIC_FONT}>
-                  this idea.
+                  for your gut.
                 </span>
               </h2>
               <p className="mx-auto mt-8 max-w-[680px] text-[1.05rem] leading-[1.7] text-foreground/70 sm:text-[1.2rem]">
