@@ -523,21 +523,25 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ PRODUCTS - 3 OPTIONS ============ */}
-        <section id="products" className="scroll-mt-24 bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
+        <section id="products" className="scroll-mt-24 bg-[#F5F3EE] py-20 sm:py-28 lg:py-36">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="mx-auto max-w-2xl text-center">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+              <div className="mx-auto max-w-3xl text-center">
+                <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
                   Choose your setup
                 </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3.25rem]">
-                  Start with the Biologic Mini <span className="font-serif italic font-normal"></span>
+                <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                  Start with
+                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                    the BioLogic Mini.
+                  </span>
                 </h2>
-                <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
+                <p className="mx-auto mt-6 max-w-[640px] text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.2rem]">
                   The Mini is what most parents start with for the nursery. Add a second for full-home coverage, or size up for open-plan spaces.
                 </p>
               </div>
             </Reveal>
+
 
             {/* FEATURED: The Mini */}
             <div className="mt-12 sm:mt-16">
