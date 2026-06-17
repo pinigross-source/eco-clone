@@ -836,11 +836,11 @@ const ParentsLandingPage = () => {
             <Reveal>
               <div className="text-center">
                 <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
-                  FAQ
+                  {"\n"}
                 </p>
                 <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
                   Parent questions,
-                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  <span className="block italic font-normal !text-[length:inherit] text-foreground/70" style={ITALIC_FONT}>
                     answered.
                   </span>
                 </h2>
