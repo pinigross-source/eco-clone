@@ -203,11 +203,6 @@ const AllergyLandingPage = () => {
                   </a>
                 </div>
               </Reveal>
-              <Reveal>
-                <p className="mt-5 text-center text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-6 sm:text-left sm:text-[13px]">
-                  Takes 60 seconds · Silent · Works while your purifier handles the air
-                </p>
-              </Reveal>
             </div>
           </div>
         </section>
