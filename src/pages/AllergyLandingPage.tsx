@@ -145,6 +145,7 @@ const AllergyLandingPage = () => {
     return v === "b" || v === "c" ? v : "a";
   }, []);
   const hero = HERO_VARIANTS[angle];
+  const [featuredProduct, setFeaturedProduct] = useState<'mini' | 'biotica'>('mini');
 
   const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string, eventName?: string) => {
     e.preventDefault();
@@ -472,82 +473,171 @@ const AllergyLandingPage = () => {
                   Choose your setup
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3.25rem]">
-                  Start with <span className="font-serif italic font-normal">Biotica.</span>
+                  Start with{" "}
+                  <span className="font-serif italic font-normal">
+                    {featuredProduct === 'mini' ? 'The Mini.' : 'Biotica.'}
+                  </span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
-                  Biotica is sized for the bedroom or main living room, the rooms with the biggest
-                  allergen reservoirs. Add a Mini for the second room, or size up with the bundle.
+                  {featuredProduct === 'mini'
+                    ? "The Mini is perfect for a bedroom, study, or guest room. Switch to Biotica for larger spaces, or size up with the bundle."
+                    : "Biotica is sized for the bedroom or main living room, the rooms with the biggest allergen reservoirs. Add a Mini for the second room, or size up with the bundle."}
                 </p>
+                {/* Toggle */}
+                <div className="mt-8 inline-flex items-center rounded-full bg-background p-1 ring-1 ring-black/[0.08]">
+                  <button
+                    onClick={() => setFeaturedProduct('mini')}
+                    className={`rounded-full px-5 py-2.5 text-[13px] font-semibold transition-all ${
+                      featuredProduct === 'mini'
+                        ? 'bg-foreground text-background shadow-sm'
+                        : 'text-foreground/60 hover:text-foreground'
+                    }`}
+                  >
+                    The Mini
+                  </button>
+                  <button
+                    onClick={() => setFeaturedProduct('biotica')}
+                    className={`rounded-full px-5 py-2.5 text-[13px] font-semibold transition-all ${
+                      featuredProduct === 'biotica'
+                        ? 'bg-foreground text-background shadow-sm'
+                        : 'text-foreground/60 hover:text-foreground'
+                    }`}
+                  >
+                    Biotica
+                  </button>
+                </div>
               </div>
             </Reveal>
 
-            {/* FEATURED: Biotica 800 */}
-            <div className="mt-12 sm:mt-16">
+            {/* FEATURED: dynamic */}
+            <div className="mt-10 sm:mt-12">
               <Reveal>
                 <div className="relative grid grid-cols-1 overflow-hidden rounded-3xl bg-card ring-2 ring-foreground shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] lg:grid-cols-2">
                   <div className="absolute right-5 top-5 z-10 rounded-full bg-foreground px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-background">
                     Recommended
                   </div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-6 lg:aspect-auto lg:min-h-[420px]">
-                    <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
-                      <img
-                        src={bioticaImg}
-                        alt="Biotica bedroom probiotic device"
-                        className="h-full w-full object-contain p-6 sm:p-10"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col p-6 sm:p-10 lg:p-12">
-                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
-                      Biotica · For the bedroom / main room
-                    </p>
-                    <h3 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
-                      Biotica
-                    </h3>
-                    <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
-                      Sits quietly in the room and keeps surfaces, fabrics, and air working in your
-                      favor, between every cleaning.
-                    </p>
-                    <ul className="mt-5 flex flex-col gap-3">
-                      {[
-                        "Covers up to 800 sq ft, built for bedrooms and main rooms",
-                        "Silent, runs overnight without the fan noise",
-                        "No sprays, no chemicals",
-                      ].map((f) => (
-                        <li
-                          key={f}
-                          className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]"
-                        >
-                          <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
-                          <span>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-6 border-t border-border/60 pt-5">
-                      <div className="mb-1 flex items-baseline gap-3">
-                        <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">
-                          $299
-                        </span>
+                  {featuredProduct === 'mini' ? (
+                    <>
+                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-6 lg:aspect-auto lg:min-h-[420px]">
+                        <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
+                          <img
+                            src={miniImg}
+                            alt="The Mini small-room probiotic device"
+                            className="h-full w-full object-contain p-6 sm:p-10"
+                            loading="lazy"
+                          />
+                        </div>
                       </div>
-                      <a
-                        href={BIOTICA_URL}
-                        onClick={() => trackEvent("click_allergy_products_biotica")}
-                        className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
-                      >
-                        Reach What Your Filter Can&apos;t
-                        <ArrowRight className="h-4 w-4" />
-                      </a>
-                      <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                        Free shipping · 30-day money-back · Cancel anytime
-                      </p>
-                    </div>
-                  </div>
+                      <div className="flex flex-col p-6 sm:p-10 lg:p-12">
+                        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
+                          The Mini · For small rooms & travel
+                        </p>
+                        <h3 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
+                          The Mini
+                        </h3>
+                        <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
+                          Compact, portable surface coverage for a study, guest room, or hotel, wherever
+                          you sleep.
+                        </p>
+                        <ul className="mt-5 flex flex-col gap-3">
+                          {[
+                            "Covers up to 300 sq ft",
+                            "Whisper-quiet on the nightstand",
+                            "Plug-and-go simplicity",
+                          ].map((f) => (
+                            <li
+                              key={f}
+                              className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]"
+                            >
+                              <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
+                              <span>{f}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="mt-6 border-t border-border/60 pt-5">
+                          <div className="flex items-baseline gap-2">
+                            <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">
+                              $98
+                            </span>
+                          </div>
+                          <a
+                            href={MINI_URL}
+                            onClick={() => trackEvent("click_allergy_products_mini")}
+                            className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+                          >
+                            Add The Mini
+                            <ArrowRight className="h-4 w-4" />
+                          </a>
+                          <p className="mt-3 text-center text-[11px] text-muted-foreground">
+                            Free shipping · 30-day money-back · Cancel anytime
+                          </p>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-6 lg:aspect-auto lg:min-h-[420px]">
+                        <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
+                          <img
+                            src={bioticaImg}
+                            alt="Biotica bedroom probiotic device"
+                            className="h-full w-full object-contain p-6 sm:p-10"
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex flex-col p-6 sm:p-10 lg:p-12">
+                        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
+                          Biotica · For the bedroom / main room
+                        </p>
+                        <h3 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
+                          Biotica
+                        </h3>
+                        <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
+                          Sits quietly in the room and keeps surfaces, fabrics, and air working in your
+                          favor, between every cleaning.
+                        </p>
+                        <ul className="mt-5 flex flex-col gap-3">
+                          {[
+                            "Covers up to 800 sq ft, built for bedrooms and main rooms",
+                            "Silent, runs overnight without the fan noise",
+                            "No sprays, no chemicals",
+                          ].map((f) => (
+                            <li
+                              key={f}
+                              className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]"
+                            >
+                              <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
+                              <span>{f}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="mt-6 border-t border-border/60 pt-5">
+                          <div className="mb-1 flex items-baseline gap-3">
+                            <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">
+                              $299
+                            </span>
+                          </div>
+                          <a
+                            href={BIOTICA_URL}
+                            onClick={() => trackEvent("click_allergy_products_biotica")}
+                            className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+                          >
+                            Reach What Your Filter Can&apos;t
+                            <ArrowRight className="h-4 w-4" />
+                          </a>
+                          <p className="mt-3 text-center text-[11px] text-muted-foreground">
+                            Free shipping · 30-day money-back · Cancel anytime
+                          </p>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </Reveal>
             </div>
 
-            {/* Upsell row: Bundle + Mini */}
+            {/* Upsell row: Bundle + the other product */}
             <div className="mt-5 grid grid-cols-1 gap-5 sm:mt-6 lg:grid-cols-2 lg:gap-6">
               <Reveal>
                 <div className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.08]">
@@ -612,69 +702,135 @@ const AllergyLandingPage = () => {
               </Reveal>
 
               <Reveal>
-                <div className="flex h-full flex-col overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.08]">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-5">
-                    <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
-                      <img
-                        src={miniImg}
-                        alt="The Mini small-room coverage"
-                        className="h-full w-full object-contain p-4 sm:p-6"
-                        loading="lazy"
-                      />
+                {featuredProduct === 'mini' ? (
+                  <div className="flex h-full flex-col overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.08]">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-5">
+                      <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
+                        <img
+                          src={bioticaImg}
+                          alt="Biotica bedroom probiotic device"
+                          className="h-full w-full object-contain p-4 sm:p-6"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-1 flex-col p-6 sm:p-8">
+                      <a
+                        href={BIOTICA_URL}
+                        onClick={() => trackEvent("click_allergy_biotica_title")}
+                        className="block cursor-pointer no-underline"
+                      >
+                        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                          For the bedroom / main room
+                        </p>
+                        <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground transition-colors hover:text-foreground/80 sm:text-[1.75rem]">
+                          Biotica
+                        </h3>
+                      </a>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                        Sits quietly in the room and keeps surfaces, fabrics, and air working in your
+                        favor, between every cleaning.
+                      </p>
+                      <ul className="mt-5 flex flex-1 flex-col gap-3">
+                        {[
+                          "Covers up to 800 sq ft, built for bedrooms and main rooms",
+                          "Silent, runs overnight without the fan noise",
+                          "No sprays, no chemicals",
+                        ].map((f) => (
+                          <li
+                            key={f}
+                            className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]"
+                          >
+                            <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-6 border-t border-border/60 pt-5">
+                        <div className="mb-1 flex items-baseline gap-3">
+                          <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">
+                            $299
+                          </span>
+                        </div>
+                        <a
+                          href={BIOTICA_URL}
+                          onClick={() => trackEvent("click_allergy_products_biotica")}
+                          className="mt-4 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+                        >
+                          Reach What Your Filter Can&apos;t
+                          <ArrowRight className="h-4 w-4" />
+                        </a>
+                        <p className="mt-3 text-center text-[11px] text-muted-foreground">
+                          30-day risk-free trial
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex flex-1 flex-col p-6 sm:p-8">
-                    <a
-                      href={MINI_URL}
-                      onClick={() => trackEvent("click_allergy_mini_title")}
-                      className="block cursor-pointer no-underline"
-                    >
-                      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                        Small rooms & travel
-                      </p>
-                      <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground transition-colors hover:text-foreground/80 sm:text-[1.75rem]">
-                        The Mini
-                      </h3>
-                    </a>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                      Compact, portable surface coverage for a study, guest room, or hotel, wherever
-                      you sleep.
-                    </p>
-                    <ul className="mt-5 flex flex-1 flex-col gap-3">
-                      {[
-                        "Covers up to 300 sq ft",
-                        "Whisper-quiet on the nightstand",
-                        "Plug-and-go simplicity",
-                      ].map((f) => (
-                        <li
-                          key={f}
-                          className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]"
-                        >
-                          <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
-                          <span>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-6 border-t border-border/60 pt-5">
-                      <div className="flex items-baseline gap-2">
-                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">
-                          $98
-                        </span>
+                ) : (
+                  <div className="flex h-full flex-col overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.08]">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-5">
+                      <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
+                        <img
+                          src={miniImg}
+                          alt="The Mini small-room coverage"
+                          className="h-full w-full object-contain p-4 sm:p-6"
+                          loading="lazy"
+                        />
                       </div>
+                    </div>
+                    <div className="flex flex-1 flex-col p-6 sm:p-8">
                       <a
                         href={MINI_URL}
-                        onClick={() => trackEvent("click_allergy_products_mini")}
-                        className="mt-4 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+                        onClick={() => trackEvent("click_allergy_mini_title")}
+                        className="block cursor-pointer no-underline"
                       >
-                        Add The Mini
-                        <ArrowRight className="h-4 w-4" />
+                        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                          Small rooms & travel
+                        </p>
+                        <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground transition-colors hover:text-foreground/80 sm:text-[1.75rem]">
+                          The Mini
+                        </h3>
                       </a>
-                      <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                        30-day risk-free trial
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                        Compact, portable surface coverage for a study, guest room, or hotel, wherever
+                        you sleep.
                       </p>
+                      <ul className="mt-5 flex flex-1 flex-col gap-3">
+                        {[
+                          "Covers up to 300 sq ft",
+                          "Whisper-quiet on the nightstand",
+                          "Plug-and-go simplicity",
+                        ].map((f) => (
+                          <li
+                            key={f}
+                            className="flex items-start gap-3 text-sm text-muted-foreground sm:text-[0.95rem]"
+                          >
+                            <Check className="mt-0.5 h-4 w-4 flex-none text-foreground" strokeWidth={1.75} />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-6 border-t border-border/60 pt-5">
+                        <div className="flex items-baseline gap-2">
+                          <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">
+                            $98
+                          </span>
+                        </div>
+                        <a
+                          href={MINI_URL}
+                          onClick={() => trackEvent("click_allergy_products_mini")}
+                          className="mt-4 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
+                        >
+                          Add The Mini
+                          <ArrowRight className="h-4 w-4" />
+                        </a>
+                        <p className="mt-3 text-center text-[11px] text-muted-foreground">
+                          30-day risk-free trial
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </Reveal>
             </div>
           </div>
