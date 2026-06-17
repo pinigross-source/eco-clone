@@ -285,9 +285,10 @@ const ParentsLandingPage = () => {
                   Clean the air&nbsp;and the surfaces, too.
                 </h2>
                 <p className="mx-auto mt-6 max-w-[640px] text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.2rem]">
-                  EnviroBiotics works continuously on the surfaces in the room - quietly, in the
-                  background, long after a wipe-down or a purifier cycle is done. It keeps the
-                  nursery cleaner between cleanings, all by itself. No chemicals. No filters. No noise.
+                  EnviroBiotics settles probiotics onto the surfaces of the room, where they quietly break down the organic debris that allergens come from, and keep working between cleanings.
+                </p>
+                <p className="mx-auto mt-4 max-w-[640px] text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.2rem]">
+                  It's not a filter, and it's not a spray. It's a probiotic solution.
                 </p>
               </div>
               <div className="mt-14 overflow-hidden rounded-[2rem] ring-1 ring-black/[0.06] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] sm:mt-16">
