@@ -112,7 +112,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         Clean air is great.
         <br />
-        <span className="italic font-semibold block mt-2 text-[0.85em]" style={ITALIC_FONT}>
+        <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
           But your baby lives
           <br />
           on the floor.
