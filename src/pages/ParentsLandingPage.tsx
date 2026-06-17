@@ -118,9 +118,8 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
   a: {
     headline: (
       <>
-        Clean air is great.
-        <br />
-        <span className="italic font-normal !text-[length:inherit] leading-tight" style={ITALIC_FONT_HERO}>
+        <span className="block">Clean air is great.</span>
+        <span className="block mt-1 italic font-normal text-[0.85em] leading-tight" style={ITALIC_FONT_HERO}>
           But Your baby lives
           <br />
           on the floor.
@@ -132,9 +131,8 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
   b: {
     headline: (
       <>
-        You can&apos;t wipe down the nursery every hour.
-        <br />
-        <span className="italic font-normal !text-[length:inherit]" style={ITALIC_FONT_HERO}>
+        <span className="block">You can&apos;t wipe down the nursery every hour.</span>
+        <span className="block mt-1 italic font-normal text-[0.85em] leading-tight" style={ITALIC_FONT_HERO}>
           So we made something that does it for you.
         </span>
       </>
@@ -144,9 +142,8 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
   c: {
     headline: (
       <>
-        It all ends up in their mouth eventually.
-        <br />
-        <span className="italic font-normal !text-[length:inherit]" style={ITALIC_FONT_HERO}>
+        <span className="block">It all ends up in their mouth eventually.</span>
+        <span className="block mt-1 italic font-normal text-[0.85em] leading-tight" style={ITALIC_FONT_HERO}>
           Start with cleaner surfaces.
         </span>
       </>
