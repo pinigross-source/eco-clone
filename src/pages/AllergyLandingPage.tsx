@@ -7,9 +7,6 @@ import {
   VolumeX,
   Leaf,
   Sparkles,
-  Baby,
-  PawPrint,
-  User,
 } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
