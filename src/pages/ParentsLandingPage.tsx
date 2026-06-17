@@ -118,9 +118,8 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
   a: {
     headline: (
       <>
-        Clean air is great.
-        <br />
-        <span className="italic font-normal !text-[length:inherit] leading-tight" style={ITALIC_FONT_HERO}>
+        <span className="block">Clean air is great.</span>
+        <span className="block mt-1 italic font-normal text-[0.85em] leading-tight" style={ITALIC_FONT_HERO}>
           But Your baby lives
           <br />
           on the floor.
@@ -132,9 +131,8 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
   b: {
     headline: (
       <>
-        You can&apos;t wipe down the nursery every hour.
-        <br />
-        <span className="italic font-normal !text-[length:inherit]" style={ITALIC_FONT_HERO}>
+        <span className="block">You can&apos;t wipe down the nursery every hour.</span>
+        <span className="block mt-1 italic font-normal text-[0.85em] leading-tight" style={ITALIC_FONT_HERO}>
           So we made something that does it for you.
         </span>
       </>
@@ -144,9 +142,8 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
   c: {
     headline: (
       <>
-        It all ends up in their mouth eventually.
-        <br />
-        <span className="italic font-normal !text-[length:inherit]" style={ITALIC_FONT_HERO}>
+        <span className="block">It all ends up in their mouth eventually.</span>
+        <span className="block mt-1 italic font-normal text-[0.85em] leading-tight" style={ITALIC_FONT_HERO}>
           Start with cleaner surfaces.
         </span>
       </>
@@ -217,7 +214,7 @@ const ParentsLandingPage = () => {
               </h1>
             </Reveal>
             <Reveal>
-              <div className="mx-auto mt-6 sm:mt-8 inline-block rounded-2xl bg-[#f7f3ec]/70 px-6 py-4 sm:px-8 sm:py-5 backdrop-blur-sm">
+              <div className="mx-auto mt-6 sm:mt-8 inline-block rounded-3xl bg-[#f7f3ec]/40 px-8 py-6 sm:px-10 sm:py-7 backdrop-blur-xl border border-white/50 shadow-sm">
                 <p className="max-w-[36rem] text-[1.15rem] font-normal leading-[1.55] text-foreground/90 sm:max-w-[40rem] sm:text-[1.35rem] sm:leading-[1.5]">
                   {hero.sub}
                 </p>
@@ -231,7 +228,7 @@ const ParentsLandingPage = () => {
                 >
                   <Button
                     size="lg"
-                    className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]"
+                    className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 active:scale-95 shadow-lg shadow-black/10 transition-all sm:h-[3.5rem] sm:px-10 sm:text-[16px]"
                   >
                     Secure My Baby&apos;s Space
                   </Button>
