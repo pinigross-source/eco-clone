@@ -417,3 +417,95 @@
 /* EnviroBiotics text accent utilities */
 .text-heading-accent { color: hsl(var(--heading-accent)); }
 .text-eyebrow-accent { color: hsl(var(--eyebrow-accent)); }
+
+/* ============================================================
+   Parents landing — Apple-inspired visual system.
+   Scoped via .parents-apple so other pages are unaffected.
+   ============================================================ */
+.parents-apple {
+  --background: 0 0% 100%;
+  --foreground: 220 9% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 9% 12%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 6% 38%;
+  --border: 220 13% 91%;
+  --primary: 211 100% 45%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 220 9% 12%;
+  --accent-foreground: 0 0% 100%;
+  --apple-gray: 220 14% 96%;
+  --apple-blue: 211 100% 45%;
+
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.parents-apple h1,
+.parents-apple h2,
+.parents-apple h3,
+.parents-apple .font-display {
+  font-family: "SF Pro Display", "General Sans", "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+.parents-apple h1 { letter-spacing: -0.05em; font-weight: 700; }
+.parents-apple h2 { letter-spacing: -0.04em; font-weight: 600; }
+
+.parents-apple p,
+.parents-apple li,
+.parents-apple a,
+.parents-apple span,
+.parents-apple button {
+  font-family: "SF Pro Text", "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+/* Replace warm beige section washes with Apple's signature gray */
+.parents-apple section[class*="bg-[#F5F3EE]"],
+.parents-apple section[class*="bg-[#F4EFE6]"] {
+  background-color: hsl(var(--apple-gray)) !important;
+}
+.parents-apple [class*="bg-[#FBF9F4]"] { background-color: hsl(220 14% 98%) !important; }
+.parents-apple [class*="bg-[#F4EFE6]"] { background-color: hsl(var(--apple-gray)) !important; }
+
+/* Eyebrow labels — restrained, mid-grey, no scream-caps */
+.parents-apple p.uppercase,
+.parents-apple p[class*="uppercase"] {
+  color: hsl(var(--muted-foreground)) !important;
+  text-transform: none !important;
+  letter-spacing: -0.005em !important;
+  font-weight: 500 !important;
+  font-size: 19px !important;
+  line-height: 1.4 !important;
+}
+
+/* Pill CTAs in Apple blue */
+.parents-apple a[class*="bg-foreground"],
+.parents-apple button[class*="bg-foreground"] {
+  background-color: hsl(var(--apple-blue)) !important;
+  color: #fff !important;
+  border-radius: 9999px !important;
+  box-shadow: none !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  transition: background-color 200ms ease;
+}
+.parents-apple a[class*="bg-foreground"]:hover,
+.parents-apple button[class*="bg-foreground"]:hover {
+  background-color: hsl(211 100% 50%) !important;
+}
+
+/* Hairline borders instead of warm rings; flatten heavy shadows */
+.parents-apple [class*="ring-black"] { --tw-ring-color: hsl(220 13% 88%) !important; }
+.parents-apple [class*="shadow-["] {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 12px 32px rgba(0,0,0,0.05) !important;
+}
+.parents-apple [class*="ring-2"][class*="ring-foreground"] {
+  --tw-ring-color: hsl(var(--foreground)) !important;
+}
+
+/* Section vertical rhythm — more breathing room */
+.parents-apple section { padding-top: clamp(5rem, 9vw, 8rem); padding-bottom: clamp(5rem, 9vw, 8rem); }
+
