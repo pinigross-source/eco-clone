@@ -255,9 +255,9 @@ const ParentsLandingPage = () => {
                 {"\n"}
               </p>
               <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
-                You clean everything.
+                You did everything right.
                 <span className="block italic font-normal !text-[length:inherit] text-foreground/70" style={ITALIC_FONT}>
-                  So why is it never enough?
+                  The air purifier still isn't enough.
                 </span>
               </h2>
               <div className="mx-auto mt-8 max-w-[680px] space-y-5 text-[1.05rem] leading-[1.7] text-foreground/70 sm:text-[1.15rem]">
