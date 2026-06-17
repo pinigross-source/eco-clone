@@ -888,34 +888,6 @@ const ParentsLandingPage = () => {
         </section>
 
 
-        {/* ============ BLOG BRIDGE ============ */}
-        <section className="bg-background py-14 sm:py-20">
-          <div className="mx-auto max-w-[820px] px-5 sm:px-10">
-            <Reveal>
-              <a
-                href="/blog"
-                onClick={() => trackCta("blog_bridge")}
-                className="group flex flex-col gap-3 rounded-3xl border border-border/60 bg-card p-7 transition hover:border-foreground/50 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:p-8"
-              >
-                <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground">
-                    Read next
-                  </p>
-                  <h3 className="mt-2 font-display text-[1.25rem] font-semibold tracking-[-0.015em] text-foreground sm:text-[1.4rem]">
-                    5 Hidden Toxins in Your Nursery
-                  </h3>
-                  <p className="mt-1.5 text-[14.5px] leading-[1.6] text-muted-foreground sm:text-[15px]">
-                    The everyday sources of dust, VOCs, and buildup most parents miss.
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
-                  Read the guide
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </a>
-            </Reveal>
-          </div>
-        </section>
 
         {/* ============ FINAL CTA ============ */}
         <section className="relative overflow-hidden bg-[#F4EFE6] py-20 sm:py-28 lg:py-36">
