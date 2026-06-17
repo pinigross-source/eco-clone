@@ -732,6 +732,17 @@ const ParentsLandingPage = () => {
           </div>
         </section>
 
+        {/* ============ 30-NIGHT GUARANTEE ============ */}
+        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-[860px] px-5 text-center sm:px-10">
+            <Reveal>
+              <p className="font-display text-[1.4rem] font-medium leading-[1.45] text-foreground sm:text-[1.75rem] lg:text-[2rem]">
+                What if it&apos;s not for us? Try it for 30 nights. If it&apos;s not for you, send it back for a full refund. No questions.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
         {/* ============ CERTIFICATIONS / SAFETY ============ */}
         <section className="relative w-full overflow-hidden bg-white py-20 sm:py-28">
           <div className="relative mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
