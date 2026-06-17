@@ -116,6 +116,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
           But your baby lives
           <br />
           on the floor.
+          {"\n\n\n"}
         </span>
       </>
     ),
@@ -445,7 +446,7 @@ const ParentsLandingPage = () => {
                   {"\n"}
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                  The\u00a0BioLogic Mini. Made with the nursery in mind.
+                  The BioLogic Mini. Made with the nursery in mind.
                 </h2>
               </div>
             </Reveal>
@@ -502,7 +503,7 @@ const ParentsLandingPage = () => {
                   Choose your setup
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3.25rem]">
-                  Start with <span className="font-serif italic font-normal">The\u00a0Biologic</span>
+                  Start with the Biologic Mini <span className="font-serif italic font-normal"></span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
                   The Mini is what most parents start with for the nursery. Add a second for full-home coverage, or size up for open-plan spaces.
