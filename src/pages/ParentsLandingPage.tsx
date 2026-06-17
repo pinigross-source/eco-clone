@@ -209,7 +209,7 @@ const ParentsLandingPage = () => {
                 </h1>
               </Reveal>
               <Reveal>
-                <p className="mx-auto mt-7 max-w-[36rem] text-[1.25rem] font-normal leading-[1.6] text-foreground/80 sm:mx-0 sm:mt-9 sm:max-w-[38rem] sm:text-[1.35rem] sm:leading-[1.55] lg:text-[1.45rem]" style={{ textShadow: '0 2px 16px rgba(247,243,236,0.5), 0 1px 3px rgba(247,243,236,0.3)' }}>
+                <p className="mx-auto mt-7 max-w-[36rem] text-[1.35rem] font-normal leading-[1.6] text-foreground/80 sm:mx-0 sm:mt-9 sm:max-w-[38rem] sm:text-[1.45rem] sm:leading-[1.55] lg:text-[1.55rem]" style={{ textShadow: '0 2px 16px rgba(247,243,236,0.5), 0 1px 3px rgba(247,243,236,0.3)' }}>
                   {hero.sub}
                 </p>
               </Reveal>
