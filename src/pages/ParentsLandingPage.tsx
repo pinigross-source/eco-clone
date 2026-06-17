@@ -209,9 +209,11 @@ const ParentsLandingPage = () => {
               </h1>
             </Reveal>
             <Reveal>
-              <p className="mx-auto mt-6 max-w-[36rem] text-[1.05rem] font-normal leading-[1.55] text-foreground/70 sm:mt-8 sm:max-w-[40rem] sm:text-[1.2rem] sm:leading-[1.5]">
-                {hero.sub}
-              </p>
+              <div className="mx-auto mt-6 sm:mt-8 inline-block rounded-2xl bg-[#f7f3ec]/70 px-6 py-4 sm:px-8 sm:py-5 backdrop-blur-sm">
+                <p className="max-w-[36rem] text-[1.15rem] font-normal leading-[1.55] text-foreground/90 sm:max-w-[40rem] sm:text-[1.35rem] sm:leading-[1.5]">
+                  {hero.sub}
+                </p>
+              </div>
             </Reveal>
             <Reveal>
               <div className="mt-9 flex flex-col items-center gap-4 sm:mt-11">
