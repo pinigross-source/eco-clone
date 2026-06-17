@@ -24,7 +24,8 @@ import {
 import miniImg from "@/assets/shop/biologic-mini.png";
 import bioticaImg from "@/assets/shop/biotica-800.png";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
-import heroImg from "@/assets/allergy-hero.avif.asset.json";
+import heroImgAsset from "@/assets/allergy-hero.avif.asset.json";
+const heroImg = heroImgAsset.url;
 import beddingImg from "@/assets/difference-bedding.jpg";
 import finalBgImg from "@/assets/edu-bedroom-allergens.jpg";
 import allergyBadge from "@/assets/allergy-free-badge.png";
