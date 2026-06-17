@@ -932,11 +932,6 @@ const ParentsLandingPage = () => {
                 <span className="opacity-40">·</span>
                 <span className="inline-flex items-center gap-1.5">
                   <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
-                  {"\n"}
-                </span>
-                <span className="opacity-40">·</span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
                   Cancel anytime
                 </span>
               </p>
