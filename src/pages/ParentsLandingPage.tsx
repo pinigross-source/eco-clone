@@ -833,16 +833,22 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ FAQ ============ */}
-        <section className="bg-background py-16 sm:py-24 lg:py-32">
+        <section className="bg-background py-20 sm:py-28 lg:py-36">
           <div className="mx-auto max-w-[880px] px-5 sm:px-10">
             <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                FAQ
-              </p>
-              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                Parent questions, answered.
-              </h2>
+              <div className="text-center">
+                <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                  FAQ
+                </p>
+                <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                  Parent questions,
+                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                    answered.
+                  </span>
+                </h2>
+              </div>
             </Reveal>
+
             <Accordion type="single" collapsible className="mt-10 w-full space-y-4 sm:mt-12">
               {[
                 {
