@@ -474,22 +474,18 @@ const ParentsLandingPage = () => {
                 {
                   icon: ShieldCheck,
                   title: "Out of reach, out of mind",
-                  copy: "Compact enough to sit high on a shelf.",
                 },
                 {
                   icon: VolumeX,
                   title: "Nap-proof quiet",
-                  copy: "Whisper-soft - designed to disappear into the background.",
                 },
                 {
                   icon: Leaf,
                   title: "No harsh chemicals",
-                  copy: "Nothing to spray near where baby sleeps.",
                 },
                 {
                   icon: Sparkles,
                   title: "Set-and-forget",
-                  copy: "Covers one room continuously. No filters, no refills to remember.",
                 },
               ].map((p) => {
                 const Icon = p.icon;
@@ -502,9 +498,6 @@ const ParentsLandingPage = () => {
                       <h3 className="mt-5 text-[1.05rem] font-semibold text-foreground sm:text-[1.125rem]">
                         {p.title}
                       </h3>
-                      <p className="mt-2 text-[14.5px] leading-[1.7] text-muted-foreground sm:text-[15px]">
-                        {p.copy}
-                      </p>
                     </div>
                   </Reveal>
                 );
