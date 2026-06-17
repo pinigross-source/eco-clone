@@ -186,56 +186,54 @@ const ParentsLandingPage = () => {
 
       <main className="parents-apple bg-background text-foreground">
         {/* ============ HERO ============ */}
-        <section className="relative w-full overflow-hidden h-[92svh] min-h-[620px] sm:h-[760px] lg:h-[780px]">
+        <section className="relative w-full overflow-hidden h-[100svh] min-h-[680px] sm:min-h-[760px]">
           <img
             src={heroImg}
             alt="Soft, warm nursery in morning light"
-            className="absolute inset-0 h-full w-full object-cover object-[70%_35%] sm:object-[68%_center] lg:object-[62%_center]"
+            className="absolute inset-0 h-full w-full object-cover object-center scale-105"
             fetchPriority="high"
             loading="eager"
             decoding="async"
             width={1920}
             height={1080}
           />
+          {/* Apple-style scrim: bright top fade for legibility, soft bottom fade into next chapter */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-[#f7f3ec]/90 via-[#f7f3ec]/45 to-transparent sm:bg-gradient-to-r sm:from-[#f7f3ec]/92 sm:via-[#f7f3ec]/45 sm:via-40% sm:to-transparent"
+            className="absolute inset-0 bg-gradient-to-b from-[#f7f3ec]/90 via-[#f7f3ec]/25 to-[#f7f3ec]"
           />
-          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-center px-5 pb-8 pt-24 text-center sm:items-start sm:px-10 sm:pb-0 sm:pt-0 sm:text-left lg:px-16">
-            <div className="mx-auto w-full max-w-[36rem] sm:mx-0 sm:max-w-[48rem]">
-              <Reveal>
-                <h1 className="font-display font-bold tracking-[-0.035em] text-foreground text-[clamp(2.5rem,9vw,3rem)] leading-[1.02] sm:text-[clamp(3.25rem,6vw,4.5rem)] sm:leading-[1.02] lg:text-[clamp(4rem,5.2vw,5.5rem)] lg:leading-[1.0]" style={{ textShadow: '0 2px 20px rgba(247,243,236,0.5), 0 1px 4px rgba(247,243,236,0.3)' }}>
-                  {hero.headline}
-                </h1>
-              </Reveal>
-              <Reveal>
-                <p className="mx-auto mt-7 max-w-[36rem] text-[1.35rem] font-normal leading-[1.6] text-foreground/80 sm:mx-0 sm:mt-9 sm:max-w-[38rem] sm:text-[1.45rem] sm:leading-[1.55] lg:text-[1.55rem]" style={{ textShadow: '0 2px 16px rgba(247,243,236,0.5), 0 1px 3px rgba(247,243,236,0.3)' }}>
-                  {hero.sub}
-                </p>
-              </Reveal>
-              <Reveal>
-                <div className="mt-8 flex flex-col items-stretch gap-3.5 sm:mt-10 sm:flex-row sm:items-center sm:gap-5">
-                  <a
-                    href="https://shop.envirobiotics.com/products/biologic-mini"
-                    onClick={() => trackEvent("click_parents_hero_cta")}
-                    className="sm:w-auto"
+          <div className="relative z-10 mx-auto flex h-full max-w-[1120px] flex-col items-center justify-start px-6 pt-24 sm:pt-28 lg:pt-32 text-center">
+            <Reveal>
+              <h1 className="font-display font-semibold text-foreground tracking-[-0.04em] text-[clamp(2.5rem,8vw,3.25rem)] leading-[1.02] sm:text-[clamp(3.5rem,6.5vw,5rem)] sm:leading-[1.0] lg:text-[clamp(4rem,5vw,5.75rem)]">
+                {hero.headline}
+              </h1>
+            </Reveal>
+            <Reveal>
+              <p className="mx-auto mt-6 max-w-[36rem] text-[1.05rem] font-normal leading-[1.55] text-foreground/70 sm:mt-8 sm:max-w-[40rem] sm:text-[1.2rem] sm:leading-[1.5]">
+                {hero.sub}
+              </p>
+            </Reveal>
+            <Reveal>
+              <div className="mt-9 flex flex-col items-center gap-4 sm:mt-11">
+                <a
+                  href="https://shop.envirobiotics.com/products/biologic-mini"
+                  onClick={() => trackEvent("click_parents_hero_cta")}
+                >
+                  <Button
+                    size="lg"
+                    className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]"
                   >
-                    <Button
-                      size="lg"
-                      className="h-[3.75rem] w-full rounded-full bg-foreground px-10 text-[17px] font-semibold tracking-[-0.01em] text-background shadow-[0_20px_50px_-14px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90 sm:h-[4rem] sm:w-auto sm:px-12 sm:text-[18px]"
-                    >
-                      Secure My Baby&apos;s Space
-                      <ArrowRight className="ml-2.5 h-5 w-5 sm:h-6 sm:w-6" />
-                    </Button>
-                  </a>
-                </div>
-              </Reveal>
-              <Reveal>
-                <p className="mt-5 text-[12.5px] font-medium leading-relaxed text-foreground/70 sm:mt-6 sm:text-[13px]">
-                  {"\n"}
-                </p>
-              </Reveal>
-            </div>
+                    Secure My Baby&apos;s Space
+                  </Button>
+                </a>
+              </div>
+            </Reveal>
+          </div>
+          {/* Scroll cue */}
+          <div className="pointer-events-none absolute bottom-8 left-1/2 z-10 -translate-x-1/2 animate-bounce text-foreground/40">
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
           </div>
         </section>
 
