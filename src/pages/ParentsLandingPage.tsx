@@ -262,15 +262,10 @@ const ParentsLandingPage = () => {
               </h2>
               <div className="mx-auto mt-8 max-w-[680px] space-y-5 text-[1.05rem] leading-[1.7] text-foreground/70 sm:text-[1.15rem]">
                 <p>
-                  You wash the sheets on hot. You wipe the rails. You run the purifier all night.
-                  And still - the dust returns, settling on the crib, the carpet, the soft
-                  spaces where your baby spends almost every hour of the day.
+                  You bought the HEPA. You run it every night. You wash the sheets, you dust, you vacuum. But it's like none of it happened.
                 </p>
                 <p>
-                  Here&apos;s what no one tells you: a purifier only treats the air passing
-                  through it. It can&apos;t reach surfaces. And surfaces are where dust
-                  and everyday buildup settles - exactly where your baby plays, sleeps,
-                  and explores.
+                  Here's what no one tells you: allergens don't spend their lives in the air. Dust-mite waste, pollen, pet dander, mold spores settle, and live in the soft surfaces of the room. The mattress. The pillows. The carpet. The couch. Air purifiers only catch the fraction that happens to be airborne at any moment. The reservoir, that keeps refilling the air, sits in your surfaces, completely out of its reach.
                 </p>
               </div>
             </Reveal>
