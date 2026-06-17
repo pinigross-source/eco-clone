@@ -562,7 +562,7 @@ const ParentsLandingPage = () => {
                         <ArrowRight className="h-4 w-4" />
                       </a>
                       <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                        Free shipping · 30-day money-back · Cancel anytime
+                        30-day money-back · Cancel anytime
                       </p>
                     </div>
                   </div>
