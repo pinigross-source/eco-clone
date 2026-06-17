@@ -373,10 +373,7 @@ const ParentsLandingPage = () => {
                 </span>
               </h2>
               <p className="mx-auto mt-8 max-w-[680px] text-[1.05rem] leading-[1.7] text-foreground/70 sm:text-[1.2rem]">
-                You give your little one probiotics - the good cultures in yogurt that keep their
-                gut balanced and healthy. EnviroBiotics works on the same simple idea, for the room:
-                it settles a layer of beneficial cultures onto surfaces that keeps them cleaner and
-                more balanced over time. The gentle, natural way. No harsh chemicals.
+                You've heard of probiotics for your gut: good cultures that keep things in balance. EnviroBiotics is the same idea for the room. Good cultures settle onto your surfaces and break down the organic debris that dust mites feed on and that allergens cling to, quietly, continuously, the natural way. No harsh chemicals.
               </p>
             </Reveal>
           </div>
