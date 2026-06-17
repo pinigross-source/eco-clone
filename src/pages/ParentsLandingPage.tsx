@@ -366,16 +366,19 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ THE SCIENCE, GENTLY ============ */}
-        <section className="bg-background py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[820px] px-5 sm:px-10">
+        <section className="bg-background py-20 sm:py-28 lg:py-36">
+          <div className="mx-auto max-w-[920px] px-6 text-center">
             <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+              <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
                 The simplest way to explain it
               </p>
-              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                You already trust this idea.
+              <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                You already trust
+                <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  this idea.
+                </span>
               </h2>
-              <p className="mt-6 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.15rem]">
+              <p className="mx-auto mt-8 max-w-[680px] text-[1.05rem] leading-[1.7] text-foreground/70 sm:text-[1.2rem]">
                 You give your little one probiotics - the good cultures in yogurt that keep their
                 gut balanced and healthy. EnviroBiotics works on the same simple idea, for the room:
                 it settles a layer of beneficial cultures onto surfaces that keeps them cleaner and
@@ -384,6 +387,7 @@ const ParentsLandingPage = () => {
             </Reveal>
           </div>
         </section>
+
 
         {/* ============ HOW IT WORKS ============ */}
         <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
