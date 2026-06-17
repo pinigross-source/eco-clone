@@ -216,29 +216,34 @@ const AllergyLandingPage = () => {
         </section>
 
         {/* ============ PROBLEM / PAIN ============ */}
-        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[880px] px-5 sm:px-10">
+        <section className="bg-[#F5F3EE] py-20 sm:py-28 lg:py-40">
+          <div className="mx-auto max-w-[920px] px-6 text-center">
             <Reveal>
+              <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                The problem
+              </p>
               <h2
                 role="button"
                 tabIndex={0}
                 onClick={(e) => smoothScroll(e as unknown as React.MouseEvent<HTMLAnchorElement>, "products", "click_allergy_h2_pain")}
-                className="cursor-pointer font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]"
+                className="cursor-pointer font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground transition-colors hover:text-foreground/80 text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]"
               >
-                You did everything right. The purifier still isn&apos;t enough.
+                You did everything right.
+                <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  The purifier still isn&apos;t enough.
+                </span>
               </h2>
-              <div className="mt-7 space-y-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
+              <div className="mx-auto mt-8 max-w-[680px] space-y-5 text-[1.05rem] leading-[1.7] text-foreground/70 sm:text-[1.15rem]">
                 <p>
                   You bought the HEPA. You run it every night. You wash the sheets, you dust, you
                   vacuum. And the dust keeps coming back like none of it happened.
                 </p>
                 <p>
-                  Here&apos;s what no one selling you a filter mentions: allergens don&apos;t spend
-                  their lives in the air. Dust-mite waste, pollen, pet dander, mold spores. They
-                  settle, and they live in the soft surfaces of the room. The mattress. The pillows.
-                  The carpet. The couch. A purifier can only catch the small fraction that happens to
-                  be airborne at any moment. The reservoir, the part that keeps refilling the air,
-                  sits in your surfaces, completely out of its reach.
+                  Allergens don&apos;t spend their lives in the air. Dust-mite waste, pollen, pet
+                  dander, mold spores. They settle, and they live in the soft surfaces of the room.
+                  A purifier can only catch the small fraction that happens to be airborne. The
+                  reservoir, the part that keeps refilling the air, sits in your surfaces, completely
+                  out of its reach.
                 </p>
               </div>
             </Reveal>
