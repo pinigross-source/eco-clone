@@ -174,12 +174,12 @@ const AllergyLandingPage = () => {
                   href="#products"
                   onClick={(e) => smoothScroll(e, "products", "click_allergy_hero_cta")}
                 >
-                  <Button
-                    size="lg"
-                    className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]"
-                  >
-                    Choose your setup
-                  </Button>
+                <Button
+                  size="lg"
+                  className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]"
+                >
+                  Target Allergens Where They Settle
+                </Button>
                 </a>
               </div>
             </Reveal>
