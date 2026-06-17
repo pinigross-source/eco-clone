@@ -102,7 +102,15 @@ const Reveal = ({
 type Angle = "a" | "b" | "c";
 
 const ITALIC_FONT: React.CSSProperties = {
-  fontFamily: "'Playfair Display', serif",
+  fontFamily: "'Instrument Serif', 'Playfair Display', serif",
+  fontWeight: 400,
+  letterSpacing: "-0.01em",
+};
+
+const ITALIC_FONT_HERO: React.CSSProperties = {
+  fontFamily: "'Instrument Serif', 'Playfair Display', serif",
+  fontWeight: 400,
+  letterSpacing: "-0.01em",
   textShadow: "0 2px 24px rgba(247, 243, 236, 0.65), 0 1px 6px rgba(247, 243, 236, 0.45)",
 };
 
