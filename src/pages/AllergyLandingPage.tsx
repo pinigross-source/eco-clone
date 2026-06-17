@@ -115,14 +115,6 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
 };
 
 const AllergyLandingPage = () => {
-  const [showSticky, setShowSticky] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setShowSticky(window.scrollY > 600);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const angle: Angle = useMemo(() => {
     if (typeof window === "undefined") return "a";
     const v = new URLSearchParams(window.location.search).get("v");
@@ -136,10 +128,6 @@ const AllergyLandingPage = () => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
-
-  const trackCta = (where: string) => trackEvent(`click_allergy_${where}`);
-
-  const [quizAnswer, setQuizAnswer] = useState<"baby" | "pets" | "me" | null>(null);
 
   return (
     <>
