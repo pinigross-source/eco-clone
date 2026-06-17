@@ -102,7 +102,15 @@ const Reveal = ({
 type Angle = "a" | "b" | "c";
 
 const ITALIC_FONT: React.CSSProperties = {
-  fontFamily: "'Playfair Display', serif",
+  fontFamily: "'Instrument Serif', 'Playfair Display', serif",
+  fontWeight: 400,
+  letterSpacing: "-0.01em",
+};
+
+const ITALIC_FONT_HERO: React.CSSProperties = {
+  fontFamily: "'Instrument Serif', 'Playfair Display', serif",
+  fontWeight: 400,
+  letterSpacing: "-0.01em",
   textShadow: "0 2px 24px rgba(247, 243, 236, 0.65), 0 1px 6px rgba(247, 243, 236, 0.45)",
 };
 
@@ -112,7 +120,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         Clean air is great.
         <br />
-        <span className="italic font-normal !text-[length:inherit] leading-tight" style={ITALIC_FONT}>
+        <span className="italic font-normal !text-[length:inherit] leading-tight" style={ITALIC_FONT_HERO}>
           But Your baby lives
           <br />
           on the floor.
@@ -126,7 +134,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         You can&apos;t wipe down the nursery every hour.
         <br />
-        <span className="italic font-normal !text-[length:inherit]" style={ITALIC_FONT}>
+        <span className="italic font-normal !text-[length:inherit]" style={ITALIC_FONT_HERO}>
           So we made something that does it for you.
         </span>
       </>
@@ -138,7 +146,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
       <>
         It all ends up in their mouth eventually.
         <br />
-        <span className="italic font-normal !text-[length:inherit]" style={ITALIC_FONT}>
+        <span className="italic font-normal !text-[length:inherit]" style={ITALIC_FONT_HERO}>
           Start with cleaner surfaces.
         </span>
       </>
@@ -240,13 +248,19 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ PROBLEM / PAIN ============ */}
-        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[880px] px-5 sm:px-10">
+        <section className="bg-[#F5F3EE] py-20 sm:py-28 lg:py-40">
+          <div className="mx-auto max-w-[920px] px-6 text-center">
             <Reveal>
-              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                You clean everything. So why is it never enough?
+              <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                The problem
+              </p>
+              <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                You clean everything.
+                <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  So why is it never enough?
+                </span>
               </h2>
-              <div className="mt-7 space-y-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
+              <div className="mx-auto mt-8 max-w-[680px] space-y-5 text-[1.05rem] leading-[1.7] text-foreground/70 sm:text-[1.15rem]">
                 <p>
                   You wash the sheets on hot. You wipe the rails. You run the purifier all night.
                   And still - the dust returns, settling on the crib, the carpet, the soft
@@ -263,53 +277,56 @@ const ParentsLandingPage = () => {
           </div>
         </section>
 
+
         {/* ============ THE SHIFT ============ */}
-        <section className="bg-background py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
+        <section className="bg-background py-20 sm:py-28 lg:py-36">
+          <div className="mx-auto max-w-[1040px] px-6">
             <Reveal>
-              <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-                <div className="overflow-hidden rounded-3xl ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.22)]">
-                  <img
-                    src={nurseryImg}
-                    alt="Calm, naturally lit nursery"
-                    className="h-72 w-full object-cover sm:h-[460px]"
-                    loading="lazy"
-                  />
-                </div>
-                <div>
-                  <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                    The shift
-                  </p>
-                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.4rem] lg:text-[2.75rem]">
-                    {"\u00a0"}Stop only cleaning the air. Start cleaning the surfaces too.
-                  </h2>
-                  <p className="mt-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
-                    EnviroBiotics works continuously on the surfaces in the room - quietly, in the
-                    background, long after a wipe-down or a purifier cycle is done. EnviroBiotics
-                    keeps the nursery cleaner between cleanings all by itself.
-                  </p>
-                  <p className="mt-4 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
-                    No chemicals. No filters. No noise.
-                  </p>
-                </div>
+              <div className="text-center">
+                <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                  The shift
+                </p>
+                <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                  Clean the air.{" "}
+                  <span className="italic font-normal text-foreground/70" style={ITALIC_FONT}>and</span>{" "}
+                  the surfaces too.
+                </h2>
+                <p className="mx-auto mt-6 max-w-[640px] text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.2rem]">
+                  EnviroBiotics works continuously on the surfaces in the room - quietly, in the
+                  background, long after a wipe-down or a purifier cycle is done. It keeps the
+                  nursery cleaner between cleanings, all by itself. No chemicals. No filters. No noise.
+                </p>
+              </div>
+              <div className="mt-14 overflow-hidden rounded-[2rem] ring-1 ring-black/[0.06] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] sm:mt-16">
+                <img
+                  src={nurseryImg}
+                  alt="Calm, naturally lit nursery"
+                  className="h-[260px] w-full object-cover sm:h-[440px] lg:h-[540px]"
+                  loading="lazy"
+                />
               </div>
             </Reveal>
           </div>
         </section>
 
+
         {/* ============ COMPARISON TABLE ============ */}
-        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
+        <section className="bg-[#F5F3EE] py-20 sm:py-28 lg:py-36">
           <div className="mx-auto max-w-[1100px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="max-w-2xl">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                  {"\n"}
+              <div className="mx-auto max-w-3xl text-center">
+                <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                  Air purifier vs. EnviroBiotics
                 </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                  The purifier handles air, EnviroBiotics handles surfaces. Your nursery needs both.
+                <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                  Two halves of one nursery.
+                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                    You&apos;ve only been treating one.
+                  </span>
                 </h2>
               </div>
             </Reveal>
+
 
             <Reveal>
               <div className="mt-10 overflow-hidden rounded-3xl bg-background ring-1 ring-black/[0.06] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.2)]">
@@ -349,16 +366,19 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ THE SCIENCE, GENTLY ============ */}
-        <section className="bg-background py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[820px] px-5 sm:px-10">
+        <section className="bg-background py-20 sm:py-28 lg:py-36">
+          <div className="mx-auto max-w-[920px] px-6 text-center">
             <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+              <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
                 The simplest way to explain it
               </p>
-              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                You already trust this idea.
+              <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                You already trust
+                <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  this idea.
+                </span>
               </h2>
-              <p className="mt-6 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.15rem]">
+              <p className="mx-auto mt-8 max-w-[680px] text-[1.05rem] leading-[1.7] text-foreground/70 sm:text-[1.2rem]">
                 You give your little one probiotics - the good cultures in yogurt that keep their
                 gut balanced and healthy. EnviroBiotics works on the same simple idea, for the room:
                 it settles a layer of beneficial cultures onto surfaces that keeps them cleaner and
@@ -368,19 +388,24 @@ const ParentsLandingPage = () => {
           </div>
         </section>
 
+
         {/* ============ HOW IT WORKS ============ */}
-        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
+        <section className="bg-[#F5F3EE] py-20 sm:py-28 lg:py-36">
           <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="max-w-2xl">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+              <div className="mx-auto max-w-3xl text-center">
+                <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
                   How it works
                 </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                  Set it once. Forget the rest.
+                <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                  Set it once.
+                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                    Forget the rest.
+                  </span>
                 </h2>
               </div>
             </Reveal>
+
 
             <ol className="mt-12 grid grid-cols-1 gap-6 sm:mt-14 lg:grid-cols-3 lg:gap-7">
               {[
@@ -437,18 +462,22 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ MADE WITH NURSERY IN MIND ============ */}
-        <section className="bg-background py-16 sm:py-24 lg:py-32">
+        <section className="bg-background py-20 sm:py-28 lg:py-36">
           <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="max-w-2xl">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                  {"\n"}
+              <div className="mx-auto max-w-3xl text-center">
+                <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                  Made for the nursery
                 </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                  The BioLogic Mini. Made with the nursery in mind.
+                <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                  The BioLogic Mini.
+                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                    Made with the nursery in mind.
+                  </span>
                 </h2>
               </div>
             </Reveal>
+
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
               {[
                 {
@@ -494,21 +523,25 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ PRODUCTS - 3 OPTIONS ============ */}
-        <section id="products" className="scroll-mt-24 bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
+        <section id="products" className="scroll-mt-24 bg-[#F5F3EE] py-20 sm:py-28 lg:py-36">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="mx-auto max-w-2xl text-center">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
+              <div className="mx-auto max-w-3xl text-center">
+                <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
                   Choose your setup
                 </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3.25rem]">
-                  Start with the Biologic Mini <span className="font-serif italic font-normal"></span>
+                <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                  Start with
+                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                    the BioLogic Mini.
+                  </span>
                 </h2>
-                <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
+                <p className="mx-auto mt-6 max-w-[640px] text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.2rem]">
                   The Mini is what most parents start with for the nursery. Add a second for full-home coverage, or size up for open-plan spaces.
                 </p>
               </div>
             </Reveal>
+
 
             {/* FEATURED: The Mini */}
             <div className="mt-12 sm:mt-16">
@@ -800,16 +833,22 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ FAQ ============ */}
-        <section className="bg-background py-16 sm:py-24 lg:py-32">
+        <section className="bg-background py-20 sm:py-28 lg:py-36">
           <div className="mx-auto max-w-[880px] px-5 sm:px-10">
             <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                FAQ
-              </p>
-              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                Parent questions, answered.
-              </h2>
+              <div className="text-center">
+                <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                  FAQ
+                </p>
+                <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                  Parent questions,
+                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                    answered.
+                  </span>
+                </h2>
+              </div>
             </Reveal>
+
             <Accordion type="single" collapsible className="mt-10 w-full space-y-4 sm:mt-12">
               {[
                 {
@@ -894,13 +933,20 @@ const ParentsLandingPage = () => {
           />
           <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
             <Reveal>
-              <h2 className="font-display text-[2.1rem] font-bold leading-[1.08] tracking-[-0.03em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem]">
-                Give the nursery the other half of clean.
+              <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                The other half of clean
+              </p>
+              <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                Give the nursery
+                <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  the other half of clean.
+                </span>
               </h2>
-              <p className="mx-auto mt-6 max-w-xl text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:text-[1.15rem]">
+              <p className="mx-auto mt-6 max-w-[640px] text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.2rem]">
                 Air handled. Now handle the surfaces your baby touches - quietly, with
                 nothing to spray and nothing to remember.
               </p>
+
               <div className="mt-10 flex justify-center">
                 <a
                   href="#products"
