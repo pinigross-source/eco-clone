@@ -279,38 +279,36 @@ const ParentsLandingPage = () => {
 
 
         {/* ============ THE SHIFT ============ */}
-        <section className="bg-background py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
+        <section className="bg-background py-20 sm:py-28 lg:py-36">
+          <div className="mx-auto max-w-[1040px] px-6">
             <Reveal>
-              <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-                <div className="overflow-hidden rounded-3xl ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.22)]">
-                  <img
-                    src={nurseryImg}
-                    alt="Calm, naturally lit nursery"
-                    className="h-72 w-full object-cover sm:h-[460px]"
-                    loading="lazy"
-                  />
-                </div>
-                <div>
-                  <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                    The shift
-                  </p>
-                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.4rem] lg:text-[2.75rem]">
-                    {"\u00a0"}Stop only cleaning the air. Start cleaning the surfaces too.
-                  </h2>
-                  <p className="mt-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
-                    EnviroBiotics works continuously on the surfaces in the room - quietly, in the
-                    background, long after a wipe-down or a purifier cycle is done. EnviroBiotics
-                    keeps the nursery cleaner between cleanings all by itself.
-                  </p>
-                  <p className="mt-4 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
-                    No chemicals. No filters. No noise.
-                  </p>
-                </div>
+              <div className="text-center">
+                <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                  The shift
+                </p>
+                <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                  Clean the air.{" "}
+                  <span className="italic font-normal text-foreground/70" style={ITALIC_FONT}>and</span>{" "}
+                  the surfaces too.
+                </h2>
+                <p className="mx-auto mt-6 max-w-[640px] text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.2rem]">
+                  EnviroBiotics works continuously on the surfaces in the room - quietly, in the
+                  background, long after a wipe-down or a purifier cycle is done. It keeps the
+                  nursery cleaner between cleanings, all by itself. No chemicals. No filters. No noise.
+                </p>
+              </div>
+              <div className="mt-14 overflow-hidden rounded-[2rem] ring-1 ring-black/[0.06] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] sm:mt-16">
+                <img
+                  src={nurseryImg}
+                  alt="Calm, naturally lit nursery"
+                  className="h-[260px] w-full object-cover sm:h-[440px] lg:h-[540px]"
+                  loading="lazy"
+                />
               </div>
             </Reveal>
           </div>
         </section>
+
 
         {/* ============ COMPARISON TABLE ============ */}
         <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
