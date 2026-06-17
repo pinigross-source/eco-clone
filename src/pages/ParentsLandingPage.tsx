@@ -897,7 +897,7 @@ const ParentsLandingPage = () => {
           <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
             <Reveal>
               <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
-                The other half of clean
+                {"\n"}
               </p>
               <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
                 Give the nursery
@@ -932,7 +932,7 @@ const ParentsLandingPage = () => {
                 <span className="opacity-40">·</span>
                 <span className="inline-flex items-center gap-1.5">
                   <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
-                  Free shipping
+                  {"\n"}
                 </span>
                 <span className="opacity-40">·</span>
                 <span className="inline-flex items-center gap-1.5">
