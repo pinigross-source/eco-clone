@@ -826,7 +826,7 @@ const ParentsLandingPage = () => {
                 },
                 {
                   q: "Will I hear it during naps?",
-                  a: "Whisper-quiet - designed to disappear into the background of a sleeping room.",
+                  a: "No, The Mini designed to be whisper-quiet.",
                 },
                 {
                   q: "What if it's not for us?",
