@@ -462,18 +462,22 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ MADE WITH NURSERY IN MIND ============ */}
-        <section className="bg-background py-16 sm:py-24 lg:py-32">
+        <section className="bg-background py-20 sm:py-28 lg:py-36">
           <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="max-w-2xl">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                  {"\n"}
+              <div className="mx-auto max-w-3xl text-center">
+                <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                  Made for the nursery
                 </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                  The BioLogic Mini. Made with the nursery in mind.
+                <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                  The BioLogic Mini.
+                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                    Made with the nursery in mind.
+                  </span>
                 </h2>
               </div>
             </Reveal>
+
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
               {[
                 {
