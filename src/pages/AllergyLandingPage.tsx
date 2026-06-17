@@ -829,51 +829,60 @@ const AllergyLandingPage = () => {
         </section>
 
         {/* ============ FINAL CTA ============ */}
-        <section className="relative overflow-hidden bg-[#F4EFE6] py-20 sm:py-28 lg:py-36">
+        <section className="relative overflow-hidden bg-[#0a0a0a] py-24 sm:py-32 lg:py-40">
           <img
             src={finalBgImg}
             alt=""
             aria-hidden
-            className="absolute inset-0 h-full w-full object-cover opacity-20"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.18] grayscale"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-b from-[#F4EFE6] via-[#F4EFE6]/92 to-[#F4EFE6]"
+            className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/85 to-[#0a0a0a]"
           />
-          <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
+          <div className="relative mx-auto max-w-3xl px-6 text-center">
             <Reveal>
-              <h2 className="font-display text-[2.1rem] font-bold leading-[1.08] tracking-[-0.03em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem]">
-                Stop treating half the room.
+              <h2 className="font-display font-semibold leading-[1.04] tracking-[-0.04em] text-white text-[2.5rem] sm:text-[3.5rem] lg:text-[4.5rem]">
+                Stop treating
+                <span className="block italic font-normal text-white/70" style={ITALIC_FONT}>
+                  half the room.
+                </span>
               </h2>
-              <p className="mx-auto mt-6 max-w-xl text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:text-[1.15rem]">
-                Your purifier handles the air. EnviroBiotics handles the surfaces allergens actually
-                settle into, the mattress, the carpet, the couch, quietly, chemical-free, around
-                the clock.
+              <p className="mx-auto mt-7 max-w-xl text-[1.05rem] leading-[1.65] text-white/65 sm:text-[1.2rem]">
+                Your purifier handles the air. EnviroBiotics handles the surfaces allergens settle
+                into, quietly, chemical-free, around the clock.
               </p>
-              <div className="mt-10 flex justify-center">
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
                 <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_allergy_final_cta")}>
                   <Button
                     size="lg"
-                    className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
+                    className="h-[3.5rem] rounded-full bg-white px-10 text-[16px] font-medium tracking-[-0.01em] text-[#0a0a0a] hover:bg-white/90"
                   >
                     Reach What Your Filter Can&apos;t
-                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
+                <a
+                  href="#products"
+                  onClick={(e) => smoothScroll(e, "products", "click_allergy_final_learn")}
+                  className="group inline-flex items-center gap-1.5 text-[16px] font-medium text-white/80 hover:text-white"
+                >
+                  See the lineup
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
               </div>
-              <p className="mt-7 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13px] font-medium text-foreground/70 sm:text-sm">
+              <p className="mt-8 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13px] font-medium text-white/55 sm:text-sm">
                 <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
+                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
                   30-day guarantee
                 </span>
                 <span className="opacity-40">·</span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
+                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
                   Free shipping
                 </span>
                 <span className="opacity-40">·</span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
+                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
                   Cancel anytime
                 </span>
               </p>
