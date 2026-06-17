@@ -76,8 +76,9 @@ const Reveal = ({
 type Angle = "a" | "b" | "c";
 
 const ITALIC_FONT: React.CSSProperties = {
-  fontFamily: "'Playfair Display', serif",
-  textShadow: "0 2px 24px rgba(247, 243, 236, 0.65), 0 1px 6px rgba(247, 243, 236, 0.45)",
+  fontFamily: "'Instrument Serif', 'Playfair Display', serif",
+  fontWeight: 400,
+  letterSpacing: "-0.01em",
 };
 
 const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> = {
@@ -85,7 +86,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
     headline: (
       <>
         Your air purifier
-        <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
+        <span className="block mt-1 sm:mt-2 italic" style={ITALIC_FONT}>
           can&apos;t clean your mattress.
         </span>
       </>
@@ -96,7 +97,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
     headline: (
       <>
         Allergens don&apos;t float.
-        <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
+        <span className="block mt-1 sm:mt-2 italic" style={ITALIC_FONT}>
           They settle into everything you touch.
         </span>
       </>
@@ -107,7 +108,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
     headline: (
       <>
         Your purifier cleans the air.
-        <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
+        <span className="block mt-1 sm:mt-2 italic" style={ITALIC_FONT}>
           The allergens live in the room.
         </span>
       </>
@@ -153,84 +154,96 @@ const AllergyLandingPage = () => {
 
       <main className="bg-background text-foreground">
         {/* ============ HERO ============ */}
-        <section className="relative w-full overflow-hidden h-[92svh] min-h-[620px] sm:h-[760px] lg:h-[780px]">
+        <section className="relative w-full overflow-hidden h-[100svh] min-h-[680px] sm:min-h-[760px]">
           <img
             src={heroImg}
             alt="Calm, naturally lit bedroom with crisp linens"
-            className="absolute inset-0 h-full w-full object-cover object-[70%_35%] sm:object-[68%_center] lg:object-[62%_center]"
+            className="absolute inset-0 h-full w-full object-cover object-center scale-105"
             fetchPriority="high"
             loading="eager"
             decoding="async"
             width={1920}
             height={1080}
           />
+          {/* Apple-style scrim: bright top fade for legibility, soft bottom fade into next chapter */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-[#f7f3ec]/90 via-[#f7f3ec]/45 to-transparent sm:bg-gradient-to-r sm:from-[#f7f3ec]/92 sm:via-[#f7f3ec]/45 sm:via-40% sm:to-transparent"
+            className="absolute inset-0 bg-gradient-to-b from-[#f7f3ec]/85 via-[#f7f3ec]/30 to-[#f7f3ec]"
           />
-          <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-center px-5 pb-8 pt-24 text-center sm:items-start sm:px-10 sm:pb-0 sm:pt-0 sm:text-left lg:px-16">
-            <div className="mx-auto w-full max-w-[36rem] sm:mx-0 sm:max-w-[48rem]">
-              <Reveal>
-                <h1
-                  className="font-display font-semibold tracking-[-0.035em] text-foreground text-[clamp(2.5rem,9vw,3rem)] leading-[1.02] sm:text-[clamp(3.25rem,6vw,4.5rem)] sm:leading-[1.02] lg:text-[clamp(4rem,5.2vw,5.5rem)] lg:leading-[1.0]"
-                  style={{ textShadow: "0 2px 20px rgba(247,243,236,0.5), 0 1px 4px rgba(247,243,236,0.3)" }}
+          <div className="relative z-10 mx-auto flex h-full max-w-[1120px] flex-col items-center justify-center px-6 text-center">
+            <Reveal>
+              <h1
+                className="font-display font-semibold text-foreground tracking-[-0.04em] text-[clamp(2.75rem,8.5vw,3.5rem)] leading-[1.02] sm:text-[clamp(3.75rem,7vw,5.5rem)] sm:leading-[1.0] lg:text-[clamp(4.5rem,5.5vw,6.5rem)]"
+              >
+                {hero.headline}
+              </h1>
+            </Reveal>
+            <Reveal>
+              <p className="mx-auto mt-6 max-w-[36rem] text-[1.05rem] font-normal leading-[1.55] text-foreground/70 sm:mt-8 sm:max-w-[40rem] sm:text-[1.2rem] sm:leading-[1.5]">
+                {hero.sub}
+              </p>
+            </Reveal>
+            <Reveal>
+              <div className="mt-9 flex flex-col items-center gap-4 sm:mt-11 sm:flex-row sm:gap-6">
+                <a
+                  href={BIOTICA_URL}
+                  onClick={() => trackEvent("click_allergy_hero_cta")}
                 >
-                  {hero.headline}
-                </h1>
-              </Reveal>
-              <Reveal>
-                <p
-                  className="mx-auto mt-7 max-w-[36rem] text-[1.15rem] font-normal leading-[1.6] text-foreground/80 sm:mx-0 sm:mt-9 sm:max-w-[38rem] sm:text-[1.25rem] sm:leading-[1.55] lg:text-[1.3rem]"
-                  style={{ textShadow: "0 2px 16px rgba(247,243,236,0.5), 0 1px 3px rgba(247,243,236,0.3)" }}
-                >
-                  {hero.sub}
-                </p>
-              </Reveal>
-              <Reveal>
-                <div className="mt-8 flex flex-col items-stretch gap-3.5 sm:mt-10 sm:flex-row sm:items-center sm:gap-5">
-                  <a
-                    href={BIOTICA_URL}
-                    onClick={() => trackEvent("click_allergy_hero_cta")}
-                    className="sm:w-auto"
+                  <Button
+                    size="lg"
+                    className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]"
                   >
-                    <Button
-                      size="lg"
-                      className="h-[3.75rem] w-full rounded-full bg-foreground px-10 text-[16px] font-semibold tracking-[-0.01em] text-background shadow-[0_20px_50px_-14px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90 sm:h-[4rem] sm:w-auto sm:px-12 sm:text-[17px]"
-                    >
-                      Reach What Your Filter Can&apos;t
-                      <ArrowRight className="ml-2.5 h-5 w-5 sm:h-6 sm:w-6" />
-                    </Button>
-                  </a>
-                </div>
-              </Reveal>
-            </div>
+                    Reach What Your Filter Can&apos;t
+                  </Button>
+                </a>
+                <a
+                  href="#products"
+                  onClick={(e) => smoothScroll(e, "products", "click_allergy_hero_learn")}
+                  className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-foreground hover:text-foreground/70 sm:text-[16px]"
+                >
+                  Learn how it works
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </div>
+            </Reveal>
+          </div>
+          {/* Scroll cue */}
+          <div className="pointer-events-none absolute bottom-8 left-1/2 z-10 -translate-x-1/2 animate-bounce text-foreground/40">
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
           </div>
         </section>
 
         {/* ============ PROBLEM / PAIN ============ */}
-        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[880px] px-5 sm:px-10">
+        <section className="bg-[#F5F3EE] py-20 sm:py-28 lg:py-40">
+          <div className="mx-auto max-w-[920px] px-6 text-center">
             <Reveal>
+              <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                The problem
+              </p>
               <h2
                 role="button"
                 tabIndex={0}
                 onClick={(e) => smoothScroll(e as unknown as React.MouseEvent<HTMLAnchorElement>, "products", "click_allergy_h2_pain")}
-                className="cursor-pointer font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground transition-colors hover:text-foreground/80 sm:text-[2.6rem] lg:text-[3rem]"
+                className="cursor-pointer font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground transition-colors hover:text-foreground/80 text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]"
               >
-                You did everything right. The purifier still isn&apos;t enough.
+                You did everything right.
+                <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  The purifier still isn&apos;t enough.
+                </span>
               </h2>
-              <div className="mt-7 space-y-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
+              <div className="mx-auto mt-8 max-w-[680px] space-y-5 text-[1.05rem] leading-[1.7] text-foreground/70 sm:text-[1.15rem]">
                 <p>
                   You bought the HEPA. You run it every night. You wash the sheets, you dust, you
                   vacuum. And the dust keeps coming back like none of it happened.
                 </p>
                 <p>
-                  Here&apos;s what no one selling you a filter mentions: allergens don&apos;t spend
-                  their lives in the air. Dust-mite waste, pollen, pet dander, mold spores. They
-                  settle, and they live in the soft surfaces of the room. The mattress. The pillows.
-                  The carpet. The couch. A purifier can only catch the small fraction that happens to
-                  be airborne at any moment. The reservoir, the part that keeps refilling the air,
-                  sits in your surfaces, completely out of its reach.
+                  Allergens don&apos;t spend their lives in the air. Dust-mite waste, pollen, pet
+                  dander, mold spores. They settle, and they live in the soft surfaces of the room.
+                  A purifier can only catch the small fraction that happens to be airborne. The
+                  reservoir, the part that keeps refilling the air, sits in your surfaces, completely
+                  out of its reach.
                 </p>
               </div>
             </Reveal>
@@ -238,35 +251,32 @@ const AllergyLandingPage = () => {
         </section>
 
         {/* ============ THE SHIFT ============ */}
-        <section className="bg-background py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
+        <section className="bg-background py-20 sm:py-28 lg:py-36">
+          <div className="mx-auto max-w-[1040px] px-6">
             <Reveal>
-              <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-                <div className="overflow-hidden rounded-3xl ring-1 ring-black/[0.06] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.22)]">
-                  <img
-                    src={beddingImg}
-                    alt="Crisp bedding where dust and dander settle"
-                    className="h-72 w-full object-cover sm:h-[460px]"
-                    loading="lazy"
-                  />
-                </div>
-                <div>
-                  <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                    The shift
-                  </p>
-                  <h2 className="font-display text-[1.85rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.4rem] lg:text-[2.75rem]">
-                    Treat the air <span className="italic font-serif font-normal">and</span> the surfaces.
-                  </h2>
-                  <p className="mt-5 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
-                    EnviroBiotics settles good cultures onto the surfaces of the room, where they
-                    quietly break down the organic debris that allergens come from, and keep
-                    working between cleanings.
-                  </p>
-                  <p className="mt-4 text-[1.05rem] leading-[1.75] text-foreground/85 sm:text-[1.125rem]">
-                    It&apos;s not a filter and it&apos;s not a spray. It&apos;s the half of the room
-                    your purifier was never built to handle, finally covered.
-                  </p>
-                </div>
+              <div className="text-center">
+                <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                  The shift
+                </p>
+                <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                  Treat the air{" "}
+                  <span className="italic font-normal text-foreground/70" style={ITALIC_FONT}>and</span>{" "}
+                  the surfaces.
+                </h2>
+                <p className="mx-auto mt-6 max-w-[640px] text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.2rem]">
+                  EnviroBiotics settles good cultures onto the surfaces of the room, where they
+                  quietly break down the organic debris that allergens come from, and keep working
+                  between cleanings. Not a filter. Not a spray. The half of the room your purifier
+                  was never built to handle, finally covered.
+                </p>
+              </div>
+              <div className="mt-14 overflow-hidden rounded-[2rem] ring-1 ring-black/[0.06] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.25)] sm:mt-16">
+                <img
+                  src={beddingImg}
+                  alt="Crisp bedding where dust and dander settle"
+                  className="h-[260px] w-full object-cover sm:h-[440px] lg:h-[540px]"
+                  loading="lazy"
+                />
               </div>
             </Reveal>
           </div>
@@ -819,51 +829,60 @@ const AllergyLandingPage = () => {
         </section>
 
         {/* ============ FINAL CTA ============ */}
-        <section className="relative overflow-hidden bg-[#F4EFE6] py-20 sm:py-28 lg:py-36">
+        <section className="relative overflow-hidden bg-[#0a0a0a] py-24 sm:py-32 lg:py-40">
           <img
             src={finalBgImg}
             alt=""
             aria-hidden
-            className="absolute inset-0 h-full w-full object-cover opacity-20"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.18] grayscale"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-b from-[#F4EFE6] via-[#F4EFE6]/92 to-[#F4EFE6]"
+            className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/85 to-[#0a0a0a]"
           />
-          <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
+          <div className="relative mx-auto max-w-3xl px-6 text-center">
             <Reveal>
-              <h2 className="font-display text-[2.1rem] font-bold leading-[1.08] tracking-[-0.03em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem]">
-                Stop treating half the room.
+              <h2 className="font-display font-semibold leading-[1.04] tracking-[-0.04em] text-white text-[2.5rem] sm:text-[3.5rem] lg:text-[4.5rem]">
+                Stop treating
+                <span className="block italic font-normal text-white/70" style={ITALIC_FONT}>
+                  half the room.
+                </span>
               </h2>
-              <p className="mx-auto mt-6 max-w-xl text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:text-[1.15rem]">
-                Your purifier handles the air. EnviroBiotics handles the surfaces allergens actually
-                settle into, the mattress, the carpet, the couch, quietly, chemical-free, around
-                the clock.
+              <p className="mx-auto mt-7 max-w-xl text-[1.05rem] leading-[1.65] text-white/65 sm:text-[1.2rem]">
+                Your purifier handles the air. EnviroBiotics handles the surfaces allergens settle
+                into, quietly, chemical-free, around the clock.
               </p>
-              <div className="mt-10 flex justify-center">
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
                 <a href="#products" onClick={(e) => smoothScroll(e, "products", "click_allergy_final_cta")}>
                   <Button
                     size="lg"
-                    className="h-[3.5rem] rounded-full bg-foreground px-10 text-[16px] font-semibold text-background shadow-[0_18px_40px_-12px_hsl(var(--foreground)/0.6)] hover:bg-foreground/90"
+                    className="h-[3.5rem] rounded-full bg-white px-10 text-[16px] font-medium tracking-[-0.01em] text-[#0a0a0a] hover:bg-white/90"
                   >
                     Reach What Your Filter Can&apos;t
-                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
+                <a
+                  href="#products"
+                  onClick={(e) => smoothScroll(e, "products", "click_allergy_final_learn")}
+                  className="group inline-flex items-center gap-1.5 text-[16px] font-medium text-white/80 hover:text-white"
+                >
+                  See the lineup
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
               </div>
-              <p className="mt-7 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13px] font-medium text-foreground/70 sm:text-sm">
+              <p className="mt-8 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13px] font-medium text-white/55 sm:text-sm">
                 <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
+                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
                   30-day guarantee
                 </span>
                 <span className="opacity-40">·</span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
+                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
                   Free shipping
                 </span>
                 <span className="opacity-40">·</span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={3} />
+                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
                   Cancel anytime
                 </span>
               </p>
