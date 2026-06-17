@@ -29,6 +29,30 @@ import heroAsset from "@/assets/parents-hero.avif.asset.json";
 import nurseryImg from "@/assets/nursery-scandinavian-bright.jpg";
 import ptpaBadge from "@/assets/ptpa-award.png";
 
+import epaAsset from "@/assets/certs/cert_0.png.asset.json";
+import ispAsset from "@/assets/certs/cert_1.png.asset.json";
+import simaAsset from "@/assets/certs/cert_2.png.asset.json";
+import isoAsset from "@/assets/certs/cert_3.png.asset.json";
+import allergyAsset from "@/assets/certs/cert_4.png.asset.json";
+import madeSafeAsset from "@/assets/certs/cert_5.png.asset.json";
+import sensitiveAsset from "@/assets/certs/cert_6.png.asset.json";
+import ecocertAsset from "@/assets/certs/cert_7.png.asset.json";
+import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
+import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
+
+const certifications = [
+  { label: "EPA Registered", image: epaAsset.url },
+  { label: "FDA GRAS", image: fdaGrasAsset.url },
+  { label: "PTPA Winner", image: ptpaAsset.url },
+  { label: "Instituto de Salud Pública", image: ispAsset.url },
+  { label: "Società Italiana di Medicina Ambientale", image: simaAsset.url },
+  { label: "ISO 9001:2015", image: isoAsset.url },
+  { label: "AllergyUK", image: allergyAsset.url },
+  { label: "MADE SAFE®", image: madeSafeAsset.url },
+  { label: "Sensitive Choice", image: sensitiveAsset.url },
+  { label: "EcoCert", image: ecocertAsset.url },
+];
+
 const heroImg = heroAsset.url;
 
 const PROMO = "PARENTS";
