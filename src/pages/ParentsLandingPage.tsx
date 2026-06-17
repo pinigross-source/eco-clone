@@ -252,7 +252,7 @@ const ParentsLandingPage = () => {
           <div className="mx-auto max-w-[920px] px-6 text-center">
             <Reveal>
               <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
-                The problem
+                {"\n"}
               </p>
               <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
                 You clean everything.
@@ -284,12 +284,10 @@ const ParentsLandingPage = () => {
             <Reveal>
               <div className="text-center">
                 <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
-                  The shift
+                  {"\n"}
                 </p>
                 <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
-                  Clean the air.{" "}
-                  <span className="italic font-normal !text-[length:inherit] text-foreground/70" style={ITALIC_FONT}>and</span>{" "}
-                  the surfaces too.
+                  Clean the air&nbsp;and the surfaces, too.
                 </h2>
                 <p className="mx-auto mt-6 max-w-[640px] text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.2rem]">
                   EnviroBiotics works continuously on the surfaces in the room - quietly, in the
@@ -395,7 +393,7 @@ const ParentsLandingPage = () => {
             <Reveal>
               <div className="mx-auto max-w-3xl text-center">
                 <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
-                  How it works
+                  {"\n"}
                 </p>
                 <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
                   Set it once.
