@@ -841,15 +841,15 @@ const ParentsLandingPage = () => {
                 },
                 {
                   q: "Do I have to get rid of my air purifier?",
-                  a: "No. They do different jobs - the purifier handles air, EnviroBiotics handles surfaces. Most parents run both.",
+                  a: "No. They do different jobs. The purifier treats airborne particles; EnviroBiotics treats the surfaces that those particles settle into.",
                 },
                 {
                   q: "Is there anything to spray, refill, or replace?",
                   a: "No sprays. No filters. The Mini runs continuously on a single cartridge that lasts months at a time in a typical nursery.",
                 },
                 {
-                  q: "Will I hear it during naps?",
-                  a: "No, The Mini designed to be whisper-quiet.",
+                  q: "Will I hear it overnight?",
+                  a: "Silent operation, designed for a bedroom. No fan.",
                 },
                 {
                   q: "What if it's not for us?",
