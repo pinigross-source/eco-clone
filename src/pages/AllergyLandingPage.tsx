@@ -184,25 +184,17 @@ const AllergyLandingPage = () => {
               </p>
             </Reveal>
             <Reveal>
-              <div className="mt-9 flex flex-col items-center gap-4 sm:mt-11 sm:flex-row sm:gap-6">
+              <div className="mt-9 flex flex-col items-center gap-4 sm:mt-11">
                 <a
-                  href={BIOTICA_URL}
-                  onClick={() => trackEvent("click_allergy_hero_cta")}
+                  href="#products"
+                  onClick={(e) => smoothScroll(e, "products", "click_allergy_hero_cta")}
                 >
                   <Button
                     size="lg"
                     className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]"
                   >
-                    Reach What Your Filter Can&apos;t
+                    Choose your setup
                   </Button>
-                </a>
-                <a
-                  href="#products"
-                  onClick={(e) => smoothScroll(e, "products", "click_allergy_hero_learn")}
-                  className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-foreground hover:text-foreground/70 sm:text-[16px]"
-                >
-                  Learn how it works
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
             </Reveal>
