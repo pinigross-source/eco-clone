@@ -469,7 +469,7 @@ const ParentsLandingPage = () => {
                 </p>
                 <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
                   The BioLogic Mini.
-                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  <span className="block italic font-normal !text-[length:inherit] text-foreground/70" style={ITALIC_FONT}>
                     Made with the nursery in mind.
                   </span>
                 </h2>
@@ -530,7 +530,7 @@ const ParentsLandingPage = () => {
                 </p>
                 <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
                   Start with
-                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  <span className="block italic font-normal !text-[length:inherit] text-foreground/70" style={ITALIC_FONT}>
                     the BioLogic Mini.
                   </span>
                 </h2>
@@ -936,7 +936,7 @@ const ParentsLandingPage = () => {
               </p>
               <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
                 Give the nursery
-                <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                <span className="block italic font-normal !text-[length:inherit] text-foreground/70" style={ITALIC_FONT}>
                   the other half of clean.
                 </span>
               </h2>
