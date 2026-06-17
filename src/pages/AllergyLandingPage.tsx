@@ -76,8 +76,9 @@ const Reveal = ({
 type Angle = "a" | "b" | "c";
 
 const ITALIC_FONT: React.CSSProperties = {
-  fontFamily: "'Playfair Display', serif",
-  textShadow: "0 2px 24px rgba(247, 243, 236, 0.65), 0 1px 6px rgba(247, 243, 236, 0.45)",
+  fontFamily: "'Instrument Serif', 'Playfair Display', serif",
+  fontWeight: 400,
+  letterSpacing: "-0.01em",
 };
 
 const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> = {
@@ -85,7 +86,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
     headline: (
       <>
         Your air purifier
-        <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
+        <span className="block mt-1 sm:mt-2 italic" style={ITALIC_FONT}>
           can&apos;t clean your mattress.
         </span>
       </>
@@ -96,7 +97,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
     headline: (
       <>
         Allergens don&apos;t float.
-        <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
+        <span className="block mt-1 sm:mt-2 italic" style={ITALIC_FONT}>
           They settle into everything you touch.
         </span>
       </>
@@ -107,7 +108,7 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
     headline: (
       <>
         Your purifier cleans the air.
-        <span className="italic font-semibold block mt-2" style={ITALIC_FONT}>
+        <span className="block mt-1 sm:mt-2 italic" style={ITALIC_FONT}>
           The allergens live in the room.
         </span>
       </>
