@@ -256,7 +256,7 @@ const ParentsLandingPage = () => {
               </p>
               <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
                 You clean everything.
-                <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                <span className="block italic font-normal !text-[length:inherit] text-foreground/70" style={ITALIC_FONT}>
                   So why is it never enough?
                 </span>
               </h2>
@@ -288,7 +288,7 @@ const ParentsLandingPage = () => {
                 </p>
                 <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
                   Clean the air.{" "}
-                  <span className="italic font-normal text-foreground/70" style={ITALIC_FONT}>and</span>{" "}
+                  <span className="italic font-normal !text-[length:inherit] text-foreground/70" style={ITALIC_FONT}>and</span>{" "}
                   the surfaces too.
                 </h2>
                 <p className="mx-auto mt-6 max-w-[640px] text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.2rem]">
@@ -320,7 +320,7 @@ const ParentsLandingPage = () => {
                 </p>
                 <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
                   Two halves of one nursery.
-                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  <span className="block italic font-normal !text-[length:inherit] text-foreground/70" style={ITALIC_FONT}>
                     You&apos;ve only been treating one.
                   </span>
                 </h2>
@@ -374,7 +374,7 @@ const ParentsLandingPage = () => {
               </p>
               <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
                 You already trust
-                <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                <span className="block italic font-normal !text-[length:inherit] text-foreground/70" style={ITALIC_FONT}>
                   this idea.
                 </span>
               </h2>
@@ -399,7 +399,7 @@ const ParentsLandingPage = () => {
                 </p>
                 <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
                   Set it once.
-                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  <span className="block italic font-normal !text-[length:inherit] text-foreground/70" style={ITALIC_FONT}>
                     Forget the rest.
                   </span>
                 </h2>
