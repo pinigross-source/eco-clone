@@ -933,13 +933,20 @@ const ParentsLandingPage = () => {
           />
           <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-10">
             <Reveal>
-              <h2 className="font-display text-[2.1rem] font-bold leading-[1.08] tracking-[-0.03em] text-foreground sm:text-[2.85rem] lg:text-[3.5rem]">
-                Give the nursery the other half of clean.
+              <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                The other half of clean
+              </p>
+              <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                Give the nursery
+                <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  the other half of clean.
+                </span>
               </h2>
-              <p className="mx-auto mt-6 max-w-xl text-[1rem] font-medium leading-[1.7] text-foreground/85 sm:text-[1.15rem]">
+              <p className="mx-auto mt-6 max-w-[640px] text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.2rem]">
                 Air handled. Now handle the surfaces your baby touches - quietly, with
                 nothing to spray and nothing to remember.
               </p>
+
               <div className="mt-10 flex justify-center">
                 <a
                   href="#products"
