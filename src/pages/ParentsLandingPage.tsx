@@ -197,10 +197,10 @@ const ParentsLandingPage = () => {
             width={1920}
             height={1080}
           />
-          {/* Subtle scrim: only lightening behind text, real image colours show through */}
+          {/* Subtle scrim: only lightening behind text, full image visible below */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-b from-[#f7f3ec]/40 via-[#f7f3ec]/10 to-[#f7f3ec]/85"
+            className="absolute inset-0 bg-gradient-to-b from-[#f7f3ec]/40 via-[#f7f3ec]/5 to-transparent"
           />
           <div className="relative z-10 mx-auto flex h-full max-w-[1120px] flex-col items-center justify-start px-6 pt-24 sm:pt-28 lg:pt-32 text-center">
             <Reveal>
