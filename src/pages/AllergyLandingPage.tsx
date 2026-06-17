@@ -145,6 +145,7 @@ const AllergyLandingPage = () => {
     return v === "b" || v === "c" ? v : "a";
   }, []);
   const hero = HERO_VARIANTS[angle];
+  const [featuredProduct, setFeaturedProduct] = useState<'mini' | 'biotica'>('mini');
 
   const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string, eventName?: string) => {
     e.preventDefault();
