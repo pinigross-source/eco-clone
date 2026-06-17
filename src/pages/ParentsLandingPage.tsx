@@ -29,6 +29,30 @@ import heroAsset from "@/assets/parents-hero.avif.asset.json";
 import nurseryImg from "@/assets/nursery-scandinavian-bright.jpg";
 import ptpaBadge from "@/assets/ptpa-award.png";
 
+import epaAsset from "@/assets/certs/cert_0.png.asset.json";
+import ispAsset from "@/assets/certs/cert_1.png.asset.json";
+import simaAsset from "@/assets/certs/cert_2.png.asset.json";
+import isoAsset from "@/assets/certs/cert_3.png.asset.json";
+import allergyAsset from "@/assets/certs/cert_4.png.asset.json";
+import madeSafeAsset from "@/assets/certs/cert_5.png.asset.json";
+import sensitiveAsset from "@/assets/certs/cert_6.png.asset.json";
+import ecocertAsset from "@/assets/certs/cert_7.png.asset.json";
+import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
+import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
+
+const certifications = [
+  { label: "EPA Registered", image: epaAsset.url },
+  { label: "FDA GRAS", image: fdaGrasAsset.url },
+  { label: "PTPA Winner", image: ptpaAsset.url },
+  { label: "Instituto de Salud Pública", image: ispAsset.url },
+  { label: "Società Italiana di Medicina Ambientale", image: simaAsset.url },
+  { label: "ISO 9001:2015", image: isoAsset.url },
+  { label: "AllergyUK", image: allergyAsset.url },
+  { label: "MADE SAFE®", image: madeSafeAsset.url },
+  { label: "Sensitive Choice", image: sensitiveAsset.url },
+  { label: "EcoCert", image: ecocertAsset.url },
+];
+
 const heroImg = heroAsset.url;
 
 const PROMO = "PARENTS";
@@ -703,6 +727,62 @@ const ParentsLandingPage = () => {
                 Mom of an 8-month-old
               </p>
             </Reveal>
+          </div>
+        </section>
+
+        {/* ============ CERTIFICATIONS / SAFETY ============ */}
+        <section className="relative w-full overflow-hidden bg-white py-20 sm:py-28">
+          <div className="relative mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
+            <Reveal>
+              <div className="mx-auto mb-12 flex max-w-3xl flex-col items-center text-center sm:mb-16">
+                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+                  Safety First
+                </p>
+                <h2
+                  className="font-semibold tracking-[-0.025em] text-foreground"
+                  style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", lineHeight: 1.05 }}
+                >
+                  Independently verified for safety
+                </h2>
+                <p className="mt-4 max-w-[58ch] text-[15.5px] leading-[1.6] text-foreground/70 sm:text-[17px]">
+                  Collected from nature in its pure state, never modified and free of added chemicals. Our probiotics are safe for babies, children, pets, and the whole family.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6 lg:grid-cols-5 lg:gap-7">
+              {certifications.map((c) => (
+                <div
+                  key={c.label}
+                  title={c.label}
+                  className="group relative flex aspect-square items-center justify-center rounded-2xl bg-white p-6 transition-all duration-300 hover:-translate-y-1 sm:p-8"
+                  style={{
+                    border: "1px solid rgba(0,0,0,0.08)",
+                    boxShadow: "0 1px 2px rgba(0,0,0,0.04), 0 24px 48px -28px rgba(0,0,0,0.18)",
+                  }}
+                >
+                  <img
+                    src={c.image}
+                    alt={`${c.label} certification`}
+                    loading="lazy"
+                    className="max-h-[78%] max-w-[82%] object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-center lg:mt-16">
+              <span className="text-[13px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+                Pure, beneficial probiotics from nature
+              </span>
+              <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[13px] font-medium uppercase tracking-[0.22em] text-muted-foreground/80">
+                <span>No chemicals</span>
+                <span>·</span>
+                <span>No gases</span>
+                <span>·</span>
+                <span>No artificial substances</span>
+              </div>
+            </div>
           </div>
         </section>
 
