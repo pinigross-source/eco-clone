@@ -460,6 +460,8 @@
 .parents-apple span,
 .parents-apple button {
   font-family: "SF Pro Text", "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
 }
 
 /* Replace warm beige section washes with Apple's signature gray */
