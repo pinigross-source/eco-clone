@@ -159,7 +159,7 @@ const ParentsLandingPage = () => {
         path="/parents"
       />
 
-      <main className="bg-background text-foreground">
+      <main className="parents-apple bg-background text-foreground">
         {/* ============ HERO ============ */}
         <section className="relative w-full overflow-hidden h-[92svh] min-h-[620px] sm:h-[760px] lg:h-[780px]">
           <img
