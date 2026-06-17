@@ -311,18 +311,22 @@ const ParentsLandingPage = () => {
 
 
         {/* ============ COMPARISON TABLE ============ */}
-        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
+        <section className="bg-[#F5F3EE] py-20 sm:py-28 lg:py-36">
           <div className="mx-auto max-w-[1100px] px-5 sm:px-10 lg:px-16">
             <Reveal>
-              <div className="max-w-2xl">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                  {"\n"}
+              <div className="mx-auto max-w-3xl text-center">
+                <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
+                  Air purifier vs. EnviroBiotics
                 </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                  The purifier handles air, EnviroBiotics handles surfaces. Your nursery needs both.
+                <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
+                  Two halves of one nursery.
+                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                    You&apos;ve only been treating one.
+                  </span>
                 </h2>
               </div>
             </Reveal>
+
 
             <Reveal>
               <div className="mt-10 overflow-hidden rounded-3xl bg-background ring-1 ring-black/[0.06] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.2)]">
