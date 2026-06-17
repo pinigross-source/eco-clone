@@ -445,7 +445,7 @@ const ParentsLandingPage = () => {
                   {"\n"}
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                  The Mini. Made with the nursery in mind.
+                  The\u00a0BioLogic Mini. Made with the nursery in mind.
                 </h2>
               </div>
             </Reveal>
@@ -502,7 +502,7 @@ const ParentsLandingPage = () => {
                   Choose your setup
                 </p>
                 <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3.25rem]">
-                  Start with <span className="font-serif italic font-normal">The Mini.</span>
+                  Start with <span className="font-serif italic font-normal">The\u00a0Biologic</span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
                   The Mini is what most parents start with for the nursery. Add a second for full-home coverage, or size up for open-plan spaces.
@@ -532,7 +532,7 @@ const ParentsLandingPage = () => {
                       The Mini · For the nursery
                     </p>
                     <h3 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
-                      The Mini
+                      The BioLogic Mini
                     </h3>
                     <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
                       Sits quietly on a shelf and keeps surfaces, fabrics, and air in one room cleaner - between every wipe-down.
