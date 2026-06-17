@@ -26,7 +26,8 @@ import miniImg from "@/assets/shop/biologic-mini.png";
 import bioticaImg from "@/assets/shop/biotica-800.png";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
 import heroAsset from "@/assets/parents-hero.avif.asset.json";
-import nurseryImg from "@/assets/nursery-scandinavian-bright.jpg";
+import nurseryAsset from "@/assets/nursery-sleeping-baby.avif.asset.json";
+const nurseryImg = nurseryAsset.url;
 import ptpaBadge from "@/assets/ptpa-award.png";
 
 import epaAsset from "@/assets/certs/cert_0.png.asset.json";
