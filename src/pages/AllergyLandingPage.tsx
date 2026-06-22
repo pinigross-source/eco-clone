@@ -624,9 +624,9 @@ const AllergyLandingPage = () => {
                         ["Best for", "Larger rooms & open spaces"],
                         ["Coverage area", "Up to 800 sq ft"],
                         ["What's included", "Biotica 800 device + starter cartridge"],
-                        ["Refill duration", "[Add refill duration]"],
-                        ["Guarantee", "30-day money-back · [Add guarantee details]"],
-                        ["Shipping", "Free shipping · [Add shipping details]"],
+                        ["Refill duration", "90 days"],
+                        ["Guarantee", "30-day money-back"],
+                        ["Shipping", "Free shipping"],
                       ].map(([k, v]) => (
                         <div
                           key={k}
