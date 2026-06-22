@@ -196,14 +196,14 @@ const AllergyLandingPage = () => {
             <Reveal>
               <div className="mt-9 flex flex-col items-center gap-4 sm:mt-11">
                 <a
-                  href="#products"
-                  onClick={(e) => smoothScroll(e, "products", "click_allergy_hero_cta")}
+                  href="https://shop.envirobiotics.com/cart/48644373184764:1"
+                  onClick={() => trackEvent("click_allergy_hero_cta")}
                 >
                 <Button
                   size="lg"
                   className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]"
                 >
-                  Target Allergens Where They Settle
+                  Stop Surface Allergens — Get Biotica 800
                 </Button>
                 </a>
               </div>
