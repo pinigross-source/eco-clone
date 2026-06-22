@@ -142,7 +142,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ScrollToTop />
-      
+      <WordPressRedirectHandler />
       <Outlet />
     </QueryClientProvider>
   );
