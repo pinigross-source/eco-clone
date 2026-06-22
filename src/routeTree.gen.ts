@@ -87,6 +87,7 @@ import { Route as CompareBetterairVsBlueairRouteImport } from './routes/compare.
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AffIdRouteImport } from './routes/aff.$id'
+import { Route as ProsubAffIdRouteImport } from './routes/prosub.aff.$id'
 import { Route as ApiPublicComingSoonRouteImport } from './routes/api/public/coming-soon'
 
 const WarrantyPolicyRoute = WarrantyPolicyRouteImport.update({
@@ -483,6 +484,11 @@ const AffIdRoute = AffIdRouteImport.update({
   path: '/aff/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProsubAffIdRoute = ProsubAffIdRouteImport.update({
+  id: '/aff/$id',
+  path: '/aff/$id',
+  getParentRoute: () => ProsubRoute,
+} as any)
 const ApiPublicComingSoonRoute = ApiPublicComingSoonRouteImport.update({
   id: '/api/public/coming-soon',
   path: '/api/public/coming-soon',
@@ -539,7 +545,7 @@ export interface FileRoutesByFullPath {
   '/product-registration': typeof ProductRegistrationRoute
   '/product-use-cases': typeof ProductUseCasesRoute
   '/proof-and-trust': typeof ProofAndTrustRoute
-  '/prosub': typeof ProsubRoute
+  '/prosub': typeof ProsubRouteWithChildren
   '/research': typeof ResearchRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
@@ -569,6 +575,7 @@ export interface FileRoutesByFullPath {
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog/': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
+  '/prosub/aff/$id': typeof ProsubAffIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -620,7 +627,7 @@ export interface FileRoutesByTo {
   '/product-registration': typeof ProductRegistrationRoute
   '/product-use-cases': typeof ProductUseCasesRoute
   '/proof-and-trust': typeof ProofAndTrustRoute
-  '/prosub': typeof ProsubRoute
+  '/prosub': typeof ProsubRouteWithChildren
   '/research': typeof ResearchRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
@@ -650,6 +657,7 @@ export interface FileRoutesByTo {
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
+  '/prosub/aff/$id': typeof ProsubAffIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -702,7 +710,7 @@ export interface FileRoutesById {
   '/product-registration': typeof ProductRegistrationRoute
   '/product-use-cases': typeof ProductUseCasesRoute
   '/proof-and-trust': typeof ProofAndTrustRoute
-  '/prosub': typeof ProsubRoute
+  '/prosub': typeof ProsubRouteWithChildren
   '/research': typeof ResearchRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
@@ -732,6 +740,7 @@ export interface FileRoutesById {
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog/': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
+  '/prosub/aff/$id': typeof ProsubAffIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -815,6 +824,7 @@ export interface FileRouteTypes {
     | '/solutions/room'
     | '/blog/'
     | '/api/public/coming-soon'
+    | '/prosub/aff/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -896,6 +906,7 @@ export interface FileRouteTypes {
     | '/solutions/room'
     | '/blog'
     | '/api/public/coming-soon'
+    | '/prosub/aff/$id'
   id:
     | '__root__'
     | '/'
@@ -977,6 +988,7 @@ export interface FileRouteTypes {
     | '/solutions/room'
     | '/blog/'
     | '/api/public/coming-soon'
+    | '/prosub/aff/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -1029,7 +1041,7 @@ export interface RootRouteChildren {
   ProductRegistrationRoute: typeof ProductRegistrationRoute
   ProductUseCasesRoute: typeof ProductUseCasesRoute
   ProofAndTrustRoute: typeof ProofAndTrustRoute
-  ProsubRoute: typeof ProsubRoute
+  ProsubRoute: typeof ProsubRouteWithChildren
   ResearchRoute: typeof ResearchRoute
   SafetyRoute: typeof SafetyRoute
   ShopRoute: typeof ShopRoute
@@ -1607,6 +1619,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AffIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/prosub/aff/$id': {
+      id: '/prosub/aff/$id'
+      path: '/aff/$id'
+      fullPath: '/prosub/aff/$id'
+      preLoaderRoute: typeof ProsubAffIdRouteImport
+      parentRoute: typeof ProsubRoute
+    }
     '/api/public/coming-soon': {
       id: '/api/public/coming-soon'
       path: '/api/public/coming-soon'
@@ -1628,6 +1647,17 @@ const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
 const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
   CaseStudiesRouteChildren,
 )
+
+interface ProsubRouteChildren {
+  ProsubAffIdRoute: typeof ProsubAffIdRoute
+}
+
+const ProsubRouteChildren: ProsubRouteChildren = {
+  ProsubAffIdRoute: ProsubAffIdRoute,
+}
+
+const ProsubRouteWithChildren =
+  ProsubRoute._addFileChildren(ProsubRouteChildren)
 
 interface SolutionsRouteChildren {
   SolutionsRoomRoute: typeof SolutionsRoomRoute
@@ -1691,7 +1721,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProductRegistrationRoute: ProductRegistrationRoute,
   ProductUseCasesRoute: ProductUseCasesRoute,
   ProofAndTrustRoute: ProofAndTrustRoute,
-  ProsubRoute: ProsubRoute,
+  ProsubRoute: ProsubRouteWithChildren,
   ResearchRoute: ResearchRoute,
   SafetyRoute: SafetyRoute,
   ShopRoute: ShopRoute,
