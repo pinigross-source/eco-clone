@@ -285,7 +285,7 @@ const PetsLandingPage = () => {
                     The Biotica 800 covers up to 800 sq ft - living rooms, open-plan spaces, and anywhere your pet roams. It continuously releases beneficial probiotics that break down dander and odor woven into fabric surfaces, so your home stays fresher without sprays or fragrances.
                   </p>
                   <a
-                    href={BIOTICA_URL}
+                    href="https://shop.envirobiotics.com/cart/48644373184764:1"
                     onClick={() => trackEvent("click_pets_biotica_cta")}
                     className="group mt-8 inline-flex items-center rounded-full bg-neutral-900 px-8 py-4 text-[14px] font-medium text-white transition-all hover:bg-neutral-800"
                   >
