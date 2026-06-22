@@ -555,9 +555,9 @@ const AllergyLandingPage = () => {
                         ["Best for", "Bedrooms & smaller rooms"],
                         ["Coverage area", "Up to 300 sq ft"],
                         ["What's included", "BioLogic Mini device + starter cartridge"],
-                        ["Refill duration", "[Add refill duration]"],
-                        ["Guarantee", "30-day money-back · [Add guarantee details]"],
-                        ["Shipping", "Free shipping · [Add shipping details]"],
+                        ["Refill duration", "90 days"],
+                        ["Guarantee", "30-day money-back"],
+                        ["Shipping", "Free shipping on orders over $200"],
                       ].map(([k, v]) => (
                         <div
                           key={k}
