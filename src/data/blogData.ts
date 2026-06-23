@@ -847,7 +847,7 @@ export const blogPosts: BlogPost[] = [
       "Dust mite allergens are the single biggest reason most allergy sufferers stay symptomatic indoors. The allergen isn't the mite itself, it's a protein in mite waste, which is microscopic, sticky, and accumulates in mattresses, pillows, bedding, carpets, and upholstered furniture. Vacuuming reduces it. Washing bedding in hot water reduces it. But nothing in standard cleaning gets it out of a mattress or out of a carpet pad.",
       "**Best primary tool:** probiotic surface treatment. **Bacillus** probiotics reduce the surface organic debris dust mites feed on, and the Indoor Biotechnologies study measured a meaningful drop in dust mite allergens within eight days.",
       "**Add HEPA for:** the brief windows when dust mite allergen does become airborne (changing sheets, vacuuming, jumping on the couch).",
-      "**Room-scale recommendation:** [BA-2080](/product/ba-2080) for the bedroom (up to 800 sq ft). A HEPA unit alongside it for the moments of disturbance.",
+      "**Room-scale recommendation:** [Biotica 800](/product/biotica-800) for the bedroom (up to 800 sq ft). A HEPA unit alongside it for the moments of disturbance.",
       "### If you're allergic to pet dander",
       "Pet dander allergens behave similarly to dust mites, they're sticky proteins that settle into carpet, upholstery, bedding, and surfaces, and only briefly become airborne when disturbed.",
       "**Best primary tool:** probiotic surface treatment. Same mechanism, the probiotic layer reduces the surface reservoir of dander allergen.",
