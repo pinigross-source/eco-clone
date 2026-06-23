@@ -865,7 +865,7 @@ export const blogPosts: BlogPost[] = [
       "### If you have asthma triggered by indoor allergens",
       "Asthma is the high-stakes version of this question. The mechanism by which indoor allergens trigger asthma is well-documented (see [how indoor allergens trigger asthma](/blog/how-indoor-allergens-trigger-asthma) for the full breakdown), and the practical implication is that you need both halves of the equation, airborne reduction AND surface reduction. A HEPA-only setup tends to leave asthma sufferers chronically symptomatic.",
       "**Best setup:** HEPA in the bedroom for airborne particle reduction during sleep, probiotic surface treatment across all primary living spaces for the allergen reservoir, and dehumidification to 40–60% RH.",
-      "> For dust mite or pet dander allergies, the [BA-2080](/product/ba-2080) is the room-scale option (up to 800 sq ft).",
+      "> For dust mite or pet dander allergies, the [Biotica 800](/product/biotica-800) is the room-scale option (up to 800 sq ft).",
       "## The combined approach (what most allergy sufferers actually need)",
       "If you have multiple allergens, and most people with allergies do, the strongest setup is layered:",
       "**1. HEPA filtration** in the rooms where you spend the most time (bedroom is the highest-impact placement). **2. Probiotic surface treatment** across the whole living area to reduce the allergen reservoir on surfaces. **3. Humidity control** at 40–60% RH. **4. Source control**, find and fix any moisture issues, treat the home for cockroaches or rodents if relevant, wash bedding in hot water weekly.",
