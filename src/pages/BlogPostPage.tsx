@@ -47,6 +47,8 @@ const extractKeyTakeaways = (content: string[]): string[] => {
         paragraph.toLowerCase().includes("sustainable")) {
       const sentences = paragraph.split(". ");
       sentences.forEach(sentence => {
+        // Skip sentences with markdown links — they render as raw [text](url) in takeaways
+        if (/\[[^\]]+\]\([^)]+\)/.test(sentence)) return;
         if (sentence.length > 30 && sentence.length < 150 && takeaways.length < 4) {
           takeaways.push(sentence.trim().replace(/\.$/, ""));
         }
