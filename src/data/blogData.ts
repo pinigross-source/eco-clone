@@ -949,7 +949,7 @@ export const blogPosts: BlogPost[] = [
       "**Does it replace a HEPA air purifier?** No, it complements it. HEPA filters airborne particles. The Gen 2 treats surfaces with beneficial probiotics. For most homes with allergy concerns, the strongest setup uses both technologies in the same room.",
       "**Will it help with pet odors?** Usually yes, over a few weeks. Pet odors come from bacteria feeding on organic residue on surfaces (bedding, carpet, upholstery). Probiotic surface colonization outcompetes those odor-producing bacteria. Expect a difference in 7–14 days, with sustained improvement over 30–60 days.",
       "**Is there a return window?** EnviroBiotics offers a standard return window, check the current policy on the product page before ordering.",
-      "Need bigger coverage? See the [BA-2080](/product/ba-2080) for rooms up to 800 sq ft."
+      "Need bigger coverage? See the [Biotica 800](/product/biotica-800) for rooms up to 800 sq ft."
     ],
   },
 ];
