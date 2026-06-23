@@ -852,7 +852,7 @@ export const blogPosts: BlogPost[] = [
       "Pet dander allergens behave similarly to dust mites, they're sticky proteins that settle into carpet, upholstery, bedding, and surfaces, and only briefly become airborne when disturbed.",
       "**Best primary tool:** probiotic surface treatment. Same mechanism, the probiotic layer reduces the surface reservoir of dander allergen.",
       "**Add HEPA for:** the airborne fraction. A HEPA unit in the rooms where your pet spends time helps catch dander when it's briefly aloft.",
-      "**Room-scale recommendation:** [BA-2080](/product/ba-2080) in living areas and bedrooms. HEPA unit in the room with the most airborne exposure.",
+      "**Room-scale recommendation:** [Biotica 800](/product/biotica-800) in living areas and bedrooms. HEPA unit in the room with the most airborne exposure.",
       "### If you're allergic to pollen (seasonal)",
       "Pollen is the one allergy where the conventional answer is right.",
       "**Best primary tool:** HEPA filtration. Pollen is large (10–100 microns), almost always airborne, and HEPA catches it efficiently. Run a HEPA purifier in the bedroom 24/7 during pollen season and you'll meaningfully reduce overnight exposure.",
