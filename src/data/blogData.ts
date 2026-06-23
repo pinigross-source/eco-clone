@@ -32,7 +32,8 @@ import betterairRebrandImg from "@/assets/blog/betterair-to-envirobiotics-rebran
 import improveIaqNaturallyImg from "@/assets/blog/improve-indoor-air-quality-naturally.avif";
 import mustySmellImg from "@/assets/blog/get-rid-of-musty-smell.avif";
 import indoorMicrobiomeHealthImg from "@/assets/blog/indoor-microbiome-health.avif";
-import probioticRoomSprayImg from "@/assets/blog/probiotic-room-spray-hero.avif";
+import probioticRoomSprayAsset from "@/assets/blog/probiotic-room-spray-hero.avif.asset.json";
+const probioticRoomSprayImg = probioticRoomSprayAsset.url;
 
 export const blogPosts: BlogPost[] = [
   {
