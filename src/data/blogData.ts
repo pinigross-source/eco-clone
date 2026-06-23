@@ -34,6 +34,8 @@ import mustySmellImg from "@/assets/blog/get-rid-of-musty-smell.avif";
 import indoorMicrobiomeHealthImg from "@/assets/blog/indoor-microbiome-health.avif";
 import probioticRoomSprayAsset from "@/assets/blog/probiotic-room-spray-hero.avif.asset.json";
 const probioticRoomSprayImg = probioticRoomSprayAsset.url;
+import biologicMiniHeroAsset from "@/assets/blog/biologic-mini-hero.avif.asset.json";
+const biologicMiniHeroImg = biologicMiniHeroAsset.url;
 
 export const blogPosts: BlogPost[] = [
   {
@@ -892,7 +894,7 @@ export const blogPosts: BlogPost[] = [
     slug: "biologic-mini-gen-2-review",
     title: "BioLogic Mini Gen 2 Review: A Quiet Probiotic Purifier for the Nursery (and Bedroom)",
     description: "Honest review of the BioLogic Mini Gen 2 after testing it in a nursery and bedroom: noise, coverage, build, and what it actually does and doesn't do.",
-    image: probioticRoomSprayImg,
+    image: biologicMiniHeroImg,
     category: "blog",
     tags: ["review", "biologic-mini", "probiotic", "nursery", "bedroom", "quiet"],
     relatedSlugs: ["probiotic-room-spray", "are-environmental-probiotics-safe", "indoor-microbiome-health", "best-air-purifier-for-allergies"],
