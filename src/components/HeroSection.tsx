@@ -146,7 +146,7 @@ export const HeroSection = () => {
             className="mb-5 text-[1.05rem] leading-[1.7] sm:text-[1.125rem] lg:text-[1.2rem]"
             style={{ color: "hsl(var(--foreground) / 0.78)" }}
           >
-            EnviroBiotics is a smart device that automatically disperses micro-droplets of environmental probiotics into your home or office. It effortlessly restores balance to your indoor spaces, improving your environment's health and protecting everyone under your roof: children, partners, and pets.
+            EnviroBiotics is a smart device that automatically disperses micro-droplets of <Link to="/probiotic-air-purification" className="underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground">environmental probiotics</Link> into your home or office. It effortlessly restores balance to your indoor spaces, improving your environment's health and protecting everyone under your roof: children, partners, and pets.
           </p>
 
           <div
