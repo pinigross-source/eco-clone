@@ -34,6 +34,8 @@ import mustySmellImg from "@/assets/blog/get-rid-of-musty-smell.avif";
 import indoorMicrobiomeHealthImg from "@/assets/blog/indoor-microbiome-health.avif";
 import probioticRoomSprayAsset from "@/assets/blog/probiotic-room-spray-hero.avif.asset.json";
 const probioticRoomSprayImg = probioticRoomSprayAsset.url;
+import biologicMiniHeroAsset from "@/assets/blog/biologic-mini-hero.avif.asset.json";
+const biologicMiniHeroImg = biologicMiniHeroAsset.url;
 
 export const blogPosts: BlogPost[] = [
   {
