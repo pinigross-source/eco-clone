@@ -8,13 +8,16 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Wind, Shield, Zap, Building2, Droplets, ThermometerSun, ArrowRight, CheckCircle2, AlertTriangle, Sparkles, Heart, DollarSign, Leaf, Mail, Phone, Settings, Cpu, Wifi, Play, FileText, Package, MapPin, Send, Users, Calendar } from "lucide-react";
+import { Wind, Shield, Zap, Building2, Droplets, ThermometerSun, ArrowRight, CheckCircle2, AlertTriangle, Sparkles, Heart, DollarSign, Leaf, Mail, Phone, Settings, Cpu, Wifi, Play, FileText, Package, MapPin, Send, Users, Calendar, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 import InstallationVideoPlayer from "@/components/InstallationVideoPlayer";
 import { InstallationQuoteForm } from "@/components/InstallationQuoteForm";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { RelatedTopics } from "@/components/RelatedTopics";
+import { ContactFormDialog } from "@/components/ContactFormDialog";
+import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
 
 import hvacAnatomyDiagram from "@/assets/hvac-anatomy-diagram.png";
 import hvacBreathingDifficult from "@/assets/hvac-breathing-difficult.jpg";
