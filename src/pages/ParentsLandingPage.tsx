@@ -226,7 +226,7 @@ const ParentsLandingPage = () => {
             <Reveal>
               <div className="mt-9 flex flex-col items-center gap-4 sm:mt-11">
                 <a
-                  href="https://shop.envirobiotics.com/cart/48644372496636:1"
+                  href={MINI_URL}
                   onClick={() => trackEvent("click_parents_hero_cta")}
                 >
                   <Button
