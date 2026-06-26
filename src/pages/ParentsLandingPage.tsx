@@ -436,8 +436,8 @@ const ParentsLandingPage = () => {
             <Reveal>
               <div className="mt-12 flex justify-center">
                 <a
-                  href="#products"
-                  onClick={(e) => smoothScroll(e, "products", "click_parents_how_cta")}
+                  href={MINI_URL}
+                  onClick={() => trackEvent("click_parents_how_cta")}
                 >
                   <Button
                     size="lg"
