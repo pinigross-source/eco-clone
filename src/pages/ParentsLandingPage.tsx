@@ -905,8 +905,8 @@ const ParentsLandingPage = () => {
 
               <div className="mt-10 flex justify-center">
                 <a
-                  href="#products"
-                  onClick={(e) => smoothScroll(e, "products", "click_parents_final_cta")}
+                  href={MINI_URL}
+                  onClick={() => trackEvent("click_parents_final_cta")}
                 >
                   <Button
                     size="lg"
