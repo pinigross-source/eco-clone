@@ -368,8 +368,11 @@ const DealerContactForm = () => {
 };
 
 const HVACPage = () => {
+  const [docDialogOpen, setDocDialogOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background">
+      <ContactFormDialog open={docDialogOpen} onOpenChange={setDocDialogOpen} />
+
       <SEOHead
         title="HVAC Probiotic Treatment for Commercial Buildings"
         description="Treat your building's HVAC system with environmental probiotics. Reduce biofilm, odors, and airborne contaminants continuously. Request a free quote."
