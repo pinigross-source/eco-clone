@@ -347,7 +347,10 @@ const DealerContactForm = () => {
 
         <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
           {isSubmitting ? (
-            "Sending..."
+            <>
+              <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+              Sending...
+            </>
           ) : (
             <>
               Find a Dealer Near Me
