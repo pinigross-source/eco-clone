@@ -8,13 +8,16 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Wind, Shield, Zap, Building2, Droplets, ThermometerSun, ArrowRight, CheckCircle2, AlertTriangle, Sparkles, Heart, DollarSign, Leaf, Mail, Phone, Settings, Cpu, Wifi, Play, FileText, Package, MapPin, Send, Users, Calendar } from "lucide-react";
+import { Wind, Shield, Zap, Building2, Droplets, ThermometerSun, ArrowRight, CheckCircle2, AlertTriangle, Sparkles, Heart, DollarSign, Leaf, Mail, Phone, Settings, Cpu, Wifi, Play, FileText, Package, MapPin, Send, Users, Calendar, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 import InstallationVideoPlayer from "@/components/InstallationVideoPlayer";
 import { InstallationQuoteForm } from "@/components/InstallationQuoteForm";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { RelatedTopics } from "@/components/RelatedTopics";
+import { ContactFormDialog } from "@/components/ContactFormDialog";
+import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
 
 import hvacAnatomyDiagram from "@/assets/hvac-anatomy-diagram.png";
 import hvacBreathingDifficult from "@/assets/hvac-breathing-difficult.jpg";
@@ -118,9 +121,21 @@ const buildingTypes = [
   { value: "other", label: "Other" },
 ];
 
+const dealerSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100),
+  email: z.string().trim().email("Enter a valid email").max(255),
+  phone: z.string().trim().max(20).optional(),
+  company: z.string().trim().max(100).optional(),
+  buildingType: z.string().max(50).optional(),
+  squareFootage: z.string().max(20).optional(),
+  zipCode: z.string().trim().min(1, "Zip code is required").max(10),
+  message: z.string().trim().max(1000).optional(),
+});
+
 const DealerContactForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -134,55 +149,82 @@ const DealerContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const parsed = dealerSchema.safeParse(formData);
+    if (!parsed.success) {
+      toast({
+        title: "Please check the form",
+        description: parsed.error.issues[0]?.message ?? "Invalid input.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
+    try {
+      const subject = `E-Biotic Pro Dealer Request - ${formData.zipCode}`;
+      const messageBody =
+        `New Dealer Locator Request\n\n` +
+        `Phone: ${formData.phone || "Not provided"}\n` +
+        `Company: ${formData.company || "Not provided"}\n` +
+        `Building Type: ${buildingTypes.find((b) => b.value === formData.buildingType)?.label || "Not specified"}\n` +
+        `Square Footage: ${formData.squareFootage || "Not specified"}\n` +
+        `Zip Code: ${formData.zipCode}\n\n` +
+        `Message:\n${formData.message || "No additional message"}`;
 
-    // Validate required fields
-    if (!formData.name || !formData.email || !formData.zipCode) {
+      const { error } = await supabase.from("contact_inquiries").insert({
+        name: formData.name,
+        email: formData.email,
+        subject,
+        message: messageBody,
+      });
+      if (error) throw error;
+
+      try {
+        await supabase.functions.invoke("send-contact-email", {
+          body: { name: formData.name, email: formData.email, subject, message: messageBody },
+        });
+      } catch {}
+
+      setSubmitted(true);
       toast({
-        title: "Missing information",
-        description: "Please fill in all required fields.",
+        title: "Request received",
+        description: "We'll connect you with a dealer shortly.",
+      });
+    } catch {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or email contact@envirobiotics.com.",
         variant: "destructive",
       });
+    } finally {
       setIsSubmitting(false);
-      return;
     }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      toast({
-        title: "Invalid email",
-        description: "Please enter a valid email address.",
-        variant: "destructive",
-      });
-      setIsSubmitting(false);
-      return;
-    }
-
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`E-Biotic Pro Dealer Request - ${formData.zipCode}`);
-    const body = encodeURIComponent(
-      `New Dealer Locator Request\n\n` +
-      `Name: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Phone: ${formData.phone || "Not provided"}\n` +
-      `Company: ${formData.company || "Not provided"}\n` +
-      `Building Type: ${buildingTypes.find(b => b.value === formData.buildingType)?.label || "Not specified"}\n` +
-      `Square Footage: ${formData.squareFootage || "Not specified"}\n` +
-      `Zip Code: ${formData.zipCode}\n\n` +
-      `Message:\n${formData.message || "No additional message"}`
-    );
-
-    // Open mailto
-    window.location.href = `mailto:contact@envirobiotics.com?subject=${subject}&body=${body}`;
-
-    toast({
-      title: "Opening email client",
-      description: "Your email client should open with the form details. If it doesn't, please email contact@envirobiotics.com directly.",
-    });
-
-    setIsSubmitting(false);
   };
+
+  if (submitted) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="bg-card rounded-2xl p-8 shadow-2xl border border-border text-center"
+      >
+        <div className="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
+          <CheckCircle2 className="w-7 h-7 text-primary" />
+        </div>
+        <h3 className="font-display font-bold text-2xl mb-2">Request received</h3>
+        <p className="text-muted-foreground mb-6">
+          Thanks, {formData.name.split(" ")[0] || "there"}. A certified dealer near {formData.zipCode} will reach out within one business day.
+        </p>
+        <p className="text-sm text-muted-foreground">
+          Need to talk now? Call{" "}
+          <a href="tel:8336923883" className="text-primary hover:underline font-medium">
+            (833) 692 3883
+          </a>
+        </p>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
@@ -195,8 +237,9 @@ const DealerContactForm = () => {
         Contact Form
       </div>
       <h3 className="font-display font-bold text-2xl mb-6">Request a Dealer Quote</h3>
-      
+
       <form onSubmit={handleSubmit} className="space-y-5">
+
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="name">Full Name *</Label>
@@ -304,7 +347,10 @@ const DealerContactForm = () => {
 
         <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
           {isSubmitting ? (
-            "Sending..."
+            <>
+              <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+              Sending...
+            </>
           ) : (
             <>
               Find a Dealer Near Me
@@ -322,8 +368,11 @@ const DealerContactForm = () => {
 };
 
 const HVACPage = () => {
+  const [docDialogOpen, setDocDialogOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background">
+      <ContactFormDialog open={docDialogOpen} onOpenChange={setDocDialogOpen} />
+
       <SEOHead
         title="HVAC Probiotic Treatment for Commercial Buildings"
         description="Treat your building's HVAC system with environmental probiotics. Reduce biofilm, odors, and airborne contaminants continuously. Request a free quote."
@@ -581,12 +630,13 @@ const HVACPage = () => {
                       <p className="text-sm text-muted-foreground">Unit, mounting hardware, refill cartridge</p>
                     </div>
                   </div>
-                  <a
-                    href="mailto:contact@envirobiotics.com"
+                  <button
+                    type="button"
+                    onClick={() => setDocDialogOpen(true)}
                     className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-foreground text-background text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-foreground/90"
                   >
                     Request Documentation
-                  </a>
+                  </button>
                 </div>
               </div>
             </ScrollReveal>
