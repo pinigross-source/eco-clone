@@ -226,7 +226,7 @@ const ParentsLandingPage = () => {
             <Reveal>
               <div className="mt-9 flex flex-col items-center gap-4 sm:mt-11">
                 <a
-                  href="https://shop.envirobiotics.com/cart/48644372496636:1"
+                  href={MINI_URL}
                   onClick={() => trackEvent("click_parents_hero_cta")}
                 >
                   <Button
@@ -436,8 +436,8 @@ const ParentsLandingPage = () => {
             <Reveal>
               <div className="mt-12 flex justify-center">
                 <a
-                  href="#products"
-                  onClick={(e) => smoothScroll(e, "products", "click_parents_how_cta")}
+                  href={MINI_URL}
+                  onClick={() => trackEvent("click_parents_how_cta")}
                 >
                   <Button
                     size="lg"
@@ -905,8 +905,8 @@ const ParentsLandingPage = () => {
 
               <div className="mt-10 flex justify-center">
                 <a
-                  href="#products"
-                  onClick={(e) => smoothScroll(e, "products", "click_parents_final_cta")}
+                  href={MINI_URL}
+                  onClick={() => trackEvent("click_parents_final_cta")}
                 >
                   <Button
                     size="lg"
@@ -945,8 +945,8 @@ const ParentsLandingPage = () => {
             <p className="truncate text-xs text-muted-foreground">Quiet · Chemical-free</p>
           </div>
           <a
-            href="#products"
-            onClick={(e) => smoothScroll(e, "products", "click_parents_sticky_cta")}
+            href={MINI_URL}
+            onClick={() => trackEvent("click_parents_sticky_cta")}
           >
             <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
               Secure My Baby&apos;s Space
