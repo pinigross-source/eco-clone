@@ -630,12 +630,13 @@ const HVACPage = () => {
                       <p className="text-sm text-muted-foreground">Unit, mounting hardware, refill cartridge</p>
                     </div>
                   </div>
-                  <a
-                    href="mailto:contact@envirobiotics.com"
+                  <button
+                    type="button"
+                    onClick={() => setDocDialogOpen(true)}
                     className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-foreground text-background text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-foreground/90"
                   >
                     Request Documentation
-                  </a>
+                  </button>
                 </div>
               </div>
             </ScrollReveal>
