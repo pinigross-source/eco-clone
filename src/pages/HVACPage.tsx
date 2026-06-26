@@ -121,9 +121,21 @@ const buildingTypes = [
   { value: "other", label: "Other" },
 ];
 
+const dealerSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100),
+  email: z.string().trim().email("Enter a valid email").max(255),
+  phone: z.string().trim().max(20).optional(),
+  company: z.string().trim().max(100).optional(),
+  buildingType: z.string().max(50).optional(),
+  squareFootage: z.string().max(20).optional(),
+  zipCode: z.string().trim().min(1, "Zip code is required").max(10),
+  message: z.string().trim().max(1000).optional(),
+});
+
 const DealerContactForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -137,54 +149,57 @@ const DealerContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const parsed = dealerSchema.safeParse(formData);
+    if (!parsed.success) {
+      toast({
+        title: "Please check the form",
+        description: parsed.error.issues[0]?.message ?? "Invalid input.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
+    try {
+      const subject = `E-Biotic Pro Dealer Request - ${formData.zipCode}`;
+      const messageBody =
+        `New Dealer Locator Request\n\n` +
+        `Phone: ${formData.phone || "Not provided"}\n` +
+        `Company: ${formData.company || "Not provided"}\n` +
+        `Building Type: ${buildingTypes.find((b) => b.value === formData.buildingType)?.label || "Not specified"}\n` +
+        `Square Footage: ${formData.squareFootage || "Not specified"}\n` +
+        `Zip Code: ${formData.zipCode}\n\n` +
+        `Message:\n${formData.message || "No additional message"}`;
 
-    // Validate required fields
-    if (!formData.name || !formData.email || !formData.zipCode) {
+      const { error } = await supabase.from("contact_inquiries").insert({
+        name: formData.name,
+        email: formData.email,
+        subject,
+        message: messageBody,
+      });
+      if (error) throw error;
+
+      try {
+        await supabase.functions.invoke("send-contact-email", {
+          body: { name: formData.name, email: formData.email, subject, message: messageBody },
+        });
+      } catch {}
+
+      setSubmitted(true);
       toast({
-        title: "Missing information",
-        description: "Please fill in all required fields.",
+        title: "Request received",
+        description: "We'll connect you with a dealer shortly.",
+      });
+    } catch {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or email contact@envirobiotics.com.",
         variant: "destructive",
       });
+    } finally {
       setIsSubmitting(false);
-      return;
     }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      toast({
-        title: "Invalid email",
-        description: "Please enter a valid email address.",
-        variant: "destructive",
-      });
-      setIsSubmitting(false);
-      return;
-    }
-
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`E-Biotic Pro Dealer Request - ${formData.zipCode}`);
-    const body = encodeURIComponent(
-      `New Dealer Locator Request\n\n` +
-      `Name: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Phone: ${formData.phone || "Not provided"}\n` +
-      `Company: ${formData.company || "Not provided"}\n` +
-      `Building Type: ${buildingTypes.find(b => b.value === formData.buildingType)?.label || "Not specified"}\n` +
-      `Square Footage: ${formData.squareFootage || "Not specified"}\n` +
-      `Zip Code: ${formData.zipCode}\n\n` +
-      `Message:\n${formData.message || "No additional message"}`
-    );
-
-    // Open mailto
-    window.location.href = `mailto:contact@envirobiotics.com?subject=${subject}&body=${body}`;
-
-    toast({
-      title: "Opening email client",
-      description: "Your email client should open with the form details. If it doesn't, please email contact@envirobiotics.com directly.",
-    });
-
-    setIsSubmitting(false);
   };
 
   return (
