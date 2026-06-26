@@ -202,6 +202,30 @@ const DealerContactForm = () => {
     }
   };
 
+  if (submitted) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="bg-card rounded-2xl p-8 shadow-2xl border border-border text-center"
+      >
+        <div className="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
+          <CheckCircle2 className="w-7 h-7 text-primary" />
+        </div>
+        <h3 className="font-display font-bold text-2xl mb-2">Request received</h3>
+        <p className="text-muted-foreground mb-6">
+          Thanks, {formData.name.split(" ")[0] || "there"}. A certified dealer near {formData.zipCode} will reach out within one business day.
+        </p>
+        <p className="text-sm text-muted-foreground">
+          Need to talk now? Call{" "}
+          <a href="tel:8336923883" className="text-primary hover:underline font-medium">
+            (833) 692 3883
+          </a>
+        </p>
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
       whileHover={{ y: -4 }}
@@ -213,8 +237,9 @@ const DealerContactForm = () => {
         Contact Form
       </div>
       <h3 className="font-display font-bold text-2xl mb-6">Request a Dealer Quote</h3>
-      
+
       <form onSubmit={handleSubmit} className="space-y-5">
+
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="name">Full Name *</Label>
