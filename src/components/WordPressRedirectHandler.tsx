@@ -50,7 +50,7 @@ const REDIRECT_MAP: Record<string, string> = {
   "/home-sme": "/solutions/room",
   "/refills": "/shop",
   "/travel": "/shop",
-  "/pets": "/shop",
+  
   "/biologic": "/shop",
   "/fogger": "/shop",
   "/ba2080": "/product/ba-2080",
