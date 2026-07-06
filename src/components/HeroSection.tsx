@@ -21,13 +21,6 @@ export const HeroSection = () => {
           loading="eager"
           fetchPriority="high"
         />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(244,240,231,0.15) 0%, rgba(244,240,231,0.55) 45%, rgba(244,240,231,0.9) 100%)",
-          }}
-        />
       </div>
 
       {/* Copy column — right-aligned on desktop, centered on mobile */}
