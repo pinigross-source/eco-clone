@@ -76,12 +76,12 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   if (!item.dropdown) {
     const className = cn(
-      "relative px-2 xl:px-3 py-2 text-base xl:text-lg 2xl:text-xl font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+      "relative px-3 py-2 text-[16px] font-normal transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap",
       scrolled
-        ? "text-foreground hover:text-foreground hover:bg-muted/50"
+        ? "text-foreground hover:text-primary"
         : useLight
-          ? "text-white hover:text-white hover:bg-white/10"
-          : "text-foreground hover:text-foreground hover:bg-muted/50"
+          ? "text-white hover:text-white/80"
+          : "text-foreground hover:text-primary"
     );
     if (/^https?:\/\//.test(item.href)) {
       return (
@@ -99,12 +99,12 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   const isExternal = /^https?:\/\//.test(item.href);
   const triggerClassName = cn(
-    "relative px-2 xl:px-3 py-2 text-base xl:text-lg 2xl:text-xl font-bold transition-all duration-200 flex items-center gap-1.5 rounded-lg whitespace-nowrap",
+    "relative px-3 py-2 text-[16px] font-normal transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap",
     scrolled
-      ? (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
+      ? (open ? "text-primary" : "text-foreground hover:text-primary")
       : useLight
-        ? (open ? "text-white bg-white/10" : "text-white hover:text-white hover:bg-white/10")
-        : (open ? "text-foreground bg-muted/50" : "text-foreground hover:text-foreground hover:bg-muted/50")
+        ? (open ? "text-white" : "text-white hover:text-white/80")
+        : (open ? "text-primary" : "text-foreground hover:text-primary")
   );
 
   return (
@@ -222,12 +222,10 @@ export const Navbar = () => {
   return (
     <>
       <header
-        style={{ fontFamily: "'Montserrat', sans-serif" }}
+        style={{ fontFamily: "'Montserrat', sans-serif", backgroundColor: "#F3EEE6" }}
         className={cn(
-          "fixed top-0 z-[9999] w-full transition-all duration-500",
-          scrolled
-            ? "bg-background/95 backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-foreground/5"
-            : "bg-background backdrop-blur-xl border-b border-border/50"
+          "fixed top-0 z-[9999] w-full transition-shadow duration-300",
+          scrolled ? "shadow-sm" : ""
         )}
       >
         {/* Scroll Progress */}
@@ -239,46 +237,41 @@ export const Navbar = () => {
           style={{ width: `${scrollProgress}%` }}
         />
 
-        <div className="container flex h-20 sm:h-[88px] md:h-[100px] items-center px-4 sm:px-6 relative">
-          {/* Mobile: Hamburger */}
-          <div className="xl:hidden absolute left-4 z-20">
+        <div className="mx-auto max-w-[1440px] flex h-16 lg:h-[124px] items-center px-4 sm:px-6 lg:px-10 relative">
+          {/* Mobile: Hamburger + Search on left */}
+          <div className="lg:hidden absolute left-3 z-20 flex items-center gap-1">
             <button
-              className={cn(
-                "relative flex h-12 w-12 items-center justify-center rounded-full border shadow-sm transition-all duration-300 active:scale-95",
-                isOpen
-                  ? "border-primary/30 bg-primary text-primary-foreground"
-                  : "border-border/70 bg-background/92 text-foreground hover:bg-background"
-              )}
+              className="flex h-11 w-11 items-center justify-center text-foreground transition-transform active:scale-95"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
               <X className={cn("h-6 w-6 absolute transition-all duration-200", isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90")} />
               <Menu className={cn("h-6 w-6 absolute transition-all duration-200", isOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0")} />
             </button>
+            <div className="hidden sm:block"><NavbarSearch /></div>
           </div>
 
           {/* Logo */}
-          <Link to="/" className="flex items-center group relative xl:relative mx-auto xl:mx-0 xl:mr-4 2xl:mr-6 flex-shrink-0">
+          <Link to="/" className="flex items-center relative mx-auto lg:mx-0 lg:mr-4 flex-shrink-0">
             <img
               src={logo}
               alt="EnviroBiotics - Environmental Probiotics"
-              className="h-12 sm:h-14 md:h-[92px] w-auto relative z-10"
+              className="h-9 sm:h-10 lg:h-16 w-auto"
               width="210"
               height="72"
               fetchPriority="high"
             />
           </Link>
 
-          {/* Mobile: Search + Cart on right */}
-          <div className="xl:hidden absolute right-3 z-20 flex items-center gap-1.5">
-            <div className="hidden sm:block"><NavbarSearch /></div>
+          {/* Mobile: Cart on right */}
+          <div className="lg:hidden absolute right-3 z-20 flex items-center gap-1">
             <ShopifyCartLink />
           </div>
 
-          {/* Desktop Navigation  centered, flex-grow */}
+          {/* Desktop Navigation - centered */}
           <nav
             aria-label="Main navigation"
-            className="hidden xl:flex flex-1 items-center justify-center gap-3 xl:gap-6 2xl:gap-10"
+            className="hidden lg:flex flex-1 items-center justify-center gap-2 xl:gap-6"
           >
             {navLinks.map((link) => (
               <NavDropdown key={link.label} item={link} scrolled={scrolled} useLight={useLight} />
@@ -286,7 +279,7 @@ export const Navbar = () => {
           </nav>
 
           {/* Desktop: Right side icons (search, account, cart) */}
-          <div className="hidden xl:flex items-center gap-1 flex-shrink-0">
+          <div className="hidden lg:flex items-center gap-1 flex-shrink-0">
             <NavbarSearch />
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
               <div className="w-11 h-11 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95">
@@ -301,36 +294,24 @@ export const Navbar = () => {
       {/* Mobile menu */}
       {isOpen && (
         <div
-          className="xl:hidden fixed inset-0 z-[150] bg-foreground/20 backdrop-blur-sm"
+          className="lg:hidden fixed inset-0 z-[150] bg-foreground/20 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
         />
       )}
       <div
         className={cn(
-          "xl:hidden fixed top-20 sm:top-[88px] md:top-[100px] left-0 right-0 z-[200] bg-background border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
+          "lg:hidden fixed top-16 left-0 right-0 z-[200] border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
           isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         )}
+        style={{ backgroundColor: "#F3EEE6", fontFamily: "'Montserrat', sans-serif" }}
       >
-        <div className="flex items-center justify-between px-4 sm:px-6 pt-4 pb-3">
-          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Menu</span>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted flex items-center justify-center transition-colors"
-            aria-label="Close menu"
-          >
-            <X className="w-4 h-4 text-foreground" />
-          </button>
-        </div>
-
-
-
-        <nav aria-label="Mobile navigation" className="container pb-4 sm:pb-6 flex flex-col gap-0.5 sm:gap-1 px-4 sm:px-6">
+        <nav aria-label="Mobile navigation" className="container pt-4 pb-4 sm:pb-6 flex flex-col gap-0.5 sm:gap-1 px-4 sm:px-6">
           {navLinks.map((link) => (
             <div key={link.label}>
               {link.dropdown ? (
                 <>
                   <button
-                    className="w-full text-base sm:text-lg font-bold text-foreground hover:bg-muted/50 px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all flex items-center justify-between"
+                    className="w-full text-[16px] font-normal text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
                     onClick={() => setExpandedMobile(expandedMobile === link.label ? null : link.label)}
                   >
                     <span>{link.label}</span>
@@ -343,7 +324,7 @@ export const Navbar = () => {
                     <div className="pl-4 pr-2 pb-1 space-y-0.5">
                       {link.dropdown.map(({ label, href }) => {
                         const mExt = /^https?:\/\//.test(href);
-                        const mClass = "block px-3 py-3 rounded-lg hover:bg-muted/50 transition-colors text-lg font-normal text-foreground";
+                        const mClass = "block px-3 py-3 transition-colors text-[15px] font-normal text-foreground hover:text-primary";
                         return mExt ? (
                           <a key={label} href={href} target="_top" rel="noopener" className={mClass} onClick={() => setIsOpen(false)}>{label}</a>
                         ) : (
@@ -352,7 +333,7 @@ export const Navbar = () => {
                       })}
                       <Link
                         to={link.href}
-                        className="block px-3 py-3 text-lg font-normal text-primary"
+                        className="block px-3 py-3 text-[15px] font-normal text-primary"
                         onClick={() => setIsOpen(false)}
                       >
                         View All {link.label}
@@ -365,7 +346,7 @@ export const Navbar = () => {
                   href={link.href}
                   target="_top"
                   rel="noopener"
-                  className="text-base sm:text-lg font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
+                  className="text-[16px] font-normal text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{link.label}</span>
@@ -373,7 +354,7 @@ export const Navbar = () => {
               ) : (
                 <Link
                   to={link.href}
-                  className="text-base sm:text-lg font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
+                  className="text-[16px] font-normal text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{link.label}</span>
