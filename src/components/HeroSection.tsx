@@ -1,71 +1,109 @@
 import { Link } from "@/lib/link";
+import { ArrowRight } from "lucide-react";
 import heroMediaAsset from "@/assets/hero-desktop-family.avif.asset.json";
 
 // TODO: swap `heroMediaAsset.url` with the hero GIF once uploaded via Lovable Assets.
 const heroMedia = heroMediaAsset.url;
 
+const HERO_FONT = '"Hanken Grotesk", system-ui, -apple-system, sans-serif';
+
 export const HeroSection = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-background">
-      <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-10 px-6 pt-28 pb-16 sm:px-10 sm:pt-32 sm:pb-20 lg:grid-cols-12 lg:gap-14 lg:px-16 lg:pt-40 lg:pb-28">
-        {/* Text side */}
-        <div className="lg:col-span-6 xl:col-span-6">
-          <h1 className="font-display font-bold leading-[0.95] tracking-[-0.035em] text-foreground">
-            <span className="block text-[2.8rem] xs:text-[3.2rem] sm:text-[4rem] md:text-[4.6rem] lg:text-[5.4rem]">
-              Your Health.
-            </span>
-            <span className="block text-[2.6rem] xs:text-[3rem] sm:text-[3.6rem] md:text-[4.2rem] lg:text-[5rem] text-heading-accent italic font-normal leading-[1]">
-              Your Choice.
-            </span>
+    <section
+      className="relative w-full overflow-hidden"
+      style={{ background: "#F4F0E7", fontFamily: HERO_FONT }}
+    >
+      {/* Full-bleed background media */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={heroMedia}
+          alt="EnviroBiotics environmental probiotics in motion"
+          className="h-full w-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(244,240,231,0.15) 0%, rgba(244,240,231,0.55) 45%, rgba(244,240,231,0.9) 100%)",
+          }}
+        />
+      </div>
+
+      {/* Copy column — right-aligned on desktop, centered on mobile */}
+      <div className="relative z-10 mx-auto max-w-[1440px] px-6 pt-28 pb-20 sm:px-10 sm:pt-32 sm:pb-24 lg:px-16 lg:pt-40 lg:pb-32">
+        <div className="mx-auto max-w-[720px] text-center lg:mx-0 lg:ml-[40%] lg:text-left">
+          <h1
+            className="font-display font-bold text-balance text-foreground text-[2.5rem] sm:text-[3.5rem] lg:text-[4rem]"
+            style={{ lineHeight: 1.05, letterSpacing: "normal" }}
+          >
+            Your Health.
+            <br />
+            <strong className="font-bold">Your Choice.</strong>
           </h1>
 
-          <p className="mt-7 max-w-xl font-serif italic text-lg sm:text-xl lg:text-2xl leading-snug text-foreground/85">
+          <p
+            className="mt-6 font-display italic font-light text-heading-accent text-balance text-[1.15rem] sm:text-[1.5rem] lg:text-[1.75rem]"
+            style={{ lineHeight: 1.2 }}
+          >
             Healthy diet. Active lifestyle.
-            <br />
+            <br className="hidden sm:block" />
             But true wellness starts with your indoor environment,
             <br className="hidden sm:block" />
             where you spend 90% of your life.
           </p>
 
-          <p className="mt-6 max-w-xl text-[1rem] sm:text-[1.05rem] leading-[1.65] text-foreground/70">
-            Restore the natural balance of your indoor ecosystem. Reduce harmful pathogens, mold, bacteria, and allergens with Active Environmental Probiotics®.
+          <p
+            className="mt-6 mx-auto lg:mx-0 max-w-[640px] text-muted-foreground text-[1.05rem] sm:text-[1.15rem] lg:text-[1.25rem]"
+            style={{ lineHeight: 1.6 }}
+          >
+            Restore the natural balance of your indoor ecosystem.
+            <br className="hidden sm:block" />
+            Reduce harmful pathogens, mold, bacteria, and allergens
+            <br className="hidden sm:block" />
+            with Active Environmental Probiotics®.
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-4">
+          <div className="mt-9 flex flex-wrap items-center justify-center lg:justify-start gap-4">
             <Link
               to="/shop"
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-full px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.18em] transition-all duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full transition-all duration-300 hover:-translate-y-0.5"
               style={{
-                background: "hsl(var(--primary))",
-                color: "hsl(var(--primary-foreground))",
-                boxShadow: "0 12px 30px -12px hsl(var(--primary) / 0.55)",
+                background: "#1F2328",
+                color: "#F4F0E7",
+                fontWeight: 600,
+                fontSize: "1.08rem",
+                padding: "0.72em 0.72em 0.72em 1.4em",
+                minHeight: 48,
+                boxShadow: "0 12px 30px -12px rgba(31,35,40,0.55)",
               }}
             >
               Choose Your System
+              <span
+                className="inline-flex items-center justify-center rounded-full"
+                style={{ width: 32, height: 32, background: "rgba(244,240,231,0.18)" }}
+              >
+                <ArrowRight className="w-4 h-4" />
+              </span>
             </Link>
             <Link
               to="/how-it-works"
-              className="inline-flex items-center justify-center rounded-full border px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-foreground transition-all hover:-translate-y-0.5"
-              style={{ borderColor: "hsl(var(--foreground) / 0.2)" }}
+              className="inline-flex items-center justify-center rounded-full transition-all hover:-translate-y-0.5"
+              style={{
+                background: "rgba(255,255,255,0.75)",
+                border: "1px solid rgba(31,35,40,0.22)",
+                backdropFilter: "blur(8px)",
+                WebkitBackdropFilter: "blur(8px)",
+                color: "#1F2328",
+                fontWeight: 600,
+                fontSize: "1.08rem",
+                padding: "0.72em 1.4em",
+                minHeight: 48,
+              }}
             >
               Learn More
             </Link>
-          </div>
-        </div>
-
-        {/* Media slot — GIF goes here */}
-        <div className="lg:col-span-6 xl:col-span-6">
-          <div
-            data-hero-media-slot
-            className="relative w-full overflow-hidden rounded-3xl bg-muted aspect-[4/3] sm:aspect-[5/4] lg:aspect-square"
-          >
-            <img
-              src={heroMedia}
-              alt="EnviroBiotics environmental probiotics in motion"
-              className="absolute inset-0 h-full w-full object-cover"
-              loading="eager"
-              fetchPriority="high"
-            />
           </div>
         </div>
       </div>
