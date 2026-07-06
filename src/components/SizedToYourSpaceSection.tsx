@@ -146,28 +146,34 @@ export const SizedToYourSpaceSection = () => {
 
         {/* Certifications */}
         <ScrollReveal>
-          <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-5 lg:gap-6">
-            {CERTS.map((c) => (
-              <li
-                key={c.label}
-                title={c.label}
-                className="group relative flex aspect-square items-center justify-center rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 sm:p-7"
-                style={{
-                  background: "#ffffff",
-                  border: "1px solid hsl(var(--foreground) / 0.08)",
-                  boxShadow:
-                    "0 1px 2px hsl(var(--foreground) / 0.04), 0 24px 48px -28px hsl(var(--primary) / 0.28)",
-                }}
-              >
-                <img
-                  src={c.image}
-                  alt={`${c.label} certification`}
-                  loading="lazy"
-                  className="max-h-[78%] max-w-[82%] object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              </li>
-            ))}
+          <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5 lg:grid-cols-5 lg:gap-6">
+            {CERTS.map((c) => {
+              const hideOnSmall = c.label === "MADE SAFE®";
+              return (
+                <li
+                  key={c.label}
+                  title={c.label}
+                  className={`group relative aspect-square items-center justify-center rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 sm:p-7 ${
+                    hideOnSmall ? "hidden lg:flex" : "flex"
+                  }`}
+                  style={{
+                    background: "#ffffff",
+                    border: "1px solid hsl(var(--foreground) / 0.08)",
+                    boxShadow:
+                      "0 1px 2px hsl(var(--foreground) / 0.04), 0 24px 48px -28px hsl(var(--primary) / 0.28)",
+                  }}
+                >
+                  <img
+                    src={c.image}
+                    alt={`${c.label} certification`}
+                    loading="lazy"
+                    className="max-h-[78%] max-w-[82%] object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </li>
+              );
+            })}
           </ul>
+
         </ScrollReveal>
       </div>
     </section>
