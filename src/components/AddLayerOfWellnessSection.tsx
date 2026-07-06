@@ -138,7 +138,7 @@ const WellnessRow = ({ row }: { row: Row }) => {
       </p>
 
 
-      <div className="flex flex-wrap items-center gap-4">
+      <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
         {row.primaryHref.startsWith("#") ? (
           <a
             href={row.primaryHref}
@@ -148,7 +148,7 @@ const WellnessRow = ({ row }: { row: Row }) => {
                 .getElementById(row.primaryHref.slice(1))
                 ?.scrollIntoView({ behavior: "smooth", block: "start" });
             }}
-            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-[0.72rem] sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] bg-foreground text-background transition-all hover:-translate-y-0.5"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 sm:px-6 h-12 text-[0.72rem] sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] bg-foreground text-background transition-all hover:-translate-y-0.5"
           >
             {row.primaryLabel}
             <ArrowRight className="w-3.5 h-3.5" />
@@ -156,7 +156,7 @@ const WellnessRow = ({ row }: { row: Row }) => {
         ) : (
           <Link
             to={row.primaryHref}
-            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-[0.72rem] sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] bg-foreground text-background transition-all hover:-translate-y-0.5"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 sm:px-6 h-12 text-[0.72rem] sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] bg-foreground text-background transition-all hover:-translate-y-0.5"
           >
             {row.primaryLabel}
             <ArrowRight className="w-3.5 h-3.5" />
@@ -164,11 +164,12 @@ const WellnessRow = ({ row }: { row: Row }) => {
         )}
         <Link
           to={row.secondaryHref}
-          className="inline-flex items-center justify-center rounded-full border border-foreground/20 px-6 py-3 text-[0.72rem] sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-foreground hover:bg-foreground/5 transition-colors"
+          className="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-foreground/20 px-5 sm:px-6 h-12 text-[0.72rem] sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-foreground hover:bg-foreground/5 transition-colors"
         >
           {row.secondaryLabel}
         </Link>
       </div>
+
     </div>
   );
 
