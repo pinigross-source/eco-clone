@@ -125,7 +125,17 @@ const ActiveFamiliesLandingPage = () => {
       />
 
       <Navbar />
-      <main className="bg-white text-[#1A1A1A]" style={{ fontFamily: DISPLAY }}>
+      <main
+        className="relative text-[#1A1A1A]"
+        style={{
+          fontFamily: DISPLAY,
+          backgroundImage: `url(${heroImg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         {/* HERO */}
         <section className="relative w-full overflow-hidden">
           <div
@@ -200,7 +210,7 @@ const ActiveFamiliesLandingPage = () => {
         </section>
 
         {/* BENEFIT STRIP */}
-        <section className="border-b border-black/5 bg-white py-12 sm:py-16">
+        <section className="border-b border-black/5 bg-white/85 backdrop-blur-sm py-12 sm:py-16">
           <div className="mx-auto max-w-[1600px] px-5 sm:px-10 lg:px-16">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
               {[
@@ -221,7 +231,7 @@ const ActiveFamiliesLandingPage = () => {
         </section>
 
         {/* HOW IT WORKS */}
-        <section className="bg-[#F4F6F5] py-20 sm:py-28">
+        <section className="bg-white/80 backdrop-blur-sm py-20 sm:py-28">
           <div className="mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="relative overflow-hidden rounded-[2.5rem] border border-white bg-white px-8 py-16 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.08)] sm:px-12 sm:py-20 lg:px-20">
@@ -272,7 +282,7 @@ const ActiveFamiliesLandingPage = () => {
         </section>
 
         {/* ROOMS */}
-        <section id="rooms" className="scroll-mt-20 bg-white py-20 sm:py-28">
+        <section id="rooms" className="scroll-mt-20 bg-white/85 backdrop-blur-sm py-20 sm:py-28">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
             <div className="mb-14 max-w-2xl">
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-neutral-500">
@@ -343,7 +353,7 @@ const ActiveFamiliesLandingPage = () => {
         </section>
 
         {/* PICK YOUR FIT */}
-        <section id="pick" className="scroll-mt-20 bg-[#f5f5f7] py-20 sm:py-28">
+        <section id="pick" className="scroll-mt-20 bg-white/80 backdrop-blur-sm py-20 sm:py-28">
           <div className="mx-auto max-w-[1200px] px-6 sm:px-10 lg:px-12">
             <div className="mb-14 text-center">
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-neutral-500">
@@ -420,7 +430,7 @@ const ActiveFamiliesLandingPage = () => {
         </section>
 
         {/* FAQ */}
-        <section className="bg-white py-20 sm:py-28">
+        <section className="bg-white/85 backdrop-blur-sm py-20 sm:py-28">
           <div className="mx-auto max-w-[900px] px-6 sm:px-10">
             <div className="mb-10 text-center">
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-neutral-500">
@@ -449,7 +459,7 @@ const ActiveFamiliesLandingPage = () => {
         </section>
 
         {/* FINAL CTA */}
-        <section className="bg-neutral-950 py-24 text-white sm:py-32">
+        <section className="bg-neutral-950/85 backdrop-blur-sm py-24 text-white sm:py-32">
           <div className="mx-auto max-w-[900px] px-6 text-center sm:px-10">
             <h2
               className="font-semibold tracking-tight"
