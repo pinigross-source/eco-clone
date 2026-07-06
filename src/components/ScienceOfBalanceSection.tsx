@@ -19,11 +19,12 @@ export const ScienceOfBalanceSection = () => {
         decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      {/* Readability wash — solid on mobile/tablet, right-fade on desktop */}
+      {/* Readability wash — mobile/tablet only; desktop shows the image clean */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-background/85 lg:bg-gradient-to-r lg:from-background/90 lg:via-background/40 lg:via-40% lg:to-transparent lg:to-60%"
+        className="absolute inset-0 bg-background/85 lg:hidden"
       />
+
 
 
       <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 lg:grid-cols-2">
