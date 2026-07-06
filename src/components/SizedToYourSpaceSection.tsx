@@ -51,18 +51,28 @@ export const SizedToYourSpaceSection = () => {
         {/* Header */}
         <ScrollReveal>
           <div className="max-w-3xl mb-14 mx-auto text-center">
-            <h2 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
-              <span className="block text-4xl sm:text-5xl md:text-6xl">
+            <h2 className="font-display font-bold text-foreground">
+              <span
+                className="block text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem] text-balance"
+                style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
+              >
                 Find the system
               </span>
-              <span className="block text-3xl sm:text-4xl md:text-5xl text-heading-accent italic font-normal mt-1">
+              <span
+                className="block mt-1 sm:mt-2 font-display italic font-light text-heading-accent text-[1.5rem] sm:text-[2rem] lg:text-[2.35rem]"
+                style={{ lineHeight: 1.2 }}
+              >
                 that suits your space.
               </span>
             </h2>
-            <p className="mt-8 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            <p
+              className="mt-8 font-semibold text-foreground max-w-2xl mx-auto text-[1.1rem] sm:text-[1.25rem] lg:text-[1.35rem]"
+              style={{ lineHeight: 1.5 }}
+            >
               Risk-free for 30 days. Try it at home. If it does not fit your needs, return it for a full refund. No questions asked.
             </p>
           </div>
+
         </ScrollReveal>
 
         {/* Products */}
