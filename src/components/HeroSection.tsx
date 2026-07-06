@@ -12,7 +12,7 @@ export const HeroSection = () => {
   const [videoOpen, setVideoOpen] = useState(false);
   return (
     <section
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden min-h-[640px] sm:min-h-[720px] lg:min-h-0"
       style={{ background: "#FFFFFF", fontFamily: HERO_FONT }}
     >
       {/* Full-bleed background media */}
@@ -20,11 +20,17 @@ export const HeroSection = () => {
         <img
           src={heroMedia}
           alt="EnviroBiotics environmental probiotics in motion"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-[70%_center] sm:object-[65%_center] lg:object-center"
           loading="eager"
           fetchPriority="high"
         />
+        {/* Readability veil on mobile/tablet so copy stays legible over the GIF */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 lg:hidden bg-gradient-to-b from-white/70 via-white/55 to-white/75"
+        />
       </div>
+
 
       {/* Copy column — right-aligned on desktop, centered on mobile */}
       <div className="relative z-10 mx-auto max-w-[1440px] px-6 pt-28 pb-20 sm:px-10 sm:pt-32 sm:pb-24 lg:px-16 lg:pt-40 lg:pb-32">
