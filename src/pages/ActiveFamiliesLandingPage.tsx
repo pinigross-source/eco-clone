@@ -130,75 +130,73 @@ const ActiveFamiliesLandingPage = () => {
 
       <Navbar />
       <main className="bg-white text-[#1A1A1A] pt-16 lg:pt-[124px]" style={{ fontFamily: DISPLAY }}>
-        {/* HERO */}
-        <section className="relative w-full overflow-hidden">
-          <div
-            className="absolute inset-0 -z-0"
-            style={{
-              background:
-                "linear-gradient(to top right, #f6f8f4 0%, #fbf9f4 55%, #f2f6fa 100%)",
-            }}
-          />
-          <div className="relative z-10 mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 pb-20 pt-10 sm:px-10 sm:pb-24 sm:pt-12 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:pb-32 lg:pt-16">
-            <div className="max-w-xl">
-              <div className="mb-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">
-                <span>Active Families</span>
-                <span className="h-1 w-1 rounded-full bg-neutral-300" />
-                <span>EnviroBiotics</span>
-              </div>
-              <h1
-                className="font-bold tracking-tight text-neutral-900"
-                style={{ fontSize: "clamp(2.6rem, 6vw, 4.8rem)", lineHeight: 0.92 }}
-              >
-                Healthy diet. Active lifestyle.
-              </h1>
-              <p className="mt-6 text-[20px] italic text-neutral-600">
-                Add a layer of wellness. Effortlessly.
-              </p>
-              <p className="mt-6 max-w-md text-[15.5px] leading-relaxed text-neutral-600">
-                You eat clean. You move often. You choose better. But invisible
-                contaminants and microbes still settle into fabrics, cracks, and
-                everyday objects your family touches. EnviroBiotics keeps working
-                in the background, so the home you built for wellness keeps up
-                with the life you live.
-              </p>
+        {/* HERO — Sonos-style cinematic */}
+        <section className="relative w-full overflow-hidden bg-black text-white min-h-[calc(100vh-64px)] lg:min-h-[calc(100vh-124px)] flex items-center justify-center">
+          {/* Cinematic background image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={heroImg}
+              alt="Family moving through a bright, natural Scandinavian style home"
+              className="h-full w-full object-cover opacity-70"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              width={1920}
+              height={1080}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          </div>
 
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <a
-                  href="#rooms"
-                  onClick={(e) => scrollTo(e, "rooms", "click_family_hero_cta")}
-                  className="group inline-flex items-center rounded-full bg-neutral-900 px-8 py-4 text-[14px] font-medium text-white transition-all hover:bg-neutral-800"
-                >
-                  See how it fits your home
-                  <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </div>
-
-              <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-neutral-500">
-                {["Family safe", "No sprays or fragrance", "Runs 24/7, silently"].map((item) => (
-                  <span key={item} className="inline-flex items-center gap-1.5">
-                    <Check className="h-3.5 w-3.5 text-[#10B981]" strokeWidth={3} />
-                    {item}
-                  </span>
-                ))}
-              </div>
+          {/* Content */}
+          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-6 pt-16 pb-32 text-center sm:pt-20 sm:pb-36 lg:pt-24 lg:pb-40">
+            <div className="mb-8 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.35em] text-white/70">
+              <span className="h-px w-8 bg-white/40" />
+              <span>Active Families</span>
+              <span className="h-1 w-1 rounded-full bg-white/40" />
+              <span>EnviroBiotics</span>
+              <span className="h-px w-8 bg-white/40" />
             </div>
 
-            <div className="relative">
-              <div className="aspect-[16/11] overflow-hidden rounded-[2.5rem] bg-neutral-100 shadow-2xl">
-                <img
-                  src={heroImg}
-                  alt="Family moving through a bright, natural Scandinavian style home"
-                  className="h-full w-full object-cover"
-                  loading="eager"
-                  decoding="async"
-                  fetchPriority="high"
-                  width={1600}
-                  height={1100}
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 -z-10 h-32 w-32 rounded-full bg-emerald-100/50 blur-3xl" />
-              <div className="absolute -top-6 -right-6 -z-10 h-32 w-32 rounded-full bg-amber-100/50 blur-3xl" />
+            <p className="mb-5 text-[17px] font-light italic tracking-wide text-white/85 sm:text-xl">
+              Add a layer of wellness. Effortlessly.
+            </p>
+
+            <h1
+              className="font-medium tracking-tight text-white"
+              style={{ fontSize: "clamp(2.75rem, 8vw, 6.5rem)", lineHeight: 0.95, letterSpacing: "-0.02em" }}
+            >
+              Healthy diet.
+              <br />
+              Active lifestyle.
+            </h1>
+
+            <p className="mt-8 max-w-xl text-[15.5px] font-light leading-relaxed text-white/75 sm:text-[17px]">
+              You eat clean. You move often. You choose better. EnviroBiotics
+              keeps working quietly in the background, so the home you built
+              for wellness keeps up with the life you live.
+            </p>
+
+            <a
+              href="#rooms"
+              onClick={(e) => scrollTo(e, "rooms", "click_family_hero_cta")}
+              className="group mt-10 inline-flex items-center rounded-full bg-white px-9 py-4 text-[13px] font-semibold uppercase tracking-[0.18em] text-black transition-all hover:bg-white/90 active:scale-[0.98]"
+            >
+              See how it fits your home
+              <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
+
+          {/* Trust rail — anchored bottom */}
+          <div className="absolute inset-x-0 bottom-0 z-10 border-t border-white/10 bg-black/25 backdrop-blur-sm">
+            <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 py-4 text-[10.5px] font-medium uppercase tracking-[0.28em] text-white/75">
+              {["Family safe", "No sprays or fragrance", "Runs 24/7, silently"].map((item, i) => (
+                <span key={item} className="inline-flex items-center gap-2">
+                  <Check className="h-3 w-3 text-emerald-400" strokeWidth={3} />
+                  {item}
+                  {i < 2 && <span className="ml-10 hidden h-1 w-1 rounded-full bg-white/25 sm:inline-block" />}
+                </span>
+              ))}
             </div>
           </div>
         </section>
