@@ -213,26 +213,36 @@ const ActiveFamiliesLandingPage = () => {
           </div>
         </section>
 
-        {/* BENEFIT STRIP */}
-        <section className="border-b border-black/5 bg-white py-12 sm:py-16">
+        {/* BENEFIT STRIP — editorial */}
+        <section className="bg-[#FAF9F6]">
           <div className="mx-auto max-w-[1600px] px-5 sm:px-10 lg:px-16">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-              {[
-                "Works on the surfaces you live on",
-                "Reduces allergens, mold, and odor",
-                "No harsh chemicals, no filters",
-                "Quiet enough to forget it is there",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#10B981]" strokeWidth={2.5} />
-                  <span className="text-[15px] font-medium leading-[1.4] text-black/80">
-                    {item}
-                  </span>
-                </div>
-              ))}
+            <div className="border-y border-neutral-200/70 py-14 sm:py-16">
+              <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 md:grid-cols-4 md:gap-y-0">
+                {[
+                  "Works on the surfaces you live on",
+                  "Reduces allergens, mold, and odor",
+                  "No harsh chemicals, no filters",
+                  "Quiet enough to forget it is there",
+                ].map((item, i) => (
+                  <div
+                    key={item}
+                    className={`flex flex-col gap-4 px-0 md:px-8 ${
+                      i > 0 ? "md:border-l md:border-neutral-200/70" : ""
+                    }`}
+                  >
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-emerald-700">
+                      <Check className="h-4 w-4" strokeWidth={2.5} />
+                    </div>
+                    <p className="text-[15px] font-bold leading-tight tracking-tight text-neutral-900">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
+
 
         {/* HOW IT WORKS */}
         <section className="bg-[#F4F6F5] py-20 sm:py-28">
