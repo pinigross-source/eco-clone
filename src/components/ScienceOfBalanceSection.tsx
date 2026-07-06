@@ -54,9 +54,12 @@ export const ScienceOfBalanceSection = () => {
           </h3>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link
-              to="/"
-              hash="find-your-system"
+            <a
+              href="#find-your-system"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("find-your-system")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
               className="inline-flex items-center justify-center whitespace-nowrap rounded-full px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:-translate-y-0.5"
               style={{
                 background: "hsl(var(--primary))",
@@ -66,7 +69,7 @@ export const ScienceOfBalanceSection = () => {
               }}
             >
               Choose Your System
-            </Link>
+            </a>
             <Link
               to="/how-it-works"
               className="inline-flex items-center gap-2 rounded-full border px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-foreground hover:bg-foreground/5 transition-colors"
