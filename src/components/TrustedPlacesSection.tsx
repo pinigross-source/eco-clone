@@ -19,6 +19,7 @@ const logos = [
   { src: grandHyatt, alt: "Grand Hyatt" },
   { src: shangriLa.url, alt: "Shangri-La Hotels and Resorts" },
   { src: cityOfDreams, alt: "City of Dreams Macau", scale: 1.6 },
+  { src: croceRossa.url, alt: "Croce Rossa Italiana" },
   { src: caSchool, alt: "Canadian International School of Hong Kong" },
   { src: medone, alt: "MedOne", scale: 1.6 },
   { src: ganther, alt: "Ganther" },
