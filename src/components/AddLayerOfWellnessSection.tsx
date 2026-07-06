@@ -65,10 +65,10 @@ const rows: Row[] = [
     title: "Healthy diet. Active lifestyle.",
     italic: "Add a layer of wellness; Effortlessly",
     body:
-      "Invisible contaminants, harmful microbes, and allergens hide in cracks, crevices, fabrics, and on everyday objects—places conventional cleaners and air purifiers simply can't reach.",
+      "Invisible contaminants, harmful microbes, and allergens hide in cracks, crevices, fabrics, and on everyday objects, places conventional cleaners and air purifiers simply can't reach.",
     pairedTitle: "What you get",
     pairedBody:
-      "Continuous, whole-home protection for your air, surfaces, and everyday objects. EnviroBiotics® quietly restores the natural balance of your indoor ecosystem 24/7, helping reduce harmful pathogens, mold, allergens, and odor-causing microbes—without harsh chemicals or noisy filters.",
+      "Continuous, whole-home protection for your air, surfaces, and everyday objects. EnviroBiotics® quietly restores the natural balance of your indoor ecosystem 24/7, helping reduce harmful pathogens, mold, allergens, and odor-causing microbes, without harsh chemicals or noisy filters.",
     primaryLabel: "Find your fit",
     primaryHref: "/lp/parent",
     secondaryLabel: "Learn more",
@@ -86,7 +86,7 @@ const rows: Row[] = [
       "You spend nearly a third of your life in bed. Unfortunately, so do dust mites. Their allergens accumulate in mattresses and bedding, contributing to nighttime congestion, restless sleep, and asthma symptoms.",
     pairedTitle: "What you get",
     pairedBody:
-      "Quiet, automatic 24/7 protection that helps reduce dust mite allergens and other indoor contaminants where you sleep—creating a healthier bedroom, where your immune system can rest and heal.",
+      "Quiet, automatic 24/7 protection that helps reduce dust mite allergens and other indoor contaminants where you sleep, creating a healthier bedroom, where your immune system can rest and heal.",
     primaryLabel: "Build your bedroom setup",
     primaryHref: "/lp/allergy",
     secondaryLabel: "Learn more",
