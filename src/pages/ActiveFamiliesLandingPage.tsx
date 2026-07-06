@@ -23,6 +23,9 @@ const livingImg = livingAsset.url;
 const bedroomImg = bedroomAsset.url;
 const kidsImg = kidsAsset.url;
 import cleanHome from "@/assets/family-clean-home.jpg";
+import miniProduct from "@/assets/biologic-mini-new.jpg.asset.json";
+import bioticaProduct from "@/assets/biotica-800-new.jpg.asset.json";
+import bundleProduct from "@/assets/bundle-product.webp.asset.json";
 
 const PROMO = "FAMILY";
 const withDiscount = (url: string, code = PROMO) =>
