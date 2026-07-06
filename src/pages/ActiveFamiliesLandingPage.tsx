@@ -23,6 +23,9 @@ const livingImg = livingAsset.url;
 const bedroomImg = bedroomAsset.url;
 const kidsImg = kidsAsset.url;
 import cleanHome from "@/assets/family-clean-home.jpg";
+import miniProduct from "@/assets/biologic-mini-new.jpg.asset.json";
+import bioticaProduct from "@/assets/biotica-800-new.jpg.asset.json";
+import bundleProduct from "@/assets/bundle-product.webp.asset.json";
 
 const PROMO = "FAMILY";
 const withDiscount = (url: string, code = PROMO) =>
@@ -364,6 +367,7 @@ const ActiveFamiliesLandingPage = () => {
                   url: MINI_URL,
                   event: "click_family_card_mini",
                   tag: "For focused rooms",
+                  image: miniProduct.url,
                 },
                 {
                   name: "Biotica 800",
@@ -372,6 +376,7 @@ const ActiveFamiliesLandingPage = () => {
                   event: "click_family_card_biotica",
                   tag: "For open plans",
                   featured: true,
+                  image: bioticaProduct.url,
                 },
                 {
                   name: "Home Complete Bundle",
@@ -379,6 +384,7 @@ const ActiveFamiliesLandingPage = () => {
                   url: BUNDLE_URL,
                   event: "click_family_card_bundle",
                   tag: "Best value",
+                  image: bundleProduct.url,
                 },
               ].map((p) => (
                 <Reveal key={p.name}>
@@ -387,6 +393,14 @@ const ActiveFamiliesLandingPage = () => {
                       p.featured ? "ring-1 ring-emerald-500/40" : ""
                     }`}
                   >
+                    <div className="mb-6 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-b from-neutral-50 to-neutral-100">
+                      <img
+                        src={p.image}
+                        alt={p.name}
+                        loading="lazy"
+                        className="h-full w-full object-contain p-6 transition-transform duration-500 hover:scale-105"
+                      />
+                    </div>
                     <span
                       className={`inline-flex w-fit rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] ${
                         p.featured
