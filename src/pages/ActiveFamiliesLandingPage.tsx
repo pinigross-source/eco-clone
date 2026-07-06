@@ -319,11 +319,11 @@ const ActiveFamiliesLandingPage = () => {
 
         {/* PROMISE STRIP */}
         <section
-          className="relative overflow-hidden py-24 sm:py-32"
+          className="relative flex min-h-[420px] items-center overflow-hidden py-24 sm:min-h-[520px] sm:py-32"
           style={{
             backgroundImage: `linear-gradient(rgba(15,23,42,0.55), rgba(15,23,42,0.55)), url(${cleanHome})`,
             backgroundSize: "cover",
-            backgroundPosition: "center 30%",
+            backgroundPosition: "center 50%",
           }}
         >
           <div className="mx-auto max-w-[1000px] px-6 text-center text-white sm:px-10">
