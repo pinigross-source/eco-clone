@@ -99,13 +99,13 @@ const rows: Row[] = [
 
 const WellnessRow = ({ row }: { row: Row }) => {
   const imageEl = (
-    <div className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-full bg-white overflow-hidden rounded-2xl">
+    <div className="relative min-h-[380px] sm:min-h-[500px] lg:min-h-[620px] bg-white overflow-hidden">
       <img
         src={row.image}
         alt={row.imageAlt}
         loading="lazy"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-contain"
+        className="absolute inset-0 h-full w-full object-cover"
       />
     </div>
   );
