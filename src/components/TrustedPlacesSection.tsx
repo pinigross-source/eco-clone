@@ -44,7 +44,7 @@ export const TrustedPlacesSection = () => {
       aria-label="Trusted by leading venues"
       className="border-b border-border bg-white"
     >
-      <div className="mx-auto max-w-[1440px] px-5 pt-6 pb-24 sm:px-10 sm:pt-8 sm:pb-32 lg:px-16 lg:pb-40">
+      <div className="mx-auto max-w-[1440px] px-5 pt-6 pb-14 sm:px-10 sm:pt-8 sm:pb-32 lg:px-16 lg:pb-40">
         <div className="mb-10 flex flex-col items-center gap-6 sm:mb-14">
           <span className="h-px w-16 sm:w-20" style={{ background: "hsl(var(--primary))" }} />
           <p className="font-display font-medium text-[1.15rem] sm:text-[1.35rem] lg:text-[1.5rem] leading-[1.4] text-muted-foreground text-balance text-center max-w-4xl">

@@ -33,7 +33,7 @@ export const HeroSection = () => {
 
 
       {/* Copy column — right-aligned on desktop, centered on mobile */}
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 pt-28 pb-20 sm:px-10 sm:pt-32 sm:pb-24 lg:px-16 lg:pt-40 lg:pb-32">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-6 pt-20 pb-14 sm:px-10 sm:pt-32 sm:pb-24 lg:px-16 lg:pt-40 lg:pb-32">
         <div className="mx-auto max-w-[720px] text-center lg:mr-0 lg:ml-[35%]">
           <h1
             className="font-display font-bold text-balance text-foreground text-[2.5rem] sm:text-[3.5rem] lg:text-[4rem]"
