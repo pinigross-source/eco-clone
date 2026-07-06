@@ -133,72 +133,82 @@ const ActiveFamiliesLandingPage = () => {
 
       <Navbar />
       <main className="bg-white text-[#1A1A1A] pt-16 lg:pt-[124px]" style={{ fontFamily: DISPLAY }}>
-        {/* HERO — Sonos-style cinematic, bright */}
-        <section className="relative w-full overflow-hidden bg-white text-neutral-900 min-h-[calc(100vh-64px)] lg:min-h-[calc(100vh-124px)] flex items-center justify-center">
+        {/* HERO — editorial, left-aligned over bright interior */}
+        <section className="relative w-full overflow-hidden bg-[#f4efe7] text-neutral-900 min-h-[calc(100vh-64px)] lg:min-h-[calc(100vh-124px)] flex items-center">
           {/* Full-bleed bright image */}
           <div className="absolute inset-0 z-0">
             <img
               src={heroImg}
               alt="Family moving through a bright, natural Scandinavian style home"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-right"
               loading="eager"
               decoding="async"
               fetchPriority="high"
               width={1920}
               height={1080}
             />
-            {/* no wash — clean bright image */}
+            {/* soft left fade — only on the empty side, keeps image untouched on the right */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-y-0 left-0 w-full md:w-[62%] bg-gradient-to-r from-[#f4efe7] via-[#f4efe7]/85 md:via-[#f4efe7]/75 to-transparent"
+            />
           </div>
 
           {/* Content */}
-          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-6 pt-14 pb-32 text-center sm:pt-16 sm:pb-36 lg:pt-20 lg:pb-40">
-            <div className="mb-8 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.35em] text-neutral-900 [text-shadow:0_1px_3px_rgba(255,255,255,0.9)]">
-              <span className="h-px w-8 bg-neutral-900/70" />
-              <span>Active Families</span>
-              <span className="h-1 w-1 rounded-full bg-neutral-900" />
-              <span>EnviroBiotics</span>
-              <span className="h-px w-8 bg-neutral-900/70" />
-            </div>
+          <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 sm:px-10 lg:px-16 pb-24 lg:pb-28">
+            <div className="max-w-xl lg:max-w-2xl">
+              <div className="mb-6 inline-flex items-center gap-3 text-[10.5px] font-semibold uppercase tracking-[0.32em] text-neutral-700">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
+                For Active Families
+              </div>
 
-            <p className="mb-5 text-[17px] font-normal italic tracking-wide text-neutral-900 [text-shadow:0_1px_3px_rgba(255,255,255,0.95)] sm:text-xl">
-              Add a layer of wellness. Effortlessly.
-            </p>
+              <h1
+                className="font-semibold tracking-tight text-neutral-950"
+                style={{
+                  fontSize: "clamp(2.75rem, 7.2vw, 6.75rem)",
+                  lineHeight: 0.95,
+                  letterSpacing: "-0.035em",
+                }}
+              >
+                Healthy diet.
+                <br />
+                Active lifestyle.
+                <br />
+                <span className="italic font-light text-neutral-700">Healthier home.</span>
+              </h1>
 
-            <h1
-              className="font-semibold tracking-tight text-neutral-950 [text-shadow:0_2px_12px_rgba(255,255,255,0.85),0_1px_2px_rgba(255,255,255,0.9)]"
-              style={{ fontSize: "clamp(2.75rem, 8vw, 6.5rem)", lineHeight: 0.95, letterSpacing: "-0.02em" }}
-            >
-              Healthy diet.
-              <br />
-              Active lifestyle.
-            </h1>
+              <p className="mt-8 max-w-lg text-[17px] leading-[1.6] text-neutral-800 sm:text-[18px]">
+                You eat clean. You move often. You choose better. EnviroBiotics keeps
+                working quietly in the background — so the home you built for wellness
+                keeps up with the life you live.
+              </p>
 
-            <p className="mt-8 max-w-xl text-[16px] font-medium leading-relaxed text-neutral-900 [text-shadow:0_1px_4px_rgba(255,255,255,0.95),0_0_18px_rgba(255,255,255,0.7)] sm:text-[18px]">
-              You eat clean. You move often. You choose better. EnviroBiotics
-              keeps working quietly in the background, so the home you built
-              for wellness keeps up with the life you live.
-            </p>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <a
+                  href="#rooms"
+                  onClick={(e) => scrollTo(e, "rooms", "click_family_hero_cta")}
+                  className="group inline-flex items-center rounded-full bg-neutral-900 px-8 py-4 text-[12.5px] font-semibold uppercase tracking-[0.18em] text-white transition-all hover:bg-neutral-800 active:scale-[0.98]"
+                >
+                  See how it fits your home
+                  <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+                <a
+                  href="#how"
+                  onClick={(e) => scrollTo(e, "how", "click_family_hero_secondary")}
+                  className="group inline-flex items-center text-[12.5px] font-semibold uppercase tracking-[0.18em] text-neutral-900 underline-offset-8 hover:underline"
+                >
+                  How it works
+                </a>
+              </div>
 
-            <a
-              href="#rooms"
-              onClick={(e) => scrollTo(e, "rooms", "click_family_hero_cta")}
-              className="group mt-10 inline-flex items-center rounded-full bg-neutral-900 px-9 py-4 text-[13px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_10px_30px_-8px_rgba(0,0,0,0.35)] transition-all hover:bg-neutral-800 active:scale-[0.98]"
-            >
-              See how it fits your home
-              <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-          </div>
-
-
-          {/* Trust rail — anchored bottom */}
-          <div className="absolute inset-x-0 bottom-0 z-10 border-t border-black/5 bg-white/70 backdrop-blur-md">
-            <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 py-4 text-[10.5px] font-medium uppercase tracking-[0.28em] text-neutral-700">
-              {["Family safe", "No sprays or fragrance", "Runs 24/7, silently"].map((item) => (
-                <span key={item} className="inline-flex items-center gap-2">
-                  <Check className="h-3 w-3 text-emerald-600" strokeWidth={3} />
-                  {item}
-                </span>
-              ))}
+              <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-[10.5px] font-medium uppercase tracking-[0.24em] text-neutral-700">
+                {["Family safe", "No sprays", "Runs silently 24/7"].map((item) => (
+                  <span key={item} className="inline-flex items-center gap-2">
+                    <Check className="h-3 w-3 text-emerald-600" strokeWidth={3} />
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </section>
