@@ -73,7 +73,7 @@ const rows: Row[] = [
     primaryLabel: "Find your fit",
     primaryHref: "/lp/parent",
     secondaryLabel: "Learn more",
-    secondaryHref: "/how-it-works",
+    secondaryHref: "/active-families",
     image: familyImg,
     imageAlt: "Mother and child running barefoot across a bright wood floor",
     imageLeft: true,
