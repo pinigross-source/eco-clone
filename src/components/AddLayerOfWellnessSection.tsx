@@ -189,23 +189,32 @@ export const AddLayerOfWellnessSection = () => {
   return (
     <section
       aria-label="Built for the life you actually live"
-      className="w-full bg-background py-20 sm:py-24 lg:py-32"
+      className="w-full bg-background py-24 sm:py-32 lg:py-40"
     >
       <div className="mx-auto max-w-[1200px] px-6 sm:px-10">
         <div className="text-center mb-14 sm:mb-20">
-          <h2 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-foreground text-4xl sm:text-5xl lg:text-6xl">
-            Add a layer of wellness.
+          <h2 className="font-display font-bold text-foreground">
+            <span
+              className="block text-balance text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]"
+              style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
+            >
+              Add a layer of wellness.
+            </span>
+            <span
+              className="block mt-1 sm:mt-2 text-balance text-[1.75rem] sm:text-[2.5rem] lg:text-[3rem]"
+              style={{ lineHeight: 1.08, letterSpacing: "-0.03em" }}
+            >
+              Protecting everyone in every environment.
+            </span>
           </h2>
-          <p className="mt-4 font-serif italic text-xl sm:text-2xl text-foreground/70">
-            Protecting everyone in every environment.
-          </p>
         </div>
 
-        <div className="space-y-8 sm:space-y-10">
+        <div className="space-y-6 sm:space-y-8 lg:space-y-10">
           {rows.map((r) => (
             <WellnessRow key={r.tag} row={r} />
           ))}
         </div>
+
       </div>
     </section>
   );
