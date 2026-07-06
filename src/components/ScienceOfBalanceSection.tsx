@@ -1,5 +1,6 @@
-import { Link } from "@/lib/link";
+import { useState } from "react";
 import { Play } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import bgImage from "@/assets/let-nature-bg.avif.asset.json";
 
 export const ScienceOfBalanceSection = () => {
