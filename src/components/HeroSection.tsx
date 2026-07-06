@@ -36,7 +36,7 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mt-6 font-display italic font-light text-heading-accent text-balance text-[1.15rem] sm:text-[1.5rem] lg:text-[1.75rem]"
+            className="mt-6 font-display italic font-bold text-heading-accent text-balance text-[1.15rem] sm:text-[1.5rem] lg:text-[1.75rem]"
             style={{ lineHeight: 1.2 }}
           >
             Healthy diet. Active lifestyle.
