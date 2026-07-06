@@ -367,6 +367,7 @@ const ActiveFamiliesLandingPage = () => {
                   url: MINI_URL,
                   event: "click_family_card_mini",
                   tag: "For focused rooms",
+                  image: miniProduct.url,
                 },
                 {
                   name: "Biotica 800",
@@ -375,6 +376,7 @@ const ActiveFamiliesLandingPage = () => {
                   event: "click_family_card_biotica",
                   tag: "For open plans",
                   featured: true,
+                  image: bioticaProduct.url,
                 },
                 {
                   name: "Home Complete Bundle",
@@ -382,6 +384,7 @@ const ActiveFamiliesLandingPage = () => {
                   url: BUNDLE_URL,
                   event: "click_family_card_bundle",
                   tag: "Best value",
+                  image: bundleProduct.url,
                 },
               ].map((p) => (
                 <Reveal key={p.name}>
