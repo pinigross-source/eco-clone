@@ -81,7 +81,7 @@ export const SizedToYourSpaceSection = () => {
             <ScrollReveal key={p.name} variant="fadeUp">
               <article className="group rounded-2xl border border-foreground/10 bg-card overflow-hidden hover:border-foreground/20 transition-colors h-full flex flex-col relative">
                 <div className="absolute z-10 m-5">
-                  <span className="inline-block text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground bg-background/85 backdrop-blur px-3 py-1.5 rounded-full border border-foreground/10">
+                  <span className="inline-block text-xs sm:text-sm font-bold tracking-[0.15em] uppercase text-foreground bg-background/90 backdrop-blur px-3 py-1.5 rounded-full border border-foreground/10">
                     {p.tag}
                   </span>
                 </div>
@@ -95,15 +95,16 @@ export const SizedToYourSpaceSection = () => {
                   />
                 </div>
                 <div className="p-8 flex flex-col flex-1">
-                  <h4 className="text-2xl font-display font-bold text-foreground">
+                  <h4 className="text-2xl font-display font-bold text-foreground mb-1">
                     {p.name}
                   </h4>
-                  <p className="mt-1 text-sm text-heading-accent italic mb-5">
+                  <p className="text-[1rem] font-semibold text-primary mb-3">
                     {p.subline}
                   </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-8">
+                  <p className="text-[1rem] text-muted-foreground leading-relaxed mb-6">
                     {p.body}
                   </p>
+
                   <div className="mt-auto flex flex-wrap items-center gap-3">
                     <a
                       href={p.shopUrl}
