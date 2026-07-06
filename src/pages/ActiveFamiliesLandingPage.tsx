@@ -12,7 +12,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import heroImg from "@/assets/hero-scandinavian-family.jpg";
+import heroAsset from "@/assets/FamilyLP.avif.asset.json";
+const heroImg = heroAsset.url;
 import kitchenImg from "@/assets/health-scandi-kitchen.jpg";
 import livingImg from "@/assets/family-living-cozy.jpg";
 import bedroomImg from "@/assets/health-scandi-bedroom.jpg";
