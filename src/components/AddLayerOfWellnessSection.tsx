@@ -91,7 +91,7 @@ const rows: Row[] = [
     primaryHref: "/lp/allergy",
     secondaryLabel: "Learn more",
     secondaryHref: "/how-it-works",
-    image: bedroomImg,
+    image: bedroomImg.url,
     imageAlt: "Woman sleeping peacefully with an EnviroBiotics device on the bedside table",
     imageLeft: false,
   },
