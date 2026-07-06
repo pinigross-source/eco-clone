@@ -37,8 +37,8 @@ const products: Product[] = [
     body: "Your personal, take-anywhere unit. Compact enough to plug in at home and pack for the road.",
     imageSrc: biologicMini,
     imageAlt: "BioLogic Mini probiotic air purifier next to a phone on a wooden table",
-    shopUrl: "https://shop.envirobiotics.com/products/biologic-mini",
-    learnUrl: "/product/biologic-mini",
+    shopUrl: "https://shop.envirobiotics.com/cart/add?id=48644372496636&quantity=1&return_to=/cart",
+    learnUrl: "https://shop.envirobiotics.com/products/biologic-mini",
   },
   {
     tag: "300 to 800 sq ft",
