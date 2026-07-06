@@ -47,8 +47,8 @@ const products: Product[] = [
     body: "Set-and-forget coverage for the spaces you spend the most time in.",
     imageSrc: biotica800,
     imageAlt: "Biotica 800 ecological balancing system on a wooden table with reading glasses",
-    shopUrl: "https://shop.envirobiotics.com/products/biotica-800",
-    learnUrl: "/product/biotica-800",
+    shopUrl: "https://shop.envirobiotics.com/cart/add?id=48644373184764&quantity=1&return_to=/cart",
+    learnUrl: "https://shop.envirobiotics.com/products/biotica-800",
   },
 ];
 
