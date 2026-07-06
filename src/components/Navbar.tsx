@@ -222,12 +222,10 @@ export const Navbar = () => {
   return (
     <>
       <header
-        style={{ fontFamily: "'Montserrat', sans-serif" }}
+        style={{ fontFamily: "'Montserrat', sans-serif", backgroundColor: "#F3EEE6" }}
         className={cn(
-          "fixed top-0 z-[9999] w-full transition-all duration-500",
-          scrolled
-            ? "bg-background/95 backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-foreground/5"
-            : "bg-background backdrop-blur-xl border-b border-border/50"
+          "fixed top-0 z-[9999] w-full transition-shadow duration-300",
+          scrolled ? "shadow-sm" : ""
         )}
       >
         {/* Scroll Progress */}
@@ -239,46 +237,41 @@ export const Navbar = () => {
           style={{ width: `${scrollProgress}%` }}
         />
 
-        <div className="container flex h-20 sm:h-[88px] md:h-[100px] items-center px-4 sm:px-6 relative">
-          {/* Mobile: Hamburger */}
-          <div className="xl:hidden absolute left-4 z-20">
+        <div className="mx-auto max-w-[1440px] flex h-16 lg:h-[124px] items-center px-4 sm:px-6 lg:px-10 relative">
+          {/* Mobile: Hamburger + Search on left */}
+          <div className="lg:hidden absolute left-3 z-20 flex items-center gap-1">
             <button
-              className={cn(
-                "relative flex h-12 w-12 items-center justify-center rounded-full border shadow-sm transition-all duration-300 active:scale-95",
-                isOpen
-                  ? "border-primary/30 bg-primary text-primary-foreground"
-                  : "border-border/70 bg-background/92 text-foreground hover:bg-background"
-              )}
+              className="flex h-11 w-11 items-center justify-center text-foreground transition-transform active:scale-95"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
               <X className={cn("h-6 w-6 absolute transition-all duration-200", isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90")} />
               <Menu className={cn("h-6 w-6 absolute transition-all duration-200", isOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0")} />
             </button>
+            <div className="hidden sm:block"><NavbarSearch /></div>
           </div>
 
           {/* Logo */}
-          <Link to="/" className="flex items-center group relative xl:relative mx-auto xl:mx-0 xl:mr-4 2xl:mr-6 flex-shrink-0">
+          <Link to="/" className="flex items-center relative mx-auto lg:mx-0 lg:mr-4 flex-shrink-0">
             <img
               src={logo}
               alt="EnviroBiotics - Environmental Probiotics"
-              className="h-12 sm:h-14 md:h-[92px] w-auto relative z-10"
+              className="h-9 sm:h-10 lg:h-16 w-auto"
               width="210"
               height="72"
               fetchPriority="high"
             />
           </Link>
 
-          {/* Mobile: Search + Cart on right */}
-          <div className="xl:hidden absolute right-3 z-20 flex items-center gap-1.5">
-            <div className="hidden sm:block"><NavbarSearch /></div>
+          {/* Mobile: Cart on right */}
+          <div className="lg:hidden absolute right-3 z-20 flex items-center gap-1">
             <ShopifyCartLink />
           </div>
 
-          {/* Desktop Navigation  centered, flex-grow */}
+          {/* Desktop Navigation - centered */}
           <nav
             aria-label="Main navigation"
-            className="hidden xl:flex flex-1 items-center justify-center gap-3 xl:gap-6 2xl:gap-10"
+            className="hidden lg:flex flex-1 items-center justify-center gap-2 xl:gap-6"
           >
             {navLinks.map((link) => (
               <NavDropdown key={link.label} item={link} scrolled={scrolled} useLight={useLight} />
@@ -286,7 +279,7 @@ export const Navbar = () => {
           </nav>
 
           {/* Desktop: Right side icons (search, account, cart) */}
-          <div className="hidden xl:flex items-center gap-1 flex-shrink-0">
+          <div className="hidden lg:flex items-center gap-1 flex-shrink-0">
             <NavbarSearch />
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
               <div className="w-11 h-11 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95">
