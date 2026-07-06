@@ -17,7 +17,8 @@ import croceRossa from "@/assets/clients/croce-rossa-italiana.png.asset.json";
 import theFarm from "@/assets/clients/the-farm-san-benito.jpg.asset.json";
 
 const logos = [
-  { src: grandHyatt, alt: "Grand Hyatt" },
+  { src: grandHyatt, alt: "Grand Hyatt", scale: 1.5 },
+  { src: brooklynNets.url, alt: "Brooklyn Nets", scale: 1.4 },
   { src: shangriLa.url, alt: "Shangri-La Hotels and Resorts" },
   { src: cityOfDreams, alt: "City of Dreams Macau", scale: 1.6 },
   { src: croceRossa.url, alt: "Croce Rossa Italiana" },
@@ -31,7 +32,6 @@ const logos = [
   { src: kempegowda.url, alt: "Kempegowda International Airport Bengaluru" },
   { src: carePartners.url, alt: "Care Partners Country Terrace" },
   { src: morpheusCodNuwa.url, alt: "Morpheus, COD Macau, Nüwa" },
-  { src: brooklynNets.url, alt: "Brooklyn Nets" },
   { src: theFarm.url, alt: "The Farm at San Benito" },
 ];
 
