@@ -116,9 +116,6 @@ const WellnessRow = ({ row }: { row: Row }) => {
         <span className="text-[12px] font-semibold uppercase tracking-[0.25em] text-muted-foreground/70">
           For {row.eyebrow.replace(/^For\s+/i, "")}
         </span>
-        <span className="inline-flex items-center rounded-full border border-foreground/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground/70">
-          {row.tag}
-        </span>
       </div>
       <h3
         className="font-display font-bold text-foreground text-[1.85rem] sm:text-4xl lg:text-[2.75rem] mb-2 sm:mb-3"
