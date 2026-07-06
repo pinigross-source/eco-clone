@@ -112,55 +112,60 @@ const WellnessRow = ({ row }: { row: Row }) => {
 
   const textEl = (
     <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-12">
-      <div className="flex items-center gap-3 mb-5">
-        <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">
-          {row.eyebrow}
+      <div className="flex items-center gap-3 mb-4 sm:mb-5">
+        <span className="text-[12px] font-semibold uppercase tracking-[0.25em] text-muted-foreground/70">
+          For {row.eyebrow.replace(/^For\s+/i, "")}
         </span>
-        <span className="inline-flex items-center rounded-full border border-foreground/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground/70">
+        <span className="inline-flex items-center rounded-full border border-foreground/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground/70">
           {row.tag}
         </span>
       </div>
-      <h3 className="font-display font-bold text-3xl sm:text-4xl leading-[1.05] tracking-[-0.02em] text-foreground">
+      <h3
+        className="font-display font-bold text-foreground text-[1.85rem] sm:text-4xl lg:text-[2.75rem] mb-2 sm:mb-3"
+        style={{ lineHeight: 1.05, letterSpacing: "-0.02em" }}
+      >
         {row.title}
       </h3>
-      <p className="mt-2 font-serif italic text-lg sm:text-xl text-heading-accent">
+      <p
+        className="font-display italic font-light text-heading-accent text-[1.45rem] sm:text-[1.85rem] lg:text-[2.1rem] mb-4 sm:mb-6"
+        style={{ lineHeight: 1.2 }}
+      >
         {row.italic}
       </p>
-      <p className="mt-5 text-[0.98rem] sm:text-base text-foreground/75 leading-relaxed max-w-xl">
+      <p
+        className="text-muted-foreground max-w-md text-[1.05rem] sm:text-[1.15rem] mb-6 sm:mb-8"
+        style={{ lineHeight: 1.6 }}
+      >
         {row.body}
       </p>
 
-      <div className="mt-7 border-t border-foreground/10 pt-6">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground/70 mb-3">
+      <div className="border-t border-foreground/10 pt-6 mb-6 sm:mb-8">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.25em] text-muted-foreground/70 mb-3">
           {row.pairedTitle}
         </p>
-        <p className="text-[0.95rem] text-foreground/75 leading-relaxed max-w-xl">
+        <p className="text-[1.05rem] text-muted-foreground max-w-md" style={{ lineHeight: 1.6 }}>
           {row.pairedBody}
         </p>
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center gap-4">
+      <div className="flex flex-wrap items-center gap-4">
         <Link
           to={row.primaryHref}
-          className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-[0.78rem] font-semibold uppercase tracking-[0.18em] transition-all hover:-translate-y-0.5"
-          style={{
-            background: "hsl(var(--primary))",
-            color: "hsl(var(--primary-foreground))",
-            boxShadow: "0 12px 30px -12px hsl(var(--primary) / 0.55)",
-          }}
+          className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-[0.72rem] sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] bg-foreground text-background transition-all hover:-translate-y-0.5"
         >
           {row.primaryLabel}
           <ArrowRight className="w-3.5 h-3.5" />
         </Link>
         <Link
           to={row.secondaryHref}
-          className="text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-foreground/80 hover:text-foreground transition-colors"
+          className="inline-flex items-center justify-center rounded-full border border-foreground/20 px-6 py-3 text-[0.72rem] sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-foreground hover:bg-foreground/5 transition-colors"
         >
           {row.secondaryLabel}
         </Link>
       </div>
     </div>
   );
+
 
   return (
     <article className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-stretch rounded-3xl border border-foreground/10 bg-card overflow-hidden">
