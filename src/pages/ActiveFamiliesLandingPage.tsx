@@ -161,7 +161,7 @@ const ActiveFamiliesLandingPage = () => {
 
           {/* Content */}
           <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 sm:px-8 md:px-10 lg:px-16 py-16 sm:py-20 md:py-24 lg:pb-28">
-            <div className="max-w-full md:max-w-xl lg:max-w-2xl xl:max-w-3xl">
+            <div className="max-w-full md:max-w-xl lg:max-w-2xl xl:max-w-[52rem] 2xl:max-w-[60rem]">
               <div className="mb-5 sm:mb-6 inline-flex items-center gap-3 text-[10px] sm:text-[10.5px] font-semibold uppercase tracking-[0.28em] sm:tracking-[0.32em] text-neutral-700">
                 <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600" />
                 <span className="min-w-0">For Active Families</span>
@@ -170,7 +170,7 @@ const ActiveFamiliesLandingPage = () => {
               <h1
                 className="font-semibold tracking-tight text-neutral-950 [text-wrap:balance]"
                 style={{
-                  fontSize: "clamp(2.25rem, 5.6vw, 5.25rem)",
+                  fontSize: "clamp(2.25rem, 5.4vw, 5rem)",
                   lineHeight: 0.98,
                   letterSpacing: "-0.03em",
                 }}
