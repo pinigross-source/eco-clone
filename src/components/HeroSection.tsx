@@ -63,11 +63,9 @@ export const HeroSection = () => {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
 
             <a
-              href="#find-your-system"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("find-your-system")?.scrollIntoView({ behavior: "smooth", block: "start" });
-              }}
+              href="https://shop.envirobiotics.com/"
+              target="_top"
+              rel="noopener"
               className="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full transition-all duration-300 hover:-translate-y-0.5"
               style={{
                 background: "#1F2328",
