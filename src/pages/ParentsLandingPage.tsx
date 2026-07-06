@@ -127,7 +127,6 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
           <br />
           on the floor.
         </span>
-        <Footer />
       </>
     ),
     sub: "Air purifiers clean the air. EnviroBiotics works on the surfaces your baby touches - crib, playmat, floor. No sprays, no filters, no noise.",
