@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import greenGirl from "@/assets/magic-microscopic.avif.asset.json";
-import magicMobile from "@/assets/magic-mobile.avif.asset.json";
+import scienceBg from "@/assets/science-of-balance-bg.avif.asset.json";
+
 
 export const MicroscopicWorldSection = () => {
   const [videoOpen, setVideoOpen] = useState(false);
