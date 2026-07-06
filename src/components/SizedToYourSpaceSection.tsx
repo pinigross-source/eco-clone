@@ -1,16 +1,21 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import biologicMiniAsset from "@/assets/biologic-mini-new.jpg.asset.json";
 import biotica800Asset from "@/assets/biotica-800-new.jpg.asset.json";
+import epaAsset from "@/assets/certs/cert_0.png.asset.json";
+import allergyAsset from "@/assets/certs/cert_4.png.asset.json";
+import madeSafeAsset from "@/assets/certs/cert_5.png.asset.json";
+import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
+import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
 
 const biologicMini = biologicMiniAsset.url;
 const biotica800 = biotica800Asset.url;
 
 const CERTS = [
-  "EPA Registered",
-  "FDA GRAS",
-  "AllergyUK",
-  "PTPA Winner",
-  "MADE SAFE®",
+  { label: "EPA Registered", image: epaAsset.url },
+  { label: "FDA GRAS", image: fdaGrasAsset.url },
+  { label: "AllergyUK", image: allergyAsset.url },
+  { label: "PTPA Winner", image: ptpaAsset.url },
+  { label: "MADE SAFE®", image: madeSafeAsset.url },
 ];
 
 type Product = {
@@ -141,13 +146,25 @@ export const SizedToYourSpaceSection = () => {
 
         {/* Certifications */}
         <ScrollReveal>
-          <ul className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-5 lg:gap-6">
             {CERTS.map((c) => (
               <li
-                key={c}
-                className="inline-flex items-center rounded-xl border border-foreground/10 bg-card px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/80"
+                key={c.label}
+                title={c.label}
+                className="group relative flex aspect-square items-center justify-center rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 sm:p-7"
+                style={{
+                  background: "#ffffff",
+                  border: "1px solid hsl(var(--foreground) / 0.08)",
+                  boxShadow:
+                    "0 1px 2px hsl(var(--foreground) / 0.04), 0 24px 48px -28px hsl(var(--primary) / 0.28)",
+                }}
               >
-                {c}
+                <img
+                  src={c.image}
+                  alt={`${c.label} certification`}
+                  loading="lazy"
+                  className="max-h-[78%] max-w-[82%] object-contain transition-transform duration-300 group-hover:scale-105"
+                />
               </li>
             ))}
           </ul>
