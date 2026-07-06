@@ -13,6 +13,7 @@ import morpheusCodNuwa from "@/assets/clients/morpheus-cod-nuwa.png.asset.json";
 import carePartners from "@/assets/clients/care-partners.png.asset.json";
 import melco from "@/assets/clients/melco.png.asset.json";
 import shangriLa from "@/assets/clients/shangri-la.png.asset.json";
+import croceRossa from "@/assets/clients/croce-rossa-italiana.png.asset.json";
 
 const logos = [
   { src: grandHyatt, alt: "Grand Hyatt" },
@@ -29,6 +30,7 @@ const logos = [
   { src: carePartners.url, alt: "Care Partners Country Terrace" },
   { src: morpheusCodNuwa.url, alt: "Morpheus, COD Macau, Nüwa" },
   { src: brooklynNets.url, alt: "Brooklyn Nets" },
+  { src: croceRossa.url, alt: "Croce Rossa Italiana" },
 ];
 
 
@@ -56,7 +58,7 @@ export const TrustedPlacesSection = () => {
           <motion.div
             className="flex items-center gap-16 sm:gap-16"
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
             style={{ width: "fit-content" }}
           >
             {track.map((logo, i) => (
