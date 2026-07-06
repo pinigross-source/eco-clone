@@ -317,7 +317,7 @@ const ActiveFamiliesLandingPage = () => {
         <section
           className="relative overflow-hidden py-24 sm:py-32"
           style={{
-            backgroundImage: `linear-gradient(rgba(15,23,42,0.55), rgba(15,23,42,0.55)), url(${cleanHome})`,
+            backgroundImage: `url(${cleanHome})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
