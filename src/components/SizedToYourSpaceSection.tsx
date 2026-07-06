@@ -1,16 +1,21 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import biologicMiniAsset from "@/assets/biologic-mini-new.jpg.asset.json";
 import biotica800Asset from "@/assets/biotica-800-new.jpg.asset.json";
+import epaAsset from "@/assets/certs/cert_0.png.asset.json";
+import allergyAsset from "@/assets/certs/cert_4.png.asset.json";
+import madeSafeAsset from "@/assets/certs/cert_5.png.asset.json";
+import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
+import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
 
 const biologicMini = biologicMiniAsset.url;
 const biotica800 = biotica800Asset.url;
 
 const CERTS = [
-  "EPA Registered",
-  "FDA GRAS",
-  "AllergyUK",
-  "PTPA Winner",
-  "MADE SAFE®",
+  { label: "EPA Registered", image: epaAsset.url },
+  { label: "FDA GRAS", image: fdaGrasAsset.url },
+  { label: "AllergyUK", image: allergyAsset.url },
+  { label: "PTPA Winner", image: ptpaAsset.url },
+  { label: "MADE SAFE®", image: madeSafeAsset.url },
 ];
 
 type Product = {
