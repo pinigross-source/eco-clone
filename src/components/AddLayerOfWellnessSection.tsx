@@ -99,13 +99,13 @@ const rows: Row[] = [
 
 const WellnessRow = ({ row }: { row: Row }) => {
   const imageEl = (
-    <div className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-full bg-white overflow-hidden rounded-2xl">
+    <div className="relative min-h-[380px] sm:min-h-[500px] lg:min-h-[620px] bg-white overflow-hidden">
       <img
         src={row.image}
         alt={row.imageAlt}
         loading="lazy"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-contain"
+        className="absolute inset-0 h-full w-full object-cover"
       />
     </div>
   );
@@ -160,7 +160,7 @@ const WellnessRow = ({ row }: { row: Row }) => {
 
 
   return (
-    <article className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-stretch rounded-3xl border border-foreground/10 bg-card overflow-hidden">
+    <article className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch rounded-3xl border border-foreground/10 bg-card overflow-hidden">
       {row.imageLeft ? (
         <>
           {imageEl}
