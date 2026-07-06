@@ -1,8 +1,7 @@
 import { Link } from "@/lib/link";
 import { ArrowRight } from "lucide-react";
-import heroMediaAsset from "@/assets/hero-desktop-family.avif.asset.json";
+import heroMediaAsset from "@/assets/hero.gif.asset.json";
 
-// TODO: swap `heroMediaAsset.url` with the hero GIF once uploaded via Lovable Assets.
 const heroMedia = heroMediaAsset.url;
 
 const HERO_FONT = '"Hanken Grotesk", system-ui, -apple-system, sans-serif';
