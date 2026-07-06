@@ -9,6 +9,7 @@ const heroMedia = heroMediaAsset.url;
 const HERO_FONT = '"Hanken Grotesk", system-ui, -apple-system, sans-serif';
 
 export const HeroSection = () => {
+  const [videoOpen, setVideoOpen] = useState(false);
   return (
     <section
       className="relative w-full overflow-hidden"
