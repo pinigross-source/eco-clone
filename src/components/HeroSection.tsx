@@ -59,8 +59,12 @@ export const HeroSection = () => {
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
 
-            <Link
-              to="/shop"
+            <a
+              href="#find-your-system"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("find-your-system")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
               className="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full transition-all duration-300 hover:-translate-y-0.5"
               style={{
                 background: "#1F2328",
@@ -79,7 +83,7 @@ export const HeroSection = () => {
               >
                 <ArrowRight className="w-4 h-4" />
               </span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
