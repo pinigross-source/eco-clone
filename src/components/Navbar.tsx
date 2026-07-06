@@ -294,36 +294,24 @@ export const Navbar = () => {
       {/* Mobile menu */}
       {isOpen && (
         <div
-          className="xl:hidden fixed inset-0 z-[150] bg-foreground/20 backdrop-blur-sm"
+          className="lg:hidden fixed inset-0 z-[150] bg-foreground/20 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
         />
       )}
       <div
         className={cn(
-          "xl:hidden fixed top-20 sm:top-[88px] md:top-[100px] left-0 right-0 z-[200] bg-background border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
+          "lg:hidden fixed top-16 left-0 right-0 z-[200] border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
           isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         )}
+        style={{ backgroundColor: "#F3EEE6", fontFamily: "'Montserrat', sans-serif" }}
       >
-        <div className="flex items-center justify-between px-4 sm:px-6 pt-4 pb-3">
-          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Menu</span>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted flex items-center justify-center transition-colors"
-            aria-label="Close menu"
-          >
-            <X className="w-4 h-4 text-foreground" />
-          </button>
-        </div>
-
-
-
-        <nav aria-label="Mobile navigation" className="container pb-4 sm:pb-6 flex flex-col gap-0.5 sm:gap-1 px-4 sm:px-6">
+        <nav aria-label="Mobile navigation" className="container pt-4 pb-4 sm:pb-6 flex flex-col gap-0.5 sm:gap-1 px-4 sm:px-6">
           {navLinks.map((link) => (
             <div key={link.label}>
               {link.dropdown ? (
                 <>
                   <button
-                    className="w-full text-base sm:text-lg font-bold text-foreground hover:bg-muted/50 px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all flex items-center justify-between"
+                    className="w-full text-[16px] font-normal text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
                     onClick={() => setExpandedMobile(expandedMobile === link.label ? null : link.label)}
                   >
                     <span>{link.label}</span>
@@ -336,7 +324,7 @@ export const Navbar = () => {
                     <div className="pl-4 pr-2 pb-1 space-y-0.5">
                       {link.dropdown.map(({ label, href }) => {
                         const mExt = /^https?:\/\//.test(href);
-                        const mClass = "block px-3 py-3 rounded-lg hover:bg-muted/50 transition-colors text-lg font-normal text-foreground";
+                        const mClass = "block px-3 py-3 transition-colors text-[15px] font-normal text-foreground hover:text-primary";
                         return mExt ? (
                           <a key={label} href={href} target="_top" rel="noopener" className={mClass} onClick={() => setIsOpen(false)}>{label}</a>
                         ) : (
@@ -345,7 +333,7 @@ export const Navbar = () => {
                       })}
                       <Link
                         to={link.href}
-                        className="block px-3 py-3 text-lg font-normal text-primary"
+                        className="block px-3 py-3 text-[15px] font-normal text-primary"
                         onClick={() => setIsOpen(false)}
                       >
                         View All {link.label}
@@ -358,7 +346,7 @@ export const Navbar = () => {
                   href={link.href}
                   target="_top"
                   rel="noopener"
-                  className="text-base sm:text-lg font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
+                  className="text-[16px] font-normal text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{link.label}</span>
@@ -366,7 +354,7 @@ export const Navbar = () => {
               ) : (
                 <Link
                   to={link.href}
-                  className="text-base sm:text-lg font-bold text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 sm:px-4 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all flex items-center justify-between group"
+                  className="text-[16px] font-normal text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{link.label}</span>
