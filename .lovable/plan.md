@@ -1,67 +1,44 @@
-
 ## Goal
 
-Rewrite `src/pages/AllergyLandingPage.tsx` end-to-end (copy + structure + CTA hierarchy) without changing the visual language: same bedroom hero image, same off-white/cream palette (`#F5F3EE` / `#FBF9F4`), same `Instrument Serif` italic accents, same display font, same rounded-3xl cards, same `Reveal` scroll animation. No new dependencies, no design overhaul.
+Rebuild `/` so its section order, headings, and body copy match the uploaded mockup PNG, using the exact text from `homepage-text.md`. You'll drop in the hero GIF and section images afterward — the plan reserves slots and keeps current images as placeholders until then.
 
-A/B hero variants (`?v=b`, `?v=c`) will be removed — the brief locks in one hero. Everything else stays additive or in-place.
+## New section order on `/`
 
-## Final section order (top → bottom)
+1. **Hero** — "Your Health. **Your Choice.**" + subhead + body + CTAs (Choose Your System / Learn More). Right side reserved for the hero GIF (placeholder = current hero image until you upload the GIF).
+2. **Nature Statement band** — one-line H2 + italic accent.
+3. **Trusted Places** — intro line, logo strip, closing H3.
+4. **Find the system that suits your space** — 30-day risk-free intro + BioLogic Mini (Up to 300 sq ft) and Biotica 800 (300–800 sq ft) cards + certification badges row.
+5. **The Science of Balance** — italic subhead, body, "Let Nature Back Indoors" H3, Choose Your System + Watch how it works CTAs, lifestyle image on the right.
+6. **Add a layer of wellness** — 4 alternating image/card rows: Parents/Nursery, Pets, Active Families, Allergy/Bedroom. Each row: eyebrow, tag, H3, italic subhead, body, "What you get" paired block, primary + LEARN MORE CTAs.
+7. **Testimonials** — "Protecting thousands of families." featured PTPA quote + 4-card carousel.
+8. **Footer** (unchanged).
 
-1. **Hero** — locked headline + new subhead + new primary CTA + secondary CTA
-2. **Proof row** (new, directly under hero) — 4 compliance-safe trust badges
-3. **Problem** — "You did everything right" rewritten + CTA
-4. **Air + Surfaces** ("Clean air is only half the room") — body copy + 3-step Place / Activate / Cover cards + tagline
-5. **Comparison table** — new headline, new 5-row two-column table, CTA below
-6. **Proof section** (new, moved BEFORE products) — headline + 4 proof cards
-7. **Certifications grid** — kept, with short caption under each logo explaining what it means
-8. **Offer clarity** (new) — "Choose your whole-room coverage system" intro before product cards
-9. **Product cards** — relabeled as "Bedroom Coverage Kit" (Mini) and "Large Room Coverage Kit" (Biotica 800), each showing Best for / Coverage / What's included / Refill duration / Price / Guarantee / Shipping; new CTAs "Protect My Bedroom" and "Cover My Larger Room". Bundle card kept as a tertiary option.
-10. **Testimonial** — kept as-is (already compliance-safe)
-11. **FAQ** — replaced with the 6 prescribed Q&As
-12. **Final CTA** — new headline/subhead/CTA/secondary line
+Everything not in the mockup is removed from `/`: the "Ready for cleaner surfaces, naturally?" mid-band, the "When you thrive, our planet does too" mission section, and `FinalCTASection`. Those components stay in the repo for reuse on other routes.
 
-Sections removed to tighten the funnel: "The science / gut probiotics" section, "Built for the allergy-aware home" 4-icon block, the dark allergy-badge testimonial block (its quote will be merged into the kept light testimonial section).
+## Copy source
 
-## CTA map
+All headings, subheads, body, alts, and CTA labels/URLs come verbatim from `user-uploads://homepage-text.md`. Stripe price IDs for the two products stay as listed. Certifications row: EPA Registered, FDA GRAS, AllergyUK, PTPA Winner, MADE SAFE®.
 
-| Section | Label | Destination |
-|---|---|---|
-| Hero primary | Treat the Whole Room | `#offer` (scrolls to product chooser) |
-| Hero secondary | See How It Works | `#how-it-works` |
-| Problem | Stop Treating Half the Room | `#offer` |
-| Comparison | Choose My Coverage | `#offer` |
-| Mini product | Protect My Bedroom | existing `MINI_URL` |
-| Biotica product | Cover My Larger Room | existing `BIOTICA_URL` |
-| Final | Start Whole-Room Coverage | `#offer` |
+## Image / GIF handling
 
-All CTAs keep existing `trackEvent(...)` calls; new ones get descriptive event names (`click_allergy_hero_primary`, `click_allergy_problem_cta`, etc.).
+- **Hero GIF**: hero right column gets a dedicated slot component; until you upload the GIF, the existing `hero-desktop-family.avif` stays in that slot. When you send the file I'll swap the src via Lovable Assets.
+- **Section images**: for the Science of Balance section and the 4 audience rows, I keep the current photos already in `src/assets/` (nursery, pets, parents, allergy) so layout is complete. When you send replacements I'll swap them.
+- No new binary uploads happen in this plan.
 
-## Compliance copy rules applied throughout
+## Technical changes
 
-- No "kills", "prevents", "cures", "eliminates allergens", "stops illness".
-- Use "helps treat", "helps cover", "supports cleaner indoor environments", "designed to disperse", "settle on surfaces", "when used as directed".
-- Update FAQ #5 and proof cards accordingly. Existing "FDA GRAS / safe for kids and pets" cert caption stays (factual, not a health claim).
-
-## Placeholders
-
-Where exact numbers aren't already on the page, use bracketed placeholders so the team can fill in:
-- Refill duration on each product card: `[Add refill duration]`
-- Guarantee specifics beyond the existing "30-day money-back": `[Add guarantee details]`
-- Shipping beyond the existing "Free shipping": `[Add shipping details]`
-
-Coverage (300 sq ft / 800 sq ft) and prices ($98 / $299) are already on the page and will be kept.
-
-## Technical notes (developer-only)
-
-- Single file edit: `src/pages/AllergyLandingPage.tsx`. No route, schema, or component changes.
-- Update the route's `head()` meta in `src/routes/allergy.tsx` description to match the new positioning ("Air purifiers only treat the air. EnviroBiotics helps cover the surfaces your purifier cannot reach…") — current meta is close but slightly off-message.
-- Remove unused imports after section deletions (`Sparkles`, `Leaf`, `VolumeX`, `ShieldCheck`, `beddingImg`, `allergyBadge` if its section is removed). Keep `Check`, `ArrowRight`.
-- Add `id="how-it-works"` and `id="offer"` anchors. Keep existing `id="products"` for backwards compatibility.
-- Hero A/B variant code (`HERO_VARIANTS`, `angle` memo) removed.
-- All existing Shopify cart URLs (`MINI_URL`, `BIOTICA_URL`, `BUNDLE_URL`) and `trackEvent` plumbing preserved.
+- `src/components/HeroSection.tsx` — rewrite copy + restructure to a two-column layout (text left, media slot right) so the GIF has an obvious home.
+- `src/components/MicroscopicWorldSection.tsx` — replaced by a minimal "Nature Statement" band matching the copy exactly (renamed to `NatureStatementSection.tsx`; old file removed).
+- `src/components/SizedToYourSpaceSection.tsx` — copy pass: intro paragraph, product sublines, and the certifications badge row updated to the 5 listed certs.
+- `src/components/TrustedPlacesSection.tsx` — intro/closing copy verified against md; adjust wording if it drifts.
+- **New** `src/components/ScienceOfBalanceSection.tsx` — section 5.
+- **New** `src/components/AddLayerOfWellnessSection.tsx` — section 6, wraps 4 alternating rows (image left/right alternating), each row using shared `WellnessRow` subcomponent.
+- `src/components/TestimonialsSection.tsx` — verify featured quote + 4 carousel quotes match the md; update where they differ.
+- `src/pages/HomePage.tsx` — new import list + new render order; drop the mid-band, mission section, and `FinalCTASection`.
+- `src/routes/index.tsx` — leave the SEO head as-is (title/description in md already match).
 
 ## Out of scope
 
-- No new images generated; reuses existing hero, product, and cert assets.
-- No global nav, footer, or shared-component edits.
-- No new backend, tracking, or analytics wiring beyond renamed event labels.
+- No changes to other routes, product data files, or shop links other than the ones referenced in the homepage.
+- No new dependencies.
+- Actual GIF and photo swaps happen after you upload them.
