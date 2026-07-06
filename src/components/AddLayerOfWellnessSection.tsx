@@ -139,14 +139,6 @@ const WellnessRow = ({ row }: { row: Row }) => {
         {row.body}
       </p>
 
-      <div className="border-t border-foreground/10 pt-6 mb-6 sm:mb-8">
-        <p className="text-[12px] font-semibold uppercase tracking-[0.25em] text-muted-foreground/70 mb-3">
-          {row.pairedTitle}
-        </p>
-        <p className="text-[1.05rem] text-muted-foreground max-w-md" style={{ lineHeight: 1.6 }}>
-          {row.pairedBody}
-        </p>
-      </div>
 
       <div className="flex flex-wrap items-center gap-4">
         <Link
