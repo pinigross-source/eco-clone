@@ -1,6 +1,9 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import biologicMini from "@/assets/biologic-mini-nobg-new.avif";
-import biotica800 from "@/assets/biotica800-hero.avif";
+import biologicMiniAsset from "@/assets/biologic-mini-new.jpg.asset.json";
+import biotica800Asset from "@/assets/biotica-800-new.jpg.asset.json";
+
+const biologicMini = biologicMiniAsset.url;
+const biotica800 = biotica800Asset.url;
 
 const CERTS = [
   "EPA Registered",
