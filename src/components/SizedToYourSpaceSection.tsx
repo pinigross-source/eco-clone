@@ -54,7 +54,7 @@ const products: Product[] = [
 
 export const SizedToYourSpaceSection = () => {
   return (
-    <section id="find-your-system" className="py-24 sm:py-32 lg:py-36 bg-background">
+    <section id="find-your-system" className="py-14 sm:py-32 lg:py-36 bg-background">
       <div className="container max-w-6xl mx-auto px-6">
         {/* Header */}
         <ScrollReveal>
