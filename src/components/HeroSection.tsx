@@ -10,7 +10,7 @@ export const HeroSection = () => {
   return (
     <section
       className="relative w-full overflow-hidden"
-      style={{ background: "#F4F0E7", fontFamily: HERO_FONT }}
+      style={{ background: "#FFFFFF", fontFamily: HERO_FONT }}
     >
       {/* Full-bleed background media */}
       <div className="absolute inset-0 z-0">
