@@ -147,26 +147,25 @@ const ActiveFamiliesLandingPage = () => {
               width={1920}
               height={1080}
             />
-            {/* subtle light wash for text legibility, no dark tint */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/10 to-white/60" />
+            {/* no wash — clean bright image */}
           </div>
 
           {/* Content */}
           <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-6 pt-14 pb-32 text-center sm:pt-16 sm:pb-36 lg:pt-20 lg:pb-40">
-            <div className="mb-8 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.35em] text-neutral-600">
-              <span className="h-px w-8 bg-neutral-400/60" />
+            <div className="mb-8 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.35em] text-neutral-900 [text-shadow:0_1px_3px_rgba(255,255,255,0.9)]">
+              <span className="h-px w-8 bg-neutral-900/70" />
               <span>Active Families</span>
-              <span className="h-1 w-1 rounded-full bg-neutral-400" />
+              <span className="h-1 w-1 rounded-full bg-neutral-900" />
               <span>EnviroBiotics</span>
-              <span className="h-px w-8 bg-neutral-400/60" />
+              <span className="h-px w-8 bg-neutral-900/70" />
             </div>
 
-            <p className="mb-5 text-[17px] font-light italic tracking-wide text-neutral-700 sm:text-xl">
+            <p className="mb-5 text-[17px] font-normal italic tracking-wide text-neutral-900 [text-shadow:0_1px_3px_rgba(255,255,255,0.95)] sm:text-xl">
               Add a layer of wellness. Effortlessly.
             </p>
 
             <h1
-              className="font-medium tracking-tight text-neutral-900 [text-shadow:0_1px_2px_rgba(255,255,255,0.6)]"
+              className="font-semibold tracking-tight text-neutral-950 [text-shadow:0_2px_12px_rgba(255,255,255,0.85),0_1px_2px_rgba(255,255,255,0.9)]"
               style={{ fontSize: "clamp(2.75rem, 8vw, 6.5rem)", lineHeight: 0.95, letterSpacing: "-0.02em" }}
             >
               Healthy diet.
@@ -174,7 +173,7 @@ const ActiveFamiliesLandingPage = () => {
               Active lifestyle.
             </h1>
 
-            <p className="mt-8 max-w-xl text-[15.5px] font-light leading-relaxed text-neutral-700 sm:text-[17px]">
+            <p className="mt-8 max-w-xl text-[16px] font-medium leading-relaxed text-neutral-900 [text-shadow:0_1px_4px_rgba(255,255,255,0.95),0_0_18px_rgba(255,255,255,0.7)] sm:text-[18px]">
               You eat clean. You move often. You choose better. EnviroBiotics
               keeps working quietly in the background, so the home you built
               for wellness keeps up with the life you live.
@@ -183,12 +182,13 @@ const ActiveFamiliesLandingPage = () => {
             <a
               href="#rooms"
               onClick={(e) => scrollTo(e, "rooms", "click_family_hero_cta")}
-              className="group mt-10 inline-flex items-center rounded-full bg-neutral-900 px-9 py-4 text-[13px] font-semibold uppercase tracking-[0.18em] text-white transition-all hover:bg-neutral-800 active:scale-[0.98]"
+              className="group mt-10 inline-flex items-center rounded-full bg-neutral-900 px-9 py-4 text-[13px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_10px_30px_-8px_rgba(0,0,0,0.35)] transition-all hover:bg-neutral-800 active:scale-[0.98]"
             >
               See how it fits your home
               <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
+
 
           {/* Trust rail — anchored bottom */}
           <div className="absolute inset-x-0 bottom-0 z-10 border-t border-black/5 bg-white/70 backdrop-blur-md">
