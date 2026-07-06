@@ -165,14 +165,57 @@
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
     text-rendering: optimizeLegibility;
+    /* Stop iOS Safari from bumping font sizes on orientation change */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
     overscroll-behavior-y: none;
+    /* Kill horizontal scroll caused by overflowing sections/decorative blurs */
+    overflow-x: clip;
+    /* Remove the grey tap flash on iOS Safari */
+    -webkit-tap-highlight-color: transparent;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  /* Use dynamic viewport units so mobile Safari's URL bar doesn't clip full-screen sections */
+  @supports (height: 100dvh) {
+    .min-h-screen { min-height: 100dvh; }
+    .h-screen { height: 100dvh; }
+  }
+
+  /* Images and media should never blow out their container */
+  img, video, svg, canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  img {
+    /* Sharper resampling on Retina / macOS */
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  /* Prevent iOS Safari from zooming when a form field is focused */
+  @media (max-width: 640px) {
+    input, select, textarea {
+      font-size: 16px;
+    }
+  }
+
+  /* Comfortable tap targets and smoother taps on mobile */
+  a, button, [role="button"], input[type="submit"], input[type="button"] {
+    touch-action: manipulation;
   }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
   }
 
   /* Skip rendering off-screen sections for smoother scrolling */
@@ -182,18 +225,16 @@
     contain-intrinsic-size: 1px 600px;
   }
 
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
-  }
-
   .font-display,
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+    /* Prevent long words (product names, URLs) from causing horizontal scroll on mobile */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 }
+
 
 @layer utilities {
   .container {
