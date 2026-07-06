@@ -322,21 +322,23 @@ const ActiveFamiliesLandingPage = () => {
             backgroundPosition: "center",
           }}
         >
-          <div className="mx-auto max-w-[1000px] px-6 text-center text-white sm:px-10">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/70">
-              The promise
-            </p>
-            <h2
-              className="mt-4 font-semibold tracking-tight"
-              style={{ fontSize: "clamp(2rem, 4.5vw, 3.6rem)", lineHeight: 1.05 }}
-            >
-              You do the healthy work. We handle what you cannot see.
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-[16.5px] leading-relaxed text-white/80">
-              EnviroBiotics runs while you cook, train, work, and rest. It never
-              interrupts. It just quietly makes the home a better place to keep
-              being your best.
-            </p>
+          <div className="mx-auto max-w-[1000px] px-6 text-center sm:px-10">
+            <div className="mx-auto max-w-[820px] rounded-2xl bg-black/45 px-8 py-12 text-white backdrop-blur-sm sm:px-12 sm:py-14">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/80">
+                The promise
+              </p>
+              <h2
+                className="mt-4 font-semibold tracking-tight"
+                style={{ fontSize: "clamp(2rem, 4.5vw, 3.6rem)", lineHeight: 1.05, textShadow: "0 2px 12px rgba(0,0,0,0.5)" }}
+              >
+                You do the healthy work. We handle what you cannot see.
+              </h2>
+              <p className="mx-auto mt-6 max-w-xl text-[16.5px] leading-relaxed text-white/90">
+                EnviroBiotics runs while you cook, train, work, and rest. It never
+                interrupts. It just quietly makes the home a better place to keep
+                being your best.
+              </p>
+            </div>
           </div>
         </section>
 
