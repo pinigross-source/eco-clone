@@ -1,8 +1,10 @@
-import { Link } from "@/lib/link";
+import { useState } from "react";
 import { Play } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import bgImage from "@/assets/let-nature-bg.avif.asset.json";
 
 export const ScienceOfBalanceSection = () => {
+  const [videoOpen, setVideoOpen] = useState(false);
   return (
     <section
       aria-label="Let nature into your space"
@@ -55,11 +57,9 @@ export const ScienceOfBalanceSection = () => {
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
-              href="#find-your-system"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("find-your-system")?.scrollIntoView({ behavior: "smooth", block: "start" });
-              }}
+              href="https://shop.envirobiotics.com/"
+              target="_top"
+              rel="noopener"
               className="inline-flex items-center justify-center whitespace-nowrap rounded-full px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:-translate-y-0.5"
               style={{
                 background: "hsl(var(--primary))",
@@ -70,20 +70,37 @@ export const ScienceOfBalanceSection = () => {
             >
               Choose Your System
             </a>
-            <Link
-              to="/how-it-works"
+            <button
+              type="button"
+              onClick={() => setVideoOpen(true)}
               className="inline-flex items-center gap-2 rounded-full border px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-foreground hover:bg-foreground/5 transition-colors"
               style={{ borderColor: "hsl(var(--foreground) / 0.2)", minHeight: 48 }}
             >
               <Play className="w-4 h-4" />
               Watch how it works
-            </Link>
+            </button>
           </div>
         </div>
 
         {/* Empty spacer to let the background image show on the right */}
         <div className="hidden lg:block" />
       </div>
+
+      <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
+        <DialogContent className="max-w-4xl w-[95vw] p-0 bg-black border-none rounded-2xl overflow-hidden [&>button]:text-white [&>button]:hover:text-white/80">
+          <div className="aspect-video w-full">
+            {videoOpen && (
+              <iframe
+                src="https://player.vimeo.com/video/1198422138?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1"
+                title="How EnviroBiotics Works"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
