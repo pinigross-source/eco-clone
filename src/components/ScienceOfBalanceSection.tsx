@@ -1,14 +1,29 @@
 import { Link } from "@/lib/link";
 import { Play } from "lucide-react";
-import scienceImage from "@/assets/hero-scandinavian-family.jpg";
+import bgImage from "@/assets/let-nature-bg.avif.asset.json";
 
 export const ScienceOfBalanceSection = () => {
   return (
     <section
       aria-label="Let nature into your space"
-      className="relative w-full overflow-hidden bg-background border-y border-foreground/10"
+      className="relative w-full overflow-hidden border-y border-foreground/10"
     >
-      <div className="mx-auto grid max-w-[1440px] grid-cols-1 lg:grid-cols-2">
+      {/* Full-bleed background */}
+      <img
+        src={bgImage.url}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      {/* Readability wash */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent"
+      />
+
+      <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 lg:grid-cols-2">
         {/* Text side */}
         <div className="flex flex-col justify-center px-6 py-24 sm:px-10 sm:py-32 lg:px-16 lg:py-40">
           <h2
@@ -25,7 +40,7 @@ export const ScienceOfBalanceSection = () => {
             Environmental probiotics, intelligently dispersed.
           </p>
           <p
-            className="mt-8 max-w-[55ch] text-muted-foreground text-[1.05rem] sm:text-[1.15rem]"
+            className="mt-8 max-w-[55ch] text-foreground/80 text-[1.05rem] sm:text-[1.15rem]"
             style={{ lineHeight: 1.6 }}
           >
             When nature is invited in, allergies, fatigue, headaches, sleep disorders, low mood, and stubborn odors quietly fade.
@@ -63,18 +78,9 @@ export const ScienceOfBalanceSection = () => {
           </div>
         </div>
 
-        {/* Image side */}
-        <div className="relative min-h-[320px] lg:min-h-full bg-muted">
-          <img
-            src={scienceImage}
-            alt="Sunlit living room with soft light trails of dispersed environmental probiotics"
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </div>
+        {/* Empty spacer to let the background image show on the right */}
+        <div className="hidden lg:block" />
       </div>
     </section>
-
   );
 };
