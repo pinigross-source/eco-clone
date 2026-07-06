@@ -23,9 +23,9 @@ const livingImg = livingAsset.url;
 const bedroomImg = bedroomAsset.url;
 const kidsImg = kidsAsset.url;
 import cleanHome from "@/assets/family-clean-home.jpg";
-import miniProduct from "@/assets/biologic-mini-new.jpg.asset.json";
-import bioticaProduct from "@/assets/biotica-800-new.jpg.asset.json";
-import bundleProduct from "@/assets/bundle-product.webp.asset.json";
+import miniProduct from "@/assets/biologic-mini-nobg-new.avif";
+import bioticaProduct from "@/assets/shop/biotica-800.png";
+import bundleProduct from "@/assets/shop/home-complete-bundle.avif";
 
 const PROMO = "FAMILY";
 const withDiscount = (url: string, code = PROMO) =>
@@ -367,7 +367,7 @@ const ActiveFamiliesLandingPage = () => {
                   url: MINI_URL,
                   event: "click_family_card_mini",
                   tag: "For focused rooms",
-                  image: miniProduct.url,
+                  image: miniProduct,
                 },
                 {
                   name: "Biotica 800",
@@ -376,7 +376,7 @@ const ActiveFamiliesLandingPage = () => {
                   event: "click_family_card_biotica",
                   tag: "For open plans",
                   featured: true,
-                  image: bioticaProduct.url,
+                  image: bioticaProduct,
                 },
                 {
                   name: "Home Complete Bundle",
@@ -384,7 +384,7 @@ const ActiveFamiliesLandingPage = () => {
                   url: BUNDLE_URL,
                   event: "click_family_card_bundle",
                   tag: "Best value",
-                  image: bundleProduct.url,
+                  image: bundleProduct,
                 },
               ].map((p) => (
                 <Reveal key={p.name}>
