@@ -1,24 +1,17 @@
-
 import { useEffect, lazy, Suspense } from "react";
 import { useLocation } from "@tanstack/react-router";
-import { Link } from "@/lib/link";
 import { SEOHead, organizationJsonLd, websiteJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
-
-import { CertificationsBar } from "@/components/CertificationsBar";
-import { SafetyFirstSection } from "@/components/SafetyFirstSection";
-import { MicroscopicWorldSection } from "@/components/MicroscopicWorldSection";
-import { SizedToYourSpaceSection } from "@/components/SizedToYourSpaceSection";
-import { DeferredSection } from "@/components/DeferredSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { NatureStatementSection } from "@/components/NatureStatementSection";
 import { TrustedPlacesSection } from "@/components/TrustedPlacesSection";
+import { SizedToYourSpaceSection } from "@/components/SizedToYourSpaceSection";
+import { ScienceOfBalanceSection } from "@/components/ScienceOfBalanceSection";
+import { AddLayerOfWellnessSection } from "@/components/AddLayerOfWellnessSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { DeferredSection } from "@/components/DeferredSection";
 
-
-// Lazy-load all below-fold sections
-const FinalCTASection = lazy(() => import("@/components/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
-
 
 const Index = () => {
   const location = useLocation();
@@ -38,8 +31,7 @@ const Index = () => {
             stableCount = 0;
           }
           lastTop = currentTop;
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Keep retrying until position stabilizes (layout done)
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
           if (stableCount < 3 && attempts < 30) {
             setTimeout(() => tryScroll(attempts + 1), 200);
           }
@@ -68,115 +60,13 @@ const Index = () => {
       />
       <Navbar />
       <main id="main-content" className="relative pb-20 md:pb-0">
-
         <HeroSection />
-        <MicroscopicWorldSection />
-        <SafetyFirstSection />
-        <TestimonialsSection />
-
-        {/* Mid-page conversion band */}
-        <section className="relative w-full border-y border-foreground/10 bg-foreground/[0.02]">
-          <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-6 px-5 py-12 sm:flex-row sm:px-10 sm:py-14 lg:px-16">
-            <div className="text-center sm:text-left">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-primary">Join 5,000+ homes</p>
-              <h3 className="mt-2 font-display text-2xl font-bold leading-tight text-foreground sm:text-3xl">
-                Ready for cleaner surfaces, naturally?
-              </h3>
-              <p className="mt-1 text-sm text-foreground/65 sm:text-base">
-                30-day money-back guarantee · Free U.S. shipping
-              </p>
-            </div>
-            <a
-              href="https://shop.envirobiotics.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cta="mid_band_shop"
-              onClick={() => {
-                try { window.dispatchEvent(new CustomEvent('eb_track', { detail: { name: 'cta_click', location: 'mid_band', label: 'shop_devices' } })); } catch {}
-              }}
-              className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-foreground px-7 py-4 text-sm font-semibold text-background transition-all hover:-translate-y-0.5 hover:bg-primary hover:text-primary-foreground"
-            >
-              Shop Devices from $98
-              <span className="transition-transform group-hover:translate-x-1">→</span>
-            </a>
-          </div>
-        </section>
-
+        <NatureStatementSection />
         <TrustedPlacesSection />
         <SizedToYourSpaceSection />
-
-        {/* Anniversary / Mission Statement */}
-        <section className="relative w-full overflow-hidden bg-background border-t border-foreground/10">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-60"
-            style={{
-              background:
-                "radial-gradient(60% 50% at 80% 20%, hsl(var(--primary) / 0.08) 0%, transparent 60%), radial-gradient(50% 40% at 10% 90%, hsl(var(--primary) / 0.05) 0%, transparent 70%)",
-            }}
-          />
-
-          <div className="relative mx-auto w-full max-w-[1320px] px-5 py-24 sm:px-10 sm:py-28 lg:px-16 lg:py-32">
-            <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-12 lg:gap-20">
-              <div className="lg:col-span-7">
-                <h2
-                  className="font-sans font-normal tracking-[-0.035em] text-[2rem] leading-[1.08] sm:text-[2.75rem] lg:text-[3.25rem] lg:leading-[1.04]"
-                  style={{ color: "hsl(var(--foreground))" }}
-                >
-                  Enjoy the benefits of accurately applied research. <span className="font-bold">When you thrive, our planet does too.</span>
-                </h2>
-
-              </div>
-
-
-              <div className="lg:col-span-5 space-y-6">
-                <p
-                  className="max-w-[58ch] text-[1rem] leading-[1.6] sm:text-[1.1rem]"
-                  style={{ color: "hsl(var(--foreground) / 0.82)" }}
-                >
-                  EnviroBiotics products are crafted from a decade of work focused on fostering general health, now shared at a special price so wellbeing reaches every home.
-                </p>
-                <p
-                  className="max-w-[58ch] text-[1rem] leading-[1.6] sm:text-[1.1rem]"
-                  style={{ color: "hsl(var(--foreground) / 0.82)" }}
-                >
-                  Once it is on, you enjoy its benefit, and our planet earth does too.
-                </p>
-                <p
-                  className="max-w-[58ch] border-l-2 pl-5 text-[1rem] leading-[1.6] sm:text-[1.1rem] italic"
-                  style={{ color: "hsl(var(--foreground) / 0.75)", borderColor: "hsl(var(--primary) / 0.5)" }}
-                >
-                  A new era of biological solutions that replace the polluting chemicals
-                </p>
-
-                <div className="flex flex-wrap items-center gap-3 pt-4">
-                  <Link
-                    to="/how-it-works"
-                    className="group inline-flex items-center gap-2 rounded-full border px-7 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.22em] transition-all hover:-translate-y-0.5"
-                    style={{
-                      borderColor: "hsl(var(--foreground) / 0.2)",
-                      color: "hsl(var(--foreground))",
-                      background: "transparent",
-                    }}
-                  >
-                    Our Technology
-                  </Link>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-        {/* Final CTA (with risk-free guarantee) */}
-        <DeferredSection forceMount={hasHash} minHeight="500px" rootMargin="200px">
-          <Suspense fallback={<div className="min-h-[400px]" />}>
-            <FinalCTASection />
-          </Suspense>
-        </DeferredSection>
-
-
+        <ScienceOfBalanceSection />
+        <AddLayerOfWellnessSection />
+        <TestimonialsSection />
       </main>
       <DeferredSection forceMount={hasHash} minHeight="200px" rootMargin="200px">
         <Suspense fallback={null}>
