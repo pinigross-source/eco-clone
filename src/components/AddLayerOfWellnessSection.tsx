@@ -71,7 +71,7 @@ const rows: Row[] = [
     pairedBody:
       "Continuous, whole-home protection for your air, surfaces, and everyday objects. EnviroBiotics® quietly restores the natural balance of your indoor ecosystem 24/7, helping reduce harmful pathogens, mold, allergens, and odor-causing microbes, without harsh chemicals or noisy filters.",
     primaryLabel: "Find your fit",
-    primaryHref: "/lp/parent",
+    primaryHref: "#find-your-system",
     secondaryLabel: "Learn more",
     secondaryHref: "/active-families",
     image: familyImg,
