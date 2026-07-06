@@ -20,7 +20,7 @@ export const ScienceOfBalanceSection = () => {
       {/* Readability wash */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent"
+        className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 via-40% to-transparent to-60%"
       />
 
       <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 lg:grid-cols-2">
