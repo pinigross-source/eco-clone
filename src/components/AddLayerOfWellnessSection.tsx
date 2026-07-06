@@ -71,7 +71,7 @@ const rows: Row[] = [
     pairedBody:
       "Continuous, whole-home protection for your air, surfaces, and everyday objects. EnviroBiotics® quietly restores the natural balance of your indoor ecosystem 24/7, helping reduce harmful pathogens, mold, allergens, and odor-causing microbes, without harsh chemicals or noisy filters.",
     primaryLabel: "Find your fit",
-    primaryHref: "/lp/parent",
+    primaryHref: "#find-your-system",
     secondaryLabel: "Learn more",
     secondaryHref: "/active-families",
     image: familyImg,
@@ -139,13 +139,29 @@ const WellnessRow = ({ row }: { row: Row }) => {
 
 
       <div className="flex flex-wrap items-center gap-4">
-        <Link
-          to={row.primaryHref}
-          className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-[0.72rem] sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] bg-foreground text-background transition-all hover:-translate-y-0.5"
-        >
-          {row.primaryLabel}
-          <ArrowRight className="w-3.5 h-3.5" />
-        </Link>
+        {row.primaryHref.startsWith("#") ? (
+          <a
+            href={row.primaryHref}
+            onClick={(e) => {
+              e.preventDefault();
+              document
+                .getElementById(row.primaryHref.slice(1))
+                ?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-[0.72rem] sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] bg-foreground text-background transition-all hover:-translate-y-0.5"
+          >
+            {row.primaryLabel}
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        ) : (
+          <Link
+            to={row.primaryHref}
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-[0.72rem] sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] bg-foreground text-background transition-all hover:-translate-y-0.5"
+          >
+            {row.primaryLabel}
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        )}
         <Link
           to={row.secondaryHref}
           className="inline-flex items-center justify-center rounded-full border border-foreground/20 px-6 py-3 text-[0.72rem] sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-foreground hover:bg-foreground/5 transition-colors"
