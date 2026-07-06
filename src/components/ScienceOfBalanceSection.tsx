@@ -28,7 +28,7 @@ export const ScienceOfBalanceSection = () => {
 
       <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 lg:grid-cols-2">
         {/* Text side */}
-        <div className="flex flex-col justify-center px-6 py-24 sm:px-10 sm:py-32 lg:px-16 lg:py-40">
+        <div className="flex flex-col justify-center px-6 py-24 sm:px-10 sm:py-32 lg:px-16 lg:py-40 text-center lg:text-left items-center lg:items-start">
           <h2
             className="font-display font-bold text-balance text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]"
             style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
@@ -56,7 +56,7 @@ export const ScienceOfBalanceSection = () => {
             Let Nature Back Indoors
           </h3>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
             <a
               href="https://shop.envirobiotics.com/"
               target="_top"
@@ -82,6 +82,7 @@ export const ScienceOfBalanceSection = () => {
             </button>
           </div>
         </div>
+
 
         {/* Empty spacer to let the background image show on the right */}
         <div className="hidden lg:block" />
