@@ -63,6 +63,18 @@ export const ScienceOfBalanceSection = () => {
           </div>
         </div>
 
+        {/* Image side */}
+        <div className="relative min-h-[320px] lg:min-h-full bg-muted">
+          <img
+            src={scienceImage}
+            alt="Sunlit living room with soft light trails of dispersed environmental probiotics"
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+      </div>
     </section>
+
   );
 };
