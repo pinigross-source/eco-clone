@@ -393,6 +393,14 @@ const ActiveFamiliesLandingPage = () => {
                       p.featured ? "ring-1 ring-emerald-500/40" : ""
                     }`}
                   >
+                    <div className="mb-6 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-b from-neutral-50 to-neutral-100">
+                      <img
+                        src={p.image}
+                        alt={p.name}
+                        loading="lazy"
+                        className="h-full w-full object-contain p-6 transition-transform duration-500 hover:scale-105"
+                      />
+                    </div>
                     <span
                       className={`inline-flex w-fit rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] ${
                         p.featured
