@@ -14,10 +14,14 @@ import {
 
 import heroAsset from "@/assets/FamilyLP.avif.asset.json";
 const heroImg = heroAsset.url;
-import kitchenImg from "@/assets/health-scandi-kitchen.jpg";
-import livingImg from "@/assets/family-living-cozy.jpg";
-import bedroomImg from "@/assets/health-scandi-bedroom.jpg";
-import kidsImg from "@/assets/difference-kidsroom.jpg";
+import kitchenAsset from "@/assets/The_kitchen_counter.avif.asset.json";
+import livingAsset from "@/assets/The_living_room_floor.avif.asset.json";
+import bedroomAsset from "@/assets/The_bedroom_you_rest_in.avif.asset.json";
+import kidsAsset from "@/assets/The_playroom_and_beyond.avif.asset.json";
+const kitchenImg = kitchenAsset.url;
+const livingImg = livingAsset.url;
+const bedroomImg = bedroomAsset.url;
+const kidsImg = kidsAsset.url;
 import cleanHome from "@/assets/family-clean-home.jpg";
 
 const PROMO = "FAMILY";
