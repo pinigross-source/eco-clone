@@ -1,6 +1,9 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import biologicMini from "@/assets/biologic-mini-nobg-new.avif";
-import biotica800 from "@/assets/biotica800-hero.avif";
+import biologicMiniAsset from "@/assets/biologic-mini-new.jpg.asset.json";
+import biotica800Asset from "@/assets/biotica-800-new.jpg.asset.json";
+
+const biologicMini = biologicMiniAsset.url;
+const biotica800 = biotica800Asset.url;
 
 const CERTS = [
   "EPA Registered",
@@ -85,13 +88,13 @@ export const SizedToYourSpaceSection = () => {
                     {p.tag}
                   </span>
                 </div>
-                <div className="relative w-full bg-gradient-to-b from-muted/40 to-muted/10 aspect-[4/3] min-h-[260px] flex items-center justify-center p-10">
+                <div className="relative w-full aspect-[4/3] min-h-[260px] overflow-hidden">
                   <img
                     src={p.imageSrc}
                     alt={p.imageAlt}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-700"
+                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
                 <div className="p-8 flex flex-col flex-1">
