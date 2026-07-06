@@ -89,9 +89,9 @@ const rows: Row[] = [
     pairedBody:
       "Quiet, automatic 24/7 protection that helps reduce dust mite allergens and other indoor contaminants where you sleep, creating a healthier bedroom, where your immune system can rest and heal.",
     primaryLabel: "Build your bedroom setup",
-    primaryHref: "/lp/allergy",
+    primaryHref: "https://shop.envirobiotics.com/cart/add?id=48644372496636&quantity=1&return_to=/cart",
     secondaryLabel: "Learn more",
-    secondaryHref: "/how-it-works",
+    secondaryHref: "/allergy",
     image: bedroomImg.url,
     imageAlt: "Woman sleeping peacefully with an EnviroBiotics device on the bedside table",
     imageLeft: false,
