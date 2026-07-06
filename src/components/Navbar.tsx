@@ -76,7 +76,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   if (!item.dropdown) {
     const className = cn(
-      "relative px-3 py-2 text-[16px] font-normal transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap",
+      "relative px-3 py-2 text-[16px] font-bold transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap",
       scrolled
         ? "text-foreground hover:text-primary"
         : useLight
@@ -99,7 +99,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
 
   const isExternal = /^https?:\/\//.test(item.href);
   const triggerClassName = cn(
-    "relative px-3 py-2 text-[16px] font-normal transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap",
+    "relative px-3 py-2 text-[16px] font-bold transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap",
     scrolled
       ? (open ? "text-primary" : "text-foreground hover:text-primary")
       : useLight
@@ -222,7 +222,7 @@ export const Navbar = () => {
   return (
     <>
       <header
-        style={{ fontFamily: "'Montserrat', sans-serif", backgroundColor: "#F3EEE6" }}
+        style={{ fontFamily: "'Montserrat', sans-serif", backgroundColor: "#F0F0F0" }}
         className={cn(
           "fixed top-0 z-[9999] w-full transition-shadow duration-300",
           scrolled ? "shadow-sm" : ""
@@ -303,7 +303,7 @@ export const Navbar = () => {
           "lg:hidden fixed top-16 left-0 right-0 z-[200] border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
           isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         )}
-        style={{ backgroundColor: "#F3EEE6", fontFamily: "'Montserrat', sans-serif" }}
+        style={{ backgroundColor: "#F0F0F0", fontFamily: "'Montserrat', sans-serif" }}
       >
         <nav aria-label="Mobile navigation" className="container pt-4 pb-4 sm:pb-6 flex flex-col gap-0.5 sm:gap-1 px-4 sm:px-6">
           {navLinks.map((link) => (
@@ -311,7 +311,7 @@ export const Navbar = () => {
               {link.dropdown ? (
                 <>
                   <button
-                    className="w-full text-[16px] font-normal text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
+                    className="w-full text-[16px] font-bold text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
                     onClick={() => setExpandedMobile(expandedMobile === link.label ? null : link.label)}
                   >
                     <span>{link.label}</span>
@@ -346,7 +346,7 @@ export const Navbar = () => {
                   href={link.href}
                   target="_top"
                   rel="noopener"
-                  className="text-[16px] font-normal text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
+                  className="text-[16px] font-bold text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{link.label}</span>
@@ -354,7 +354,7 @@ export const Navbar = () => {
               ) : (
                 <Link
                   to={link.href}
-                  className="text-[16px] font-normal text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
+                  className="text-[16px] font-bold text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{link.label}</span>
