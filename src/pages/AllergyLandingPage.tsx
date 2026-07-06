@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
@@ -186,6 +188,7 @@ const AllergyLandingPage = () => {
         path="/allergy"
       />
 
+      <Navbar />
       <main className="bg-background text-foreground">
         {/* ============ HERO ============ */}
         <section className="relative w-full overflow-hidden h-[100svh] min-h-[680px] sm:min-h-[760px]">
@@ -810,6 +813,7 @@ const AllergyLandingPage = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 };

@@ -1,4 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
@@ -192,6 +194,7 @@ const ParentsLandingPage = () => {
         path="/parents"
       />
 
+      <Navbar />
       <main className="parents-apple bg-background text-foreground">
         {/* ============ HERO ============ */}
         <section className="relative w-full overflow-hidden h-[100svh] min-h-[680px] sm:min-h-[760px]">
@@ -954,6 +957,7 @@ const ParentsLandingPage = () => {
           </a>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

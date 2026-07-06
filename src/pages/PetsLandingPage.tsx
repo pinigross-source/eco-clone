@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import { ArrowRight, X, Check } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
@@ -114,6 +116,7 @@ const PetsLandingPage = () => {
       />
 
 
+      <Navbar />
       <main className="bg-white text-[#1A1A1A]" style={{ fontFamily: DISPLAY }}>
         {/* ============ HERO - soft pastel editorial ============ */}
         <section className="relative w-full overflow-hidden">
@@ -775,6 +778,7 @@ const PetsLandingPage = () => {
           </a>
         </div>
       )}
+      <Footer />
     </>
   );
 };
