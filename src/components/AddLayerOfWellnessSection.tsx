@@ -138,7 +138,7 @@ const WellnessRow = ({ row }: { row: Row }) => {
       </p>
 
 
-      <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
         {row.primaryHref.startsWith("#") ? (
           <a
             href={row.primaryHref}
