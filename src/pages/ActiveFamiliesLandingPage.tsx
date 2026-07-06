@@ -134,40 +134,45 @@ const ActiveFamiliesLandingPage = () => {
       <Navbar />
       <main className="bg-white text-[#1A1A1A] pt-16 lg:pt-[124px]" style={{ fontFamily: DISPLAY }}>
         {/* HERO — editorial, left-aligned over bright interior */}
-        <section className="relative w-full overflow-hidden bg-[#f4efe7] text-neutral-900 min-h-[calc(100vh-64px)] lg:min-h-[calc(100vh-124px)] flex items-center">
+        <section className="relative w-full overflow-hidden bg-[#f4efe7] text-neutral-900 min-h-[86vh] sm:min-h-[calc(100vh-64px)] lg:min-h-[calc(100vh-124px)] flex items-center">
           {/* Full-bleed bright image */}
           <div className="absolute inset-0 z-0">
             <img
               src={heroImg}
               alt="Family moving through a bright, natural Scandinavian style home"
-              className="h-full w-full object-cover object-right"
+              className="h-full w-full object-cover object-[80%_center] md:object-right"
               loading="eager"
               decoding="async"
               fetchPriority="high"
               width={1920}
               height={1080}
             />
-            {/* soft left fade — only on the empty side, keeps image untouched on the right */}
+            {/* Mobile / tablet: strong cream veil so text stays readable */}
             <div
               aria-hidden="true"
-              className="absolute inset-y-0 left-0 w-full md:w-[62%] bg-gradient-to-r from-[#f4efe7] via-[#f4efe7]/85 md:via-[#f4efe7]/75 to-transparent"
+              className="absolute inset-0 lg:hidden bg-gradient-to-r from-[#f4efe7] from-30% via-[#f4efe7]/92 via-70% to-[#f4efe7]/55"
+            />
+            {/* Desktop: soft left fade only over the empty side */}
+            <div
+              aria-hidden="true"
+              className="hidden lg:block absolute inset-y-0 left-0 w-[58%] bg-gradient-to-r from-[#f4efe7] via-[#f4efe7]/75 to-transparent"
             />
           </div>
 
           {/* Content */}
-          <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 sm:px-10 lg:px-16 pb-24 lg:pb-28">
-            <div className="max-w-xl lg:max-w-2xl">
-              <div className="mb-6 inline-flex items-center gap-3 text-[10.5px] font-semibold uppercase tracking-[0.32em] text-neutral-700">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
-                For Active Families
+          <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 sm:px-8 md:px-10 lg:px-16 py-16 sm:py-20 md:py-24 lg:pb-28">
+            <div className="max-w-full md:max-w-xl lg:max-w-2xl xl:max-w-[52rem] 2xl:max-w-[60rem]">
+              <div className="mb-5 sm:mb-6 inline-flex items-center gap-3 text-[10px] sm:text-[10.5px] font-semibold uppercase tracking-[0.28em] sm:tracking-[0.32em] text-neutral-700">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600" />
+                <span className="min-w-0">For Active Families</span>
               </div>
 
               <h1
-                className="font-semibold tracking-tight text-neutral-950"
+                className="font-semibold tracking-tight text-neutral-950 [text-wrap:balance]"
                 style={{
-                  fontSize: "clamp(2.75rem, 7.2vw, 6.75rem)",
-                  lineHeight: 0.95,
-                  letterSpacing: "-0.035em",
+                  fontSize: "clamp(2.25rem, 5.4vw, 5rem)",
+                  lineHeight: 0.98,
+                  letterSpacing: "-0.03em",
                 }}
               >
                 Healthy diet.
@@ -177,17 +182,17 @@ const ActiveFamiliesLandingPage = () => {
                 <span className="italic font-light text-neutral-700">Healthier home.</span>
               </h1>
 
-              <p className="mt-8 max-w-lg text-[17px] leading-[1.6] text-neutral-800 sm:text-[18px]">
+              <p className="mt-6 sm:mt-8 max-w-md sm:max-w-lg text-[15.5px] sm:text-[17px] lg:text-[18px] leading-[1.55] sm:leading-[1.6] text-neutral-800">
                 You eat clean. You move often. You choose better. EnviroBiotics keeps
                 working quietly in the background, so the home you built for wellness
                 keeps up with the life you live.
               </p>
 
-              <div className="mt-10 flex flex-wrap items-center gap-4">
+              <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-x-5 gap-y-3 sm:gap-4">
                 <a
                   href="#rooms"
                   onClick={(e) => scrollTo(e, "rooms", "click_family_hero_cta")}
-                  className="group inline-flex items-center rounded-full bg-neutral-900 px-8 py-4 text-[12.5px] font-semibold uppercase tracking-[0.18em] text-white transition-all hover:bg-neutral-800 active:scale-[0.98]"
+                  className="group inline-flex items-center rounded-full bg-neutral-900 px-6 py-3.5 sm:px-8 sm:py-4 text-[11.5px] sm:text-[12.5px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.18em] text-white transition-all hover:bg-neutral-800 active:scale-[0.98]"
                 >
                   See how it fits your home
                   <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -195,16 +200,16 @@ const ActiveFamiliesLandingPage = () => {
                 <a
                   href="#how"
                   onClick={(e) => scrollTo(e, "how", "click_family_hero_secondary")}
-                  className="group inline-flex items-center text-[12.5px] font-semibold uppercase tracking-[0.18em] text-neutral-900 underline-offset-8 hover:underline"
+                  className="group inline-flex items-center text-[11.5px] sm:text-[12.5px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.18em] text-neutral-900 underline-offset-8 hover:underline"
                 >
                   How it works
                 </a>
               </div>
 
-              <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-[10.5px] font-medium uppercase tracking-[0.24em] text-neutral-700">
+              <div className="mt-10 sm:mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 sm:gap-x-8 text-[10px] sm:text-[10.5px] font-medium uppercase tracking-[0.22em] sm:tracking-[0.24em] text-neutral-700">
                 {["Family safe", "No sprays", "Runs silently 24/7"].map((item) => (
                   <span key={item} className="inline-flex items-center gap-2">
-                    <Check className="h-3 w-3 text-emerald-600" strokeWidth={3} />
+                    <Check className="h-3 w-3 shrink-0 text-emerald-600" strokeWidth={3} />
                     {item}
                   </span>
                 ))}
@@ -212,6 +217,8 @@ const ActiveFamiliesLandingPage = () => {
             </div>
           </div>
         </section>
+
+
 
         {/* BENEFIT STRIP — editorial */}
         <section className="bg-[#FAF9F6]">
