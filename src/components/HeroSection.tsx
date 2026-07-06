@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link } from "@/lib/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import heroMediaAsset from "@/assets/hero.gif.asset.json";
 
 const heroMedia = heroMediaAsset.url;
