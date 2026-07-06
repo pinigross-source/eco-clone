@@ -80,23 +80,6 @@ export const HeroSection = () => {
                 <ArrowRight className="w-4 h-4" />
               </span>
             </Link>
-            <Link
-              to="/how-it-works"
-              className="inline-flex items-center justify-center rounded-full transition-all hover:-translate-y-0.5"
-              style={{
-                background: "rgba(255,255,255,0.75)",
-                border: "1px solid rgba(31,35,40,0.22)",
-                backdropFilter: "blur(8px)",
-                WebkitBackdropFilter: "blur(8px)",
-                color: "#1F2328",
-                fontWeight: 600,
-                fontSize: "1.08rem",
-                padding: "0.72em 1.4em",
-                minHeight: 48,
-              }}
-            >
-              Learn More
-            </Link>
           </div>
         </div>
       </div>
