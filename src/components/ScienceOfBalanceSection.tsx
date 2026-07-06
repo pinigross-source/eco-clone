@@ -10,18 +10,31 @@ export const ScienceOfBalanceSection = () => {
     >
       <div className="mx-auto grid max-w-[1440px] grid-cols-1 lg:grid-cols-2">
         {/* Text side */}
-        <div className="flex flex-col justify-center px-6 py-20 sm:px-10 sm:py-24 lg:px-16 lg:py-32">
-          <h2 className="font-display font-bold leading-[1.02] tracking-[-0.03em] text-foreground text-4xl sm:text-5xl lg:text-6xl">
-            The Science of <span className="italic font-normal text-heading-accent">Balance.</span>
+        <div className="flex flex-col justify-center px-6 py-24 sm:px-10 sm:py-32 lg:px-16 lg:py-40">
+          <h2
+            className="font-display font-bold text-balance text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]"
+            style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
+          >
+            The Science of{" "}
+            <span className="italic font-light text-heading-accent">Balance.</span>
           </h2>
-          <p className="mt-6 font-serif italic text-xl sm:text-2xl text-foreground/80 leading-snug">
+          <p
+            className="mt-5 font-display italic font-light text-heading-accent max-w-[55ch] text-[1.5rem] sm:text-[2rem] lg:text-[2.35rem]"
+            style={{ lineHeight: 1.2 }}
+          >
             Environmental probiotics, intelligently dispersed.
           </p>
-          <p className="mt-6 max-w-xl text-base sm:text-lg text-foreground/70 leading-relaxed">
+          <p
+            className="mt-8 max-w-[55ch] text-muted-foreground text-[1.05rem] sm:text-[1.15rem]"
+            style={{ lineHeight: 1.6 }}
+          >
             When nature is invited in, allergies, fatigue, headaches, sleep disorders, low mood, and stubborn odors quietly fade.
           </p>
 
-          <h3 className="mt-10 font-display font-bold text-2xl sm:text-3xl text-foreground">
+          <h3
+            className="mt-10 font-display font-medium text-balance text-foreground text-[2rem] sm:text-[3rem] lg:text-[3.5rem]"
+            style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
+          >
             Let Nature Back Indoors
           </h3>
 
@@ -33,6 +46,7 @@ export const ScienceOfBalanceSection = () => {
               style={{
                 background: "hsl(var(--primary))",
                 color: "hsl(var(--primary-foreground))",
+                minHeight: 48,
                 boxShadow: "0 12px 30px -12px hsl(var(--primary) / 0.55)",
               }}
             >
@@ -40,7 +54,8 @@ export const ScienceOfBalanceSection = () => {
             </Link>
             <Link
               to="/how-it-works"
-              className="inline-flex items-center gap-2 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-foreground hover:text-primary transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-foreground hover:bg-foreground/5 transition-colors"
+              style={{ borderColor: "hsl(var(--foreground) / 0.2)", minHeight: 48 }}
             >
               <Play className="w-4 h-4" />
               Watch how it works
@@ -48,17 +63,6 @@ export const ScienceOfBalanceSection = () => {
           </div>
         </div>
 
-        {/* Image side */}
-        <div className="relative min-h-[320px] lg:min-h-full bg-muted">
-          <img
-            src={scienceImage}
-            alt="Sunlit living room with soft light trails of dispersed environmental probiotics"
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </div>
-      </div>
     </section>
   );
 };
