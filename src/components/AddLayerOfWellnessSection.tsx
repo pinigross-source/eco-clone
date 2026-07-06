@@ -1,7 +1,7 @@
 import { Link } from "@/lib/link";
 import { ArrowRight } from "lucide-react";
 import nurseryImg from "@/assets/nursery-baby-blocks.png.asset.json";
-import petsImg from "@/assets/testimonial-dog-owner.avif";
+import petsImg from "@/assets/pets-dog-phone.avif.asset.json";
 import familyImg from "@/assets/mini-lifestyle-family-v4.avif";
 import bedroomImg from "@/assets/bedroom-allergy-16.avif.asset.json";
 
@@ -55,7 +55,7 @@ const rows: Row[] = [
     primaryHref: "/blog/best-air-purifier-for-pet-owners",
     secondaryLabel: "Learn more",
     secondaryHref: "/how-it-works",
-    image: petsImg,
+    image: petsImg.url,
     imageAlt: "Young boy resting his forehead against a golden retriever",
     imageLeft: false,
   },
