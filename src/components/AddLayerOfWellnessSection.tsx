@@ -55,7 +55,7 @@ const rows: Row[] = [
     primaryHref: "/blog/best-air-purifier-for-pet-owners",
     secondaryLabel: "Learn more",
     secondaryHref: "/how-it-works",
-    image: petsImg,
+    image: petsImg.url,
     imageAlt: "Young boy resting his forehead against a golden retriever",
     imageLeft: false,
   },
