@@ -68,6 +68,7 @@ import { Route as AllergyRouteImport } from './routes/allergy'
 import { Route as AffiliateSignupRouteImport } from './routes/affiliate-signup'
 import { Route as AffiliateDashboardRouteImport } from './routes/affiliate-dashboard'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ActiveFamiliesRouteImport } from './routes/active-families'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -386,6 +387,11 @@ const AdminRoute = AdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ActiveFamiliesRoute = ActiveFamiliesRouteImport.update({
+  id: '/active-families',
+  path: '/active-families',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AccountRoute = AccountRouteImport.update({
   id: '/account',
   path: '/account',
@@ -499,6 +505,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
+  '/active-families': typeof ActiveFamiliesRoute
   '/admin': typeof AdminRoute
   '/affiliate-dashboard': typeof AffiliateDashboardRoute
   '/affiliate-signup': typeof AffiliateSignupRoute
@@ -581,6 +588,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
+  '/active-families': typeof ActiveFamiliesRoute
   '/admin': typeof AdminRoute
   '/affiliate-dashboard': typeof AffiliateDashboardRoute
   '/affiliate-signup': typeof AffiliateSignupRoute
@@ -664,6 +672,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
+  '/active-families': typeof ActiveFamiliesRoute
   '/admin': typeof AdminRoute
   '/affiliate-dashboard': typeof AffiliateDashboardRoute
   '/affiliate-signup': typeof AffiliateSignupRoute
@@ -748,6 +757,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/account'
+    | '/active-families'
     | '/admin'
     | '/affiliate-dashboard'
     | '/affiliate-signup'
@@ -830,6 +840,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/account'
+    | '/active-families'
     | '/admin'
     | '/affiliate-dashboard'
     | '/affiliate-signup'
@@ -912,6 +923,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/account'
+    | '/active-families'
     | '/admin'
     | '/affiliate-dashboard'
     | '/affiliate-signup'
@@ -995,6 +1007,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AccountRoute: typeof AccountRoute
+  ActiveFamiliesRoute: typeof ActiveFamiliesRoute
   AdminRoute: typeof AdminRoute
   AffiliateDashboardRoute: typeof AffiliateDashboardRoute
   AffiliateSignupRoute: typeof AffiliateSignupRoute
@@ -1486,6 +1499,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/active-families': {
+      id: '/active-families'
+      path: '/active-families'
+      fullPath: '/active-families'
+      preLoaderRoute: typeof ActiveFamiliesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/account': {
       id: '/account'
       path: '/account'
@@ -1675,6 +1695,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AccountRoute: AccountRoute,
+  ActiveFamiliesRoute: ActiveFamiliesRoute,
   AdminRoute: AdminRoute,
   AffiliateDashboardRoute: AffiliateDashboardRoute,
   AffiliateSignupRoute: AffiliateSignupRoute,
