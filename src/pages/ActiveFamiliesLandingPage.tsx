@@ -150,12 +150,12 @@ const ActiveFamiliesLandingPage = () => {
             {/* Mobile / tablet: strong cream veil so text stays readable */}
             <div
               aria-hidden="true"
-              className="absolute inset-0 md:hidden bg-gradient-to-r from-[#f4efe7] from-30% via-[#f4efe7]/92 via-70% to-[#f4efe7]/55"
+              className="absolute inset-0 lg:hidden bg-gradient-to-r from-[#f4efe7] from-30% via-[#f4efe7]/92 via-70% to-[#f4efe7]/55"
             />
             {/* Desktop: soft left fade only over the empty side */}
             <div
               aria-hidden="true"
-              className="hidden md:block absolute inset-y-0 left-0 w-[62%] lg:w-[58%] bg-gradient-to-r from-[#f4efe7] via-[#f4efe7]/75 to-transparent"
+              className="hidden lg:block absolute inset-y-0 left-0 w-[58%] bg-gradient-to-r from-[#f4efe7] via-[#f4efe7]/75 to-transparent"
             />
           </div>
 
