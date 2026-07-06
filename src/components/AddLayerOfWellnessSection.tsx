@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import nurseryImg from "@/assets/nursery-sleeping-baby.avif.asset.json";
 import petsImg from "@/assets/testimonial-dog-owner.avif";
 import familyImg from "@/assets/mini-lifestyle-family-v4.avif";
-import bedroomImg from "@/assets/health-scandi-bedroom.jpg";
+import bedroomImg from "@/assets/bedroom-allergy-16.avif.asset.json";
 
 type Row = {
   eyebrow: string;
