@@ -130,40 +130,40 @@ const ActiveFamiliesLandingPage = () => {
 
       <Navbar />
       <main className="bg-white text-[#1A1A1A] pt-16 lg:pt-[124px]" style={{ fontFamily: DISPLAY }}>
-        {/* HERO — Sonos-style cinematic */}
-        <section className="relative w-full overflow-hidden bg-black text-white min-h-[calc(100vh-64px)] lg:min-h-[calc(100vh-124px)] flex items-center justify-center">
-          {/* Cinematic background image */}
+        {/* HERO — Sonos-style cinematic, bright */}
+        <section className="relative w-full overflow-hidden bg-white text-neutral-900 min-h-[calc(100vh-64px)] lg:min-h-[calc(100vh-124px)] flex items-center justify-center">
+          {/* Full-bleed bright image */}
           <div className="absolute inset-0 z-0">
             <img
               src={heroImg}
               alt="Family moving through a bright, natural Scandinavian style home"
-              className="h-full w-full object-cover opacity-70"
+              className="h-full w-full object-cover"
               loading="eager"
               decoding="async"
               fetchPriority="high"
               width={1920}
               height={1080}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            {/* subtle light wash for text legibility, no dark tint */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/10 to-white/60" />
           </div>
 
           {/* Content */}
-          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-6 pt-16 pb-32 text-center sm:pt-20 sm:pb-36 lg:pt-24 lg:pb-40">
-            <div className="mb-8 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.35em] text-white/70">
-              <span className="h-px w-8 bg-white/40" />
+          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-6 pt-14 pb-32 text-center sm:pt-16 sm:pb-36 lg:pt-20 lg:pb-40">
+            <div className="mb-8 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.35em] text-neutral-600">
+              <span className="h-px w-8 bg-neutral-400/60" />
               <span>Active Families</span>
-              <span className="h-1 w-1 rounded-full bg-white/40" />
+              <span className="h-1 w-1 rounded-full bg-neutral-400" />
               <span>EnviroBiotics</span>
-              <span className="h-px w-8 bg-white/40" />
+              <span className="h-px w-8 bg-neutral-400/60" />
             </div>
 
-            <p className="mb-5 text-[17px] font-light italic tracking-wide text-white/85 sm:text-xl">
+            <p className="mb-5 text-[17px] font-light italic tracking-wide text-neutral-700 sm:text-xl">
               Add a layer of wellness. Effortlessly.
             </p>
 
             <h1
-              className="font-medium tracking-tight text-white"
+              className="font-medium tracking-tight text-neutral-900 [text-shadow:0_1px_2px_rgba(255,255,255,0.6)]"
               style={{ fontSize: "clamp(2.75rem, 8vw, 6.5rem)", lineHeight: 0.95, letterSpacing: "-0.02em" }}
             >
               Healthy diet.
@@ -171,7 +171,7 @@ const ActiveFamiliesLandingPage = () => {
               Active lifestyle.
             </h1>
 
-            <p className="mt-8 max-w-xl text-[15.5px] font-light leading-relaxed text-white/75 sm:text-[17px]">
+            <p className="mt-8 max-w-xl text-[15.5px] font-light leading-relaxed text-neutral-700 sm:text-[17px]">
               You eat clean. You move often. You choose better. EnviroBiotics
               keeps working quietly in the background, so the home you built
               for wellness keeps up with the life you live.
@@ -180,7 +180,7 @@ const ActiveFamiliesLandingPage = () => {
             <a
               href="#rooms"
               onClick={(e) => scrollTo(e, "rooms", "click_family_hero_cta")}
-              className="group mt-10 inline-flex items-center rounded-full bg-white px-9 py-4 text-[13px] font-semibold uppercase tracking-[0.18em] text-black transition-all hover:bg-white/90 active:scale-[0.98]"
+              className="group mt-10 inline-flex items-center rounded-full bg-neutral-900 px-9 py-4 text-[13px] font-semibold uppercase tracking-[0.18em] text-white transition-all hover:bg-neutral-800 active:scale-[0.98]"
             >
               See how it fits your home
               <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -188,13 +188,12 @@ const ActiveFamiliesLandingPage = () => {
           </div>
 
           {/* Trust rail — anchored bottom */}
-          <div className="absolute inset-x-0 bottom-0 z-10 border-t border-white/10 bg-black/25 backdrop-blur-sm">
-            <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 py-4 text-[10.5px] font-medium uppercase tracking-[0.28em] text-white/75">
-              {["Family safe", "No sprays or fragrance", "Runs 24/7, silently"].map((item, i) => (
+          <div className="absolute inset-x-0 bottom-0 z-10 border-t border-black/5 bg-white/70 backdrop-blur-md">
+            <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 py-4 text-[10.5px] font-medium uppercase tracking-[0.28em] text-neutral-700">
+              {["Family safe", "No sprays or fragrance", "Runs 24/7, silently"].map((item) => (
                 <span key={item} className="inline-flex items-center gap-2">
-                  <Check className="h-3 w-3 text-emerald-400" strokeWidth={3} />
+                  <Check className="h-3 w-3 text-emerald-600" strokeWidth={3} />
                   {item}
-                  {i < 2 && <span className="ml-10 hidden h-1 w-1 rounded-full bg-white/25 sm:inline-block" />}
                 </span>
               ))}
             </div>
