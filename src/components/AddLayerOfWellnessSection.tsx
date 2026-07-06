@@ -35,9 +35,9 @@ const rows: Row[] = [
     pairedBody:
       "EnviroBiotics® restores the natural balance of your indoor ecosystem, helping reduce harmful pathogens and surface contaminants throughout the room. Its quiet, automatic 24/7 dispersion reaches the surfaces traditional air purifiers can't. EPA-registered technology and PTPA (Parent Tested Parent Approved) endorsement provide trusted performance and peace of mind.",
     primaryLabel: "Buy a Solution",
-    primaryHref: "/shop",
+    primaryHref: "https://shop.envirobiotics.com/cart/add?id=48644372496636&quantity=1&return_to=/cart",
     secondaryLabel: "Learn more",
-    secondaryHref: "/how-it-works",
+    secondaryHref: "/parents",
     image: nurseryImg.url,
     imageAlt: "Mother holding her newborn in a calm nursery with an EnviroBiotics device nearby",
     imageLeft: true,

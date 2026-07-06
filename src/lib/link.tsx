@@ -21,7 +21,8 @@ export { resolveShopifyUrl };
 
 export function Link(props: LinkProps) {
   const { to, onClick, children, ...rest } = props;
-  const externalUrl = typeof to === "string" ? resolveShopifyUrl(to) : null;
+  const isAbsolute = typeof to === "string" && /^https?:\/\//i.test(to);
+  const externalUrl = isAbsolute ? to : typeof to === "string" ? resolveShopifyUrl(to) : null;
 
   if (externalUrl) {
     const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
