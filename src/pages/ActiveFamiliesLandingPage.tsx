@@ -179,7 +179,7 @@ const ActiveFamiliesLandingPage = () => {
 
               <p className="mt-8 max-w-lg text-[17px] leading-[1.6] text-neutral-800 sm:text-[18px]">
                 You eat clean. You move often. You choose better. EnviroBiotics keeps
-                working quietly in the background — so the home you built for wellness
+                working quietly in the background, so the home you built for wellness
                 keeps up with the life you live.
               </p>
 
