@@ -160,7 +160,7 @@ const WellnessRow = ({ row }: { row: Row }) => {
 
 
   return (
-    <article className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-stretch rounded-3xl border border-foreground/10 bg-card overflow-hidden">
+    <article className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch rounded-3xl border border-foreground/10 bg-card overflow-hidden">
       {row.imageLeft ? (
         <>
           {imageEl}
