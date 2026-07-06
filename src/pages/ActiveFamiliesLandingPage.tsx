@@ -125,7 +125,17 @@ const ActiveFamiliesLandingPage = () => {
       />
 
       <Navbar />
-      <main className="bg-white text-[#1A1A1A]" style={{ fontFamily: DISPLAY }}>
+      <main
+        className="relative text-[#1A1A1A]"
+        style={{
+          fontFamily: DISPLAY,
+          backgroundImage: `url(${heroImg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         {/* HERO */}
         <section className="relative w-full overflow-hidden">
           <div
