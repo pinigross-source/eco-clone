@@ -35,7 +35,7 @@ const rows: Row[] = [
     pairedBody:
       "EnviroBiotics® restores the natural balance of your indoor ecosystem, helping reduce harmful pathogens and surface contaminants throughout the room. Its quiet, automatic 24/7 dispersion reaches the surfaces traditional air purifiers can't. EPA-registered technology and PTPA (Parent Tested Parent Approved) endorsement provide trusted performance and peace of mind.",
     primaryLabel: "Buy a Solution",
-    primaryHref: "https://shop.envirobiotics.com/cart/add?id=48644372496636&quantity=1&return_to=/cart",
+    primaryHref: "https://shop.envirobiotics.com/",
     secondaryLabel: "Learn more",
     secondaryHref: "/parents",
     image: nurseryImg.url,
@@ -53,7 +53,7 @@ const rows: Row[] = [
     pairedBody:
       "EnviroBiotics® restores the natural balance of your indoor ecosystem, helping reduce pet dander, harmful pathogens, allergens, and odor-causing microbes on the surfaces your pets contact every day. The result is a fresher, healthier home for both pets and people.",
     primaryLabel: "Buy a Solution",
-    primaryHref: "https://shop.envirobiotics.com/cart/add?id=48644373184764&quantity=1&return_to=/cart",
+    primaryHref: "https://shop.envirobiotics.com/",
     secondaryLabel: "Learn more",
     secondaryHref: "/pets",
     image: petsImg.url,
@@ -89,7 +89,7 @@ const rows: Row[] = [
     pairedBody:
       "Quiet, automatic 24/7 protection that helps reduce dust mite allergens and other indoor contaminants where you sleep, creating a healthier bedroom, where your immune system can rest and heal.",
     primaryLabel: "Buy a Solution",
-    primaryHref: "https://shop.envirobiotics.com/cart/add?id=48644372496636&quantity=1&return_to=/cart",
+    primaryHref: "https://shop.envirobiotics.com/",
     secondaryLabel: "Learn more",
     secondaryHref: "/allergy",
     image: bedroomImg.url,
