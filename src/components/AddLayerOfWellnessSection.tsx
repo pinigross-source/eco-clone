@@ -1,6 +1,6 @@
 import { Link } from "@/lib/link";
 import { ArrowRight } from "lucide-react";
-import nurseryImg from "@/assets/nursery-baby-blocks.png.asset.json";
+import nurseryImg from "@/assets/nursery-baby-blocks-bright.png.asset.json";
 import petsImg from "@/assets/pets-dog-phone.avif.asset.json";
 import familyImg from "@/assets/mini-lifestyle-family-v4.avif";
 import bedroomImg from "@/assets/bedroom-allergy-16.avif.asset.json";
