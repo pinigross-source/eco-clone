@@ -2,7 +2,7 @@ import { Link } from "@/lib/link";
 import { ArrowRight } from "lucide-react";
 import nurseryImg from "@/assets/nursery-baby-blocks-bright.png.asset.json";
 import petsImg from "@/assets/pets-dog-phone.avif.asset.json";
-import familyAsset from "@/assets/family.avif.asset.json";
+import familyAsset from "@/assets/family-v2.avif.asset.json";
 const familyImg = familyAsset.url;
 import bedroomImg from "@/assets/bedroom-allergy-16.avif.asset.json";
 
