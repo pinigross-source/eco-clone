@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link } from "@/lib/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import heroMediaAsset from "@/assets/hero.gif.asset.json";
 
 const heroMedia = heroMediaAsset.url;
@@ -7,6 +9,7 @@ const heroMedia = heroMediaAsset.url;
 const HERO_FONT = '"Hanken Grotesk", system-ui, -apple-system, sans-serif';
 
 export const HeroSection = () => {
+  const [videoOpen, setVideoOpen] = useState(false);
   return (
     <section
       className="relative w-full overflow-hidden"
@@ -84,9 +87,44 @@ export const HeroSection = () => {
                 <ArrowRight className="w-4 h-4" />
               </span>
             </a>
+
+            <button
+              type="button"
+              onClick={() => setVideoOpen(true)}
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border transition-all duration-300 hover:-translate-y-0.5 hover:bg-foreground/5"
+              style={{
+                borderColor: "rgba(31,35,40,0.25)",
+                color: "#1F2328",
+                fontWeight: 600,
+                fontSize: "0.82rem",
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                padding: "0.85em 1.6em",
+                minHeight: 48,
+              }}
+            >
+              <Play className="w-4 h-4" />
+              Watch how it works
+            </button>
           </div>
         </div>
       </div>
+
+      <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
+        <DialogContent className="max-w-4xl w-[95vw] p-0 bg-black border-none rounded-2xl overflow-hidden [&>button]:text-white [&>button]:hover:text-white/80">
+          <div className="aspect-video w-full">
+            {videoOpen && (
+              <iframe
+                src="https://player.vimeo.com/video/1198422138?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1"
+                title="How EnviroBiotics Works"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
