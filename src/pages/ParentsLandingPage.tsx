@@ -957,6 +957,7 @@ const ParentsLandingPage = () => {
           </a>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
