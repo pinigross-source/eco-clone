@@ -53,9 +53,9 @@ const rows: Row[] = [
     pairedBody:
       "EnviroBiotics® restores the natural balance of your indoor ecosystem, helping reduce pet dander, harmful pathogens, allergens, and odor-causing microbes on the surfaces your pets contact every day. The result is a fresher, healthier home for both pets and people.",
     primaryLabel: "Explore pet-friendly care",
-    primaryHref: "/blog/best-air-purifier-for-pet-owners",
+    primaryHref: "https://shop.envirobiotics.com/cart/add?id=48644373184764&quantity=1&return_to=/cart",
     secondaryLabel: "Learn more",
-    secondaryHref: "/how-it-works",
+    secondaryHref: "/pets",
     image: petsImg.url,
     imageAlt: "Young boy resting his forehead against a golden retriever",
     imageLeft: false,
