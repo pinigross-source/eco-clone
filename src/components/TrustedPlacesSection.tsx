@@ -30,6 +30,7 @@ const logos = [
   { src: carePartners.url, alt: "Care Partners Country Terrace" },
   { src: morpheusCodNuwa.url, alt: "Morpheus, COD Macau, Nüwa" },
   { src: brooklynNets.url, alt: "Brooklyn Nets" },
+  { src: croceRossa.url, alt: "Croce Rossa Italiana" },
 ];
 
 
