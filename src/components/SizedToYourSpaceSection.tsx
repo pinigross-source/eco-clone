@@ -88,7 +88,7 @@ export const SizedToYourSpaceSection = () => {
                     {p.tag}
                   </span>
                 </div>
-                <div className="relative w-full aspect-[4/3] min-h-[260px] overflow-hidden">
+                <div className="relative w-full aspect-[3/4] overflow-hidden">
                   <img
                     src={p.imageSrc}
                     alt={p.imageAlt}
@@ -97,6 +97,7 @@ export const SizedToYourSpaceSection = () => {
                     className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
+
 
 
                 <div className="p-8 flex flex-col flex-1">
