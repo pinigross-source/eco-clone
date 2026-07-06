@@ -323,7 +323,7 @@ const ActiveFamiliesLandingPage = () => {
           style={{
             backgroundImage: `linear-gradient(rgba(15,23,42,0.55), rgba(15,23,42,0.55)), url(${cleanHome})`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "center 30%",
           }}
         >
           <div className="mx-auto max-w-[1000px] px-6 text-center text-white sm:px-10">
