@@ -130,7 +130,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
       <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[280px]">
         {item.dropdown.map(({ label, href }) => {
           const itemExternal = /^https?:\/\//.test(href);
-          const itemClass = "block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-xl font-normal text-foreground";
+          const itemClass = "block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-[16px] font-normal text-foreground";
           return itemExternal ? (
             <a key={label} href={href} target="_top" rel="noopener" className={itemClass} onClick={() => setOpen(false)}>
               {label}
@@ -147,7 +147,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
               href={item.href}
               target="_top"
               rel="noopener"
-              className="block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-xl font-normal text-primary"
+              className="block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-[16px] font-normal text-primary"
               onClick={() => setOpen(false)}
             >
               View All {item.label}
@@ -155,7 +155,7 @@ const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: bo
           ) : (
             <Link
               to={item.href}
-              className="block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-xl font-normal text-primary"
+              className="block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-[16px] font-normal text-primary"
               onClick={() => setOpen(false)}
             >
               View All {item.label}
