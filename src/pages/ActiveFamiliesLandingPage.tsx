@@ -129,7 +129,7 @@ const ActiveFamiliesLandingPage = () => {
       />
 
       <Navbar />
-      <main className="bg-white text-[#1A1A1A]" style={{ fontFamily: DISPLAY }}>
+      <main className="bg-white text-[#1A1A1A] pt-16 lg:pt-[124px]" style={{ fontFamily: DISPLAY }}>
         {/* HERO */}
         <section className="relative w-full overflow-hidden">
           <div
@@ -139,7 +139,7 @@ const ActiveFamiliesLandingPage = () => {
                 "linear-gradient(to top right, #f6f8f4 0%, #fbf9f4 55%, #f2f6fa 100%)",
             }}
           />
-          <div className="relative z-10 mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 pb-20 pt-24 sm:px-10 sm:pb-24 sm:pt-28 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:pb-32 lg:pt-32">
+          <div className="relative z-10 mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 pb-20 pt-10 sm:px-10 sm:pb-24 sm:pt-12 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:pb-32 lg:pt-16">
             <div className="max-w-xl">
               <div className="mb-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">
                 <span>Active Families</span>

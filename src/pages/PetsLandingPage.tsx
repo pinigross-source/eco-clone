@@ -117,7 +117,7 @@ const PetsLandingPage = () => {
 
 
       <Navbar />
-      <main className="bg-white text-[#1A1A1A]" style={{ fontFamily: DISPLAY }}>
+      <main className="bg-white text-[#1A1A1A] pt-16 lg:pt-[124px]" style={{ fontFamily: DISPLAY }}>
         {/* ============ HERO - soft pastel editorial ============ */}
         <section className="relative w-full overflow-hidden">
           <div
@@ -127,7 +127,7 @@ const PetsLandingPage = () => {
                 "linear-gradient(to top right, #fff7f0 0%, #f8f7ff 50%, #f0f9ff 100%)",
             }}
           />
-          <div className="relative z-10 mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 pb-20 pt-20 sm:px-10 sm:pb-24 sm:pt-28 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:pb-32 lg:pt-32">
+          <div className="relative z-10 mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 pb-20 pt-10 sm:px-10 sm:pb-24 sm:pt-12 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:pb-32 lg:pt-16">
             <div className="max-w-xl">
               <div className="mb-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">
                 <span>Pets</span>
