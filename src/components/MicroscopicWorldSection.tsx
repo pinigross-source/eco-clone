@@ -56,22 +56,13 @@ export const MicroscopicWorldSection = () => {
           {/* Image side */}
           <div className="relative">
             <div className="relative h-full min-h-[420px] w-full overflow-hidden lg:min-h-[640px]">
-              {/* Mobile image */}
               <img
-                src={magicMobile.url}
-                alt="The magical microscopic world of EnviroBiotics"
-                className="absolute inset-0 block h-full w-full object-cover sm:hidden"
+                src={scienceBg.url}
+                alt="Let nature into your space"
+                className="absolute inset-0 block h-full w-full object-cover"
                 loading="lazy"
               />
-              {/* Tablet/Desktop image */}
-              <img
-                src={greenGirl.url}
-                alt="The magical microscopic world of EnviroBiotics"
-                className="absolute inset-0 hidden h-full w-full object-cover sm:block"
-                loading="lazy"
-                width={900}
-                height={1125}
-              />
+
             </div>
           </div>
 
