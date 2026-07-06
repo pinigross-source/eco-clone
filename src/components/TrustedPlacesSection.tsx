@@ -80,6 +80,10 @@ export const TrustedPlacesSection = () => {
             ))}
           </motion.div>
         </div>
+
+        <h3 className="mt-10 sm:mt-12 font-display font-medium text-[1.25rem] sm:text-[1.5rem] lg:text-[1.75rem] leading-[1.3] text-foreground text-balance text-center mx-auto max-w-3xl lg:max-w-5xl">
+          Let EnviroBiotics protect everyone at your home, office, and on the go.
+        </h3>
       </div>
     </section>
   );
