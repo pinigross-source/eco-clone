@@ -58,7 +58,7 @@ export const TrustedPlacesSection = () => {
           <motion.div
             className="flex items-center gap-16 sm:gap-16"
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
             style={{ width: "fit-content" }}
           >
             {track.map((logo, i) => (
