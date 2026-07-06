@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import { ArrowRight, Check } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
@@ -121,6 +123,7 @@ const ActiveFamiliesLandingPage = () => {
         path="/active-families"
       />
 
+      <Navbar />
       <main className="bg-white text-[#1A1A1A]" style={{ fontFamily: DISPLAY }}>
         {/* HERO */}
         <section className="relative w-full overflow-hidden">
@@ -475,6 +478,7 @@ const ActiveFamiliesLandingPage = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 };
