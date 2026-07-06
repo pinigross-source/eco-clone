@@ -182,7 +182,11 @@ const ActiveFamiliesLandingPage = () => {
                   src={heroImg}
                   alt="Family moving through a bright, natural Scandinavian style home"
                   className="h-full w-full object-cover"
+                  loading="eager"
+                  decoding="async"
                   fetchPriority="high"
+                  width={1600}
+                  height={1100}
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 -z-10 h-32 w-32 rounded-full bg-emerald-100/50 blur-3xl" />
