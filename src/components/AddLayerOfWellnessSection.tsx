@@ -52,7 +52,7 @@ const rows: Row[] = [
     pairedTitle: "What you get",
     pairedBody:
       "EnviroBiotics® restores the natural balance of your indoor ecosystem, helping reduce pet dander, harmful pathogens, allergens, and odor-causing microbes on the surfaces your pets contact every day. The result is a fresher, healthier home for both pets and people.",
-    primaryLabel: "Explore pet-friendly care",
+    primaryLabel: "Buy a Solution",
     primaryHref: "https://shop.envirobiotics.com/cart/add?id=48644373184764&quantity=1&return_to=/cart",
     secondaryLabel: "Learn more",
     secondaryHref: "/pets",
@@ -70,8 +70,8 @@ const rows: Row[] = [
     pairedTitle: "What you get",
     pairedBody:
       "Continuous, whole-home protection for your air, surfaces, and everyday objects. EnviroBiotics® quietly restores the natural balance of your indoor ecosystem 24/7, helping reduce harmful pathogens, mold, allergens, and odor-causing microbes, without harsh chemicals or noisy filters.",
-    primaryLabel: "Find your fit",
-    primaryHref: "#find-your-system",
+    primaryLabel: "Buy a Solution",
+    primaryHref: "https://shop.envirobiotics.com/",
     secondaryLabel: "Learn more",
     secondaryHref: "/active-families",
     image: familyImg,
@@ -88,7 +88,7 @@ const rows: Row[] = [
     pairedTitle: "What you get",
     pairedBody:
       "Quiet, automatic 24/7 protection that helps reduce dust mite allergens and other indoor contaminants where you sleep, creating a healthier bedroom, where your immune system can rest and heal.",
-    primaryLabel: "Build your bedroom setup",
+    primaryLabel: "Buy a Solution",
     primaryHref: "https://shop.envirobiotics.com/cart/add?id=48644372496636&quantity=1&return_to=/cart",
     secondaryLabel: "Learn more",
     secondaryHref: "/allergy",
