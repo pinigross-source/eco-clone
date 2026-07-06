@@ -16,23 +16,23 @@ const featuredTestimonial = {
 const allTestimonials = [
   {
     name: "Tina Huang, Ph.D.",
-    category: "Mold & musty spaces",
-    text: "After dealing with toxic mold, EnviroBiotics was vital to helping me feel comfortable in my home again.",
+    category: "Mold & Musty Spaces",
+    text: "After dealing with toxic mold, EnviroBiotics helped me feel comfortable in my home again.",
     rating: 5,
     avatar: "T",
     image: testimonialTinaHuang,
   },
   {
     name: "Marcus R.",
-    category: "Pet owner",
-    text: "Six months in. I sleep through the night now. My wife says the bedroom doesn't feel like our cats live there anymore.",
+    category: "Pet Owner",
+    text: "Six months in, I sleep through the night now. My wife says the bedroom doesn't feel like our cats live there anymore.",
     rating: 5,
     avatar: "M",
     image: testimonialDogOwner,
   },
   {
     name: "Sarah K.",
-    category: "Allergy relief",
+    category: "Allergy Relief",
     text: "Year-round dust mite reactions used to wake me up congested. After a month with the Mini in our bedroom, mornings feel different.",
     rating: 5,
     avatar: "S",
@@ -44,49 +44,6 @@ const allTestimonials = [
     rating: 5,
     avatar: "D",
   },
-  {
-    name: "Eric Feldman",
-    category: "Mold & musty spaces",
-    text: "Years ago, we started to experience a moldy odor in our bedroom. We tried sprays and deodorizers, but the moldy smell always returned. We turned to a local environmental contractor who examined our room for signs of mold, but there was nothing evident. He suggested we try the Biotica800 probiotic purification machine. We were skeptical at first, but it quickly neutralized the odors and it has never returned. The system is compact, takes up little space, and is quiet enough that it doesn't disturb our sleep at all. I highly recommend this system to anyone looking for a more permanent solution to indoor air problems.",
-    rating: 5,
-    avatar: "E",
-  },
-  {
-    name: "Lauren S.",
-    category: "Respiratory & asthma",
-    text: "My two-year-old son suffers from asthma and used to wake up nightly with severe coughing. After using EnviroBiotics in his room for four months, he now sleeps through the night and hasn't had any major episodes.",
-    rating: 5,
-    avatar: "L",
-  },
-  {
-    name: "Amanda I.",
-    category: "Pet odors & allergies",
-    text: "I was on three allergy medications, as were my children. Since using EnviroBiotics, none of us have taken a single allergy medicationand we have pets. Even the odors are gone.",
-    rating: 5,
-    avatar: "A",
-  },
-  {
-    name: "Dr. Todd S.",
-    category: "Whole-home relief",
-    text: "My wife felt like she was literally allergic to our house. After installing EnviroBiotics, that completely changed. We don't have to moveand we're breathing better every morning.",
-    rating: 5,
-    avatar: "T",
-  },
-  {
-    name: "Shannon T.",
-    category: "Schools & classrooms",
-    text: "I've been teaching for 24 years and moved into a classroom with an awful, musty smell. Nothing workeduntil EnviroBiotics. After installing two units, the smell disappeared, student attendance improved, and hardly any students are out sick during peak cold and flu season.",
-    rating: 5,
-    avatar: "S",
-  },
-  {
-    name: "Michael D.",
-    category: "Travel & everyday",
-    text: "I travel constantlyairports, planes, hotels. Since using EnviroBiotics everywhere I go, I haven't gotten sick once.",
-    rating: 5,
-    avatar: "M",
-  },
-
 ];
 
 const TestimonialCard = ({ name, category, text, rating, avatar, image }: {
@@ -120,13 +77,9 @@ export const TestimonialsSection = () => {
             Testimonials
           </p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold leading-[1.06] tracking-[-0.03em] text-foreground max-w-3xl mx-auto">
-            Real homes.{" "}
-            <span className="text-heading-accent">Real surfaces.</span>{" "}
-            Real changes.
+            Protecting thousands{" "}
+            <span className="text-heading-accent">of families.</span>
           </h2>
-          <p className="mt-4 text-sm text-muted-foreground/60">
-            Already at 5000+ homes.
-          </p>
         </ScrollReveal>
 
         <ScrollReveal variant="fadeUp" delay={0.1} className="mb-12">
