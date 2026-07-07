@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Play } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import bgImage from "@/assets/let-nature-bg.avif.asset.json";
+import bgImageMobile from "@/assets/science-balance-mobile.webp.asset.json";
 
 export const ScienceOfBalanceSection = () => {
   const [videoOpen, setVideoOpen] = useState(false);
@@ -10,19 +11,28 @@ export const ScienceOfBalanceSection = () => {
       aria-label="Let nature into your space"
       className="relative w-full overflow-hidden border-y border-foreground/10"
     >
-      {/* Full-bleed background */}
+      {/* Full-bleed background — mobile */}
+      <img
+        src={bgImageMobile.url}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover object-center lg:hidden"
+      />
+      {/* Full-bleed background — desktop */}
       <img
         src={bgImage.url}
         alt=""
         aria-hidden="true"
         loading="lazy"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover hidden lg:block"
       />
-      {/* Readability wash — mobile/tablet only; desktop shows the image clean */}
+      {/* Readability wash — mobile only: soft top fade so text is legible while the device stays visible below */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-background/85 lg:hidden"
+        className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/10 lg:hidden"
       />
 
 
