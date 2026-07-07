@@ -118,6 +118,7 @@ const faqs = [
 ];
 
 const ActiveFamiliesLandingPage = () => {
+  const [videoOpen, setVideoOpen] = useState(false);
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string, evt?: string) => {
     e.preventDefault();
     if (evt) trackEvent(evt);
