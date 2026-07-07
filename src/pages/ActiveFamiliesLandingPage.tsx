@@ -521,13 +521,6 @@ const ActiveFamiliesLandingPage = () => {
                 Shop the family bundle
                 <ArrowRight className="ml-3 h-4 w-4" />
               </a>
-              <a
-                href="#pick"
-                onClick={(e) => scrollTo(e, "pick", "click_family_final_pick")}
-                className="inline-flex items-center rounded-full border border-white/30 px-8 py-4 text-[14px] font-medium text-white transition-colors hover:bg-white/10"
-              >
-                Compare options
-              </a>
             </div>
           </div>
         </section>
