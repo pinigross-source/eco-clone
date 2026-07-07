@@ -87,7 +87,7 @@ export const HeroSection = () => {
             with Active Environmental Probiotics®.
           </p>
 
-          <div className="mt-40 sm:mt-8 lg:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start sm:justify-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none">
+          <div className="mt-28 sm:mt-8 lg:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start sm:justify-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none">
 
 
 
