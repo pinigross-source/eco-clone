@@ -21,17 +21,9 @@ export const HeroSection = () => {
     >
       {/* Full-bleed background media */}
       <div className="absolute inset-0 z-0">
-        {/* Mobile / tablet: static poster (no heavy landscape video) — anchor right so the device stays in frame */}
-        <img
-          src={heroPoster}
-          alt="Family reading together in a bright bedroom with an EnviroBiotics device"
-          className="h-full w-full object-cover object-[85%_center] md:hidden"
-          loading="eager"
-          fetchPriority="high"
-        />
-        {/* Desktop/tablet: looping background video */}
+        {/* Looping background video on all viewports; anchor right on mobile so the device stays in frame */}
         <video
-          className="hidden md:block absolute inset-0 h-full w-full object-cover object-[75%_center] lg:object-center"
+          className="absolute inset-0 h-full w-full object-cover object-[85%_center] md:object-[75%_center] lg:object-center"
           autoPlay
           muted
           loop
