@@ -7,7 +7,7 @@ export const CertificationsBar = () => {
       aria-label="Certifications and trust badges"
       className="border-y border-border bg-background"
     >
-      <div className="mx-auto max-w-[1440px] px-5 py-5 sm:px-10 sm:py-6 lg:px-16">
+      <div className="site-container py-5 sm:py-6">
         <p className="mb-4 text-center text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
           Trusted by leading certifications
         </p>
