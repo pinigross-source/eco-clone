@@ -498,8 +498,7 @@ const ActiveFamiliesLandingPage = () => {
               Bring wellness into the walls of your home.
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-[16px] leading-relaxed text-white/70">
-              One quiet layer of care, working around the clock, so your family
-              can keep moving.
+              Maintain your family's wellbeing effortlessly, 24/7.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
