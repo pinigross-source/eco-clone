@@ -14,7 +14,7 @@ export const HeroSection = () => {
   const [videoOpen, setVideoOpen] = useState(false);
   return (
     <section
-      className="relative w-full overflow-hidden min-h-[560px] sm:min-h-[720px] lg:min-h-0"
+      className="relative w-full overflow-hidden min-h-[720px] sm:min-h-[820px] lg:min-h-0"
       style={{ background: "#FFFFFF", fontFamily: HERO_FONT }}
     >
       {/* Full-bleed background media */}
@@ -44,7 +44,7 @@ export const HeroSection = () => {
 
 
       {/* Copy column — left-aligned narrow column on mobile so the device stays visible; right-aligned on desktop */}
-      <div className="relative z-10 mx-auto max-w-[1440px] px-5 pt-12 pb-16 sm:px-10 sm:pt-24 sm:pb-24 lg:px-16 lg:pt-40 lg:pb-32">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 pt-24 pb-16 sm:px-10 sm:pt-24 sm:pb-24 lg:px-16 lg:pt-40 lg:pb-32">
         <div className="max-w-[720px] text-left lg:mx-auto lg:mr-0 lg:ml-[35%] lg:text-center">
           <h1
             className="font-display font-bold text-foreground text-[2.25rem] sm:text-[3.5rem] lg:text-[4rem] max-w-[10ch] lg:max-w-none"
