@@ -71,7 +71,7 @@ const TestimonialCard = ({ name, category, text, rating, avatar, image }: {
 export const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="pt-16 pb-10 sm:pt-44 sm:pb-14 lg:pt-56 lg:pb-20 bg-card">
-      <div className="container max-w-5xl mx-auto">
+      <div className="site-container">
         <ScrollReveal variant="fadeUp" className="text-center mb-16">
           <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6">
             Testimonials

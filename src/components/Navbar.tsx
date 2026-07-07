@@ -237,7 +237,7 @@ export const Navbar = () => {
           style={{ width: `${scrollProgress}%` }}
         />
 
-        <div className="mx-auto max-w-[1440px] flex h-16 lg:h-[124px] items-center px-4 sm:px-6 lg:px-10 relative">
+        <div className="site-container flex h-16 lg:h-[124px] items-center relative">
           {/* Mobile: Hamburger + Search on left */}
           <div className="lg:hidden absolute left-3 z-20 flex items-center gap-1">
             <button

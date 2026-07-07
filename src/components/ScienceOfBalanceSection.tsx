@@ -37,9 +37,10 @@ export const ScienceOfBalanceSection = () => {
 
 
 
-      <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 lg:grid-cols-2">
+      <div className="site-container relative grid grid-cols-1 lg:grid-cols-2">
         {/* Text side */}
-        <div className="flex flex-col justify-start px-6 pt-12 pb-[420px] sm:justify-center sm:px-10 sm:py-32 sm:pb-32 lg:px-16 lg:py-40 text-left items-start">
+        <div className="flex flex-col justify-start pt-12 pb-[420px] sm:justify-center sm:py-32 sm:pb-32 lg:py-40 text-left items-start">
+
           <h2
             className="font-display font-bold text-balance text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem] max-w-[9ch] lg:max-w-none"
             style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
