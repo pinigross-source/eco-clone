@@ -410,7 +410,7 @@ const ActiveFamiliesLandingPage = () => {
                 {
                   name: "Extra-size bundle",
                   desc: "Designed to cover one main living area plus two bedrooms.",
-                  price: "$377",
+                  price: "$395",
                   url: BUNDLE_URL,
                   event: "click_family_card_bundle",
                   tag: "Best value",
