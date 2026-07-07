@@ -77,7 +77,7 @@ export const HeroSection = () => {
           </p>
 
           <p
-            className="mt-16 sm:mt-5 text-left sm:text-center lg:mx-auto lg:max-w-[640px] max-w-[13rem] sm:max-w-none text-foreground/85 font-medium text-[1.0625rem] sm:text-[1.15rem] lg:text-[1.25rem]"
+            className="mt-16 sm:mt-5 text-left sm:text-center lg:mx-auto lg:max-w-[640px] max-w-[14rem] sm:max-w-none text-foreground/85 font-medium text-[1.25rem] sm:text-[1.15rem] lg:text-[1.25rem]"
             style={{ lineHeight: 1.5 }}
           >
             Restore the natural balance of your indoor ecosystem.{" "}
