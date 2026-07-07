@@ -21,17 +21,17 @@ export const HeroSection = () => {
     >
       {/* Full-bleed background media */}
       <div className="absolute inset-0 z-0">
-        {/* Mobile / tablet: static poster (no heavy landscape video) */}
+        {/* Mobile / tablet: static poster (no heavy landscape video) — anchor right so the device stays in frame */}
         <img
           src={heroPoster}
           alt="Family reading together in a bright bedroom with an EnviroBiotics device"
-          className="h-full w-full object-cover object-center md:hidden"
+          className="h-full w-full object-cover object-[85%_center] md:hidden"
           loading="eager"
           fetchPriority="high"
         />
         {/* Desktop/tablet: looping background video */}
         <video
-          className="hidden md:block absolute inset-0 h-full w-full object-cover"
+          className="hidden md:block absolute inset-0 h-full w-full object-cover object-[75%_center] lg:object-center"
           autoPlay
           muted
           loop
@@ -42,7 +42,14 @@ export const HeroSection = () => {
           <source src={heroWebm} type="video/webm" />
           <source src={heroMp4} type="video/mp4" />
         </video>
+
+        {/* Readability veil on mobile/tablet so dark copy on the left stays legible over the bright scene */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 lg:hidden bg-gradient-to-r from-white/85 via-white/55 to-transparent"
+        />
       </div>
+
 
 
 
