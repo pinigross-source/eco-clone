@@ -391,6 +391,7 @@ const ActiveFamiliesLandingPage = () => {
                 {
                   name: "BioLogic Mini",
                   desc: "Bedrooms, nurseries, and rooms up to 300 sq ft.",
+                  price: "$98",
                   url: MINI_URL,
                   event: "click_family_card_mini",
                   tag: "For focused rooms",
@@ -399,6 +400,7 @@ const ActiveFamiliesLandingPage = () => {
                 {
                   name: "Biotica 800",
                   desc: "Open living spaces and family rooms up to 800 sq ft.",
+                  price: "$299",
                   url: BIOTICA_URL,
                   event: "click_family_card_biotica",
                   tag: "For open plans",
@@ -408,6 +410,7 @@ const ActiveFamiliesLandingPage = () => {
                 {
                   name: "Extra-size bundle",
                   desc: "Designed to cover one main living area plus two bedrooms.",
+                  price: "$377",
                   url: BUNDLE_URL,
                   event: "click_family_card_bundle",
                   tag: "Best value",
@@ -443,7 +446,11 @@ const ActiveFamiliesLandingPage = () => {
                     <p className="mt-2 text-[15px] leading-relaxed text-neutral-500">
                       {p.desc}
                     </p>
+                    <p className="mt-4 text-[26px] font-semibold tracking-tight text-neutral-900">
+                      {p.price}
+                    </p>
                     <div className="mt-8 flex-1" />
+
                     <a
                       href={p.url}
                       onClick={() => trackEvent(p.event)}
