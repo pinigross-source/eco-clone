@@ -77,8 +77,8 @@ export const HeroSection = () => {
           </p>
 
           <p
-            className="mt-40 sm:mt-5 text-left sm:text-center lg:mx-auto lg:max-w-[640px] max-w-[16rem] sm:max-w-none text-foreground/85 font-medium text-[1.0625rem] sm:text-[1.15rem] lg:text-[1.25rem]"
-            style={{ lineHeight: 1.55 }}
+            className="mt-4 sm:mt-5 text-left sm:text-center lg:mx-auto lg:max-w-[640px] max-w-[13rem] sm:max-w-none text-foreground/85 font-medium text-[1.0625rem] sm:text-[1.15rem] lg:text-[1.25rem]"
+            style={{ lineHeight: 1.5 }}
           >
             Restore the natural balance of your indoor ecosystem.{" "}
             <br className="hidden sm:block" />
@@ -87,7 +87,8 @@ export const HeroSection = () => {
             with Active Environmental Probiotics®.
           </p>
 
-          <div className="mt-16 sm:mt-8 lg:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start sm:justify-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none">
+          <div className="mt-40 sm:mt-8 lg:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start sm:justify-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none">
+
 
 
 
