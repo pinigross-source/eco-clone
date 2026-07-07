@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Link } from "@/lib/link";
 import { ArrowRight, Play } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import heroMediaAsset from "@/assets/hero.gif.asset.json";
-import heroMobileAsset from "@/assets/science-balance-mobile.webp.asset.json";
+import heroWebmAsset from "@/assets/hero-loop.webm.asset.json";
+import heroMp4Asset from "@/assets/hero-loop.mp4.asset.json";
+import heroPosterAsset from "@/assets/hero-poster.jpg.asset.json";
 
-const heroMedia = heroMediaAsset.url;
-const heroMobile = heroMobileAsset.url;
+const heroWebm = heroWebmAsset.url;
+const heroMp4 = heroMp4Asset.url;
+const heroPoster = heroPosterAsset.url;
 
 const HERO_FONT = '"Hanken Grotesk", system-ui, -apple-system, sans-serif';
 
@@ -19,29 +21,29 @@ export const HeroSection = () => {
     >
       {/* Full-bleed background media */}
       <div className="absolute inset-0 z-0">
-        {/* Mobile / tablet: device-on-nightstand still */}
+        {/* Mobile / tablet: static poster (no heavy landscape video) */}
         <img
-          src={heroMobile}
-          alt="EnviroBiotics device on a bedside table"
-          className="h-full w-full object-cover object-center lg:hidden"
+          src={heroPoster}
+          alt="Family reading together in a bright bedroom with an EnviroBiotics device"
+          className="h-full w-full object-cover object-center md:hidden"
           loading="eager"
           fetchPriority="high"
         />
-        {/* Desktop: animated GIF */}
-        <img
-          src={heroMedia}
-          alt="EnviroBiotics environmental probiotics in motion"
-          className="hidden lg:block h-full w-full object-cover object-[center_35%]"
-          loading="eager"
-          fetchPriority="high"
-        />
-
-        {/* Readability veil on mobile/tablet: soft left-to-right wash so copy stays legible without hiding the device on the right */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 lg:hidden bg-gradient-to-r from-white/75 via-white/45 to-transparent"
-        />
+        {/* Desktop/tablet: looping background video */}
+        <video
+          className="hidden md:block absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={heroPoster}
+        >
+          <source src={heroWebm} type="video/webm" />
+          <source src={heroMp4} type="video/mp4" />
+        </video>
       </div>
+
 
 
       {/* Copy column — left-aligned narrow column on mobile so the device stays visible; right-aligned on desktop */}
