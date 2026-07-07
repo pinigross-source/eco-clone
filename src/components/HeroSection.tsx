@@ -58,15 +58,12 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mx-auto mt-16 sm:mt-5 font-display italic font-semibold text-heading-accent text-[1.375rem] sm:text-[1.5rem] lg:text-[1.75rem] max-w-[22ch] sm:max-w-[32ch] lg:max-w-none"
+            className="mx-auto mt-16 sm:mt-5 font-display italic font-semibold text-heading-accent text-[1.375rem] sm:text-[1.5rem] lg:text-[1.75rem] max-w-[22ch] sm:max-w-[46ch] lg:max-w-[42ch]"
             style={{ lineHeight: 1.3, letterSpacing: "-0.01em" }}
           >
-            Healthy diet. Active lifestyle.{" "}
-            <br className="hidden sm:block" />
-            But true wellness starts with your indoor environment,{" "}
-            <br className="hidden sm:block" />
-            where you spend 90% of your life.
+            Healthy diet. Active lifestyle. But true wellness starts with your indoor environment, where you spend 90% of your life.
           </p>
+
 
           <p
             className="mt-16 sm:mt-5 text-left sm:text-center lg:mx-auto lg:max-w-[640px] max-w-[14rem] sm:max-w-none text-foreground/85 font-medium text-[1.25rem] sm:text-[1.15rem] lg:text-[1.25rem]"
