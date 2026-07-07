@@ -35,6 +35,10 @@ const withDiscount = (url: string, code = PROMO) =>
 const BIOTICA_URL = withDiscount(shopifyProductUrl("biotica-800", "active-families"));
 const MINI_URL = withDiscount(shopifyProductUrl("biologic-mini", "active-families"));
 const BUNDLE_URL = withDiscount(shopifyUrl("/products/home-complete-bundle", "active-families"));
+const BUNDLE_VARIANT_ID = "48939477205244";
+const BUNDLE_ADD_TO_CART_URL = withDiscount(
+  shopifyUrl(`/cart/${BUNDLE_VARIANT_ID}:1`, "active-families-bundle-cta"),
+);
 
 const DISPLAY = `"Helvetica Neue", "Inter", system-ui, -apple-system, sans-serif`;
 
@@ -514,7 +518,7 @@ const ActiveFamiliesLandingPage = () => {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
-                href={BUNDLE_URL}
+                href={BUNDLE_ADD_TO_CART_URL}
                 onClick={() => trackEvent("click_family_final_bundle")}
                 className="inline-flex items-center rounded-full bg-white px-8 py-4 text-[14px] font-medium text-neutral-900 transition-colors hover:bg-neutral-200"
               >
