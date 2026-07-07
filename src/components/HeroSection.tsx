@@ -3,8 +3,10 @@ import { Link } from "@/lib/link";
 import { ArrowRight, Play } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import heroMediaAsset from "@/assets/hero.gif.asset.json";
+import heroMobileAsset from "@/assets/science-balance-mobile.webp.asset.json";
 
 const heroMedia = heroMediaAsset.url;
+const heroMobile = heroMobileAsset.url;
 
 const HERO_FONT = '"Hanken Grotesk", system-ui, -apple-system, sans-serif';
 
@@ -12,31 +14,40 @@ export const HeroSection = () => {
   const [videoOpen, setVideoOpen] = useState(false);
   return (
     <section
-      className="relative w-full overflow-hidden min-h-[640px] sm:min-h-[720px] lg:min-h-0"
+      className="relative w-full overflow-hidden min-h-[720px] sm:min-h-[820px] lg:min-h-0"
       style={{ background: "#FFFFFF", fontFamily: HERO_FONT }}
     >
       {/* Full-bleed background media */}
       <div className="absolute inset-0 z-0">
+        {/* Mobile / tablet: device-on-nightstand still */}
         <img
-          src={heroMedia}
-          alt="EnviroBiotics environmental probiotics in motion"
-          className="h-full w-full object-cover object-[70%_center] sm:object-[65%_center] lg:object-center"
+          src={heroMobile}
+          alt="EnviroBiotics device on a bedside table"
+          className="h-full w-full object-cover object-center lg:hidden"
           loading="eager"
           fetchPriority="high"
         />
-        {/* Readability veil on mobile/tablet so copy stays legible over the GIF */}
+        {/* Desktop: animated GIF */}
+        <img
+          src={heroMedia}
+          alt="EnviroBiotics environmental probiotics in motion"
+          className="hidden lg:block h-full w-full object-cover object-center"
+          loading="eager"
+          fetchPriority="high"
+        />
+        {/* Readability veil on mobile/tablet: soft left-to-right wash so copy stays legible without hiding the device on the right */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 lg:hidden bg-gradient-to-b from-white/70 via-white/55 to-white/75"
+          className="absolute inset-0 lg:hidden bg-gradient-to-r from-white/75 via-white/45 to-transparent"
         />
       </div>
 
 
-      {/* Copy column — right-aligned on desktop, centered on mobile */}
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 pt-20 pb-14 sm:px-10 sm:pt-32 sm:pb-24 lg:px-16 lg:pt-40 lg:pb-32">
-        <div className="mx-auto max-w-[720px] text-center lg:mr-0 lg:ml-[35%]">
+      {/* Copy column — left-aligned narrow column on mobile so the device stays visible; right-aligned on desktop */}
+      <div className="relative z-10 mx-auto max-w-[1440px] px-6 pt-14 pb-[380px] sm:px-10 sm:pt-24 sm:pb-24 lg:px-16 lg:pt-40 lg:pb-32">
+        <div className="max-w-[720px] text-left lg:mx-auto lg:mr-0 lg:ml-[35%] lg:text-center">
           <h1
-            className="font-display font-bold text-balance text-foreground text-[2.5rem] sm:text-[3.5rem] lg:text-[4rem]"
+            className="font-display font-bold text-balance text-foreground text-[2.75rem] sm:text-[3.5rem] lg:text-[4rem] max-w-[9ch] lg:max-w-none"
             style={{ lineHeight: 1.05, letterSpacing: "normal" }}
           >
             Your Health.
@@ -45,8 +56,8 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mt-6 font-display italic font-bold text-heading-accent text-balance text-[1.15rem] sm:text-[1.5rem] lg:text-[1.75rem]"
-            style={{ lineHeight: 1.2 }}
+            className="mt-6 font-display italic font-bold text-heading-accent text-balance text-[1.05rem] sm:text-[1.5rem] lg:text-[1.75rem] max-w-[22ch] lg:max-w-none"
+            style={{ lineHeight: 1.25 }}
           >
             Healthy diet. Active lifestyle.
             <br className="hidden sm:block" />
@@ -56,8 +67,8 @@ export const HeroSection = () => {
           </p>
 
           <p
-            className="mt-6 mx-auto max-w-[640px] text-muted-foreground text-[1.05rem] sm:text-[1.15rem] lg:text-[1.25rem]"
-            style={{ lineHeight: 1.6 }}
+            className="mt-6 max-w-[30ch] lg:mx-auto lg:max-w-[640px] text-muted-foreground text-[0.98rem] sm:text-[1.15rem] lg:text-[1.25rem]"
+            style={{ lineHeight: 1.55 }}
           >
             Restore the natural balance of your indoor ecosystem.
             <br className="hidden sm:block" />
@@ -66,7 +77,9 @@ export const HeroSection = () => {
             with Active Environmental Probiotics®.
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start lg:justify-center gap-3 sm:gap-4 w-full max-w-[320px] sm:max-w-none">
+
+
 
             <a
               href="https://shop.envirobiotics.com/"
