@@ -568,6 +568,7 @@
   .site-container { padding-inline: 48px; }
 }
 
-/* Image hardening — prevent overflow and upscaling artifacts site-wide. */
-img { max-width: 100%; height: auto; display: block; }
+/* Image hardening — prevent overflow site-wide without forcing height. */
+img { max-width: 100%; display: block; }
+
 
