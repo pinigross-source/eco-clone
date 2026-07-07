@@ -39,7 +39,7 @@ export const ScienceOfBalanceSection = () => {
 
       <div className="site-container relative grid grid-cols-1 lg:grid-cols-2">
         {/* Text side */}
-        <div className="flex flex-col justify-start pt-12 pb-[420px] sm:justify-center sm:py-32 sm:pb-32 lg:py-40 text-left items-start">
+        <div className="flex flex-col justify-start pt-12 pb-[420px] sm:justify-center sm:py-32 sm:pb-32 lg:py-40 text-center items-center lg:text-left lg:items-start">
 
           <h2
             className="font-display font-bold text-balance text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem] max-w-[9ch] lg:max-w-none"
@@ -68,7 +68,7 @@ export const ScienceOfBalanceSection = () => {
             Let Nature Back Indoors
           </h3>
 
-          <div className="mt-7 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start gap-3 sm:gap-4 w-full max-w-[300px] sm:max-w-none">
+          <div className="mt-7 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full max-w-[300px] sm:max-w-none">
             <a
               href="https://shop.envirobiotics.com/"
               target="_top"
