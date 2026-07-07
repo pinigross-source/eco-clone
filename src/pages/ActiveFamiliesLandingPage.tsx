@@ -390,7 +390,7 @@ const ActiveFamiliesLandingPage = () => {
               {[
                 {
                   name: "BioLogic Mini",
-                  desc: "Bedrooms, nurseries, and rooms up to 400 sq ft.",
+                  desc: "Bedrooms, nurseries, and rooms up to 300 sq ft.",
                   url: MINI_URL,
                   event: "click_family_card_mini",
                   tag: "For focused rooms",
