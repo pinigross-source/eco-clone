@@ -32,7 +32,7 @@ const logos = [
   { src: kempegowda.url, alt: "Kempegowda International Airport Bengaluru" },
   { src: carePartners.url, alt: "Care Partners Country Terrace" },
   { src: morpheusCodNuwa.url, alt: "Morpheus, COD Macau, Nüwa" },
-  { src: theFarm.url, alt: "The Farm at San Benito" },
+  { src: theFarm.url, alt: "The Farm at San Benito", scale: 1.6 },
 ];
 
 
