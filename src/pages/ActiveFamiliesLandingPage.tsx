@@ -100,19 +100,19 @@ const rooms = [
 const faqs = [
   {
     q: "Is it safe for kids, pets, and pregnant women?",
-    a: "Yes. EnviroBiotics uses beneficial probiotic strains that are non toxic and non irritating. There are no sprays, no fragrances, and no harsh chemicals in the home.",
+    a: "Yes. EnviroBiotics uses beneficial probiotic strains that are collected from nature in their pure state; nothing is modified or added, so it is non toxic and non irritating.",
   },
   {
     q: "How is this different from an air purifier?",
-    a: "Air purifiers filter what floats past them. EnviroBiotics works on the surfaces themselves, breaking down organic residue on floors, fabrics, counters, and bedding, so the source stops feeding the air.",
+    a: "Air purifiers passively filter only the air their engine can pull into the device, leaving a substantial portion of the room out of reach, and they have no ability to clean surfaces and objects, where the majority of pollutants live. EnviroBiotics provide a holistic solution that restores the entire indoor space, surfaces and objects included.",
   },
   {
     q: "Do I need to change anything about my routine?",
-    a: "No. The unit runs quietly in the background 24/7. Keep cleaning the way you already do. EnviroBiotics handles what your cleaner cannot reach.",
+    a: "No. You add an additional layer of protection that reaches objects conventional cleaners and air purifiers cannot.",
   },
   {
     q: "Which unit is right for a family home?",
-    a: "For most active homes we suggest the Biotica 800 for open living spaces, plus a BioLogic Mini for a nursery or primary bedroom. The bundle covers both.",
+    a: "A home may use a centralized Biotica 800 for large shared areas and the BioLogic Mini for private spaces such as bedrooms and private offices. We also offer the Family Bundle for complete protection of the entire home.",
   },
 ];
 
@@ -498,8 +498,7 @@ const ActiveFamiliesLandingPage = () => {
               Bring wellness into the walls of your home.
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-[16px] leading-relaxed text-white/70">
-              One quiet layer of care, working around the clock, so your family
-              can keep moving.
+              Maintain your family's wellbeing effortlessly, 24/7.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
