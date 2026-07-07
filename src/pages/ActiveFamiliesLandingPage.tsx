@@ -533,7 +533,23 @@ const ActiveFamiliesLandingPage = () => {
         </section>
       </main>
       <Footer />
+      <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
+        <DialogContent className="max-w-4xl w-[95vw] p-0 bg-black border-none rounded-2xl overflow-hidden [&>button]:text-white [&>button]:hover:text-white/80">
+          <div className="aspect-video w-full">
+            {videoOpen && (
+              <iframe
+                src="https://player.vimeo.com/video/1146300437?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1"
+                title="See How EnviroBiotics Works"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
+
   );
 };
 
