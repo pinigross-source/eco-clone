@@ -50,7 +50,7 @@ export const Footer = () => {
     <footer className="bg-[#111111] text-white relative overflow-hidden" role="contentinfo">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
-      <div className="container py-10 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6">
+      <div className="site-container py-10 sm:py-12 md:py-16 lg:py-20">
         {/* Mobile: Centered Logo Section */}
         <div className="lg:hidden text-center mb-8">
           <div className="flex justify-center mb-4">
