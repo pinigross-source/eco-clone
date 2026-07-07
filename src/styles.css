@@ -571,22 +571,4 @@
 /* Image hardening — prevent overflow site-wide without forcing height. */
 img { max-width: 100%; display: block; }
 
-/* Mobile-only: Apple-style full-viewport snap scroll for every top-level
-   section on the homepage. Each direct child of <main> becomes one "frame"
-   that snaps into view. Disabled on tablet/desktop. */
-@media (max-width: 767px) {
-  html {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-  }
-  main > * {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    min-height: 100vh;
-    min-height: 100dvh;
-  }
-}
-
-
-
 
