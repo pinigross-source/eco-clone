@@ -54,7 +54,7 @@ export const HeroSection = () => {
 
 
       {/* Copy column — left-aligned narrow column on mobile so the device stays visible; right-aligned on desktop */}
-      <div className="site-container relative z-10 pt-40 pb-16 sm:pt-24 sm:pb-24 lg:pt-40 lg:pb-32">
+      <div className="site-container relative z-10 pt-28 pb-16 sm:pt-24 sm:pb-24 lg:pt-40 lg:pb-32">
         <div className="max-w-[720px] text-center lg:mx-auto lg:mr-0 lg:ml-[35%]">
           <h1
             className="mx-auto font-display font-bold text-foreground text-[2.5rem] sm:text-[3.5rem] lg:text-[4rem] max-w-[12ch] lg:max-w-none"
@@ -66,7 +66,7 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mx-auto mt-4 sm:mt-5 font-display italic font-semibold text-heading-accent text-[1.125rem] sm:text-[1.5rem] lg:text-[1.75rem] max-w-[26ch] lg:max-w-none"
+            className="mx-auto mt-16 sm:mt-5 font-display italic font-semibold text-heading-accent text-[1.125rem] sm:text-[1.5rem] lg:text-[1.75rem] max-w-[26ch] lg:max-w-none"
             style={{ lineHeight: 1.35, letterSpacing: "-0.005em" }}
           >
             Healthy diet. Active lifestyle.{" "}
@@ -77,7 +77,7 @@ export const HeroSection = () => {
           </p>
 
           <p
-            className="mt-4 sm:mt-5 text-left sm:text-center lg:mx-auto lg:max-w-[640px] max-w-[13rem] sm:max-w-none text-foreground/85 font-medium text-[1.0625rem] sm:text-[1.15rem] lg:text-[1.25rem]"
+            className="mt-16 sm:mt-5 text-left sm:text-center lg:mx-auto lg:max-w-[640px] max-w-[13rem] sm:max-w-none text-foreground/85 font-medium text-[1.0625rem] sm:text-[1.15rem] lg:text-[1.25rem]"
             style={{ lineHeight: 1.5 }}
           >
             Restore the natural balance of your indoor ecosystem.{" "}
@@ -87,7 +87,7 @@ export const HeroSection = () => {
             with Active Environmental Probiotics®.
           </p>
 
-          <div className="mt-40 sm:mt-8 lg:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start sm:justify-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none">
+          <div className="mt-28 sm:mt-8 lg:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start sm:justify-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none">
 
 
 
