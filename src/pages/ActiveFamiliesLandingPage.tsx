@@ -5,6 +5,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import {
   Accordion,
   AccordionContent,
@@ -117,6 +118,7 @@ const faqs = [
 ];
 
 const ActiveFamiliesLandingPage = () => {
+  const [videoOpen, setVideoOpen] = useState(false);
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string, evt?: string) => {
     e.preventDefault();
     if (evt) trackEvent(evt);
@@ -197,13 +199,16 @@ const ActiveFamiliesLandingPage = () => {
                   See how it fits your home
                   <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
-                <a
-                  href="#how"
-                  onClick={(e) => scrollTo(e, "how", "click_family_hero_secondary")}
+                <button
+                  type="button"
+                  onClick={() => {
+                    trackEvent("click_family_hero_secondary");
+                    setVideoOpen(true);
+                  }}
                   className="group inline-flex items-center text-[11.5px] sm:text-[12.5px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.18em] text-neutral-900 underline-offset-8 hover:underline"
                 >
                   How it works
-                </a>
+                </button>
               </div>
 
               <div className="mt-10 sm:mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 sm:gap-x-8 text-[10px] sm:text-[10.5px] font-medium uppercase tracking-[0.22em] sm:tracking-[0.24em] text-neutral-700">
@@ -528,7 +533,23 @@ const ActiveFamiliesLandingPage = () => {
         </section>
       </main>
       <Footer />
+      <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
+        <DialogContent className="max-w-4xl w-[95vw] p-0 bg-black border-none rounded-2xl overflow-hidden [&>button]:text-white [&>button]:hover:text-white/80">
+          <div className="aspect-video w-full">
+            {videoOpen && (
+              <iframe
+                src="https://player.vimeo.com/video/1146300437?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1"
+                title="See How EnviroBiotics Works"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
+
   );
 };
 
