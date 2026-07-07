@@ -199,13 +199,16 @@ const ActiveFamiliesLandingPage = () => {
                   See how it fits your home
                   <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
-                <a
-                  href="#how"
-                  onClick={(e) => scrollTo(e, "how", "click_family_hero_secondary")}
+                <button
+                  type="button"
+                  onClick={() => {
+                    trackEvent("click_family_hero_secondary");
+                    setVideoOpen(true);
+                  }}
                   className="group inline-flex items-center text-[11.5px] sm:text-[12.5px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.18em] text-neutral-900 underline-offset-8 hover:underline"
                 >
                   How it works
-                </a>
+                </button>
               </div>
 
               <div className="mt-10 sm:mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 sm:gap-x-8 text-[10px] sm:text-[10.5px] font-medium uppercase tracking-[0.22em] sm:tracking-[0.24em] text-neutral-700">
