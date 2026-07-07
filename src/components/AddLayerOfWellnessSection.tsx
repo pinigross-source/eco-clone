@@ -198,7 +198,7 @@ export const AddLayerOfWellnessSection = () => {
       aria-label="Built for the life you actually live"
       className="w-full bg-background py-14 sm:py-32 lg:py-40"
     >
-      <div className="mx-auto max-w-[1200px] px-6 sm:px-10">
+      <div className="site-container">
         <div className="text-center mb-8 sm:mb-20">
           <h2 className="font-display font-bold text-foreground">
             <span
