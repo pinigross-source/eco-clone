@@ -364,7 +364,7 @@ const ActiveFamiliesLandingPage = () => {
               You do the healthy work. We handle what you cannot see.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-[16.5px] leading-relaxed text-white/80">
-              EnviroBiotics runs while you cook, train, work, and rest. It never
+              EnviroBiotics run while you cook, train, work, and rest. It never
               interrupts. It just quietly makes the home a better place to keep
               being your best.
             </p>
