@@ -31,10 +31,11 @@ export const HeroSection = () => {
         <img
           src={heroMedia}
           alt="EnviroBiotics environmental probiotics in motion"
-          className="hidden lg:block h-full w-full object-cover object-center"
+          className="hidden lg:block h-full w-full object-cover object-[center_35%]"
           loading="eager"
           fetchPriority="high"
         />
+
         {/* Readability veil on mobile/tablet: soft left-to-right wash so copy stays legible without hiding the device on the right */}
         <div
           aria-hidden="true"
