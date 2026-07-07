@@ -66,7 +66,7 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mx-auto mt-16 sm:mt-5 font-display italic font-semibold text-heading-accent text-[1.625rem] sm:text-[1.5rem] lg:text-[1.75rem] max-w-[18ch] lg:max-w-none"
+            className="mx-auto mt-16 sm:mt-5 font-display italic font-semibold text-heading-accent text-[1.375rem] sm:text-[1.5rem] lg:text-[1.75rem] max-w-[22ch] sm:max-w-[32ch] lg:max-w-none"
             style={{ lineHeight: 1.3, letterSpacing: "-0.01em" }}
           >
             Healthy diet. Active lifestyle.{" "}
