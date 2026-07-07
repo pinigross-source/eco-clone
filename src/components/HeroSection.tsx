@@ -57,7 +57,7 @@ export const HeroSection = () => {
       <div className="site-container relative z-10 pt-28 pb-16 sm:pt-24 sm:pb-24 lg:pt-40 lg:pb-32">
         <div className="max-w-[720px] text-center lg:mx-auto lg:mr-0 lg:ml-[35%]">
           <h1
-            className="mx-auto font-display font-bold text-foreground text-[2.5rem] sm:text-[3.5rem] lg:text-[4rem] max-w-[12ch] lg:max-w-none"
+            className="mx-auto font-display font-bold text-foreground text-[3rem] sm:text-[3.5rem] lg:text-[4rem] max-w-[12ch] lg:max-w-none"
             style={{ lineHeight: 1.02, letterSpacing: "-0.02em" }}
           >
             Your Health.
