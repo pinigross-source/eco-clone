@@ -44,10 +44,10 @@ export const HeroSection = () => {
 
 
       {/* Copy column — left-aligned narrow column on mobile so the device stays visible; right-aligned on desktop */}
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 pt-14 pb-[380px] sm:px-10 sm:pt-24 sm:pb-24 lg:px-16 lg:pt-40 lg:pb-32">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 pt-12 pb-16 sm:px-10 sm:pt-24 sm:pb-24 lg:px-16 lg:pt-40 lg:pb-32">
         <div className="max-w-[720px] text-left lg:mx-auto lg:mr-0 lg:ml-[35%] lg:text-center">
           <h1
-            className="font-display font-bold text-balance text-foreground text-[2.75rem] sm:text-[3.5rem] lg:text-[4rem] max-w-[9ch] lg:max-w-none"
+            className="font-display font-bold text-foreground text-[2.25rem] sm:text-[3.5rem] lg:text-[4rem] max-w-[10ch] lg:max-w-none"
             style={{ lineHeight: 1.05, letterSpacing: "normal" }}
           >
             Your Health.
@@ -56,8 +56,8 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mt-6 font-display italic font-bold text-heading-accent text-balance text-[1.05rem] sm:text-[1.5rem] lg:text-[1.75rem] max-w-[22ch] lg:max-w-none"
-            style={{ lineHeight: 1.25 }}
+            className="mt-5 font-display italic font-bold text-heading-accent text-[0.95rem] sm:text-[1.5rem] lg:text-[1.75rem] max-w-[24ch] lg:max-w-none"
+            style={{ lineHeight: 1.3 }}
           >
             Healthy diet. Active lifestyle.
             <br className="hidden sm:block" />
@@ -67,7 +67,7 @@ export const HeroSection = () => {
           </p>
 
           <p
-            className="mt-6 max-w-[30ch] lg:mx-auto lg:max-w-[640px] text-muted-foreground text-[0.98rem] sm:text-[1.15rem] lg:text-[1.25rem]"
+            className="mt-5 max-w-[30ch] lg:mx-auto lg:max-w-[640px] text-muted-foreground text-[0.9rem] sm:text-[1.15rem] lg:text-[1.25rem]"
             style={{ lineHeight: 1.55 }}
           >
             Restore the natural balance of your indoor ecosystem.
@@ -77,7 +77,8 @@ export const HeroSection = () => {
             with Active Environmental Probiotics®.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start lg:justify-center gap-3 sm:gap-4 w-full max-w-[320px] sm:max-w-none">
+          <div className="mt-6 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start lg:justify-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none">
+
 
 
 
