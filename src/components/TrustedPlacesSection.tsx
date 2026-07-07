@@ -66,18 +66,21 @@ export const TrustedPlacesSection = () => {
             {track.map((logo, i) => (
               <div
                 key={`${logo.alt}-${i}`}
-                className="flex h-28 flex-shrink-0 items-center justify-center sm:h-24"
+                className="flex h-28 w-40 flex-shrink-0 items-center justify-center sm:h-24 sm:w-44"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-20 w-auto object-contain sm:h-16"
+                  width="176"
+                  height="96"
+                  className="max-h-20 w-auto max-w-full object-contain sm:max-h-16"
                   style={logo.scale ? { transform: `scale(${logo.scale})`, transformOrigin: "center" } : undefined}
                   loading="lazy"
                   decoding="async"
                 />
               </div>
             ))}
+
           </motion.div>
         </div>
 
