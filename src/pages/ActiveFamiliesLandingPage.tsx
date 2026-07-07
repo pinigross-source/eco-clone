@@ -35,6 +35,10 @@ const withDiscount = (url: string, code = PROMO) =>
 const BIOTICA_URL = withDiscount(shopifyProductUrl("biotica-800", "active-families"));
 const MINI_URL = withDiscount(shopifyProductUrl("biologic-mini", "active-families"));
 const BUNDLE_URL = withDiscount(shopifyUrl("/products/home-complete-bundle", "active-families"));
+const BUNDLE_VARIANT_ID = "48939477205244";
+const BUNDLE_ADD_TO_CART_URL = withDiscount(
+  shopifyUrl(`/cart/${BUNDLE_VARIANT_ID}:1`, "active-families-bundle-cta"),
+);
 
 const DISPLAY = `"Helvetica Neue", "Inter", system-ui, -apple-system, sans-serif`;
 
