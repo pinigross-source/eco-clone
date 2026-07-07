@@ -518,7 +518,7 @@ const ActiveFamiliesLandingPage = () => {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
-                href={BUNDLE_URL}
+                href={BUNDLE_ADD_TO_CART_URL}
                 onClick={() => trackEvent("click_family_final_bundle")}
                 className="inline-flex items-center rounded-full bg-white px-8 py-4 text-[14px] font-medium text-neutral-900 transition-colors hover:bg-neutral-200"
               >
