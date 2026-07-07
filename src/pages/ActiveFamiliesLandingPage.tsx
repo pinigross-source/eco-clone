@@ -406,8 +406,8 @@ const ActiveFamiliesLandingPage = () => {
                   image: bioticaProduct,
                 },
                 {
-                  name: "Home Complete Bundle",
-                  desc: "Full coverage for the family home, room by room.",
+                  name: "Extra-size bundle",
+                  desc: "Designed to cover one main living area plus two bedrooms.",
                   url: BUNDLE_URL,
                   event: "click_family_card_bundle",
                   tag: "Best value",
