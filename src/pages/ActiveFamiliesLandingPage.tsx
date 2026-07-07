@@ -192,8 +192,8 @@ const ActiveFamiliesLandingPage = () => {
 
               <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-x-5 gap-y-3 sm:gap-4">
                 <a
-                  href="#rooms"
-                  onClick={(e) => scrollTo(e, "rooms", "click_family_hero_cta")}
+                  href="#pick"
+                  onClick={(e) => scrollTo(e, "pick", "click_family_hero_cta")}
                   className="group inline-flex items-center rounded-full bg-neutral-900 px-6 py-3.5 sm:px-8 sm:py-4 text-[11.5px] sm:text-[12.5px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.18em] text-white transition-all hover:bg-neutral-800 active:scale-[0.98]"
                 >
                   See how it fits your home
