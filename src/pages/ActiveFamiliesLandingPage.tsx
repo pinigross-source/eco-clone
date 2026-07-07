@@ -5,6 +5,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import {
   Accordion,
   AccordionContent,
