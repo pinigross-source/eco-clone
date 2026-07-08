@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "@/lib/link";
 import { ArrowRight, Play } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import heroWebmAsset from "@/assets/hero-loop.webm.asset.json";
-import heroMp4Asset from "@/assets/hero-loop.mp4.asset.json";
+import heroWebmAsset from "@/assets/hero-loop-forward.webm.asset.json";
+import heroMp4Asset from "@/assets/hero-loop-forward.mp4.asset.json";
 import heroPosterAsset from "@/assets/hero-poster.jpg.asset.json";
 
 const heroWebm = heroWebmAsset.url;
