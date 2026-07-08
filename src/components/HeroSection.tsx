@@ -21,16 +21,9 @@ export const HeroSection = () => {
     >
       {/* Full-bleed background media */}
       <div className="absolute inset-0 z-0">
-        {/* Static poster on mobile/tablet to avoid the boomerang video looking off-frame */}
-        <img
-          src={heroPoster}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover object-[85%_center] md:object-[75%_center] lg:hidden"
-        />
-        {/* Looping background video on desktop only */}
+        {/* Looping background video on all viewports; keep device in frame on mobile/tablet */}
         <video
-          className="absolute inset-0 h-full w-full object-cover object-center hidden lg:block"
+          className="absolute inset-0 h-full w-full object-cover object-[85%_center] md:object-[75%_center] lg:object-center"
           autoPlay
           muted
           loop
