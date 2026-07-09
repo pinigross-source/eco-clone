@@ -143,6 +143,7 @@ export const SizedToYourSpaceSection = () => {
         </div>
 
         {/* Certifications */}
+        <ScrollReveal>
           <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5 lg:gap-6">
             {CERTS.map((c) => {
               return (
