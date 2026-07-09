@@ -1,21 +1,19 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import biologicMiniAsset from "@/assets/biologic-mini-new.jpg.asset.json";
 import biotica800Asset from "@/assets/biotica-800-new.jpg.asset.json";
-import epaAsset from "@/assets/certs/cert_0.png.asset.json";
-import allergyAsset from "@/assets/certs/cert_4.png.asset.json";
-import madeSafeAsset from "@/assets/certs/cert_5.png.asset.json";
-import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
-import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
+import epaAsset from "@/assets/certs/epa-new.webp.asset.json";
+import madeSafeAsset from "@/assets/certs/made-safe-new.png.asset.json";
+import fdaGrasAsset from "@/assets/certs/fda-gras-new.webp.asset.json";
+import isoAsset from "@/assets/certs/iso-new.webp.asset.json";
 
 const biologicMini = biologicMiniAsset.url;
 const biotica800 = biotica800Asset.url;
 
 const CERTS = [
-  { label: "EPA Registered", image: epaAsset.url },
   { label: "FDA GRAS", image: fdaGrasAsset.url },
-  { label: "AllergyUK", image: allergyAsset.url },
-  { label: "PTPA Winner", image: ptpaAsset.url },
+  { label: "EPA Registered", image: epaAsset.url },
   { label: "MADE SAFE®", image: madeSafeAsset.url },
+  { label: "ISO Certified", image: isoAsset.url },
 ];
 
 type Product = {
@@ -146,16 +144,13 @@ export const SizedToYourSpaceSection = () => {
 
         {/* Certifications */}
         <ScrollReveal>
-          <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5 lg:grid-cols-5 lg:gap-6">
+          <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5 lg:gap-6">
             {CERTS.map((c) => {
-              const hideOnSmall = c.label === "MADE SAFE®";
               return (
                 <li
                   key={c.label}
                   title={c.label}
-                  className={`group relative aspect-square items-center justify-center rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 sm:p-7 ${
-                    hideOnSmall ? "hidden lg:flex" : "flex"
-                  }`}
+                  className="group relative flex aspect-square items-center justify-center rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 sm:p-7"
                   style={{
                     background: "#ffffff",
                     border: "1px solid hsl(var(--foreground) / 0.08)",
