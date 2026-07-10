@@ -66,17 +66,14 @@ export const HeroSection = () => {
           </p>
 
           <p
-            className="mx-auto mt-4 sm:mt-5 lg:max-w-[640px] max-w-[28ch] sm:max-w-none text-foreground/85 font-medium text-[1rem] sm:text-[1.15rem] lg:text-[1.25rem]"
+            className="mx-auto mt-4 sm:mt-5 lg:max-w-[640px] max-w-[28ch] sm:max-w-none text-foreground/85 font-medium text-[1rem] sm:text-[1.15rem] lg:text-[1.25rem] hidden lg:block"
             style={{ lineHeight: 1.5 }}
           >
-            <span className="lg:hidden">Restore the natural balance of your indoor ecosystem.</span>
-            <span className="hidden lg:inline">
-              Restore the natural balance of your indoor ecosystem.{" "}
-              <br className="hidden sm:block" />
-              Reduce harmful pathogens, mold, bacteria, and allergens{" "}
-              <br className="hidden sm:block" />
-              with Active Environmental Probiotics®.
-            </span>
+            Restore the natural balance of your indoor ecosystem.{" "}
+            <br className="hidden sm:block" />
+            Reduce harmful pathogens, mold, bacteria, and allergens{" "}
+            <br className="hidden sm:block" />
+            with Active Environmental Probiotics®.
           </p>
 
           <div className="hidden lg:flex lg:mt-8 flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start sm:justify-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none mx-auto">
