@@ -39,7 +39,7 @@ const products: Product[] = [
     learnUrl: "https://shop.envirobiotics.com/products/biologic-mini",
   },
   {
-    tag: "300 to 800 sq ft",
+    tag: "Up to 800 sq ft",
     name: "Biotica 800",
     subline: "Set-and-forget · a larger shared space",
     body: "Set-and-forget coverage for the spaces you spend the most time in.",
