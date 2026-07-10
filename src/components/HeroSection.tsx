@@ -50,8 +50,8 @@ export const HeroSection = () => {
       <div className="site-container relative z-10 pt-12 pb-8 sm:pt-24 sm:pb-24 lg:pt-40 lg:pb-32">
         <div className="max-w-[720px] text-center lg:mx-0 lg:ml-[26%] lg:mr-auto lg:max-w-[600px] xl:ml-[30%] xl:max-w-[640px]">
           <h1
-            className="mx-auto font-display font-bold text-foreground text-[2.5rem] sm:text-[3.5rem] lg:text-[4rem] max-w-[12ch] lg:max-w-none"
-            style={{ lineHeight: 1.02, letterSpacing: "-0.02em" }}
+            className="mx-auto font-display font-bold text-foreground text-[2.25rem] sm:text-[3.5rem] lg:text-[4rem] max-w-none whitespace-nowrap lg:whitespace-normal"
+            style={{ lineHeight: 1.05, letterSpacing: "-0.02em" }}
           >
             Your Health.
             <br />
