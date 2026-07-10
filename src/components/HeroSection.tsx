@@ -15,6 +15,7 @@ const HERO_FONT = '"Hanken Grotesk", system-ui, -apple-system, sans-serif';
 export const HeroSection = () => {
   const [videoOpen, setVideoOpen] = useState(false);
   return (
+    <>
     <section
       className="relative w-full overflow-hidden min-h-[720px] sm:min-h-[820px] lg:min-h-[860px] xl:min-h-[900px]"
       style={{ background: "#FFFFFF", fontFamily: HERO_FONT }}
