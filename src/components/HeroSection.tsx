@@ -192,5 +192,6 @@ export const HeroSection = () => {
         </DialogContent>
       </Dialog>
     </section>
+    </>
   );
 };
