@@ -66,17 +66,14 @@ export const HeroSection = () => {
           </p>
 
           <p
-            className="mx-auto mt-4 sm:mt-5 lg:max-w-[640px] max-w-[28ch] sm:max-w-none text-foreground/85 font-medium text-[1rem] sm:text-[1.15rem] lg:text-[1.25rem]"
+            className="mx-auto mt-4 sm:mt-5 lg:max-w-[640px] max-w-[28ch] sm:max-w-none text-foreground/85 font-medium text-[1rem] sm:text-[1.15rem] lg:text-[1.25rem] hidden lg:block"
             style={{ lineHeight: 1.5 }}
           >
-            <span className="lg:hidden">Restore the natural balance of your indoor ecosystem.</span>
-            <span className="hidden lg:inline">
-              Restore the natural balance of your indoor ecosystem.{" "}
-              <br className="hidden sm:block" />
-              Reduce harmful pathogens, mold, bacteria, and allergens{" "}
-              <br className="hidden sm:block" />
-              with Active Environmental Probiotics®.
-            </span>
+            Restore the natural balance of your indoor ecosystem.{" "}
+            <br className="hidden sm:block" />
+            Reduce harmful pathogens, mold, bacteria, and allergens{" "}
+            <br className="hidden sm:block" />
+            with Active Environmental Probiotics®.
           </p>
 
           <div className="hidden lg:flex lg:mt-8 flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start sm:justify-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none mx-auto">
@@ -131,10 +128,10 @@ export const HeroSection = () => {
       {/* Mobile-only band directly under the hero: extended body copy + CTAs */}
       <div className="lg:hidden site-container relative z-10 pt-6 pb-10 text-center" style={{ fontFamily: HERO_FONT }}>
         <p
-          className="mx-auto max-w-[32ch] text-foreground/85 font-medium text-[1rem]"
+          className="mx-auto max-w-[32ch] text-foreground font-semibold text-[1.125rem]"
           style={{ lineHeight: 1.5 }}
         >
-          Reduce harmful pathogens, mold, bacteria, and allergens with Active Environmental Probiotics®, collected from nature in their pure state.
+          Restore the natural balance of your indoor ecosystem.
         </p>
         <div className="mt-6 flex flex-col items-stretch gap-3 w-full max-w-[280px] mx-auto">
           <a
@@ -174,6 +171,12 @@ export const HeroSection = () => {
             Watch how it works
           </button>
         </div>
+        <p
+          className="mx-auto mt-6 max-w-[34ch] text-foreground/85 font-medium text-[1rem]"
+          style={{ lineHeight: 1.5 }}
+        >
+          Reduce harmful pathogens, mold, bacteria, and allergens with Active Environmental Probiotics®, collected from nature in their pure state.
+        </p>
       </div>
 
       <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
