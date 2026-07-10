@@ -78,14 +78,7 @@ export const HeroSection = () => {
             </span>
           </p>
 
-          <div className="hidden lg:mt-8 lg:flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start sm:justify-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none mx-auto">
-
-
-
-
-
-
-
+          <div className="hidden lg:flex lg:mt-8 flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start sm:justify-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none mx-auto">
             <a
               href="https://shop.envirobiotics.com/"
               target="_top"
@@ -129,6 +122,54 @@ export const HeroSection = () => {
               Watch how it works
             </button>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile-only band directly under the hero: extended body copy + CTAs */}
+      <div className="lg:hidden site-container relative z-10 pt-6 pb-10 text-center" style={{ fontFamily: HERO_FONT }}>
+        <p
+          className="mx-auto max-w-[32ch] text-foreground/85 font-medium text-[1rem]"
+          style={{ lineHeight: 1.5 }}
+        >
+          Reduce harmful pathogens, mold, bacteria, and allergens with Active Environmental Probiotics®, collected from nature in their pure state.
+        </p>
+        <div className="mt-6 flex flex-col items-stretch gap-3 w-full max-w-[280px] mx-auto">
+          <a
+            href="https://shop.envirobiotics.com/"
+            target="_top"
+            rel="noopener"
+            className="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full transition-all duration-300"
+            style={{
+              background: "#1F2328",
+              color: "#F4F0E7",
+              fontWeight: 600,
+              fontSize: "1rem",
+              padding: "0.72em 1.4em",
+              minHeight: 48,
+              boxShadow: "0 12px 30px -12px rgba(31,35,40,0.55)",
+            }}
+          >
+            Choose Your System
+            <ArrowRight className="w-4 h-4" />
+          </a>
+          <button
+            type="button"
+            onClick={() => setVideoOpen(true)}
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border"
+            style={{
+              borderColor: "rgba(31,35,40,0.25)",
+              color: "#1F2328",
+              fontWeight: 600,
+              fontSize: "0.82rem",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              padding: "0.85em 1.6em",
+              minHeight: 48,
+            }}
+          >
+            <Play className="w-4 h-4" />
+            Watch how it works
+          </button>
         </div>
       </div>
 
