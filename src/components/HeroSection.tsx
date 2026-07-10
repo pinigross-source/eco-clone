@@ -47,7 +47,7 @@ export const HeroSection = () => {
 
 
       {/* Copy column — stacked & centered on mobile so text sits above the device; right-aligned on desktop */}
-      <div className="site-container relative z-10 pt-12 pb-8 sm:pt-24 sm:pb-24 lg:pt-40 lg:pb-32">
+      <div className="site-container relative z-10 pt-24 pb-8 sm:pt-24 sm:pb-24 lg:pt-40 lg:pb-32">
         <div className="max-w-[720px] text-center lg:mx-0 lg:ml-[26%] lg:mr-auto lg:max-w-[600px] xl:ml-[30%] xl:max-w-[640px]">
           <h1
             className="mx-auto font-display font-bold text-foreground text-[2.25rem] sm:text-[3.5rem] lg:text-[4rem] max-w-none whitespace-nowrap lg:whitespace-normal"
