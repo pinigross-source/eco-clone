@@ -2,7 +2,7 @@ export const NatureStatementSection = () => {
   return (
     <section
       aria-label="Nature statement"
-      className="w-full bg-background border-t border-foreground/5"
+      className="hidden lg:block w-full bg-background border-t border-foreground/5"
     >
       <div className="site-container py-14 sm:py-32 lg:py-40 text-center">
         <h2
