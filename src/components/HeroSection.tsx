@@ -126,14 +126,27 @@ export const HeroSection = () => {
 
 
       {/* Mobile-only band directly under the hero: extended body copy + CTAs */}
-      <div className="lg:hidden site-container relative z-10 pt-6 pb-10 text-center" style={{ fontFamily: HERO_FONT }}>
+      <div className="lg:hidden site-container relative z-10 pt-4 pb-12 text-center" style={{ fontFamily: HERO_FONT }}>
         <p
-          className="mx-auto max-w-[32ch] md:max-w-[46ch] text-foreground font-semibold text-[1.125rem] md:text-[1.25rem]"
-          style={{ lineHeight: 1.5 }}
+          className="mx-auto max-w-[24ch] md:max-w-[46ch] text-foreground font-display font-semibold text-[1.375rem] md:text-[1.5rem]"
+          style={{ lineHeight: 1.3, letterSpacing: "-0.015em" }}
         >
           Restore the natural balance of your indoor ecosystem.
         </p>
-        <div className="mt-6 flex flex-col md:flex-row items-stretch md:items-center justify-center gap-3 md:gap-4 w-full max-w-[280px] md:max-w-none mx-auto">
+
+        <div
+          aria-hidden="true"
+          className="mx-auto mt-7 mb-7 h-px w-10 bg-foreground/20"
+        />
+
+        <p
+          className="mx-auto max-w-[34ch] md:max-w-[52ch] text-foreground/75 font-normal text-[0.95rem] md:text-[1.05rem]"
+          style={{ lineHeight: 1.6 }}
+        >
+          Reduce harmful pathogens, mold, bacteria, and allergens with Active Environmental Probiotics®, collected from nature in their pure state.
+        </p>
+
+        <div className="mt-8 flex flex-col md:flex-row items-stretch md:items-center justify-center gap-3 md:gap-4 w-full max-w-[280px] md:max-w-none mx-auto">
           <a
             href="https://shop.envirobiotics.com/"
             target="_top"
@@ -171,12 +184,6 @@ export const HeroSection = () => {
             Watch how it works
           </button>
         </div>
-        <p
-          className="mx-auto mt-6 max-w-[34ch] md:max-w-[52ch] text-foreground/85 font-medium text-[1rem] md:text-[1.05rem]"
-          style={{ lineHeight: 1.5 }}
-        >
-          Reduce harmful pathogens, mold, bacteria, and allergens with Active Environmental Probiotics®, collected from nature in their pure state.
-        </p>
       </div>
 
       <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
