@@ -126,14 +126,14 @@ export const HeroSection = () => {
 
 
       {/* Mobile-only band directly under the hero: extended body copy + CTAs */}
-      <div className="lg:hidden site-container relative z-10 pt-6 pb-10 text-center md:text-left" style={{ fontFamily: HERO_FONT }}>
+      <div className="lg:hidden site-container relative z-10 pt-6 pb-10 text-center" style={{ fontFamily: HERO_FONT }}>
         <p
-          className="mx-auto md:mx-0 max-w-[32ch] md:max-w-[38ch] text-foreground font-semibold text-[1.125rem] md:text-[1.25rem]"
+          className="mx-auto max-w-[32ch] md:max-w-[46ch] text-foreground font-semibold text-[1.125rem] md:text-[1.25rem]"
           style={{ lineHeight: 1.5 }}
         >
           Restore the natural balance of your indoor ecosystem.
         </p>
-        <div className="mt-6 flex flex-col md:flex-row items-stretch md:items-center gap-3 w-full max-w-[280px] md:max-w-none mx-auto md:mx-0">
+        <div className="mt-6 flex flex-col md:flex-row items-stretch md:items-center justify-center gap-3 md:gap-4 w-full max-w-[280px] md:max-w-none mx-auto">
           <a
             href="https://shop.envirobiotics.com/"
             target="_top"
@@ -172,7 +172,7 @@ export const HeroSection = () => {
           </button>
         </div>
         <p
-          className="mx-auto md:mx-0 mt-6 max-w-[34ch] md:max-w-[42ch] text-foreground/85 font-medium text-[1rem] md:text-[1.05rem]"
+          className="mx-auto mt-6 max-w-[34ch] md:max-w-[52ch] text-foreground/85 font-medium text-[1rem] md:text-[1.05rem]"
           style={{ lineHeight: 1.5 }}
         >
           Reduce harmful pathogens, mold, bacteria, and allergens with Active Environmental Probiotics®, collected from nature in their pure state.
