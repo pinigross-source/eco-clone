@@ -128,10 +128,10 @@ export const HeroSection = () => {
       {/* Mobile-only band directly under the hero: extended body copy + CTAs */}
       <div className="lg:hidden site-container relative z-10 pt-6 pb-10 text-center" style={{ fontFamily: HERO_FONT }}>
         <p
-          className="mx-auto max-w-[32ch] text-foreground/85 font-medium text-[1rem]"
+          className="mx-auto max-w-[32ch] text-foreground font-semibold text-[1.125rem]"
           style={{ lineHeight: 1.5 }}
         >
-          Reduce harmful pathogens, mold, bacteria, and allergens with Active Environmental Probiotics®, collected from nature in their pure state.
+          Restore the natural balance of your indoor ecosystem.
         </p>
         <div className="mt-6 flex flex-col items-stretch gap-3 w-full max-w-[280px] mx-auto">
           <a
