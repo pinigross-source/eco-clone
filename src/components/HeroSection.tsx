@@ -172,7 +172,6 @@ export const HeroSection = () => {
           </button>
         </div>
         <p
-        <p
           className="mx-auto md:mx-0 mt-6 max-w-[34ch] md:max-w-[42ch] text-foreground/85 font-medium text-[1rem] md:text-[1.05rem]"
           style={{ lineHeight: 1.5 }}
         >
