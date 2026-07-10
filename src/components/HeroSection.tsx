@@ -191,7 +191,6 @@ export const HeroSection = () => {
           </div>
         </DialogContent>
       </Dialog>
-    </section>
     </>
   );
 };
