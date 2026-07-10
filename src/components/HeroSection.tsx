@@ -125,6 +125,8 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
+    </section>
+
 
       {/* Mobile-only band directly under the hero: extended body copy + CTAs */}
       <div className="lg:hidden site-container relative z-10 pt-6 pb-10 text-center" style={{ fontFamily: HERO_FONT }}>
