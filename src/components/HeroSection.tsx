@@ -39,7 +39,7 @@ export const HeroSection = () => {
         {/* Readability veil — top-down on mobile, left-to-right on tablet to keep text legible while device stays visible on the right */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 lg:hidden bg-gradient-to-b from-white/90 via-white/40 to-transparent md:bg-gradient-to-r md:from-white/95 md:via-white/70 md:to-transparent"
+          className="absolute inset-0 lg:hidden bg-gradient-to-b from-white/90 via-white/40 to-transparent"
         />
       </div>
 
