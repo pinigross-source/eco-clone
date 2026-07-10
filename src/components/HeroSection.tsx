@@ -24,7 +24,7 @@ export const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         {/* Looping background video on all viewports; keep device in frame on mobile/tablet */}
         <video
-          className="absolute inset-0 h-full w-full object-cover object-[60%_bottom] md:object-[75%_center] lg:object-center"
+          className="absolute inset-0 h-full w-full object-cover object-[85%_bottom] md:object-[75%_center] lg:object-center"
           autoPlay
           muted
           loop
