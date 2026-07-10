@@ -47,10 +47,10 @@ export const HeroSection = () => {
 
 
       {/* Copy column — stacked & centered on mobile so text sits above the device; right-aligned on desktop */}
-      <div className="site-container relative z-10 pt-24 pb-8 sm:pt-24 sm:pb-24 lg:pt-40 lg:pb-32">
-        <div className="max-w-[720px] text-center lg:mx-0 lg:ml-[26%] lg:mr-auto lg:max-w-[600px] xl:ml-[30%] xl:max-w-[640px]">
+      <div className="site-container relative z-10 pt-24 pb-8 sm:pt-24 sm:pb-24 md:pt-28 lg:pt-40 lg:pb-32">
+        <div className="max-w-[720px] text-center md:text-left md:max-w-[420px] lg:mx-0 lg:ml-[26%] lg:mr-auto lg:max-w-[600px] lg:text-center xl:ml-[30%] xl:max-w-[640px]">
           <h1
-            className="mx-auto font-display font-bold text-foreground text-[2.25rem] sm:text-[3.5rem] lg:text-[4rem] max-w-none whitespace-nowrap lg:whitespace-normal"
+            className="mx-auto md:mx-0 font-display font-bold text-foreground text-[2.25rem] sm:text-[3rem] md:text-[3.25rem] lg:text-[4rem] max-w-none whitespace-nowrap lg:whitespace-normal"
             style={{ lineHeight: 1.05, letterSpacing: "-0.02em" }}
           >
             Your Health.
@@ -59,7 +59,7 @@ export const HeroSection = () => {
           </h1>
 
           <p
-            className="mx-auto mt-4 sm:mt-5 font-display italic font-semibold text-heading-accent text-[1.125rem] sm:text-[1.5rem] lg:text-[1.75rem] max-w-[26ch] sm:max-w-[46ch] lg:max-w-[42ch]"
+            className="mx-auto md:mx-0 mt-4 sm:mt-5 font-display italic font-semibold text-heading-accent text-[1.125rem] sm:text-[1.375rem] md:text-[1.375rem] lg:text-[1.75rem] max-w-[26ch] sm:max-w-[38ch] md:max-w-[30ch] lg:max-w-[42ch]"
             style={{ lineHeight: 1.3, letterSpacing: "-0.01em" }}
           >
             Healthy diet. Active lifestyle. But true wellness starts with your indoor environment, where you spend 90% of your life.
