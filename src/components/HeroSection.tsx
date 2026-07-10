@@ -38,7 +38,7 @@ export const HeroSection = () => {
         {/* Readability veil on mobile/tablet so dark copy on the left stays legible over the bright scene */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 lg:hidden bg-gradient-to-r from-white/85 via-white/55 to-transparent"
+          className="absolute inset-0 lg:hidden bg-gradient-to-b from-white/90 via-white/40 to-transparent"
         />
       </div>
 
