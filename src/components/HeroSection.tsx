@@ -24,7 +24,7 @@ export const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         {/* Looping background video on all viewports; keep device in frame on mobile/tablet */}
         <video
-          className="absolute inset-0 h-full w-full object-cover object-[85%_bottom] md:object-[75%_center] lg:object-center"
+          className="absolute inset-0 h-full w-full object-cover object-[85%_bottom] md:object-[90%_center] lg:object-center"
           autoPlay
           muted
           loop
@@ -36,10 +36,10 @@ export const HeroSection = () => {
           <source src={heroMp4} type="video/mp4" />
         </video>
 
-        {/* Readability veil on mobile/tablet so dark copy on the left stays legible over the bright scene */}
+        {/* Readability veil — top-down on mobile, left-to-right on tablet to keep text legible while device stays visible on the right */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 lg:hidden bg-gradient-to-b from-white/90 via-white/40 to-transparent"
+          className="absolute inset-0 lg:hidden bg-gradient-to-b from-white/90 via-white/40 to-transparent md:bg-gradient-to-r md:from-white/95 md:via-white/70 md:to-transparent"
         />
       </div>
 
