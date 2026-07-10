@@ -172,7 +172,8 @@ export const HeroSection = () => {
           </button>
         </div>
         <p
-          className="mx-auto mt-6 max-w-[34ch] text-foreground/85 font-medium text-[1rem]"
+        <p
+          className="mx-auto md:mx-0 mt-6 max-w-[34ch] md:max-w-[42ch] text-foreground/85 font-medium text-[1rem] md:text-[1.05rem]"
           style={{ lineHeight: 1.5 }}
         >
           Reduce harmful pathogens, mold, bacteria, and allergens with Active Environmental Probiotics®, collected from nature in their pure state.
