@@ -797,7 +797,7 @@ const AllergyLandingPage = () => {
               </h2>
               <p className="mx-auto mt-7 max-w-xl text-[1.05rem] leading-[1.65] text-white/65 sm:text-[1.2rem]">
                 Your purifier helps clean the air. EnviroBiotics helps cover the surfaces it leaves
-                behind &mdash; including your mattress, bedding, furniture, carpets, and more.
+                behind, including your mattress, bedding, furniture, carpets, and more.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center">
                 <a
