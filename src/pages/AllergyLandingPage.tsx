@@ -824,11 +824,6 @@ const AllergyLandingPage = () => {
                 <span className="opacity-40">·</span>
                 <span className="inline-flex items-center gap-1.5">
                   <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                  Free shipping
-                </span>
-                <span className="opacity-40">·</span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
                   Independently tested
                 </span>
               </p>
