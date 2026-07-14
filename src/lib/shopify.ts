@@ -11,8 +11,8 @@ export const SHOPIFY_BASE =
 export const PRODUCT_HANDLE_MAP: Record<string, string> = {
   "biologic-mini": "biologic-mini",
   "biotica-800": "biotica-800",
-  "ba-2080": "ba-2080",
-  "betterair-2080": "ba-2080",
+  "ba-2080": "biotica-800",
+  "betterair-2080": "biotica-800",
   "ebiotic-pro": "e-biotic-pro",
 };
 
