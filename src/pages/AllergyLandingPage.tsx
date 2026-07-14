@@ -179,6 +179,12 @@ const AllergyLandingPage = () => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+  const scrollToId = (id: string, eventName?: string) => {
+    if (eventName) trackEvent(eventName);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
 
   return (
     <>
@@ -210,10 +216,17 @@ const AllergyLandingPage = () => {
             <Reveal>
               <h1 className="font-display font-semibold text-foreground tracking-[-0.04em] text-[clamp(2.75rem,8.5vw,3.5rem)] leading-[1.02] sm:text-[clamp(3.75rem,7vw,5.5rem)] sm:leading-[1.0] lg:text-[clamp(4.5rem,5.5vw,6.5rem)]">
                 Your air purifier
-                <span className="block mt-1 sm:mt-2 italic" style={ITALIC_FONT}>
+                <button
+                  type="button"
+                  onClick={() => scrollToId("how-it-works", "click_allergy_hero_headline")}
+                  className="block mt-1 sm:mt-2 italic w-full text-center cursor-pointer transition-opacity hover:opacity-70 focus:outline-none focus-visible:underline underline-offset-8 decoration-1"
+                  style={ITALIC_FONT}
+                  aria-label="See how EnviroBiotics treats surfaces"
+                >
                   can&apos;t clean your mattress.
-                </span>
+                </button>
               </h1>
+
             </Reveal>
             <Reveal>
               <p className="mx-auto mt-6 max-w-[36rem] text-[1.05rem] font-normal leading-[1.55] text-foreground/70 sm:mt-8 sm:max-w-[42rem] sm:text-[1.2rem] sm:leading-[1.5]">
@@ -309,15 +322,25 @@ const AllergyLandingPage = () => {
           <div className="mx-auto max-w-[1100px] px-6">
             <Reveal>
               <div className="text-center">
-                <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
-                  The shift
-                </p>
+                <button
+                  type="button"
+                  onClick={() => scrollToId("offer", "click_allergy_shift_eyebrow")}
+                  className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60 cursor-pointer hover:text-foreground transition-colors"
+                >
+                  The shift →
+                </button>
                 <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
                   Clean air is only{" "}
-                  <span className="italic font-normal text-foreground/70" style={ITALIC_FONT}>
+                  <button
+                    type="button"
+                    onClick={() => scrollToId("offer", "click_allergy_halfroom")}
+                    className="italic font-normal text-foreground/70 cursor-pointer hover:text-foreground transition-colors underline-offset-8 decoration-1 hover:underline"
+                    style={ITALIC_FONT}
+                  >
                     half the room.
-                  </span>
+                  </button>
                 </h2>
+
                 <p className="mx-auto mt-6 max-w-[680px] text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.2rem]">
                   Traditional air purifiers wait for airborne particles to pass through the unit.
                   EnviroBiotics works differently. It releases environmental probiotics into the
