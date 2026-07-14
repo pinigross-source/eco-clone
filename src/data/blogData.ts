@@ -956,7 +956,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "e-biotic-pro-whole-home-guide",
     title: "E-Biotic Pro Complete Guide: Whole-Home HVAC Probiotic Protection",
-    description: "The E-Biotic Pro disperses Bacillus probiotics through your HVAC to cover up to 25,000 sq ft. Here's how it works, what installation involves, and the real cost.",
+    description: "The E-Biotic Pro disperses probiotics through your HVAC to cover up to 25,000 sq ft. Here's how it works, what installation involves, and the real cost.",
     image: ebioticProHeroImg,
     category: "blog",
     tags: ["hvac", "whole-home", "e-biotic-pro", "probiotic", "air-purifier", "surface-treatment"],
