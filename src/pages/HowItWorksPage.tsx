@@ -181,27 +181,42 @@ const HowItWorksPage = () => {
 
           {/* Mobile hero image (above text), hides desktop background */}
           <div className="mb-8 w-full md:hidden">
-            <img
-              src={techHeroMobile.url}
-              alt="EnviroBiotics technology"
-              className="block w-full h-auto"
-              loading="eager"
-              fetchPriority="high"
-            />
+            <button
+              type="button"
+              onClick={() => setVideoOpen(true)}
+              aria-label="Play: Watch how EnviroBiotics technology works"
+              className="group block w-full cursor-pointer"
+            >
+              <img
+                src={techHeroMobile.url}
+                alt="EnviroBiotics technology  tap to play video"
+                className="block w-full h-auto transition-opacity duration-300 group-hover:opacity-95"
+                loading="eager"
+                fetchPriority="high"
+              />
+            </button>
           </div>
 
           {/* Full-bleed lifestyle image above the hero text (desktop/tablet) */}
           <div className="mb-12 md:mb-16 w-full hidden md:block">
-            <img
-              src={heroSpacesWave.url}
-              alt="Living room, bedroom, classroom, office, and lobby spaces connected by a flowing biomic mist"
-              className="block w-full h-auto"
-              width={1920}
-              height={800}
-              loading="eager"
-              fetchPriority="high"
-            />
+            <button
+              type="button"
+              onClick={() => setVideoOpen(true)}
+              aria-label="Play: Watch how EnviroBiotics technology works"
+              className="group block w-full cursor-pointer"
+            >
+              <img
+                src={heroSpacesWave.url}
+                alt="Living room, bedroom, classroom, office, and lobby spaces connected by a flowing biomic mist  click to play video"
+                className="block w-full h-auto transition-opacity duration-300 group-hover:opacity-95"
+                width={1920}
+                height={800}
+                loading="eager"
+                fetchPriority="high"
+              />
+            </button>
           </div>
+
 
           <div className="relative container max-w-5xl mx-auto px-5 md:px-8 text-center">
 
