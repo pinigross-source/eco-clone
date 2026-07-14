@@ -36,6 +36,7 @@ import probioticRoomSprayAsset from "@/assets/blog/probiotic-room-spray-hero.avi
 const probioticRoomSprayImg = probioticRoomSprayAsset.url;
 import biologicMiniHeroAsset from "@/assets/blog/biologic-mini-hero.avif.asset.json";
 const biologicMiniHeroImg = biologicMiniHeroAsset.url;
+import ebioticProHeroImg from "@/assets/ebiotic-pro-lifestyle-v4.avif";
 
 export const blogPosts: BlogPost[] = [
   {
