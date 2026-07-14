@@ -216,10 +216,17 @@ const AllergyLandingPage = () => {
             <Reveal>
               <h1 className="font-display font-semibold text-foreground tracking-[-0.04em] text-[clamp(2.75rem,8.5vw,3.5rem)] leading-[1.02] sm:text-[clamp(3.75rem,7vw,5.5rem)] sm:leading-[1.0] lg:text-[clamp(4.5rem,5.5vw,6.5rem)]">
                 Your air purifier
-                <span className="block mt-1 sm:mt-2 italic" style={ITALIC_FONT}>
+                <button
+                  type="button"
+                  onClick={() => scrollToId("how-it-works", "click_allergy_hero_headline")}
+                  className="block mt-1 sm:mt-2 italic w-full text-center cursor-pointer transition-opacity hover:opacity-70 focus:outline-none focus-visible:underline underline-offset-8 decoration-1"
+                  style={ITALIC_FONT}
+                  aria-label="See how EnviroBiotics treats surfaces"
+                >
                   can&apos;t clean your mattress.
-                </span>
+                </button>
               </h1>
+
             </Reveal>
             <Reveal>
               <p className="mx-auto mt-6 max-w-[36rem] text-[1.05rem] font-normal leading-[1.55] text-foreground/70 sm:mt-8 sm:max-w-[42rem] sm:text-[1.2rem] sm:leading-[1.5]">
