@@ -421,20 +421,27 @@ const HVACPage = () => {
         {/* Hero Section  full-bleed Sonos style */}
         <section className="relative w-full overflow-hidden pt-16 sm:pt-20">
           <div className="relative min-h-[78vh] md:min-h-[88vh] w-full">
-            <img
-              src={hvacBuildingLungsBg}
-              alt="HVAC building system as the respiratory system of a modern building"
-              className="absolute inset-0 h-full w-full object-cover"
-              width={1920}
-              height={1280}
-              fetchPriority="high"
-              loading="eager"
-              decoding="async"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent md:bg-gradient-to-r md:from-black/65 md:via-black/25 md:to-transparent"
-            />
+            <a
+              href="#ebiotic-pro"
+              aria-label="Explore E-Biotic Pro"
+              className="absolute inset-0 block group"
+            >
+              <img
+                src={hvacBuildingLungsBg}
+                alt="HVAC building system as the respiratory system of a modern building  click to explore E-Biotic Pro"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                width={1920}
+                height={1280}
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+              />
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent md:bg-gradient-to-r md:from-black/65 md:via-black/25 md:to-transparent"
+              />
+            </a>
+
             <div className="relative z-10 flex min-h-[78vh] md:min-h-[88vh] items-end md:items-center">
               <div className="container px-5 sm:px-6 pb-12 md:pb-0">
                 <div className="max-w-3xl text-white" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.45)" }}>
