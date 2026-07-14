@@ -179,6 +179,12 @@ const AllergyLandingPage = () => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+  const scrollToId = (id: string, eventName?: string) => {
+    if (eventName) trackEvent(eventName);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
 
   return (
     <>
