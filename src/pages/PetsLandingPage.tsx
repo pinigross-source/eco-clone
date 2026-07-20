@@ -186,6 +186,10 @@ const PetsLandingPage = () => {
                   alt="Golden retriever resting on a cream sofa in a sunlit pastel living room"
                   className="h-full w-full object-cover"
                   fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
+                  width={1280}
+                  height={880}
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 -z-10 h-32 w-32 rounded-full bg-indigo-100/40 blur-3xl" />
