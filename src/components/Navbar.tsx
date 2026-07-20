@@ -37,7 +37,7 @@ const navLinks: NavItem[] = [
     dropdown: [
       { label: "BioLogic Mini", href: "https://shop.envirobiotics.com/products/biologic-mini" },
       { label: "Biotica 800", href: "https://shop.envirobiotics.com/products/biotica-800" },
-      { label: "E Biotic - Home", href: "/hvac#ebiotic-pro" },
+      { label: "E-Biotic Pro", href: "/hvac#ebiotic-pro" },
       { label: "Subscribe & Save", href: "/subscribe" },
     ],
   },
