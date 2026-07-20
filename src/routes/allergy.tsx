@@ -19,7 +19,15 @@ export const Route = createFileRoute("/allergy")({
       { property: "og:url", content: "https://envirobiotics.com/allergy" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://envirobiotics.com/allergy" }],
+    links: [
+      { rel: "canonical", href: "https://envirobiotics.com/allergy" },
+      {
+        rel: "preload",
+        as: "image",
+        href: "/__l5e/assets-v1/6c262e2f-f458-4ebc-8289-d5d6fe9c9f32/allergy-hero.avif",
+        fetchpriority: "high",
+      },
+    ],
   }),
   component: Page,
 });
