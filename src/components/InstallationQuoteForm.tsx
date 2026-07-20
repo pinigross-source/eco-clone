@@ -65,14 +65,7 @@ const InstallationQuoteFormInner = ({ productName, trigger }: InstallationQuoteF
   const onSubmit = async (data: QuoteFormData) => {
     setIsSubmitting(true);
     try {
-      let recaptchaToken = "";
-      if (executeRecaptcha) {
-        try {
-          recaptchaToken = await executeRecaptcha("installation_quote");
-        } catch (recaptchaError) {
-          console.warn("reCAPTCHA failed, proceeding without token:", recaptchaError);
-        }
-      }
+
 
       const message = `
 Phone: ${data.phone}
