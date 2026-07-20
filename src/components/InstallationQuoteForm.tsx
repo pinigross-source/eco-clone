@@ -50,7 +50,7 @@ const InstallationQuoteFormInner = ({ productName, trigger }: InstallationQuoteF
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  
 
   const {
     register,
