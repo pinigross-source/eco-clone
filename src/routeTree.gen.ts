@@ -89,6 +89,7 @@ import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AffIdRouteImport } from './routes/aff.$id'
 import { Route as ProsubAffIdRouteImport } from './routes/prosub.aff.$id'
+import { Route as ApiPublicInstallationQuoteRouteImport } from './routes/api/public/installation-quote'
 import { Route as ApiPublicComingSoonRouteImport } from './routes/api/public/coming-soon'
 
 const WarrantyPolicyRoute = WarrantyPolicyRouteImport.update({
@@ -495,6 +496,12 @@ const ProsubAffIdRoute = ProsubAffIdRouteImport.update({
   path: '/aff/$id',
   getParentRoute: () => ProsubRoute,
 } as any)
+const ApiPublicInstallationQuoteRoute =
+  ApiPublicInstallationQuoteRouteImport.update({
+    id: '/api/public/installation-quote',
+    path: '/api/public/installation-quote',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicComingSoonRoute = ApiPublicComingSoonRouteImport.update({
   id: '/api/public/coming-soon',
   path: '/api/public/coming-soon',
@@ -582,6 +589,7 @@ export interface FileRoutesByFullPath {
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog/': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
+  '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
   '/prosub/aff/$id': typeof ProsubAffIdRoute
 }
 export interface FileRoutesByTo {
@@ -665,6 +673,7 @@ export interface FileRoutesByTo {
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
+  '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
   '/prosub/aff/$id': typeof ProsubAffIdRoute
 }
 export interface FileRoutesById {
@@ -749,6 +758,7 @@ export interface FileRoutesById {
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog/': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
+  '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
   '/prosub/aff/$id': typeof ProsubAffIdRoute
 }
 export interface FileRouteTypes {
@@ -834,6 +844,7 @@ export interface FileRouteTypes {
     | '/solutions/room'
     | '/blog/'
     | '/api/public/coming-soon'
+    | '/api/public/installation-quote'
     | '/prosub/aff/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -917,6 +928,7 @@ export interface FileRouteTypes {
     | '/solutions/room'
     | '/blog'
     | '/api/public/coming-soon'
+    | '/api/public/installation-quote'
     | '/prosub/aff/$id'
   id:
     | '__root__'
@@ -1000,6 +1012,7 @@ export interface FileRouteTypes {
     | '/solutions/room'
     | '/blog/'
     | '/api/public/coming-soon'
+    | '/api/public/installation-quote'
     | '/prosub/aff/$id'
   fileRoutesById: FileRoutesById
 }
@@ -1082,6 +1095,7 @@ export interface RootRouteChildren {
   ProductSlugRoute: typeof ProductSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   ApiPublicComingSoonRoute: typeof ApiPublicComingSoonRoute
+  ApiPublicInstallationQuoteRoute: typeof ApiPublicInstallationQuoteRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1646,6 +1660,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProsubAffIdRouteImport
       parentRoute: typeof ProsubRoute
     }
+    '/api/public/installation-quote': {
+      id: '/api/public/installation-quote'
+      path: '/api/public/installation-quote'
+      fullPath: '/api/public/installation-quote'
+      preLoaderRoute: typeof ApiPublicInstallationQuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/coming-soon': {
       id: '/api/public/coming-soon'
       path: '/api/public/coming-soon'
@@ -1770,6 +1791,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProductSlugRoute: ProductSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   ApiPublicComingSoonRoute: ApiPublicComingSoonRoute,
+  ApiPublicInstallationQuoteRoute: ApiPublicInstallationQuoteRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

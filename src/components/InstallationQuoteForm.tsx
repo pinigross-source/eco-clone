@@ -84,18 +84,18 @@ Additional Message:
 ${data.message || "No additional message provided."}
       `.trim();
 
-      const { data: response, error } = await supabase.functions.invoke("send-contact-email", {
-        body: {
+      const res = await fetch("/api/public/installation-quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           name: `${data.firstName} ${data.lastName}`,
           email: data.email,
           subject: `Installation Quote Request - ${productName}`,
           message,
-          recaptchaToken,
-        },
+        }),
       });
-
-      if (error) throw error;
-      if (response && !response.success) throw new Error(response.error || "Submission failed");
+      const response = await res.json().catch(() => ({}));
+      if (!res.ok || !response.success) throw new Error(response.error || "Submission failed");
 
       setIsSuccess(true);
       toast.success("Quote request submitted! We'll contact you within 24 hours.");
