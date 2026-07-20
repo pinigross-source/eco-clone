@@ -307,7 +307,6 @@ ${data.message || "No additional message provided."}
 };
 
 export const InstallationQuoteForm = (props: InstallationQuoteFormProps) => (
-  <GoogleReCaptchaProvider reCaptchaKey={RECAPTCHA_SITE_KEY}>
-    <InstallationQuoteFormInner {...props} />
-  </GoogleReCaptchaProvider>
+  <InstallationQuoteFormInner {...props} />
 );
+
