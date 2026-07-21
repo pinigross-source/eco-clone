@@ -247,9 +247,11 @@ const WellnessLandingPage = () => {
                 className="mt-7 max-w-[46ch] text-[16px] leading-[1.65] sm:text-[17.5px]"
                 style={{ color: C.muted }}
               >
-                EnviroBiotics brings living, beneficial microbes into your home
-               , supporting the health of your space, your sleep, and your
-                whole-body wellness.
+                You eat well. You exercise. You prioritize sleep, hydration, and recovery.
+                <br /><br />
+                EnviroBiotics adds the environmental layer to your routine, using beneficial probiotics to continuously support the air, surfaces, fabrics, and objects around you.
+                <br /><br />
+                No harsh sprays. No noisy fan. No extra daily task.
               </p>
 
               <div className="mt-9 flex flex-wrap items-center gap-3">
