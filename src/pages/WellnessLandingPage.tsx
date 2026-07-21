@@ -58,8 +58,11 @@ const C = {
   orange: "#F68B45",
 };
 
-const SERIF = `"Instrument Serif", "Playfair Display", Georgia, serif`;
+const DISPLAY = `"Manrope", "Inter", system-ui, -apple-system, sans-serif`;
+const ITALIC_SERIF = `"Instrument Serif", "Playfair Display", Georgia, serif`;
 const SANS = `"Inter", "Hanken Grotesk", system-ui, -apple-system, sans-serif`;
+// Legacy alias kept so existing heading styles pick up the new Sonos-style sans.
+const SERIF = DISPLAY;
 
 /* ---------- Small primitives ---------- */
 const Eyebrow = ({ children, light = false }: { children: React.ReactNode; light?: boolean }) => (
@@ -82,12 +85,13 @@ const H2 = ({
   style?: React.CSSProperties;
 }) => (
   <h2
-    className={`font-normal ${className}`}
+    className={`font-bold ${className}`}
     style={{
-      fontFamily: SERIF,
+      fontFamily: DISPLAY,
+      fontWeight: 800,
       fontSize: "clamp(2.4rem, 5vw, 4.25rem)",
       lineHeight: 1.02,
-      letterSpacing: "-0.015em",
+      letterSpacing: "-0.025em",
       color: C.charcoal,
       ...style,
     }}
@@ -208,9 +212,10 @@ const WellnessLandingPage = () => {
               <Eyebrow>Environmental Wellness</Eyebrow>
 
               <h1
-                className="mt-7 font-normal"
+                className="mt-7 font-bold"
                 style={{
-                  fontFamily: SERIF,
+                  fontFamily: DISPLAY,
+                  fontWeight: 800,
                   fontSize: "clamp(2.75rem, 6.4vw, 5.75rem)",
                   lineHeight: 0.98,
                   letterSpacing: "-0.02em",
@@ -218,8 +223,9 @@ const WellnessLandingPage = () => {
                 }}
               >
                 Your wellness routine
-                <span className="block italic" style={{ color: C.green }}>
-                  shouldn&rsquo;t end at your skin.
+                shouldn&rsquo;t end at your{" "}
+                <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>
+                  skin.
                 </span>
               </h1>
 
@@ -327,7 +333,7 @@ const WellnessLandingPage = () => {
                 <Eyebrow>The wellness gap</Eyebrow>
                 <H2 className="mt-6">
                   You&rsquo;ve optimized your body.
-                  <span className="italic" style={{ color: C.green }}> What about the room around it?</span>
+                   What about the room around <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>it?</span>
                 </H2>
               </Reveal>
             </div>
@@ -523,7 +529,7 @@ const WellnessLandingPage = () => {
               <Eyebrow>How it works</Eyebrow>
               <H2 className="mt-6" style={{ fontSize: "clamp(2.2rem, 4.4vw, 3.6rem)" }}>
                 Setup in about a minute.
-                <span className="italic" style={{ color: C.green }}> Then it just runs.</span>
+                 Then it just <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>runs.</span>
               </H2>
             </Reveal>
 
@@ -562,7 +568,7 @@ const WellnessLandingPage = () => {
               <Eyebrow>The recommended system</Eyebrow>
               <H2 className="mx-auto mt-6 max-w-[20ch]">
                 The Environmental
-                <span className="italic" style={{ color: C.green }}> Wellness System.</span>
+                 Wellness <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>System.</span>
               </H2>
             </Reveal>
 
@@ -606,7 +612,7 @@ const WellnessLandingPage = () => {
                     className="font-normal"
                     style={{ fontFamily: SERIF, fontSize: "clamp(1.85rem, 3vw, 2.5rem)", lineHeight: 1.1, color: C.charcoal }}
                   >
-                    Main living area <span className="italic" style={{ color: C.green }}>+</span> one bedroom.
+                    Main living area <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>+</span> one bedroom.
                   </h3>
                   <p className="mt-4 text-[15.5px] leading-[1.65]" style={{ color: C.muted }}>
                     One Biotica 800 for where you live. One BioLogic Mini for
@@ -808,7 +814,7 @@ const WellnessLandingPage = () => {
               <Eyebrow>Verified proof</Eyebrow>
               <H2 className="mt-6" style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
                 Independently certified.
-                <span className="italic" style={{ color: C.green }}> Safe by design.</span>
+                 Safe by <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>design.</span>
               </H2>
               <p className="mx-auto mt-6 max-w-[52ch] text-[16px] leading-[1.7]" style={{ color: C.muted }}>
                 Probiotic strains collected from nature, unmodified, and free
@@ -897,7 +903,7 @@ const WellnessLandingPage = () => {
               style={{ fontFamily: SERIF, fontSize: "clamp(2.4rem, 5vw, 4rem)", lineHeight: 1.05, letterSpacing: "-0.015em" }}
             >
               Try the Wellness Reset for
-              <span className="italic" style={{ color: C.sage }}> thirty days.</span>
+               thirty <span className="italic font-normal" style={{ color: C.sage, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>days.</span>
             </h2>
             <p className="mx-auto mt-6 max-w-[54ch] text-[16.5px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.78)" }}>
               If your rooms don&rsquo;t feel cleaner, fresher, and more
@@ -922,7 +928,7 @@ const WellnessLandingPage = () => {
               <Eyebrow>Support</Eyebrow>
               <H2 className="mt-6" style={{ fontSize: "clamp(2rem, 3.8vw, 3rem)" }}>
                 Wellness questions,
-                <span className="italic" style={{ color: C.green }}> answered.</span>
+                 <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>answered.</span>
               </H2>
             </div>
             <div className="lg:col-span-7">
@@ -993,7 +999,7 @@ const WellnessLandingPage = () => {
               }}
             >
               The layer of wellness the rest of your routine has been
-              <span className="italic" style={{ color: C.green }}> waiting for.</span>
+               waiting <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>for.</span>
             </h2>
             <p className="mx-auto mt-6 max-w-[54ch] text-[16.5px] leading-[1.7]" style={{ color: C.muted }}>
               Set it up in about a minute. Let the air and surfaces of your
