@@ -681,7 +681,7 @@ const WellnessLandingPage = () => {
                       className="ml-1 rounded-full px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.2em]"
                       style={{ background: C.sage, color: C.green, fontFamily: DISPLAY }}
                     >
-                      Save {PRICING.bundle.save}
+                      {PRICING.bundle.save}
                     </span>
                   </div>
 
