@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WellnessRouteImport } from './routes/wellness'
 import { Route as WarrantyPolicyRouteImport } from './routes/warranty-policy'
 import { Route as VideosRouteImport } from './routes/videos'
 import { Route as TermsRouteImport } from './routes/terms'
@@ -92,6 +93,11 @@ import { Route as ProsubAffIdRouteImport } from './routes/prosub.aff.$id'
 import { Route as ApiPublicInstallationQuoteRouteImport } from './routes/api/public/installation-quote'
 import { Route as ApiPublicComingSoonRouteImport } from './routes/api/public/coming-soon'
 
+const WellnessRoute = WellnessRouteImport.update({
+  id: '/wellness',
+  path: '/wellness',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WarrantyPolicyRoute = WarrantyPolicyRouteImport.update({
   id: '/warranty-policy',
   path: '/warranty-policy',
@@ -572,6 +578,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/videos': typeof VideosRoute
   '/warranty-policy': typeof WarrantyPolicyRoute
+  '/wellness': typeof WellnessRoute
   '/aff/$id': typeof AffIdRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -656,6 +663,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/videos': typeof VideosRoute
   '/warranty-policy': typeof WarrantyPolicyRoute
+  '/wellness': typeof WellnessRoute
   '/aff/$id': typeof AffIdRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -741,6 +749,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/videos': typeof VideosRoute
   '/warranty-policy': typeof WarrantyPolicyRoute
+  '/wellness': typeof WellnessRoute
   '/aff/$id': typeof AffIdRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -827,6 +836,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/videos'
     | '/warranty-policy'
+    | '/wellness'
     | '/aff/$id'
     | '/blog/$slug'
     | '/case-studies/$slug'
@@ -911,6 +921,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/videos'
     | '/warranty-policy'
+    | '/wellness'
     | '/aff/$id'
     | '/blog/$slug'
     | '/case-studies/$slug'
@@ -995,6 +1006,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/videos'
     | '/warranty-policy'
+    | '/wellness'
     | '/aff/$id'
     | '/blog/$slug'
     | '/case-studies/$slug'
@@ -1080,6 +1092,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   VideosRoute: typeof VideosRoute
   WarrantyPolicyRoute: typeof WarrantyPolicyRoute
+  WellnessRoute: typeof WellnessRoute
   AffIdRoute: typeof AffIdRoute
   BlogSlugRoute: typeof BlogSlugRoute
   CompareBetterairVsBlueairRoute: typeof CompareBetterairVsBlueairRoute
@@ -1100,6 +1113,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wellness': {
+      id: '/wellness'
+      path: '/wellness'
+      fullPath: '/wellness'
+      preLoaderRoute: typeof WellnessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/warranty-policy': {
       id: '/warranty-policy'
       path: '/warranty-policy'
@@ -1776,6 +1796,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   VideosRoute: VideosRoute,
   WarrantyPolicyRoute: WarrantyPolicyRoute,
+  WellnessRoute: WellnessRoute,
   AffIdRoute: AffIdRoute,
   BlogSlugRoute: BlogSlugRoute,
   CompareBetterairVsBlueairRoute: CompareBetterairVsBlueairRoute,
