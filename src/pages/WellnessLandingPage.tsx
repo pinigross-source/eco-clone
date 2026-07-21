@@ -48,9 +48,9 @@ const withDiscount = (url: string, code = PROMO) =>
   `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
 
 const PRICING = {
-  bundle: { price: "$595", compare: "$744", save: "$149" },
-  biotica: { price: "$495" },
-  mini: { price: "$249" },
+  bundle: { price: "$395", compare: "$744495", save: "$100" },
+  biotica: { price: "$299" },
+  mini: { price: "$98" },
 };
 
 const URLS = {
@@ -247,9 +247,11 @@ const WellnessLandingPage = () => {
                 className="mt-7 max-w-[46ch] text-[16px] leading-[1.65] sm:text-[17.5px]"
                 style={{ color: C.muted }}
               >
-                EnviroBiotics brings living, beneficial microbes into your home
-               , supporting the health of your space, your sleep, and your
-                whole-body wellness.
+                You eat well. You exercise. You prioritize sleep, hydration, and recovery.
+                <br /><br />
+                EnviroBiotics adds the environmental layer to your routine, using beneficial probiotics to continuously support the air, surfaces, fabrics, and objects around you.
+                <br /><br />
+                No harsh sprays. No noisy fan. No extra daily task.
               </p>
 
               <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -679,7 +681,7 @@ const WellnessLandingPage = () => {
                       className="ml-1 rounded-full px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.2em]"
                       style={{ background: C.sage, color: C.green, fontFamily: DISPLAY }}
                     >
-                      Save {PRICING.bundle.save}
+                      {PRICING.bundle.save}
                     </span>
                   </div>
 
