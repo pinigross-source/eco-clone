@@ -1,7 +1,22 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { ArrowRight, Check, X, ShoppingBag, Leaf, Wind, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  X,
+  ShoppingBag,
+  Wind,
+  Sun,
+  Moon,
+  Leaf,
+  SprayCan,
+  Filter,
+  Volume2,
+  Feather,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
@@ -33,9 +48,9 @@ const withDiscount = (url: string, code = PROMO) =>
   `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
 
 const PRICING = {
-  bundle: { price: "$395", compare: "$495" },
-  biotica: { price: "$299" },
-  mini: { price: "$98" },
+  bundle: { price: "$595", compare: "$744", save: "$149" },
+  biotica: { price: "$495" },
+  mini: { price: "$249" },
 };
 
 const URLS = {
@@ -49,48 +64,41 @@ const C = {
   ivory: "#F7F4EE",
   sand: "#EDE7DD",
   offwhite: "#FCFBF8",
+  white: "#FFFFFF",
   sage: "#DCE7DD",
   green: "#2F5A4B",
   greenDeep: "#243F35",
+  brownBand: "#A18869",
+  brownBandDeep: "#8B6F52",
   charcoal: "#1F2933",
+  softInk: "#2B3138",
   muted: "rgba(31,41,51,0.66)",
-  hairline: "rgba(31,41,51,0.12)",
+  mutedSoft: "rgba(31,41,51,0.52)",
+  hairline: "rgba(31,41,51,0.10)",
+  hairlineStrong: "rgba(31,41,51,0.16)",
   orange: "#F68B45",
+  orangeDeep: "#E4762E",
 };
 
 const DISPLAY = `"Manrope", "Inter", system-ui, -apple-system, sans-serif`;
 const ITALIC_SERIF = `"Instrument Serif", "Playfair Display", Georgia, serif`;
 const SANS = `"Inter", "Hanken Grotesk", system-ui, -apple-system, sans-serif`;
-// Legacy alias kept so existing heading styles pick up the new Sonos-style sans.
-const SERIF = DISPLAY;
 
 /* ---------- Small primitives ---------- */
-const Eyebrow = ({ children, light = false }: { children: React.ReactNode; light?: boolean }) => (
-  <div
-    className="inline-flex items-center gap-2.5 text-[10.5px] font-medium uppercase tracking-[0.32em]"
-    style={{ color: light ? "rgba(255,255,255,0.72)" : C.green }}
-  >
-    <span className="h-px w-6" style={{ background: light ? "rgba(255,255,255,0.4)" : C.green }} />
-    {children}
-  </div>
-);
-
-const H2 = ({
-  children,
-  className = "",
-  style = {},
-}: {
+type HeadingProps = {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-}) => (
+};
+
+const H2 = ({ children, className = "", style = {} }: HeadingProps) => (
   <h2
     className={`font-bold ${className}`}
     style={{
       fontFamily: DISPLAY,
       fontWeight: 800,
-      fontSize: "clamp(2.4rem, 5vw, 4.25rem)",
-      lineHeight: 1.02,
+      fontSize: "clamp(2.1rem, 4vw, 3.4rem)",
+      lineHeight: 1.05,
       letterSpacing: "-0.025em",
       color: C.charcoal,
       ...style,
@@ -98,6 +106,21 @@ const H2 = ({
   >
     {children}
   </h2>
+);
+
+const Ital = ({
+  children,
+  color = C.green,
+}: {
+  children: React.ReactNode;
+  color?: string;
+}) => (
+  <span
+    className="italic font-normal"
+    style={{ fontFamily: ITALIC_SERIF, fontWeight: 400, color }}
+  >
+    {children}
+  </span>
 );
 
 const PrimaryCTA = ({
@@ -114,41 +137,43 @@ const PrimaryCTA = ({
   <a
     href={href}
     onClick={onClick}
-    className={`group inline-flex items-center justify-center gap-2 rounded-full px-8 py-[15px] text-[13px] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_18px_36px_-14px_rgba(246,139,69,0.55)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_-14px_rgba(246,139,69,0.7)] ${className}`}
-    style={{ background: C.orange }}
+    className={`group inline-flex items-center justify-center gap-2 rounded-full px-7 py-[14px] text-[12.5px] font-bold uppercase tracking-[0.16em] text-white shadow-[0_14px_30px_-12px_rgba(228,118,46,0.55)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(228,118,46,0.75)] ${className}`}
+    style={{ background: C.orange, fontFamily: DISPLAY }}
   >
     {children}
-    <ArrowRight className="ml-0.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
   </a>
 );
 
-const GhostCTA = ({
+const OutlineCTA = ({
   href,
   onClick,
   children,
-  dark = false,
+  variant = "dark",
   className = "",
 }: {
   href: string;
   onClick?: () => void;
   children: React.ReactNode;
-  dark?: boolean;
+  variant?: "dark" | "light";
   className?: string;
-}) => (
-  <a
-    href={href}
-    onClick={onClick}
-    className={`inline-flex items-center gap-2 text-[12.5px] font-semibold uppercase tracking-[0.22em] transition-colors ${className}`}
-    style={{
-      color: dark ? "rgba(255,255,255,0.9)" : C.charcoal,
-      borderBottom: `1px solid ${dark ? "rgba(255,255,255,0.5)" : "rgba(31,41,51,0.35)"}`,
-      paddingBottom: "6px",
-    }}
-  >
-    {children}
-    <ArrowRight className="h-3.5 w-3.5" />
-  </a>
-);
+}) => {
+  const isLight = variant === "light";
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      className={`inline-flex items-center justify-center gap-2 rounded-full border px-7 py-[14px] text-[12.5px] font-bold uppercase tracking-[0.16em] transition-colors ${className}`}
+      style={{
+        fontFamily: DISPLAY,
+        color: isLight ? "#fff" : C.charcoal,
+        borderColor: isLight ? "rgba(255,255,255,0.65)" : C.hairlineStrong,
+        background: isLight ? "transparent" : C.white,
+      }}
+    >
+      {children}
+    </a>
+  );
+};
 
 const Reveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
   const [visible, setVisible] = useState(false);
@@ -165,7 +190,7 @@ const Reveal = ({ children, className = "" }: { children: React.ReactNode; class
   return (
     <div
       ref={setRef}
-      className={`transition-all duration-[900ms] ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"} ${className}`}
+      className={`transition-all duration-[800ms] ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"} ${className}`}
     >
       {children}
     </div>
@@ -186,7 +211,7 @@ const WellnessLandingPage = () => {
     <>
       <SEOHead
         title="Environmental Wellness for Your Home | EnviroBiotics"
-        description="Your wellness routine shouldn't end at your skin. EnviroBiotics is the missing environmental layer — continuous probiotic support for the air and surfaces of your main living area and bedroom."
+        description="Your wellness routine shouldn't end at your skin. EnviroBiotics is the missing environmental layer — living, beneficial microbes for the air and surfaces of the rooms you actually live in."
         path="/wellness"
       />
 
@@ -196,364 +221,139 @@ const WellnessLandingPage = () => {
         className="pt-16 lg:pt-[124px]"
         style={{ fontFamily: SANS, background: C.ivory, color: C.charcoal }}
       >
-        {/* ============ HERO ============ */}
-        <section className="relative overflow-hidden" style={{ background: C.ivory }}>
-          {/* Warm ambient background wash */}
-          <div
-            className="pointer-events-none absolute inset-0 -z-0"
-            style={{
-              background:
-                "radial-gradient(1000px 500px at 88% 8%, rgba(246,139,69,0.10), transparent 60%), radial-gradient(900px 500px at 5% 100%, rgba(220,231,221,0.55), transparent 65%)",
-            }}
-          />
-          <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-12 px-5 pb-16 pt-10 sm:px-8 sm:pb-24 sm:pt-14 lg:grid-cols-[1.05fr_1fr] lg:gap-20 lg:px-14 lg:pb-32 lg:pt-16">
+        {/* ============================================================
+           HERO — split, text left, lifestyle image right, chip trust row
+           ============================================================ */}
+        <section style={{ background: C.ivory }}>
+          <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-stretch gap-0 lg:grid-cols-[1.05fr_1fr]">
             {/* Copy */}
-            <div className="order-2 lg:order-1">
-              <Eyebrow>Environmental Wellness</Eyebrow>
-
+            <div className="order-2 flex flex-col justify-center px-5 pb-14 pt-10 sm:px-10 sm:pb-20 sm:pt-14 lg:order-1 lg:px-16 lg:py-24">
               <h1
-                className="mt-7 font-bold"
+                className="font-bold"
                 style={{
                   fontFamily: DISPLAY,
                   fontWeight: 800,
-                  fontSize: "clamp(2.75rem, 6.4vw, 5.75rem)",
-                  lineHeight: 0.98,
-                  letterSpacing: "-0.02em",
+                  fontSize: "clamp(2.5rem, 5.6vw, 4.75rem)",
+                  lineHeight: 1.02,
+                  letterSpacing: "-0.03em",
                   color: C.charcoal,
+                  maxWidth: "18ch",
                 }}
               >
-                Your wellness routine
-                shouldn&rsquo;t end at your{" "}
-                <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>
-                  skin.
-                </span>
+                Your wellness routine shouldn&rsquo;t end at your <Ital>skin.</Ital>
               </h1>
 
               <p
-                className="mt-8 max-w-[46ch] text-[17px] leading-[1.65] sm:text-[18px]"
+                className="mt-7 max-w-[46ch] text-[16px] leading-[1.65] sm:text-[17.5px]"
                 style={{ color: C.muted }}
               >
-                You eat clean. You move daily. You choose low-tox products.
-                EnviroBiotics is the missing environmental layer — continuous
-                probiotic support for the air and surfaces of the rooms you
-                actually live in.
+                EnviroBiotics brings living, beneficial microbes into your home
+                — supporting the health of your space, your sleep, and your
+                whole-body wellness.
               </p>
 
-              <div className="mt-10 flex flex-wrap items-center gap-5">
+              <div className="mt-9 flex flex-wrap items-center gap-3">
                 <PrimaryCTA
                   href="#offer"
                   onClick={(() => trackEvent("click_wellness_hero_primary")) as any}
                 >
-                  Complete My Routine
+                  Shop the System
                 </PrimaryCTA>
-                <GhostCTA
+                <OutlineCTA
                   href="#how"
                   onClick={(() => trackEvent("click_wellness_hero_secondary")) as any}
                 >
-                  See how it works
-                </GhostCTA>
+                  How It Works
+                </OutlineCTA>
               </div>
 
-              {/* Trust strip */}
+              {/* Trust chips */}
               <div
-                className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 border-t pt-6 text-[12.5px]"
-                style={{ borderColor: C.hairline, color: "rgba(31,41,51,0.62)" }}
+                className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-[12.5px]"
+                style={{ color: C.mutedSoft }}
               >
-                <span className="inline-flex items-center gap-2">
-                  <Check className="h-3.5 w-3.5" strokeWidth={3} style={{ color: C.green }} />
-                  Setup in ~60 seconds
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <Check className="h-3.5 w-3.5" strokeWidth={3} style={{ color: C.green }} />
-                  No sprays, no filters
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <Check className="h-3.5 w-3.5" strokeWidth={3} style={{ color: C.green }} />
-                  30-day guarantee
-                </span>
+                {[
+                  { icon: Feather, label: "Intentionally designed" },
+                  { icon: Sun, label: "For better living" },
+                  { icon: ShieldCheck, label: "Backed by science" },
+                ].map(({ icon: Icon, label }) => (
+                  <span key={label} className="inline-flex items-center gap-2">
+                    <Icon className="h-3.5 w-3.5" strokeWidth={1.6} style={{ color: C.green }} />
+                    {label}
+                  </span>
+                ))}
               </div>
             </div>
 
             {/* Image */}
             <div className="order-1 lg:order-2">
-              <div className="relative">
-                {/* Sage backdrop card */}
-                <div
-                  className="absolute -inset-x-3 -inset-y-3 rounded-[36px] sm:-inset-4"
-                  style={{ background: C.sage, opacity: 0.55 }}
-                />
-                <div
-                  className="relative aspect-[4/5] overflow-hidden rounded-[28px] sm:aspect-[5/6] sm:rounded-[32px]"
-                  style={{ boxShadow: "0 40px 80px -40px rgba(31,41,51,0.35)" }}
-                >
-                  <img
-                    src={heroImage.url}
-                    alt="Sunlit Scandinavian bedroom with a woman stretching in morning light, an EnviroBiotics device on a light oak nightstand"
-                    className="h-full w-full object-cover"
-                    fetchPriority="high"
-                    loading="eager"
-                    decoding="async"
-                    width={1200}
-                    height={1500}
-                  />
-                </div>
-
-                {/* Floating quote card */}
-                <div
-                  className="absolute -bottom-8 -left-4 hidden max-w-[280px] rounded-2xl p-5 sm:block lg:-left-10"
-                  style={{
-                    background: C.offwhite,
-                    boxShadow: "0 24px 60px -24px rgba(31,41,51,0.25)",
-                    border: `1px solid ${C.hairline}`,
-                  }}
-                >
-                  <p
-                    className="text-[15px] italic leading-snug"
-                    style={{ fontFamily: SERIF, color: C.charcoal }}
-                  >
-                    &ldquo;It&rsquo;s the layer of my wellness routine I didn&rsquo;t know was missing.&rdquo;
-                  </p>
-                  <p
-                    className="mt-3 text-[10.5px] font-semibold uppercase tracking-[0.22em]"
-                    style={{ color: C.green }}
-                  >
-                    — Verified customer
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ============ PROBLEM — editorial two column ============ */}
-        <section className="relative py-24 sm:py-32" style={{ background: C.offwhite }}>
-          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-12 lg:gap-24 lg:px-16">
-            <div className="lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
-              <Reveal>
-                <Eyebrow>The wellness gap</Eyebrow>
-                <H2 className="mt-6">
-                  You&rsquo;ve optimized your body.
-                   What about the room around <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>it?</span>
-                </H2>
-              </Reveal>
-            </div>
-
-            <div className="lg:col-span-7">
-              <Reveal>
-                <p
-                  className="text-[19px] leading-[1.7] sm:text-[21px]"
-                  style={{ fontFamily: SERIF, color: C.charcoal }}
-                >
-                  You spend nine out of ten hours indoors — sleeping, working,
-                  recovering. Filters clean some of the air. Cleaners hit the
-                  visible surfaces. Between them, everyday residue keeps
-                  settling on the sofa, bedding, rugs, and counters your
-                  routine relies on.
-                </p>
-
-                <div
-                  className="mt-12 grid grid-cols-1 divide-y border-y sm:grid-cols-3 sm:divide-x sm:divide-y-0"
-                  style={{ borderColor: C.hairline, ["--tw-divide-opacity" as any]: 1 }}
-                >
-                  {[
-                    { k: "90%", t: "of your day is spent indoors" },
-                    { k: "24/7", t: "your surfaces are working" },
-                    { k: "0", t: "sprays, filters, or fragrance" },
-                  ].map((s) => (
-                    <div key={s.k} className="py-8 sm:px-8" style={{ borderColor: C.hairline }}>
-                      <p
-                        className="font-normal"
-                        style={{ fontFamily: SERIF, fontSize: "clamp(2.5rem, 4.2vw, 3.5rem)", lineHeight: 1, color: C.green }}
-                      >
-                        {s.k}
-                      </p>
-                      <p className="mt-3 text-[14px] leading-[1.5]" style={{ color: C.muted }}>
-                        {s.t}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
-        {/* ============ FULL-BLEED LIFESTYLE 1 ============ */}
-        <section className="relative">
-          <div className="relative h-[62vh] min-h-[440px] w-full overflow-hidden sm:h-[78vh]">
-            <img
-              src={bedroomWide}
-              alt="Serene bedroom in warm morning light with linen bedding and an EnviroBiotics device"
-              className="h-full w-full object-cover"
-              loading="lazy"
-              decoding="async"
-              width={1920}
-              height={1088}
-            />
-            <div
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(31,41,51,0.05) 0%, rgba(31,41,51,0.0) 40%, rgba(31,41,51,0.55) 100%)",
-              }}
-            />
-            <div className="absolute inset-x-0 bottom-0">
-              <div className="mx-auto max-w-[1440px] px-5 pb-12 sm:px-10 sm:pb-16 lg:px-14 lg:pb-20">
-                <p
-                  className="max-w-[24ch] text-white font-normal italic"
-                  style={{
-                    fontFamily: SERIF,
-                    fontSize: "clamp(1.75rem, 3.6vw, 3rem)",
-                    lineHeight: 1.05,
-                    textShadow: "0 2px 20px rgba(0,0,0,0.35)",
-                  }}
-                >
-                  A quieter kind of clean — one that lives in the room, not on it.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ============ EDITORIAL SPLIT — LIVING ROOM (image right) ============ */}
-        <section className="py-24 sm:py-32" style={{ background: C.ivory }}>
-          <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-12 px-5 sm:px-10 lg:grid-cols-2 lg:gap-20 lg:px-14">
-            <Reveal className="order-2 lg:order-1">
-              <Eyebrow>The living area</Eyebrow>
-              <H2 className="mt-6" style={{ fontSize: "clamp(2.1rem, 4vw, 3.4rem)" }}>
-                For the room your day actually happens in.
-              </H2>
-              <p className="mt-6 max-w-[52ch] text-[16.5px] leading-[1.7]" style={{ color: C.muted }}>
-                The sofa you unwind on. The rug your kids stretch on. The
-                counter your morning routine lives around. EnviroBiotics runs
-                quietly in the background, dispersing beneficial probiotics
-                that settle onto the air and surfaces you already share your
-                day with.
-              </p>
-
-              <ul className="mt-9 space-y-4">
-                {[
-                  { icon: Wind, t: "Continuous, silent probiotic layer" },
-                  { icon: Leaf, t: "Beneficial microbes, collected from nature" },
-                  { icon: Sparkles, t: "No fragrance, no residue, no cleanup" },
-                ].map(({ icon: Icon, t }) => (
-                  <li key={t} className="flex items-center gap-4">
-                    <span
-                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
-                      style={{ background: C.sage, color: C.green }}
-                    >
-                      <Icon className="h-4 w-4" strokeWidth={1.6} />
-                    </span>
-                    <span className="text-[15.5px]" style={{ color: C.charcoal }}>
-                      {t}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-
-            <Reveal className="order-1 lg:order-2">
-              <div className="relative">
-                <div
-                  className="absolute -inset-2 rounded-[32px]"
-                  style={{ background: C.sand, opacity: 0.7 }}
-                />
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[24px] sm:aspect-[5/6]" style={{ boxShadow: "0 40px 80px -40px rgba(31,41,51,0.35)" }}>
-                  <img
-                    src={livingImage}
-                    alt="Warm sunlit Scandinavian living room with linen sofa, oak side table and an EnviroBiotics device"
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width={1408}
-                    height={1600}
-                  />
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* ============ EDITORIAL SPLIT — RITUAL (image left) ============ */}
-        <section className="py-24 sm:py-32" style={{ background: C.sand }}>
-          <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-12 px-5 sm:px-10 lg:grid-cols-2 lg:gap-20 lg:px-14">
-            <Reveal>
-              <div className="relative">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[24px] sm:aspect-[5/6]" style={{ boxShadow: "0 40px 80px -40px rgba(31,41,51,0.4)" }}>
-                  <img
-                    src={ritualImage}
-                    alt="Woman wrapped in a linen blanket with warm tea beside a small EnviroBiotics device on an oak nightstand"
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width={1408}
-                    height={1600}
-                  />
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal>
-              <Eyebrow>The bedroom</Eyebrow>
-              <H2 className="mt-6" style={{ fontSize: "clamp(2.1rem, 4vw, 3.4rem)" }}>
-                For the room your body repairs in.
-              </H2>
-              <p className="mt-6 max-w-[52ch] text-[16.5px] leading-[1.7]" style={{ color: C.muted }}>
-                Sleep is where your recovery happens. EnviroBiotics gives the
-                bedroom the same intention as your evening tea, your skincare,
-                and your morning practice — a continuous, natural layer of
-                environmental support while you rest.
-              </p>
-
-              <blockquote
-                className="mt-10 border-l-2 pl-6 text-[19px] italic leading-[1.55]"
-                style={{ fontFamily: SERIF, borderColor: C.green, color: C.charcoal }}
+              <div
+                className="relative h-[54vh] min-h-[380px] w-full overflow-hidden sm:h-[68vh] lg:h-full lg:min-h-[640px]"
               >
-                &ldquo;Now that it&rsquo;s next to my bed, it&rsquo;s become as
-                automatic as my nightly wind-down.&rdquo;
-                <footer
-                  className="mt-4 text-[11px] font-semibold uppercase tracking-[0.22em] not-italic"
-                  style={{ color: C.green, fontFamily: SANS }}
-                >
-                  — Wellness reader review
-                </footer>
-              </blockquote>
-            </Reveal>
+                <img
+                  src={heroImage.url}
+                  alt="Sunlit Scandinavian bedroom with a woman stretching in morning light, an EnviroBiotics device on a light oak nightstand"
+                  className="h-full w-full object-cover"
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
+                  width={1200}
+                  height={1500}
+                />
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ============ HOW IT WORKS — minimal 3 step ============ */}
-        <section id="how" className="scroll-mt-20 py-24 sm:py-32" style={{ background: C.offwhite }}>
+        {/* ============================================================
+           PROBLEM — "You've optimized your body." 3-col benefits row
+           ============================================================ */}
+        <section className="py-20 sm:py-28" style={{ background: C.offwhite }}>
           <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
             <Reveal className="max-w-3xl">
-              <Eyebrow>How it works</Eyebrow>
-              <H2 className="mt-6" style={{ fontSize: "clamp(2.2rem, 4.4vw, 3.6rem)" }}>
-                Setup in about a minute.
-                 Then it just <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>runs.</span>
+              <H2>
+                You&rsquo;ve optimized your body. What about the room around <Ital>it?</Ital>
               </H2>
+              <p className="mt-6 max-w-[58ch] text-[16px] leading-[1.7]" style={{ color: C.muted }}>
+                We spend 90% of our time indoors. Traditional cleaning removes
+                dirt — EnviroBiotics supports the invisible environment you
+                live in.
+              </p>
             </Reveal>
 
-            <div className="mt-16 grid grid-cols-1 gap-x-14 gap-y-12 sm:grid-cols-3">
+            <div className="mt-14 grid grid-cols-1 gap-x-14 gap-y-10 sm:grid-cols-3">
               {[
-                { n: "01", t: "Place", c: "One device in your main living area. One in your bedroom. No installation, no tools." },
-                { n: "02", t: "Power on", c: "Insert the probiotic cartridge and switch it on. It runs quietly in the background." },
-                { n: "03", t: "Let it work", c: "Beneficial probiotics settle onto the air and surfaces around you, continuously." },
-              ].map((s) => (
-                <div key={s.n} className="border-t pt-6" style={{ borderColor: C.hairline }}>
-                  <p
-                    className="text-[13px] font-semibold uppercase tracking-[0.3em]"
-                    style={{ color: C.green }}
+                {
+                  icon: SprayCan,
+                  t: "Built-up invisible load",
+                  c: "Microbes, VOCs, and odors build up in the air, on surfaces, and in soft materials.",
+                },
+                {
+                  icon: Moon,
+                  t: "Disruption while you rest",
+                  c: "Poor environmental conditions can impact sleep quality, recovery, and focus.",
+                },
+                {
+                  icon: Wind,
+                  t: "Surface cleaning isn't enough",
+                  c: "Wiping and vacuuming don't get to the root of what's living in your space.",
+                },
+              ].map(({ icon: Icon, t, c }) => (
+                <div key={t}>
+                  <span
+                    className="mb-5 inline-flex h-9 w-9 items-center justify-center rounded-full border"
+                    style={{ borderColor: C.hairlineStrong, color: C.green }}
                   >
-                    Step {s.n}
-                  </p>
+                    <Icon className="h-4 w-4" strokeWidth={1.6} />
+                  </span>
                   <h3
-                    className="mt-4"
-                    style={{ fontFamily: SERIF, fontSize: "1.9rem", lineHeight: 1.05, color: C.charcoal }}
+                    className="font-bold"
+                    style={{ fontFamily: DISPLAY, fontSize: "1.125rem", color: C.charcoal, letterSpacing: "-0.01em" }}
                   >
-                    {s.t}
+                    {t}
                   </h3>
-                  <p className="mt-4 text-[15.5px] leading-[1.65]" style={{ color: C.muted }}>
-                    {s.c}
+                  <p className="mt-3 text-[14.5px] leading-[1.65]" style={{ color: C.muted }}>
+                    {c}
                   </p>
                 </div>
               ))}
@@ -561,37 +361,255 @@ const WellnessLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ PRIMARY OFFER — visual centerpiece ============ */}
-        <section id="offer" className="scroll-mt-20 py-24 sm:py-32" style={{ background: C.ivory }}>
-          <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-14">
-            <Reveal className="mb-14 text-center">
-              <Eyebrow>The recommended system</Eyebrow>
-              <H2 className="mx-auto mt-6 max-w-[20ch]">
-                The Environmental
-                 Wellness <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>System.</span>
+        {/* ============================================================
+           COMPARISON TABLE
+           ============================================================ */}
+        <section className="py-20 sm:py-28" style={{ background: C.ivory }}>
+          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-[0.9fr_1.6fr] lg:gap-16 lg:px-16">
+            <Reveal>
+              <H2 style={{ fontSize: "clamp(1.9rem, 3.4vw, 3rem)" }}>
+                A different layer than the ones you already <Ital>own.</Ital>
               </H2>
             </Reveal>
 
+            <Reveal>
+              <div
+                className="overflow-hidden rounded-[20px]"
+                style={{ border: `1px solid ${C.hairline}`, background: C.white }}
+              >
+                <div
+                  className="grid grid-cols-4 text-[10.5px] font-bold uppercase tracking-[0.2em]"
+                  style={{ background: C.offwhite, color: C.mutedSoft }}
+                >
+                  <div className="p-4 sm:p-5" />
+                  <div className="p-4 text-center sm:p-5">Air purifier</div>
+                  <div className="p-4 text-center sm:p-5">Manual cleaning</div>
+                  <div
+                    className="p-4 text-center sm:p-5"
+                    style={{ background: C.sage, color: C.green }}
+                  >
+                    EnviroBiotics
+                  </div>
+                </div>
+                {[
+                  ["Targets the source", false, false, true],
+                  ["Works while you live", false, false, true],
+                  ["No filters to replace", true, true, true],
+                  ["Supports long-term balance", false, false, true],
+                  ["Works on soft surfaces", false, "partial", true],
+                  ["Quiet & effortless", "partial", false, true],
+                  ["Uses beneficial microbes", false, false, true],
+                ].map(([label, a, b, c], i) => (
+                  <div
+                    key={i}
+                    className="grid grid-cols-4 items-center border-t text-[14px]"
+                    style={{ borderColor: C.hairline }}
+                  >
+                    <div className="p-4 font-medium sm:p-5" style={{ color: C.charcoal }}>
+                      {label as string}
+                    </div>
+                    {[a, b, c].map((v, j) => (
+                      <div
+                        key={j}
+                        className="p-4 text-center sm:p-5"
+                        style={j === 2 ? { background: "rgba(220,231,221,0.35)" } : undefined}
+                      >
+                        {v === true ? (
+                          <Check className="mx-auto h-4 w-4" strokeWidth={2.5} style={{ color: C.green }} />
+                        ) : v === false ? (
+                          <X className="mx-auto h-3.5 w-3.5" style={{ color: "rgba(31,41,51,0.24)" }} />
+                        ) : (
+                          <span
+                            className="text-[10px] font-bold uppercase tracking-[0.16em]"
+                            style={{ color: C.mutedSoft }}
+                          >
+                            Partial
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ============================================================
+           WARM BROWN PROMISE BAND — 4 circle benefits
+           ============================================================ */}
+        <section
+          className="relative overflow-hidden py-20 sm:py-24"
+          style={{
+            background: `linear-gradient(90deg, ${C.brownBandDeep} 0%, ${C.brownBand} 100%)`,
+            color: C.white,
+          }}
+        >
+          {/* subtle plant vignette on the right */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/3 opacity-40 lg:block"
+            style={{
+              background:
+                "radial-gradient(ellipse at 90% 50%, rgba(220,231,221,0.35), transparent 65%)",
+            }}
+          />
+          <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-12 px-5 sm:px-10 lg:grid-cols-[1fr_1.4fr] lg:px-16">
+            <Reveal>
+              <h2
+                className="font-bold"
+                style={{
+                  fontFamily: DISPLAY,
+                  fontWeight: 800,
+                  fontSize: "clamp(1.9rem, 3.4vw, 2.75rem)",
+                  lineHeight: 1.08,
+                  letterSpacing: "-0.02em",
+                  color: C.white,
+                  maxWidth: "16ch",
+                }}
+              >
+                A home that feels as clean as your <Ital color="rgba(255,255,255,0.92)">routine.</Ital>
+              </h2>
+              <p
+                className="mt-5 max-w-[42ch] text-[15.5px] leading-[1.7]"
+                style={{ color: "rgba(255,255,255,0.82)" }}
+              >
+                A fresher, calmer, more supportive space — night and day.
+              </p>
+            </Reveal>
+
+            <Reveal>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
+                {[
+                  { icon: Wind, t: "Cleaner air", s: "you can feel" },
+                  { icon: Sun, t: "Fresher home", s: "naturally" },
+                  { icon: Moon, t: "Restful sleep", s: "& recovery" },
+                  { icon: Leaf, t: "Peace of mind", s: "in every breath" },
+                ].map(({ icon: Icon, t, s }) => (
+                  <div key={t} className="flex flex-col items-center text-center">
+                    <span
+                      className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full"
+                      style={{ background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.3)" }}
+                    >
+                      <Icon className="h-6 w-6" strokeWidth={1.5} />
+                    </span>
+                    <p className="text-[14px] font-bold" style={{ fontFamily: DISPLAY, letterSpacing: "-0.01em" }}>
+                      {t}
+                    </p>
+                    <p className="mt-1 text-[12.5px]" style={{ color: "rgba(255,255,255,0.75)" }}>
+                      {s}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ============================================================
+           HOW IT WORKS — 3 numbered photo cards
+           ============================================================ */}
+        <section id="how" className="scroll-mt-20 py-20 sm:py-28" style={{ background: C.offwhite }}>
+          <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
+            <Reveal className="mx-auto max-w-3xl text-center">
+              <H2 style={{ fontSize: "clamp(1.9rem, 3.4vw, 2.75rem)" }}>
+                Setup in about 60 seconds. Then it just <Ital>runs.</Ital>
+              </H2>
+            </Reveal>
+
+            <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-5">
+              {[
+                {
+                  n: 1,
+                  t: "Place",
+                  c: "Position the units in your bedroom and main living area.",
+                  img: ritualImage,
+                  alt: "EnviroBiotics device placed on a warm oak nightstand",
+                },
+                {
+                  n: 2,
+                  t: "Power On",
+                  c: "Plug in and power on. The system starts immediately.",
+                  img: bedroomWide,
+                  alt: "EnviroBiotics device powered on in a serene bedroom",
+                },
+                {
+                  n: 3,
+                  t: "Let It Work",
+                  c: "Beneficial microbes get to work 24/7 — so you can live well.",
+                  img: livingImage,
+                  alt: "Sunlit living room with an EnviroBiotics device running quietly in the background",
+                },
+              ].map((s) => (
+                <div
+                  key={s.n}
+                  className="overflow-hidden rounded-[20px] border bg-white"
+                  style={{ borderColor: C.hairline, boxShadow: "0 20px 40px -30px rgba(31,41,51,0.15)" }}
+                >
+                  <div className="relative aspect-[4/3] w-full">
+                    <img
+                      src={s.img}
+                      alt={s.alt}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span
+                      className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-[13px] font-bold text-white"
+                      style={{ background: C.green, fontFamily: DISPLAY }}
+                    >
+                      {s.n}
+                    </span>
+                  </div>
+                  <div className="p-6">
+                    <h3
+                      className="font-bold"
+                      style={{ fontFamily: DISPLAY, fontSize: "1.125rem", color: C.charcoal, letterSpacing: "-0.01em" }}
+                    >
+                      {s.t}
+                    </h3>
+                    <p className="mt-2 text-[14.5px] leading-[1.6]" style={{ color: C.muted }}>
+                      {s.c}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================
+           PRIMARY OFFER — image left / copy right
+           ============================================================ */}
+        <section id="offer" className="scroll-mt-20 pb-20 pt-6 sm:pb-28 sm:pt-8" style={{ background: C.offwhite }}>
+          <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
+            <Reveal className="mb-8 text-center">
+              <h2
+                className="mx-auto font-bold"
+                style={{
+                  fontFamily: DISPLAY,
+                  fontWeight: 800,
+                  fontSize: "clamp(1.6rem, 2.8vw, 2.25rem)",
+                  color: C.charcoal,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                The Environmental Wellness <Ital>System.</Ital>
+              </h2>
+            </Reveal>
+
             <div
-              className="relative overflow-hidden rounded-[32px] sm:rounded-[40px]"
+              className="relative overflow-hidden rounded-[28px]"
               style={{
-                background: `linear-gradient(135deg, ${C.offwhite} 0%, ${C.sand} 100%)`,
+                background: `linear-gradient(135deg, ${C.sand} 0%, ${C.offwhite} 100%)`,
                 border: `1px solid ${C.hairline}`,
-                boxShadow: "0 50px 120px -60px rgba(31,41,51,0.3)",
+                boxShadow: "0 40px 100px -50px rgba(31,41,51,0.25)",
               }}
             >
-              <span
-                className="absolute left-8 top-8 z-10 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[10.5px] font-semibold uppercase tracking-[0.24em] text-white sm:left-10 sm:top-10"
-                style={{ background: C.green }}
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                Recommended
-              </span>
-
-              <div className="grid grid-cols-1 items-stretch lg:grid-cols-[1.05fr_1fr]">
-                {/* Product image half */}
+              <div className="grid grid-cols-1 items-stretch lg:grid-cols-[1.1fr_1fr]">
+                {/* Product image */}
                 <div
-                  className="relative flex items-center justify-center px-6 py-16 sm:px-12 sm:py-20 lg:py-24"
+                  className="relative flex items-center justify-center px-6 py-14 sm:px-10 sm:py-20 lg:py-24"
                   style={{
                     background:
                       "radial-gradient(ellipse at 50% 60%, rgba(220,231,221,0.55) 0%, transparent 70%)",
@@ -602,32 +620,42 @@ const WellnessLandingPage = () => {
                     alt="Biotica 800 and BioLogic Mini — the Environmental Wellness System"
                     loading="lazy"
                     decoding="async"
-                    className="relative z-10 max-h-[440px] w-auto object-contain drop-shadow-[0_30px_40px_rgba(31,41,51,0.18)]"
+                    className="max-h-[420px] w-auto object-contain drop-shadow-[0_30px_40px_rgba(31,41,51,0.18)]"
                   />
                 </div>
 
-                {/* Copy half */}
+                {/* Copy */}
                 <div className="border-t p-8 sm:p-12 lg:border-l lg:border-t-0 lg:p-14" style={{ borderColor: C.hairline }}>
-                  <h3
-                    className="font-normal"
-                    style={{ fontFamily: SERIF, fontSize: "clamp(1.85rem, 3vw, 2.5rem)", lineHeight: 1.1, color: C.charcoal }}
-                  >
-                    Main living area <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>+</span> one bedroom.
-                  </h3>
-                  <p className="mt-4 text-[15.5px] leading-[1.65]" style={{ color: C.muted }}>
-                    One Biotica 800 for where you live. One BioLogic Mini for
-                    where you rest. Continuous environmental wellness in the
-                    two rooms your routine actually happens in.
-                  </p>
+                  <div className="mb-5 flex items-center gap-3">
+                    <span
+                      className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.22em] text-white"
+                      style={{ background: C.green, fontFamily: DISPLAY }}
+                    >
+                      Best Value
+                    </span>
+                  </div>
 
-                  <ul className="mt-8 space-y-3.5">
+                  <h3
+                    className="font-bold"
+                    style={{
+                      fontFamily: DISPLAY,
+                      fontSize: "1.35rem",
+                      color: C.charcoal,
+                      letterSpacing: "-0.015em",
+                    }}
+                  >
+                    Includes Biotica 800 + BioLogic Mini
+                  </h3>
+
+                  <ul className="mt-6 space-y-3">
                     {[
-                      "1× Biotica 800 (main living area, up to 800 sq ft)",
-                      "1× BioLogic Mini (bedroom, up to 300 sq ft)",
-                      "Included probiotic cartridges",
-                      "7-Day Home Wellness Reset guide",
+                      "Beneficial microbes for the air & surfaces",
+                      "Works 24/7 in the background",
+                      "No filters. No refills. No harsh chemicals.",
+                      "Covers up to 1,800 sq ft",
+                      "Designed to complement your wellness routine",
                     ].map((f) => (
-                      <li key={f} className="flex items-start gap-3 text-[15px]" style={{ color: C.charcoal }}>
+                      <li key={f} className="flex items-start gap-3 text-[14.5px]" style={{ color: C.charcoal }}>
                         <Check className="mt-1 h-4 w-4 shrink-0" strokeWidth={3} style={{ color: C.green }} />
                         {f}
                       </li>
@@ -635,55 +663,56 @@ const WellnessLandingPage = () => {
                   </ul>
 
                   <div
-                    className="mt-9 flex flex-wrap items-baseline gap-3 border-t pt-6"
+                    className="mt-8 flex flex-wrap items-baseline gap-3 border-t pt-6"
                     style={{ borderColor: C.hairline }}
                   >
                     <span
-                      className="font-normal"
-                      style={{ fontFamily: SERIF, fontSize: "3rem", lineHeight: 1, color: C.charcoal }}
+                      className="font-bold"
+                      style={{ fontFamily: DISPLAY, fontSize: "2.5rem", lineHeight: 1, letterSpacing: "-0.02em" }}
                     >
                       {PRICING.bundle.price}
                     </span>
-                    <span className="text-[17px] line-through" style={{ color: "rgba(31,41,51,0.4)" }}>
-                      {PRICING.bundle.compare}
+                    <span className="text-[15px]" style={{ color: C.mutedSoft }}>
+                      {PRICING.bundle.compare} value
                     </span>
                     <span
-                      className="ml-1 rounded-full px-3 py-1 text-[10.5px] font-semibold uppercase tracking-[0.2em]"
-                      style={{ background: C.sage, color: C.green }}
+                      className="ml-1 rounded-full px-3 py-1 text-[10.5px] font-bold uppercase tracking-[0.2em]"
+                      style={{ background: C.sage, color: C.green, fontFamily: DISPLAY }}
                     >
-                      Bundle savings
+                      Save {PRICING.bundle.save}
                     </span>
                   </div>
 
-                  <div className="mt-6 flex flex-wrap items-center gap-5">
+                  <div className="mt-6 flex flex-col gap-3">
                     <PrimaryCTA
                       href={URLS.bundle}
                       onClick={() => trackEvent("click_wellness_bundle")}
+                      className="w-full sm:w-auto"
                     >
-                      Add to Cart
+                      Add the System to Cart
                     </PrimaryCTA>
-                    <span className="text-[12.5px]" style={{ color: "rgba(31,41,51,0.6)" }}>
-                      Free shipping · 30-day guarantee
-                    </span>
+                    <p className="text-[12px]" style={{ color: C.mutedSoft }}>
+                      Free shipping · 30-day risk-free trial
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Secondary configurations — quiet, minimal */}
-            <div className="mt-20">
-              <div className="mb-6 flex items-baseline justify-between">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.28em]" style={{ color: "rgba(31,41,51,0.55)" }}>
-                  Or start with a single room
-                </p>
-                <span className="h-px flex-1 mx-6" style={{ background: C.hairline }} />
-              </div>
+            {/* Prefer to start small */}
+            <div className="mt-16">
+              <p
+                className="mb-6 text-center text-[13px] font-bold"
+                style={{ color: C.charcoal, fontFamily: DISPLAY }}
+              >
+                Prefer to start small?
+              </p>
 
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 {[
                   {
                     name: "Biotica 800",
-                    tag: "Main living area · up to 800 sq ft",
+                    tag: "Powerful coverage for larger living spaces.",
                     price: PRICING.biotica.price,
                     img: bioticaProduct,
                     url: URLS.biotica,
@@ -691,272 +720,342 @@ const WellnessLandingPage = () => {
                   },
                   {
                     name: "BioLogic Mini",
-                    tag: "Bedroom or wellness space · up to 300 sq ft",
+                    tag: "Perfect for bedrooms, offices, and smaller rooms.",
                     price: PRICING.mini.price,
                     img: miniProduct,
                     url: URLS.mini,
                     evt: "click_wellness_mini",
                   },
                 ].map((p) => (
-                  <a
+                  <div
                     key={p.name}
-                    href={p.url}
-                    onClick={() => trackEvent(p.evt)}
-                    className="group flex items-center gap-6 rounded-[24px] border bg-white p-6 transition-all duration-300 hover:-translate-y-0.5"
-                    style={{ borderColor: C.hairline, boxShadow: "0 20px 40px -30px rgba(31,41,51,0.15)" }}
+                    className="flex items-center gap-5 rounded-[20px] border bg-white p-5 sm:gap-6 sm:p-6"
+                    style={{ borderColor: C.hairline }}
                   >
                     <div
-                      className="flex h-28 w-28 shrink-0 items-center justify-center rounded-2xl sm:h-32 sm:w-32"
+                      className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl sm:h-28 sm:w-28"
                       style={{ background: C.ivory }}
                     >
                       <img src={p.img} alt={p.name} loading="lazy" className="max-h-[85%] max-w-[85%] object-contain" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 style={{ fontFamily: SERIF, fontSize: "1.5rem", lineHeight: 1.1, color: C.charcoal }}>
+                      <h4
+                        className="font-bold"
+                        style={{ fontFamily: DISPLAY, fontSize: "1.05rem", color: C.charcoal, letterSpacing: "-0.01em" }}
+                      >
                         {p.name}
                       </h4>
-                      <p className="mt-1.5 text-[13.5px]" style={{ color: C.muted }}>
+                      <p className="mt-1 text-[13px] leading-[1.5]" style={{ color: C.muted }}>
                         {p.tag}
                       </p>
-                      <div className="mt-3 flex items-center justify-between">
+                      <div className="mt-3 flex items-center justify-between gap-3">
                         <span
-                          style={{ fontFamily: SERIF, fontSize: "1.5rem", color: C.charcoal }}
+                          className="font-bold"
+                          style={{ fontFamily: DISPLAY, fontSize: "1.05rem", color: C.charcoal }}
                         >
                           {p.price}
                         </span>
-                        <span
-                          className="inline-flex items-center gap-1.5 text-[11.5px] font-semibold uppercase tracking-[0.2em]"
-                          style={{ color: C.green }}
+                        <a
+                          href={p.url}
+                          onClick={() => trackEvent(p.evt)}
+                          className="inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-[10.5px] font-bold uppercase tracking-[0.2em] transition-colors hover:bg-[color:var(--hover-bg)]"
+                          style={{
+                            fontFamily: DISPLAY,
+                            color: C.charcoal,
+                            borderColor: C.hairlineStrong,
+                          }}
                         >
-                          Shop
-                          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                        </span>
+                          View Product
+                        </a>
                       </div>
                     </div>
-                  </a>
+                  </div>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* ============ COMPARISON — refined table ============ */}
-        <section className="py-24 sm:py-32" style={{ background: C.offwhite }}>
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
-            <Reveal className="mb-14 max-w-3xl">
-              <Eyebrow>How it compares</Eyebrow>
-              <H2 className="mt-6" style={{ fontSize: "clamp(2.1rem, 4.2vw, 3.4rem)" }}>
-                A different layer than the ones you already own.
+        {/* ============================================================
+           "Designed to disappear into your day" — 2x3 feature grid
+           ============================================================ */}
+        <section className="py-20 sm:py-28" style={{ background: C.ivory }}>
+          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-[0.9fr_1.6fr] lg:gap-16 lg:px-16">
+            <Reveal>
+              <H2 style={{ fontSize: "clamp(1.85rem, 3.4vw, 2.75rem)" }}>
+                Designed to disappear into your <Ital>day.</Ital>
               </H2>
-            </Reveal>
-
-            <div
-              className="overflow-hidden rounded-[24px]"
-              style={{ border: `1px solid ${C.hairline}`, background: "#fff" }}
-            >
-              <div className="grid grid-cols-4 text-[11.5px] font-semibold uppercase tracking-[0.2em]" style={{ background: C.ivory, color: "rgba(31,41,51,0.55)" }}>
-                <div className="p-5 sm:p-7" />
-                <div className="p-5 text-center sm:p-7">Air purifier</div>
-                <div className="p-5 text-center sm:p-7">Manual cleaning</div>
-                <div
-                  className="p-5 text-center sm:p-7"
-                  style={{ background: C.sage, color: C.green }}
-                >
-                  EnviroBiotics
-                </div>
-              </div>
-              {[
-                ["Cleans airborne particles", true, false, "partial"],
-                ["Supports the surfaces you live on", false, "partial", true],
-                ["Works between cleanings", false, false, true],
-                ["Quiet, automatic, always on", "partial", false, true],
-                ["No harsh chemicals or fragrance", true, false, true],
-                ["Setup in ~60 seconds", true, false, true],
-              ].map(([label, a, b, c], i) => (
-                <div
-                  key={i}
-                  className="grid grid-cols-4 items-center text-[14.5px] border-t"
-                  style={{ borderColor: C.hairline }}
-                >
-                  <div className="p-5 font-medium sm:p-7" style={{ color: C.charcoal }}>
-                    {label as string}
-                  </div>
-                  {[a, b, c].map((v, j) => (
-                    <div
-                      key={j}
-                      className="p-5 text-center sm:p-7"
-                      style={j === 2 ? { background: "rgba(220,231,221,0.35)" } : undefined}
-                    >
-                      {v === true ? (
-                        <Check className="mx-auto h-5 w-5" strokeWidth={2.5} style={{ color: C.green }} />
-                      ) : v === false ? (
-                        <X className="mx-auto h-4 w-4" style={{ color: "rgba(31,41,51,0.22)" }} />
-                      ) : (
-                        <span
-                          className="text-[11px] font-semibold uppercase tracking-[0.16em]"
-                          style={{ color: "rgba(31,41,51,0.5)" }}
-                        >
-                          Partial
-                        </span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ============ PROOF — elevated certifications + testimonials ============ */}
-        <section className="py-24 sm:py-32" style={{ background: C.ivory }}>
-          <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
-            <Reveal className="mx-auto mb-16 max-w-3xl text-center">
-              <Eyebrow>Verified proof</Eyebrow>
-              <H2 className="mt-6" style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
-                Independently certified.
-                 Safe by <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>design.</span>
-              </H2>
-              <p className="mx-auto mt-6 max-w-[52ch] text-[16px] leading-[1.7]" style={{ color: C.muted }}>
-                Probiotic strains collected from nature, unmodified, and free
-                of added chemicals — reviewed under global safety programs.
+              <p className="mt-5 max-w-[38ch] text-[15.5px] leading-[1.7]" style={{ color: C.muted }}>
+                Powerful, quiet, and effortless. Our system works in the
+                background so you can focus on what matters.
               </p>
             </Reveal>
 
-            {/* Cert row: fewer, larger, calmer */}
-            <div
-              className="grid grid-cols-3 items-center gap-y-10 rounded-[24px] border py-10 px-6 sm:grid-cols-6 sm:py-12 sm:px-10"
-              style={{ borderColor: C.hairline, background: C.offwhite }}
-            >
+            <Reveal>
+              <div className="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-3">
+                {[
+                  {
+                    icon: SprayCan,
+                    t: "No daily spraying",
+                    c: "No manual mixing or interaction required.",
+                  },
+                  {
+                    icon: Filter,
+                    t: "No filter changes",
+                    c: "Save time, money, and landfill waste.",
+                  },
+                  {
+                    icon: Volume2,
+                    t: "Ultra-quiet operation",
+                    c: "Designed to be silent day and night.",
+                  },
+                  {
+                    icon: Wind,
+                    t: "No strong fragrance",
+                    c: "Fragrance-free and never overpowering.",
+                  },
+                  {
+                    icon: Sparkles,
+                    t: "Works between cleanings",
+                    c: "Supports your home 24/7, not just after cleaning.",
+                  },
+                  {
+                    icon: Leaf,
+                    t: "Natural balance",
+                    c: "Uses beneficial microbes to support balance.",
+                  },
+                ].map(({ icon: Icon, t, c }) => (
+                  <div key={t}>
+                    <span
+                      className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full border"
+                      style={{ borderColor: C.hairlineStrong, color: C.green }}
+                    >
+                      <Icon className="h-4 w-4" strokeWidth={1.6} />
+                    </span>
+                    <h3
+                      className="font-bold"
+                      style={{ fontFamily: DISPLAY, fontSize: "0.98rem", color: C.charcoal, letterSpacing: "-0.005em" }}
+                    >
+                      {t}
+                    </h3>
+                    <p className="mt-2 text-[13.5px] leading-[1.6]" style={{ color: C.muted }}>
+                      {c}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ============================================================
+           CERTIFICATIONS ROW — inline, calm
+           ============================================================ */}
+        <section className="border-y py-14 sm:py-16" style={{ background: C.offwhite, borderColor: C.hairline }}>
+          <div className="mx-auto flex max-w-[1300px] flex-col items-start gap-8 px-5 sm:px-10 lg:flex-row lg:items-center lg:gap-14 lg:px-16">
+            <div className="lg:w-[280px] lg:shrink-0">
+              <h3
+                className="font-bold"
+                style={{
+                  fontFamily: DISPLAY,
+                  fontSize: "1.15rem",
+                  color: C.charcoal,
+                  letterSpacing: "-0.015em",
+                  lineHeight: 1.2,
+                }}
+              >
+                Independently certified. Safe by <Ital>design.</Ital>
+              </h3>
+            </div>
+            <div className="grid w-full grid-cols-3 items-center gap-x-6 gap-y-6 sm:grid-cols-6 sm:gap-x-8">
               {[
-                { label: "FDA GRAS", image: fdaGrasAsset.url },
                 { label: "EPA Registered", image: epaAsset.url },
+                { label: "FDA GRAS", image: fdaGrasAsset.url },
+                { label: "ISO 9001", image: isoAsset.url },
                 { label: "PTPA Winner", image: ptpaAsset.url },
-                { label: "ISO 9001:2015", image: isoAsset.url },
                 { label: "MADE SAFE®", image: madeSafeAsset.url },
                 { label: "AllergyUK", image: allergyAsset.url },
               ].map((c) => (
-                <div key={c.label} className="flex flex-col items-center gap-3" title={c.label}>
+                <div key={c.label} className="flex items-center justify-center" title={c.label}>
                   <img
                     src={c.image}
                     alt={`${c.label} certification`}
                     loading="lazy"
-                    className="h-16 w-auto object-contain opacity-90 grayscale transition-all duration-500 hover:opacity-100 hover:grayscale-0 sm:h-20"
+                    className="h-12 w-auto object-contain opacity-85 transition-opacity duration-300 hover:opacity-100 sm:h-14"
                   />
-                  <span className="text-[10.5px] font-semibold uppercase tracking-[0.18em]" style={{ color: "rgba(31,41,51,0.6)" }}>
-                    {c.label}
-                  </span>
                 </div>
-              ))}
-            </div>
-
-            {/* Testimonials */}
-            <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-2">
-              {[
-                {
-                  q: "It fits the same shelf as my books and my diffuser. I forget it's on — and that's the point.",
-                  n: "Maya L.",
-                  r: "Yoga instructor",
-                },
-                {
-                  q: "The rooms feel calmer somehow. It's the layer of my wellness routine I didn't know was missing.",
-                  n: "Jordan P.",
-                  r: "Verified customer",
-                },
-              ].map((t) => (
-                <figure
-                  key={t.n}
-                  className="rounded-[24px] border p-8 sm:p-10"
-                  style={{ borderColor: C.hairline, background: C.offwhite }}
-                >
-                  <blockquote
-                    className="text-[20px] leading-[1.45] sm:text-[22px]"
-                    style={{ fontFamily: SERIF, color: C.charcoal }}
-                  >
-                    &ldquo;{t.q}&rdquo;
-                  </blockquote>
-                  <figcaption className="mt-6 flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.2em]" style={{ color: C.green }}>
-                    <span className="h-px w-6" style={{ background: C.green }} />
-                    {t.n} · <span style={{ color: "rgba(31,41,51,0.55)" }}>{t.r}</span>
-                  </figcaption>
-                </figure>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ============ GUARANTEE — editorial banner ============ */}
+        {/* ============================================================
+           BEFORE / AFTER
+           ============================================================ */}
+        <section className="py-20 sm:py-28" style={{ background: C.ivory }}>
+          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-6 px-5 sm:px-10 lg:grid-cols-2 lg:gap-8 lg:px-16">
+            {/* Before */}
+            <Reveal>
+              <div
+                className="relative overflow-hidden rounded-[24px]"
+                style={{ boxShadow: "0 30px 60px -30px rgba(31,41,51,0.35)" }}
+              >
+                <img
+                  src={bedroomWide}
+                  alt="A bedroom before EnviroBiotics"
+                  className="h-[360px] w-full object-cover sm:h-[420px]"
+                  loading="lazy"
+                  decoding="async"
+                  style={{ filter: "brightness(0.55) saturate(0.7)" }}
+                />
+                <div className="absolute inset-0 flex flex-col justify-end p-7 sm:p-9" style={{ color: "#fff" }}>
+                  <h3
+                    className="font-bold"
+                    style={{ fontFamily: DISPLAY, fontSize: "1.35rem", letterSpacing: "-0.015em" }}
+                  >
+                    Before EnviroBiotics
+                  </h3>
+                  <ul className="mt-4 space-y-2 text-[13.5px]" style={{ color: "rgba(255,255,255,0.9)" }}>
+                    {[
+                      "Stale air and musty odors",
+                      "Dust, dander & invisible build-up",
+                      "Restless nights & morning grogginess",
+                      "Surfaces re-contaminate between cleanings",
+                      "Harsh products & artificial scents",
+                    ].map((t) => (
+                      <li key={t} className="flex items-start gap-2">
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-white/70" />
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* After */}
+            <Reveal>
+              <div
+                className="relative overflow-hidden rounded-[24px]"
+                style={{ boxShadow: "0 30px 60px -30px rgba(31,41,51,0.25)" }}
+              >
+                <img
+                  src={heroImage.url}
+                  alt="A bright bedroom with EnviroBiotics"
+                  className="h-[360px] w-full object-cover sm:h-[420px]"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.85) 55%, rgba(255,255,255,0.95) 100%)",
+                  }}
+                />
+                <div className="absolute inset-0 flex flex-col justify-end p-7 sm:p-9">
+                  <h3
+                    className="font-bold"
+                    style={{ fontFamily: DISPLAY, fontSize: "1.35rem", color: C.charcoal, letterSpacing: "-0.015em" }}
+                  >
+                    With <Ital>EnviroBiotics</Ital>
+                  </h3>
+                  <ul className="mt-4 space-y-2 text-[13.5px]" style={{ color: C.softInk }}>
+                    {[
+                      "Fresher, cleaner air you can feel",
+                      "Support for better sleep & recovery",
+                      "A calmer, more balanced home",
+                      "Long-lasting results between cleanings",
+                      "Clean, natural, and worry-free",
+                    ].map((t) => (
+                      <li key={t} className="flex items-start gap-2">
+                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0" strokeWidth={3} style={{ color: C.green }} />
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ============================================================
+           GUARANTEE — soft cream with plant vignettes
+           ============================================================ */}
         <section
-          className="relative overflow-hidden py-24 sm:py-32"
-          style={{ background: C.greenDeep, color: "#fff" }}
+          className="relative overflow-hidden py-20 sm:py-24"
+          style={{ background: C.ivory }}
         >
           <div
-            className="pointer-events-none absolute inset-0 opacity-40"
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-70"
             style={{
               background:
-                "radial-gradient(700px 400px at 20% 20%, rgba(246,139,69,0.25), transparent 60%), radial-gradient(700px 400px at 90% 80%, rgba(220,231,221,0.25), transparent 60%)",
+                "radial-gradient(500px 300px at 5% 100%, rgba(220,231,221,0.6), transparent 60%), radial-gradient(500px 300px at 95% 0%, rgba(220,231,221,0.5), transparent 60%)",
             }}
           />
-          <div className="relative mx-auto max-w-[900px] px-5 text-center sm:px-10">
-            <Eyebrow light>30-day promise</Eyebrow>
+          <div className="relative mx-auto max-w-[820px] px-5 text-center sm:px-10">
+            <Leaf className="mx-auto mb-5 h-5 w-5" strokeWidth={1.4} style={{ color: C.green }} />
             <h2
-              className="mt-6 font-normal"
-              style={{ fontFamily: SERIF, fontSize: "clamp(2.4rem, 5vw, 4rem)", lineHeight: 1.05, letterSpacing: "-0.015em" }}
+              className="font-bold"
+              style={{
+                fontFamily: DISPLAY,
+                fontWeight: 800,
+                fontSize: "clamp(1.9rem, 3.6vw, 2.75rem)",
+                lineHeight: 1.1,
+                letterSpacing: "-0.02em",
+                color: C.charcoal,
+              }}
             >
-              Try the Wellness Reset for
-               thirty <span className="italic font-normal" style={{ color: C.sage, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>days.</span>
+              Try the Wellness Reset for <Ital>30 days.</Ital>
             </h2>
-            <p className="mx-auto mt-6 max-w-[54ch] text-[16.5px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.78)" }}>
-              If your rooms don&rsquo;t feel cleaner, fresher, and more
-              supportive of the routine you already run — send it back for
-              a full refund. No forms, no friction.
+            <p className="mx-auto mt-4 max-w-[52ch] text-[15.5px] leading-[1.7]" style={{ color: C.muted }}>
+              If you don&rsquo;t feel the difference, return it — no questions asked.
             </p>
-            <div className="mt-10">
+            <div className="mt-8">
               <PrimaryCTA
                 href={URLS.bundle}
                 onClick={() => trackEvent("click_wellness_guarantee")}
               >
-                Start My 30-Day Reset
+                Start My 30-Day Trial
               </PrimaryCTA>
             </div>
           </div>
         </section>
 
-        {/* ============ FAQ ============ */}
-        <section className="py-24 sm:py-32" style={{ background: C.offwhite }}>
-          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-12 lg:gap-24 lg:px-16">
-            <div className="lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
-              <Eyebrow>Support</Eyebrow>
-              <H2 className="mt-6" style={{ fontSize: "clamp(2rem, 3.8vw, 3rem)" }}>
-                Wellness questions,
-                 <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>answered.</span>
+        {/* ============================================================
+           FAQ — sticky heading + accordion
+           ============================================================ */}
+        <section className="py-20 sm:py-28" style={{ background: C.offwhite }}>
+          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-[0.9fr_1.6fr] lg:gap-16 lg:px-16">
+            <div className="lg:sticky lg:top-32 lg:self-start">
+              <H2 style={{ fontSize: "clamp(1.8rem, 3.2vw, 2.5rem)" }}>
+                Wellness questions, <Ital>answered.</Ital>
               </H2>
             </div>
-            <div className="lg:col-span-7">
+            <div>
               <Accordion type="single" collapsible className="w-full">
                 {[
                   {
-                    q: "Is this a medical device or a health treatment?",
-                    a: "No. EnviroBiotics is an environmental wellness product. It supports the air and surfaces of your space — it does not prevent, treat, cure, or eliminate any medical condition.",
+                    q: "What makes EnviroBiotics different?",
+                    a: "We use living, beneficial microbes — not chemicals or filters — to support the environment you actually live in. It works continuously on both air and surfaces, quietly in the background.",
                   },
                   {
-                    q: "How does it fit next to my air purifier?",
-                    a: "They complement each other. Purifiers focus on airborne particles; EnviroBiotics adds a continuous probiotic layer for the surfaces you actually sit, sleep, and stretch on.",
+                    q: "Is it safe for kids and pets?",
+                    a: "Yes. Our probiotics are collected from nature, unmodified, and covered by global safety certifications including FDA GRAS status. No harsh chemicals, no artificial fragrance.",
                   },
                   {
-                    q: "Is it safe around kids, pets, and low-tox routines?",
-                    a: "Yes. The probiotics are collected from nature, unmodified, and covered by global safety certifications including FDA GRAS status. No harsh chemicals, no artificial fragrance.",
+                    q: "How big of a space does it cover?",
+                    a: "The Environmental Wellness System covers up to 1,800 sq ft — a main living area plus one bedroom. Individual units start at 300 sq ft.",
                   },
                   {
-                    q: "What does the setup actually look like?",
-                    a: "Unbox, insert the cartridge, place on a shelf or nightstand, plug in. About sixty seconds per device. No app required.",
+                    q: "Where should I place the units?",
+                    a: "The bedroom for sleep and recovery, and your main living area for the room your day happens in. Placement on a shelf or nightstand works — no installation required.",
                   },
                   {
-                    q: "Does the recommended system cover my whole home?",
-                    a: "It covers your main living area plus one bedroom — the two rooms your routine typically lives in. It is not a full-home configuration.",
-                  },
-                  {
-                    q: "What if it doesn't feel like a fit?",
-                    a: "Use it for 30 days. If your space doesn't feel cleaner and more supportive of your routine, return it for a full refund.",
+                    q: "How often do I need to do anything?",
+                    a: "Setup takes about a minute. After that, cartridges swap on a simple schedule — no filters, no daily interaction, no app required.",
                   },
                 ].map((item, idx) => (
                   <AccordionItem
@@ -966,13 +1065,13 @@ const WellnessLandingPage = () => {
                     style={{ borderColor: C.hairline }}
                   >
                     <AccordionTrigger
-                      className="py-6 text-left text-[17px] font-medium hover:no-underline sm:text-[18.5px]"
-                      style={{ color: C.charcoal, fontFamily: SERIF }}
+                      className="py-5 text-left text-[15.5px] font-medium hover:no-underline sm:text-[16.5px]"
+                      style={{ color: C.charcoal, fontFamily: DISPLAY, fontWeight: 600 }}
                     >
                       {item.q}
                     </AccordionTrigger>
                     <AccordionContent
-                      className="pb-6 text-[15.5px] leading-[1.7]"
+                      className="pb-5 text-[14.5px] leading-[1.7]"
                       style={{ color: C.muted }}
                     >
                       {item.a}
@@ -984,41 +1083,57 @@ const WellnessLandingPage = () => {
           </div>
         </section>
 
-        {/* ============ FINAL CTA ============ */}
-        <section className="py-24 sm:py-32" style={{ background: C.ivory }}>
-          <div className="mx-auto max-w-[1100px] px-5 text-center sm:px-10">
-            <Eyebrow>Complete the routine</Eyebrow>
-            <h2
-              className="mx-auto mt-6 max-w-[22ch] font-normal"
-              style={{
-                fontFamily: SERIF,
-                fontSize: "clamp(2.4rem, 5.2vw, 4.5rem)",
-                lineHeight: 1.02,
-                letterSpacing: "-0.015em",
-                color: C.charcoal,
-              }}
-            >
-              The layer of wellness the rest of your routine has been
-               waiting <span className="italic font-normal" style={{ color: C.green, fontFamily: ITALIC_SERIF, fontWeight: 400 }}>for.</span>
-            </h2>
-            <p className="mx-auto mt-6 max-w-[54ch] text-[16.5px] leading-[1.7]" style={{ color: C.muted }}>
-              Set it up in about a minute. Let the air and surfaces of your
-              main living area and bedroom carry the same intention as the
-              rest of your day.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-5">
-              <PrimaryCTA
-                href={URLS.bundle}
-                onClick={() => trackEvent("click_wellness_final")}
+        {/* ============================================================
+           FINAL CTA — dark green split with bedroom image
+           ============================================================ */}
+        <section
+          className="relative overflow-hidden"
+          style={{ background: C.greenDeep, color: "#fff" }}
+        >
+          <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-stretch lg:grid-cols-[1.1fr_1fr]">
+            <div className="px-5 py-20 sm:px-10 sm:py-24 lg:px-16 lg:py-28">
+              <h2
+                className="font-bold"
+                style={{
+                  fontFamily: DISPLAY,
+                  fontWeight: 800,
+                  fontSize: "clamp(1.9rem, 3.6vw, 2.75rem)",
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.02em",
+                  color: C.white,
+                  maxWidth: "22ch",
+                }}
               >
-                Complete My Routine
-              </PrimaryCTA>
-              <GhostCTA
-                href="#offer"
-                onClick={() => trackEvent("click_wellness_final_secondary")}
-              >
-                See the system
-              </GhostCTA>
+                The layer of wellness the rest of your routine has been <Ital color="rgba(255,255,255,0.92)">waiting for.</Ital>
+              </h2>
+              <p className="mt-5 max-w-[46ch] text-[15.5px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.78)" }}>
+                Support your air. Support your life.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <PrimaryCTA
+                  href={URLS.bundle}
+                  onClick={() => trackEvent("click_wellness_final")}
+                >
+                  Shop the System
+                </PrimaryCTA>
+                <OutlineCTA
+                  href="#how"
+                  variant="light"
+                  onClick={() => trackEvent("click_wellness_final_secondary")}
+                >
+                  Learn More
+                </OutlineCTA>
+              </div>
+            </div>
+
+            <div className="relative min-h-[280px] lg:min-h-[480px]">
+              <img
+                src={ritualImage}
+                alt="EnviroBiotics on an oak nightstand beside a linen-dressed bed"
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         </section>
@@ -1039,12 +1154,12 @@ const WellnessLandingPage = () => {
         >
           <div className="flex items-center gap-3 px-4 py-3">
             <div className="min-w-0 flex-1">
-              <p className="truncate text-[11px] font-semibold uppercase tracking-[0.2em]" style={{ color: C.green }}>
+              <p className="truncate text-[10.5px] font-bold uppercase tracking-[0.2em]" style={{ color: C.green, fontFamily: DISPLAY }}>
                 Wellness System
               </p>
               <p
-                className="truncate text-[15px]"
-                style={{ fontFamily: SERIF, color: C.charcoal }}
+                className="truncate text-[14px] font-bold"
+                style={{ fontFamily: DISPLAY, color: C.charcoal }}
               >
                 {PRICING.bundle.price} · 30-day guarantee
               </p>
@@ -1052,8 +1167,8 @@ const WellnessLandingPage = () => {
             <a
               href={URLS.bundle}
               onClick={() => trackEvent("click_wellness_sticky")}
-              className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white"
-              style={{ background: C.orange }}
+              className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-[11.5px] font-bold uppercase tracking-[0.18em] text-white"
+              style={{ background: C.orange, fontFamily: DISPLAY }}
             >
               <ShoppingBag className="h-4 w-4" />
               Add to Cart
