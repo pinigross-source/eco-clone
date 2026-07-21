@@ -249,7 +249,7 @@ const WellnessLandingPage = () => {
               >
                 You eat well. You exercise. You prioritize sleep, hydration, and recovery.
                 <br /><br />
-                EnviroBiotics adds the environmental layer to your routine, using beneficial probiotics to continuously support the air, surfaces, fabrics, and objects around you.
+                EnviroBiotics adds the environmental layer to your routine, using beneficial probiotics to continuously support the air, surfaces, and objects around you.
                 <br /><br />
                 No harsh sprays. No noisy fan. No extra daily task.
               </p>
@@ -275,7 +275,7 @@ const WellnessLandingPage = () => {
                 style={{ color: C.mutedSoft }}
               >
                 {[
-                  { icon: Feather, label: "Intentionally designed" },
+                  { icon: Feather, label: "Intentionall designed" },
                   { icon: Sun, label: "For better living" },
                   { icon: ShieldCheck, label: "Backed by science" },
                 ].map(({ icon: Icon, label }) => (
