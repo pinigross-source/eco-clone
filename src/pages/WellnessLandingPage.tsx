@@ -82,7 +82,7 @@ const C = {
 
 const DISPLAY = `"Manrope", "Inter", system-ui, -apple-system, sans-serif`;
 const ITALIC_SERIF = `"Instrument Serif", "Playfair Display", Georgia, serif`;
-const SANS = `"Inter", "Hanken Grotesk", system-ui, -apple-system, sans-serif`;
+const SANS = `"Manrope", "Inter", "Hanken Grotesk", system-ui, -apple-system, sans-serif`;
 
 /* ---------- Small primitives ---------- */
 type HeadingProps = {
