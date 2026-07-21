@@ -110,7 +110,7 @@ const H2 = ({ children, className = "", style = {} }: HeadingProps) => (
 
 const Ital = ({
   children,
-  color = C.green,
+  color = C.charcoal,
 }: {
   children: React.ReactNode;
   color?: string;
