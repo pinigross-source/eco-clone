@@ -269,22 +269,6 @@ const WellnessLandingPage = () => {
                 </OutlineCTA>
               </div>
 
-              {/* Trust chips */}
-              <div
-                className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-[12.5px]"
-                style={{ color: C.mutedSoft }}
-              >
-                {[
-                  { icon: Feather, label: "Intentionall designed" },
-                  { icon: Sun, label: "For better living" },
-                  { icon: ShieldCheck, label: "Backed by science" },
-                ].map(({ icon: Icon, label }) => (
-                  <span key={label} className="inline-flex items-center gap-2">
-                    <Icon className="h-3.5 w-3.5" strokeWidth={1.6} style={{ color: C.green }} />
-                    {label}
-                  </span>
-                ))}
-              </div>
             </div>
 
             {/* Image */}
