@@ -240,7 +240,7 @@ const WellnessLandingPage = () => {
                   maxWidth: "18ch",
                 }}
               >
-                Your wellness routine shouldn&rsquo;t end at your <Ital>skin.</Ital>
+                Your wellness routine shouldn&rsquo;t end at your <Ital>Body.</Ital>
               </h1>
 
               <p
