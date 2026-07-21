@@ -211,7 +211,7 @@ const WellnessLandingPage = () => {
     <>
       <SEOHead
         title="Environmental Wellness for Your Home | EnviroBiotics"
-        description="Your wellness routine shouldn't end at your skin. EnviroBiotics is the missing environmental layer — living, beneficial microbes for the air and surfaces of the rooms you actually live in."
+        description="Your wellness routine shouldn't end at your skin. EnviroBiotics is the missing environmental layer, living, beneficial microbes for the air and surfaces of the rooms you actually live in."
         path="/wellness"
       />
 
@@ -222,7 +222,7 @@ const WellnessLandingPage = () => {
         style={{ fontFamily: SANS, background: C.ivory, color: C.charcoal }}
       >
         {/* ============================================================
-           HERO — split, text left, lifestyle image right, chip trust row
+           HERO, split, text left, lifestyle image right, chip trust row
            ============================================================ */}
         <section style={{ background: C.ivory }}>
           <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-stretch gap-0 lg:grid-cols-[1.05fr_1fr]">
@@ -248,7 +248,7 @@ const WellnessLandingPage = () => {
                 style={{ color: C.muted }}
               >
                 EnviroBiotics brings living, beneficial microbes into your home
-                — supporting the health of your space, your sleep, and your
+               , supporting the health of your space, your sleep, and your
                 whole-body wellness.
               </p>
 
@@ -306,7 +306,7 @@ const WellnessLandingPage = () => {
         </section>
 
         {/* ============================================================
-           PROBLEM — "You've optimized your body." 3-col benefits row
+           PROBLEM, "You've optimized your body." 3-col benefits row
            ============================================================ */}
         <section className="py-20 sm:py-28" style={{ background: C.offwhite }}>
           <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
@@ -316,7 +316,7 @@ const WellnessLandingPage = () => {
               </H2>
               <p className="mt-6 max-w-[58ch] text-[16px] leading-[1.7]" style={{ color: C.muted }}>
                 We spend 90% of our time indoors. Traditional cleaning removes
-                dirt — EnviroBiotics supports the invisible environment you
+                dirt, EnviroBiotics supports the invisible environment you
                 live in.
               </p>
             </Reveal>
@@ -436,7 +436,7 @@ const WellnessLandingPage = () => {
         </section>
 
         {/* ============================================================
-           WARM BROWN PROMISE BAND — 4 circle benefits
+           WARM BROWN PROMISE BAND, 4 circle benefits
            ============================================================ */}
         <section
           className="relative overflow-hidden py-20 sm:py-24"
@@ -474,7 +474,7 @@ const WellnessLandingPage = () => {
                 className="mt-5 max-w-[42ch] text-[15.5px] leading-[1.7]"
                 style={{ color: "rgba(255,255,255,0.82)" }}
               >
-                A fresher, calmer, more supportive space — night and day.
+                A fresher, calmer, more supportive space, night and day.
               </p>
             </Reveal>
 
@@ -507,7 +507,7 @@ const WellnessLandingPage = () => {
         </section>
 
         {/* ============================================================
-           HOW IT WORKS — 3 numbered photo cards
+           HOW IT WORKS, 3 numbered photo cards
            ============================================================ */}
         <section id="how" className="scroll-mt-20 py-20 sm:py-28" style={{ background: C.offwhite }}>
           <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
@@ -536,7 +536,7 @@ const WellnessLandingPage = () => {
                 {
                   n: 3,
                   t: "Let It Work",
-                  c: "Beneficial microbes get to work 24/7 — so you can live well.",
+                  c: "Beneficial microbes get to work 24/7, so you can live well.",
                   img: livingImage,
                   alt: "Sunlit living room with an EnviroBiotics device running quietly in the background",
                 },
@@ -579,7 +579,7 @@ const WellnessLandingPage = () => {
         </section>
 
         {/* ============================================================
-           PRIMARY OFFER — image left / copy right
+           PRIMARY OFFER, image left / copy right
            ============================================================ */}
         <section id="offer" className="scroll-mt-20 pb-20 pt-6 sm:pb-28 sm:pt-8" style={{ background: C.offwhite }}>
           <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
@@ -617,7 +617,7 @@ const WellnessLandingPage = () => {
                 >
                   <img
                     src={bundleAsset.url}
-                    alt="Biotica 800 and BioLogic Mini — the Environmental Wellness System"
+                    alt="Biotica 800 and BioLogic Mini, the Environmental Wellness System"
                     loading="lazy"
                     decoding="async"
                     className="max-h-[420px] w-auto object-contain drop-shadow-[0_30px_40px_rgba(31,41,51,0.18)]"
@@ -777,7 +777,7 @@ const WellnessLandingPage = () => {
         </section>
 
         {/* ============================================================
-           "Designed to disappear into your day" — 2x3 feature grid
+           "Designed to disappear into your day", 2x3 feature grid
            ============================================================ */}
         <section className="py-20 sm:py-28" style={{ background: C.ivory }}>
           <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-[0.9fr_1.6fr] lg:gap-16 lg:px-16">
@@ -849,7 +849,7 @@ const WellnessLandingPage = () => {
         </section>
 
         {/* ============================================================
-           CERTIFICATIONS ROW — inline, calm
+           CERTIFICATIONS ROW, inline, calm
            ============================================================ */}
         <section className="border-y py-14 sm:py-16" style={{ background: C.offwhite, borderColor: C.hairline }}>
           <div className="mx-auto flex max-w-[1300px] flex-col items-start gap-8 px-5 sm:px-10 lg:flex-row lg:items-center lg:gap-14 lg:px-16">
@@ -981,7 +981,7 @@ const WellnessLandingPage = () => {
         </section>
 
         {/* ============================================================
-           GUARANTEE — soft cream with plant vignettes
+           GUARANTEE, soft cream with plant vignettes
            ============================================================ */}
         <section
           className="relative overflow-hidden py-20 sm:py-24"
@@ -1011,7 +1011,7 @@ const WellnessLandingPage = () => {
               Try the Wellness Reset for <Ital>30 days.</Ital>
             </h2>
             <p className="mx-auto mt-4 max-w-[52ch] text-[15.5px] leading-[1.7]" style={{ color: C.muted }}>
-              If you don&rsquo;t feel the difference, return it — no questions asked.
+              If you don&rsquo;t feel the difference, return it, no questions asked.
             </p>
             <div className="mt-8">
               <PrimaryCTA
@@ -1025,7 +1025,7 @@ const WellnessLandingPage = () => {
         </section>
 
         {/* ============================================================
-           FAQ — sticky heading + accordion
+           FAQ, sticky heading + accordion
            ============================================================ */}
         <section className="py-20 sm:py-28" style={{ background: C.offwhite }}>
           <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-[0.9fr_1.6fr] lg:gap-16 lg:px-16">
@@ -1039,7 +1039,7 @@ const WellnessLandingPage = () => {
                 {[
                   {
                     q: "What makes EnviroBiotics different?",
-                    a: "We use living, beneficial microbes — not chemicals or filters — to support the environment you actually live in. It works continuously on both air and surfaces, quietly in the background.",
+                    a: "We use living, beneficial microbes, not chemicals or filters, to support the environment you actually live in. It works continuously on both air and surfaces, quietly in the background.",
                   },
                   {
                     q: "Is it safe for kids and pets?",
@@ -1047,15 +1047,15 @@ const WellnessLandingPage = () => {
                   },
                   {
                     q: "How big of a space does it cover?",
-                    a: "The Environmental Wellness System covers up to 1,800 sq ft — a main living area plus one bedroom. Individual units start at 300 sq ft.",
+                    a: "The Environmental Wellness System covers up to 1,800 sq ft, a main living area plus one bedroom. Individual units start at 300 sq ft.",
                   },
                   {
                     q: "Where should I place the units?",
-                    a: "The bedroom for sleep and recovery, and your main living area for the room your day happens in. Placement on a shelf or nightstand works — no installation required.",
+                    a: "The bedroom for sleep and recovery, and your main living area for the room your day happens in. Placement on a shelf or nightstand works, no installation required.",
                   },
                   {
                     q: "How often do I need to do anything?",
-                    a: "Setup takes about a minute. After that, cartridges swap on a simple schedule — no filters, no daily interaction, no app required.",
+                    a: "Setup takes about a minute. After that, cartridges swap on a simple schedule, no filters, no daily interaction, no app required.",
                   },
                 ].map((item, idx) => (
                   <AccordionItem
@@ -1084,7 +1084,7 @@ const WellnessLandingPage = () => {
         </section>
 
         {/* ============================================================
-           FINAL CTA — dark green split with bedroom image
+           FINAL CTA, dark green split with bedroom image
            ============================================================ */}
         <section
           className="relative overflow-hidden"
