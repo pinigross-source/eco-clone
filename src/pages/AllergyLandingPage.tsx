@@ -258,6 +258,46 @@ const AllergyLandingPage = () => {
         </div>
       </section>
 
+      {/* 3.5 THE SIMPLEST WAY */}
+      <section className="bg-cream py-16 md:py-24">
+        <div className="mx-auto max-w-5xl px-5 md:px-8">
+          <Reveal>
+            <div className="rounded-3xl bg-white border border-ink/5 px-8 py-12 md:px-14 md:py-16 shadow-sm">
+              <div className="grid gap-10 md:grid-cols-2 md:gap-14 items-start">
+                <div>
+                  <p className="text-xs md:text-sm uppercase tracking-[0.18em] text-sage font-semibold mb-5">
+                    How it works
+                  </p>
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-ink">
+                    The simplest way to explain it.
+                  </h2>
+                </div>
+                <div className="md:border-l md:border-ink/10 md:pl-10">
+                  <p className="text-lg leading-relaxed text-ink/75">
+                    You&apos;ve heard of probiotics for your gut - the beneficial microbes that keep things balanced and healthy.{" "}
+                    <span className="font-semibold text-ink">
+                      EnviroBiotics brings that same idea to your home.
+                    </span>
+                  </p>
+                  <p className="mt-5 text-lg leading-relaxed text-ink/75">
+                    Beneficial probiotics settle onto surfaces and quietly break down the organic residue allergens feed on - dust, dander, pollen, and mold -{" "}
+                    <span className="text-sage font-medium">continuously and naturally</span>.
+                  </p>
+                  <div className="mt-8 flex items-center gap-3 border-t border-ink/10 pt-6">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-ink text-[11px] font-bold text-white">
+                      Bio
+                    </div>
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink/60">
+                      Proven probiotic technology
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* 4. HOW IT WORKS */}
       <section className="bg-cream py-16 md:py-24">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
