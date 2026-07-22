@@ -446,7 +446,7 @@ const AllergyLandingPage = () => {
                     ))}
                   </div>
                   <blockquote className="text-ink/80 leading-relaxed text-[15px] flex-grow">
-                    &ldquo;{review.quote}&rdquo;
+                    "{review.quote}"
                   </blockquote>
                   <div className="mt-6 pt-5 border-t border-ink/10 flex items-center justify-between gap-3">
                     <p className="font-semibold text-sm text-ink">{review.name}</p>
