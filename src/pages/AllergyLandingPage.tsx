@@ -177,7 +177,7 @@ const AllergyLandingPage = () => {
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink/75">
               Dust, dander, pollen, and mold don&apos;t just float in the air. They
-              settle onto bedding, sofas, rugs, curtains, and floors — the
+              settle onto bedding, sofas, rugs, curtains, and floors. The
               surfaces you and your family touch every day. Filters only clean
               the air that passes through them.
             </p>
