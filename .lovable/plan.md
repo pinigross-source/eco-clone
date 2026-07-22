@@ -1,44 +1,51 @@
 ## Goal
 
-Rebuild `/` so its section order, headings, and body copy match the uploaded mockup PNG, using the exact text from `homepage-text.md`. You'll drop in the hero GIF and section images afterward — the plan reserves slots and keeps current images as placeholders until then.
+Rebuild `/allergy` into a single-scroll, mobile-first Meta-ad landing page for allergy/asthma sufferers, structured around the "whole room, not just the air" differentiator, with prices anchored on-page and "Buy Once" as the primary CTA.
 
-## New section order on `/`
+## Scope
 
-1. **Hero** — "Your Health. **Your Choice.**" + subhead + body + CTAs (Choose Your System / Learn More). Right side reserved for the hero GIF (placeholder = current hero image until you upload the GIF).
-2. **Nature Statement band** — one-line H2 + italic accent.
-3. **Trusted Places** — intro line, logo strip, closing H3.
-4. **Find the system that suits your space** — 30-day risk-free intro + BioLogic Mini (Up to 300 sq ft) and Biotica 800 (300–800 sq ft) cards + certification badges row.
-5. **The Science of Balance** — italic subhead, body, "Let Nature Back Indoors" H3, Choose Your System + Watch how it works CTAs, lifestyle image on the right.
-6. **Add a layer of wellness** — 4 alternating image/card rows: Parents/Nursery, Pets, Active Families, Allergy/Bedroom. Each row: eyebrow, tag, H3, italic subhead, body, "What you get" paired block, primary + LEARN MORE CTAs.
-7. **Testimonials** — "Protecting thousands of families." featured PTPA quote + 4-card carousel.
-8. **Footer** (unchanged).
+Rewrite `src/pages/AllergyLandingPage.tsx` end-to-end. Keep the existing route (`src/routes/allergy.tsx`) and its SEO head; update meta title/description to the new positioning. No new routes, no backend, no new dependencies.
 
-Everything not in the mockup is removed from `/`: the "Ready for cleaner surfaces, naturally?" mid-band, the "When you thrive, our planet does too" mission section, and `FinalCTASection`. Those components stay in the repo for reuse on other routes.
+## Compliance rule (hard)
 
-## Copy source
+Environmental claims only ("reduces allergens on surfaces and in the air"). No medical claims. Footer disclaimer verbatim: *"Results vary by space and conditions. Not intended to diagnose, treat, cure, or prevent any disease."*
 
-All headings, subheads, body, alts, and CTA labels/URLs come verbatim from `user-uploads://homepage-text.md`. Stripe price IDs for the two products stay as listed. Certifications row: EPA Registered, FDA GRAS, AllergyUK, PTPA Winner, MADE SAFE®.
+## Design system
 
-## Image / GIF handling
+- Palette: cream `#F7F4EE` bg, ink `#1B2A2A` text, sage/teal `#2E8B7F` primary accent, soft muted-green secondary. Add these as CSS variables in `src/styles.css` under `@theme` (`--color-cream`, `--color-ink`, `--color-sage`, `--color-sage-soft`) so utilities like `bg-cream`, `text-ink`, `bg-sage` work — no hardcoded hex in components.
+- Type: Inter (already loaded). Large confident headlines, generous mobile body (≥17px).
+- Rounded corners, soft shadows, `Reveal`-style scroll fades (reuse existing `Reveal` component), respect `prefers-reduced-motion`.
+- Fully mobile-first; USD prices everywhere.
 
-- **Hero GIF**: hero right column gets a dedicated slot component; until you upload the GIF, the existing `hero-desktop-family.avif` stays in that slot. When you send the file I'll swap the src via Lovable Assets.
-- **Section images**: for the Science of Balance section and the 4 audience rows, I keep the current photos already in `src/assets/` (nursery, pets, parents, allergy) so layout is complete. When you send replacements I'll swap them.
-- No new binary uploads happen in this plan.
+## Section order (single scrolling page)
 
-## Technical changes
+1. **Hero** — Headline "Clean the whole room. Not just the air." Sub "Environmental probiotics that continuously reduce allergens on every surface and in the air — between cleanings." Primary CTA "Shop EnviroBiotics →" (→ Bundle), secondary "See how it works" (scrolls to comparison). Trust chips: EPA Registered · FDA GRAS · AllergyUK · 30-day money-back. Bright sunlit interior placeholder image (reuse `heroImg`).
+2. **Problem / message match** — "If your allergies flare up indoors, your air purifier isn't enough." Short paragraph naming dust, dander, pollen, mold settling on bedding, sofas, floors.
+3. **The differentiator (core)** — "Air purifiers filter air. EnviroBiotics treats the whole room." Two-column visual: purifier (air only) vs EnviroBiotics (air + every surface + object). Bullet list of what it reaches: mattresses, bedding, sofas, rugs, floors, curtains, air.
+4. **How it works** — 3 steps: Plug in → Probiotic mist disperses → Continuously reduces allergens on surfaces and in the air.
+5. **Proof / certifications** — Row of logos: EPA Registered, FDA GRAS, AllergyUK, PTPA Winner, MADE SAFE®, ISO 9001:2015, Instituto de Salud Pública, Società Italiana di Medicina Ambientale. Two or three empty-structure review cards (first name + city + short line). **No fabricated review text or star ratings** — cards render as structural placeholders per site policy.
+6. **Pricing / choose your device** — Three cards, USD price up front, "Buy Once" primary button, small secondary "or Subscribe & Save on refills" text link (goes to same product page):
+   - BioLogic Mini — **$98** · "Best for a single room, up to 300 sq ft."
+   - Biotica — **$299** · "Best for whole-home coverage."
+   - Home Bundle — **$395** ~~$495~~ **Save $100** · "2 BioLogic Minis + 1 Biotica — whole home plus two rooms." Badge: "Most popular · Best value".
+   Buy Once buttons visually dominant; subscription is a small text link only.
+7. **Guarantee** — "Try it in your home for 30 days, risk-free." Free shipping, easy returns. Placed directly under pricing.
+8. **FAQ (accordion)** — How is this different from an air purifier? · Do I have to subscribe? · Is it safe around kids and pets? · Any chemicals or fragrances? · How soon will I notice a difference? · What's the return policy? All answers environmental, non-medical.
+9. **Final CTA** — "Clean the whole room — not just the air." Button "Shop EnviroBiotics →" → Bundle. Reassurance line: 30-day money-back · free shipping · easy returns.
+10. **Footer** — Reuse existing `Footer`. Add compliance disclaimer line above/below footer content on this page only.
 
-- `src/components/HeroSection.tsx` — rewrite copy + restructure to a two-column layout (text left, media slot right) so the GIF has an obvious home.
-- `src/components/MicroscopicWorldSection.tsx` — replaced by a minimal "Nature Statement" band matching the copy exactly (renamed to `NatureStatementSection.tsx`; old file removed).
-- `src/components/SizedToYourSpaceSection.tsx` — copy pass: intro paragraph, product sublines, and the certifications badge row updated to the 5 listed certs.
-- `src/components/TrustedPlacesSection.tsx` — intro/closing copy verified against md; adjust wording if it drifts.
-- **New** `src/components/ScienceOfBalanceSection.tsx` — section 5.
-- **New** `src/components/AddLayerOfWellnessSection.tsx` — section 6, wraps 4 alternating rows (image left/right alternating), each row using shared `WellnessRow` subcomponent.
-- `src/components/TestimonialsSection.tsx` — verify featured quote + 4 carousel quotes match the md; update where they differ.
-- `src/pages/HomePage.tsx` — new import list + new render order; drop the mid-band, mission section, and `FinalCTASection`.
-- `src/routes/index.tsx` — leave the SEO head as-is (title/description in md already match).
+## Shop links / CTA behavior
+
+Use existing `shopifyProductUrl` helper. Every CTA fires `trackEvent` with the section name (hero, differentiator, pricing_mini, pricing_biotica, pricing_bundle, final_cta) so analytics can attribute clicks. Bundle CTAs point to `home-complete-bundle` with `?discount=ALLERGY` (existing `BUNDLE_URL`). BioLogic Mini and Biotica point to their product pages; "Buy Once" opens the product page (existing behavior — Shopify handles one-time vs subscription selection there).
+
+## Files changed
+
+- `src/pages/AllergyLandingPage.tsx` — full rewrite following the sections above.
+- `src/styles.css` — add the 4 `--color-*` tokens under `@theme`.
+- `src/routes/allergy.tsx` — update `title` and `description` meta to match the new headline ("Clean the whole room. Not just the air. | EnviroBiotics").
 
 ## Out of scope
 
-- No changes to other routes, product data files, or shop links other than the ones referenced in the homepage.
-- No new dependencies.
-- Actual GIF and photo swaps happen after you upload them.
+- No changes to Navbar, Footer, product data, Shopify integration, or other routes.
+- No new images uploaded; reuse `heroImg` and existing cert asset pointers.
+- No reviews content generated — review cards stay as empty structural placeholders.
