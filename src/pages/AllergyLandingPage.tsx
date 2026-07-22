@@ -470,7 +470,7 @@ const AllergyLandingPage = () => {
                 className="inline-flex items-center text-sm font-semibold text-sage hover:text-sage/80 underline underline-offset-4"
                 onClick={() => track("cta_click", { section: "reviews", target: "read_all_reviews" })}
               >
-                Read all reviews <span aria-hidden="true">→</span>
+                Read all reviews
               </a>
             </div>
           </Reveal>
