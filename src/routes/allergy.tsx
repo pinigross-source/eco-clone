@@ -4,17 +4,17 @@ import Page from "@/pages/AllergyLandingPage";
 export const Route = createFileRoute("/allergy")({
   head: () => ({
     meta: [
-      { title: "Whole-Room Coverage for Your Home | EnviroBiotics" },
+      { title: "Clean the Whole Room. Not Just the Air. | EnviroBiotics" },
       {
         name: "description",
         content:
-          "Air purifiers only treat the air. EnviroBiotics helps cover the surfaces your purifier cannot reach — mattresses, bedding, furniture, carpets, and other indoor surfaces.",
+          "Environmental probiotics that continuously reduce dust, dander, pollen, and mold on every surface and in the air. 30-day money-back guarantee.",
       },
-      { property: "og:title", content: "Whole-Room Coverage for Your Home | EnviroBiotics" },
+      { property: "og:title", content: "Clean the Whole Room. Not Just the Air. | EnviroBiotics" },
       {
         property: "og:description",
         content:
-          "Air purifiers only treat the air. EnviroBiotics helps cover the surfaces your purifier cannot reach — mattresses, bedding, furniture, carpets, and other indoor surfaces.",
+          "Air purifiers only clean the air. EnviroBiotics treats every surface and object in the room too — bedding, sofas, floors, and more.",
       },
       { property: "og:url", content: "https://envirobiotics.com/allergy" },
       { property: "og:type", content: "website" },
