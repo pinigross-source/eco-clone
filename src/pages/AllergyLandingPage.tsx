@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Wind, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowRight, Check, Wind, Sparkles, ShieldCheck, Star } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductUrl } from "@/lib/shopify";
 import {
@@ -38,6 +38,34 @@ const certifications = [
   { label: "ISO 9001:2015", image: isoAsset.url },
   { label: "Instituto de Salud Pública", image: ispAsset.url },
   { label: "Società Italiana di Medicina Ambientale", image: simaAsset.url },
+];
+
+const reviews = [
+  {
+    quote: "We have two cats and a guinea pig, and the odors are completely gone. EnviroBiotics didn't mask the smell — it eliminated it.",
+    name: "Amanda I.",
+    verified: false,
+  },
+  {
+    quote: "What won me over is that it treats the environment itself instead of just masking symptoms. My home genuinely changed — I only wish I'd started sooner.",
+    name: "Randy W.",
+    verified: false,
+  },
+  {
+    quote: "I've used these for a couple of years, and everyone who walks into my home says how clean and fresh it feels. Every home should have at least one.",
+    name: "Verified homeowner",
+    verified: true,
+  },
+  {
+    quote: "The product is unbelievable — I noticed a difference very quickly. Customer service was excellent, and my order shipped the same day.",
+    name: "Lynn",
+    verified: false,
+  },
+  {
+    quote: "EnviroBiotics has made a big difference in the quality of my sleep. I highly recommend it.",
+    name: "Greg H.",
+    verified: false,
+  },
 ];
 
 const Reveal = ({
@@ -151,6 +179,14 @@ const AllergyLandingPage = () => {
                   <span>{c}</span>
                 </li>
               ))}
+              <li className="flex items-center gap-1.5">
+                <span className="flex text-amber-500" aria-label="5 out of 5 stars">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-current" />
+                  ))}
+                </span>
+                <span>Rated 5.0 from 43 verified reviews</span>
+              </li>
             </ul>
           </Reveal>
 
@@ -372,34 +408,76 @@ const AllergyLandingPage = () => {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-5 md:grid-cols-3">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="rounded-2xl border border-ink/10 bg-cream/60 p-6 min-h-[140px] flex flex-col justify-between"
-              >
-                <div
-                  className="flex gap-1 text-ink/20"
-                  aria-label="No reviews yet"
-                >
-                  {Array.from({ length: 5 }).map((_, k) => (
-                    <svg
-                      key={k}
-                      className="h-4 w-4 fill-current"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10 15l-5.878 3.09L5.24 11.545.48 7.41l6.564-.955L10 .5l2.956 5.955 6.564.955-4.76 4.135 1.118 6.545z" />
-                    </svg>
-                  ))}
-                </div>
-                <div className="text-sm text-ink/40">No reviews yet</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* 6. PRICING */}
+      {/* 6. REVIEWS */}
+      <section id="reviews" className="bg-cream py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <Reveal className="text-center max-w-2xl mx-auto">
+            <p className="text-xs md:text-sm uppercase tracking-[0.18em] text-sage font-semibold">
+              Loved by real homes
+            </p>
+            <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight text-ink">
+              Rated 5.0 from 43 verified reviews
+            </h2>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-amber-500">
+              <span className="flex" aria-label="5 out of 5 stars">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="h-5 w-5 fill-current" />
+                ))}
+              </span>
+              <span className="text-sm text-ink/70">
+                100% of verified reviews published — Judge.me Diamond Transparent Shop.
+              </span>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div className="mt-12 flex md:grid md:grid-cols-3 gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0">
+              {reviews.map((review, i) => (
+                <div
+                  key={i}
+                  className="min-w-[85vw] sm:min-w-[70vw] md:min-w-0 snap-start rounded-3xl bg-white p-7 border border-ink/5 shadow-sm flex flex-col h-full"
+                >
+                  <div className="flex text-amber-500 mb-4" aria-label="5 out of 5 stars">
+                    {Array.from({ length: 5 }).map((_, k) => (
+                      <Star key={k} className="h-4 w-4 fill-current" />
+                    ))}
+                  </div>
+                  <blockquote className="text-ink/80 leading-relaxed text-[15px] flex-grow">
+                    &ldquo;{review.quote}&rdquo;
+                  </blockquote>
+                  <div className="mt-6 pt-5 border-t border-ink/10 flex items-center justify-between gap-3">
+                    <p className="font-semibold text-sm text-ink">{review.name}</p>
+                    {review.verified && (
+                      <span className="inline-flex items-center rounded-full bg-sage/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-sage">
+                        Verified Buyer
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal delay={150}>
+            <div className="mt-10 text-center">
+              <a
+                href="https://shop.envirobiotics.com/products/biologic-mini"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-sm font-semibold text-sage hover:text-sage/80 underline underline-offset-4"
+                onClick={() => track("cta_click", { section: "reviews", target: "read_all_reviews" })}
+              >
+                Read all reviews <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 7. PRICING */}
       <section id="pricing" className="bg-cream py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <Reveal className="text-center max-w-2xl mx-auto">
