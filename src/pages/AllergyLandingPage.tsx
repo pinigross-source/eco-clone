@@ -506,7 +506,7 @@ const AllergyLandingPage = () => {
               <PriceCard
                 name="Biotica"
                 price="$299"
-                best="Best for whole-home coverage."
+                best="For spaces up to 800 sq ft."
                 href={BIOTICA_URL}
                 onBuy={() => track("cta_click", { section: "pricing_biotica" })}
                 subHref={BIOTICA_URL}
