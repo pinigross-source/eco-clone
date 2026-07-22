@@ -110,7 +110,7 @@ const AllergyLandingPage = () => {
             </h1>
             <p className="mt-5 text-lg md:text-xl leading-relaxed text-ink/80 max-w-xl">
               Environmental probiotics that continuously reduce allergens on
-              every surface and in the air — between cleanings.
+              every surface and in the air, between cleanings.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -177,7 +177,7 @@ const AllergyLandingPage = () => {
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink/75">
               Dust, dander, pollen, and mold don&apos;t just float in the air. They
-              settle onto bedding, sofas, rugs, curtains, and floors — the
+              settle onto bedding, sofas, rugs, curtains, and floors. The
               surfaces you and your family touch every day. Filters only clean
               the air that passes through them.
             </p>
@@ -233,7 +233,7 @@ const AllergyLandingPage = () => {
                 </div>
                 <p className="mt-4 text-white/90 leading-relaxed">
                   An active probiotic solution disperses into the room and keeps
-                  working on every surface and object — plus the air — 24/7.
+                  working on every surface and object, plus the air, 24/7.
                 </p>
                 <ul className="mt-6 grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
                   {[
@@ -275,7 +275,7 @@ const AllergyLandingPage = () => {
               {
                 n: "01",
                 t: "Plug in",
-                b: "Place the device in the room you use most — bedroom, living room, nursery.",
+                b: "Place the device in the room you use most, bedroom, living room, or nursery.",
               },
               {
                 n: "02",
@@ -285,7 +285,7 @@ const AllergyLandingPage = () => {
               {
                 n: "03",
                 t: "Continuous reduction",
-                b: "Allergens on surfaces and in the air are continuously reduced — between and after every cleaning.",
+                b: "Allergens on surfaces and in the air are continuously reduced, between and after every cleaning.",
               },
             ].map((s, i) => (
               <Reveal key={s.n} delay={i * 100}>
@@ -402,7 +402,7 @@ const AllergyLandingPage = () => {
                 compareAt="$495"
                 saveBadge="Save $100"
                 topBadge="Most popular · Best value"
-                best="2 BioLogic Minis + 1 Biotica — whole home plus two rooms."
+                best="2 BioLogic Minis + 1 Biotica, whole home plus two rooms."
                 href={BUNDLE_URL}
                 onBuy={() => track("cta_click", { section: "pricing_bundle" })}
                 subHref={BUNDLE_URL}
@@ -442,7 +442,7 @@ const AllergyLandingPage = () => {
               {[
                 {
                   q: "How is this different from an air purifier?",
-                  a: "Air purifiers filter only the air that passes through the device. EnviroBiotics disperses an active probiotic solution that continuously reduces allergens on every surface and object in the room — plus the air.",
+                  a: "Air purifiers filter only the air that passes through the device. EnviroBiotics disperses an active probiotic solution that continuously reduces allergens on every surface and object in the room, plus the air.",
                 },
                 {
                   q: "Do I have to subscribe?",
@@ -484,7 +484,7 @@ const AllergyLandingPage = () => {
         <div className="mx-auto max-w-3xl px-5 md:px-8 text-center">
           <Reveal>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-              Clean the whole room — <span className="text-sage">not just the air.</span>
+              Clean the whole room, <span className="text-sage">not just the air.</span>
             </h2>
             <div className="mt-8">
               <Button
