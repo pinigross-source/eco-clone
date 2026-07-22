@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check } from "lucide-react";
-import { SEOHead } from "@/components/SEOHead";
+import { ArrowRight, Check, Wind, Sparkles, ShieldCheck } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductUrl } from "@/lib/shopify";
 import {
@@ -13,12 +12,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import miniImg from "@/assets/shop/biologic-mini.png";
-import bioticaImg from "@/assets/shop/biotica-800.png";
-import bundleImg from "@/assets/shop/home-complete-bundle.avif";
 import heroImgAsset from "@/assets/allergy-hero.avif.asset.json";
 const heroImg = heroImgAsset.url;
-import finalBgImg from "@/assets/edu-bedroom-allergens.jpg";
 
 import epaAsset from "@/assets/certs/cert_0.png.asset.json";
 import ispAsset from "@/assets/certs/cert_1.png.asset.json";
@@ -26,60 +21,57 @@ import simaAsset from "@/assets/certs/cert_2.png.asset.json";
 import isoAsset from "@/assets/certs/cert_3.png.asset.json";
 import allergyAsset from "@/assets/certs/cert_4.png.asset.json";
 import madeSafeAsset from "@/assets/certs/cert_5.png.asset.json";
-import sensitiveAsset from "@/assets/certs/cert_6.png.asset.json";
-import ecocertAsset from "@/assets/certs/cert_7.png.asset.json";
 import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
 import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
 
 const PROMO = "ALLERGY";
-const BIOTICA_URL = `${shopifyProductUrl("biotica-800", "allergy-landing")}?discount=${PROMO}`;
+const BIOTICA_URL = `${shopifyProductUrl("biotica-800", "allergy-landing")}`;
 const MINI_URL = `${shopifyProductUrl("biologic-mini", "allergy-landing")}`;
 const BUNDLE_URL = `${shopifyProductUrl("home-complete-bundle", "allergy-landing")}?discount=${PROMO}`;
 
-const certifications: { label: string; image: string; caption: string }[] = [
-  { label: "EPA Registered", image: epaAsset.url, caption: "Registered with the U.S. EPA." },
-  { label: "FDA GRAS", image: fdaGrasAsset.url, caption: "Uses cultures on the FDA's GRAS list." },
-  { label: "PTPA Winner", image: ptpaAsset.url, caption: "Parent Tested, Parent Approved." },
-  { label: "Instituto de Salud Pública", image: ispAsset.url, caption: "Reviewed by Chile's public health institute." },
-  { label: "Società Italiana di Medicina Ambientale", image: simaAsset.url, caption: "Recognized by the Italian Society of Environmental Medicine." },
-  { label: "ISO 9001:2015", image: isoAsset.url, caption: "ISO 9001:2015 quality management." },
-  { label: "AllergyUK", image: allergyAsset.url, caption: "Seal of approval from AllergyUK." },
-  { label: "MADE SAFE®", image: madeSafeAsset.url, caption: "MADE SAFE® certified ingredients." },
-  { label: "Sensitive Choice", image: sensitiveAsset.url, caption: "Approved by Sensitive Choice." },
-  { label: "EcoCert", image: ecocertAsset.url, caption: "EcoCert environmental certification." },
+const certifications = [
+  { label: "EPA Registered", image: epaAsset.url },
+  { label: "FDA GRAS", image: fdaGrasAsset.url },
+  { label: "AllergyUK", image: allergyAsset.url },
+  { label: "PTPA Winner", image: ptpaAsset.url },
+  { label: "MADE SAFE®", image: madeSafeAsset.url },
+  { label: "ISO 9001:2015", image: isoAsset.url },
+  { label: "Instituto de Salud Pública", image: ispAsset.url },
+  { label: "Società Italiana di Medicina Ambientale", image: simaAsset.url },
 ];
 
-/* Reveal-on-scroll */
 const Reveal = ({
   children,
   className = "",
+  delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
+  delay?: number;
 }) => {
   const [visible, setVisible] = useState(false);
-  const [ref, setRef] = useState<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (!ref) return;
+    const el = ref.current;
+    if (!el) return;
     const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            setVisible(true);
-            io.disconnect();
-          }
-        });
+      ([e]) => {
+        if (e.isIntersecting) {
+          setVisible(true);
+          io.disconnect();
+        }
       },
       { threshold: 0.12 },
     );
-    io.observe(ref);
+    io.observe(el);
     return () => io.disconnect();
-  }, [ref]);
+  }, []);
   return (
     <div
-      ref={setRef}
-      className={`transition-all duration-[900ms] ease-out ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      ref={ref}
+      style={{ transitionDelay: `${delay}ms` }}
+      className={`transition-all duration-700 ease-out motion-reduce:transition-none ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       } ${className}`}
     >
       {children}
@@ -87,753 +79,523 @@ const Reveal = ({
   );
 };
 
-const ITALIC_FONT: React.CSSProperties = {
-  fontFamily: "'Instrument Serif', 'Playfair Display', serif",
-  fontWeight: 400,
-  letterSpacing: "-0.01em",
+const track = (name: string, extra: Record<string, unknown> = {}) => {
+  try {
+    trackEvent(name, { page: "allergy_landing", ...extra });
+  } catch {
+    /* noop */
+  }
 };
 
-const PROOF_ROW = [
-  "Treats air + surfaces",
-  "No spraying or wiping",
-  "Set-and-forget coverage",
-  "Independently tested for safety",
-];
-
-const HOW_STEPS = [
-  {
-    step: "01",
-    title: "Place it",
-    copy: "Set up the device in the room you want to cover.",
-  },
-  {
-    step: "02",
-    title: "Activate it",
-    copy: "The system releases environmental probiotics into the indoor environment.",
-  },
-  {
-    step: "03",
-    title: "Let it cover",
-    copy: "They disperse through the room and settle on surfaces your purifier cannot treat.",
-  },
-];
-
-const COMPARISON_ROWS: { a: string; b: string }[] = [
-  { a: "Filters air that passes through the unit", b: "Disperses throughout the room" },
-  { a: "Does not treat mattresses or furniture", b: "Helps cover mattresses, bedding, furniture, and surfaces" },
-  { a: "Depends on airflow", b: "Works quietly in the background" },
-  { a: "Focuses on airborne particles", b: "Supports air + surface coverage" },
-  { a: "Requires filter changes", b: "Uses environmental probiotic refills" },
-];
-
-const PROOF_CARDS = [
-  {
-    title: "Independently tested",
-    copy: "Tested by third-party laboratories for safety and indoor use.",
-  },
-  {
-    title: "Air + surface coverage",
-    copy: "Designed to move through the room and settle on surfaces air purifiers miss.",
-  },
-  {
-    title: "Works with your purifier",
-    copy: "Keep your HEPA purifier. Add the surface coverage it cannot provide.",
-  },
-  {
-    title: "No chemical spraying",
-    copy: "A set-and-forget environmental probiotic system with no wiping or daily routine.",
-  },
-];
-
-const FAQS = [
-  {
-    q: "Does EnviroBiotics replace my air purifier?",
-    a: "No. It is designed to work alongside your purifier. Your purifier filters the air. EnviroBiotics helps treat surfaces and spaces your purifier cannot reach.",
-  },
-  {
-    q: "Can I use it in a bedroom?",
-    a: "Yes. It is designed for indoor spaces such as bedrooms, nurseries, home offices, living rooms, and other occupied rooms when used as directed.",
-  },
-  {
-    q: "Does it require spraying or wiping?",
-    a: "No. The system is designed to work in the background with no daily spraying, wiping, or manual application.",
-  },
-  {
-    q: "What surfaces does it help cover?",
-    a: "It is designed to disperse through the room and settle on indoor surfaces such as mattresses, bedding, furniture, rugs, carpets, and other objects in the space.",
-  },
-  {
-    q: "Is it safe for everyday use?",
-    a: "The technology has been independently tested for safety and is designed for continuous indoor use when used as directed.",
-  },
-  {
-    q: "How do I choose the right product?",
-    a: "Choose BioLogic Mini for bedrooms and smaller rooms. Choose Biotica 800 for larger rooms and open spaces. [Add exact coverage] to help you choose confidently.",
-  },
-];
+const scrollToId = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 
 const AllergyLandingPage = () => {
-  const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string, eventName?: string) => {
-    e.preventDefault();
-    if (eventName) trackEvent(eventName);
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-  const scrollToId = (id: string, eventName?: string) => {
-    if (eventName) trackEvent(eventName);
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-
   return (
-    <>
-      <SEOHead
-        title="Whole-Room Coverage for Your Home | EnviroBiotics"
-        description="Air purifiers only treat the air. EnviroBiotics helps cover the surfaces your purifier cannot reach — mattresses, bedding, furniture, carpets, and other indoor surfaces."
-        path="/allergy"
-      />
-
+    <div className="min-h-screen bg-cream text-ink font-sans">
       <Navbar />
-      <main className="bg-background text-foreground pt-16 lg:pt-[124px]">
-        {/* ============ HERO ============ */}
-        <section className="relative w-full overflow-hidden h-[100svh] min-h-[680px] sm:min-h-[760px]">
-          <img
-            src={heroImg}
-            alt="Calm, naturally lit bedroom with crisp linens"
-            className="absolute inset-0 h-full w-full object-cover object-center scale-105"
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-            width={1920}
-            height={1080}
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-b from-[#f7f3ec]/85 via-[#f7f3ec]/30 to-[#f7f3ec]"
-          />
-          <div className="relative z-10 mx-auto flex h-full max-w-[1120px] flex-col items-center justify-center px-6 text-center">
-            <Reveal>
-              <h1 className="font-display font-semibold text-foreground tracking-[-0.04em] text-[clamp(2.75rem,8.5vw,3.5rem)] leading-[1.02] sm:text-[clamp(3.75rem,7vw,5.5rem)] sm:leading-[1.0] lg:text-[clamp(4.5rem,5.5vw,6.5rem)]">
-                Your air purifier
-                <button
-                  type="button"
-                  onClick={() => scrollToId("how-it-works", "click_allergy_hero_headline")}
-                  className="block mt-1 sm:mt-2 italic w-full text-center cursor-pointer transition-opacity hover:opacity-70 focus:outline-none focus-visible:underline underline-offset-8 decoration-1"
-                  style={ITALIC_FONT}
-                  aria-label="See how EnviroBiotics treats surfaces"
-                >
-                  can&apos;t clean your mattress.
-                </button>
-              </h1>
 
-            </Reveal>
-            <Reveal>
-              <p className="mx-auto mt-6 max-w-[36rem] text-[1.05rem] font-normal leading-[1.55] text-foreground/70 sm:mt-8 sm:max-w-[42rem] sm:text-[1.2rem] sm:leading-[1.5]">
-                Air purifiers filter what passes through them. But your bedding, furniture, carpets,
-                and surfaces still collect what the air leaves behind. EnviroBiotics helps treat the
-                whole room &mdash; air and surfaces.
-              </p>
-            </Reveal>
-            <Reveal>
-              <div className="mt-9 flex flex-col items-center gap-4 sm:mt-11 sm:flex-row">
-                <a
-                  href="#offer"
-                  onClick={(e) => smoothScroll(e, "offer", "click_allergy_hero_primary")}
-                >
-                  <Button
-                    size="lg"
-                    className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]"
-                  >
-                    Treat the Whole Room
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </a>
-                <a
-                  href="#how-it-works"
-                  onClick={(e) => smoothScroll(e, "how-it-works", "click_allergy_hero_secondary")}
-                  className="text-[15px] font-medium text-foreground/70 underline-offset-4 hover:text-foreground hover:underline sm:text-[16px]"
-                >
-                  See How It Works
-                </a>
-              </div>
-            </Reveal>
-            <Reveal>
-              <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[12px] font-medium text-foreground/60 sm:mt-10 sm:text-[13px]">
-                {PROOF_ROW.map((item, i) => (
-                  <li key={item} className="flex items-center gap-2">
-                    <Check className="h-3.5 w-3.5 text-foreground" strokeWidth={2.5} />
-                    <span>{item}</span>
-                    {i < PROOF_ROW.length - 1 && (
-                      <span className="ml-3 text-foreground/30">·</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* ============ PROBLEM ============ */}
-        <section className="bg-[#F5F3EE] py-20 sm:py-28 lg:py-36">
-          <div className="mx-auto max-w-[920px] px-6 text-center">
-            <Reveal>
-              <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
-                The problem
-              </p>
-              <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
-                You did everything right.
-                <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
-                  The purifier still isn&apos;t enough.
-                </span>
-              </h2>
-              <div className="mx-auto mt-8 max-w-[680px] space-y-5 text-[1.05rem] leading-[1.7] text-foreground/70 sm:text-[1.15rem]">
-                <p>
-                  You bought the purifier. You changed the filters. You vacuumed. You washed the
-                  bedding.
-                </p>
-                <p>The problem is not your routine.</p>
-                <p>
-                  The problem is that most indoor solutions only treat part of the room. Air
-                  purifiers clean the air that passes through the machine, but they do not treat
-                  your mattress, bedding, furniture, carpets, or the surfaces you touch every day.
-                </p>
-              </div>
-              <div className="mt-10">
-                <a
-                  href="#offer"
-                  onClick={(e) => smoothScroll(e, "offer", "click_allergy_problem_cta")}
-                >
-                  <Button
-                    size="lg"
-                    className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium text-background hover:bg-foreground/90"
-                  >
-                    Stop Treating Half the Room
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </a>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* ============ AIR + SURFACES / HOW IT WORKS ============ */}
-        <section id="how-it-works" className="scroll-mt-24 bg-background py-20 sm:py-28 lg:py-36">
-          <div className="mx-auto max-w-[1100px] px-6">
-            <Reveal>
-              <div className="text-center">
-                <button
-                  type="button"
-                  onClick={() => scrollToId("offer", "click_allergy_shift_eyebrow")}
-                  className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60 cursor-pointer hover:text-foreground transition-colors"
-                >
-                  The shift →
-                </button>
-                <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]">
-                  Clean air is only{" "}
-                  <button
-                    type="button"
-                    onClick={() => scrollToId("offer", "click_allergy_halfroom")}
-                    className="italic font-normal text-foreground/70 cursor-pointer hover:text-foreground transition-colors underline-offset-8 decoration-1 hover:underline"
-                    style={ITALIC_FONT}
-                  >
-                    half the room.
-                  </button>
-                </h2>
-
-                <p className="mx-auto mt-6 max-w-[680px] text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.2rem]">
-                  Traditional air purifiers wait for airborne particles to pass through the unit.
-                  EnviroBiotics works differently. It releases environmental probiotics into the
-                  room so they can disperse through the space and settle on surfaces that filters
-                  cannot reach.
-                </p>
-              </div>
-            </Reveal>
-
-            <ol className="mt-14 grid grid-cols-1 gap-6 sm:mt-16 lg:grid-cols-3 lg:gap-7">
-              {HOW_STEPS.map((item) => (
-                <Reveal key={item.step}>
-                  <li className="h-full rounded-3xl bg-card p-8 ring-1 ring-black/[0.05] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.18)] sm:p-10">
-                    <span className="font-display text-[2.5rem] font-bold leading-none tracking-tight text-foreground sm:text-[3rem]">
-                      {item.step}
-                    </span>
-                    <h3 className="mt-5 font-display text-[1.5rem] font-semibold tracking-tight text-foreground sm:text-[1.7rem]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-[1rem] leading-[1.7] text-muted-foreground sm:text-[1.05rem]">
-                      {item.copy}
-                    </p>
-                  </li>
-                </Reveal>
-              ))}
-            </ol>
-
-            <p className="mt-10 text-center text-[15px] italic text-muted-foreground sm:text-[16px]">
-              No spraying. No wiping. No daily routine.
+      {/* 1. HERO */}
+      <section className="relative overflow-hidden bg-cream pt-24 pb-16 md:pt-32 md:pb-24">
+        <div className="mx-auto max-w-6xl px-5 md:px-8 grid gap-10 md:gap-14 md:grid-cols-2 items-center">
+          <Reveal>
+            <p className="mb-4 text-xs md:text-sm uppercase tracking-[0.18em] text-sage font-semibold">
+              For allergy &amp; asthma-sensitive homes
             </p>
-          </div>
-        </section>
+            <h1 className="text-[2.25rem] leading-[1.05] sm:text-5xl md:text-6xl font-bold tracking-tight text-ink">
+              Clean the whole room.<br />
+              <span className="text-sage">Not just the air.</span>
+            </h1>
+            <p className="mt-5 text-lg md:text-xl leading-relaxed text-ink/80 max-w-xl">
+              Environmental probiotics that continuously reduce allergens on
+              every surface and in the air — between cleanings.
+            </p>
 
-        {/* ============ COMPARISON ============ */}
-        <section className="bg-[#F5F3EE] py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[1100px] px-5 sm:px-10 lg:px-16">
-            <Reveal>
-              <div className="max-w-2xl">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                  Air purifier vs. EnviroBiotics
-                </p>
-                <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                  Two halves of one room.
-                  <span className="block italic font-normal text-foreground/70" style={ITALIC_FONT}>
-                    Your purifier only treats one.
-                  </span>
-                </h2>
-              </div>
-            </Reveal>
-
-            <Reveal>
-              <div className="mt-10 overflow-hidden rounded-3xl bg-background ring-1 ring-black/[0.06] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.2)]">
-                <div className="grid grid-cols-2 border-b border-border/60 bg-card text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/70 sm:text-[12px]">
-                  <div className="px-4 py-4 sm:px-6 sm:py-5">Air Purifier</div>
-                  <div className="px-4 py-4 text-foreground sm:px-6 sm:py-5">EnviroBiotics</div>
-                </div>
-                {COMPARISON_ROWS.map((row, i) => (
-                  <div
-                    key={i}
-                    className={`grid grid-cols-2 text-[14px] leading-snug sm:text-[15px] ${
-                      i % 2 === 1 ? "bg-[#FBF9F4]" : ""
-                    }`}
-                  >
-                    <div className="px-4 py-4 text-muted-foreground sm:px-6 sm:py-5">{row.a}</div>
-                    <div className="px-4 py-4 font-medium text-foreground sm:px-6 sm:py-5">
-                      {row.b}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8 text-center">
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <Button
+                asChild
+                size="lg"
+                className="h-14 rounded-full bg-sage hover:bg-sage/90 text-white text-base px-8 shadow-lg shadow-sage/20"
+              >
                 <a
-                  href="#offer"
-                  onClick={(e) => smoothScroll(e, "offer", "click_allergy_comparison_cta")}
+                  href={BUNDLE_URL}
+                  onClick={() => track("cta_click", { section: "hero", target: "bundle" })}
                 >
-                  <Button
-                    size="lg"
-                    className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium text-background hover:bg-foreground/90"
-                  >
-                    Choose My Coverage
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  Shop EnviroBiotics <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* ============ PROOF SECTION ============ */}
-        <section className="bg-background py-20 sm:py-28">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
-            <Reveal>
-              <div className="mx-auto max-w-2xl text-center">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
-                  Proof
-                </p>
-                <h2 className="font-display font-semibold tracking-[-0.025em] text-foreground text-[2rem] sm:text-[2.6rem] lg:text-[3rem]">
-                  A new category needs{" "}
-                  <span className="italic font-normal text-foreground/70" style={ITALIC_FONT}>
-                    real proof.
-                  </span>
-                </h2>
-                <p className="mt-5 text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.15rem]">
-                  EnviroBiotics is not another air purifier. It uses environmental probiotic
-                  technology designed to disperse through indoor spaces and reach surfaces
-                  traditional filters cannot treat. Our technology has been independently tested for
-                  safety and is designed for continuous indoor use when used as directed.
-                </p>
-              </div>
-            </Reveal>
-
-            <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-              {PROOF_CARDS.map((c) => (
-                <Reveal key={c.title}>
-                  <div className="h-full rounded-3xl bg-card p-7 ring-1 ring-black/[0.05] shadow-[0_20px_60px_-40px_rgba(0,0,0,0.18)] sm:p-8">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-foreground/10 text-foreground">
-                      <Check className="h-4 w-4" strokeWidth={2.5} />
-                    </div>
-                    <h3 className="mt-5 text-[1.05rem] font-semibold text-foreground sm:text-[1.125rem]">
-                      {c.title}
-                    </h3>
-                    <p className="mt-2 text-[14.5px] leading-[1.7] text-muted-foreground sm:text-[15px]">
-                      {c.copy}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => {
+                  track("cta_click", { section: "hero", target: "how_it_works" });
+                  scrollToId("differentiator");
+                }}
+                className="h-14 rounded-full border-ink/20 text-ink hover:bg-ink/5 text-base px-8"
+              >
+                See how it works
+              </Button>
             </div>
-          </div>
-        </section>
 
-        {/* ============ CERTIFICATIONS ============ */}
-        <section className="bg-[#F5F3EE] py-20 sm:py-28">
-          <div className="relative mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
+            <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink/70">
+              {[
+                "EPA Registered",
+                "FDA GRAS",
+                "AllergyUK",
+                "30-day money-back",
+              ].map((c) => (
+                <li key={c} className="flex items-center gap-1.5">
+                  <Check className="h-4 w-4 text-sage" strokeWidth={2.5} />
+                  <span>{c}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal delay={120} className="relative">
+            <div className="relative aspect-[4/5] md:aspect-[5/6] rounded-3xl overflow-hidden shadow-2xl shadow-ink/10">
+              <img
+                src={heroImg}
+                alt="A bright sunlit bedroom where allergens settle on bedding, floors, and soft surfaces"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 2. PROBLEM / MESSAGE MATCH */}
+      <section className="bg-cream pb-14 md:pb-20">
+        <div className="mx-auto max-w-3xl px-5 md:px-8 text-center">
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-ink">
+              If your allergies flare up indoors, your air purifier isn&apos;t enough.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-ink/75">
+              Dust, dander, pollen, and mold don&apos;t just float in the air. They
+              settle onto bedding, sofas, rugs, curtains, and floors — the
+              surfaces you and your family touch every day. Filters only clean
+              the air that passes through them.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 3. DIFFERENTIATOR */}
+      <section
+        id="differentiator"
+        className="bg-white border-y border-ink/5 py-16 md:py-24"
+      >
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <Reveal className="text-center max-w-3xl mx-auto">
+            <p className="text-xs md:text-sm uppercase tracking-[0.18em] text-sage font-semibold">
+              The difference
+            </p>
+            <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight text-ink">
+              Air purifiers filter air. EnviroBiotics treats the whole room.
+            </h2>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
             <Reveal>
-              <div className="mx-auto mb-12 flex max-w-3xl flex-col items-center text-center sm:mb-16">
-                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
-                  Verified
+              <div className="h-full rounded-3xl border border-ink/10 bg-cream/60 p-8">
+                <div className="flex items-center gap-3">
+                  <div className="h-11 w-11 rounded-full bg-ink/5 flex items-center justify-center">
+                    <Wind className="h-5 w-5 text-ink/60" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-ink/80">
+                    A typical air purifier
+                  </h3>
+                </div>
+                <p className="mt-4 text-ink/70 leading-relaxed">
+                  Cleans only the air that passes through the filter. Allergens
+                  on your mattress, sofa, and floors stay where they are.
                 </p>
-                <h2
-                  className="font-display font-semibold tracking-[-0.025em] text-foreground"
-                  style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", lineHeight: 1.05 }}
-                >
-                  Independently verified for safety
-                </h2>
-                <p className="mt-4 max-w-[58ch] text-[15.5px] leading-[1.6] text-foreground/70 sm:text-[17px]">
-                  Collected from nature, never modified and free of added chemicals. Reviewed and
-                  recognized by the following organizations.
-                </p>
+                <ul className="mt-6 space-y-2 text-ink/60 text-sm">
+                  <li>· The air passing through the machine</li>
+                  <li>· Nothing on surfaces</li>
+                  <li>· Nothing embedded in fabrics</li>
+                </ul>
               </div>
             </Reveal>
 
-            <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6 lg:grid-cols-5 lg:gap-7">
+            <Reveal delay={100}>
+              <div className="h-full rounded-3xl bg-sage text-white p-8 shadow-xl shadow-sage/20">
+                <div className="flex items-center gap-3">
+                  <div className="h-11 w-11 rounded-full bg-white/15 flex items-center justify-center">
+                    <Sparkles className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold">EnviroBiotics</h3>
+                </div>
+                <p className="mt-4 text-white/90 leading-relaxed">
+                  An active probiotic solution disperses into the room and keeps
+                  working on every surface and object — plus the air — 24/7.
+                </p>
+                <ul className="mt-6 grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
+                  {[
+                    "Mattresses",
+                    "Bedding",
+                    "Sofas & chairs",
+                    "Rugs & carpets",
+                    "Floors",
+                    "Curtains",
+                    "Toys & objects",
+                    "The air",
+                  ].map((x) => (
+                    <li key={x} className="flex items-center gap-2">
+                      <Check className="h-4 w-4 text-white" strokeWidth={2.5} />
+                      <span>{x}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. HOW IT WORKS */}
+      <section className="bg-cream py-16 md:py-24">
+        <div className="mx-auto max-w-5xl px-5 md:px-8">
+          <Reveal className="text-center max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-ink">
+              How it works.
+            </h2>
+            <p className="mt-4 text-lg text-ink/70">
+              Three steps. Then it just runs.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                n: "01",
+                t: "Plug in",
+                b: "Place the device in the room you use most — bedroom, living room, nursery.",
+              },
+              {
+                n: "02",
+                t: "Probiotic mist disperses",
+                b: "A fine, fragrance-free solution of beneficial probiotics reaches every surface in the room.",
+              },
+              {
+                n: "03",
+                t: "Continuous reduction",
+                b: "Allergens on surfaces and in the air are continuously reduced — between and after every cleaning.",
+              },
+            ].map((s, i) => (
+              <Reveal key={s.n} delay={i * 100}>
+                <div className="h-full rounded-3xl bg-white p-8 border border-ink/5 shadow-sm">
+                  <div className="text-sm font-semibold text-sage tracking-widest">
+                    {s.n}
+                  </div>
+                  <h3 className="mt-3 text-xl font-semibold text-ink">
+                    {s.t}
+                  </h3>
+                  <p className="mt-3 text-ink/70 leading-relaxed">{s.b}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. PROOF / CERTIFICATIONS */}
+      <section className="bg-white border-y border-ink/5 py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <Reveal className="text-center">
+            <p className="text-xs md:text-sm uppercase tracking-[0.18em] text-sage font-semibold">
+              Independently verified
+            </p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-ink">
+              Trusted by allergy-sensitive households.
+            </h2>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <div className="mt-10 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-8 gap-6 items-center">
               {certifications.map((c) => (
-                <div key={c.label} className="flex flex-col items-center">
-                  <div
-                    title={c.label}
-                    className="group relative flex aspect-square w-full items-center justify-center rounded-2xl bg-white p-6 transition-all duration-300 hover:-translate-y-1 sm:p-8"
-                    style={{
-                      border: "1px solid rgba(0,0,0,0.08)",
-                      boxShadow:
-                        "0 1px 2px rgba(0,0,0,0.04), 0 24px 48px -28px rgba(0,0,0,0.15)",
-                    }}
-                  >
-                    <img
-                      src={c.image}
-                      alt={`${c.label} certification`}
-                      loading="lazy"
-                      className="max-h-[78%] max-w-[82%] object-contain transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <p className="mt-3 text-center text-[12px] leading-[1.45] text-foreground/65 sm:text-[12.5px]">
-                    {c.caption}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ============ OFFER INTRO ============ */}
-        <section id="offer" className="scroll-mt-24 bg-background pt-20 sm:pt-28">
-          <div className="mx-auto max-w-[920px] px-6 text-center">
-            <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/60">
-                The offer
-              </p>
-              <h2 className="font-display font-semibold leading-[1.05] tracking-[-0.035em] text-foreground text-[2rem] sm:text-[2.75rem] lg:text-[3.5rem]">
-                Choose your{" "}
-                <span className="italic font-normal text-foreground/70" style={ITALIC_FONT}>
-                  whole-room coverage system.
-                </span>
-              </h2>
-              <div className="mx-auto mt-6 max-w-[680px] space-y-4 text-[1.05rem] leading-[1.65] text-foreground/70 sm:text-[1.15rem]">
-                <p>
-                  You do not need another air purifier. You need to cover what your purifier cannot
-                  reach.
-                </p>
-                <p className="text-[14.5px] text-foreground/60 sm:text-[15.5px]">
-                  Every system is designed to work quietly in the background with no spraying, no
-                  wiping, and no daily routine.
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* ============ PRODUCTS ============ */}
-        <section id="products" className="scroll-mt-24 bg-background py-12 sm:py-16 lg:py-20">
-          <div className="mx-auto max-w-[1240px] px-5 sm:px-10 lg:px-16">
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
-              {/* Bedroom Coverage Kit (Mini) */}
-              <Reveal>
-                <div className="flex h-full flex-col overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.08] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.25)]">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-6">
-                    <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
-                      <img
-                        src={miniImg}
-                        alt="BioLogic Mini bedroom coverage kit"
-                        className="h-full w-full object-contain p-6 sm:p-10"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-1 flex-col p-6 sm:p-10">
-                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
-                      Bedroom Coverage Kit · BioLogic Mini
-                    </p>
-                    <h3 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
-                      Bedroom Coverage Kit
-                    </h3>
-                    <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
-                      Best for bedrooms, nurseries, home offices, and smaller indoor spaces.
-                    </p>
-
-                    <dl className="mt-6 grid grid-cols-1 gap-3 text-[14.5px] sm:text-[15px]">
-                      {[
-                        ["Best for", "Bedrooms & smaller rooms"],
-                        ["Coverage area", "Up to 300 sq ft"],
-                        ["What's included", "BioLogic Mini device + starter cartridge"],
-                        ["Refill duration", "90 days"],
-                        ["Guarantee", "30-day money-back"],
-                        ["Shipping", "Free shipping on orders over $200"],
-                      ].map(([k, v]) => (
-                        <div
-                          key={k}
-                          className="flex items-start justify-between gap-4 border-b border-border/50 pb-2.5 last:border-0"
-                        >
-                          <dt className="font-medium text-foreground/70">{k}</dt>
-                          <dd className="text-right font-medium text-foreground">{v}</dd>
-                        </div>
-                      ))}
-                    </dl>
-
-                    <div className="mt-6 border-t border-border/60 pt-5">
-                      <div className="flex items-baseline gap-2">
-                        <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">
-                          $98
-                        </span>
-                      </div>
-                      <a
-                        href={MINI_URL}
-                        onClick={() => trackEvent("click_allergy_products_mini")}
-                        className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
-                      >
-                        Protect My Bedroom
-                        <ArrowRight className="h-4 w-4" />
-                      </a>
-                      <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                        Free shipping · 30-day money-back
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-
-              {/* Large Room Coverage Kit (Biotica 800) */}
-              <Reveal>
-                <div className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-card ring-2 ring-foreground shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]">
-                  <div className="absolute right-5 top-5 z-10 rounded-full bg-foreground px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-background">
-                    Most popular
-                  </div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F4EFE6] p-4 sm:p-6">
-                    <div className="h-full w-full overflow-hidden rounded-2xl bg-white">
-                      <img
-                        src={bioticaImg}
-                        alt="Biotica 800 large room coverage kit"
-                        className="h-full w-full object-contain p-6 sm:p-10"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-1 flex-col p-6 sm:p-10">
-                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
-                      Large Room Coverage Kit · Biotica 800
-                    </p>
-                    <h3 className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
-                      Large Room Coverage Kit
-                    </h3>
-                    <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
-                      Built for larger rooms, living areas, and open spaces that need broader
-                      coverage.
-                    </p>
-
-                    <dl className="mt-6 grid grid-cols-1 gap-3 text-[14.5px] sm:text-[15px]">
-                      {[
-                        ["Best for", "Larger rooms & open spaces"],
-                        ["Coverage area", "Up to 800 sq ft"],
-                        ["What's included", "Biotica 800 device + starter cartridge"],
-                        ["Refill duration", "90 days"],
-                        ["Guarantee", "30-day money-back"],
-                        ["Shipping", "Free shipping"],
-                      ].map(([k, v]) => (
-                        <div
-                          key={k}
-                          className="flex items-start justify-between gap-4 border-b border-border/50 pb-2.5 last:border-0"
-                        >
-                          <dt className="font-medium text-foreground/70">{k}</dt>
-                          <dd className="text-right font-medium text-foreground">{v}</dd>
-                        </div>
-                      ))}
-                    </dl>
-
-                    <div className="mt-6 border-t border-border/60 pt-5">
-                      <div className="flex items-baseline gap-3">
-                        <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">
-                          $299
-                        </span>
-                      </div>
-                      <a
-                        href={BIOTICA_URL}
-                        onClick={() => trackEvent("click_allergy_products_biotica")}
-                        className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
-                      >
-                        Cover My Larger Room
-                        <ArrowRight className="h-4 w-4" />
-                      </a>
-                      <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                        Free shipping · 30-day money-back
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Bundle (tertiary) */}
-            <Reveal>
-              <div className="mt-6 flex flex-col items-center gap-6 rounded-3xl bg-[#F5F3EE] p-6 sm:flex-row sm:p-8 lg:p-10">
-                <div className="aspect-square w-32 flex-none overflow-hidden rounded-2xl bg-white sm:w-40">
+                <div key={c.label} className="flex items-center justify-center">
                   <img
-                    src={bundleImg}
-                    alt="Home Bundle full-home coverage"
-                    className="h-full w-full object-contain p-3"
+                    src={c.image}
+                    alt={c.label}
+                    title={c.label}
                     loading="lazy"
+                    className="max-h-14 w-auto opacity-80 hover:opacity-100 transition"
                   />
                 </div>
-                <div className="flex-1 text-center sm:text-left">
-                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/60">
-                    Bedroom + living room · Save $100
-                  </p>
-                  <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.6rem]">
-                    Home Bundle
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                    Cover the bedroom and main living space from day one.
-                  </p>
-                </div>
-                <div className="flex flex-col items-center gap-3 sm:items-end">
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">
-                      $395
-                    </span>
-                    <span className="text-base text-muted-foreground line-through">$495</span>
-                  </div>
-                  <a
-                    href={BUNDLE_URL}
-                    onClick={() => trackEvent("click_allergy_products_bundle")}
-                    className="flex h-12 items-center justify-center gap-2 rounded-full bg-foreground px-6 text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
-                  >
-                    Get the Bundle
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+              ))}
+            </div>
+          </Reveal>
 
-        {/* ============ TESTIMONIAL ============ */}
-        <section className="bg-[#F4EFE6] py-16 sm:py-24 lg:py-28">
-          <div className="mx-auto max-w-[860px] px-5 text-center sm:px-10">
-            <Reveal>
-              <p className="font-display text-[1.4rem] font-medium leading-[1.45] text-foreground sm:text-[1.75rem] lg:text-[2rem]">
-                &ldquo;I kept the HEPA running. Adding EnviroBiotics is what finally helped the room
-                stay cleaner between cleanings.&rdquo;
-              </p>
-              <p className="mt-6 text-[12px] font-semibold uppercase tracking-[0.22em] text-foreground/70">
-                Verified customer
-              </p>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* ============ FAQ ============ */}
-        <section className="bg-background py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[880px] px-5 sm:px-10">
-            <Reveal>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground">
-                FAQ
-              </p>
-              <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-foreground sm:text-[2.6rem] lg:text-[3rem]">
-                Questions, answered.
-              </h2>
-            </Reveal>
-            <Accordion type="single" collapsible className="mt-10 w-full space-y-4 sm:mt-12">
-              {FAQS.map((item, idx) => (
-                <AccordionItem
-                  key={idx}
-                  value={`q${idx}`}
-                  className="group rounded-2xl border border-border/60 bg-card px-6 transition-all hover:border-foreground/40 data-[state=open]:border-foreground data-[state=open]:bg-[#F5F3EE] data-[state=open]:shadow-[0_18px_50px_-30px_rgba(0,0,0,0.18)] sm:px-8"
+          <div className="mt-14 grid gap-5 md:grid-cols-3">
+            {[1, 2, 3].map((i) => (
+              <div
+                key={i}
+                className="rounded-2xl border border-ink/10 bg-cream/60 p-6 min-h-[140px] flex flex-col justify-between"
+              >
+                <div
+                  className="flex gap-1 text-ink/20"
+                  aria-label="No reviews yet"
                 >
-                  <AccordionTrigger className="cursor-pointer py-6 text-left text-[17px] font-semibold text-foreground hover:no-underline [&[data-state=open]]:text-foreground [&>svg]:transition-transform [&>svg]:text-foreground/60 [&[data-state=open]>svg]:text-foreground sm:py-7 sm:text-[18px]">
-                    {item.q}
+                  {Array.from({ length: 5 }).map((_, k) => (
+                    <svg
+                      key={k}
+                      className="h-4 w-4 fill-current"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M10 15l-5.878 3.09L5.24 11.545.48 7.41l6.564-.955L10 .5l2.956 5.955 6.564.955-4.76 4.135 1.118 6.545z" />
+                    </svg>
+                  ))}
+                </div>
+                <div className="text-sm text-ink/40">No reviews yet</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. PRICING */}
+      <section id="pricing" className="bg-cream py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <Reveal className="text-center max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-ink">
+              Choose your coverage.
+            </h2>
+            <p className="mt-4 text-lg text-ink/70">
+              One-time purchase. No subscription required.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {/* Mini */}
+            <Reveal>
+              <PriceCard
+                name="BioLogic Mini"
+                price="$98"
+                best="Best for a single room, up to 300 sq ft."
+                href={MINI_URL}
+                onBuy={() => track("cta_click", { section: "pricing_mini" })}
+                subHref={MINI_URL}
+              />
+            </Reveal>
+            {/* Biotica */}
+            <Reveal delay={80}>
+              <PriceCard
+                name="Biotica"
+                price="$299"
+                best="Best for whole-home coverage."
+                href={BIOTICA_URL}
+                onBuy={() => track("cta_click", { section: "pricing_biotica" })}
+                subHref={BIOTICA_URL}
+              />
+            </Reveal>
+            {/* Bundle */}
+            <Reveal delay={160}>
+              <PriceCard
+                name="Home Bundle"
+                price="$395"
+                compareAt="$495"
+                saveBadge="Save $100"
+                topBadge="Most popular · Best value"
+                best="2 BioLogic Minis + 1 Biotica — whole home plus two rooms."
+                href={BUNDLE_URL}
+                onBuy={() => track("cta_click", { section: "pricing_bundle" })}
+                subHref={BUNDLE_URL}
+                highlight
+              />
+            </Reveal>
+          </div>
+
+          {/* 7. GUARANTEE */}
+          <Reveal>
+            <div className="mt-12 rounded-3xl bg-sage-soft border border-sage/20 p-8 md:p-10 text-center">
+              <div className="mx-auto h-12 w-12 rounded-full bg-sage/15 flex items-center justify-center">
+                <ShieldCheck className="h-6 w-6 text-sage" />
+              </div>
+              <h3 className="mt-4 text-2xl md:text-3xl font-bold text-ink">
+                Try it in your home for 30 days, risk-free.
+              </h3>
+              <p className="mt-3 text-ink/70">
+                If you&apos;re not happy, return it within 30 days for a full
+                refund. Free shipping. Easy returns.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 8. FAQ */}
+      <section className="bg-white border-y border-ink/5 py-16 md:py-24">
+        <div className="mx-auto max-w-3xl px-5 md:px-8">
+          <Reveal className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-ink">
+              Questions, answered.
+            </h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <Accordion type="single" collapsible className="mt-10">
+              {[
+                {
+                  q: "How is this different from an air purifier?",
+                  a: "Air purifiers filter only the air that passes through the device. EnviroBiotics disperses an active probiotic solution that continuously reduces allergens on every surface and object in the room — plus the air.",
+                },
+                {
+                  q: "Do I have to subscribe?",
+                  a: "No. Every device is a one-time purchase. Subscription is optional for automatic refill deliveries if you want them.",
+                },
+                {
+                  q: "Is it safe around kids and pets?",
+                  a: "Yes. The probiotic cultures used are on the FDA's GRAS list and the product is fragrance-free. It is designed for continuous use in homes with children and pets.",
+                },
+                {
+                  q: "Any chemicals or fragrances?",
+                  a: "No harsh chemicals and no added fragrance. The active solution is water-based and built around beneficial probiotics.",
+                },
+                {
+                  q: "How soon will I notice a difference?",
+                  a: "Most households report a fresher, cleaner-feeling room within the first few weeks of continuous use. Results vary by space and conditions.",
+                },
+                {
+                  q: "What's the return policy?",
+                  a: "30-day money-back guarantee. Free shipping and easy returns.",
+                },
+              ].map((f, i) => (
+                <AccordionItem key={i} value={`item-${i}`} className="border-ink/10">
+                  <AccordionTrigger className="text-left text-base md:text-lg font-semibold text-ink hover:no-underline">
+                    {f.q}
                   </AccordionTrigger>
-                  <AccordionContent className="pb-6 text-[15px] leading-[1.7] text-muted-foreground sm:text-[16px]">
-                    {item.a}
+                  <AccordionContent className="text-ink/70 leading-relaxed text-base">
+                    {f.a}
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
-          </div>
-        </section>
+          </Reveal>
+        </div>
+      </section>
 
-        {/* ============ FINAL CTA ============ */}
-        <section className="relative overflow-hidden bg-[#0a0a0a] py-24 sm:py-32 lg:py-40">
-          <img
-            src={finalBgImg}
-            alt=""
-            aria-hidden
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.18] grayscale"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/85 to-[#0a0a0a]"
-          />
-          <div className="relative mx-auto max-w-3xl px-6 text-center">
-            <Reveal>
-              <h2 className="font-display font-semibold leading-[1.04] tracking-[-0.04em] text-white text-[2.5rem] sm:text-[3.5rem] lg:text-[4.5rem]">
-                Stop treating
-                <span className="block italic font-normal text-white/70" style={ITALIC_FONT}>
-                  half the room.
-                </span>
-              </h2>
-              <p className="mx-auto mt-7 max-w-xl text-[1.05rem] leading-[1.65] text-white/65 sm:text-[1.2rem]">
-                Your purifier helps clean the air. EnviroBiotics helps cover the surfaces it leaves
-                behind, including your mattress, bedding, furniture, carpets, and more.
-              </p>
-              <div className="mt-10 flex flex-col items-center justify-center">
+      {/* 9. FINAL CTA */}
+      <section className="bg-ink text-white py-20 md:py-28">
+        <div className="mx-auto max-w-3xl px-5 md:px-8 text-center">
+          <Reveal>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+              Clean the whole room — <span className="text-sage">not just the air.</span>
+            </h2>
+            <div className="mt-8">
+              <Button
+                asChild
+                size="lg"
+                className="h-14 rounded-full bg-sage hover:bg-sage/90 text-white text-base px-10 shadow-xl shadow-sage/30"
+              >
                 <a
-                  href="#offer"
-                  onClick={(e) => smoothScroll(e, "offer", "click_allergy_final_cta")}
+                  href={BUNDLE_URL}
+                  onClick={() => track("cta_click", { section: "final_cta", target: "bundle" })}
                 >
-                  <Button
-                    size="lg"
-                    className="h-[3.5rem] rounded-full bg-white px-10 text-[16px] font-medium tracking-[-0.01em] text-[#0a0a0a] hover:bg-white/90"
-                  >
-                    Start Whole-Room Coverage
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  Shop EnviroBiotics <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
-                <p className="mt-5 text-[13.5px] text-white/55 sm:text-[14.5px]">
-                  Keep your purifier. Add the missing layer of surface coverage.
-                </p>
-              </div>
-              <p className="mt-8 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13px] font-medium text-white/55 sm:text-sm">
-                <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                  30-day guarantee
-                </span>
-                <span className="opacity-40">·</span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                  Independently tested
-                </span>
-              </p>
-            </Reveal>
-          </div>
-        </section>
-      </main>
+              </Button>
+            </div>
+            <p className="mt-6 text-sm text-white/60">
+              30-day money-back guarantee · Free shipping · Easy returns
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Compliance disclaimer */}
+      <div className="bg-cream border-t border-ink/10">
+        <p className="mx-auto max-w-4xl px-5 md:px-8 py-6 text-xs text-ink/55 text-center leading-relaxed">
+          Results vary by space and conditions. Not intended to diagnose, treat,
+          cure, or prevent any disease.
+        </p>
+      </div>
+
       <Footer />
-    </>
+    </div>
   );
 };
+
+/* ------------ Price card ------------ */
+function PriceCard({
+  name,
+  price,
+  compareAt,
+  saveBadge,
+  topBadge,
+  best,
+  href,
+  subHref,
+  onBuy,
+  highlight = false,
+}: {
+  name: string;
+  price: string;
+  compareAt?: string;
+  saveBadge?: string;
+  topBadge?: string;
+  best: string;
+  href: string;
+  subHref: string;
+  onBuy: () => void;
+  highlight?: boolean;
+}) {
+  return (
+    <div
+      className={`relative h-full rounded-3xl p-7 md:p-8 flex flex-col ${
+        highlight
+          ? "bg-white border-2 border-sage shadow-xl shadow-sage/15"
+          : "bg-white border border-ink/10 shadow-sm"
+      }`}
+    >
+      {topBadge && (
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-sage px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white shadow">
+          {topBadge}
+        </span>
+      )}
+      <h3 className="text-xl font-semibold text-ink">{name}</h3>
+
+      <div className="mt-4 flex items-end gap-3">
+        <div className="text-4xl md:text-5xl font-bold text-ink tracking-tight">
+          {price}
+        </div>
+        {compareAt && (
+          <div className="pb-2 text-ink/50 line-through text-lg">{compareAt}</div>
+        )}
+        {saveBadge && (
+          <div className="pb-2 text-sage text-sm font-semibold">{saveBadge}</div>
+        )}
+      </div>
+
+      <p className="mt-4 text-ink/70 leading-relaxed text-[15px] min-h-[3.5rem]">
+        {best}
+      </p>
+
+      <div className="mt-auto pt-6">
+        <Button
+          asChild
+          size="lg"
+          className="w-full h-13 rounded-full bg-sage hover:bg-sage/90 text-white text-base font-semibold"
+        >
+          <a href={href} onClick={onBuy}>
+            Buy Once
+          </a>
+        </Button>
+        <div className="mt-3 text-center">
+          <a
+            href={subHref}
+            className="text-xs text-ink/55 hover:text-ink underline underline-offset-2"
+          >
+            or Subscribe &amp; Save on refills
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default AllergyLandingPage;
