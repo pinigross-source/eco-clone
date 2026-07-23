@@ -1179,49 +1179,6 @@ const WellnessLandingPage = () => {
           </div>
         </section>
 
-        {/* ============================================================
-           GUARANTEE, soft cream with plant vignettes
-           ============================================================ */}
-        <section
-          className="relative overflow-hidden py-20 sm:py-24"
-          style={{ background: C.ivory }}
-        >
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-70"
-            style={{
-              background:
-                "radial-gradient(500px 300px at 5% 100%, rgba(220,231,221,0.6), transparent 60%), radial-gradient(500px 300px at 95% 0%, rgba(220,231,221,0.5), transparent 60%)",
-            }}
-          />
-          <div className="relative mx-auto max-w-[820px] px-5 text-center sm:px-10">
-            <Leaf className="mx-auto mb-5 h-5 w-5" strokeWidth={1.4} style={{ color: C.green }} />
-            <h2
-              className="font-bold"
-              style={{
-                fontFamily: DISPLAY,
-                fontWeight: 800,
-                fontSize: "clamp(1.9rem, 3.6vw, 2.75rem)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
-                color: C.charcoal,
-              }}
-            >
-              Try the Wellness Reset for <Ital>30 days.</Ital>
-            </h2>
-            <p className="mx-auto mt-4 max-w-[52ch] text-[15.5px] leading-[1.7]" style={{ color: C.muted }}>
-              If you don&rsquo;t feel the difference, return it, no questions asked.
-            </p>
-            <div className="mt-8">
-              <PrimaryCTA
-                href={URLS.bundle}
-                onClick={() => trackEvent("click_wellness_guarantee")}
-              >
-                Start My 30-Day Trial
-              </PrimaryCTA>
-            </div>
-          </div>
-        </section>
 
         {/* ============================================================
            FAQ, sticky heading + accordion
