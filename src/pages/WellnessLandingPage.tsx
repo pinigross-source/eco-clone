@@ -654,7 +654,7 @@ const WellnessLandingPage = () => {
         {/* ============================================================
            HOW IT WORKS, 3 numbered photo cards
            ============================================================ */}
-        <section id="how" className="scroll-mt-20 py-20 sm:py-28" style={{ background: C.offwhite }}>
+        <section id="setup" className="scroll-mt-20 py-20 sm:py-28" style={{ background: C.offwhite }}>
           <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
             <Reveal className="mx-auto max-w-3xl text-center">
               <H2 style={{ fontSize: "clamp(1.9rem, 3.4vw, 2.75rem)" }}>
