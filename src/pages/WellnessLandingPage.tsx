@@ -934,12 +934,13 @@ const WellnessLandingPage = () => {
                 style={{ boxShadow: "0 30px 60px -30px rgba(31,41,51,0.25)" }}
               >
                 <img
-                  src={heroImage.url}
+                  src={withImage}
                   alt="A bright bedroom with EnviroBiotics"
                   className="h-[360px] w-full object-cover sm:h-[420px]"
                   loading="lazy"
                   decoding="async"
                 />
+
                 <div
                   className="absolute inset-0"
                   style={{
