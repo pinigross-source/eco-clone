@@ -504,6 +504,75 @@ const WellnessLandingPage = () => {
         </section>
 
         {/* ============================================================
+           THE SIMPLEST WAY TO EXPLAIN IT, split editorial card
+           ============================================================ */}
+        <section className="py-12 sm:py-16" style={{ background: C.offwhite }}>
+          <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
+            <div
+              className="overflow-hidden rounded-[28px]"
+              style={{ background: `linear-gradient(90deg, ${C.sand} 0%, ${C.white} 60%)` }}
+            >
+              <div className="grid grid-cols-1 items-stretch lg:grid-cols-2">
+                {/* Left headline */}
+                <div className="flex flex-col justify-center px-8 py-12 sm:px-12 lg:px-14 lg:py-16">
+                  <span
+                    className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em]"
+                    style={{ borderColor: C.hairline, color: C.brownBandDeep, fontFamily: DISPLAY }}
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full" style={{ background: C.orange }} />
+                    How It Works
+                  </span>
+                  <h2
+                    className="font-bold"
+                    style={{
+                      fontFamily: DISPLAY,
+                      fontWeight: 800,
+                      fontSize: "clamp(2.4rem, 5vw, 3.75rem)",
+                      lineHeight: 1.02,
+                      letterSpacing: "-0.03em",
+                      color: C.charcoal,
+                      maxWidth: "12ch",
+                    }}
+                  >
+                    The simplest way to explain it.
+                  </h2>
+                </div>
+
+                {/* Right body */}
+                <div
+                  className="flex flex-col justify-center px-8 py-12 sm:px-12 lg:border-l lg:px-14 lg:py-16"
+                  style={{ borderColor: C.hairline }}
+                >
+                  <p className="text-[16px] leading-[1.7] sm:text-[17.5px]" style={{ color: C.muted }}>
+                    You&rsquo;ve heard of probiotics for your gut - the beneficial microbes that keep things balanced and healthy.{" "}
+                    <strong style={{ color: C.charcoal }}>EnviroBiotics brings that same idea to your home.</strong>
+                  </p>
+                  <p className="mt-5 text-[16px] leading-[1.7] sm:text-[17.5px]" style={{ color: C.muted }}>
+                    Beneficial probiotics settle onto surfaces and quietly break down the organic residue pets leave behind - dander and odor-causing compounds -{" "}
+                    <em style={{ color: C.brownBandDeep, fontStyle: "normal", fontWeight: 600 }}>continuously and naturally.</em>
+                  </p>
+
+                  <div className="mt-8 flex items-center gap-3">
+                    <span
+                      className="flex h-10 w-10 items-center justify-center rounded-full text-[11px] font-bold text-white"
+                      style={{ background: C.charcoal, fontFamily: DISPLAY }}
+                    >
+                      Bio
+                    </span>
+                    <span
+                      className="text-[11px] font-bold uppercase tracking-[0.16em]"
+                      style={{ color: C.muted, fontFamily: DISPLAY }}
+                    >
+                      Proven Probiotic Technology
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================
            HOW IT WORKS, 3 numbered photo cards
            ============================================================ */}
         <section id="how" className="scroll-mt-20 py-20 sm:py-28" style={{ background: C.offwhite }}>
