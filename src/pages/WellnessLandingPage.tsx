@@ -33,7 +33,10 @@ const livingImage = livingImageAsset.url;
 import ritualImage from "@/assets/wellness-ritual.jpg";
 import placeStepAsset from "@/assets/place-step-cozy.avif.asset.json";
 const placeStep = placeStepAsset.url;
-import bedroomWide from "@/assets/wellness-bedroom-wide.jpg";
+import beforeAsset from "@/assets/before-envirobiotics.avif.asset.json";
+import withAsset from "@/assets/with-envirobiotics.avif.asset.json";
+const bedroomWide = beforeAsset.url;
+const withImage = withAsset.url;
 import powerOnBedroomAsset from "@/assets/power-on-bedroom.avif.asset.json";
 const powerOnBedroom = powerOnBedroomAsset.url;
 import bioticaProduct from "@/assets/biotica-800.png";
@@ -931,12 +934,13 @@ const WellnessLandingPage = () => {
                 style={{ boxShadow: "0 30px 60px -30px rgba(31,41,51,0.25)" }}
               >
                 <img
-                  src={heroImage.url}
+                  src={withImage}
                   alt="A bright bedroom with EnviroBiotics"
                   className="h-[360px] w-full object-cover sm:h-[420px]"
                   loading="lazy"
                   decoding="async"
                 />
+
                 <div
                   className="absolute inset-0"
                   style={{
