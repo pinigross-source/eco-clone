@@ -40,8 +40,8 @@ const bedroomWide = beforeAsset.url;
 const withImage = withAsset.url;
 import powerOnBedroomAsset from "@/assets/power-on-bedroom.avif.asset.json";
 const powerOnBedroom = powerOnBedroomAsset.url;
-import bioticaProduct from "@/assets/biotica-800.png";
-import miniProduct from "@/assets/biologic-mini-nobg-new.png";
+import bioticaProduct from "@/assets/biotica-lifestyle.jpg.asset.json";
+import miniProduct from "@/assets/mini-lifestyle.jpg.asset.json";
 import bundleAsset from "@/assets/bundle-product.webp.asset.json";
 
 import epaAsset from "@/assets/certs/cert_0.png.asset.json";
