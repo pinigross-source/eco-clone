@@ -307,49 +307,91 @@ const WellnessLandingPage = () => {
            ============================================================ */}
         <section className="py-20 sm:py-28" style={{ background: C.offwhite }}>
           <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
-            <Reveal className="max-w-3xl">
-              <H2>
-                You&rsquo;ve optimized your body. What about the room around <Ital>it?</Ital>
-              </H2>
-              <p className="mt-6 max-w-[58ch] text-[16px] leading-[1.7]" style={{ color: C.muted }}>
-                We spend 90% of our time indoors. Traditional cleaning removes
-                dirt, EnviroBiotics supports the invisible environment you
-                live in.
-              </p>
-            </Reveal>
+            <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
+              <Reveal>
+                <span
+                  className="mb-5 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em]"
+                  style={{ color: C.green }}
+                >
+                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: C.green }} />
+                  The invisible layer
+                </span>
+                <H2>
+                  You&rsquo;ve optimized your body. What about the room around <Ital>it?</Ital>
+                </H2>
+              </Reveal>
+              <Reveal>
+                <p
+                  className="max-w-[46ch] text-[16px] leading-[1.75] lg:text-[17px]"
+                  style={{ color: C.muted }}
+                >
+                  We spend 90% of our time indoors. Traditional cleaning removes dirt. EnviroBiotics supports the invisible environment you actually live in.
+                </p>
+              </Reveal>
+            </div>
 
-            <div className="mt-14 grid grid-cols-1 gap-x-14 gap-y-10 sm:grid-cols-3">
+            <div
+              className="mt-16 grid grid-cols-1 overflow-hidden rounded-[22px] sm:grid-cols-3"
+              style={{
+                background: C.white,
+                border: `1px solid ${C.hairline}`,
+                boxShadow: "0 30px 80px -60px rgba(31,41,51,0.35)",
+              }}
+            >
               {[
                 {
                   icon: SprayCan,
+                  n: "01",
                   t: "Built-up invisible load",
                   c: "Microbes, VOCs, and odors build up in the air, on surfaces, and in soft materials.",
                 },
                 {
                   icon: Moon,
+                  n: "02",
                   t: "Disruption while you rest",
                   c: "Poor environmental conditions can impact sleep quality, recovery, and focus.",
                 },
                 {
                   icon: Wind,
+                  n: "03",
                   t: "Surface cleaning isn't enough",
                   c: "Wiping and vacuuming don't get to the root of what's living in your space.",
                 },
-              ].map(({ icon: Icon, t, c }) => (
-                <div key={t}>
-                  <span
-                    className="mb-5 inline-flex h-9 w-9 items-center justify-center rounded-full border"
-                    style={{ borderColor: C.hairlineStrong, color: C.green }}
-                  >
-                    <Icon className="h-4 w-4" strokeWidth={1.6} />
-                  </span>
+              ].map(({ icon: Icon, n, t, c }, i, arr) => (
+                <div
+                  key={t}
+                  className={`relative p-8 sm:p-10 ${
+                    i < arr.length - 1 ? "border-b sm:border-b-0 sm:border-r" : ""
+                  }`}
+                  style={{ borderColor: C.hairline }}
+                >
+                  <div className="flex items-center justify-between">
+                    <span
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full"
+                      style={{ background: C.sage, color: C.green }}
+                    >
+                      <Icon className="h-[18px] w-[18px]" strokeWidth={1.7} />
+                    </span>
+                    <span
+                      className="text-[11px] font-bold tracking-[0.2em]"
+                      style={{ color: C.mutedSoft, fontFamily: DISPLAY }}
+                    >
+                      {n}
+                    </span>
+                  </div>
                   <h3
-                    className="font-bold"
-                    style={{ fontFamily: DISPLAY, fontSize: "1.125rem", color: C.charcoal, letterSpacing: "-0.01em" }}
+                    className="mt-8 font-bold"
+                    style={{
+                      fontFamily: DISPLAY,
+                      fontSize: "1.25rem",
+                      color: C.charcoal,
+                      letterSpacing: "-0.01em",
+                      lineHeight: 1.2,
+                    }}
                   >
                     {t}
                   </h3>
-                  <p className="mt-3 text-[14.5px] leading-[1.65]" style={{ color: C.muted }}>
+                  <p className="mt-3 max-w-[32ch] text-[14.5px] leading-[1.7]" style={{ color: C.muted }}>
                     {c}
                   </p>
                 </div>
@@ -357,6 +399,7 @@ const WellnessLandingPage = () => {
             </div>
           </div>
         </section>
+
 
         {/* ============================================================
            COMPARISON TABLE
