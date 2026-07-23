@@ -1272,7 +1272,7 @@ const WellnessLandingPage = () => {
         </section>
 
         {/* ============================================================
-           FINAL CTA, dark green split with bedroom image
+           FINAL CTA, dark green split with bedroom image + guarantee
            ============================================================ */}
         <section
           className="relative overflow-hidden"
@@ -1297,20 +1297,34 @@ const WellnessLandingPage = () => {
               <p className="mt-5 max-w-[46ch] text-[15.5px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.78)" }}>
                 Support your air. Support your life.
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+
+              <div
+                className="mt-8 max-w-[50ch] rounded-2xl border border-white/20 bg-white/10 px-6 py-6 backdrop-blur-sm sm:px-8 sm:py-7"
+              >
+                <h3
+                  className="font-bold"
+                  style={{
+                    fontFamily: DISPLAY,
+                    fontSize: "clamp(1.25rem, 2.2vw, 1.6rem)",
+                    lineHeight: 1.15,
+                    letterSpacing: "-0.015em",
+                    color: C.white,
+                  }}
+                >
+                  Try the Wellness Reset for <Ital color="rgba(255,255,255,0.92)">30 days.</Ital>
+                </h3>
+                <p className="mt-2 text-[15px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.78)" }}>
+                  If you don&rsquo;t feel the difference, return it, no questions asked.
+                </p>
+              </div>
+
+              <div className="mt-8">
                 <PrimaryCTA
                   href={URLS.bundle}
                   onClick={() => trackEvent("click_wellness_final")}
                 >
                   Shop the System
                 </PrimaryCTA>
-                <OutlineCTA
-                  href="#how"
-                  variant="light"
-                  onClick={() => trackEvent("click_wellness_final_secondary")}
-                >
-                  Learn More
-                </OutlineCTA>
               </div>
             </div>
 
