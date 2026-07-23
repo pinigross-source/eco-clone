@@ -57,7 +57,7 @@ const withDiscount = (url: string, code = PROMO) =>
   `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
 
 const PRICING = {
-  bundle: { price: "$395", compare: "$744495", save: "$100" },
+  bundle: { price: "$395", compare: "$495", save: "$100 OFF" },
   biotica: { price: "$299" },
   mini: { price: "$98" },
 };
