@@ -514,7 +514,7 @@ const WellnessLandingPage = () => {
                   n: 1,
                   t: "Place",
                   c: "Position the units in your bedroom and main living area.",
-                  img: "/__l5e/assets-v1/" + "" + (await import("@/assets/place-step-cozy.avif.asset.json")).default.url,
+                  img: placeStep,
                   alt: "EnviroBiotics device placed on a warm oak nightstand",
                 },
                 {
