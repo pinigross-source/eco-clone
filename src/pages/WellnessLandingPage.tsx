@@ -1131,13 +1131,37 @@ const WellnessLandingPage = () => {
            FAQ, sticky heading + accordion
            ============================================================ */}
         <section className="py-20 sm:py-28" style={{ background: C.offwhite }}>
-          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-[0.9fr_1.6fr] lg:gap-16 lg:px-16">
+          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-[0.85fr_1.65fr] lg:gap-20 lg:px-16">
             <div className="lg:sticky lg:top-32 lg:self-start">
+              <span
+                className="mb-5 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em]"
+                style={{ color: C.green }}
+              >
+                <span className="h-1.5 w-1.5 rounded-full" style={{ background: C.green }} />
+                FAQ
+              </span>
               <H2 style={{ fontSize: "clamp(1.8rem, 3.2vw, 2.5rem)" }}>
                 Wellness questions, <Ital>answered.</Ital>
               </H2>
+              <p className="mt-5 max-w-[36ch] text-[15px] leading-[1.7]" style={{ color: C.muted }}>
+                Everything you might wonder before you bring EnviroBiotics into your routine.
+              </p>
+              <a
+                href="mailto:hello@envirobiotics.com"
+                className="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.16em] transition-opacity hover:opacity-70"
+                style={{ color: C.charcoal, borderBottom: `1px solid ${C.hairlineStrong}`, paddingBottom: 4 }}
+              >
+                Still curious? Talk to us
+              </a>
             </div>
-            <div>
+            <div
+              className="overflow-hidden rounded-[22px]"
+              style={{
+                background: C.white,
+                border: `1px solid ${C.hairline}`,
+                boxShadow: "0 30px 80px -60px rgba(31,41,51,0.35)",
+              }}
+            >
               <Accordion type="single" collapsible className="w-full">
                 {[
                   {
@@ -1160,24 +1184,32 @@ const WellnessLandingPage = () => {
                     q: "How often do I need to do anything?",
                     a: "Setup takes about a minute. After that, cartridges swap on a simple schedule, no filters, no daily interaction, no app required.",
                   },
-                ].map((item, idx) => (
+                ].map((item, idx, arr) => (
                   <AccordionItem
                     key={idx}
                     value={`q${idx}`}
-                    className="border-b"
+                    className={idx === arr.length - 1 ? "" : "border-b"}
                     style={{ borderColor: C.hairline }}
                   >
                     <AccordionTrigger
-                      className="py-5 text-left text-[15.5px] font-medium hover:no-underline sm:text-[16.5px]"
-                      style={{ color: C.charcoal, fontFamily: DISPLAY, fontWeight: 600 }}
+                      className="group px-6 py-6 text-left text-[16px] font-semibold hover:no-underline sm:px-8 sm:py-7 sm:text-[17.5px]"
+                      style={{ color: C.charcoal, fontFamily: DISPLAY, fontWeight: 600, letterSpacing: "-0.005em" }}
                     >
-                      {item.q}
+                      <span className="flex items-baseline gap-5">
+                        <span
+                          className="text-[11px] font-bold tracking-[0.18em]"
+                          style={{ color: C.mutedSoft, fontFamily: DISPLAY }}
+                        >
+                          {String(idx + 1).padStart(2, "0")}
+                        </span>
+                        <span>{item.q}</span>
+                      </span>
                     </AccordionTrigger>
                     <AccordionContent
-                      className="pb-5 text-[14.5px] leading-[1.7]"
+                      className="px-6 pb-7 text-[15px] leading-[1.75] sm:px-8"
                       style={{ color: C.muted }}
                     >
-                      {item.a}
+                      <div className="max-w-[62ch] pl-[calc(1.25rem+16px)]">{item.a}</div>
                     </AccordionContent>
                   </AccordionItem>
                 ))}
