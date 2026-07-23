@@ -789,7 +789,7 @@ const WellnessLandingPage = () => {
                       letterSpacing: "-0.015em",
                     }}
                   >
-                    Includes Biotica 800 + BioLogic Mini
+                    Includes Biotica 800 + 2 BioLogic Mini
                   </h3>
 
                   <ul className="mt-6 space-y-3">
