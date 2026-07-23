@@ -606,14 +606,14 @@ const WellnessLandingPage = () => {
                     style={{
                       fontFamily: DISPLAY,
                       fontWeight: 800,
-                      fontSize: "clamp(2.4rem, 5vw, 3.75rem)",
-                      lineHeight: 1.02,
+                      fontSize: "clamp(2rem, 3.3vw, 2.8rem)",
+                      lineHeight: 1.05,
                       letterSpacing: "-0.03em",
                       color: C.charcoal,
-                      maxWidth: "12ch",
+                      maxWidth: "18ch",
                     }}
                   >
-                    The simplest way to explain it.
+                    The simplest way<br />to explain it.
                   </h2>
                 </div>
 
