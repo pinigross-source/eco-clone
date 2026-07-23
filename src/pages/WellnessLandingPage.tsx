@@ -845,72 +845,106 @@ const WellnessLandingPage = () => {
             </div>
 
             {/* Prefer to start small */}
-            <div className="mt-16">
-              <p
-                className="mb-6 text-center text-[13px] font-bold"
-                style={{ color: C.charcoal, fontFamily: DISPLAY }}
-              >
-                Prefer to start small?
-              </p>
+            <div className="mt-20">
+              <div className="mb-10 text-center">
+                <h3
+                  className="font-bold tracking-tight"
+                  style={{
+                    color: C.charcoal,
+                    fontFamily: DISPLAY,
+                    fontSize: "clamp(1.75rem, 3.2vw, 2.6rem)",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1.1,
+                  }}
+                >
+                  Prefer to start <Ital>small?</Ital>
+                </h3>
+                <p
+                  className="mx-auto mt-4 max-w-[52ch] text-[15px] leading-[1.7]"
+                  style={{ color: C.muted }}
+                >
+                  Risk-free for 30 days. Try it at home. If it does not fit your needs,
+                  return it for a full refund. No questions asked.
+                </p>
+              </div>
 
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 {[
                   {
-                    name: "Biotica 800",
-                    tag: "Powerful coverage for larger living spaces.",
-                    price: PRICING.biotica.price,
-                    img: bioticaProduct,
-                    url: URLS.biotica,
-                    evt: "click_wellness_biotica",
-                  },
-                  {
                     name: "BioLogic Mini",
-                    tag: "Perfect for bedrooms, offices, and smaller rooms.",
+                    tag: "Portable · a single room",
+                    desc: "Your personal, take-anywhere unit. Compact enough to plug in at home and pack for the road.",
                     price: PRICING.mini.price,
-                    img: miniProduct,
+                    img: powerOnBedroomAsset.url,
+                    badge: "UP TO 300 SQ FT",
                     url: URLS.mini,
                     evt: "click_wellness_mini",
+                  },
+                  {
+                    name: "Biotica 800",
+                    tag: "Set-and-forget · a larger shared space",
+                    desc: "Set-and-forget coverage for the spaces you spend the most time in.",
+                    price: PRICING.biotica.price,
+                    img: placeStepAsset.url,
+                    badge: "UP TO 800 SQ FT",
+                    url: URLS.biotica,
+                    evt: "click_wellness_biotica",
                   },
                 ].map((p) => (
                   <div
                     key={p.name}
-                    className="flex items-center gap-5 rounded-[20px] border bg-white p-5 sm:gap-6 sm:p-6"
+                    className="flex flex-col overflow-hidden rounded-[24px] border bg-white transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_rgba(0,0,0,0.06)]"
                     style={{ borderColor: C.hairline }}
                   >
-                    <div
-                      className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl sm:h-28 sm:w-28"
-                      style={{ background: C.ivory }}
-                    >
-                      <img src={p.img} alt={p.name} loading="lazy" className="max-h-[85%] max-w-[85%] object-contain" />
+                    <div className="relative aspect-[4/3] overflow-hidden" style={{ background: C.ivory }}>
+                      <img
+                        src={p.img}
+                        alt={p.name}
+                        loading="lazy"
+                        className="h-full w-full object-cover"
+                      />
+                      <span
+                        className="absolute left-4 top-4 rounded-full bg-white/95 px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.22em] shadow-sm"
+                        style={{ color: C.charcoal, fontFamily: DISPLAY }}
+                      >
+                        {p.badge}
+                      </span>
                     </div>
-                    <div className="min-w-0 flex-1">
+                    <div className="flex flex-1 flex-col p-7 sm:p-8">
                       <h4
                         className="font-bold"
-                        style={{ fontFamily: DISPLAY, fontSize: "1.05rem", color: C.charcoal, letterSpacing: "-0.01em" }}
+                        style={{ fontFamily: DISPLAY, fontSize: "1.4rem", color: C.charcoal, letterSpacing: "-0.01em" }}
                       >
                         {p.name}
                       </h4>
-                      <p className="mt-1 text-[13px] leading-[1.5]" style={{ color: C.muted }}>
+                      <p className="mt-1.5 text-[13.5px] font-semibold" style={{ color: C.muted, fontFamily: DISPLAY }}>
                         {p.tag}
                       </p>
-                      <div className="mt-3 flex items-center justify-between gap-3">
-                        <span
-                          className="font-bold"
-                          style={{ fontFamily: DISPLAY, fontSize: "1.05rem", color: C.charcoal }}
-                        >
-                          {p.price}
-                        </span>
+                      <p className="mt-3 text-[15px] leading-[1.65]" style={{ color: C.muted }}>
+                        {p.desc}
+                      </p>
+                      <p
+                        className="mt-5 font-bold"
+                        style={{ fontFamily: DISPLAY, fontSize: "1.5rem", color: C.charcoal, letterSpacing: "-0.01em" }}
+                      >
+                        {p.price}
+                      </p>
+                      <div className="mt-6 flex flex-wrap items-center gap-3">
                         <a
                           href={p.url}
                           onClick={() => trackEvent(p.evt)}
-                          className="inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-[10.5px] font-bold uppercase tracking-[0.2em] transition-colors hover:bg-[color:var(--hover-bg)]"
-                          style={{
-                            fontFamily: DISPLAY,
-                            color: C.charcoal,
-                            borderColor: C.hairlineStrong,
-                          }}
+                          className="inline-flex items-center justify-center rounded-full px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white transition-colors hover:bg-neutral-800"
+                          style={{ background: C.charcoal, fontFamily: DISPLAY }}
                         >
-                          View Product
+                          Buy
+                        </a>
+                        <a
+                          href={p.url}
+                          onClick={() => trackEvent(p.evt + "_learn")}
+                          className="inline-flex items-center justify-center rounded-full border px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.22em] transition-colors hover:bg-[color:var(--hover-bg)]"
+                          style={{ fontFamily: DISPLAY, color: C.charcoal, borderColor: C.hairlineStrong }}
+                        >
+                          Learn more
                         </a>
                       </div>
                     </div>
