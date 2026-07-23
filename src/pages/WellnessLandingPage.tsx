@@ -772,19 +772,14 @@ const WellnessLandingPage = () => {
             >
               <div className="grid grid-cols-1 items-stretch lg:grid-cols-[1.1fr_1fr]">
                 {/* Product image */}
-                <div
-                  className="relative flex items-center justify-center px-6 py-14 sm:px-10 sm:py-20 lg:py-24"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse at 50% 60%, rgba(220,231,221,0.55) 0%, transparent 70%)",
-                  }}
-                >
+                <div className="relative overflow-hidden rounded-t-[28px] lg:rounded-l-[28px] lg:rounded-tr-none">
                   <img
                     src={bundleAsset.url}
                     alt="Biotica 800 and BioLogic Mini, the Environmental Wellness System"
                     loading="lazy"
                     decoding="async"
-                    className="max-h-[420px] w-auto object-contain drop-shadow-[0_30px_40px_rgba(31,41,51,0.18)]"
+                    className="h-full w-full object-cover"
+                    style={{ minHeight: 380 }}
                   />
                 </div>
 
