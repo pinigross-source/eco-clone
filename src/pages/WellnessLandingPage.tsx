@@ -265,20 +265,23 @@ const WellnessLandingPage = () => {
                 No harsh sprays. No noisy fan. No extra daily task.
               </p>
 
-              <div className="mt-9 flex flex-wrap items-center gap-3">
+              <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <PrimaryCTA
                   href="#offer"
                   onClick={(() => trackEvent("click_wellness_hero_primary")) as any}
+                  className="w-full sm:w-auto"
                 >
                   Shop the System
                 </PrimaryCTA>
                 <OutlineCTA
                   href="#how"
                   onClick={(() => trackEvent("click_wellness_hero_secondary")) as any}
+                  className="w-full sm:w-auto"
                 >
                   How It Works
                 </OutlineCTA>
               </div>
+
 
             </div>
 
