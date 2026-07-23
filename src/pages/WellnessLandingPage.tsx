@@ -362,29 +362,53 @@ const WellnessLandingPage = () => {
            COMPARISON TABLE
            ============================================================ */}
         <section className="py-20 sm:py-28" style={{ background: C.ivory }}>
-          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-[0.9fr_1.6fr] lg:gap-16 lg:px-16">
+          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-[0.85fr_1.65fr] lg:gap-20 lg:px-16">
             <Reveal>
-              <H2 style={{ fontSize: "clamp(1.9rem, 3.4vw, 3rem)" }}>
-                A different layer than the ones you already <Ital>own.</Ital>
-              </H2>
+              <div className="lg:sticky lg:top-32 lg:self-start">
+                <span
+                  className="mb-5 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em]"
+                  style={{ color: C.green }}
+                >
+                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: C.green }} />
+                  The comparison
+                </span>
+                <H2 style={{ fontSize: "clamp(1.9rem, 3.4vw, 3rem)" }}>
+                  A different layer than the ones you already <Ital>own.</Ital>
+                </H2>
+                <p
+                  className="mt-5 max-w-[38ch] text-[15px] leading-[1.7]"
+                  style={{ color: C.muted }}
+                >
+                  Filters trap. Sprays wipe. EnviroBiotics works with your home&rsquo;s ecosystem, quietly, continuously, on air and every surface you touch.
+                </p>
+              </div>
             </Reveal>
 
             <Reveal>
               <div
-                className="overflow-hidden rounded-[20px]"
-                style={{ border: `1px solid ${C.hairline}`, background: C.white }}
+                className="overflow-hidden rounded-[22px]"
+                style={{
+                  border: `1px solid ${C.hairline}`,
+                  background: C.white,
+                  boxShadow: "0 30px 80px -60px rgba(31,41,51,0.35)",
+                }}
               >
                 <div
-                  className="grid grid-cols-4 text-[10.5px] font-bold uppercase tracking-[0.2em]"
+                  className="grid grid-cols-[1.5fr_1fr_1fr_1.05fr] text-[10.5px] font-bold uppercase tracking-[0.2em]"
                   style={{ background: C.offwhite, color: C.mutedSoft }}
                 >
-                  <div className="p-4 sm:p-5" />
-                  <div className="p-4 text-center sm:p-5">Air purifier</div>
-                  <div className="p-4 text-center sm:p-5">Manual cleaning</div>
+                  <div className="p-5 sm:p-6" />
+                  <div className="p-5 text-center sm:p-6">Air purifier</div>
+                  <div className="p-5 text-center sm:p-6">Manual cleaning</div>
                   <div
-                    className="p-4 text-center sm:p-5"
+                    className="relative p-5 text-center sm:p-6"
                     style={{ background: C.sage, color: C.green }}
                   >
+                    <span
+                      aria-hidden
+                      className="absolute inset-x-3 top-0 h-[3px] rounded-b-full"
+                      style={{ background: C.green }}
+                    />
                     EnviroBiotics
                   </div>
                 </div>
@@ -399,22 +423,34 @@ const WellnessLandingPage = () => {
                 ].map(([label, a, b, c], i) => (
                   <div
                     key={i}
-                    className="grid grid-cols-4 items-center border-t text-[14px]"
+                    className="grid grid-cols-[1.5fr_1fr_1fr_1.05fr] items-center border-t text-[14px] transition-colors hover:bg-[rgba(220,231,221,0.12)]"
                     style={{ borderColor: C.hairline }}
                   >
-                    <div className="p-4 font-medium sm:p-5" style={{ color: C.charcoal }}>
+                    <div className="p-5 font-semibold sm:p-6" style={{ color: C.charcoal, fontFamily: DISPLAY }}>
                       {label as string}
                     </div>
                     {[a, b, c].map((v, j) => (
                       <div
                         key={j}
-                        className="p-4 text-center sm:p-5"
+                        className="p-5 text-center sm:p-6"
                         style={j === 2 ? { background: "rgba(220,231,221,0.35)" } : undefined}
                       >
                         {v === true ? (
-                          <Check className="mx-auto h-4 w-4" strokeWidth={2.5} style={{ color: C.green }} />
+                          <span
+                            className="mx-auto inline-flex h-7 w-7 items-center justify-center rounded-full"
+                            style={{
+                              background: j === 2 ? C.green : "transparent",
+                              border: j === 2 ? "none" : `1px solid ${C.hairlineStrong}`,
+                            }}
+                          >
+                            <Check
+                              className="h-3.5 w-3.5"
+                              strokeWidth={2.6}
+                              style={{ color: j === 2 ? C.white : C.green }}
+                            />
+                          </span>
                         ) : v === false ? (
-                          <X className="mx-auto h-3.5 w-3.5" style={{ color: "rgba(31,41,51,0.24)" }} />
+                          <X className="mx-auto h-3.5 w-3.5" style={{ color: "rgba(31,41,51,0.28)" }} />
                         ) : (
                           <span
                             className="text-[10px] font-bold uppercase tracking-[0.16em]"
