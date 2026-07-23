@@ -585,7 +585,7 @@ const WellnessLandingPage = () => {
         {/* ============================================================
            THE SIMPLEST WAY TO EXPLAIN IT, split editorial card
            ============================================================ */}
-        <section className="py-12 sm:py-16" style={{ background: C.offwhite }}>
+        <section id="how" className="scroll-mt-24 py-12 sm:py-16" style={{ background: C.offwhite }}>
           <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
             <div
               className="overflow-hidden rounded-[28px]"
