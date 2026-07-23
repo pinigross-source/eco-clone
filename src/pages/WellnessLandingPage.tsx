@@ -896,12 +896,12 @@ const WellnessLandingPage = () => {
                     className="flex flex-col overflow-hidden rounded-[24px] border bg-white transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_rgba(0,0,0,0.06)]"
                     style={{ borderColor: C.hairline }}
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden" style={{ background: C.ivory }}>
+                    <div className="relative aspect-[4/5] overflow-hidden md:aspect-[3/4]" style={{ background: C.ivory }}>
                       <img
                         src={p.img}
                         alt={p.name}
                         loading="lazy"
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-cover object-center"
                       />
                       <span
                         className="absolute left-4 top-4 rounded-full bg-white/95 px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.22em] shadow-sm"
