@@ -515,7 +515,7 @@ const WellnessLandingPage = () => {
            WARM BROWN PROMISE BAND, 4 circle benefits
            ============================================================ */}
         <section
-          className="relative overflow-hidden py-20 sm:py-24"
+          className="relative overflow-hidden py-14 sm:py-24"
           style={{
             background: `linear-gradient(90deg, ${C.brownBandDeep} 0%, ${C.brownBand} 100%)`,
             color: C.white,
@@ -530,32 +530,34 @@ const WellnessLandingPage = () => {
                 "radial-gradient(ellipse at 90% 50%, rgba(220,231,221,0.35), transparent 65%)",
             }}
           />
-          <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-12 px-5 sm:px-10 lg:grid-cols-[1fr_1.4fr] lg:px-16">
+          <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-10 px-5 sm:gap-12 sm:px-10 lg:grid-cols-[1fr_1.4fr] lg:px-16">
             <Reveal>
-              <h2
-                className="font-bold"
-                style={{
-                  fontFamily: DISPLAY,
-                  fontWeight: 800,
-                  fontSize: "clamp(1.9rem, 3.4vw, 2.75rem)",
-                  lineHeight: 1.08,
-                  letterSpacing: "-0.02em",
-                  color: C.white,
-                  maxWidth: "16ch",
-                }}
-              >
-                A home that feels as clean as your <Ital color="rgba(255,255,255,0.92)">routine.</Ital>
-              </h2>
-              <p
-                className="mt-5 max-w-[42ch] text-[15.5px] leading-[1.7]"
-                style={{ color: "rgba(255,255,255,0.82)" }}
-              >
-                A fresher, calmer, more supportive space, night and day.
-              </p>
+              <div className="text-center lg:text-left">
+                <h2
+                  className="mx-auto font-bold lg:mx-0"
+                  style={{
+                    fontFamily: DISPLAY,
+                    fontWeight: 800,
+                    fontSize: "clamp(1.75rem, 3.4vw, 2.75rem)",
+                    lineHeight: 1.1,
+                    letterSpacing: "-0.02em",
+                    color: C.white,
+                    maxWidth: "18ch",
+                  }}
+                >
+                  A home that feels as clean as your <Ital color="rgba(255,255,255,0.92)">routine.</Ital>
+                </h2>
+                <p
+                  className="mx-auto mt-4 max-w-[38ch] text-[14.5px] leading-[1.65] sm:text-[15.5px] sm:leading-[1.7] lg:mx-0"
+                  style={{ color: "rgba(255,255,255,0.82)" }}
+                >
+                  A fresher, calmer, more supportive space, night and day.
+                </p>
+              </div>
             </Reveal>
 
             <Reveal>
-              <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
+              <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 sm:gap-y-10 sm:grid-cols-4">
                 {[
                   { icon: Wind, t: "Cleaner air", s: "you can feel" },
                   { icon: Sun, t: "Fresher home", s: "naturally" },
@@ -564,15 +566,15 @@ const WellnessLandingPage = () => {
                 ].map(({ icon: Icon, t, s }) => (
                   <div key={t} className="flex flex-col items-center text-center">
                     <span
-                      className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full"
+                      className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full sm:mb-4 sm:h-16 sm:w-16"
                       style={{ background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.3)" }}
                     >
-                      <Icon className="h-6 w-6" strokeWidth={1.5} />
+                      <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.5} />
                     </span>
-                    <p className="text-[14px] font-bold" style={{ fontFamily: DISPLAY, letterSpacing: "-0.01em" }}>
+                    <p className="text-[13.5px] font-bold sm:text-[14px]" style={{ fontFamily: DISPLAY, letterSpacing: "-0.01em" }}>
                       {t}
                     </p>
-                    <p className="mt-1 text-[12.5px]" style={{ color: "rgba(255,255,255,0.75)" }}>
+                    <p className="mt-1 text-[12px] leading-snug sm:text-[12.5px]" style={{ color: "rgba(255,255,255,0.75)" }}>
                       {s}
                     </p>
                   </div>
@@ -581,6 +583,7 @@ const WellnessLandingPage = () => {
             </Reveal>
           </div>
         </section>
+
 
         {/* ============================================================
            THE SIMPLEST WAY TO EXPLAIN IT, split editorial card
