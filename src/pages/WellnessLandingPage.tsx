@@ -27,7 +27,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import heroImage from "@/assets/wellness-hero-cozy.png.asset.json";
+import heroImage from "@/assets/wellness-hero-with-eb-2.avif.asset.json";
 import livingImageAsset from "@/assets/let-it-work-living.avif.asset.json";
 const livingImage = livingImageAsset.url;
 import ritualAsset from "@/assets/final-cta-wellness.avif.asset.json";
