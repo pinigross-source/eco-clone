@@ -40,8 +40,8 @@ const bedroomWide = beforeAsset.url;
 const withImage = withAsset.url;
 import powerOnBedroomAsset from "@/assets/power-on-bedroom.avif.asset.json";
 const powerOnBedroom = powerOnBedroomAsset.url;
-import bioticaProduct from "@/assets/biotica-800.png";
-import miniProduct from "@/assets/biologic-mini-nobg-new.png";
+import bioticaProduct from "@/assets/biotica-lifestyle.jpg.asset.json";
+import miniProduct from "@/assets/mini-lifestyle.jpg.asset.json";
 import bundleAsset from "@/assets/bundle-product.webp.asset.json";
 
 import epaAsset from "@/assets/certs/cert_0.png.asset.json";
@@ -875,7 +875,7 @@ const WellnessLandingPage = () => {
                     tag: "Portable · a single room",
                     desc: "Your personal, take-anywhere unit. Compact enough to plug in at home and pack for the road.",
                     price: PRICING.mini.price,
-                    img: powerOnBedroomAsset.url,
+                    img: miniProduct.url,
                     badge: "UP TO 300 SQ FT",
                     url: URLS.mini,
                     evt: "click_wellness_mini",
@@ -885,7 +885,7 @@ const WellnessLandingPage = () => {
                     tag: "Set-and-forget · a larger shared space",
                     desc: "Set-and-forget coverage for the spaces you spend the most time in.",
                     price: PRICING.biotica.price,
-                    img: placeStepAsset.url,
+                    img: bioticaProduct.url,
                     badge: "UP TO 800 SQ FT",
                     url: URLS.biotica,
                     evt: "click_wellness_biotica",
