@@ -794,7 +794,7 @@ const WellnessLandingPage = () => {
 
                   <ul className="mt-6 space-y-3">
                     {[
-                      "Beneficial microbes for the air & surfaces",
+                      "Beneficial Probiotics for the air & surfaces",
                       "Works 24/7 in the background",
                       "No filters. No refills. No harsh chemicals.",
                       "Covers up to 1,800 sq ft",
