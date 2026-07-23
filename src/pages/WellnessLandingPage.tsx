@@ -1179,49 +1179,6 @@ const WellnessLandingPage = () => {
           </div>
         </section>
 
-        {/* ============================================================
-           GUARANTEE, soft cream with plant vignettes
-           ============================================================ */}
-        <section
-          className="relative overflow-hidden py-20 sm:py-24"
-          style={{ background: C.ivory }}
-        >
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-70"
-            style={{
-              background:
-                "radial-gradient(500px 300px at 5% 100%, rgba(220,231,221,0.6), transparent 60%), radial-gradient(500px 300px at 95% 0%, rgba(220,231,221,0.5), transparent 60%)",
-            }}
-          />
-          <div className="relative mx-auto max-w-[820px] px-5 text-center sm:px-10">
-            <Leaf className="mx-auto mb-5 h-5 w-5" strokeWidth={1.4} style={{ color: C.green }} />
-            <h2
-              className="font-bold"
-              style={{
-                fontFamily: DISPLAY,
-                fontWeight: 800,
-                fontSize: "clamp(1.9rem, 3.6vw, 2.75rem)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
-                color: C.charcoal,
-              }}
-            >
-              Try the Wellness Reset for <Ital>30 days.</Ital>
-            </h2>
-            <p className="mx-auto mt-4 max-w-[52ch] text-[15.5px] leading-[1.7]" style={{ color: C.muted }}>
-              If you don&rsquo;t feel the difference, return it, no questions asked.
-            </p>
-            <div className="mt-8">
-              <PrimaryCTA
-                href={URLS.bundle}
-                onClick={() => trackEvent("click_wellness_guarantee")}
-              >
-                Start My 30-Day Trial
-              </PrimaryCTA>
-            </div>
-          </div>
-        </section>
 
         {/* ============================================================
            FAQ, sticky heading + accordion
@@ -1315,7 +1272,7 @@ const WellnessLandingPage = () => {
         </section>
 
         {/* ============================================================
-           FINAL CTA, dark green split with bedroom image
+           FINAL CTA, dark green split with bedroom image + guarantee
            ============================================================ */}
         <section
           className="relative overflow-hidden"
@@ -1340,20 +1297,34 @@ const WellnessLandingPage = () => {
               <p className="mt-5 max-w-[46ch] text-[15.5px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.78)" }}>
                 Support your air. Support your life.
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+
+              <div
+                className="mt-8 max-w-[50ch] rounded-2xl border border-white/20 bg-white/10 px-6 py-6 backdrop-blur-sm sm:px-8 sm:py-7"
+              >
+                <h3
+                  className="font-bold"
+                  style={{
+                    fontFamily: DISPLAY,
+                    fontSize: "clamp(1.25rem, 2.2vw, 1.6rem)",
+                    lineHeight: 1.15,
+                    letterSpacing: "-0.015em",
+                    color: C.white,
+                  }}
+                >
+                  Try the Wellness Reset for <Ital color="rgba(255,255,255,0.92)">30 days.</Ital>
+                </h3>
+                <p className="mt-2 text-[15px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.78)" }}>
+                  If you don&rsquo;t feel the difference, return it, no questions asked.
+                </p>
+              </div>
+
+              <div className="mt-8">
                 <PrimaryCTA
                   href={URLS.bundle}
                   onClick={() => trackEvent("click_wellness_final")}
                 >
                   Shop the System
                 </PrimaryCTA>
-                <OutlineCTA
-                  href="#how"
-                  variant="light"
-                  onClick={() => trackEvent("click_wellness_final_secondary")}
-                >
-                  Learn More
-                </OutlineCTA>
               </div>
             </div>
 
