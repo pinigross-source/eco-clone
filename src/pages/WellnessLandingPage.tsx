@@ -256,7 +256,9 @@ const WellnessLandingPage = () => {
                 className="mt-7 max-w-[46ch] text-[16px] leading-[1.65] sm:text-[17.5px]"
                 style={{ color: C.muted }}
               >
-                You eat well. You exercise. You prioritize sleep, hydration, and recovery.
+                <strong style={{ color: C.charcoal, fontWeight: 700 }}>
+                  You eat well. You exercise. You prioritize sleep, hydration, and recovery.
+                </strong>
                 <br /><br />
                 EnviroBiotics adds the environmental layer to your routine, using beneficial probiotics to continuously support the air, surfaces, and objects around you.
                 <br /><br />
