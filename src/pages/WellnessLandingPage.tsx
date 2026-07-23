@@ -31,6 +31,8 @@ import heroImage from "@/assets/wellness-hero-cozy.png.asset.json";
 import livingImage from "@/assets/wellness-living.jpg";
 import ritualImage from "@/assets/wellness-ritual.jpg";
 import bedroomWide from "@/assets/wellness-bedroom-wide.jpg";
+import powerOnBedroomAsset from "@/assets/power-on-bedroom.avif.asset.json";
+const powerOnBedroom = powerOnBedroomAsset.url;
 import bioticaProduct from "@/assets/biotica-800.png";
 import miniProduct from "@/assets/biologic-mini-nobg-new.png";
 import bundleAsset from "@/assets/bundle-product.webp.asset.json";
@@ -516,7 +518,7 @@ const WellnessLandingPage = () => {
                   n: 2,
                   t: "Power On",
                   c: "Plug in and power on. The system starts immediately.",
-                  img: bedroomWide,
+                  img: powerOnBedroom,
                   alt: "EnviroBiotics device powered on in a serene bedroom",
                 },
                 {
