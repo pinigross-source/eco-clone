@@ -362,29 +362,53 @@ const WellnessLandingPage = () => {
            COMPARISON TABLE
            ============================================================ */}
         <section className="py-20 sm:py-28" style={{ background: C.ivory }}>
-          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-[0.9fr_1.6fr] lg:gap-16 lg:px-16">
+          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-[0.85fr_1.65fr] lg:gap-20 lg:px-16">
             <Reveal>
-              <H2 style={{ fontSize: "clamp(1.9rem, 3.4vw, 3rem)" }}>
-                A different layer than the ones you already <Ital>own.</Ital>
-              </H2>
+              <div className="lg:sticky lg:top-32 lg:self-start">
+                <span
+                  className="mb-5 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em]"
+                  style={{ color: C.green }}
+                >
+                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: C.green }} />
+                  The comparison
+                </span>
+                <H2 style={{ fontSize: "clamp(1.9rem, 3.4vw, 3rem)" }}>
+                  A different layer than the ones you already <Ital>own.</Ital>
+                </H2>
+                <p
+                  className="mt-5 max-w-[38ch] text-[15px] leading-[1.7]"
+                  style={{ color: C.muted }}
+                >
+                  Filters trap. Sprays wipe. EnviroBiotics works with your home&rsquo;s ecosystem, quietly, continuously, on air and every surface you touch.
+                </p>
+              </div>
             </Reveal>
 
             <Reveal>
               <div
-                className="overflow-hidden rounded-[20px]"
-                style={{ border: `1px solid ${C.hairline}`, background: C.white }}
+                className="overflow-hidden rounded-[22px]"
+                style={{
+                  border: `1px solid ${C.hairline}`,
+                  background: C.white,
+                  boxShadow: "0 30px 80px -60px rgba(31,41,51,0.35)",
+                }}
               >
                 <div
-                  className="grid grid-cols-4 text-[10.5px] font-bold uppercase tracking-[0.2em]"
+                  className="grid grid-cols-[1.5fr_1fr_1fr_1.05fr] text-[10.5px] font-bold uppercase tracking-[0.2em]"
                   style={{ background: C.offwhite, color: C.mutedSoft }}
                 >
-                  <div className="p-4 sm:p-5" />
-                  <div className="p-4 text-center sm:p-5">Air purifier</div>
-                  <div className="p-4 text-center sm:p-5">Manual cleaning</div>
+                  <div className="p-5 sm:p-6" />
+                  <div className="p-5 text-center sm:p-6">Air purifier</div>
+                  <div className="p-5 text-center sm:p-6">Manual cleaning</div>
                   <div
-                    className="p-4 text-center sm:p-5"
+                    className="relative p-5 text-center sm:p-6"
                     style={{ background: C.sage, color: C.green }}
                   >
+                    <span
+                      aria-hidden
+                      className="absolute inset-x-3 top-0 h-[3px] rounded-b-full"
+                      style={{ background: C.green }}
+                    />
                     EnviroBiotics
                   </div>
                 </div>
@@ -399,22 +423,34 @@ const WellnessLandingPage = () => {
                 ].map(([label, a, b, c], i) => (
                   <div
                     key={i}
-                    className="grid grid-cols-4 items-center border-t text-[14px]"
+                    className="grid grid-cols-[1.5fr_1fr_1fr_1.05fr] items-center border-t text-[14px] transition-colors hover:bg-[rgba(220,231,221,0.12)]"
                     style={{ borderColor: C.hairline }}
                   >
-                    <div className="p-4 font-medium sm:p-5" style={{ color: C.charcoal }}>
+                    <div className="p-5 font-semibold sm:p-6" style={{ color: C.charcoal, fontFamily: DISPLAY }}>
                       {label as string}
                     </div>
                     {[a, b, c].map((v, j) => (
                       <div
                         key={j}
-                        className="p-4 text-center sm:p-5"
+                        className="p-5 text-center sm:p-6"
                         style={j === 2 ? { background: "rgba(220,231,221,0.35)" } : undefined}
                       >
                         {v === true ? (
-                          <Check className="mx-auto h-4 w-4" strokeWidth={2.5} style={{ color: C.green }} />
+                          <span
+                            className="mx-auto inline-flex h-7 w-7 items-center justify-center rounded-full"
+                            style={{
+                              background: j === 2 ? C.green : "transparent",
+                              border: j === 2 ? "none" : `1px solid ${C.hairlineStrong}`,
+                            }}
+                          >
+                            <Check
+                              className="h-3.5 w-3.5"
+                              strokeWidth={2.6}
+                              style={{ color: j === 2 ? C.white : C.green }}
+                            />
+                          </span>
                         ) : v === false ? (
-                          <X className="mx-auto h-3.5 w-3.5" style={{ color: "rgba(31,41,51,0.24)" }} />
+                          <X className="mx-auto h-3.5 w-3.5" style={{ color: "rgba(31,41,51,0.28)" }} />
                         ) : (
                           <span
                             className="text-[10px] font-bold uppercase tracking-[0.16em]"
@@ -1095,13 +1131,37 @@ const WellnessLandingPage = () => {
            FAQ, sticky heading + accordion
            ============================================================ */}
         <section className="py-20 sm:py-28" style={{ background: C.offwhite }}>
-          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-[0.9fr_1.6fr] lg:gap-16 lg:px-16">
+          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-14 px-5 sm:px-10 lg:grid-cols-[0.85fr_1.65fr] lg:gap-20 lg:px-16">
             <div className="lg:sticky lg:top-32 lg:self-start">
+              <span
+                className="mb-5 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em]"
+                style={{ color: C.green }}
+              >
+                <span className="h-1.5 w-1.5 rounded-full" style={{ background: C.green }} />
+                FAQ
+              </span>
               <H2 style={{ fontSize: "clamp(1.8rem, 3.2vw, 2.5rem)" }}>
                 Wellness questions, <Ital>answered.</Ital>
               </H2>
+              <p className="mt-5 max-w-[36ch] text-[15px] leading-[1.7]" style={{ color: C.muted }}>
+                Everything you might wonder before you bring EnviroBiotics into your routine.
+              </p>
+              <a
+                href="mailto:hello@envirobiotics.com"
+                className="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.16em] transition-opacity hover:opacity-70"
+                style={{ color: C.charcoal, borderBottom: `1px solid ${C.hairlineStrong}`, paddingBottom: 4 }}
+              >
+                Still curious? Talk to us
+              </a>
             </div>
-            <div>
+            <div
+              className="overflow-hidden rounded-[22px]"
+              style={{
+                background: C.white,
+                border: `1px solid ${C.hairline}`,
+                boxShadow: "0 30px 80px -60px rgba(31,41,51,0.35)",
+              }}
+            >
               <Accordion type="single" collapsible className="w-full">
                 {[
                   {
@@ -1124,24 +1184,32 @@ const WellnessLandingPage = () => {
                     q: "How often do I need to do anything?",
                     a: "Setup takes about a minute. After that, cartridges swap on a simple schedule, no filters, no daily interaction, no app required.",
                   },
-                ].map((item, idx) => (
+                ].map((item, idx, arr) => (
                   <AccordionItem
                     key={idx}
                     value={`q${idx}`}
-                    className="border-b"
+                    className={idx === arr.length - 1 ? "" : "border-b"}
                     style={{ borderColor: C.hairline }}
                   >
                     <AccordionTrigger
-                      className="py-5 text-left text-[15.5px] font-medium hover:no-underline sm:text-[16.5px]"
-                      style={{ color: C.charcoal, fontFamily: DISPLAY, fontWeight: 600 }}
+                      className="group px-6 py-6 text-left text-[16px] font-semibold hover:no-underline sm:px-8 sm:py-7 sm:text-[17.5px]"
+                      style={{ color: C.charcoal, fontFamily: DISPLAY, fontWeight: 600, letterSpacing: "-0.005em" }}
                     >
-                      {item.q}
+                      <span className="flex items-baseline gap-5">
+                        <span
+                          className="text-[11px] font-bold tracking-[0.18em]"
+                          style={{ color: C.mutedSoft, fontFamily: DISPLAY }}
+                        >
+                          {String(idx + 1).padStart(2, "0")}
+                        </span>
+                        <span>{item.q}</span>
+                      </span>
                     </AccordionTrigger>
                     <AccordionContent
-                      className="pb-5 text-[14.5px] leading-[1.7]"
+                      className="px-6 pb-7 text-[15px] leading-[1.75] sm:px-8"
                       style={{ color: C.muted }}
                     >
-                      {item.a}
+                      <div className="max-w-[62ch] pl-[calc(1.25rem+16px)]">{item.a}</div>
                     </AccordionContent>
                   </AccordionItem>
                 ))}
