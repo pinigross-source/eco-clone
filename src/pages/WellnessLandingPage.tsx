@@ -30,7 +30,8 @@ import {
 import heroImage from "@/assets/wellness-hero-cozy.png.asset.json";
 import livingImageAsset from "@/assets/let-it-work-living.avif.asset.json";
 const livingImage = livingImageAsset.url;
-import ritualImage from "@/assets/wellness-ritual.jpg";
+import ritualAsset from "@/assets/final-cta-wellness.avif.asset.json";
+const ritualImage = ritualAsset.url;
 import placeStepAsset from "@/assets/place-step-cozy.avif.asset.json";
 const placeStep = placeStepAsset.url;
 import beforeAsset from "@/assets/before-envirobiotics.avif.asset.json";
