@@ -28,7 +28,8 @@ import {
 } from "@/components/ui/accordion";
 
 import heroImage from "@/assets/wellness-hero-cozy.png.asset.json";
-import livingImage from "@/assets/wellness-living.jpg";
+import livingImageAsset from "@/assets/let-it-work-living.avif.asset.json";
+const livingImage = livingImageAsset.url;
 import ritualImage from "@/assets/wellness-ritual.jpg";
 import bedroomWide from "@/assets/wellness-bedroom-wide.jpg";
 import powerOnBedroomAsset from "@/assets/power-on-bedroom.avif.asset.json";
