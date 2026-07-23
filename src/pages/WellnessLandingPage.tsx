@@ -62,11 +62,24 @@ const PRICING = {
   mini: { price: "$98" },
 };
 
+/**
+ * Cart permalink: /cart/{variantId}:{qty} adds the item to the Shopify cart
+ * and applies the discount code automatically, then shows the cart page.
+ */
+const cartAdd = (variantId: number, campaign = "wellness-landing") =>
+  withDiscount(
+    shopifyUrl(
+      `/cart/${variantId}:1`,
+      campaign,
+    ),
+  );
+
 const URLS = {
-  bundle: withDiscount(shopifyUrl("/products/home-complete-bundle", "wellness-landing")),
-  biotica: withDiscount(shopifyProductUrl("biotica-800", "wellness-landing")),
-  mini: withDiscount(shopifyProductUrl("biologic-mini", "wellness-landing")),
+  bundle: cartAdd(48939477205244), // home-complete-bundle
+  biotica: cartAdd(48644373184764), // biotica-800
+  mini: cartAdd(48644372496636), // biologic-mini
 };
+
 
 /* ---------- Palette ---------- */
 const C = {
