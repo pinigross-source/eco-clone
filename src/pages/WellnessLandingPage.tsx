@@ -42,7 +42,7 @@ import powerOnBedroomAsset from "@/assets/power-on-bedroom.avif.asset.json";
 const powerOnBedroom = powerOnBedroomAsset.url;
 import bioticaProduct from "@/assets/biotica-lifestyle.jpg.asset.json";
 import miniProduct from "@/assets/mini-lifestyle.jpg.asset.json";
-import bundleAsset from "@/assets/bundle-product.webp.asset.json";
+import bundleAsset from "@/assets/bundle-lifestyle.avif.asset.json";
 
 import epaAsset from "@/assets/certs/cert_0.png.asset.json";
 import isoAsset from "@/assets/certs/cert_3.png.asset.json";
