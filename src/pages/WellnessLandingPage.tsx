@@ -518,7 +518,7 @@ const WellnessLandingPage = () => {
                   n: 2,
                   t: "Power On",
                   c: "Plug in and power on. The system starts immediately.",
-                  img: bedroomWide,
+                  img: powerOnBedroom,
                   alt: "EnviroBiotics device powered on in a serene bedroom",
                 },
                 {
