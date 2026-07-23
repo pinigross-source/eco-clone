@@ -31,6 +31,8 @@ import heroImage from "@/assets/wellness-hero-cozy.png.asset.json";
 import livingImageAsset from "@/assets/let-it-work-living.avif.asset.json";
 const livingImage = livingImageAsset.url;
 import ritualImage from "@/assets/wellness-ritual.jpg";
+import placeStepAsset from "@/assets/place-step-cozy.avif.asset.json";
+const placeStep = placeStepAsset.url;
 import bedroomWide from "@/assets/wellness-bedroom-wide.jpg";
 import powerOnBedroomAsset from "@/assets/power-on-bedroom.avif.asset.json";
 const powerOnBedroom = powerOnBedroomAsset.url;
@@ -512,7 +514,7 @@ const WellnessLandingPage = () => {
                   n: 1,
                   t: "Place",
                   c: "Position the units in your bedroom and main living area.",
-                  img: ritualImage,
+                  img: placeStep,
                   alt: "EnviroBiotics device placed on a warm oak nightstand",
                 },
                 {
