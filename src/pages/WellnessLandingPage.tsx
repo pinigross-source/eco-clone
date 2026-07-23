@@ -803,7 +803,7 @@ const WellnessLandingPage = () => {
                       letterSpacing: "-0.015em",
                     }}
                   >
-                    Includes Biotica 800 + 2 BioLogic Mini
+                    Includes Biotica 800 + 2 BioLogic Mini Bundle offer
                   </h3>
 
                   <ul className="mt-6 space-y-3">
@@ -848,7 +848,7 @@ const WellnessLandingPage = () => {
                       onClick={() => trackEvent("click_wellness_bundle")}
                       className="w-full sm:w-auto"
                     >
-                      Add the System to Cart
+                      ADD THE SYSTEMS TO CART
                     </PrimaryCTA>
                     <p className="text-[12px]" style={{ color: C.mutedSoft }}>
                       Free shipping · 30-day risk-free trial
