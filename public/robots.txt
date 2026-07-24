@@ -18,5 +18,6 @@ Disallow: /dev-tools
 Disallow: /link-check
 Disallow: /embed
 Disallow: /product-registration
+Disallow: /__l5e/
 
 Sitemap: https://envirobiotics.com/sitemap.xml
