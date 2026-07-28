@@ -365,7 +365,7 @@ const SupportPage = () => {
                                 toast({ title: "Link copied!", description: "Video link copied to clipboard." });
                               }
                             }}
-                            className="shrink-0 w-10 h-10 rounded-xl bg-muted/50 hover:bg-primary/10 flex items-center justify-center transition-colors"
+                            className="shrink-0 w-11 h-11 rounded-xl bg-muted/50 hover:bg-primary/10 flex items-center justify-center transition-colors"
                             aria-label={`Share ${product.videoTitle}`}
                             title="Share video link"
                           >
