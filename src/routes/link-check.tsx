@@ -1,16 +1,30 @@
 import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { checkSiteLinks } from "@/serverfn/link-check.functions";
+import { supabase } from "@/integrations/supabase/client";
 
 type Result = Awaited<ReturnType<typeof checkSiteLinks>>;
 
 export const Route = createFileRoute("/link-check")({
+  beforeLoad: async ({ location }) => {
+    if (typeof window === "undefined") return;
+    const { data: userData } = await supabase.auth.getUser();
+    if (!userData?.user) {
+      throw redirect({ to: "/auth", search: { redirect: location.href } as never });
+    }
+    const { data: isAdmin } = await supabase.rpc("has_role", {
+      _user_id: userData.user.id,
+      _role: "admin",
+    });
+    if (!isAdmin) throw redirect({ to: "/" });
+  },
   component: LinkCheckPage,
 });
+
 
 function LinkCheckPage() {
   const [loading, setLoading] = useState(false);
