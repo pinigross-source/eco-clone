@@ -703,10 +703,10 @@ function PriceCard({
             Buy Once
           </a>
         </Button>
-        <div className="mt-3 text-center">
+        <div className="mt-2 text-center">
           <a
             href={subHref}
-            className="text-xs text-ink/55 hover:text-ink underline underline-offset-2"
+            className="inline-flex items-center justify-center min-h-11 px-3 text-sm text-ink/70 hover:text-ink underline underline-offset-2"
           >
             or Subscribe &amp; Save on refills
           </a>

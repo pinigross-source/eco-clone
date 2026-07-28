@@ -194,6 +194,8 @@ ${data.message || "No additional message provided."}
                   <Input
                     id="phone"
                     type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
                     placeholder="(555) 123-4567"
                     {...register("phone")}
                     className={errors.phone ? "border-destructive" : ""}
@@ -210,6 +212,8 @@ ${data.message || "No additional message provided."}
                   </Label>
                   <Input
                     id="zipCode"
+                    inputMode="numeric"
+                    autoComplete="postal-code"
                     placeholder="12345"
                     {...register("zipCode")}
                     className={errors.zipCode ? "border-destructive" : ""}
@@ -227,7 +231,7 @@ ${data.message || "No additional message provided."}
                     HVAC Type
                   </Label>
                   <Select onValueChange={(value) => setValue("hvacType", value)}>
-                    <SelectTrigger className={errors.hvacType ? "border-destructive" : ""}>
+                    <SelectTrigger className={`min-h-11 ${errors.hvacType ? "border-destructive" : ""}`}>
                       <SelectValue placeholder="Select type" />
                     </SelectTrigger>
                     <SelectContent>
@@ -246,7 +250,7 @@ ${data.message || "No additional message provided."}
                 <div className="space-y-2">
                   <Label htmlFor="homeSize">Home Size</Label>
                   <Select onValueChange={(value) => setValue("homeSize", value)}>
-                    <SelectTrigger className={errors.homeSize ? "border-destructive" : ""}>
+                    <SelectTrigger className={`min-h-11 ${errors.homeSize ? "border-destructive" : ""}`}>
                       <SelectValue placeholder="Select size" />
                     </SelectTrigger>
                     <SelectContent>

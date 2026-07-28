@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://envirobiotics.com/" },
-      { rel: "preload", as: "image", href: "/hero-vimeo-poster.jpg", fetchpriority: "high" },
+      { rel: "preload", as: "image", href: "/hero-vimeo-poster.jpg", fetchPriority: "high" },
     ],
   }),
   component: Index,

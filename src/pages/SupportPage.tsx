@@ -332,7 +332,7 @@ const SupportPage = () => {
                                 toast({ title: "Link copied!", description: "Manual link copied to clipboard." });
                               }
                             }}
-                            className="shrink-0 w-10 h-10 rounded-xl bg-muted/50 hover:bg-primary/10 flex items-center justify-center transition-colors"
+                            className="shrink-0 w-11 h-11 rounded-xl bg-muted/50 hover:bg-primary/10 flex items-center justify-center transition-colors"
                             aria-label={`Share ${product.pdfTitle}`}
                             title="Share manual link"
                           >
@@ -365,7 +365,7 @@ const SupportPage = () => {
                                 toast({ title: "Link copied!", description: "Video link copied to clipboard." });
                               }
                             }}
-                            className="shrink-0 w-10 h-10 rounded-xl bg-muted/50 hover:bg-primary/10 flex items-center justify-center transition-colors"
+                            className="shrink-0 w-11 h-11 rounded-xl bg-muted/50 hover:bg-primary/10 flex items-center justify-center transition-colors"
                             aria-label={`Share ${product.videoTitle}`}
                             title="Share video link"
                           >
@@ -387,7 +387,7 @@ const SupportPage = () => {
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Contact Form */}
               <ScrollReveal variant="fadeRight">
-                <div id="contact-form" className="p-8 rounded-2xl glass-card">
+                <div id="contact-form" className="p-8 rounded-2xl glass-card scroll-mt-24">
                   <h2 className="text-2xl font-display font-bold mb-6">Send Us a Message</h2>
                   
                   <form onSubmit={handleSubmit} className="space-y-4">

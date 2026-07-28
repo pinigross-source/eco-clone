@@ -297,7 +297,7 @@ const DealerContactForm = () => {
               value={formData.buildingType}
               onValueChange={(value) => setFormData({ ...formData, buildingType: value })}
             >
-              <SelectTrigger>
+              <SelectTrigger className="min-h-11">
                 <SelectValue placeholder="Select type" />
               </SelectTrigger>
               <SelectContent>
@@ -687,7 +687,7 @@ const HVACPage = () => {
                     src={hvacNewParadigm}
                     alt="E-Biotic Pro managing HVAC as a biological system"
                     className="w-full h-auto"
-                  />
+                   loading="lazy" decoding="async" />
                 </div>
               </ScrollReveal>
             </div>
@@ -704,7 +704,7 @@ const HVACPage = () => {
                     src={hvacAnatomyDiagram}
                     alt="The Anatomy of the Building's Lungs - HVAC system diagram"
                     className="w-full h-auto"
-                  />
+                   loading="lazy" decoding="async" />
                 </div>
               </ScrollReveal>
 
@@ -770,7 +770,7 @@ const HVACPage = () => {
                     src={hvacBreathingDifficult}
                     alt="When breathing becomes difficult, healthy vs restricted airflow"
                     className="w-full h-auto"
-                  />
+                   loading="lazy" decoding="async" />
                 </div>
               </ScrollReveal>
 
@@ -823,7 +823,7 @@ const HVACPage = () => {
                     src={probioticHvacProcess}
                     alt="Probiotic HVAC process: Dispersion, Distribution, Protection"
                     className="w-full h-auto"
-                  />
+                   loading="lazy" decoding="async" />
                 </div>
               </ScrollReveal>
 
@@ -887,7 +887,7 @@ const HVACPage = () => {
                     src={hvacHealthyBuilding}
                     alt="The results of a healthy breathing building"
                     className="w-full h-auto"
-                  />
+                   loading="lazy" decoding="async" />
                 </div>
               </ScrollReveal>
 
