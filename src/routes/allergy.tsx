@@ -25,7 +25,7 @@ export const Route = createFileRoute("/allergy")({
         rel: "preload",
         as: "image",
         href: "/__l5e/assets-v1/6c262e2f-f458-4ebc-8289-d5d6fe9c9f32/allergy-hero.avif",
-        fetchpriority: "high",
+        fetchPriority: "high",
       },
     ],
   }),
