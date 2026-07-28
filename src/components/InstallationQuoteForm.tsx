@@ -194,6 +194,8 @@ ${data.message || "No additional message provided."}
                   <Input
                     id="phone"
                     type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
                     placeholder="(555) 123-4567"
                     {...register("phone")}
                     className={errors.phone ? "border-destructive" : ""}
