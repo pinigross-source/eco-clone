@@ -387,7 +387,7 @@ const SupportPage = () => {
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Contact Form */}
               <ScrollReveal variant="fadeRight">
-                <div id="contact-form" className="p-8 rounded-2xl glass-card">
+                <div id="contact-form" className="p-8 rounded-2xl glass-card scroll-mt-24">
                   <h2 className="text-2xl font-display font-bold mb-6">Send Us a Message</h2>
                   
                   <form onSubmit={handleSubmit} className="space-y-4">
