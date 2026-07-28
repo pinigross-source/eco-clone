@@ -246,7 +246,7 @@ ${data.message || "No additional message provided."}
                 <div className="space-y-2">
                   <Label htmlFor="homeSize">Home Size</Label>
                   <Select onValueChange={(value) => setValue("homeSize", value)}>
-                    <SelectTrigger className={errors.homeSize ? "border-destructive" : ""}>
+                    <SelectTrigger className={`min-h-11 ${errors.homeSize ? "border-destructive" : ""}`}>
                       <SelectValue placeholder="Select size" />
                     </SelectTrigger>
                     <SelectContent>
