@@ -227,7 +227,7 @@ ${data.message || "No additional message provided."}
                     HVAC Type
                   </Label>
                   <Select onValueChange={(value) => setValue("hvacType", value)}>
-                    <SelectTrigger className={errors.hvacType ? "border-destructive" : ""}>
+                    <SelectTrigger className={`min-h-11 ${errors.hvacType ? "border-destructive" : ""}`}>
                       <SelectValue placeholder="Select type" />
                     </SelectTrigger>
                     <SelectContent>
