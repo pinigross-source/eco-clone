@@ -297,7 +297,7 @@ const DealerContactForm = () => {
               value={formData.buildingType}
               onValueChange={(value) => setFormData({ ...formData, buildingType: value })}
             >
-              <SelectTrigger>
+              <SelectTrigger className="min-h-11">
                 <SelectValue placeholder="Select type" />
               </SelectTrigger>
               <SelectContent>
