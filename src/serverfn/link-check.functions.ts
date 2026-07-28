@@ -1,5 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-import { getRequestHeader } from "@tanstack/react-start/server";
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 type LinkResult = {
   url: string;
@@ -10,6 +10,7 @@ type LinkResult = {
 
 const MAX_PAGES = 80;
 const MAX_CONCURRENCY = 6;
+const ALLOWED_ORIGIN = "https://envirobiotics.com";
 
 function extractLinks(html: string): string[] {
   const out: string[] = [];
@@ -32,62 +33,70 @@ function normalize(href: string, base: URL): URL | null {
   }
 }
 
-export const checkSiteLinks = createServerFn({ method: "POST" }).handler(async () => {
-  const host = getRequestHeader("host") ?? "";
-  const proto = getRequestHeader("x-forwarded-proto") ?? "https";
-  const origin = `${proto}://${host}`;
-  const start = new URL("/", origin);
+export const checkSiteLinks = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const { data: isAdmin, error: roleErr } = await context.supabase.rpc("has_role", {
+      _user_id: context.userId,
+      _role: "admin",
+    });
+    if (roleErr || !isAdmin) {
+      throw new Response("Forbidden", { status: 403 });
+    }
 
-  const visited = new Map<string, LinkResult>();
-  const queue: { url: URL; foundOn: string }[] = [{ url: start, foundOn: "(root)" }];
-  const seen = new Set<string>([start.toString()]);
-  const broken: LinkResult[] = [];
-  let pagesCrawled = 0;
+    const origin = ALLOWED_ORIGIN;
+    const start = new URL("/", origin);
 
-  while (queue.length > 0 && pagesCrawled < MAX_PAGES) {
-    const batch = queue.splice(0, MAX_CONCURRENCY);
-    await Promise.all(
-      batch.map(async ({ url, foundOn }) => {
-        if (visited.has(url.toString())) return;
-        pagesCrawled++;
-        try {
-          const res = await fetch(url.toString(), { redirect: "follow" });
-          const result: LinkResult = { url: url.pathname + url.search, status: res.status, ok: res.ok, foundOn };
-          visited.set(url.toString(), result);
-          if (!res.ok) broken.push(result);
+    const visited = new Map<string, LinkResult>();
+    const queue: { url: URL; foundOn: string }[] = [{ url: start, foundOn: "(root)" }];
+    const seen = new Set<string>([start.toString()]);
+    const broken: LinkResult[] = [];
+    let pagesCrawled = 0;
 
-          const ct = res.headers.get("content-type") ?? "";
-          if (res.ok && ct.includes("text/html")) {
-            const html = await res.text();
-            for (const href of extractLinks(html)) {
-              const next = normalize(href, url);
-              if (!next) continue;
-              const key = next.toString();
-              if (seen.has(key)) continue;
-              seen.add(key);
-              queue.push({ url: next, foundOn: url.pathname });
+    while (queue.length > 0 && pagesCrawled < MAX_PAGES) {
+      const batch = queue.splice(0, MAX_CONCURRENCY);
+      await Promise.all(
+        batch.map(async ({ url, foundOn }) => {
+          if (visited.has(url.toString())) return;
+          pagesCrawled++;
+          try {
+            const res = await fetch(url.toString(), { redirect: "follow" });
+            const result: LinkResult = { url: url.pathname + url.search, status: res.status, ok: res.ok, foundOn };
+            visited.set(url.toString(), result);
+            if (!res.ok) broken.push(result);
+
+            const ct = res.headers.get("content-type") ?? "";
+            if (res.ok && ct.includes("text/html")) {
+              const html = await res.text();
+              for (const href of extractLinks(html)) {
+                const next = normalize(href, url);
+                if (!next) continue;
+                const key = next.toString();
+                if (seen.has(key)) continue;
+                seen.add(key);
+                queue.push({ url: next, foundOn: url.pathname });
+              }
             }
+          } catch {
+            const result: LinkResult = {
+              url: url.pathname + url.search,
+              status: 0,
+              ok: false,
+              foundOn,
+            };
+            visited.set(url.toString(), result);
+            broken.push(result);
           }
-        } catch (e) {
-          const result: LinkResult = {
-            url: url.pathname + url.search,
-            status: 0,
-            ok: false,
-            foundOn,
-          };
-          visited.set(url.toString(), result);
-          broken.push(result);
-        }
-      })
-    );
-  }
+        })
+      );
+    }
 
-  return {
-    origin,
-    pagesCrawled,
-    totalChecked: visited.size,
-    brokenCount: broken.length,
-    broken,
-    truncated: queue.length > 0,
-  };
-});
+    return {
+      origin,
+      pagesCrawled,
+      totalChecked: visited.size,
+      brokenCount: broken.length,
+      broken,
+      truncated: queue.length > 0,
+    };
+  });
