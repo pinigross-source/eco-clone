@@ -210,6 +210,8 @@ ${data.message || "No additional message provided."}
                   </Label>
                   <Input
                     id="zipCode"
+                    inputMode="numeric"
+                    autoComplete="postal-code"
                     placeholder="12345"
                     {...register("zipCode")}
                     className={errors.zipCode ? "border-destructive" : ""}
