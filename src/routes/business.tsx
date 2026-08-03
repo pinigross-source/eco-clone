@@ -5,7 +5,7 @@ export const Route = createFileRoute("/business")({
   head: () => ({
     meta: [
       { title: "For Hotels, Offices, Gyms & Clinics | EnviroBiotics" },
-      { name: "description", content: "Whole-building probiotic air and surface solutions for hospitality, commercial, fitness, and clinical facilities. Book a free facility assessment." },
+      { name: "description", content: "Probiotic environmental care for hotels, healthcare, schools, and offices. Continuous HVAC-connected coverage of surfaces, objects, and air." },
       { property: "og:title", content: "For Hotels, Offices, Gyms & Clinics | EnviroBiotics" },
       { property: "og:description", content: "Whole-building probiotic air and surface solutions. Book a free facility assessment." },
       { property: "og:url", content: "https://envirobiotics.com/business" },
