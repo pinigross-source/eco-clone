@@ -212,7 +212,89 @@ export default function BusinessPage() {
           </div>
         </section>
 
-        {/* How it works: building has lungs */}
+        {/* E-Biotic Pro — Commercial Solution */}
+        <section id="ebiotic-pro" className="scroll-mt-36 container px-4 sm:px-6 max-w-6xl mx-auto mt-24">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/55 mb-4">
+                Commercial Solution
+              </p>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-[-0.03em] text-foreground text-balance mb-4">
+                E-Biotic Pro
+              </h2>
+              <p className="text-lg sm:text-xl text-foreground/80 leading-relaxed mb-6">
+                A centralized HVAC-connected device for large areas
+              </p>
+              <p className="text-muted-foreground leading-relaxed max-w-xl mb-8">
+                Make your indoor spaces healthy and pleasant with{" "}
+                <span className="font-semibold text-foreground">E-Biotic Pro</span>, a
+                centralized, intelligent purification system designed to clean and protect
+                large areas up to{" "}
+                <span className="font-semibold text-foreground">25,000 sq. ft.</span>{" "}
+                Connected directly to your HVAC system, it ensures 24/7 cleanliness,
+                even in hard-to-reach places like air ducts.
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                {[
+                  { icon: Cpu, title: "Intelligent Sensors", desc: "Automated, sensor-based operation" },
+                  { icon: Wifi, title: "HVAC Connected", desc: "Direct integration with existing systems" },
+                  { icon: Settings, title: "Fully Automated", desc: "Set it and forget it operation" },
+                  { icon: Ruler, title: "25,000 sq. ft.", desc: "Coverage for large commercial spaces" },
+                ].map(({ icon: Icon, title, desc }) => (
+                  <div
+                    key={title}
+                    className="rounded-2xl border border-border/60 bg-card p-5 flex items-start gap-4"
+                  >
+                    <div className="h-10 w-10 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-foreground/70" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground mb-0.5">{title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
+                <Button
+                  size="lg"
+                  className="bg-foreground text-background hover:bg-foreground/90 h-12 px-6 rounded-full"
+                  onClick={() => setOpen(true)}
+                >
+                  <Calendar className="w-4 h-4 mr-2" />
+                  Get a Free Quote
+                </Button>
+                <a
+                  href="tel:8336923883"
+                  className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full border border-border/60 text-foreground font-medium hover:bg-muted/50 transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  (833) 692 3883
+                </a>
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground">
+                Request a quote or call us to find the dealer that services your area
+              </p>
+            </div>
+
+            <div className="relative">
+              <div className="rounded-[2rem] overflow-hidden border border-border/60 bg-muted aspect-[4/5] lg:aspect-[4/5] flex items-center justify-center">
+                <img
+                  src={biotica800Img.url}
+                  alt="E-Biotic Pro commercial HVAC-connected probiotic device installed on a wall in a modern office lounge"
+                  width={800}
+                  height={1000}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Commercial solution: Your building has lungs */}
         <section id="how-it-works" className="scroll-mt-36 container px-4 sm:px-6 max-w-5xl mx-auto mt-24">
           <div className="rounded-3xl border border-border/60 bg-muted/30 p-8 md:p-12">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-foreground/60 mb-4">Commercial solution</p>
@@ -238,7 +320,6 @@ export default function BusinessPage() {
             </figure>
 
             <div className="grid md:grid-cols-3 gap-8 mt-10">
-
               {[
                 { icon: Wind, step: "01", title: "Connected to your HVAC", desc: "Installed at the air handler, no redesign of your building." },
                 { icon: Building2, step: "02", title: "Distributed everywhere", desc: "Probiotics travel with the airflow to every treated zone." },
