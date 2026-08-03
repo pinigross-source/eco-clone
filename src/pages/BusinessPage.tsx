@@ -113,7 +113,7 @@ export default function BusinessPage() {
       </nav>
 
       <main className="pb-20">
-        {/* Hero / Overview — full-bleed Sonos style */}
+        {/* Hero / Overview — minimalist dark luxe */}
         <section id="overview" className="scroll-mt-32 relative w-full overflow-hidden">
           <div className="relative min-h-[72vh] md:min-h-[84vh] w-full">
             <img
@@ -128,44 +128,55 @@ export default function BusinessPage() {
             />
             <span
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent md:bg-gradient-to-r md:from-black/70 md:via-black/30 md:to-transparent"
+              className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-black/20 md:bg-gradient-to-r md:from-black/75 md:via-black/40 md:to-transparent"
             />
 
-            <div className="relative z-10 flex min-h-[72vh] md:min-h-[84vh] items-end md:items-center">
-              <div className="container px-5 sm:px-6 max-w-6xl mx-auto pb-12 md:pb-0">
-                <div className="max-w-3xl text-white" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.45)" }}>
-                  <p className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.28em] uppercase text-white/85 mb-5">
-                    <Building2 className="w-3.5 h-3.5" />
-                    <span>EnviroBiotics for Business</span>
-                  </p>
-                  <h1 className="font-display font-bold tracking-tight text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.04] mb-6 !text-white">
-                    A unified solution, designed for your own space.
-                  </h1>
-                  <p className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed max-w-2xl mb-10">
-                    Our systems are designed to protect all kinds of facilities: healthcare, hospitality, universities and
-                    schools, physical training and leisure. The same probiotic formula provides safe, automated, and continuous
-                    purification of everything under your roof, all of your surfaces, objects, and air.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <button
-                      type="button"
-                      onClick={() => setOpen(true)}
-                      className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-white/95"
-                    >
-                      Talk to our team
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setVideoOpen(true)}
-                      className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-white text-sm font-semibold ring-1 ring-inset ring-white/30 backdrop-blur-sm transition-all hover:bg-white/20"
-                    >
-                      <PlayCircle className="w-4 h-4" />
-                      Watch how it works (2 min)
-                    </button>
-                  </div>
-                  <p className="text-xs text-white/75 mt-4">No obligation. Walk-through, scope, and quote.</p>
+            <div className="relative z-10 flex min-h-[72vh] md:min-h-[84vh] items-center justify-center">
+              <div className="container px-5 sm:px-6 max-w-4xl mx-auto text-center py-20">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm">
+                  <Building2 className="w-3 h-3 text-white/70" />
+                  <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-white/80">
+                    EnviroBiotics for Business
+                  </span>
                 </div>
+
+                <h1
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-tight leading-[1.05] mb-8"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  A unified solution,
+                  <br />
+                  <span className="italic font-light text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                    designed for your own space.
+                  </span>
+                </h1>
+
+                <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/70 font-light leading-relaxed mb-12">
+                  Our systems are designed to protect all kinds of facilities: healthcare, hospitality, universities and
+                  schools, physical training and leisure. The same probiotic formula provides safe, automated, and continuous
+                  purification of everything under your roof, all of your surfaces, objects, and air.
+                </p>
+
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(true)}
+                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-foreground text-sm font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/95 shadow-[0_10px_40px_-10px_rgba(255,255,255,0.15)]"
+                  >
+                    Talk to our team
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setVideoOpen(true)}
+                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 text-white text-sm font-semibold tracking-wide ring-1 ring-inset ring-white/25 backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
+                  >
+                    <PlayCircle className="w-4 h-4" />
+                    Watch how it works (2 min)
+                  </button>
+                </div>
+
+                <p className="text-xs text-white/60 mt-5 tracking-wide">No obligation. Walk-through, scope, and quote.</p>
               </div>
             </div>
           </div>
