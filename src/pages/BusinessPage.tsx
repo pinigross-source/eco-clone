@@ -67,12 +67,6 @@ const industries = [
   },
 ];
 
-const cirsData = [
-  { species: "Stachybotrys chartarum", before: 250, after: 35, drop: "87%" },
-  { species: "Chaetomium globosum", before: 510, after: 50, drop: "91%" },
-  { species: "Aspergillus versicolor", before: 650, after: 480, drop: "26%" },
-];
-const CIRS_MAX = 650;
 
 export default function BusinessPage() {
   const [open, setOpen] = useState(false);
