@@ -290,14 +290,14 @@ export default function BusinessPage() {
             ].map((fig) => (
               <figure
                 key={fig.src}
-                className="group rounded-3xl border border-border/60 bg-card overflow-hidden shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-shadow duration-500 hover:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]"
+                className="group h-full flex flex-col rounded-3xl border border-border/60 bg-card overflow-hidden shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-shadow duration-500 hover:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]"
               >
-                <div className="bg-background p-3 sm:p-5">
+                <div className="bg-background p-3 sm:p-5 flex items-center justify-center aspect-[4/3]">
                   <img
                     src={fig.src}
                     alt={fig.alt}
                     loading="lazy"
-                    className="w-full h-auto rounded-2xl"
+                    className="w-full h-full object-contain rounded-2xl"
                   />
                 </div>
                 <figcaption className="border-t border-border/60 px-6 py-5 text-sm leading-relaxed text-muted-foreground">
