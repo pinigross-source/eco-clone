@@ -36,6 +36,7 @@ const VIDEO_URL = "https://drive.google.com/file/d/168FTHDrbj5OAwZrXMvKiakNeARXN
 
 const sectionNav = [
   { id: "overview", label: "Overview" },
+  { id: "ebiotic-pro", label: "E-Biotic Pro" },
   { id: "hospitality", label: "Hospitality" },
   { id: "healthcare", label: "Healthcare" },
   { id: "education", label: "Education" },
