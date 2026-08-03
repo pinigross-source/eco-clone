@@ -20,6 +20,7 @@ import healthcareImg from "@/assets/biz-healthcare.jpg.asset.json";
 import educationImg from "@/assets/biz-education.jpg.asset.json";
 import officesImg from "@/assets/biz-offices.jpg.asset.json";
 import lungsDiagram from "@/assets/hvac-lungs-anatomy.jpg";
+import hvacBuildingLungsBg from "@/assets/hvac-building-lungs-bg.avif";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -112,44 +113,64 @@ export default function BusinessPage() {
       </nav>
 
       <main className="pb-20">
-        {/* Hero / Overview */}
-        <section id="overview" className="scroll-mt-32 container px-4 sm:px-6 max-w-5xl mx-auto pt-16 md:pt-24 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted/60 border border-border/60 text-xs font-medium uppercase tracking-[0.18em] text-foreground/70 mb-6">
-            <Building2 className="w-3.5 h-3.5" />
-            <span>
-              <span className="text-foreground">Enviro</span>
-              <span className="text-primary">Biotics</span> for Business
-            </span>
+        {/* Hero / Overview — full-bleed Sonos style */}
+        <section id="overview" className="scroll-mt-32 relative w-full overflow-hidden">
+          <div className="relative min-h-[72vh] md:min-h-[84vh] w-full">
+            <img
+              src={hvacBuildingLungsBg}
+              alt="Modern commercial building interior protected by EnviroBiotics probiotic air and surface purification"
+              className="absolute inset-0 h-full w-full object-cover"
+              width={1920}
+              height={1280}
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent md:bg-gradient-to-r md:from-black/70 md:via-black/30 md:to-transparent"
+            />
+
+            <div className="relative z-10 flex min-h-[72vh] md:min-h-[84vh] items-end md:items-center">
+              <div className="container px-5 sm:px-6 max-w-6xl mx-auto pb-12 md:pb-0">
+                <div className="max-w-3xl text-white" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.45)" }}>
+                  <p className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.28em] uppercase text-white/85 mb-5">
+                    <Building2 className="w-3.5 h-3.5" />
+                    <span>EnviroBiotics for Business</span>
+                  </p>
+                  <h1 className="font-display font-bold tracking-tight text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.04] mb-6 !text-white">
+                    A unified solution, designed for your own space.
+                  </h1>
+                  <p className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed max-w-2xl mb-10">
+                    Our systems are designed to protect all kinds of facilities: healthcare, hospitality, universities and
+                    schools, physical training and leisure. The same probiotic formula provides safe, automated, and continuous
+                    purification of everything under your roof, all of your surfaces, objects, and air.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setOpen(true)}
+                      className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-white/95"
+                    >
+                      Talk to our team
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setVideoOpen(true)}
+                      className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-white text-sm font-semibold ring-1 ring-inset ring-white/30 backdrop-blur-sm transition-all hover:bg-white/20"
+                    >
+                      <PlayCircle className="w-4 h-4" />
+                      Watch how it works (2 min)
+                    </button>
+                  </div>
+                  <p className="text-xs text-white/75 mt-4">No obligation. Walk-through, scope, and quote.</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl tracking-[-0.03em] text-foreground text-balance mb-6">
-            A unified solution, designed for your own space.
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-10">
-            Our systems are designed to protect all kinds of facilities: healthcare, hospitality, universities and
-            schools, physical training and leisure. The same probiotic formula provides safe, automated, and continuous
-            purification of everything under your roof, all of your surfaces, objects, and air.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 h-14 px-8 text-base rounded-full"
-              onClick={() => setOpen(true)}
-            >
-              Talk to our team
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="h-14 px-8 text-base rounded-full"
-              onClick={() => setVideoOpen(true)}
-            >
-              <PlayCircle className="w-5 h-5 mr-2" />
-              Watch how it works (2 min)
-            </Button>
-          </div>
-          <p className="text-xs text-muted-foreground/80 mt-4">No obligation. Walk-through, scope, and quote.</p>
         </section>
+
 
         {/* Industries */}
         <section className="container px-4 sm:px-6 max-w-6xl mx-auto mt-24">
