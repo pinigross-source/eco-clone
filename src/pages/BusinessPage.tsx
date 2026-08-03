@@ -292,7 +292,7 @@ export default function BusinessPage() {
                 key={fig.src}
                 className="group h-full flex flex-col rounded-3xl border border-border/60 bg-card overflow-hidden shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-shadow duration-500 hover:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]"
               >
-                <div className="flex-1 bg-background p-3 sm:p-5 flex items-center justify-center">
+                <div className="bg-background p-3 sm:p-5 flex items-center justify-center aspect-[4/3]">
                   <img
                     src={fig.src}
                     alt={fig.alt}
