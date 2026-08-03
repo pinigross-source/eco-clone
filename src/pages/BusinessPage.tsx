@@ -264,69 +264,6 @@ export default function BusinessPage() {
           </div>
         </section>
 
-        {/* Respiratory health / CIRS evidence */}
-        <section className="container px-4 sm:px-6 max-w-5xl mx-auto mt-24">
-          <div className="max-w-2xl mb-10">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-foreground/60 mb-3">Respiratory health</p>
-            <h2 className="font-display text-3xl md:text-4xl tracking-[-0.02em] text-foreground text-balance">
-              Measured in a real, water-damaged building.
-            </h2>
-            <p className="text-muted-foreground mt-4 leading-relaxed">
-              In a CIRS (Chronic Inflammatory Response Syndrome) case study, ERMI and HERTSMI-2 tests were run on the
-              same living space before treatment and again after three weeks of EnviroBiotics distributed through an
-              HVAC-connected system. Spore equivalence levels of the most toxic mold species dropped sharply.
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-border/60 bg-card p-6 md:p-10">
-            <div className="flex items-center gap-6 mb-8 text-xs text-muted-foreground">
-              <span className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-sm bg-muted-foreground/30" /> Before treatment
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-sm bg-primary" /> After 3 weeks
-              </span>
-              <span className="ml-auto hidden sm:inline">Spore equivalents (SE/mg)</span>
-            </div>
-
-            <div className="space-y-7">
-              {cirsData.map((row) => (
-                <div key={row.species}>
-                  <div className="flex items-baseline justify-between mb-2">
-                    <span className="text-sm font-medium text-foreground italic">{row.species}</span>
-                    <span className="text-sm font-semibold text-primary">-{row.drop}</span>
-                  </div>
-                  <div className="space-y-1.5">
-                    <div className="flex items-center gap-3">
-                      <div className="flex-1 h-3 rounded-full bg-muted overflow-hidden">
-                        <div
-                          className="h-full rounded-full bg-muted-foreground/30"
-                          style={{ width: `${(row.before / CIRS_MAX) * 100}%` }}
-                        />
-                      </div>
-                      <span className="w-10 text-right text-xs tabular-nums text-muted-foreground">{row.before}</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="flex-1 h-3 rounded-full bg-muted overflow-hidden">
-                        <div
-                          className="h-full rounded-full bg-primary"
-                          style={{ width: `${(row.after / CIRS_MAX) * 100}%` }}
-                        />
-                      </div>
-                      <span className="w-10 text-right text-xs tabular-nums text-foreground">{row.after}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-xs text-muted-foreground/80 mt-8 leading-relaxed">
-              Source: ERMI / HERTSMI-2 laboratory testing, Bloomingdale, IL residence (pre-treatment February 2025,
-              post-treatment May 2025). Results after only three weeks of treatment; longer deployments are expected to
-              show broader effect. Full report available on request.
-            </p>
-          </div>
-        </section>
 
         {/* Contact */}
         <section id="contact" className="scroll-mt-36 container px-4 sm:px-6 max-w-5xl mx-auto mt-24">
