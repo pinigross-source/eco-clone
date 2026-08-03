@@ -24,7 +24,7 @@ import hospitalityImg from "@/assets/biz-hospitality.jpg.asset.json";
 import healthcareImg from "@/assets/biz-healthcare.jpg.asset.json";
 import educationImg from "@/assets/biz-education.jpg.asset.json";
 import officesImg from "@/assets/biz-offices.jpg.asset.json";
-import biotica800Img from "@/assets/biotica-800-new.jpg.asset.json";
+import biotica800Img from "@/assets/ebiotic-pro-lifestyle.png.asset.json";
 import lungsDiagram from "@/assets/hvac-lungs-anatomy.jpg";
 import hvacBuildingLungsBg from "@/assets/hvac-building-lungs-bg.avif";
 import bacteriaChart from "@/assets/evidence-bacteria-counts.avif.asset.json";
@@ -287,12 +287,12 @@ export default function BusinessPage() {
             </div>
 
             <div className="relative">
-              <div className="rounded-[2rem] overflow-hidden border border-border/60 bg-muted aspect-[4/5] lg:aspect-[4/5] flex items-center justify-center">
+              <div className="rounded-[2rem] overflow-hidden border border-border/60 bg-muted aspect-[3/2] lg:aspect-[4/3] flex items-center justify-center">
                 <img
                   src={biotica800Img.url}
-                  alt="E-Biotic Pro commercial HVAC-connected probiotic device installed on a wall in a modern office lounge"
-                  width={800}
-                  height={1000}
+                  alt="E-Biotic Pro commercial HVAC-connected probiotic device mounted on a wall in a modern office lounge"
+                  width={1200}
+                  height={800}
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
