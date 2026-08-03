@@ -151,13 +151,11 @@ export default function BusinessPage() {
                   </span>
                 </h1>
 
-                <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/70 font-light leading-relaxed mb-12">
+                <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/70 font-light leading-relaxed">
                   Our systems are designed to protect all kinds of facilities: healthcare, hospitality, universities and
                   schools, physical training and leisure. The same probiotic formula provides safe, automated, and continuous
                   purification of everything under your roof, all of your surfaces, objects, and air.
                 </p>
-
-                <p className="text-xs text-white/60 mt-5 tracking-wide">No obligation. Walk-through, scope, and quote.</p>
               </div>
             </div>
           </div>
