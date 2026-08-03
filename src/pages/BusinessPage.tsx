@@ -157,25 +157,6 @@ export default function BusinessPage() {
                   purification of everything under your roof, all of your surfaces, objects, and air.
                 </p>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <button
-                    type="button"
-                    onClick={() => setOpen(true)}
-                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-foreground text-sm font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/95 shadow-[0_10px_40px_-10px_rgba(255,255,255,0.15)]"
-                  >
-                    Talk to our team
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setVideoOpen(true)}
-                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 text-white text-sm font-semibold tracking-wide ring-1 ring-inset ring-white/25 backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
-                  >
-                    <PlayCircle className="w-4 h-4" />
-                    Watch how it works (2 min)
-                  </button>
-                </div>
-
                 <p className="text-xs text-white/60 mt-5 tracking-wide">No obligation. Walk-through, scope, and quote.</p>
               </div>
             </div>
