@@ -132,26 +132,29 @@ export default function BusinessPage() {
             />
 
             <div className="relative z-10 flex min-h-[72vh] md:min-h-[84vh] items-center justify-center">
-              <div className="container px-5 sm:px-6 max-w-4xl mx-auto text-center py-20">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm">
+              <div className="container px-5 sm:px-6 max-w-5xl mx-auto text-center py-20">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-10 md:mb-12 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl">
                   <Building2 className="w-3 h-3 text-white/70" />
-                  <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-white/80">
+                  <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.25em] text-white/80">
                     EnviroBiotics for Business
                   </span>
                 </div>
 
                 <h1
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-tight leading-[1.05] mb-8"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white font-medium tracking-tight leading-[1.02] mb-6 md:mb-8"
+                  style={{ fontFamily: "'Playfair Display', serif", textShadow: "0 4px 24px rgba(0,0,0,0.5)" }}
                 >
                   A unified solution,
-                  <br />
-                  <span className="italic font-light text-white/80 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-                    designed for your own space.
-                  </span>
                 </h1>
 
-                <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/70 font-light leading-relaxed">
+                <h2
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic font-light text-white/80 tracking-wide mb-10 md:mb-12"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  designed for your own space.
+                </h2>
+
+                <p className="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-white/70 font-light leading-relaxed">
                   Our systems are designed to protect all kinds of facilities: healthcare, hospitality, universities and
                   schools, physical training and leisure. The same probiotic formula provides safe, automated, and continuous
                   purification of everything under your roof, all of your surfaces, objects, and air.
