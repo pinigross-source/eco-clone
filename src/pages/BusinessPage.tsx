@@ -29,6 +29,8 @@ import lungsDiagram from "@/assets/hvac-lungs-anatomy.jpg";
 import hvacBuildingLungsBg from "@/assets/hvac-building-lungs-bg.avif";
 import bacteriaChart from "@/assets/evidence-bacteria-counts.avif.asset.json";
 import absenteeismChart from "@/assets/evidence-absenteeism.avif.asset.json";
+import moldChart from "@/assets/evidence-mold-reduction.avif.asset.json";
+import virusChart from "@/assets/evidence-virus-reduction.avif.asset.json";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
