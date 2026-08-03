@@ -21,6 +21,8 @@ import educationImg from "@/assets/biz-education.jpg.asset.json";
 import officesImg from "@/assets/biz-offices.jpg.asset.json";
 import lungsDiagram from "@/assets/hvac-lungs-anatomy.jpg";
 import hvacBuildingLungsBg from "@/assets/hvac-building-lungs-bg.avif";
+import bacteriaChart from "@/assets/evidence-bacteria-counts.avif.asset.json";
+import absenteeismChart from "@/assets/evidence-absenteeism.avif.asset.json";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -33,6 +35,7 @@ const sectionNav = [
   { id: "education", label: "Education" },
   { id: "offices", label: "Offices" },
   { id: "how-it-works", label: "How It Works" },
+  { id: "evidence", label: "Evidence" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -264,6 +267,46 @@ export default function BusinessPage() {
           </div>
         </section>
 
+        {/* Evidence */}
+        <section id="evidence" className="scroll-mt-36 container px-4 sm:px-6 max-w-6xl mx-auto mt-24">
+          <div className="max-w-2xl mb-10">
+            <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground mb-4">Evidence</p>
+            <h2 className="font-display text-3xl md:text-5xl tracking-[-0.02em] text-foreground text-balance">
+              Measured in the lab. Felt in the building.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            {[
+              {
+                src: bacteriaChart.url,
+                alt: "Chart of live E. coli and S. epidermidis counts over 21 days, with and without EnviroBiotics treatment",
+                caption: "Microbial growth stayed controlled through the treatment period, while untreated counts climbed sharply after day 14.",
+              },
+              {
+                src: absenteeismChart.url,
+                alt: "Bar chart comparing monthly employee absences in 2024 versus 2025, showing a 57% reduction October to December",
+                caption: "A 57% drop in absenteeism across Q4 in a treated facility, compared with the same period the year before.",
+              },
+            ].map((fig) => (
+              <figure
+                key={fig.src}
+                className="group rounded-3xl border border-border/60 bg-card overflow-hidden shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-shadow duration-500 hover:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]"
+              >
+                <div className="bg-background p-3 sm:p-5">
+                  <img
+                    src={fig.src}
+                    alt={fig.alt}
+                    loading="lazy"
+                    className="w-full h-auto rounded-2xl"
+                  />
+                </div>
+                <figcaption className="border-t border-border/60 px-6 py-5 text-sm leading-relaxed text-muted-foreground">
+                  {fig.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
 
         {/* Contact */}
         <section id="contact" className="scroll-mt-36 container px-4 sm:px-6 max-w-5xl mx-auto mt-24">
