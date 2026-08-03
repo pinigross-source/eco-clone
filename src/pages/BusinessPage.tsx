@@ -19,6 +19,7 @@ import hospitalityImg from "@/assets/biz-hospitality.jpg.asset.json";
 import healthcareImg from "@/assets/biz-healthcare.jpg.asset.json";
 import educationImg from "@/assets/biz-education.jpg.asset.json";
 import officesImg from "@/assets/biz-offices.jpg.asset.json";
+import lungsDiagram from "@/assets/hvac-lungs-anatomy.jpg";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
