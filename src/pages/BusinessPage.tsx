@@ -35,6 +35,7 @@ const sectionNav = [
   { id: "education", label: "Education" },
   { id: "offices", label: "Offices" },
   { id: "how-it-works", label: "How It Works" },
+  { id: "evidence", label: "Evidence" },
   { id: "contact", label: "Contact" },
 ];
 
