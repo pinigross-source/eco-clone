@@ -29,6 +29,8 @@ import lungsDiagram from "@/assets/hvac-lungs-anatomy.jpg";
 import hvacBuildingLungsBg from "@/assets/hvac-building-lungs-bg.avif";
 import bacteriaChart from "@/assets/evidence-bacteria-counts.avif.asset.json";
 import absenteeismChart from "@/assets/evidence-absenteeism.avif.asset.json";
+import moldChart from "@/assets/evidence-mold-reduction.avif.asset.json";
+import virusChart from "@/assets/evidence-virus-reduction.avif.asset.json";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -374,6 +376,16 @@ export default function BusinessPage() {
                 src: absenteeismChart.url,
                 alt: "Bar chart comparing monthly employee absences in 2024 versus 2025, showing a 57% reduction October to December",
                 caption: "A 57% drop in absenteeism across Q4 in a treated facility, compared with the same period the year before.",
+              },
+              {
+                src: moldChart.url,
+                alt: "Bar chart of toxic mold levels before and after EnviroBiotics treatment for three mold species",
+                caption: "Toxic mold levels fell by up to 95% after treatment across Stachybotrys, Chaetomium, and Aspergillus species.",
+              },
+              {
+                src: virusChart.url,
+                alt: "Laboratory results showing residual viral infectivity over time in a pseudo COVID-19 model, with colony-forming assay plates",
+                caption: "In a University of Genoa pseudo-virus model, residual infectivity dropped 99.7% three hours after treatment.",
               },
             ].map((fig) => (
               <figure
