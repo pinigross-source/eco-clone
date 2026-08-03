@@ -19,6 +19,7 @@ import hospitalityImg from "@/assets/biz-hospitality.jpg.asset.json";
 import healthcareImg from "@/assets/biz-healthcare.jpg.asset.json";
 import educationImg from "@/assets/biz-education.jpg.asset.json";
 import officesImg from "@/assets/biz-offices.jpg.asset.json";
+import lungsDiagram from "@/assets/hvac-lungs-anatomy.jpg";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
@@ -214,7 +215,19 @@ export default function BusinessPage() {
               large areas.
             </p>
 
+            <figure className="mt-10 rounded-2xl overflow-hidden border border-border/60 bg-background">
+              <img
+                src={lungsDiagram}
+                alt="Diagram comparing the anatomy of human lungs with a building's HVAC system: fresh air intake, filters, ductwork and supply vents, and exhaust vents"
+                loading="lazy"
+                width={1600}
+                height={893}
+                className="w-full h-auto"
+              />
+            </figure>
+
             <div className="grid md:grid-cols-3 gap-8 mt-10">
+
               {[
                 { icon: Wind, step: "01", title: "Connected to your HVAC", desc: "Installed at the air handler, no redesign of your building." },
                 { icon: Building2, step: "02", title: "Distributed everywhere", desc: "Probiotics travel with the airflow to every treated zone." },
