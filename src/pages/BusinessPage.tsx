@@ -12,6 +12,11 @@ import {
   Mail,
   Phone,
   Clock,
+  Cpu,
+  Wifi,
+  Settings,
+  Ruler,
+  Calendar,
 } from "lucide-react";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { ContactFormDialog } from "@/components/ContactFormDialog";
