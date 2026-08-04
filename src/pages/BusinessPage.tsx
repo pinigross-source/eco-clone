@@ -17,6 +17,8 @@ import {
   Settings,
   Ruler,
   Calendar,
+  Play,
+  Download,
 } from "lucide-react";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { ContactFormDialog } from "@/components/ContactFormDialog";
