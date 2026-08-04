@@ -461,7 +461,7 @@ const BobbyParrishLandingPage = () => {
                 <div className="-mx-3 sm:mx-0 mt-2 sm:mt-1">
                   <img
                     src={iconsBar}
-                    alt="EnviroBiotics certifications: EPA, Instituto de Salud Pública, ISO 9001:2015, AllergyUK, MadeSafe, Sensitive Choice, EcoCert"
+                    alt="EnviroBiotics certifications: EPA, Instituto de Salud Pública, AllergyUK, AllergyUK, MadeSafe, Sensitive Choice, EcoCert"
                     className="w-full h-auto opacity-75 hover:opacity-100 transition-opacity duration-500"
                     loading="lazy"
                     decoding="async"
