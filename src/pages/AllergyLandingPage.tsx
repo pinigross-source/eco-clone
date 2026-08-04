@@ -32,10 +32,9 @@ const BUNDLE_URL = `${shopifyProductUrl("home-complete-bundle", "allergy-landing
 const certifications = [
   { label: "EPA Registered", image: epaAsset.url },
   { label: "FDA GRAS", image: fdaGrasAsset.url },
-  { label: "AllergyUK", image: allergyAsset.url },
+  { label: "AllergyUK", image: allergyukAsset.url },
   { label: "PTPA Winner", image: ptpaAsset.url },
   { label: "MADE SAFE®", image: madeSafeAsset.url },
-  { label: "AllergyUK", image: allergyukAsset.url },
   { label: "Instituto de Salud Pública", image: ispAsset.url },
   { label: "Società Italiana di Medicina Ambientale", image: simaAsset.url },
 ];

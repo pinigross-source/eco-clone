@@ -49,7 +49,6 @@ import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
 import madeSafeAsset from "@/assets/certs/cert_5.png.asset.json";
 import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
 import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
-import allergyAsset from "@/assets/certs/cert_4.png.asset.json";
 
 /* ---------- Editable pricing / offer config ---------- */
 const PROMO = "WELLNESS";
@@ -1067,7 +1066,6 @@ const WellnessLandingPage = () => {
                 { label: "AllergyUK", image: allergyukAsset.url },
                 { label: "PTPA Winner", image: ptpaAsset.url },
                 { label: "MADE SAFE®", image: madeSafeAsset.url },
-                { label: "AllergyUK", image: allergyukAsset.url },
               ].map((c) => (
                 <div key={c.label} className="flex items-center justify-center" title={c.label}>
                   <img
