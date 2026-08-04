@@ -1064,10 +1064,10 @@ const WellnessLandingPage = () => {
               {[
                 { label: "EPA Registered", image: epaAsset.url },
                 { label: "FDA GRAS", image: fdaGrasAsset.url },
-                { label: "ISO 9001", image: isoAsset.url },
+                { label: "AllergyUK", image: allergyukAsset.url },
                 { label: "PTPA Winner", image: ptpaAsset.url },
                 { label: "MADE SAFE®", image: madeSafeAsset.url },
-                { label: "AllergyUK", image: allergyAsset.url },
+                { label: "AllergyUK", image: allergyukAsset.url },
               ].map((c) => (
                 <div key={c.label} className="flex items-center justify-center" title={c.label}>
                   <img
