@@ -18,8 +18,7 @@ const heroImg = heroImgAsset.url;
 import epaAsset from "@/assets/certs/cert_0.png.asset.json";
 import ispAsset from "@/assets/certs/cert_1.png.asset.json";
 import simaAsset from "@/assets/certs/cert_2.png.asset.json";
-import isoAsset from "@/assets/certs/cert_3.png.asset.json";
-import allergyAsset from "@/assets/certs/cert_4.png.asset.json";
+import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
 import madeSafeAsset from "@/assets/certs/cert_5.png.asset.json";
 import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
 import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
@@ -32,10 +31,9 @@ const BUNDLE_URL = `${shopifyProductUrl("home-complete-bundle", "allergy-landing
 const certifications = [
   { label: "EPA Registered", image: epaAsset.url },
   { label: "FDA GRAS", image: fdaGrasAsset.url },
-  { label: "AllergyUK", image: allergyAsset.url },
+  { label: "AllergyUK", image: allergyukAsset.url },
   { label: "PTPA Winner", image: ptpaAsset.url },
   { label: "MADE SAFE®", image: madeSafeAsset.url },
-  { label: "ISO 9001:2015", image: isoAsset.url },
   { label: "Instituto de Salud Pública", image: ispAsset.url },
   { label: "Società Italiana di Medicina Ambientale", image: simaAsset.url },
 ];

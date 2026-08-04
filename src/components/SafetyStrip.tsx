@@ -3,13 +3,13 @@ import { Link } from "@/lib/link";
 import fdaGrasBadge from "@/assets/fda-gras-badge.jpg";
 import epaBadge from "@/assets/epa-badge.png";
 import ptpaAward from "@/assets/ptpa-award.png";
-import isoBadge from "@/assets/iso-badge.png";
+import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
 
 const certifications = [
   { image: epaBadge, name: "EPA Registered", sub: "Reg. No. 95029-1" },
   { image: fdaGrasBadge, name: "FDA GRAS", sub: "Generally Recognized as Safe" },
   { image: ptpaAward, name: "PTPA Winner", sub: "Parent Tested, Parent Approved" },
-  { image: isoBadge, name: "ISO 9001", sub: "Certified Manufacturing" },
+  { image: allergyukAsset.url, name: "AllergyUK", sub: "Allergy Friendly" },
 ];
 
 const highlights = [

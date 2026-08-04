@@ -20,7 +20,7 @@ import ptpaAward from "@/assets/ptpa-award.png";
 import fdaGrasBadge from "@/assets/fda-gras-badge.jpg";
 import epaBadge from "@/assets/epa-badge.png";
 import allergyFreeBadge from "@/assets/allergy-free-badge.png";
-import isoBadge from "@/assets/iso-badge.png";
+import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 const RelatedTopics = lazy(() => import("@/components/RelatedTopics").then(m => ({ default: m.RelatedTopics })));
 const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").then(m => ({ default: m.ContentProductCTA })));
@@ -37,9 +37,9 @@ const certifications = [
     image: fdaGrasBadge,
   },
   {
-    name: "ISO 9001 Certified",
-    description: "Our manufacturing processes meet international quality management standards, ensuring consistent product quality and safety.",
-    image: isoBadge,
+    name: "AllergyUK Approved",
+    description: "Independently recognized by AllergyUK as allergy-friendly and suitable for individuals with sensitivities and respiratory conditions.",
+    image: allergyukAsset.url,
   },
   {
     name: "Allergy-Free Certified",
