@@ -149,15 +149,15 @@ export default function BusinessPage() {
                 </div>
 
                 <h1
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white font-medium tracking-tight leading-[1.02] mb-6 md:mb-8"
-                  style={{ fontFamily: "'Playfair Display', serif", textShadow: "0 4px 24px rgba(0,0,0,0.5)" }}
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white font-bold tracking-tight leading-[1.02] mb-4 md:mb-6"
+                  style={{ fontFamily: "'Manrope', sans-serif", textShadow: "0 4px 24px rgba(0,0,0,0.5)" }}
                 >
                   A unified solution,
                 </h1>
 
                 <h2
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic font-light text-white/80 tracking-wide mb-10 md:mb-12"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-10 md:mb-12"
+                  style={{ fontFamily: "'Manrope', sans-serif" }}
                 >
                   designed for your own space.
                 </h2>
