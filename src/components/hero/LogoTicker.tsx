@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import epaBadge from "@/assets/epa-badge.png";
 import fdaBadge from "@/assets/fda-gras-badge.jpg";
-import isoBadge from "@/assets/iso-badge.png";
+import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
 import madeSafeBadge from "@/assets/made-safe-badge.png";
 import allergyFreeBadge from "@/assets/allergy-free-badge.png";
 import ptpaAward from "@/assets/ptpa-award.png";
@@ -9,7 +9,7 @@ import ptpaAward from "@/assets/ptpa-award.png";
 const logos = [
   { src: fdaBadge, alt: "FDA GRAS Approved", name: "FDA GRAS" },
   { src: epaBadge, alt: "EPA Registered", name: "EPA" },
-  { src: isoBadge, alt: "ISO 9001:2015 Certified", name: "ISO 9001" },
+  { src: allergyukAsset.url, alt: "AllergyUK Certified", name: "AllergyUK" },
   { src: madeSafeBadge, alt: "Made Safe Certified", name: "Made Safe" },
   { src: allergyFreeBadge, alt: "Allergy Free Certified", name: "AllergyUK" },
   { src: ptpaAward, alt: "PTPA Award Winner", name: "PTPA" },
