@@ -366,6 +366,14 @@ export const Navbar = () => {
               )}
             </div>
           ))}
+          <div className="border-t border-border/60 my-2" />
+          <Link
+            to={businessLink.href}
+            className="text-[16px] font-bold text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
+            onClick={() => setIsOpen(false)}
+          >
+            <span>{businessLink.label}</span>
+          </Link>
         </nav>
       </div>
     </>
