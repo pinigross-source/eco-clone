@@ -22,7 +22,7 @@ import testimonialDogOwner from "@/assets/testimonial-dog-owner.avif";
 import epaAsset from "@/assets/certs/cert_0.png.asset.json";
 import ispAsset from "@/assets/certs/cert_1.png.asset.json";
 import simaAsset from "@/assets/certs/cert_2.png.asset.json";
-import isoAsset from "@/assets/certs/cert_3.png.asset.json";
+import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
 import allergyAsset from "@/assets/certs/cert_4.png.asset.json";
 import madeSafeAsset from "@/assets/certs/cert_5.png.asset.json";
 import sensitiveAsset from "@/assets/certs/cert_6.png.asset.json";
@@ -47,7 +47,7 @@ const certifications = [
   { label: "PTPA Winner", image: ptpaAsset.url },
   { label: "Instituto de Salud Pública", image: ispAsset.url },
   { label: "Società Italiana di Medicina Ambientale", image: simaAsset.url },
-  { label: "ISO 9001:2015", image: isoAsset.url },
+  { label: "AllergyUK", image: allergyukAsset.url },
   { label: "AllergyUK", image: allergyAsset.url },
   { label: "MADE SAFE®", image: madeSafeAsset.url },
   { label: "Sensitive Choice", image: sensitiveAsset.url },
