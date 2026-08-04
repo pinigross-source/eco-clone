@@ -1,6 +1,7 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import biologicMiniAsset from "@/assets/biologic-mini-new.jpg.asset.json";
 import biotica800Asset from "@/assets/biotica-800-new.jpg.asset.json";
+import epaAsset from "@/assets/certs/epa-new.webp.asset.json";
 import madeSafeAsset from "@/assets/certs/made-safe-new.png.asset.json";
 import fdaGrasAsset from "@/assets/certs/fda-gras-new.webp.asset.json";
 import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
