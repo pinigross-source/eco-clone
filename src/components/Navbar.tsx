@@ -54,6 +54,8 @@ const navLinks: NavItem[] = [
   { label: "Shop", href: "https://shop.envirobiotics.com/" },
 ];
 
+const businessLink: NavItem = { label: "Business", href: "/business", bold: true };
+
 const storeDropdown: NavItem = {
   label: "Shop",
   href: "https://shop.envirobiotics.com/",
