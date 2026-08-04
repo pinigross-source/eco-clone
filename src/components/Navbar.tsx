@@ -269,7 +269,7 @@ export const Navbar = () => {
             <ShopifyCartLink />
           </div>
 
-          {/* Desktop Navigation - centered */}
+          {/* Desktop Navigation - centered main tabs */}
           <nav
             aria-label="Main navigation"
             className="hidden lg:flex flex-1 items-center justify-center gap-2 xl:gap-6"
@@ -279,8 +279,11 @@ export const Navbar = () => {
             ))}
           </nav>
 
-          {/* Desktop: Right side icons (search, account, cart) */}
+          {/* Desktop: Business link separated from main tabs, near utility icons */}
           <div className="hidden lg:flex items-center gap-1 flex-shrink-0">
+            <div className="h-6 w-px bg-border/60 mx-2 xl:mx-4" aria-hidden="true" />
+            <NavDropdown item={businessLink} scrolled={scrolled} useLight={useLight} />
+            <div className="h-6 w-px bg-border/60 mx-2 xl:mx-4" aria-hidden="true" />
             <NavbarSearch />
             <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
               <div className="w-11 h-11 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95">
