@@ -36,7 +36,7 @@ import virusChart from "@/assets/evidence-virus-reduction.avif.asset.json";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
-const VIDEO_URL = "https://drive.google.com/file/d/168FTHDrbj5OAwZrXMvKiakNeARXN3mjq/preview";
+const VIDEO_URL = "https://player.vimeo.com/video/1085737785?autoplay=1&title=0&byline=0&portrait=0";
 
 const sectionNav = [
   { id: "overview", label: "Overview" },
