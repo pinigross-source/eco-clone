@@ -21,7 +21,7 @@ export const CertificationsBar = () => {
           />
           <img
             src={certIcons}
-            alt="EPA Registered, AllergyUK, PTPA, ISO 9001, Italian Certification, Chilean Certification"
+            alt="EPA Registered, AllergyUK, PTPA, AllergyUK, Italian Certification, Chilean Certification"
             width={1120}
             height={300}
             className="-ml-6 w-full max-w-[1120px] h-auto object-contain [image-rendering:auto] sm:-ml-7 lg:-ml-8"
