@@ -17,6 +17,8 @@ import {
   Settings,
   Ruler,
   Calendar,
+  Play,
+  Download,
 } from "lucide-react";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { ContactFormDialog } from "@/components/ContactFormDialog";
@@ -34,7 +36,7 @@ import virusChart from "@/assets/evidence-virus-reduction.avif.asset.json";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
-const VIDEO_URL = "https://drive.google.com/file/d/168FTHDrbj5OAwZrXMvKiakNeARXN3mjq/preview";
+const VIDEO_URL = "https://player.vimeo.com/video/1085737785?autoplay=1&title=0&byline=0&portrait=0";
 
 const sectionNav = [
   { id: "overview", label: "Overview" },
@@ -283,6 +285,38 @@ export default function BusinessPage() {
                   (833) 692 3883
                 </a>
               </div>
+
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <a
+                  href="https://zofwakmgbmcqknmiizgd.supabase.co/storage/v1/object/public/user-manuals/E-Biotic-Pro-User-Manual.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
+                >
+                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Download className="w-5 h-5 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-semibold text-sm text-foreground">User Manual</p>
+                    <p className="text-xs text-primary font-medium">Download PDF</p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                </a>
+                <button
+                  onClick={() => setVideoOpen(true)}
+                  className="flex-1 flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors group text-left"
+                >
+                  <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                    <Play className="w-5 h-5 text-accent" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-semibold text-sm text-foreground">Installation Guide</p>
+                    <p className="text-xs text-muted-foreground">Watch Video</p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all" />
+                </button>
+              </div>
+
               <p className="mt-4 text-sm text-muted-foreground">
                 Request a quote or call us to find the dealer that services your area
               </p>
