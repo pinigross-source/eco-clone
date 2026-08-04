@@ -26,7 +26,7 @@ import hospitalityImg from "@/assets/biz-hospitality.jpg.asset.json";
 import healthcareImg from "@/assets/biz-healthcare.jpg.asset.json";
 import educationImg from "@/assets/biz-education.jpg.asset.json";
 import officesImg from "@/assets/biz-offices.jpg.asset.json";
-import biotica800Img from "@/assets/ebiotic-pro-lifestyle.png.asset.json";
+import biotica800Img from "@/assets/ebiotic-pro-office.avif.asset.json";
 import lungsDiagram from "@/assets/hvac-lungs-anatomy.jpg";
 import hvacBuildingLungsBg from "@/assets/hvac-building-lungs-bg.avif";
 import bacteriaChart from "@/assets/evidence-bacteria-counts.avif.asset.json";
