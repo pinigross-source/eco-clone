@@ -45,7 +45,7 @@ import miniProduct from "@/assets/mini-lifestyle.jpg.asset.json";
 import bundleAsset from "@/assets/bundle-lifestyle.avif.asset.json";
 
 import epaAsset from "@/assets/certs/cert_0.png.asset.json";
-import isoAsset from "@/assets/certs/cert_3.png.asset.json";
+import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
 import madeSafeAsset from "@/assets/certs/cert_5.png.asset.json";
 import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
 import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
