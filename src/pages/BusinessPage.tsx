@@ -286,12 +286,29 @@ export default function BusinessPage() {
                 </a>
               </div>
 
-              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <p className="mt-4 text-sm text-muted-foreground">
+                Request a quote or call us to find the dealer that services your area
+              </p>
+            </div>
+
+            <div className="relative flex flex-col gap-6">
+              <div className="rounded-[2rem] overflow-hidden border border-border/60 bg-muted aspect-[3/2] lg:aspect-[4/3] flex items-center justify-center">
+                <img
+                  src={biotica800Img.url}
+                  alt="E-Biotic Pro commercial HVAC-connected probiotic device mounted on a wall in a modern office lounge"
+                  width={1200}
+                  height={800}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-3">
                 <a
                   href="https://zofwakmgbmcqknmiizgd.supabase.co/storage/v1/object/public/user-manuals/E-Biotic-Pro-User-Manual.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
+                  className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
                 >
                   <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Download className="w-5 h-5 text-primary" />
@@ -304,7 +321,7 @@ export default function BusinessPage() {
                 </a>
                 <button
                   onClick={() => setVideoOpen(true)}
-                  className="flex-1 flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors group text-left"
+                  className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors group text-left"
                 >
                   <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                     <Play className="w-5 h-5 text-accent" />
@@ -315,23 +332,6 @@ export default function BusinessPage() {
                   </div>
                   <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all" />
                 </button>
-              </div>
-
-              <p className="mt-4 text-sm text-muted-foreground">
-                Request a quote or call us to find the dealer that services your area
-              </p>
-            </div>
-
-            <div className="relative">
-              <div className="rounded-[2rem] overflow-hidden border border-border/60 bg-muted aspect-[3/2] lg:aspect-[4/3] flex items-center justify-center">
-                <img
-                  src={biotica800Img.url}
-                  alt="E-Biotic Pro commercial HVAC-connected probiotic device mounted on a wall in a modern office lounge"
-                  width={1200}
-                  height={800}
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
               </div>
             </div>
           </div>
