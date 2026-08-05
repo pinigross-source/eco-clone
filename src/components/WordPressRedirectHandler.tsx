@@ -178,19 +178,29 @@ export const WordPressRedirectHandler = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const performRedirect = (target: string) => {
+    if (/^https?:\/\//i.test(target)) {
+      if (typeof window !== "undefined") {
+        window.location.replace(target);
+      }
+      return;
+    }
+    navigate({ to: target as never, replace: true });
+  };
+
   useEffect(() => {
     const path = location.pathname.replace(/\/+$/, "") || "/"; // normalize trailing slash
 
     // Check exact matches first
     if (REDIRECT_MAP[path]) {
-      navigate({ to: REDIRECT_MAP[path] as never, replace: true });
+      performRedirect(REDIRECT_MAP[path]);
       return;
     }
 
     // Check lowercase version
     const lowerPath = path.toLowerCase();
     if (REDIRECT_MAP[lowerPath]) {
-      navigate({ to: REDIRECT_MAP[lowerPath] as never, replace: true });
+      performRedirect(REDIRECT_MAP[lowerPath]);
       return;
     }
 
@@ -205,7 +215,7 @@ export const WordPressRedirectHandler = () => {
         if (match[2]) {
           resolvedTarget = resolvedTarget.replace("$2", match[2]);
         }
-        navigate({ to: resolvedTarget as never, replace: true });
+        performRedirect(resolvedTarget);
         return;
       }
     }
