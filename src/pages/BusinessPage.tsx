@@ -178,11 +178,8 @@ export default function BusinessPage() {
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-foreground/60 mb-3">Solutions by industry</p>
             <h2 className="font-display text-3xl md:text-4xl tracking-[-0.02em] text-foreground text-balance">
-              Choose the environment closest to yours.
-            </h2>
-            <p className="text-muted-foreground mt-4 leading-relaxed">
               Every deployment is tuned to how your teams actually work.
-            </p>
+            </h2>
           </div>
 
           <div className="space-y-16">
