@@ -138,7 +138,7 @@ export default function BusinessPage() {
 
             <div className="relative z-10 flex min-h-[72vh] md:min-h-[84vh] items-center justify-center">
               <div className="container px-5 sm:px-6 max-w-5xl mx-auto text-center py-20">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-10 md:mb-12 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 mt-8 md:mt-10 mb-6 md:mb-8 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl">
                   <Building2 className="w-3 h-3 text-white/70" />
                   <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.25em] text-white/80">
                     EnviroBiotics for Business
@@ -165,7 +165,7 @@ export default function BusinessPage() {
 
                 <button
                   onClick={() => setVideoOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full border border-white/30 bg-white/10 text-white font-medium hover:bg-white/20 hover:border-white/40 transition-colors backdrop-blur-sm"
+                  className="inline-flex items-center justify-center gap-2 h-12 px-7 mb-8 md:mb-10 rounded-full border border-white/30 bg-white/10 text-white font-medium hover:bg-white/20 hover:border-white/40 transition-colors backdrop-blur-sm"
                 >
                   <Play className="w-4 h-4 fill-current" />
                   Watch how it works
