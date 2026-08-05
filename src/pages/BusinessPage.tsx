@@ -160,9 +160,7 @@ export default function BusinessPage() {
                 </h2>
 
                 <p className="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-white/70 font-light leading-relaxed">
-                  Our systems are designed to protect all kinds of facilities: healthcare, hospitality, universities and
-                  schools, physical training and leisure. The same probiotic formula provides safe, automated, and continuous
-                  purification of everything under your roof, all of your surfaces, objects, and air.
+                  24/7, automated purification and protection of every kind of facility: healthcare, hospitality, universities and schools, training and leisure, and transportation modes. Certified safe, our probiotic formula is all-natural with no chemicals. The only solution for entire purification of everything under your roof - surfaces, objects, and air.
                 </p>
               </div>
             </div>
