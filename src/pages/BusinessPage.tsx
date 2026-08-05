@@ -243,26 +243,14 @@ export default function BusinessPage() {
                 and fabrics.
               </p>
 
-              <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                {[
-                  { icon: Cpu, title: "Intelligent Sensors", desc: "" },
-                  { icon: Wifi, title: "HVAC Connected", desc: "" },
-                  { icon: Settings, title: "Fully Automated", desc: "" },
-                  { icon: Ruler, title: "25,000 sq. ft.", desc: "Coverage for large commercial spaces" },
-                ].map(({ icon: Icon, title, desc }) => (
-                  <div
-                    key={title}
-                    className="rounded-2xl border border-border/60 bg-card p-5 flex items-center gap-4"
-                  >
-                    <div className="h-10 w-10 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-5 h-5 text-foreground/70" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">{title}</h3>
-                      {desc && <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>}
-                    </div>
-                  </div>
-                ))}
+              <div className="rounded-2xl border border-border/60 bg-card p-5 flex items-center gap-4 mb-8">
+                <div className="h-10 w-10 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
+                  <Ruler className="w-5 h-5 text-foreground/70" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground">Up to 25,000 sq. ft.</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Coverage for large commercial spaces</p>
+                </div>
               </div>
 
               <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
