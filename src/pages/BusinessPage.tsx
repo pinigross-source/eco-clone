@@ -225,7 +225,7 @@ export default function BusinessPage() {
 
         {/* E-Biotic Pro — Commercial Solution */}
         <section id="ebiotic-pro" className="scroll-mt-36 container px-4 sm:px-6 max-w-6xl mx-auto mt-24">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-foreground/55 mb-4">
                 Commercial Solution
@@ -279,7 +279,7 @@ export default function BusinessPage() {
               </p>
             </div>
 
-            <div className="relative flex flex-col gap-6">
+            <div className="relative flex flex-col gap-4">
               <div className="rounded-[2rem] overflow-hidden border border-border/60 bg-muted aspect-[3/2] lg:aspect-[4/3] flex items-center justify-center">
                 <img
                   src={biotica800Img.url}
