@@ -70,7 +70,7 @@ const industries = [
     label: "Education",
     img: educationImg.url,
     desc: "Universities, schools, dorms, and childcare. High-traffic shared rooms treated continuously through the air handling you already run.",
-    points: ["Classrooms, dorms, gyms, and cafeterias", "Safe for children and staff", "No disruption to class schedules"],
+    points: ["Classrooms, dorms, gyms, and cafeterias", "Safe for children and staff", "substantially reduced absenteeism"],
   },
   {
     id: "offices",
