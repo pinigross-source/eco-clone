@@ -76,8 +76,8 @@ const industries = [
     id: "offices",
     label: "Offices",
     img: officesImg.url,
-    desc: "Offices, co-working, training and leisure facilities. Reduce dust, dander, and musty odors across shared HVAC zones.",
-    points: ["Whole-floor coverage via HVAC", "Quiet, automated, maintenance-light", "Service plans with refills and reporting"],
+    desc: "Protect your employees, visitors and clients. Reduce pathogens on all surfaces, objects and air. Transform your entire premises to a healthier more pleasant space where bad odor and allergens disappearing too.",
+    points: ["Whole-floor coverage via HVAC", "24/7 Quiet, automated, easy installation & maintenance", "Control by smartphone app or centralized program for real-time events and alerts."],
   },
 ];
 
