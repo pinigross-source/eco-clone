@@ -55,7 +55,7 @@ const industries = [
     id: "hospitality",
     label: "Hospitality",
     img: hospitalityImg.url,
-    desc: "Hotels, resorts, casinos, and spas. Guest rooms, lobbies, and back-of-house stay fresher without chemical maskers or room downtime.",
+    desc: "Hotels, resorts, casinos, and spas. Protect and purify your guest rooms, common areas, and your staff offices. Reduce mold, bacteria, viruses, and allergens. Eliminate bad odors without perfume and other unhealthy chemical maskers.",
     points: ["Room-by-room or whole-property coverage", "Works between turnovers, 24/7", "No odor maskers, no ozone"],
   },
   {
