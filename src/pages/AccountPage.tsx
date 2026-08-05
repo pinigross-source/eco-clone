@@ -371,7 +371,7 @@ export default function AccountPage() {
                 {isAffiliate && (
                   <Button 
                     variant="outline" 
-                    onClick={() => navigate({ to: "/affiliate" })}
+                    onClick={() => navigate({ to: "/affiliate-dashboard" })}
                     className="w-fit"
                   >
                     <TrendingUp className="w-4 h-4 mr-2" />
