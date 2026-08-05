@@ -33,7 +33,7 @@ import virusChart from "@/assets/evidence-virus-reduction.avif.asset.json";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
-const VIDEO_URL = "https://player.vimeo.com/video/1085737785?autoplay=1&title=0&byline=0&portrait=0";
+const VIDEO_URL = "https://player.vimeo.com/video/1166149538?autoplay=1&title=0&byline=0&portrait=0";
 
 const sectionNav = [
   { id: "overview", label: "Overview" },
@@ -159,9 +159,17 @@ export default function BusinessPage() {
                   designed for your own space.
                 </h2>
 
-                <p className="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-white/70 font-light leading-relaxed">
+                <p className="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-white/70 font-light leading-relaxed mb-8 md:mb-10">
                   24/7, automated purification and protection of every kind of facility: healthcare, hospitality, universities and schools, training and leisure, and transportation modes. Certified safe, our probiotic formula is all-natural with no chemicals. The only solution for entire purification of everything under your roof - surfaces, objects, and air.
                 </p>
+
+                <button
+                  onClick={() => setVideoOpen(true)}
+                  className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full border border-white/30 bg-white/10 text-white font-medium hover:bg-white/20 hover:border-white/40 transition-colors backdrop-blur-sm"
+                >
+                  <Play className="w-4 h-4 fill-current" />
+                  Watch how it works
+                </button>
               </div>
             </div>
           </div>
