@@ -234,13 +234,13 @@ export default function BusinessPage() {
                 A centralized HVAC-connected device for large areas
               </p>
               <p className="text-muted-foreground leading-relaxed max-w-xl mb-8">
-                Make your indoor spaces healthy and pleasant with{" "}
-                <span className="font-semibold text-foreground">E-Biotic Pro</span>, a
-                centralized, intelligent purification system designed to clean and protect
-                large areas up to{" "}
-                <span className="font-semibold text-foreground">25,000 sq. ft.</span>{" "}
-                Connected directly to your HVAC system, it ensures 24/7 cleanliness,
-                even in hard-to-reach places like air ducts.
+                Transform your indoor spaces into healthier and more pleasant areas with{" "}
+                <span className="font-semibold text-foreground">E-Biotic Pro</span>. A
+                centralized, intelligent purification system designed to purify and protect
+                large areas by connecting directly to your HVAC system. Purifies the entire
+                premises, including the entire air-duct system. Reaching every spot and
+                crack. Purifies delicate objects without harm, such as electronic devices
+                and fabrics.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 mb-8">
