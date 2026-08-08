@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { Fragment, lazy, Suspense } from "react";
 import { Navbar } from "@/components/Navbar";
 import {
   ArrowRight,
@@ -333,8 +333,8 @@ const BeyondBleachPage = () => {
                   tone: "navy" as const,
                 },
               ].map((s, i) => (
-                <>
-                  <div key={s.title} className="flex flex-col items-center text-center">
+                <Fragment key={s.title}>
+                  <div className="flex flex-col items-center text-center">
                     <IconCircle tone={s.tone}>{s.icon}</IconCircle>
                     <p
                       className="mt-4 text-[13px] font-bold uppercase tracking-[0.1em]"
@@ -347,11 +347,11 @@ const BeyondBleachPage = () => {
                     </p>
                   </div>
                   {i < 2 && (
-                    <div key={`a${i}`} className="flex justify-center pt-9">
+                    <div className="flex justify-center pt-9">
                       <Arrow />
                     </div>
                   )}
-                </>
+                </Fragment>
               ))}
             </div>
           </div>
