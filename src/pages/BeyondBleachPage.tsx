@@ -384,7 +384,7 @@ const BeyondBleachPage = () => {
               >
                 <span
                   className="grid h-14 w-14 place-items-center rounded-full text-[13px] font-semibold uppercase tracking-[0.12em] shadow-xl"
-                  style={{ backgroundColor: CREAM, color: INK }}
+                  style={{ backgroundColor: INK, color: "#FFFFFF" }}
                 >
                   vs
                 </span>
@@ -480,7 +480,7 @@ const BeyondBleachPage = () => {
             >
               <span
                 className="grid h-20 w-20 place-items-center rounded-full text-base font-semibold uppercase tracking-[0.12em] shadow-2xl"
-                style={{ backgroundColor: CREAM, color: INK }}
+                style={{ backgroundColor: INK, color: "#FFFFFF" }}
               >
                 vs
               </span>
