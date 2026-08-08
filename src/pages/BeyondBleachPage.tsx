@@ -187,12 +187,13 @@ const BeyondBleachPage = () => {
               {/* white wash behind headline */}
               <div
                 aria-hidden
-                className="absolute inset-y-0 left-0 hidden w-[62%] lg:block"
+                className="absolute inset-y-0 left-0 hidden w-[86%] lg:block"
                 style={{
                   background:
-                    "linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.78) 48%, rgba(255,255,255,0) 100%)",
+                    "linear-gradient(90deg, rgba(255,255,255,0.985) 0%, rgba(255,255,255,0.96) 40%, rgba(255,255,255,0.72) 66%, rgba(255,255,255,0) 100%)",
                 }}
               />
+
               {/* label */}
               <div className="absolute left-1/2 top-4 -translate-x-1/2 sm:top-6 lg:left-auto lg:right-6 lg:translate-x-0">
                 <span
