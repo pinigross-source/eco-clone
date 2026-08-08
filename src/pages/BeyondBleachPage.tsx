@@ -155,7 +155,7 @@ const BeyondBleachPage = () => {
               <div
                 aria-hidden="true"
                 className="absolute inset-0"
-                style={{ background: "rgba(20,40,75,0.18)" }}
+                style={{ background: "rgba(20,40,75,0.10)" }}
               />
               {/* microbe dots */}
               <div aria-hidden="true" className="absolute inset-0">
@@ -185,7 +185,7 @@ const BeyondBleachPage = () => {
               <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:hidden">
                 <RoomLabel tone="dark">Without</RoomLabel>
               </div>
-              <div className="absolute top-24 right-8 hidden lg:block">
+              <div className="absolute bottom-6 right-6 hidden lg:block">
                 <RoomLabel tone="dark">Without EnviroBiotics</RoomLabel>
               </div>
             </div>
@@ -199,7 +199,7 @@ const BeyondBleachPage = () => {
                 height={1280}
                 decoding="async"
               />
-              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:top-24 lg:left-8">
+              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:top-auto lg:bottom-6 lg:left-6">
                 <RoomLabel tone="green">
                   <span className="lg:hidden">With</span>
                   <span className="hidden lg:inline">With EnviroBiotics</span>
@@ -212,10 +212,10 @@ const BeyondBleachPage = () => {
           <div className="hidden lg:block pointer-events-none absolute inset-0">
             <div
               aria-hidden="true"
-              className="absolute inset-y-0 left-0 w-[58%]"
+              className="absolute inset-y-0 left-0 w-[52%]"
               style={{
                 background:
-                  "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.9) 45%, rgba(255,255,255,0) 100%)",
+                  "linear-gradient(90deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.72) 55%, rgba(255,255,255,0) 100%)",
               }}
             />
             <div className="site-container relative h-full flex items-center">
@@ -323,7 +323,7 @@ const BeyondBleachPage = () => {
                       <span
                         aria-hidden="true"
                         className="hidden sm:block mt-4 h-px w-16"
-                        style={{ background: "rgba(20,40,75,0.18)" }}
+                        style={{ background: "rgba(20,40,75,0.10)" }}
                       />
                     )}
                   </div>
