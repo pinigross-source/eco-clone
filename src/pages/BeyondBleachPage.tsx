@@ -36,7 +36,7 @@ import indoorMicrobiomeImg from "@/assets/bb-indoor-microbiome.jpg";
 const INK = "#1B2A2A"; // --color-ink
 const SAGE = "#2E8B7F"; // --color-sage
 const SAGE_LIGHT = "#3FA593"; // sage for dark surfaces
-const CREAM = "#F7F4EE"; // --color-cream
+const CREAM = "#FFFFFF"; // page canvas — pure white
 const SAGE_SOFT = "#E6EFEC"; // --color-sage-soft
 
 const DISPLAY = `"Manrope", "Inter", system-ui, -apple-system, sans-serif`;
@@ -336,19 +336,22 @@ const BeyondBleachPage = () => {
                 <div className="relative min-h-[420px] sm:min-h-[520px] overflow-hidden">
                   <img
                     src={oldWayImg}
-                    alt="Gloved hand spraying disinfectant on a kitchen counter"
+                    alt="Spray bottle of disinfectant on a bright bathroom counter"
                     width={1200}
                     height={912}
                     className="absolute inset-0 h-full w-full object-cover grayscale"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/15" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/10" />
                   <div className="relative flex h-full min-h-[420px] sm:min-h-[520px] flex-col justify-end p-8 sm:p-12 lg:p-16">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/60">
+                    <p
+                      className="text-[11px] font-semibold uppercase tracking-[0.28em]"
+                      style={{ color: `${INK}80` }}
+                    >
                       The old way
                     </p>
                     <h2
-                      className="mt-4 max-w-sm text-3xl sm:text-[2.5rem] font-extrabold tracking-[-0.03em] leading-[1.03] text-white"
-                      style={{ fontFamily: DISPLAY }}
+                      className="mt-4 max-w-sm text-3xl sm:text-[2.5rem] font-extrabold tracking-[-0.03em] leading-[1.03]"
+                      style={{ fontFamily: DISPLAY, color: INK }}
                     >
                       Kill the{" "}
                       <em
@@ -362,10 +365,14 @@ const BeyondBleachPage = () => {
                         germs
                       </em>
                     </h2>
-                    <p className="mt-4 max-w-md text-[15px] sm:text-base leading-relaxed text-white/70">
+                    <p
+                      className="mt-4 max-w-md text-[15px] sm:text-base leading-relaxed"
+                      style={{ color: `${INK}B3` }}
+                    >
                       Traditional disinfectants reduce microorganisms on treated
                       surfaces, but their action represents a moment in time.
                     </p>
+
                   </div>
                 </div>
               </ScrollReveal>
@@ -377,7 +384,7 @@ const BeyondBleachPage = () => {
               >
                 <span
                   className="grid h-14 w-14 place-items-center rounded-full text-[13px] font-semibold uppercase tracking-[0.12em] shadow-xl"
-                  style={{ backgroundColor: CREAM, color: INK }}
+                  style={{ backgroundColor: INK, color: "#FFFFFF" }}
                 >
                   vs
                 </span>
@@ -396,7 +403,8 @@ const BeyondBleachPage = () => {
                   <div
                     className="absolute inset-0"
                     style={{
-                      background: `linear-gradient(to top, ${INK}E6 0%, ${INK}59 45%, transparent 100%)`,
+                      background:
+                        "linear-gradient(to top, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.05) 100%)",
                     }}
                   />
                   <div aria-hidden="true" className="absolute inset-0">
@@ -420,19 +428,22 @@ const BeyondBleachPage = () => {
                           height: 10,
                           animationDelay: `${d}s`,
                           background:
-                            "radial-gradient(circle, rgba(63,165,147,0.95) 0%, rgba(63,165,147,0.12) 70%)",
-                          boxShadow: "0 0 12px rgba(63,165,147,0.55)",
+                            "radial-gradient(circle, rgba(46,139,127,0.55) 0%, rgba(46,139,127,0.06) 70%)",
+                          boxShadow: "0 0 12px rgba(46,139,127,0.25)",
                         }}
                       />
                     ))}
                   </div>
                   <div className="relative flex h-full min-h-[420px] sm:min-h-[520px] flex-col justify-end p-8 sm:p-12 lg:p-16">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/60">
+                    <p
+                      className="text-[11px] font-semibold uppercase tracking-[0.28em]"
+                      style={{ color: SAGE }}
+                    >
                       A different approach
                     </p>
                     <h2
-                      className="mt-4 max-w-md text-3xl sm:text-[2.5rem] font-extrabold tracking-[-0.03em] leading-[1.03] text-white"
-                      style={{ fontFamily: DISPLAY }}
+                      className="mt-4 max-w-md text-3xl sm:text-[2.5rem] font-extrabold tracking-[-0.03em] leading-[1.03]"
+                      style={{ fontFamily: DISPLAY, color: INK }}
                     >
                       Support a healthier indoor{" "}
                       <em
@@ -446,18 +457,18 @@ const BeyondBleachPage = () => {
                         microbiome
                       </em>
                     </h2>
-                    <p className="mt-4 max-w-md text-[15px] sm:text-base leading-relaxed text-white/75">
+                    <p
+                      className="mt-4 max-w-md text-[15px] sm:text-base leading-relaxed"
+                      style={{ color: `${INK}B3` }}
+                    >
                       EnviroBiotics continuously disperses carefully selected
                       environmental probiotics designed to help maintain
                       microbial balance on indoor surfaces.
                     </p>
-                    <PillLink
-                      to="/how-it-works"
-                      variant="light"
-                      className="mt-7"
-                    >
+                    <PillLink to="/how-it-works" className="mt-7">
                       Discover how it works
                     </PillLink>
+
                   </div>
                 </div>
               </ScrollReveal>
@@ -469,7 +480,7 @@ const BeyondBleachPage = () => {
             >
               <span
                 className="grid h-20 w-20 place-items-center rounded-full text-base font-semibold uppercase tracking-[0.12em] shadow-2xl"
-                style={{ backgroundColor: CREAM, color: INK }}
+                style={{ backgroundColor: INK, color: "#FFFFFF" }}
               >
                 vs
               </span>
