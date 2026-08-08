@@ -403,7 +403,8 @@ const BeyondBleachPage = () => {
                   <div
                     className="absolute inset-0"
                     style={{
-                      background: `linear-gradient(to top, ${INK}E6 0%, ${INK}59 45%, transparent 100%)`,
+                      background:
+                        "linear-gradient(to top, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.05) 100%)",
                     }}
                   />
                   <div aria-hidden="true" className="absolute inset-0">
@@ -427,19 +428,22 @@ const BeyondBleachPage = () => {
                           height: 10,
                           animationDelay: `${d}s`,
                           background:
-                            "radial-gradient(circle, rgba(63,165,147,0.95) 0%, rgba(63,165,147,0.12) 70%)",
-                          boxShadow: "0 0 12px rgba(63,165,147,0.55)",
+                            "radial-gradient(circle, rgba(46,139,127,0.55) 0%, rgba(46,139,127,0.06) 70%)",
+                          boxShadow: "0 0 12px rgba(46,139,127,0.25)",
                         }}
                       />
                     ))}
                   </div>
                   <div className="relative flex h-full min-h-[420px] sm:min-h-[520px] flex-col justify-end p-8 sm:p-12 lg:p-16">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/60">
+                    <p
+                      className="text-[11px] font-semibold uppercase tracking-[0.28em]"
+                      style={{ color: SAGE }}
+                    >
                       A different approach
                     </p>
                     <h2
-                      className="mt-4 max-w-md text-3xl sm:text-[2.5rem] font-extrabold tracking-[-0.03em] leading-[1.03] text-white"
-                      style={{ fontFamily: DISPLAY }}
+                      className="mt-4 max-w-md text-3xl sm:text-[2.5rem] font-extrabold tracking-[-0.03em] leading-[1.03]"
+                      style={{ fontFamily: DISPLAY, color: INK }}
                     >
                       Support a healthier indoor{" "}
                       <em
@@ -453,18 +457,18 @@ const BeyondBleachPage = () => {
                         microbiome
                       </em>
                     </h2>
-                    <p className="mt-4 max-w-md text-[15px] sm:text-base leading-relaxed text-white/75">
+                    <p
+                      className="mt-4 max-w-md text-[15px] sm:text-base leading-relaxed"
+                      style={{ color: `${INK}B3` }}
+                    >
                       EnviroBiotics continuously disperses carefully selected
                       environmental probiotics designed to help maintain
                       microbial balance on indoor surfaces.
                     </p>
-                    <PillLink
-                      to="/how-it-works"
-                      variant="light"
-                      className="mt-7"
-                    >
+                    <PillLink to="/how-it-works" className="mt-7">
                       Discover how it works
                     </PillLink>
+
                   </div>
                 </div>
               </ScrollReveal>
