@@ -36,7 +36,7 @@ import indoorMicrobiomeImg from "@/assets/bb-indoor-microbiome.jpg";
 const INK = "#1B2A2A"; // --color-ink
 const SAGE = "#2E8B7F"; // --color-sage
 const SAGE_LIGHT = "#3FA593"; // sage for dark surfaces
-const CREAM = "#F7F4EE"; // --color-cream
+const CREAM = "#FFFFFF"; // page canvas — pure white
 const SAGE_SOFT = "#E6EFEC"; // --color-sage-soft
 
 const DISPLAY = `"Manrope", "Inter", system-ui, -apple-system, sans-serif`;
