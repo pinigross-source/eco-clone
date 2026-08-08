@@ -301,8 +301,12 @@ const BeyondBleachPage = () => {
         <Navbar />
 
         {/* Phone number strip — visible tel: link alongside the nav */}
-        <div className="w-full" style={{ background: "#F2F2F0", borderBottom: `1px solid ${LINE}` }}>
+        <div
+          className="w-full pt-[100px] lg:pt-[120px]"
+          style={{ background: "#F2F2F0", borderBottom: `1px solid ${LINE}` }}
+        >
           <div className="site-container flex justify-center py-2 lg:justify-end">
+
             <a
               href={PHONE_HREF}
               className="bb-focus inline-flex items-center gap-2 text-[15px] font-semibold"
