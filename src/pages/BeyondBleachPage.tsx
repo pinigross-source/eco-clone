@@ -320,7 +320,7 @@ const BeyondBleachPage = () => {
 
         <main id="main-content">
           {/* ══════════ 2 · HERO ══════════ */}
-          <section className="relative w-full overflow-hidden bg-white pt-[72px] sm:pt-20 lg:pt-[120px]">
+          <section className="relative w-full overflow-hidden bg-white pt-6 sm:pt-8 lg:pt-10">
             <div className="site-container py-8 text-center sm:py-10 lg:py-12">
               <h1
                 className="bb-head text-[2.8rem] sm:text-[3.6rem] lg:text-[4.4rem]"
