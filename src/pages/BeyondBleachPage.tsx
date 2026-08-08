@@ -146,7 +146,7 @@ const BeyondBleachPage = () => {
 
       <main id="main-content">
         {/* ══════════ HERO ══════════ */}
-        <section className="relative w-full overflow-hidden pt-16 sm:pt-20">
+        <section className="relative w-full overflow-hidden pt-[72px] sm:pt-20 lg:pt-[132px]">
           <div className="relative grid grid-cols-2 h-[440px] sm:h-[560px] lg:h-[660px] xl:h-[720px]">
             {/* LEFT — without */}
             <div className="relative overflow-hidden">
@@ -198,10 +198,10 @@ const BeyondBleachPage = () => {
                 </span>
               </div>
               {/* annotations */}
-              <div className="absolute right-6 top-[42%] hidden lg:block">
+              <div className="absolute right-5 top-[50%] hidden lg:block">
                 <Note side="left">Microbes return immediately</Note>
               </div>
-              <div className="absolute right-6 top-[62%] hidden lg:block">
+              <div className="absolute right-5 top-[68%] hidden lg:block">
                 <Note side="left">Build-up continues</Note>
               </div>
             </div>
