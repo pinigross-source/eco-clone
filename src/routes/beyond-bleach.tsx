@@ -9,6 +9,7 @@ export const Route = createFileRoute("/beyond-bleach")({
   head: () => ({
     meta: [
       { title },
+      { name: "robots", content: "noindex, nofollow" },
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
