@@ -251,7 +251,7 @@ const BeyondBleachPage = () => {
             {/* Headline overlay (desktop) */}
             <div className="pointer-events-none absolute inset-0 z-10 hidden items-center lg:flex">
               <div className="site-container">
-                <div className="pointer-events-auto max-w-[420px]">
+                <div className="pointer-events-auto max-w-[460px]">
                   <h1
                     className="font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-[3.6rem] xl:text-[4.4rem]"
                     style={{ color: NAVY }}
@@ -261,13 +261,15 @@ const BeyondBleachPage = () => {
                     <span style={{ color: GREEN }}>Bleach</span>
                   </h1>
                   <p
-                    className="mt-5 text-[1.0625rem] leading-[1.6] xl:text-[1.125rem]"
-                    style={{ color: BODY }}
+                    className="mt-5 max-w-[26ch] text-[1.1875rem] font-medium leading-[1.65] xl:text-[1.25rem]"
+                    style={{ color: "#1B2733" }}
                   >
                     Cleaning removes microbes today. EnviroBiotics helps support your
-                    environment <span style={{ color: GREEN, fontWeight: 600 }}>between</span>{" "}
+                    environment{" "}
+                    <span style={{ color: "#1F6E44", fontWeight: 700 }}>between</span>{" "}
                     cleanings.
                   </p>
+
                   <div className="mt-7">
                     <PrimaryCTA href="#how">See how it works</PrimaryCTA>
                   </div>
