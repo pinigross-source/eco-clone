@@ -1,4 +1,4 @@
-import { Fragment, lazy, Suspense } from "react";
+import { Fragment, lazy, Suspense, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import {
   ArrowRight,
@@ -16,7 +16,9 @@ import {
   Store,
   DoorOpen,
   Sparkles,
+  Play,
 } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 const Footer = lazy(() =>
   import("@/components/Footer").then((m) => ({ default: m.Footer }))
