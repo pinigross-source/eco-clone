@@ -1,12 +1,9 @@
-import { lazy, Suspense } from "react";
+import { Fragment, lazy, Suspense } from "react";
 import { Navbar } from "@/components/Navbar";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { Link } from "@/lib/link";
 import {
   ArrowRight,
   SprayCan,
   Bug,
-  Layers,
   Leaf,
   Clock,
   ShieldCheck,
@@ -17,7 +14,8 @@ import {
   BedDouble,
   HeartPulse,
   Store,
-  Repeat,
+  DoorOpen,
+  Sparkles,
 } from "lucide-react";
 
 const Footer = lazy(() =>
@@ -28,82 +26,70 @@ import roomWithout from "@/assets/bb-room-without.jpg";
 import roomWith from "@/assets/bb-room-with.jpg";
 import layerWide from "@/assets/bb-layer-wide.jpg";
 import ctaRoom from "@/assets/bb-cta-room.jpg";
+import logo from "@/assets/logo.avif";
 
 /* ── Palette: white · navy · green ──────────────────────────────── */
 const NAVY = "#14284B";
 const GREEN = "#2F7D4E";
-const GREEN_SOFT = "#EDF5F0";
-const BODY = "#3C4A5A";
+const GREEN_TINT = "#F3F7F2";
+const BODY = "#42505F";
+const LINE = "#E3E8EE";
 
 const FONT = `"Poppins", "Hanken Grotesk", system-ui, -apple-system, sans-serif`;
 
 const SHOP = "https://shop.envirobiotics.com/";
 
-/* ── Small building blocks ───────────────────────────────────────── */
+/* ── Building blocks ─────────────────────────────────────────────── */
 
-const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <p
-    className="text-[11px] sm:text-xs font-semibold uppercase"
-    style={{ letterSpacing: "0.22em", color: GREEN }}
-  >
-    {children}
-  </p>
-);
-
-const H2 = ({
+const IconCircle = ({
   children,
-  className = "",
+  size = 88,
+  tone = "navy",
 }: {
   children: React.ReactNode;
-  className?: string;
+  size?: number;
+  tone?: "navy" | "green";
 }) => (
-  <h2
-    className={`font-bold tracking-[-0.02em] leading-[1.08] text-[2rem] sm:text-[2.6rem] lg:text-[3.25rem] ${className}`}
-    style={{ fontFamily: FONT, color: NAVY }}
+  <div
+    className="flex shrink-0 items-center justify-center rounded-full"
+    style={{
+      width: size,
+      height: size,
+      border: `1.5px solid ${tone === "green" ? "#BFDCC9" : "#D7DEE7"}`,
+      color: tone === "green" ? GREEN : NAVY,
+      background: "#FFFFFF",
+    }}
   >
     {children}
-  </h2>
+  </div>
 );
 
-const Body = ({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => (
-  <p
-    className={`text-[1.0625rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[1.65] ${className}`}
-    style={{ color: BODY }}
-  >
-    {children}
-  </p>
+const Arrow = () => (
+  <ArrowRight className="hidden h-5 w-5 shrink-0 md:block" style={{ color: "#9AA7B5" }} />
 );
 
 const PrimaryCTA = ({
   href,
   children,
-  full = false,
+  className = "",
 }: {
   href: string;
   children: React.ReactNode;
-  full?: boolean;
+  className?: string;
 }) => (
   <a
     href={href}
     target="_top"
     rel="noopener"
-    className={`inline-flex items-center justify-center gap-3 rounded-full font-semibold uppercase transition-transform duration-300 hover:-translate-y-0.5 ${
-      full ? "w-full sm:w-auto" : ""
-    }`}
+    className={`inline-flex items-center justify-center gap-3 rounded-full font-semibold uppercase transition-transform duration-300 hover:-translate-y-0.5 ${className}`}
     style={{
       background: GREEN,
       color: "#FFFFFF",
       fontSize: "0.95rem",
-      letterSpacing: "0.08em",
-      padding: "1.05rem 2.1rem",
-      minHeight: 60,
-      boxShadow: "0 16px 34px -16px rgba(47,125,78,0.7)",
+      letterSpacing: "0.04em",
+      padding: "1rem 2rem",
+      minHeight: 58,
+      boxShadow: "0 16px 34px -18px rgba(47,125,78,0.75)",
     }}
   >
     {children}
@@ -111,439 +97,510 @@ const PrimaryCTA = ({
   </a>
 );
 
-const RoomLabel = ({
+/* Hero annotation: dot + hairline + label */
+const Note = ({
   children,
-  tone,
+  side,
 }: {
   children: React.ReactNode;
-  tone: "dark" | "green";
+  side: "left" | "right";
 }) => (
-  <span
-    className="inline-flex items-center rounded-full px-4 py-2 text-[10px] sm:text-[11px] font-semibold uppercase"
-    style={{
-      letterSpacing: "0.16em",
-      background: tone === "green" ? GREEN : "rgba(20,40,75,0.88)",
-      color: "#FFFFFF",
-    }}
+  <div
+    className={`hidden items-center gap-2 lg:flex ${
+      side === "left" ? "flex-row-reverse text-right" : "text-left"
+    }`}
   >
-    {children}
-  </span>
+    <span
+      className="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+      style={{
+        background: side === "left" ? "#FFFFFF" : "#8BE0A6",
+        boxShadow: `0 0 0 3px ${side === "left" ? "rgba(0,0,0,0.25)" : "rgba(139,224,166,0.35)"}`,
+      }}
+    />
+    <span className="h-px w-8 shrink-0" style={{ background: "rgba(255,255,255,0.75)" }} />
+    <span
+      className="max-w-[170px] text-[12.5px] font-medium leading-[1.35]"
+      style={{ color: "#FFFFFF", textShadow: "0 1px 6px rgba(0,0,0,0.45)" }}
+    >
+      {children}
+    </span>
+  </div>
 );
 
-/* ── Page ────────────────────────────────────────────────────────── */
+/* Floating microbe marks on the "without" half */
+const MICROBES = [
+  { t: 18, l: 34, s: 26, o: 0.75 },
+  { t: 30, l: 62, s: 18, o: 0.6 },
+  { t: 41, l: 22, s: 22, o: 0.7 },
+  { t: 52, l: 55, s: 30, o: 0.8 },
+  { t: 63, l: 30, s: 18, o: 0.6 },
+  { t: 72, l: 68, s: 24, o: 0.7 },
+  { t: 85, l: 44, s: 20, o: 0.65 },
+  { t: 25, l: 82, s: 16, o: 0.5 },
+];
 
 const BeyondBleachPage = () => {
   return (
-    <div style={{ background: "#FFFFFF", fontFamily: FONT }}>
+    <div style={{ fontFamily: FONT, background: "#FFFFFF" }}>
       <Navbar />
 
       <main id="main-content">
-        {/* ───────────── HERO ───────────── */}
-        <section className="relative w-full overflow-hidden pt-16 sm:pt-20">
-          {/* Split imagery */}
-          <div className="grid grid-cols-2 w-full h-[42vh] min-h-[260px] max-h-[420px] sm:h-[52vh] sm:max-h-[520px] lg:h-[76vh] lg:min-h-[600px] lg:max-h-[760px]">
-            <div className="relative">
+        {/* ══════════ HERO ══════════ */}
+        <section className="relative w-full overflow-hidden pt-[72px] sm:pt-20 lg:pt-[132px]">
+          <div className="relative grid grid-cols-2 h-[440px] sm:h-[560px] lg:h-[660px] xl:h-[720px]">
+            {/* LEFT — without */}
+            <div className="relative overflow-hidden">
               <img
                 src={roomWithout}
-                alt="Living room without EnviroBiotics, microbes returning to surfaces after cleaning"
+                alt="Living room without EnviroBiotics, desaturated"
                 className="absolute inset-0 h-full w-full object-cover"
-                width={1280}
-                height={1280}
+                width={1024}
+                height={1024}
                 fetchPriority="high"
-                decoding="async"
               />
               <div
-                aria-hidden="true"
+                aria-hidden
                 className="absolute inset-0"
-                style={{ background: "rgba(20,40,75,0.10)" }}
+                style={{ background: "rgba(30,38,48,0.28)" }}
               />
-              {/* microbe dots */}
-              <div aria-hidden="true" className="absolute inset-0">
-                {[
-                  [22, 30],
-                  [46, 18],
-                  [68, 38],
-                  [34, 58],
-                  [58, 70],
-                  [80, 60],
-                  [16, 74],
-                ].map(([l, t], i) => (
-                  <span
-                    key={i}
-                    className="absolute rounded-full"
-                    style={{
-                      left: `${l}%`,
-                      top: `${t}%`,
-                      width: 10,
-                      height: 10,
-                      background: "rgba(20,40,75,0.55)",
-                      boxShadow: "0 0 0 6px rgba(20,40,75,0.12)",
-                    }}
-                  />
-                ))}
+              {/* microbes */}
+              {MICROBES.map((m, i) => (
+                <Bug
+                  key={i}
+                  aria-hidden
+                  className="absolute hidden lg:block"
+                  style={{
+                    top: `${m.t}%`,
+                    left: `${m.l}%`,
+                    width: m.s,
+                    height: m.s,
+                    color: "#1A1F26",
+                    opacity: m.o,
+                  }}
+                />
+              ))}
+              {/* white wash behind headline */}
+              <div
+                aria-hidden
+                className="absolute inset-y-0 left-0 hidden w-[62%] lg:block"
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.78) 48%, rgba(255,255,255,0) 100%)",
+                }}
+              />
+              {/* label */}
+              <div className="absolute left-1/2 top-4 -translate-x-1/2 sm:top-6 lg:left-auto lg:right-6 lg:translate-x-0">
+                <span
+                  className="inline-block whitespace-nowrap rounded-md px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white sm:text-[11px]"
+                  style={{ background: "rgba(31,41,55,0.85)" }}
+                >
+                  Without EnviroBiotics
+                </span>
               </div>
-              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:hidden">
-                <RoomLabel tone="dark">Without</RoomLabel>
+              {/* annotations */}
+              <div className="absolute right-5 top-[50%] hidden lg:block">
+                <Note side="left">Microbes return immediately</Note>
               </div>
-              <div className="absolute bottom-6 right-6 hidden lg:block">
-                <RoomLabel tone="dark">Without EnviroBiotics</RoomLabel>
+              <div className="absolute right-5 top-[68%] hidden lg:block">
+                <Note side="left">Build-up continues</Note>
               </div>
             </div>
 
-            <div className="relative">
+            {/* RIGHT — with */}
+            <div className="relative overflow-hidden">
               <img
                 src={roomWith}
-                alt="The same living room with a translucent green probiotic layer covering the sofa, table and floor"
+                alt="Living room with a green protective probiotic layer"
                 className="absolute inset-0 h-full w-full object-cover"
-                width={1280}
-                height={1280}
-                decoding="async"
+                width={1024}
+                height={1024}
+                fetchPriority="high"
               />
-              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:top-auto lg:bottom-6 lg:left-6">
-                <RoomLabel tone="green">
-                  <span className="lg:hidden">With</span>
-                  <span className="hidden lg:inline">With EnviroBiotics</span>
-                </RoomLabel>
+              <div className="absolute left-1/2 top-4 -translate-x-1/2 sm:top-6 lg:left-6 lg:translate-x-0">
+                <span
+                  className="inline-block whitespace-nowrap rounded-md px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white sm:text-[11px]"
+                  style={{ background: GREEN }}
+                >
+                  With EnviroBiotics
+                </span>
+              </div>
+              <div className="absolute right-6 top-[38%] hidden lg:block">
+                <Note side="right">Beneficial probiotics create a protective layer on surfaces</Note>
+              </div>
+              <div className="absolute right-6 top-[62%] hidden lg:block">
+                <Note side="right">Helps maintain a healthier microbial balance</Note>
               </div>
             </div>
-          </div>
 
-          {/* Desktop overlay copy */}
-          <div className="hidden lg:block pointer-events-none absolute inset-0">
-            <div
-              aria-hidden="true"
-              className="absolute inset-y-0 left-0 w-[52%]"
-              style={{
-                background:
-                  "linear-gradient(90deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.72) 55%, rgba(255,255,255,0) 100%)",
-              }}
-            />
-            <div className="site-container relative h-full flex items-center">
-              <div className="max-w-[560px] pointer-events-auto">
-                <h1
-                  className="font-bold tracking-[-0.03em] leading-[0.95] text-[4.5rem] xl:text-[5.25rem]"
-                  style={{ color: NAVY }}
-                >
-                  BEYOND
-                  <br />
-                  <span style={{ color: GREEN }}>BLEACH</span>
-                </h1>
-                <p
-                  className="mt-6 text-[1.3rem] leading-[1.5] max-w-[27ch]"
-                  style={{ color: BODY }}
-                >
-                  Cleaning removes microbes today. EnviroBiotics helps support
-                  your environment{" "}
-                  <span style={{ color: GREEN, fontWeight: 600 }}>between</span>{" "}
-                  cleanings.
-                </p>
-                <div className="mt-9">
-                  <PrimaryCTA href="#how">See how it works</PrimaryCTA>
+            {/* VS badge */}
+            <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 lg:block">
+              <span
+                className="flex h-16 w-16 items-center justify-center rounded-full text-lg font-bold"
+                style={{ background: "#FFFFFF", color: NAVY, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.35)" }}
+              >
+                VS
+              </span>
+            </div>
+
+            {/* Headline overlay (desktop) */}
+            <div className="pointer-events-none absolute inset-0 z-10 hidden items-center lg:flex">
+              <div className="site-container">
+                <div className="pointer-events-auto max-w-[420px]">
+                  <h1
+                    className="font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-[3.6rem] xl:text-[4.4rem]"
+                    style={{ color: NAVY }}
+                  >
+                    Beyond
+                    <br />
+                    <span style={{ color: GREEN }}>Bleach</span>
+                  </h1>
+                  <p
+                    className="mt-5 text-[1.0625rem] leading-[1.6] xl:text-[1.125rem]"
+                    style={{ color: BODY }}
+                  >
+                    Cleaning removes microbes today. EnviroBiotics helps support your
+                    environment <span style={{ color: GREEN, fontWeight: 600 }}>between</span>{" "}
+                    cleanings.
+                  </p>
+                  <div className="mt-7">
+                    <PrimaryCTA href="#how">See how it works</PrimaryCTA>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Mobile / tablet copy on solid white */}
-          <div className="lg:hidden site-container py-10 sm:py-14 text-center">
+          {/* Headline block (mobile / tablet) */}
+          <div className="site-container py-10 text-center lg:hidden">
             <h1
-              className="font-bold tracking-[-0.03em] leading-[0.95] text-[3rem] sm:text-[4rem]"
+              className="font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-[2.6rem] sm:text-[3.4rem]"
               style={{ color: NAVY }}
             >
-              BEYOND
+              Beyond
               <br />
-              <span style={{ color: GREEN }}>BLEACH</span>
+              <span style={{ color: GREEN }}>Bleach</span>
             </h1>
-            <Body className="mt-5 mx-auto max-w-[34ch]">
-              Cleaning removes microbes today. EnviroBiotics helps support your
-              environment between cleanings.
-            </Body>
-            <div className="mt-8">
-              <a
-                href="#how"
-                className="flex w-full items-center justify-center gap-3 rounded-full font-semibold uppercase"
-                style={{
-                  background: GREEN,
-                  color: "#FFFFFF",
-                  fontSize: "0.95rem",
-                  letterSpacing: "0.08em",
-                  minHeight: 60,
-                }}
-              >
-                See how it works
-                <ArrowRight className="h-5 w-5" />
-              </a>
+            <p
+              className="mx-auto mt-4 max-w-[38ch] text-[1.0625rem] leading-[1.6]"
+              style={{ color: BODY }}
+            >
+              Cleaning removes microbes today. EnviroBiotics helps support your environment{" "}
+              <span style={{ color: GREEN, fontWeight: 600 }}>between</span> cleanings.
+            </p>
+            <div className="mt-7">
+              <PrimaryCTA href="#how" className="w-full sm:w-auto" >See how it works</PrimaryCTA>
             </div>
           </div>
         </section>
 
-        {/* ───────────── 2 · THE PROBLEM ───────────── */}
-        <section id="how" className="py-20 sm:py-28 lg:py-36">
-          <div className="site-container">
-            <ScrollReveal>
-              <div className="max-w-[760px]">
-                <Eyebrow>The reality</Eyebrow>
-                <H2 className="mt-5">Cleaning is a moment in time.</H2>
-                <Body className="mt-7 max-w-[52ch]">
-                  You clean. You disinfect. You leave.
-                </Body>
-                <Body className="mt-4 max-w-[52ch]">
-                  But your indoor environment keeps changing. Microorganisms,
-                  dust, moisture, people, pets and outdoor air continue to
-                  interact with the surfaces around you.
-                </Body>
+        {/* ══════════ 2 · CLEANING IS A MOMENT IN TIME ══════════ */}
+        <section id="how" className="w-full border-t" style={{ borderColor: LINE, background: "#FFFFFF" }}>
+          <div className="site-container grid gap-12 py-16 sm:py-20 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center lg:gap-16 lg:py-24">
+            <div>
+              <h2
+                className="font-extrabold uppercase leading-[1.06] tracking-[-0.02em] text-[2rem] sm:text-[2.5rem]"
+                style={{ color: NAVY }}
+              >
+                Cleaning is
+                <br />
+                <span style={{ color: GREEN }}>a moment in time.</span>
+              </h2>
+              <div className="mt-6 space-y-1.5 text-[1.0625rem] leading-[1.7]" style={{ color: BODY }}>
+                <p>You clean, you disinfect, you leave.</p>
+                <p>But microbes start returning right away.</p>
+                <p>The cycle begins again.</p>
               </div>
-            </ScrollReveal>
+            </div>
 
-            <ScrollReveal delay={100}>
-              <div className="mt-14 sm:mt-20 grid gap-8 sm:gap-6 sm:grid-cols-3 max-w-[980px]">
-                {[
-                  { icon: SprayCan, label: "You clean" },
-                  { icon: Bug, label: "Microbes return" },
-                  { icon: Layers, label: "Build-up begins" },
-                ].map(({ icon: Icon, label }, i) => (
-                  <div key={label} className="flex items-center gap-5 sm:block">
-                    <div
-                      className="flex h-20 w-20 sm:h-24 sm:w-24 shrink-0 items-center justify-center rounded-full"
-                      style={{ background: GREEN_SOFT }}
-                    >
-                      <Icon
-                        className="h-9 w-9 sm:h-10 sm:w-10"
-                        style={{ color: GREEN }}
-                        strokeWidth={1.4}
-                      />
-                    </div>
-                    <p
-                      className="sm:mt-6 text-[1.05rem] sm:text-[1.15rem] font-semibold uppercase"
-                      style={{ letterSpacing: "0.08em", color: NAVY }}
-                    >
-                      {label}
-                    </p>
-                    {i < 2 && (
-                      <span
-                        aria-hidden="true"
-                        className="hidden sm:block mt-4 h-px w-16"
-                        style={{ background: "rgba(20,40,75,0.10)" }}
-                      />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
-
-        {/* ───────────── 3 · THE DIFFERENCE ───────────── */}
-        <section style={{ background: GREEN_SOFT }} className="py-20 sm:py-28 lg:py-32">
-          <div className="site-container">
-            <ScrollReveal>
-              <H2 className="max-w-[16ch]">
-                Protection that continues between cleanings.
-              </H2>
-            </ScrollReveal>
-
-            <ScrollReveal delay={80}>
-              <div className="mt-10 sm:mt-14 overflow-hidden rounded-[24px]">
-                <img
-                  src={layerWide}
-                  alt="Bright living room where a translucent green probiotic layer coats the sofa, table and floor"
-                  className="w-full h-[280px] sm:h-[420px] lg:h-[560px] object-cover"
-                  width={1600}
-                  height={1104}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={120}>
-              <Body className="mt-10 max-w-[62ch]">
-                EnviroBiotics continuously introduces beneficial environmental
-                probiotics that settle on indoor surfaces and help support
-                microbial balance.
-              </Body>
-            </ScrollReveal>
-
-            <div className="mt-14 grid gap-10 sm:gap-8 md:grid-cols-3">
+            <div className="grid grid-cols-1 items-start gap-8 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:gap-4">
               {[
                 {
-                  icon: Sofa,
-                  title: "Covers surfaces",
-                  copy: "Beneficial probiotics spread throughout the indoor environment.",
+                  icon: <SprayCan className="h-9 w-9" strokeWidth={1.4} />,
+                  title: "You clean",
+                  copy: "Surfaces look clean and fresh.",
+                  tone: "green" as const,
                 },
                 {
-                  icon: Leaf,
-                  title: "Competes naturally",
-                  copy: "They compete for available space and nutrients.",
+                  icon: <Bug className="h-9 w-9" strokeWidth={1.4} />,
+                  title: "Microbes return",
+                  copy: "Microorganisms return quickly and naturally.",
+                  tone: "navy" as const,
                 },
                 {
-                  icon: Clock,
-                  title: "Works continuously",
-                  copy: "The probiotic environment is continually supported between regular cleanings.",
+                  icon: <Sparkles className="h-9 w-9" strokeWidth={1.4} />,
+                  title: "Build-up begins",
+                  copy: "Dust, residues and moisture create the perfect conditions.",
+                  tone: "navy" as const,
                 },
-              ].map(({ icon: Icon, title, copy }, i) => (
-                <ScrollReveal key={title} delay={140 + i * 80}>
-                  <div>
-                    <Icon
-                      className="h-11 w-11"
-                      style={{ color: GREEN }}
-                      strokeWidth={1.3}
-                    />
-                    <h3
-                      className="mt-6 text-[1.15rem] font-semibold uppercase"
-                      style={{ letterSpacing: "0.1em", color: NAVY }}
+              ].map((s, i) => (
+                <Fragment key={s.title}>
+                  <div className="flex flex-col items-center text-center">
+                    <IconCircle tone={s.tone}>{s.icon}</IconCircle>
+                    <p
+                      className="mt-4 text-[13px] font-bold uppercase tracking-[0.1em]"
+                      style={{ color: NAVY }}
                     >
-                      {title}
-                    </h3>
-                    <Body className="mt-3 max-w-[34ch]">{copy}</Body>
+                      {s.title}
+                    </p>
+                    <p className="mt-2 max-w-[22ch] text-[14px] leading-[1.55]" style={{ color: BODY }}>
+                      {s.copy}
+                    </p>
                   </div>
-                </ScrollReveal>
+                  {i < 2 && (
+                    <div className="flex justify-center pt-9">
+                      <Arrow />
+                    </div>
+                  )}
+                </Fragment>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ───────────── 4 · SIMPLE COMPARISON ───────────── */}
-        <section className="py-20 sm:py-28 lg:py-32">
-          <div className="site-container">
-            <ScrollReveal>
-              <H2 className="max-w-[18ch]">
-                The difference is what happens between cleanings.
-              </H2>
-            </ScrollReveal>
+        {/* ══════════ 3 · PROTECTION THAT CONTINUES ══════════ */}
+        <section className="w-full" style={{ background: GREEN_TINT }}>
+          <div className="grid lg:grid-cols-2">
+            <div className="order-2 lg:order-1 flex items-center">
+              <div className="w-full px-5 py-14 sm:px-8 sm:py-16 lg:py-24 lg:pl-[max(1.5rem,calc((100vw-1440px)/2+2rem))] lg:pr-14">
+                <h2
+                  className="font-extrabold uppercase leading-[1.06] tracking-[-0.02em] text-[2rem] sm:text-[2.5rem]"
+                  style={{ color: NAVY }}
+                >
+                  Protection that
+                  <br />
+                  <span style={{ color: GREEN }}>continues between cleanings.</span>
+                </h2>
+                <p className="mt-6 max-w-[46ch] text-[1.0625rem] leading-[1.7]" style={{ color: BODY }}>
+                  EnviroBiotics continuously introduces beneficial environmental probiotics
+                  that settle on surfaces and help maintain a healthier microbial balance.
+                </p>
+                <p className="mt-2 text-[1.0625rem] font-medium" style={{ color: GREEN }}>
+                  It&rsquo;s nature working for you.
+                </p>
 
-            {/* Row 1 */}
-            <ScrollReveal delay={80}>
-              <div
-                className="mt-12 rounded-[22px] p-7 sm:p-9"
-                style={{ background: "#F4F6F9" }}
-              >
-                <p
-                  className="text-[1.05rem] font-semibold uppercase"
-                  style={{ letterSpacing: "0.14em", color: NAVY }}
-                >
-                  Traditional cleaning
-                </p>
-                <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-5">
-                  {["Clean", "Disinfect", "Leave", "Microbes return"].map(
-                    (step, i) => (
-                      <div
-                        key={step}
-                        className="flex items-center gap-4 lg:gap-5"
-                      >
-                        <span
-                          className="rounded-full px-5 py-3 text-[0.95rem] sm:text-[1.05rem] font-medium bg-white"
-                          style={{ color: NAVY }}
-                        >
-                          {step}
-                        </span>
-                        {i < 3 && (
-                          <ArrowRight
-                            className="h-5 w-5 shrink-0"
-                            style={{ color: "rgba(20,40,75,0.4)" }}
-                          />
-                        )}
-                      </div>
-                    )
-                  )}
-                </div>
-                <p
-                  className="mt-7 flex items-center gap-2 text-[0.95rem] font-semibold uppercase"
-                  style={{ letterSpacing: "0.12em", color: "rgba(20,40,75,0.6)" }}
-                >
-                  <Repeat className="h-4 w-4" />
-                  The cycle starts again
-                </p>
-              </div>
-            </ScrollReveal>
-
-            {/* Row 2 */}
-            <ScrollReveal delay={140}>
-              <div
-                className="mt-6 rounded-[22px] p-7 sm:p-9"
-                style={{ background: GREEN }}
-              >
-                <p
-                  className="text-[1.05rem] font-semibold uppercase text-white"
-                  style={{ letterSpacing: "0.14em" }}
-                >
-                  EnviroBiotics
-                </p>
-                <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-5">
+                <div className="mt-10 grid gap-8 sm:grid-cols-3 sm:gap-6">
                   {[
-                    "Clean",
-                    "Introduce environmental probiotics",
-                    "Continuous environmental support",
-                  ].map((step, i) => (
-                    <div key={step} className="flex items-center gap-4 lg:gap-5">
-                      <span
-                        className="rounded-full px-5 py-3 text-[0.95rem] sm:text-[1.05rem] font-medium"
-                        style={{
-                          background: "rgba(255,255,255,0.16)",
-                          color: "#FFFFFF",
-                        }}
+                    {
+                      icon: <Sofa className="h-7 w-7" strokeWidth={1.4} />,
+                      t1: "Covers",
+                      t2: "surfaces",
+                      copy: "Beneficial probiotics spread throughout the indoor environment.",
+                    },
+                    {
+                      icon: <Leaf className="h-7 w-7" strokeWidth={1.4} />,
+                      t1: "Competes",
+                      t2: "naturally",
+                      copy: "They compete for space and nutrients with unwanted microorganisms.",
+                    },
+                    {
+                      icon: <Clock className="h-7 w-7" strokeWidth={1.4} />,
+                      t1: "Works",
+                      t2: "continuously",
+                      copy: "The probiotic environment is continually supported between cleanings.",
+                    },
+                  ].map((f, i) => (
+                    <div
+                      key={f.t1}
+                      className={i > 0 ? "sm:border-l sm:pl-6" : ""}
+                      style={i > 0 ? { borderColor: "#D6E3DA" } : undefined}
+                    >
+                      <IconCircle size={64} tone="green">
+                        {f.icon}
+                      </IconCircle>
+                      <p
+                        className="mt-4 text-[13px] font-bold uppercase leading-[1.3] tracking-[0.08em]"
+                        style={{ color: NAVY }}
                       >
-                        {step}
-                      </span>
-                      {i < 2 && (
-                        <ArrowRight
-                          className="h-5 w-5 shrink-0"
-                          style={{ color: "rgba(255,255,255,0.7)" }}
-                        />
-                      )}
+                        {f.t1}
+                        <br />
+                        <span style={{ color: GREEN }}>{f.t2}</span>
+                      </p>
+                      <p className="mt-2 text-[14px] leading-[1.55]" style={{ color: BODY }}>
+                        {f.copy}
+                      </p>
                     </div>
                   ))}
                 </div>
-                <p
-                  className="mt-7 flex items-center gap-2 text-[0.95rem] font-semibold uppercase"
-                  style={{ letterSpacing: "0.12em", color: "rgba(255,255,255,0.9)" }}
-                >
-                  <ShieldCheck className="h-4 w-4" />
-                  Works between cleanings
-                </p>
               </div>
-            </ScrollReveal>
+            </div>
+
+            <div className="order-1 lg:order-2 relative min-h-[300px] sm:min-h-[400px] lg:min-h-[640px]">
+              <img
+                src={layerWide}
+                alt="Living room surfaces covered by a translucent green probiotic layer"
+                className="absolute inset-0 h-full w-full object-cover"
+                width={1536}
+                height={1024}
+                loading="lazy"
+              />
+            </div>
           </div>
         </section>
 
-        {/* ───────────── 5 · FINAL CTA ───────────── */}
-        <section className="relative overflow-hidden" style={{ background: NAVY }}>
+        {/* ══════════ 4 · THE DIFFERENCE ══════════ */}
+        <section className="w-full bg-white">
+          <div className="site-container py-16 sm:py-20 lg:py-24">
+            <h2
+              className="text-center font-extrabold uppercase leading-[1.15] tracking-[-0.02em] text-[1.6rem] sm:text-[2.1rem]"
+              style={{ color: NAVY }}
+            >
+              The difference is what happens{" "}
+              <span style={{ color: GREEN }}>between cleanings.</span>
+            </h2>
+
+            <div className="mt-10 space-y-4 sm:mt-12">
+              {/* Traditional */}
+              <div className="grid overflow-hidden rounded-xl sm:grid-cols-[210px_1fr]" style={{ background: "#F5F7FA" }}>
+                <div
+                  className="flex items-center px-6 py-5 text-[15px] font-bold uppercase leading-[1.2] tracking-[0.04em] text-white sm:py-8"
+                  style={{ background: NAVY }}
+                >
+                  Traditional
+                  <br className="hidden sm:block" /> cleaning
+                </div>
+                <div className="flex flex-col gap-5 px-6 py-7 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+                  {[
+                    { icon: <SprayCan className="h-6 w-6" strokeWidth={1.4} />, label: "Clean" },
+                    { icon: <ShieldCheck className="h-6 w-6" strokeWidth={1.4} />, label: "Disinfect" },
+                    { icon: <DoorOpen className="h-6 w-6" strokeWidth={1.4} />, label: "Leave" },
+                    { icon: <Bug className="h-6 w-6" strokeWidth={1.4} />, label: "" },
+                  ].map((s, i) => (
+                    <div key={i} className="flex items-center gap-4">
+                      <IconCircle size={56}>{s.icon}</IconCircle>
+                      {s.label && (
+                        <span
+                          className="text-[13px] font-semibold uppercase tracking-[0.08em]"
+                          style={{ color: NAVY }}
+                        >
+                          {s.label}
+                        </span>
+                      )}
+                      {i < 3 && <Arrow />}
+                    </div>
+                  ))}
+                  <div className="sm:ml-2">
+                    <p
+                      className="text-[13px] font-bold uppercase tracking-[0.08em]"
+                      style={{ color: NAVY }}
+                    >
+                      Microbes return
+                    </p>
+                    <p className="text-[13px]" style={{ color: BODY }}>
+                      The cycle starts again.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* VS */}
+              <div className="flex justify-center">
+                <span
+                  className="flex h-11 w-11 items-center justify-center rounded-full text-[13px] font-bold"
+                  style={{ background: "#FFFFFF", color: NAVY, border: `1px solid ${LINE}` }}
+                >
+                  VS
+                </span>
+              </div>
+
+              {/* EnviroBiotics */}
+              <div className="grid overflow-hidden rounded-xl sm:grid-cols-[210px_1fr]" style={{ background: GREEN_TINT }}>
+                <div
+                  className="flex items-center px-6 py-5 text-[15px] font-bold uppercase leading-[1.2] tracking-[0.04em] text-white sm:py-8"
+                  style={{ background: GREEN }}
+                >
+                  EnviroBiotics
+                </div>
+                <div className="flex flex-col gap-5 px-6 py-7 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+                  <div className="flex items-center gap-4">
+                    <IconCircle size={56} tone="green">
+                      <SprayCan className="h-6 w-6" strokeWidth={1.4} />
+                    </IconCircle>
+                    <span
+                      className="text-[13px] font-semibold uppercase tracking-[0.08em]"
+                      style={{ color: NAVY }}
+                    >
+                      Clean
+                    </span>
+                    <Arrow />
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <IconCircle size={56} tone="green">
+                      <Leaf className="h-6 w-6" strokeWidth={1.4} />
+                    </IconCircle>
+                    <span
+                      className="max-w-[12ch] text-[13px] font-semibold uppercase leading-[1.3] tracking-[0.08em]"
+                      style={{ color: GREEN }}
+                    >
+                      Introduce probiotics
+                    </span>
+                    <span
+                      aria-hidden
+                      className="hidden h-px w-16 md:block"
+                      style={{
+                        backgroundImage: `repeating-linear-gradient(90deg, ${GREEN} 0 6px, transparent 6px 12px)`,
+                      }}
+                    />
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <IconCircle size={56} tone="green">
+                      <ShieldCheck className="h-6 w-6" strokeWidth={1.4} />
+                    </IconCircle>
+                    <div>
+                      <p
+                        className="max-w-[16ch] text-[13px] font-bold uppercase leading-[1.3] tracking-[0.08em]"
+                        style={{ color: GREEN }}
+                      >
+                        Continuous environmental support
+                      </p>
+                      <p className="text-[13px]" style={{ color: BODY }}>
+                        Protection that works between cleanings.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════ 5 · FINAL CTA ══════════ */}
+        <section className="relative w-full overflow-hidden" style={{ background: NAVY }}>
           <img
             src={ctaRoom}
-            alt="Modern home interior with a soft green protective layer across the floor and furniture"
-            className="absolute inset-0 h-full w-full object-cover"
-            width={1600}
-            height={912}
+            alt="Bright living room protected by environmental probiotics"
+            className="absolute inset-y-0 right-0 h-full w-full object-cover lg:w-[62%]"
+            width={1536}
+            height={1024}
             loading="lazy"
-            decoding="async"
           />
           <div
-            aria-hidden="true"
+            aria-hidden
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(90deg, rgba(20,40,75,0.96) 0%, rgba(20,40,75,0.9) 45%, rgba(20,40,75,0.55) 100%)",
+                "linear-gradient(90deg, rgba(20,40,75,0.97) 0%, rgba(20,40,75,0.92) 38%, rgba(20,40,75,0.35) 62%, rgba(20,40,75,0.05) 100%)",
             }}
           />
-          <div className="site-container relative py-20 sm:py-28 lg:py-36">
-            <div className="max-w-[720px]">
-              <h2
-                className="font-bold tracking-[-0.02em] leading-[1.08] text-[2rem] sm:text-[2.8rem] lg:text-[3.5rem] text-white"
-              >
-                Your indoor environment never stops changing.
-                <br />
-                <span style={{ color: "#7BD3A0" }}>
-                  Why should your protection?
-                </span>
-              </h2>
-              <p
-                className="mt-6 text-[1.0625rem] sm:text-[1.25rem] leading-[1.6] max-w-[46ch]"
-                style={{ color: "rgba(255,255,255,0.85)" }}
-              >
-                Discover continuous environmental probiotics for your home.
-              </p>
-              <div className="mt-10">
-                <PrimaryCTA href={SHOP} full>
+          <div className="site-container relative z-10 py-16 sm:py-20 lg:py-24">
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+              <div>
+                <h2 className="font-extrabold uppercase leading-[1.1] tracking-[-0.02em] text-[1.9rem] sm:text-[2.4rem] text-white">
+                  Your indoor environment
+                  <br />
+                  never stops changing.
+                  <br />
+                  <span style={{ color: "#7ED09B" }}>Why should your protection?</span>
+                </h2>
+                <div className="mt-6 flex items-center gap-3">
+                  <Leaf className="h-5 w-5" style={{ color: "#7ED09B" }} strokeWidth={1.5} />
+                  <span className="h-px w-24" style={{ background: "rgba(255,255,255,0.35)" }} />
+                </div>
+                <p className="mt-6 max-w-[42ch] text-[1.0625rem] leading-[1.7] text-white/85">
+                  Discover continuous environmental probiotics for your home.
+                </p>
+              </div>
+              <div className="lg:flex lg:justify-center">
+                <PrimaryCTA href={SHOP} className="w-full lg:w-auto">
                   Find the right EnviroBiotics system
                 </PrimaryCTA>
               </div>
@@ -551,49 +608,48 @@ const BeyondBleachPage = () => {
           </div>
         </section>
 
-        {/* ───────────── TRUST STRIP ───────────── */}
-        <section className="py-16 sm:py-20">
-          <div className="site-container grid gap-10 sm:gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {/* ══════════ TRUST STRIP ══════════ */}
+        <section className="w-full border-b bg-white" style={{ borderColor: LINE }}>
+          <div className="site-container grid gap-8 py-10 sm:grid-cols-2 sm:gap-0 lg:grid-cols-4">
             {[
               {
-                icon: Leaf,
+                icon: <Leaf className="h-6 w-6" strokeWidth={1.4} />,
                 title: "Natural",
-                copy: "Designed for everyday indoor environments.",
+                copy: "Safe for your family, pets and home.",
               },
               {
-                icon: Clock,
-                title: "Continuous",
-                copy: "Works between regular cleanings.",
+                icon: <ShieldCheck className="h-6 w-6" strokeWidth={1.4} />,
+                title: "Effective",
+                copy: "Designed to support a healthier environment.",
               },
               {
-                icon: Sofa,
-                title: "Surface-focused",
-                copy: "Supports the spaces and objects around you.",
+                icon: <Clock className="h-6 w-6" strokeWidth={1.4} />,
+                title: "24/7 Support",
+                copy: "Works continuously between cleanings.",
               },
               {
-                icon: Home,
+                icon: <Home className="h-6 w-6" strokeWidth={1.4} />,
                 title: "For the spaces where you live",
-                copy: "Home, office, school, hospitality and more.",
+                copy: "Home, office and everywhere in between.",
               },
-            ].map(({ icon: Icon, title, copy }) => (
-              <div key={title} className="flex items-start gap-4">
-                <Icon
-                  className="h-8 w-8 shrink-0"
-                  style={{ color: GREEN }}
-                  strokeWidth={1.4}
-                />
+            ].map((t, i) => (
+              <div
+                key={t.title}
+                className={`flex items-start gap-4 ${i > 0 ? "lg:border-l lg:pl-8" : ""}`}
+                style={i > 0 ? { borderColor: LINE } : undefined}
+              >
+                <IconCircle size={52} tone="green">
+                  {t.icon}
+                </IconCircle>
                 <div className="min-w-0">
-                  <h3
-                    className="text-[0.95rem] font-semibold uppercase"
-                    style={{ letterSpacing: "0.1em", color: NAVY }}
-                  >
-                    {title}
-                  </h3>
                   <p
-                    className="mt-2 text-[1rem] leading-[1.55]"
-                    style={{ color: BODY }}
+                    className="text-[13px] font-bold uppercase leading-[1.25] tracking-[0.08em]"
+                    style={{ color: NAVY }}
                   >
-                    {copy}
+                    {t.title}
+                  </p>
+                  <p className="mt-1.5 text-[14px] leading-[1.5]" style={{ color: BODY }}>
+                    {t.copy}
                   </p>
                 </div>
               </div>
@@ -601,52 +657,46 @@ const BeyondBleachPage = () => {
           </div>
         </section>
 
-        {/* ───────────── APPLICATIONS ───────────── */}
-        <section
-          className="py-14 sm:py-16 border-t"
-          style={{ borderColor: "rgba(20,40,75,0.1)" }}
-        >
-          <div className="site-container text-center">
-            <p
-              className="text-[0.8rem] sm:text-[0.9rem] font-semibold uppercase"
-              style={{ letterSpacing: "0.18em", color: NAVY }}
-            >
-              Designed for the spaces where you spend your life
-            </p>
-            <div className="mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
-              {[
-                { icon: Home, label: "Home" },
-                { icon: Building2, label: "Offices" },
-                { icon: GraduationCap, label: "Schools" },
-                { icon: BedDouble, label: "Hospitality" },
-                { icon: HeartPulse, label: "Healthcare" },
-                { icon: Store, label: "Commercial spaces" },
-              ].map(({ icon: Icon, label }) => (
-                <div key={label} className="flex flex-col items-center gap-3">
-                  <Icon
-                    className="h-8 w-8"
-                    style={{ color: GREEN }}
-                    strokeWidth={1.3}
-                  />
-                  <span
-                    className="text-[0.8rem] font-medium uppercase"
-                    style={{ letterSpacing: "0.1em", color: NAVY }}
-                  >
-                    {label}
-                  </span>
-                </div>
-              ))}
+        {/* ══════════ APPLICATIONS ══════════ */}
+        <section className="w-full bg-white">
+          <div className="site-container grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-14">
+            <div>
+              <p
+                className="text-center text-[12px] font-semibold uppercase tracking-[0.14em] lg:text-left"
+                style={{ color: NAVY }}
+              >
+                Designed for the spaces where you spend your life
+              </p>
+              <div className="mt-6 grid grid-cols-3 gap-6 sm:grid-cols-6">
+                {[
+                  { icon: <Home className="h-6 w-6" strokeWidth={1.4} />, label: "Home" },
+                  { icon: <Building2 className="h-6 w-6" strokeWidth={1.4} />, label: "Offices" },
+                  { icon: <GraduationCap className="h-6 w-6" strokeWidth={1.4} />, label: "Schools" },
+                  { icon: <BedDouble className="h-6 w-6" strokeWidth={1.4} />, label: "Hospitality" },
+                  { icon: <HeartPulse className="h-6 w-6" strokeWidth={1.4} />, label: "Healthcare" },
+                  { icon: <Store className="h-6 w-6" strokeWidth={1.4} />, label: "Commercial spaces" },
+                ].map((a) => (
+                  <div key={a.label} className="flex flex-col items-center text-center">
+                    <span style={{ color: NAVY }}>{a.icon}</span>
+                    <span
+                      className="mt-2 text-[11px] font-semibold uppercase leading-[1.3] tracking-[0.08em]"
+                      style={{ color: NAVY }}
+                    >
+                      {a.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="mt-12">
-              <Link
-                to="/solutions"
-                className="inline-flex items-center gap-2 text-[0.95rem] font-semibold uppercase"
-                style={{ letterSpacing: "0.1em", color: GREEN }}
+            <div className="flex flex-col items-center gap-2 lg:items-end lg:border-l lg:pl-14" style={{ borderColor: LINE }}>
+              <img src={logo} alt="EnviroBiotics" className="h-9 w-auto" loading="lazy" />
+              <p
+                className="text-[10.5px] font-semibold uppercase tracking-[0.18em]"
+                style={{ color: GREEN }}
               >
-                Explore all systems
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+                Continuous. Natural. Proactive.
+              </p>
             </div>
           </div>
         </section>
