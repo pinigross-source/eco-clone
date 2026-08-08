@@ -141,7 +141,7 @@ const BeyondBleachPage = () => {
         {/* ───────────── HERO ───────────── */}
         <section className="relative w-full overflow-hidden pt-16 sm:pt-20">
           {/* Split imagery */}
-          <div className="grid grid-cols-2 w-full h-[46vh] min-h-[280px] sm:h-[58vh] lg:h-[78vh] lg:min-h-[620px]">
+          <div className="grid grid-cols-2 w-full h-[42vh] min-h-[260px] max-h-[420px] sm:h-[52vh] sm:max-h-[520px] lg:h-[76vh] lg:min-h-[600px] lg:max-h-[760px]">
             <div className="relative">
               <img
                 src={roomWithout}
@@ -185,7 +185,7 @@ const BeyondBleachPage = () => {
               <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:hidden">
                 <RoomLabel tone="dark">Without</RoomLabel>
               </div>
-              <div className="absolute top-6 right-6 hidden lg:block">
+              <div className="absolute top-24 right-8 hidden lg:block">
                 <RoomLabel tone="dark">Without EnviroBiotics</RoomLabel>
               </div>
             </div>
@@ -199,7 +199,7 @@ const BeyondBleachPage = () => {
                 height={1280}
                 decoding="async"
               />
-              <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
+              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:top-24 lg:left-8">
                 <RoomLabel tone="green">
                   <span className="lg:hidden">With</span>
                   <span className="hidden lg:inline">With EnviroBiotics</span>
