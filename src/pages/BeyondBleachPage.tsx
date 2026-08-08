@@ -119,11 +119,16 @@ const Note = ({
     />
     <span className="h-px w-8 shrink-0" style={{ background: "rgba(255,255,255,0.75)" }} />
     <span
-      className="max-w-[170px] text-[12.5px] font-medium leading-[1.35]"
-      style={{ color: "#FFFFFF", textShadow: "0 1px 6px rgba(0,0,0,0.45)" }}
+      className="max-w-[190px] rounded-md px-2.5 py-1.5 text-[13px] font-semibold leading-[1.35] backdrop-blur-[2px]"
+      style={{
+        color: "#FFFFFF",
+        background: "rgba(15,23,32,0.62)",
+        boxShadow: "0 6px 18px -8px rgba(0,0,0,0.5)",
+      }}
     >
       {children}
     </span>
+
   </div>
 );
 
@@ -182,12 +187,13 @@ const BeyondBleachPage = () => {
               {/* white wash behind headline */}
               <div
                 aria-hidden
-                className="absolute inset-y-0 left-0 hidden w-[62%] lg:block"
+                className="absolute inset-y-0 left-0 hidden w-[86%] lg:block"
                 style={{
                   background:
-                    "linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.78) 48%, rgba(255,255,255,0) 100%)",
+                    "linear-gradient(90deg, rgba(255,255,255,0.985) 0%, rgba(255,255,255,0.96) 40%, rgba(255,255,255,0.72) 66%, rgba(255,255,255,0) 100%)",
                 }}
               />
+
               {/* label */}
               <div className="absolute left-1/2 top-4 -translate-x-1/2 sm:top-6 lg:left-auto lg:right-6 lg:translate-x-0">
                 <span
@@ -245,7 +251,7 @@ const BeyondBleachPage = () => {
             {/* Headline overlay (desktop) */}
             <div className="pointer-events-none absolute inset-0 z-10 hidden items-center lg:flex">
               <div className="site-container">
-                <div className="pointer-events-auto max-w-[420px]">
+                <div className="pointer-events-auto max-w-[460px]">
                   <h1
                     className="font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-[3.6rem] xl:text-[4.4rem]"
                     style={{ color: NAVY }}
@@ -255,13 +261,15 @@ const BeyondBleachPage = () => {
                     <span style={{ color: GREEN }}>Bleach</span>
                   </h1>
                   <p
-                    className="mt-5 text-[1.0625rem] leading-[1.6] xl:text-[1.125rem]"
-                    style={{ color: BODY }}
+                    className="mt-5 max-w-[26ch] text-[1.1875rem] font-medium leading-[1.65] xl:text-[1.25rem]"
+                    style={{ color: "#1B2733" }}
                   >
                     Cleaning removes microbes today. EnviroBiotics helps support your
-                    environment <span style={{ color: GREEN, fontWeight: 600 }}>between</span>{" "}
+                    environment{" "}
+                    <span style={{ color: "#1F6E44", fontWeight: 700 }}>between</span>{" "}
                     cleanings.
                   </p>
+
                   <div className="mt-7">
                     <PrimaryCTA href="#how">See how it works</PrimaryCTA>
                   </div>
