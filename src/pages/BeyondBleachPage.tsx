@@ -336,19 +336,22 @@ const BeyondBleachPage = () => {
                 <div className="relative min-h-[420px] sm:min-h-[520px] overflow-hidden">
                   <img
                     src={oldWayImg}
-                    alt="Gloved hand spraying disinfectant on a kitchen counter"
+                    alt="Spray bottle of disinfectant on a bright bathroom counter"
                     width={1200}
                     height={912}
                     className="absolute inset-0 h-full w-full object-cover grayscale"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/15" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/10" />
                   <div className="relative flex h-full min-h-[420px] sm:min-h-[520px] flex-col justify-end p-8 sm:p-12 lg:p-16">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/60">
+                    <p
+                      className="text-[11px] font-semibold uppercase tracking-[0.28em]"
+                      style={{ color: `${INK}80` }}
+                    >
                       The old way
                     </p>
                     <h2
-                      className="mt-4 max-w-sm text-3xl sm:text-[2.5rem] font-extrabold tracking-[-0.03em] leading-[1.03] text-white"
-                      style={{ fontFamily: DISPLAY }}
+                      className="mt-4 max-w-sm text-3xl sm:text-[2.5rem] font-extrabold tracking-[-0.03em] leading-[1.03]"
+                      style={{ fontFamily: DISPLAY, color: INK }}
                     >
                       Kill the{" "}
                       <em
@@ -362,10 +365,14 @@ const BeyondBleachPage = () => {
                         germs
                       </em>
                     </h2>
-                    <p className="mt-4 max-w-md text-[15px] sm:text-base leading-relaxed text-white/70">
+                    <p
+                      className="mt-4 max-w-md text-[15px] sm:text-base leading-relaxed"
+                      style={{ color: `${INK}B3` }}
+                    >
                       Traditional disinfectants reduce microorganisms on treated
                       surfaces, but their action represents a moment in time.
                     </p>
+
                   </div>
                 </div>
               </ScrollReveal>
