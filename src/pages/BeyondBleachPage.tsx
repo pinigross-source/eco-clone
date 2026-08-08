@@ -151,8 +151,33 @@ const BeyondBleachPage = () => {
 
       <main id="main-content">
         {/* ══════════ HERO ══════════ */}
-        <section className="relative w-full overflow-hidden pt-[72px] sm:pt-20 lg:pt-[132px]">
-          <div className="relative grid grid-cols-2 h-[440px] sm:h-[560px] lg:h-[660px] xl:h-[720px]">
+        <section className="relative w-full overflow-hidden bg-white pt-[72px] sm:pt-20 lg:pt-[132px]">
+          {/* Text block above the picture */}
+          <div className="site-container py-8 text-center sm:py-10 lg:py-12">
+            <h1
+              className="font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-[2.8rem] sm:text-[3.6rem] lg:text-[4.4rem]"
+              style={{ color: NAVY }}
+            >
+              Beyond
+              <br />
+              <span style={{ color: GREEN }}>Bleach</span>
+            </h1>
+            <p
+              className="mx-auto mt-4 max-w-[38ch] text-[1.0625rem] leading-[1.6] sm:text-[1.1875rem] lg:mt-5 lg:max-w-[46ch] lg:text-[1.25rem]"
+              style={{ color: BODY }}
+            >
+              Cleaning removes microbes today. EnviroBiotics helps support your environment{" "}
+              <span style={{ color: GREEN, fontWeight: 700 }}>between</span> cleanings.
+            </p>
+            <div className="mt-6 flex justify-center lg:mt-7">
+              <PrimaryCTA href="#how" className="w-full sm:w-auto">
+                See how it works
+              </PrimaryCTA>
+            </div>
+          </div>
+
+          {/* Split image pair */}
+          <div className="relative grid h-[340px] grid-cols-2 sm:h-[420px] lg:h-[540px] xl:h-[600px]">
             {/* LEFT — without */}
             <div className="relative overflow-hidden">
               <img
@@ -184,15 +209,6 @@ const BeyondBleachPage = () => {
                   }}
                 />
               ))}
-              {/* white wash behind headline */}
-              <div
-                aria-hidden
-                className="absolute inset-y-0 left-0 hidden w-[86%] lg:block"
-                style={{
-                  background:
-                    "linear-gradient(90deg, rgba(255,255,255,0.985) 0%, rgba(255,255,255,0.96) 40%, rgba(255,255,255,0.72) 66%, rgba(255,255,255,0) 100%)",
-                }}
-              />
 
               {/* label */}
               <div className="absolute left-1/2 top-4 -translate-x-1/2 sm:top-6 lg:left-auto lg:right-6 lg:translate-x-0">
@@ -247,59 +263,9 @@ const BeyondBleachPage = () => {
                 VS
               </span>
             </div>
-
-            {/* Headline overlay (desktop) */}
-            <div className="pointer-events-none absolute inset-0 z-10 hidden items-center lg:flex">
-              <div className="site-container">
-                <div className="pointer-events-auto max-w-[460px]">
-                  <h1
-                    className="font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-[3.6rem] xl:text-[4.4rem]"
-                    style={{ color: NAVY }}
-                  >
-                    Beyond
-                    <br />
-                    <span style={{ color: GREEN }}>Bleach</span>
-                  </h1>
-                  <p
-                    className="mt-5 max-w-[26ch] text-[1.1875rem] font-medium leading-[1.65] xl:text-[1.25rem]"
-                    style={{ color: "#1B2733" }}
-                  >
-                    Cleaning removes microbes today. EnviroBiotics helps support your
-                    environment{" "}
-                    <span style={{ color: "#1F6E44", fontWeight: 700 }}>between</span>{" "}
-                    cleanings.
-                  </p>
-
-                  <div className="mt-7">
-                    <PrimaryCTA href="#how">See how it works</PrimaryCTA>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Headline block (mobile / tablet) */}
-          <div className="site-container py-10 text-center lg:hidden">
-            <h1
-              className="font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-[2.6rem] sm:text-[3.4rem]"
-              style={{ color: NAVY }}
-            >
-              Beyond
-              <br />
-              <span style={{ color: GREEN }}>Bleach</span>
-            </h1>
-            <p
-              className="mx-auto mt-4 max-w-[38ch] text-[1.0625rem] leading-[1.6]"
-              style={{ color: BODY }}
-            >
-              Cleaning removes microbes today. EnviroBiotics helps support your environment{" "}
-              <span style={{ color: GREEN, fontWeight: 600 }}>between</span> cleanings.
-            </p>
-            <div className="mt-7">
-              <PrimaryCTA href="#how" className="w-full sm:w-auto" >See how it works</PrimaryCTA>
-            </div>
           </div>
         </section>
+
 
         {/* ══════════ 2 · CLEANING IS A MOMENT IN TIME ══════════ */}
         <section id="how" className="w-full border-t" style={{ borderColor: LINE, background: "#FFFFFF" }}>
