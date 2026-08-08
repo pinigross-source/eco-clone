@@ -119,11 +119,16 @@ const Note = ({
     />
     <span className="h-px w-8 shrink-0" style={{ background: "rgba(255,255,255,0.75)" }} />
     <span
-      className="max-w-[170px] text-[12.5px] font-medium leading-[1.35]"
-      style={{ color: "#FFFFFF", textShadow: "0 1px 6px rgba(0,0,0,0.45)" }}
+      className="max-w-[190px] rounded-md px-2.5 py-1.5 text-[13px] font-semibold leading-[1.35] backdrop-blur-[2px]"
+      style={{
+        color: "#FFFFFF",
+        background: "rgba(15,23,32,0.62)",
+        boxShadow: "0 6px 18px -8px rgba(0,0,0,0.5)",
+      }}
     >
       {children}
     </span>
+
   </div>
 );
 
