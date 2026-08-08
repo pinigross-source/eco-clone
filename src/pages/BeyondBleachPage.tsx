@@ -251,6 +251,19 @@ const BeyondBleachPage = () => {
                 </div>
               </ScrollReveal>
 
+              {/* VS divider (mobile/tablet) */}
+              <div
+                className="relative z-10 -my-7 flex justify-center lg:hidden"
+                aria-hidden="true"
+              >
+                <span
+                  className="grid h-14 w-14 place-items-center rounded-full border-4 border-white bg-white text-base font-extrabold shadow-xl"
+                  style={{ color: NAVY }}
+                >
+                  VS
+                </span>
+              </div>
+
               {/* BETTER WAY */}
               <ScrollReveal variant="fadeLeft" className="relative">
                 <div className="relative min-h-[380px] sm:min-h-[440px] overflow-hidden">
@@ -326,14 +339,6 @@ const BeyondBleachPage = () => {
             >
               <span
                 className="grid h-20 w-20 place-items-center rounded-full border-4 border-white bg-white text-xl font-extrabold shadow-xl"
-                style={{ color: NAVY }}
-              >
-                VS
-              </span>
-            </div>
-            <div className="flex justify-center lg:hidden" aria-hidden="true">
-              <span
-                className="-mt-7 grid h-14 w-14 place-items-center rounded-full border-4 border-white bg-white text-base font-extrabold shadow-xl"
                 style={{ color: NAVY }}
               >
                 VS
