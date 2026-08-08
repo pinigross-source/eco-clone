@@ -4,887 +4,650 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Link } from "@/lib/link";
 import {
   ArrowRight,
-  Check,
-  Clock,
-  Sparkles,
-  Layers,
-  Users,
   SprayCan,
+  Bug,
+  Layers,
+  Leaf,
+  Clock,
   ShieldCheck,
+  Sofa,
   Home,
   Building2,
   GraduationCap,
   BedDouble,
   HeartPulse,
   Store,
-  Leaf,
-  RefreshCw,
   Repeat,
-  HelpCircle,
 } from "lucide-react";
 
 const Footer = lazy(() =>
   import("@/components/Footer").then((m) => ({ default: m.Footer }))
 );
 
-import oldWayImg from "@/assets/bb-old-way.jpg";
-import betterWayImg from "@/assets/bb-better-way.jpg";
-import splitMicroImg from "@/assets/bb-split-micro.jpg";
-import indoorMicrobiomeImg from "@/assets/bb-indoor-microbiome.jpg";
+import roomWithout from "@/assets/bb-room-without.jpg";
+import roomWith from "@/assets/bb-room-with.jpg";
+import layerWide from "@/assets/bb-layer-wide.jpg";
+import ctaRoom from "@/assets/bb-cta-room.jpg";
 
-/* ── Sonos-style system, built on our site tokens ───────────────────── */
-const INK = "#1B2A2A"; // --color-ink
-const SAGE = "#2E8B7F"; // --color-sage
-const SAGE_LIGHT = "#3FA593"; // sage for dark surfaces
-const CREAM = "#FFFFFF"; // page canvas — pure white
-const SAGE_SOFT = "#E6EFEC"; // --color-sage-soft
+/* ── Palette: white · navy · green ──────────────────────────────── */
+const NAVY = "#14284B";
+const GREEN = "#2F7D4E";
+const GREEN_SOFT = "#EDF5F0";
+const BODY = "#3C4A5A";
 
-const DISPLAY = `"Manrope", "Inter", system-ui, -apple-system, sans-serif`;
-const SERIF = `"Instrument Serif", "Playfair Display", Georgia, serif`;
+const FONT = `"Poppins", "Hanken Grotesk", system-ui, -apple-system, sans-serif`;
 
-/** Sonos headline: bold sans + final word in italic serif. */
-const Headline = ({
-  lead,
-  italic,
-  className = "",
-  color = INK,
-}: {
-  lead: string;
-  italic: string;
-  className?: string;
-  color?: string;
-}) => (
-  <h2
-    className={`font-extrabold tracking-[-0.03em] leading-[1.02] ${className}`}
-    style={{ fontFamily: DISPLAY, color }}
-  >
-    {lead}{" "}
-    <em
-      className="not-italic"
-      style={{ fontFamily: SERIF, fontStyle: "italic", fontWeight: 400 }}
-    >
-      {italic}
-    </em>
-  </h2>
-);
+const SHOP = "https://shop.envirobiotics.com/";
 
-const Eyebrow = ({
-  children,
-  light,
-}: {
-  children: React.ReactNode;
-  light?: boolean;
-}) => (
+/* ── Small building blocks ───────────────────────────────────────── */
+
+const Eyebrow = ({ children }: { children: React.ReactNode }) => (
   <p
-    className="text-[11px] font-semibold uppercase tracking-[0.28em]"
-    style={{ color: light ? "rgba(255,255,255,0.6)" : SAGE }}
+    className="text-[11px] sm:text-xs font-semibold uppercase"
+    style={{ letterSpacing: "0.22em", color: GREEN }}
   >
     {children}
   </p>
 );
 
-const limitations = [
-  {
-    icon: RefreshCw,
-    title: "Surfaces are recolonized",
-    body: "Once the disinfectant has evaporated or dried, surfaces begin to be recolonized by microorganisms.",
-  },
-  {
-    icon: Layers,
-    title: "Build-up continues",
-    body: "Dust, skin cells, food residues, and moisture continue accumulating on indoor surfaces.",
-  },
-  {
-    icon: Users,
-    title: "New microbes keep arriving",
-    body: "People, pets, ventilation, and outdoor air continually introduce microorganisms into the environment.",
-  },
-  {
-    icon: Clock,
-    title: "Cleaning is a moment in time",
-    body: "Indoor environments are continuously changing, so the microbial environment continues changing after cleaning.",
-  },
-];
-
-const philosophyPoints = [
-  "Continuously disperses carefully selected environmental probiotics.",
-  "Designed to establish and maintain a healthier microbial balance on indoor surfaces.",
-  "Beneficial microorganisms naturally compete for nutrients and space.",
-  "They help break down organic residues that contribute to odors and support the persistence of unwanted microbes.",
-  "The goal is to help manage the conditions that allow environmental problems to develop.",
-];
-
-const traditionalSteps = [
-  { icon: SprayCan, label: "Clean" },
-  { icon: ShieldCheck, label: "Disinfect" },
-  { icon: Home, label: "Leave" },
-  { icon: RefreshCw, label: "Recolonization begins" },
-];
-
-const enviroSteps = [
-  { icon: SprayCan, label: "Clean" },
-  { icon: Leaf, label: "EnviroBiotics" },
-  { icon: Sparkles, label: "Continuous environmental probiotics" },
-  { icon: Repeat, label: "Ongoing microbial management" },
-];
-
-const principles = [
-  { icon: Leaf, top: "Not simply cleaner.", bottom: "Balanced." },
-  {
-    icon: ShieldCheck,
-    top: "Not simply disinfected.",
-    bottom: "Continuously managed.",
-  },
-  {
-    icon: Sparkles,
-    top: "Not simply reducing microbes.",
-    bottom: "Supporting a healthier indoor microbiome.",
-  },
-];
-
-const applications = [
-  { icon: Home, label: "Homes" },
-  { icon: Building2, label: "Offices" },
-  { icon: GraduationCap, label: "Schools" },
-  { icon: BedDouble, label: "Hospitality" },
-  { icon: HeartPulse, label: "Healthcare" },
-  { icon: Store, label: "Commercial spaces" },
-];
-
-const PillLink = ({
-  to,
+const H2 = ({
   children,
-  variant = "dark",
   className = "",
 }: {
-  to: string;
   children: React.ReactNode;
-  variant?: "dark" | "light" | "sage";
   className?: string;
-}) => {
-  const style =
-    variant === "light"
-      ? { backgroundColor: "#FFFFFF", color: INK }
-      : variant === "sage"
-        ? { backgroundColor: SAGE, color: "#FFFFFF" }
-        : { backgroundColor: INK, color: "#FFFFFF" };
-
-  return (
-    <Link
-      to={to}
-      className={`group inline-flex min-h-[52px] w-full items-center justify-center gap-2.5 rounded-full px-8 text-[13px] font-semibold tracking-[0.06em] transition-all duration-300 hover:-translate-y-0.5 sm:w-fit ${className}`}
-      style={style}
-    >
-      {children}
-      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-    </Link>
-  );
-};
-
-const Arrow = ({ className = "" }: { className?: string }) => (
-  <span
-    aria-hidden="true"
-    className={`bb-arrow inline-flex items-center justify-center ${className}`}
-    style={{ color: SAGE }}
+}) => (
+  <h2
+    className={`font-bold tracking-[-0.02em] leading-[1.08] text-[2rem] sm:text-[2.6rem] lg:text-[3.25rem] ${className}`}
+    style={{ fontFamily: FONT, color: NAVY }}
   >
+    {children}
+  </h2>
+);
+
+const Body = ({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <p
+    className={`text-[1.0625rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[1.65] ${className}`}
+    style={{ color: BODY }}
+  >
+    {children}
+  </p>
+);
+
+const PrimaryCTA = ({
+  href,
+  children,
+  full = false,
+}: {
+  href: string;
+  children: React.ReactNode;
+  full?: boolean;
+}) => (
+  <a
+    href={href}
+    target="_top"
+    rel="noopener"
+    className={`inline-flex items-center justify-center gap-3 rounded-full font-semibold uppercase transition-transform duration-300 hover:-translate-y-0.5 ${
+      full ? "w-full sm:w-auto" : ""
+    }`}
+    style={{
+      background: GREEN,
+      color: "#FFFFFF",
+      fontSize: "0.95rem",
+      letterSpacing: "0.08em",
+      padding: "1.05rem 2.1rem",
+      minHeight: 60,
+      boxShadow: "0 16px 34px -16px rgba(47,125,78,0.7)",
+    }}
+  >
+    {children}
     <ArrowRight className="h-5 w-5" />
+  </a>
+);
+
+const RoomLabel = ({
+  children,
+  tone,
+}: {
+  children: React.ReactNode;
+  tone: "dark" | "green";
+}) => (
+  <span
+    className="inline-flex items-center rounded-full px-4 py-2 text-[10px] sm:text-[11px] font-semibold uppercase"
+    style={{
+      letterSpacing: "0.16em",
+      background: tone === "green" ? GREEN : "rgba(20,40,75,0.88)",
+      color: "#FFFFFF",
+    }}
+  >
+    {children}
   </span>
 );
 
-const StepNode = ({
-  icon: Icon,
-  label,
-  accent,
-}: {
-  icon: typeof Home;
-  label: string;
-  accent: string;
-}) => (
-  <div className="flex items-center gap-3 md:flex-col md:gap-2.5 md:text-center">
-    <span
-      className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white transition-transform duration-300 hover:-translate-y-0.5"
-      style={{ border: `1px solid ${accent}33`, color: accent }}
-    >
-      <Icon className="h-5 w-5" />
-    </span>
-    <span
-      className="text-[12px] font-semibold leading-snug md:max-w-[9rem]"
-      style={{ color: INK, fontFamily: DISPLAY }}
-    >
-      {label}
-    </span>
-  </div>
-);
-
-const ProcessRow = ({
-  label,
-  labelColor,
-  steps,
-  note,
-  continuous,
-}: {
-  label: string;
-  labelColor: string;
-  steps: typeof traditionalSteps;
-  note: string;
-  continuous?: boolean;
-}) => (
-  <div
-    className="rounded-[1.75rem] p-6 sm:p-8"
-    style={{
-      border: `1px solid ${INK}12`,
-      backgroundColor: continuous ? SAGE_SOFT : "#FFFFFF",
-    }}
-  >
-    <div className="grid gap-7 md:grid-cols-[minmax(0,200px)_1fr] md:items-center">
-      <div
-        className="text-[13px] font-semibold uppercase tracking-[0.18em]"
-        style={{ color: labelColor, fontFamily: DISPLAY }}
-      >
-        {label}
-      </div>
-
-      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-        {steps.map((s, i) => (
-          <div
-            key={s.label}
-            className="flex flex-col gap-4 md:flex-1 md:flex-row md:items-center md:justify-center"
-          >
-            <StepNode icon={s.icon} label={s.label} accent={labelColor} />
-            {i < steps.length - 1 && (
-              <Arrow className="ml-[22px] rotate-90 md:ml-0 md:rotate-0" />
-            )}
-          </div>
-        ))}
-        {continuous && (
-          <Arrow className="ml-[22px] rotate-90 md:ml-0 md:rotate-0 md:self-center" />
-        )}
-      </div>
-    </div>
-    <p
-      className="mt-6 text-sm md:pl-[224px]"
-      style={{ color: `${INK}99` }}
-    >
-      {note}
-    </p>
-  </div>
-);
+/* ── Page ────────────────────────────────────────────────────────── */
 
 const BeyondBleachPage = () => {
   return (
-    <div className="bb-page" style={{ backgroundColor: CREAM, color: INK }}>
-      <style>{`
-        .bb-page { font-family: ${DISPLAY}; scroll-behavior: smooth; }
-        .bb-page p, .bb-page li, .bb-page span { font-family: ${DISPLAY}; }
-        @keyframes bb-arrow-nudge { 0%,100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
-        .bb-arrow > svg { animation: bb-arrow-nudge 2.4s ease-in-out infinite; }
-        @keyframes bb-float { 0%,100% { transform: translate3d(0,0,0); opacity:.5 } 50% { transform: translate3d(6px,-14px,0); opacity:.9 } }
-        .bb-particle { animation: bb-float 9s ease-in-out infinite; }
-        @media (prefers-reduced-motion: reduce) {
-          .bb-arrow > svg, .bb-particle { animation: none !important; }
-          .bb-page { scroll-behavior: auto; }
-        }
-      `}</style>
-
+    <div style={{ background: "#FFFFFF", fontFamily: FONT }}>
       <Navbar />
 
       <main id="main-content">
-        {/* HERO */}
-        <section
-          className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-40"
-          style={{ backgroundColor: CREAM }}
-        >
-          <div className="site-container">
-            <ScrollReveal variant="fadeUp" className="max-w-4xl">
-              <Eyebrow>A different approach to clean</Eyebrow>
-              <h1
-                className="mt-6 font-extrabold tracking-[-0.045em] leading-[0.92] text-[3.25rem] sm:text-[5rem] lg:text-[7.5rem]"
-                style={{ fontFamily: DISPLAY, color: INK }}
-              >
-                Beyond{" "}
-                <em
-                  className="not-italic"
-                  style={{
-                    fontFamily: SERIF,
-                    fontStyle: "italic",
-                    fontWeight: 400,
-                  }}
-                >
-                  bleach
-                </em>
-              </h1>
-              <p
-                className="mt-7 max-w-xl text-lg sm:text-xl leading-relaxed"
-                style={{ color: `${INK}B3` }}
-              >
-                We&apos;ve been fighting nature for more than 100 years. Maybe
-                it&apos;s time to work with it instead.
-              </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <PillLink to="/how-it-works">Discover how it works</PillLink>
-                <PillLink to="/solutions" variant="light">
-                  Find your solution
-                </PillLink>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          {/* Full-bleed comparison */}
-          <div className="relative mt-14 sm:mt-20">
-            <div className="grid lg:grid-cols-2">
-              <ScrollReveal variant="fadeRight" className="relative">
-                <div className="relative min-h-[420px] sm:min-h-[520px] overflow-hidden">
-                  <img
-                    src={oldWayImg}
-                    alt="Spray bottle of disinfectant on a bright bathroom counter"
-                    width={1200}
-                    height={912}
-                    className="absolute inset-0 h-full w-full object-cover grayscale"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/10" />
-                  <div className="relative flex h-full min-h-[420px] sm:min-h-[520px] flex-col justify-end p-8 sm:p-12 lg:p-16">
-                    <p
-                      className="text-[11px] font-semibold uppercase tracking-[0.28em]"
-                      style={{ color: `${INK}80` }}
-                    >
-                      The old way
-                    </p>
-                    <h2
-                      className="mt-4 max-w-sm text-3xl sm:text-[2.5rem] font-extrabold tracking-[-0.03em] leading-[1.03]"
-                      style={{ fontFamily: DISPLAY, color: INK }}
-                    >
-                      Kill the{" "}
-                      <em
-                        className="not-italic"
-                        style={{
-                          fontFamily: SERIF,
-                          fontStyle: "italic",
-                          fontWeight: 400,
-                        }}
-                      >
-                        germs
-                      </em>
-                    </h2>
-                    <p
-                      className="mt-4 max-w-md text-[15px] sm:text-base leading-relaxed"
-                      style={{ color: `${INK}B3` }}
-                    >
-                      Traditional disinfectants reduce microorganisms on treated
-                      surfaces, but their action represents a moment in time.
-                    </p>
-
-                  </div>
-                </div>
-              </ScrollReveal>
-
-              {/* VS divider (mobile/tablet) */}
+        {/* ───────────── HERO ───────────── */}
+        <section className="relative w-full overflow-hidden pt-16 sm:pt-20">
+          {/* Split imagery */}
+          <div className="grid grid-cols-2 w-full h-[42vh] min-h-[260px] max-h-[420px] sm:h-[52vh] sm:max-h-[520px] lg:h-[76vh] lg:min-h-[600px] lg:max-h-[760px]">
+            <div className="relative">
+              <img
+                src={roomWithout}
+                alt="Living room without EnviroBiotics, microbes returning to surfaces after cleaning"
+                className="absolute inset-0 h-full w-full object-cover"
+                width={1280}
+                height={1280}
+                fetchPriority="high"
+                decoding="async"
+              />
               <div
-                className="relative z-10 -my-7 flex justify-center lg:hidden"
                 aria-hidden="true"
-              >
-                <span
-                  className="grid h-14 w-14 place-items-center rounded-full text-[13px] font-semibold uppercase tracking-[0.12em] shadow-xl"
-                  style={{ backgroundColor: INK, color: "#FFFFFF" }}
-                >
-                  vs
-                </span>
-              </div>
-
-              <ScrollReveal variant="fadeLeft" className="relative">
-                <div className="relative min-h-[420px] sm:min-h-[520px] overflow-hidden">
-                  <img
-                    src={betterWayImg}
-                    alt="Bright modern living room with natural daylight"
-                    width={1200}
-                    height={912}
-                    className="absolute inset-0 h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                  <div
-                    className="absolute inset-0"
+                className="absolute inset-0"
+                style={{ background: "rgba(20,40,75,0.10)" }}
+              />
+              {/* microbe dots */}
+              <div aria-hidden="true" className="absolute inset-0">
+                {[
+                  [22, 30],
+                  [46, 18],
+                  [68, 38],
+                  [34, 58],
+                  [58, 70],
+                  [80, 60],
+                  [16, 74],
+                ].map(([l, t], i) => (
+                  <span
+                    key={i}
+                    className="absolute rounded-full"
                     style={{
-                      background:
-                        "linear-gradient(to top, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.05) 100%)",
+                      left: `${l}%`,
+                      top: `${t}%`,
+                      width: 10,
+                      height: 10,
+                      background: "rgba(20,40,75,0.55)",
+                      boxShadow: "0 0 0 6px rgba(20,40,75,0.12)",
                     }}
                   />
-                  <div aria-hidden="true" className="absolute inset-0">
-                    {[
-                      [12, 22, 0],
-                      [28, 62, 1.2],
-                      [46, 34, 2.4],
-                      [63, 71, 0.6],
-                      [78, 28, 3.1],
-                      [88, 58, 1.8],
-                      [36, 12, 2.9],
-                      [70, 46, 4.2],
-                    ].map(([l, t, d]) => (
-                      <span
-                        key={`${l}-${t}`}
-                        className="bb-particle absolute rounded-full"
-                        style={{
-                          left: `${l}%`,
-                          top: `${t}%`,
-                          width: 10,
-                          height: 10,
-                          animationDelay: `${d}s`,
-                          background:
-                            "radial-gradient(circle, rgba(46,139,127,0.55) 0%, rgba(46,139,127,0.06) 70%)",
-                          boxShadow: "0 0 12px rgba(46,139,127,0.25)",
-                        }}
-                      />
-                    ))}
-                  </div>
-                  <div className="relative flex h-full min-h-[420px] sm:min-h-[520px] flex-col justify-end p-8 sm:p-12 lg:p-16">
-                    <p
-                      className="text-[11px] font-semibold uppercase tracking-[0.28em]"
-                      style={{ color: SAGE }}
-                    >
-                      A different approach
-                    </p>
-                    <h2
-                      className="mt-4 max-w-md text-3xl sm:text-[2.5rem] font-extrabold tracking-[-0.03em] leading-[1.03]"
-                      style={{ fontFamily: DISPLAY, color: INK }}
-                    >
-                      Support a healthier indoor{" "}
-                      <em
-                        className="not-italic"
-                        style={{
-                          fontFamily: SERIF,
-                          fontStyle: "italic",
-                          fontWeight: 400,
-                        }}
-                      >
-                        microbiome
-                      </em>
-                    </h2>
-                    <p
-                      className="mt-4 max-w-md text-[15px] sm:text-base leading-relaxed"
-                      style={{ color: `${INK}B3` }}
-                    >
-                      EnviroBiotics continuously disperses carefully selected
-                      environmental probiotics designed to help maintain
-                      microbial balance on indoor surfaces.
-                    </p>
-                    <PillLink to="/how-it-works" className="mt-7">
-                      Discover how it works
-                    </PillLink>
-
-                  </div>
-                </div>
-              </ScrollReveal>
+                ))}
+              </div>
+              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:hidden">
+                <RoomLabel tone="dark">Without</RoomLabel>
+              </div>
+              <div className="absolute bottom-6 right-6 hidden lg:block">
+                <RoomLabel tone="dark">Without EnviroBiotics</RoomLabel>
+              </div>
             </div>
 
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 lg:block"
-            >
-              <span
-                className="grid h-20 w-20 place-items-center rounded-full text-base font-semibold uppercase tracking-[0.12em] shadow-2xl"
-                style={{ backgroundColor: INK, color: "#FFFFFF" }}
-              >
-                vs
-              </span>
+            <div className="relative">
+              <img
+                src={roomWith}
+                alt="The same living room with a translucent green probiotic layer covering the sofa, table and floor"
+                className="absolute inset-0 h-full w-full object-cover"
+                width={1280}
+                height={1280}
+                decoding="async"
+              />
+              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:top-auto lg:bottom-6 lg:left-6">
+                <RoomLabel tone="green">
+                  <span className="lg:hidden">With</span>
+                  <span className="hidden lg:inline">With EnviroBiotics</span>
+                </RoomLabel>
+              </div>
             </div>
           </div>
 
-          {/* Statement bar */}
-          <div style={{ backgroundColor: INK }}>
-            <div className="site-container py-7 sm:py-8">
-              <p
-                className="mx-auto max-w-3xl text-center text-lg sm:text-2xl leading-snug text-white"
-                style={{ fontFamily: SERIF, fontStyle: "italic" }}
+          {/* Desktop overlay copy */}
+          <div className="hidden lg:block pointer-events-none absolute inset-0">
+            <div
+              aria-hidden="true"
+              className="absolute inset-y-0 left-0 w-[52%]"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.72) 55%, rgba(255,255,255,0) 100%)",
+              }}
+            />
+            <div className="site-container relative h-full flex items-center">
+              <div className="max-w-[560px] pointer-events-auto">
+                <h1
+                  className="font-bold tracking-[-0.03em] leading-[0.95] text-[4.5rem] xl:text-[5.25rem]"
+                  style={{ color: NAVY }}
+                >
+                  BEYOND
+                  <br />
+                  <span style={{ color: GREEN }}>BLEACH</span>
+                </h1>
+                <p
+                  className="mt-6 text-[1.3rem] leading-[1.5] max-w-[27ch]"
+                  style={{ color: BODY }}
+                >
+                  Cleaning removes microbes today. EnviroBiotics helps support
+                  your environment{" "}
+                  <span style={{ color: GREEN, fontWeight: 600 }}>between</span>{" "}
+                  cleanings.
+                </p>
+                <div className="mt-9">
+                  <PrimaryCTA href="#how">See how it works</PrimaryCTA>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile / tablet copy on solid white */}
+          <div className="lg:hidden site-container py-10 sm:py-14 text-center">
+            <h1
+              className="font-bold tracking-[-0.03em] leading-[0.95] text-[3rem] sm:text-[4rem]"
+              style={{ color: NAVY }}
+            >
+              BEYOND
+              <br />
+              <span style={{ color: GREEN }}>BLEACH</span>
+            </h1>
+            <Body className="mt-5 mx-auto max-w-[34ch]">
+              Cleaning removes microbes today. EnviroBiotics helps support your
+              environment between cleanings.
+            </Body>
+            <div className="mt-8">
+              <a
+                href="#how"
+                className="flex w-full items-center justify-center gap-3 rounded-full font-semibold uppercase"
+                style={{
+                  background: GREEN,
+                  color: "#FFFFFF",
+                  fontSize: "0.95rem",
+                  letterSpacing: "0.08em",
+                  minHeight: 60,
+                }}
               >
-                Science is evolving. The way we care for our indoor environments
-                should evolve too.
-              </p>
+                See how it works
+                <ArrowRight className="h-5 w-5" />
+              </a>
             </div>
           </div>
         </section>
 
-        {/* LIMITATIONS */}
-        <section className="py-20 sm:py-28" style={{ backgroundColor: CREAM }}>
+        {/* ───────────── 2 · THE PROBLEM ───────────── */}
+        <section id="how" className="py-20 sm:py-28 lg:py-36">
           <div className="site-container">
-            <ScrollReveal variant="fadeUp" className="max-w-3xl">
-              <Eyebrow>The limitation</Eyebrow>
-              <Headline
-                lead="The hidden limitation of traditional"
-                italic="disinfectants"
-                className="mt-5 text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem]"
-              />
+            <ScrollReveal>
+              <div className="max-w-[760px]">
+                <Eyebrow>The reality</Eyebrow>
+                <H2 className="mt-5">Cleaning is a moment in time.</H2>
+                <Body className="mt-7 max-w-[52ch]">
+                  You clean. You disinfect. You leave.
+                </Body>
+                <Body className="mt-4 max-w-[52ch]">
+                  But your indoor environment keeps changing. Microorganisms,
+                  dust, moisture, people, pets and outdoor air continue to
+                  interact with the surfaces around you.
+                </Body>
+              </div>
             </ScrollReveal>
 
-            <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
-              {limitations.map(({ icon: Icon, title, body }, i) => (
-                <ScrollReveal
-                  key={title}
-                  variant="fadeUp"
-                  delay={i * 0.08}
-                  className={`group lg:px-8 ${i > 0 ? "lg:border-l lg:border-[#1B2A2A]/10" : "lg:pl-0"}`}
-                >
-                  <Icon
-                    className="h-6 w-6 transition-transform duration-300 group-hover:-translate-y-1"
-                    style={{ color: SAGE }}
-                  />
-                  <h3
-                    className="mt-6 text-xl font-extrabold tracking-[-0.02em]"
-                    style={{ fontFamily: DISPLAY, color: INK }}
-                  >
-                    {title}
-                  </h3>
-                  <p
-                    className="mt-3 text-[15px] leading-relaxed"
-                    style={{ color: `${INK}A6` }}
-                  >
-                    {body}
-                  </p>
+            <ScrollReveal delay={100}>
+              <div className="mt-14 sm:mt-20 grid gap-8 sm:gap-6 sm:grid-cols-3 max-w-[980px]">
+                {[
+                  { icon: SprayCan, label: "You clean" },
+                  { icon: Bug, label: "Microbes return" },
+                  { icon: Layers, label: "Build-up begins" },
+                ].map(({ icon: Icon, label }, i) => (
+                  <div key={label} className="flex items-center gap-5 sm:block">
+                    <div
+                      className="flex h-20 w-20 sm:h-24 sm:w-24 shrink-0 items-center justify-center rounded-full"
+                      style={{ background: GREEN_SOFT }}
+                    >
+                      <Icon
+                        className="h-9 w-9 sm:h-10 sm:w-10"
+                        style={{ color: GREEN }}
+                        strokeWidth={1.4}
+                      />
+                    </div>
+                    <p
+                      className="sm:mt-6 text-[1.05rem] sm:text-[1.15rem] font-semibold uppercase"
+                      style={{ letterSpacing: "0.08em", color: NAVY }}
+                    >
+                      {label}
+                    </p>
+                    {i < 2 && (
+                      <span
+                        aria-hidden="true"
+                        className="hidden sm:block mt-4 h-px w-16"
+                        style={{ background: "rgba(20,40,75,0.10)" }}
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* ───────────── 3 · THE DIFFERENCE ───────────── */}
+        <section style={{ background: GREEN_SOFT }} className="py-20 sm:py-28 lg:py-32">
+          <div className="site-container">
+            <ScrollReveal>
+              <H2 className="max-w-[16ch]">
+                Protection that continues between cleanings.
+              </H2>
+            </ScrollReveal>
+
+            <ScrollReveal delay={80}>
+              <div className="mt-10 sm:mt-14 overflow-hidden rounded-[24px]">
+                <img
+                  src={layerWide}
+                  alt="Bright living room where a translucent green probiotic layer coats the sofa, table and floor"
+                  className="w-full h-[280px] sm:h-[420px] lg:h-[560px] object-cover"
+                  width={1600}
+                  height={1104}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={120}>
+              <Body className="mt-10 max-w-[62ch]">
+                EnviroBiotics continuously introduces beneficial environmental
+                probiotics that settle on indoor surfaces and help support
+                microbial balance.
+              </Body>
+            </ScrollReveal>
+
+            <div className="mt-14 grid gap-10 sm:gap-8 md:grid-cols-3">
+              {[
+                {
+                  icon: Sofa,
+                  title: "Covers surfaces",
+                  copy: "Beneficial probiotics spread throughout the indoor environment.",
+                },
+                {
+                  icon: Leaf,
+                  title: "Competes naturally",
+                  copy: "They compete for available space and nutrients.",
+                },
+                {
+                  icon: Clock,
+                  title: "Works continuously",
+                  copy: "The probiotic environment is continually supported between regular cleanings.",
+                },
+              ].map(({ icon: Icon, title, copy }, i) => (
+                <ScrollReveal key={title} delay={140 + i * 80}>
+                  <div>
+                    <Icon
+                      className="h-11 w-11"
+                      style={{ color: GREEN }}
+                      strokeWidth={1.3}
+                    />
+                    <h3
+                      className="mt-6 text-[1.15rem] font-semibold uppercase"
+                      style={{ letterSpacing: "0.1em", color: NAVY }}
+                    >
+                      {title}
+                    </h3>
+                    <Body className="mt-3 max-w-[34ch]">{copy}</Body>
+                  </div>
                 </ScrollReveal>
               ))}
             </div>
           </div>
         </section>
 
-        {/* NATURE DOESN'T STAY EMPTY */}
-        <section className="pb-20 sm:pb-28" style={{ backgroundColor: CREAM }}>
+        {/* ───────────── 4 · SIMPLE COMPARISON ───────────── */}
+        <section className="py-20 sm:py-28 lg:py-32">
           <div className="site-container">
-            <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
-              <ScrollReveal variant="fadeRight">
-                <Eyebrow>Nature</Eyebrow>
-                <Headline
-                  lead="Nature doesn't stay"
-                  italic="empty"
-                  className="mt-5 text-[2rem] sm:text-[2.75rem]"
-                />
-                <p
-                  className="mt-6 text-[17px] leading-relaxed"
-                  style={{ color: `${INK}B3` }}
-                >
-                  When microorganisms are removed from a surface, new
-                  microorganisms begin arriving almost immediately.
-                </p>
-                <p
-                  className="mt-8 text-2xl sm:text-3xl leading-snug"
-                  style={{ fontFamily: SERIF, fontStyle: "italic", color: INK }}
-                >
-                  The question isn&apos;t whether microbes will return. It&apos;s
-                  which microbes return first.
-                </p>
-                <div
-                  className="mt-8 pt-8"
-                  style={{ borderTop: `1px solid ${INK}1A` }}
-                >
-                  <p
-                    className="text-[15px] leading-relaxed"
-                    style={{ color: `${INK}A6` }}
-                  >
-                    Microbiome research is increasingly exploring whether stable
-                    communities of beneficial microorganisms can help create
-                    environments that are less favorable for the persistence of
-                    certain unwanted microbes. This is an active area of
-                    scientific research and approaches vary depending on the
-                    application.
-                  </p>
-                </div>
-              </ScrollReveal>
+            <ScrollReveal>
+              <H2 className="max-w-[18ch]">
+                The difference is what happens between cleanings.
+              </H2>
+            </ScrollReveal>
 
-              <ScrollReveal variant="scale">
-                <div className="overflow-hidden rounded-[2rem]">
-                  <img
-                    src={splitMicroImg}
-                    alt="Microscopic visualization comparing a less balanced microbial surface with one populated by beneficial microorganisms"
-                    width={1024}
-                    height={1024}
-                    loading="lazy"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* PHILOSOPHY */}
-        <section className="py-20 sm:py-28" style={{ backgroundColor: SAGE_SOFT }}>
-          <div className="site-container">
-            <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-              <ScrollReveal variant="fadeRight">
-                <Eyebrow>Philosophy</Eyebrow>
-                <Headline
-                  lead="A different"
-                  italic="philosophy"
-                  className="mt-5 text-[2rem] sm:text-[2.75rem]"
-                />
+            {/* Row 1 */}
+            <ScrollReveal delay={80}>
+              <div
+                className="mt-12 rounded-[22px] p-7 sm:p-9"
+                style={{ background: "#F4F6F9" }}
+              >
                 <p
-                  className="mt-6 text-[17px] leading-relaxed"
-                  style={{ color: `${INK}B3` }}
+                  className="text-[1.05rem] font-semibold uppercase"
+                  style={{ letterSpacing: "0.14em", color: NAVY }}
                 >
-                  EnviroBiotics isn&apos;t built around the idea of repeatedly
-                  sterilizing your environment. It&apos;s built around helping
-                  your indoor environment function more like nature.
+                  Traditional cleaning
                 </p>
-              </ScrollReveal>
-
-              <ScrollReveal variant="fadeLeft">
-                <ul>
-                  {philosophyPoints.map((p, i) => (
-                    <li
-                      key={p}
-                      className="flex gap-4 py-5"
-                      style={
-                        i > 0 ? { borderTop: `1px solid ${INK}14` } : undefined
-                      }
-                    >
-                      <Check
-                        className="mt-1 h-4 w-4 shrink-0"
-                        style={{ color: SAGE }}
-                      />
-                      <span
-                        className="text-[16px] leading-relaxed"
-                        style={{ color: INK }}
+                <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-5">
+                  {["Clean", "Disinfect", "Leave", "Microbes return"].map(
+                    (step, i) => (
+                      <div
+                        key={step}
+                        className="flex items-center gap-4 lg:gap-5"
                       >
-                        {p}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* BETWEEN CLEANINGS */}
-        <section className="py-20 sm:py-28" style={{ backgroundColor: CREAM }}>
-          <div className="site-container">
-            <ScrollReveal variant="fadeUp" className="max-w-3xl">
-              <Eyebrow>The difference</Eyebrow>
-              <Headline
-                lead="The difference is what happens between"
-                italic="cleanings"
-                className="mt-5 text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem]"
-              />
-            </ScrollReveal>
-
-            <div className="mt-12 space-y-6">
-              <ScrollReveal variant="fadeUp">
-                <ProcessRow
-                  label="Traditional cleaning"
-                  labelColor={INK}
-                  steps={traditionalSteps}
-                  note="Microorganisms return. The cycle starts again."
-                />
-              </ScrollReveal>
-              <ScrollReveal variant="fadeUp" delay={0.1}>
-                <ProcessRow
-                  label="EnviroBiotics approach"
-                  labelColor={SAGE}
-                  steps={enviroSteps}
-                  note="Designed to help support microbial balance between cleanings."
-                  continuous
-                />
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* NOT REPLACING CLEANING + HUMAN MICROBIOME */}
-        <section className="pb-20 sm:pb-28" style={{ backgroundColor: CREAM }}>
-          <div className="site-container grid gap-16 lg:grid-cols-2 lg:gap-20">
-            <ScrollReveal variant="fadeRight">
-              <Eyebrow>Context</Eyebrow>
-              <Headline
-                lead="This isn't about replacing"
-                italic="cleaning"
-                className="mt-5 text-[1.85rem] sm:text-[2.4rem]"
-              />
-              <p
-                className="mt-6 text-[16px] leading-relaxed"
-                style={{ color: `${INK}B3` }}
-              >
-                Routine cleaning remains important. When disinfection is needed,
-                for example in response to a known contamination event or in
-                high-risk healthcare situations, it remains an essential
-                infection-control tool.
-              </p>
-              <div
-                className="mt-8 flex gap-4 pt-8"
-                style={{ borderTop: `1px solid ${INK}1A` }}
-              >
-                <HelpCircle
-                  className="mt-1 h-5 w-5 shrink-0"
-                  style={{ color: SAGE }}
-                />
-                <div>
-                  <p
-                    className="text-2xl leading-snug"
-                    style={{
-                      fontFamily: SERIF,
-                      fontStyle: "italic",
-                      color: INK,
-                    }}
-                  >
-                    What happens between cleanings?
-                  </p>
-                  <p
-                    className="mt-2 text-[15px] leading-relaxed"
-                    style={{ color: `${INK}A6` }}
-                  >
-                    That is where continuous environmental microbiome management
-                    offers a different approach.
-                  </p>
+                        <span
+                          className="rounded-full px-5 py-3 text-[0.95rem] sm:text-[1.05rem] font-medium bg-white"
+                          style={{ color: NAVY }}
+                        >
+                          {step}
+                        </span>
+                        {i < 3 && (
+                          <ArrowRight
+                            className="h-5 w-5 shrink-0"
+                            style={{ color: "rgba(20,40,75,0.4)" }}
+                          />
+                        )}
+                      </div>
+                    )
+                  )}
                 </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal variant="fadeLeft">
-              <div className="overflow-hidden rounded-[2rem]">
-                <img
-                  src={indoorMicrobiomeImg}
-                  alt="Modern living room with subtle visualization of beneficial environmental probiotics"
-                  width={1024}
-                  height={1024}
-                  loading="lazy"
-                  className="aspect-[4/3] h-full w-full object-cover"
-                />
-              </div>
-              <Headline
-                lead="From the human microbiome to the indoor"
-                italic="microbiome"
-                className="mt-10 text-[1.85rem] sm:text-[2.4rem]"
-              />
-              <p
-                className="mt-6 text-[16px] leading-relaxed"
-                style={{ color: `${INK}B3` }}
-              >
-                We now understand that the human body is home to trillions of
-                microorganisms that play important roles in digestion, immunity,
-                metabolism, and other biological processes.
-              </p>
-              <p
-                className="mt-6 text-2xl leading-snug"
-                style={{ fontFamily: SERIF, fontStyle: "italic", color: SAGE }}
-              >
-                Health is about balance, not elimination.
-              </p>
-              <p
-                className="mt-6 text-[16px] leading-relaxed"
-                style={{ color: `${INK}B3` }}
-              >
-                The environments where we spend our lives are also living
-                microbial ecosystems. EnviroBiotics is designed with that reality
-                in mind.
-              </p>
-            </ScrollReveal>
-          </div>
-        </section>
-
-        {/* CONVERSION */}
-        <section className="py-20 sm:py-28" style={{ backgroundColor: INK }}>
-          <div className="site-container grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-20">
-            <ScrollReveal variant="fadeUp">
-              <Eyebrow light>The next generation</Eyebrow>
-              <Headline
-                lead="Welcome to the next generation of indoor environmental"
-                italic="health"
-                color="#FFFFFF"
-                className="mt-5 text-[2rem] sm:text-[2.75rem]"
-              />
-              <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-white/65">
-                For more than a century, we focused primarily on eliminating
-                microorganisms. Today, our understanding of microbial ecosystems
-                is evolving, both within the human body and in the environments
-                around us.
-              </p>
-
-              <div className="mt-12 grid gap-8 sm:grid-cols-3">
-                {principles.map(({ icon: Icon, top, bottom }, i) => (
-                  <div
-                    key={top}
-                    className="group sm:pl-6"
-                    style={
-                      i > 0
-                        ? { borderLeft: "1px solid rgba(255,255,255,0.12)" }
-                        : undefined
-                    }
-                  >
-                    <Icon
-                      className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1"
-                      style={{ color: SAGE_LIGHT }}
-                    />
-                    <p className="mt-4 text-sm text-white/55">{top}</p>
-                    <p
-                      className="mt-1 text-lg leading-snug"
-                      style={{ fontFamily: SERIF, fontStyle: "italic", color: "#FFFFFF" }}
-                    >
-                      {bottom}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal
-              variant="fadeLeft"
-              className="lg:border-l lg:border-white/10 lg:pl-16"
-            >
-              <h2
-                className="text-4xl sm:text-5xl font-extrabold tracking-[-0.03em] text-white"
-                style={{ fontFamily: DISPLAY }}
-              >
-                Go beyond{" "}
-                <em
-                  className="not-italic"
-                  style={{ fontFamily: SERIF, fontStyle: "italic", fontWeight: 400 }}
-                >
-                  bleach
-                </em>
-              </h2>
-              <p className="mt-5 max-w-md text-[16px] leading-relaxed text-white/65">
-                Discover a smarter way to manage the environment around you.
-              </p>
-              <PillLink to="/solutions" variant="light" className="mt-9">
-                Find the right solution
-              </PillLink>
-            </ScrollReveal>
-          </div>
-        </section>
-
-        {/* APPLICATIONS */}
-        <section className="py-16 sm:py-20" style={{ backgroundColor: CREAM }}>
-          <div className="site-container">
-            <ScrollReveal variant="fadeUp">
-              <p
-                className="text-center text-[11px] font-semibold uppercase tracking-[0.28em]"
-                style={{ color: `${INK}80` }}
-              >
-                Designed for the spaces where you spend your life
-              </p>
-              <div className="mt-10 grid grid-cols-3 gap-8 sm:grid-cols-6">
-                {applications.map(({ icon: Icon, label }) => (
-                  <div key={label} className="group text-center">
-                    <Icon
-                      className="mx-auto h-6 w-6 transition-transform duration-300 group-hover:-translate-y-1"
-                      style={{ color: INK }}
-                    />
-                    <p
-                      className="mt-3 text-[11px] font-semibold tracking-[0.06em]"
-                      style={{ color: `${INK}99` }}
-                    >
-                      {label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              <div
-                className="mt-14 pt-10 text-center"
-                style={{ borderTop: `1px solid ${INK}1A` }}
-              >
                 <p
-                  className="text-3xl leading-none"
-                  style={{ fontFamily: SERIF, fontStyle: "italic", color: INK }}
+                  className="mt-7 flex items-center gap-2 text-[0.95rem] font-semibold uppercase"
+                  style={{ letterSpacing: "0.12em", color: "rgba(20,40,75,0.6)" }}
                 >
-                  Continuous. Natural. Proactive.
+                  <Repeat className="h-4 w-4" />
+                  The cycle starts again
                 </p>
               </div>
             </ScrollReveal>
+
+            {/* Row 2 */}
+            <ScrollReveal delay={140}>
+              <div
+                className="mt-6 rounded-[22px] p-7 sm:p-9"
+                style={{ background: GREEN }}
+              >
+                <p
+                  className="text-[1.05rem] font-semibold uppercase text-white"
+                  style={{ letterSpacing: "0.14em" }}
+                >
+                  EnviroBiotics
+                </p>
+                <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-5">
+                  {[
+                    "Clean",
+                    "Introduce environmental probiotics",
+                    "Continuous environmental support",
+                  ].map((step, i) => (
+                    <div key={step} className="flex items-center gap-4 lg:gap-5">
+                      <span
+                        className="rounded-full px-5 py-3 text-[0.95rem] sm:text-[1.05rem] font-medium"
+                        style={{
+                          background: "rgba(255,255,255,0.16)",
+                          color: "#FFFFFF",
+                        }}
+                      >
+                        {step}
+                      </span>
+                      {i < 2 && (
+                        <ArrowRight
+                          className="h-5 w-5 shrink-0"
+                          style={{ color: "rgba(255,255,255,0.7)" }}
+                        />
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <p
+                  className="mt-7 flex items-center gap-2 text-[0.95rem] font-semibold uppercase"
+                  style={{ letterSpacing: "0.12em", color: "rgba(255,255,255,0.9)" }}
+                >
+                  <ShieldCheck className="h-4 w-4" />
+                  Works between cleanings
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* ───────────── 5 · FINAL CTA ───────────── */}
+        <section className="relative overflow-hidden" style={{ background: NAVY }}>
+          <img
+            src={ctaRoom}
+            alt="Modern home interior with a soft green protective layer across the floor and furniture"
+            className="absolute inset-0 h-full w-full object-cover"
+            width={1600}
+            height={912}
+            loading="lazy"
+            decoding="async"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(20,40,75,0.96) 0%, rgba(20,40,75,0.9) 45%, rgba(20,40,75,0.55) 100%)",
+            }}
+          />
+          <div className="site-container relative py-20 sm:py-28 lg:py-36">
+            <div className="max-w-[720px]">
+              <h2
+                className="font-bold tracking-[-0.02em] leading-[1.08] text-[2rem] sm:text-[2.8rem] lg:text-[3.5rem] text-white"
+              >
+                Your indoor environment never stops changing.
+                <br />
+                <span style={{ color: "#7BD3A0" }}>
+                  Why should your protection?
+                </span>
+              </h2>
+              <p
+                className="mt-6 text-[1.0625rem] sm:text-[1.25rem] leading-[1.6] max-w-[46ch]"
+                style={{ color: "rgba(255,255,255,0.85)" }}
+              >
+                Discover continuous environmental probiotics for your home.
+              </p>
+              <div className="mt-10">
+                <PrimaryCTA href={SHOP} full>
+                  Find the right EnviroBiotics system
+                </PrimaryCTA>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ───────────── TRUST STRIP ───────────── */}
+        <section className="py-16 sm:py-20">
+          <div className="site-container grid gap-10 sm:gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Leaf,
+                title: "Natural",
+                copy: "Designed for everyday indoor environments.",
+              },
+              {
+                icon: Clock,
+                title: "Continuous",
+                copy: "Works between regular cleanings.",
+              },
+              {
+                icon: Sofa,
+                title: "Surface-focused",
+                copy: "Supports the spaces and objects around you.",
+              },
+              {
+                icon: Home,
+                title: "For the spaces where you live",
+                copy: "Home, office, school, hospitality and more.",
+              },
+            ].map(({ icon: Icon, title, copy }) => (
+              <div key={title} className="flex items-start gap-4">
+                <Icon
+                  className="h-8 w-8 shrink-0"
+                  style={{ color: GREEN }}
+                  strokeWidth={1.4}
+                />
+                <div className="min-w-0">
+                  <h3
+                    className="text-[0.95rem] font-semibold uppercase"
+                    style={{ letterSpacing: "0.1em", color: NAVY }}
+                  >
+                    {title}
+                  </h3>
+                  <p
+                    className="mt-2 text-[1rem] leading-[1.55]"
+                    style={{ color: BODY }}
+                  >
+                    {copy}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ───────────── APPLICATIONS ───────────── */}
+        <section
+          className="py-14 sm:py-16 border-t"
+          style={{ borderColor: "rgba(20,40,75,0.1)" }}
+        >
+          <div className="site-container text-center">
+            <p
+              className="text-[0.8rem] sm:text-[0.9rem] font-semibold uppercase"
+              style={{ letterSpacing: "0.18em", color: NAVY }}
+            >
+              Designed for the spaces where you spend your life
+            </p>
+            <div className="mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
+              {[
+                { icon: Home, label: "Home" },
+                { icon: Building2, label: "Offices" },
+                { icon: GraduationCap, label: "Schools" },
+                { icon: BedDouble, label: "Hospitality" },
+                { icon: HeartPulse, label: "Healthcare" },
+                { icon: Store, label: "Commercial spaces" },
+              ].map(({ icon: Icon, label }) => (
+                <div key={label} className="flex flex-col items-center gap-3">
+                  <Icon
+                    className="h-8 w-8"
+                    style={{ color: GREEN }}
+                    strokeWidth={1.3}
+                  />
+                  <span
+                    className="text-[0.8rem] font-medium uppercase"
+                    style={{ letterSpacing: "0.1em", color: NAVY }}
+                  >
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12">
+              <Link
+                to="/solutions"
+                className="inline-flex items-center gap-2 text-[0.95rem] font-semibold uppercase"
+                style={{ letterSpacing: "0.1em", color: GREEN }}
+              >
+                Explore all systems
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </section>
       </main>
