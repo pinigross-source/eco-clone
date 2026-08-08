@@ -182,7 +182,7 @@ const BeyondBleachPage = () => {
               {/* white wash behind headline */}
               <div
                 aria-hidden
-                className="absolute inset-y-0 left-0 w-[62%]"
+                className="absolute inset-y-0 left-0 hidden w-[62%] lg:block"
                 style={{
                   background:
                     "linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.78) 48%, rgba(255,255,255,0) 100%)",
