@@ -63,6 +63,7 @@ import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as BusinessRouteImport } from './routes/business'
 import { Route as BobbyRouteImport } from './routes/bobby'
+import { Route as BeyondBleachRouteImport } from './routes/beyond-bleach'
 import { Route as BetterairRebrandRouteImport } from './routes/betterair-rebrand'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AllergyRouteImport } from './routes/allergy'
@@ -365,6 +366,11 @@ const BobbyRoute = BobbyRouteImport.update({
   path: '/bobby',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BeyondBleachRoute = BeyondBleachRouteImport.update({
+  id: '/beyond-bleach',
+  path: '/beyond-bleach',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BetterairRebrandRoute = BetterairRebrandRouteImport.update({
   id: '/betterair-rebrand',
   path: '/betterair-rebrand',
@@ -532,6 +538,7 @@ export interface FileRoutesByFullPath {
   '/allergy': typeof AllergyRoute
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
+  '/beyond-bleach': typeof BeyondBleachRoute
   '/bobby': typeof BobbyRoute
   '/business': typeof BusinessRoute
   '/cart': typeof CartRoute
@@ -618,6 +625,7 @@ export interface FileRoutesByTo {
   '/allergy': typeof AllergyRoute
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
+  '/beyond-bleach': typeof BeyondBleachRoute
   '/bobby': typeof BobbyRoute
   '/business': typeof BusinessRoute
   '/cart': typeof CartRoute
@@ -705,6 +713,7 @@ export interface FileRoutesById {
   '/allergy': typeof AllergyRoute
   '/auth': typeof AuthRoute
   '/betterair-rebrand': typeof BetterairRebrandRoute
+  '/beyond-bleach': typeof BeyondBleachRoute
   '/bobby': typeof BobbyRoute
   '/business': typeof BusinessRoute
   '/cart': typeof CartRoute
@@ -793,6 +802,7 @@ export interface FileRouteTypes {
     | '/allergy'
     | '/auth'
     | '/betterair-rebrand'
+    | '/beyond-bleach'
     | '/bobby'
     | '/business'
     | '/cart'
@@ -879,6 +889,7 @@ export interface FileRouteTypes {
     | '/allergy'
     | '/auth'
     | '/betterair-rebrand'
+    | '/beyond-bleach'
     | '/bobby'
     | '/business'
     | '/cart'
@@ -965,6 +976,7 @@ export interface FileRouteTypes {
     | '/allergy'
     | '/auth'
     | '/betterair-rebrand'
+    | '/beyond-bleach'
     | '/bobby'
     | '/business'
     | '/cart'
@@ -1052,6 +1064,7 @@ export interface RootRouteChildren {
   AllergyRoute: typeof AllergyRoute
   AuthRoute: typeof AuthRoute
   BetterairRebrandRoute: typeof BetterairRebrandRoute
+  BeyondBleachRoute: typeof BeyondBleachRoute
   BobbyRoute: typeof BobbyRoute
   BusinessRoute: typeof BusinessRoute
   CartRoute: typeof CartRoute
@@ -1504,6 +1517,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BobbyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/beyond-bleach': {
+      id: '/beyond-bleach'
+      path: '/beyond-bleach'
+      fullPath: '/beyond-bleach'
+      preLoaderRoute: typeof BeyondBleachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/betterair-rebrand': {
       id: '/betterair-rebrand'
       path: '/betterair-rebrand'
@@ -1764,6 +1784,7 @@ const rootRouteChildren: RootRouteChildren = {
   AllergyRoute: AllergyRoute,
   AuthRoute: AuthRoute,
   BetterairRebrandRoute: BetterairRebrandRoute,
+  BeyondBleachRoute: BeyondBleachRoute,
   BobbyRoute: BobbyRoute,
   BusinessRoute: BusinessRoute,
   CartRoute: CartRoute,
