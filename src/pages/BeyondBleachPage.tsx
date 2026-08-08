@@ -32,9 +32,10 @@ import betterWayImg from "@/assets/bb-better-way.jpg";
 import splitMicroImg from "@/assets/bb-split-micro.jpg";
 import indoorMicrobiomeImg from "@/assets/bb-indoor-microbiome.jpg";
 
-const NAVY = "#0B274D";
-const GREEN = "#4D8D2A";
-const CTA_GREEN = "#75B83B";
+// Site brand palette (see src/styles.css tokens: --color-ink, --color-sage, --color-cream)
+const NAVY = "#1B2A2A"; // ink
+const GREEN = "#2E8B7F"; // sage
+const CTA_GREEN = "#3FA593"; // sage light (for dark backgrounds)
 
 const limitations = [
   {
@@ -103,7 +104,7 @@ const applications = [
 const Arrow = ({ className = "" }: { className?: string }) => (
   <span
     aria-hidden="true"
-    className={`bb-arrow inline-flex items-center justify-center text-[#75B83B] ${className}`}
+    className={`bb-arrow inline-flex items-center justify-center text-[#3FA593] ${className}`}
   >
     <ArrowRight className="h-5 w-5" />
   </span>
@@ -275,7 +276,7 @@ const BeyondBleachPage = () => {
                     className="absolute inset-0 h-full w-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B274D]/85 via-[#0B274D]/35 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1B2A2A]/85 via-[#1B2A2A]/35 to-transparent" />
                   {/* probiotic particles */}
                   <div aria-hidden="true" className="absolute inset-0">
                     {[
@@ -379,7 +380,7 @@ const BeyondBleachPage = () => {
                 >
                   <span
                     className="mx-auto grid h-16 w-16 place-items-center rounded-full border transition-transform duration-300 group-hover:-translate-y-1"
-                    style={{ borderColor: `${GREEN}44`, color: GREEN, backgroundColor: "#F5FAEF" }}
+                    style={{ borderColor: `${GREEN}44`, color: GREEN, backgroundColor: "#E6EFEC" }}
                   >
                     <Icon className="h-7 w-7" />
                   </span>
