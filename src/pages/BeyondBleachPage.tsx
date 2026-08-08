@@ -508,12 +508,7 @@ const BeyondBleachPage = () => {
                   key={title}
                   variant="fadeUp"
                   delay={i * 0.08}
-                  className="group lg:px-8 lg:first:pl-0"
-                  style={
-                    i > 0
-                      ? { borderLeft: `1px solid ${INK}1A` }
-                      : undefined
-                  }
+                  className={`group lg:px-8 ${i > 0 ? "lg:border-l lg:border-[#1B2A2A]/10" : "lg:pl-0"}`}
                 >
                   <Icon
                     className="h-6 w-6 transition-transform duration-300 group-hover:-translate-y-1"
@@ -817,8 +812,7 @@ const BeyondBleachPage = () => {
 
             <ScrollReveal
               variant="fadeLeft"
-              className="lg:pl-16"
-              style={{ borderLeft: "1px solid rgba(255,255,255,0.12)" }}
+              className="lg:border-l lg:border-white/10 lg:pl-16"
             >
               <h2
                 className="text-4xl sm:text-5xl font-extrabold tracking-[-0.03em] text-white"
