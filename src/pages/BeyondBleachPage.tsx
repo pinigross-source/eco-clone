@@ -285,6 +285,7 @@ const BeyondBleachPage = () => {
         .bb-focus:focus-visible { outline: 3px solid ${ORANGE}; outline-offset: 3px; }
         .bb-page :focus-visible { outline: 3px solid ${ORANGE}; outline-offset: 3px; }
         .bb-head { font-family: ${FONT_HEAD}; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.06; }
+        .bb-page > header { top: 36px !important; }
         @media (prefers-reduced-motion: reduce) {
           .bb-page *, .bb-page *::before, .bb-page *::after {
             animation-duration: 0.001ms !important;
