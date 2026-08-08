@@ -147,6 +147,7 @@ const MICROBES = [
 ];
 
 const BeyondBleachPage = () => {
+  const [videoOpen, setVideoOpen] = useState(false);
   return (
     <div style={{ fontFamily: FONT, background: "#FFFFFF" }}>
       <Navbar />
@@ -171,12 +172,44 @@ const BeyondBleachPage = () => {
               Cleaning removes microbes today. EnviroBiotics helps support your environment{" "}
               <span style={{ color: GREEN, fontWeight: 700 }}>between</span> cleanings.
             </p>
-            <div className="mt-6 flex justify-center lg:mt-7">
+            <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:mt-7">
               <PrimaryCTA href={SHOP} className="w-full sm:w-auto">
-                See how it works
+                Shop EnviroBiotics
               </PrimaryCTA>
+              <button
+                type="button"
+                onClick={() => setVideoOpen(true)}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border font-semibold uppercase transition-all duration-300 hover:-translate-y-0.5 hover:bg-foreground/5 sm:w-auto"
+                style={{
+                  borderColor: "rgba(20,40,75,0.25)",
+                  color: NAVY,
+                  fontSize: "0.95rem",
+                  letterSpacing: "0.04em",
+                  padding: "1rem 2rem",
+                  minHeight: 58,
+                }}
+              >
+                <Play className="h-5 w-5" />
+                See how it works
+              </button>
             </div>
           </div>
+
+          <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
+            <DialogContent className="max-w-4xl w-[95vw] p-0 bg-black border-none rounded-2xl overflow-hidden [&>button]:text-white [&>button]:hover:text-white/80">
+              <div className="aspect-video w-full">
+                {videoOpen && (
+                  <iframe
+                    src="https://player.vimeo.com/video/1041721190?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1"
+                    title="How EnviroBiotics Works"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                )}
+              </div>
+            </DialogContent>
+          </Dialog>
 
           {/* Split image pair */}
           <div className="relative grid h-[340px] grid-cols-2 sm:h-[420px] lg:h-[540px] xl:h-[600px]">
