@@ -170,7 +170,7 @@ const BeyondBleachPage = () => {
               <span style={{ color: GREEN, fontWeight: 700 }}>between</span> cleanings.
             </p>
             <div className="mt-6 flex justify-center lg:mt-7">
-              <PrimaryCTA href="#how" className="w-full sm:w-auto">
+              <PrimaryCTA href={SHOP} className="w-full sm:w-auto">
                 See how it works
               </PrimaryCTA>
             </div>
