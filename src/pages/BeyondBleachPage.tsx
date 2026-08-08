@@ -202,7 +202,7 @@ const BeyondBleachPage = () => {
 
       <main id="main-content">
         {/* HERO */}
-        <section className="relative overflow-hidden bg-white pt-10 sm:pt-14 lg:pt-20">
+        <section className="relative overflow-hidden bg-white pt-24 sm:pt-28 lg:pt-32">
           <div className="site-container">
             <ScrollReveal variant="fadeUp" className="text-center">
               <h1
