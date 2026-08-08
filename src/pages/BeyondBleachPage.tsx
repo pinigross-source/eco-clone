@@ -214,7 +214,7 @@ const IconStat = ({
 /* Deletable in one line: remove <MockupBanner /> below */
 const MockupBanner = () => (
   <div
-    className="sticky top-0 z-[100] w-full px-4 py-2 text-center text-[15px]"
+    className="fixed top-0 left-0 right-0 z-[10000] flex h-9 w-full items-center justify-center px-4 text-center text-[15px]"
     style={{ background: "#0A0A0A", color: "#E6E9EC" }}
   >
     MOCKUP — dotted values are placeholders. Replace before launch.
