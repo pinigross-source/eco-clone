@@ -581,7 +581,7 @@ const BeyondBleachPage = () => {
 
               <div className="relative order-1 min-h-[320px] sm:min-h-[420px] lg:order-2 lg:min-h-[640px]">
                 <img
-                  src={bioticaPhoto}
+                  src={bioticaLifestyleUrl}
                   alt="The Biotica 800 environmental probiotic device"
                   className="absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
