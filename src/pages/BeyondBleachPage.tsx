@@ -873,10 +873,10 @@ const BeyondBleachPage = () => {
                 ].map((d) => (
                   <article
                     key={d.name}
-                    className="overflow-hidden rounded-2xl bg-white"
+                    className="flex h-full flex-col overflow-hidden rounded-2xl bg-white"
                     style={{ border: `1px solid ${LINE}` }}
                   >
-                    <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-t-2xl bg-[#F5F5F3]">
+                    <div className="relative flex aspect-[4/3] w-full shrink-0 items-center justify-center overflow-hidden rounded-t-2xl bg-[#F5F5F3]">
                       <img
                         src={d.photo}
                         alt={d.alt}
@@ -890,7 +890,7 @@ const BeyondBleachPage = () => {
                         {d.pill}
                       </span>
                     </div>
-                    <div className="flex h-full flex-col p-6 sm:p-8">
+                    <div className="flex flex-1 flex-col p-6 sm:p-8">
                       <h3
                         className="bb-head text-[1.5rem]"
                         style={{ color: NAVY, textTransform: "none", letterSpacing: "-0.01em" }}
