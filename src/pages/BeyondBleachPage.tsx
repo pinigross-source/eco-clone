@@ -371,9 +371,10 @@ const BeyondBleachPage = () => {
 
               <p className="mt-5 text-[15px] leading-[1.6]" style={{ color: GREY }}>
                 <span aria-hidden style={{ color: ORANGE }}>
-                  ★★★★☆
+                  ★★★★★
                 </span>{" "}
-                <T>{"[[4.6]] · [[1,200]] reviews · 30-day money-back guarantee · No subscription required"}</T>
+                <T>{"5.0 · 22 reviews · 30-day money-back guarantee · No subscription required"}</T>
+
               </p>
             </div>
 
