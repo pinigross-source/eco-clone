@@ -890,7 +890,7 @@ const BeyondBleachPage = () => {
                         {d.pill}
                       </span>
                     </div>
-                    <div className="p-6 sm:p-8">
+                    <div className="flex h-full flex-col p-6 sm:p-8">
                       <h3
                         className="bb-head text-[1.5rem]"
                         style={{ color: NAVY, textTransform: "none", letterSpacing: "-0.01em" }}
@@ -898,7 +898,7 @@ const BeyondBleachPage = () => {
                         {d.name}, <T>{d.price}</T>
                       </h3>
 
-                      <p className="mt-3 text-[18px] leading-[1.6]" style={{ color: BODY }}>
+                      <p className="mt-3 flex-1 text-[18px] leading-[1.6]" style={{ color: BODY }}>
                         {d.body}
                       </p>
                       <div className="mt-6">
