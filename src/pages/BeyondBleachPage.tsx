@@ -255,8 +255,8 @@ const TABLE_ROWS: [string, string, string][] = [
 // Real verified reviews from the EnviroBiotics Shopify store (Judge.me).
 const REVIEWS: [string, string][] = [
   [
-    "My son suffers from severe allergies, waking up at night with a stuffy nose and congestion. We tried everything with no success until we read about the EnviroBiotics Biotica 800 and decided to try it. We were amazed. We set it up in his bedroom and within two weeks he was sleeping soundly and waking up without congestion. We are going to buy the home bundle pack to outfit the whole house.",
-    "Tom S. Verified buyer",
+    "EnviroBiotics has made a huge difference in the quality of my sleep. I no longer wake up stuffy, congested, or exhausted. I highly recommend their products.",
+    "Greg H., MD. Verified buyer",
   ],
   [
     "I have been using these products for a couple of years and everyone comes into my home and says how clean and fresh it feels. I definitely attribute this to my EnviroBiotics products and highly recommend them to anyone looking to remove stressors from their indoor environment. A sure winner. Every home should have at least one.",
