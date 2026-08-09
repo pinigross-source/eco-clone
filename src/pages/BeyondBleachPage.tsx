@@ -37,9 +37,10 @@ import roomWithout from "@/assets/bb-room-without.jpg";
 import roomWith from "@/assets/bb-room-with.jpg";
 import ctaRoom from "@/assets/bb-cta-room.jpg";
 import logo from "@/assets/logo.avif";
-import miniLifestyle from "@/assets/biologic-mini-new.jpg.asset.json";
-import bioticaLifestyle from "@/assets/biotica-800-new.jpg.asset.json";
+import miniLifestyle from "@/assets/biologic-mini-landscape.jpg.asset.json";
+import bioticaLifestyle from "@/assets/biotica-800-landscape.jpg.asset.json";
 import protectionBiotica from "@/assets/protection-biotica.png.asset.json";
+
 
 const miniLifestyleUrl = miniLifestyle.url;
 const bioticaLifestyleUrl = bioticaLifestyle.url;
