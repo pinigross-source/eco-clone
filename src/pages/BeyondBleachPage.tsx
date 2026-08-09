@@ -144,6 +144,9 @@ const PrimaryCTA = ({
       letterSpacing: "0.04em",
       padding: "1rem 2rem",
       minHeight: 56,
+      height: 56,
+      boxSizing: "border-box",
+      border: "1px solid transparent",
       boxShadow: "0 16px 34px -18px rgba(46,158,91,0.75)",
     }}
     onMouseEnter={(e) => (e.currentTarget.style.background = GREEN_DEEP)}
@@ -176,6 +179,8 @@ const OutlineCTA = ({
       letterSpacing: "0.04em",
       padding: "1rem 2rem",
       minHeight: 56,
+      height: 56,
+      boxSizing: "border-box",
     }}
   >
     {children}
