@@ -890,7 +890,7 @@ const BeyondBleachPage = () => {
                         {d.pill}
                       </span>
                     </div>
-                    <div className="flex h-full flex-col p-6 sm:p-8">
+                    <div className="flex flex-1 flex-col p-6 sm:p-8">
                       <h3
                         className="bb-head text-[1.5rem]"
                         style={{ color: NAVY, textTransform: "none", letterSpacing: "-0.01em" }}
