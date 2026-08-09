@@ -37,11 +37,9 @@ import roomWithout from "@/assets/bb-room-without.jpg";
 import roomWith from "@/assets/bb-room-with.jpg";
 import ctaRoom from "@/assets/bb-cta-room.jpg";
 import logo from "@/assets/logo.avif";
-import miniAsset from "@/assets/biologic-mini-new.jpg.asset.json";
-import bioticaAsset from "@/assets/biotica-800-new.jpg.asset.json";
+import miniPhoto from "@/assets/biologic-mini-nobg-new.avif";
+import bioticaPhoto from "@/assets/biotica800-hero.avif";
 
-const miniPhoto = miniAsset.url;
-const bioticaPhoto = bioticaAsset.url;
 
 /* ── Palette ─────────────────────────────────────────────────────── */
 const NAVY = "#16305B";
