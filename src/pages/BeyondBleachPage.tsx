@@ -870,11 +870,11 @@ const BeyondBleachPage = () => {
                     className="overflow-hidden rounded-2xl bg-white"
                     style={{ border: `1px solid ${LINE}` }}
                   >
-                    <div className="relative w-full overflow-hidden bg-[#F5F5F3]" style={{ aspectRatio: "4/3" }}>
+                    <div className="relative flex w-full items-center justify-center overflow-hidden bg-[#F5F5F3] py-10 sm:py-14" style={{ minHeight: 320 }}>
                       <img
                         src={d.photo}
                         alt={d.alt}
-                        className="h-full w-full object-contain"
+                        className="h-auto max-h-[260px] w-auto max-w-[80%] object-contain sm:max-h-[320px]"
                         loading="lazy"
                       />
                     </div>
