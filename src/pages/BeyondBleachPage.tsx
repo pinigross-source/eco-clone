@@ -181,6 +181,7 @@ const OutlineCTA = ({
       minHeight: 56,
       height: 56,
       boxSizing: "border-box",
+      boxShadow: "0 16px 34px -18px rgba(22,48,91,0.20)",
     }}
   >
     {children}
