@@ -37,11 +37,15 @@ import roomWithout from "@/assets/bb-room-without.jpg";
 import roomWith from "@/assets/bb-room-with.jpg";
 import ctaRoom from "@/assets/bb-cta-room.jpg";
 import logo from "@/assets/logo.avif";
-import miniAsset from "@/assets/biologic-mini-new.jpg.asset.json";
-import bioticaAsset from "@/assets/biotica-800-new.jpg.asset.json";
+import miniLifestyle from "@/assets/biologic-mini-new.jpg.asset.json";
+import bioticaLifestyle from "@/assets/biotica-800-new.jpg.asset.json";
+import miniPhoto from "@/assets/biologic-mini-nobg-new.avif";
+import bioticaPhoto from "@/assets/biotica800-hero.avif";
 
-const miniPhoto = miniAsset.url;
-const bioticaPhoto = bioticaAsset.url;
+const miniLifestyleUrl = miniLifestyle.url;
+const bioticaLifestyleUrl = bioticaLifestyle.url;
+
+
 
 /* ── Palette ─────────────────────────────────────────────────────── */
 const NAVY = "#16305B";
@@ -577,7 +581,7 @@ const BeyondBleachPage = () => {
 
               <div className="relative order-1 min-h-[320px] sm:min-h-[420px] lg:order-2 lg:min-h-[640px]">
                 <img
-                  src={bioticaPhoto}
+                  src={bioticaLifestyleUrl}
                   alt="The Biotica 800 environmental probiotic device"
                   className="absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
@@ -866,11 +870,11 @@ const BeyondBleachPage = () => {
                     className="overflow-hidden rounded-2xl bg-white"
                     style={{ border: `1px solid ${LINE}` }}
                   >
-                    <div className="relative w-full overflow-hidden bg-[#F5F5F3]" style={{ aspectRatio: "4/3" }}>
+                    <div className="relative flex w-full items-center justify-center overflow-hidden bg-[#F5F5F3] py-10 sm:py-14" style={{ minHeight: 320 }}>
                       <img
                         src={d.photo}
                         alt={d.alt}
-                        className="h-full w-full object-contain"
+                        className="h-auto max-h-[260px] w-auto max-w-[80%] object-contain sm:max-h-[320px]"
                         loading="lazy"
                       />
                     </div>
