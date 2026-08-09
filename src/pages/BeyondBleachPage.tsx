@@ -846,8 +846,8 @@ const BeyondBleachPage = () => {
               <div className="mt-12 grid gap-8 lg:grid-cols-2">
                 {[
                   {
-                    photo: miniPhoto,
-                    alt: "The Biologic Mini environmental probiotic device",
+                    photo: miniLifestyleUrl,
+                    alt: "The Biologic Mini environmental probiotic device on a kitchen counter",
                     pill: "Up to 300 sq ft",
                     name: "Biologic Mini",
                     price: "$[[98]]",
@@ -856,8 +856,8 @@ const BeyondBleachPage = () => {
                     primary: false,
                   },
                   {
-                    photo: bioticaPhoto,
-                    alt: "The Biotica 800 environmental probiotic device",
+                    photo: bioticaLifestyleUrl,
+                    alt: "The Biotica 800 environmental probiotic device on a wooden table",
                     pill: "Up to 800 sq ft",
                     name: "Biotica 800",
                     price: "$[[299]]",
@@ -871,27 +871,28 @@ const BeyondBleachPage = () => {
                     className="overflow-hidden rounded-2xl bg-white"
                     style={{ border: `1px solid ${LINE}` }}
                   >
-                    <div className="relative flex w-full items-center justify-center overflow-hidden bg-[#F5F5F3] py-10 sm:py-14" style={{ minHeight: 320 }}>
+                    <div className="relative w-full overflow-hidden bg-[#F5F5F3]" style={{ aspectRatio: "4 / 3" }}>
                       <img
                         src={d.photo}
                         alt={d.alt}
-                        className="h-auto max-h-[260px] w-auto max-w-[80%] object-contain sm:max-h-[320px]"
+                        className="absolute inset-0 h-full w-full object-cover"
                         loading="lazy"
                       />
-                    </div>
-                    <div className="p-6 sm:p-8" style={{ borderTop: `1px solid ${LINE}` }}>
                       <span
-                        className="inline-block rounded-full px-4 py-1.5 text-[15px] font-semibold uppercase tracking-[0.08em] text-white"
-                        style={{ background: GREEN_DEEP }}
+                        className="absolute left-4 top-4 inline-block rounded-full bg-white/95 px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-[0.12em] shadow-sm backdrop-blur-sm"
+                        style={{ color: NAVY }}
                       >
                         {d.pill}
                       </span>
+                    </div>
+                    <div className="p-6 sm:p-8">
                       <h3
-                        className="bb-head mt-4 text-[1.5rem]"
+                        className="bb-head text-[1.5rem]"
                         style={{ color: NAVY, textTransform: "none", letterSpacing: "-0.01em" }}
                       >
                         {d.name}, <T>{d.price}</T>
                       </h3>
+
                       <p className="mt-3 text-[18px] leading-[1.6]" style={{ color: BODY }}>
                         {d.body}
                       </p>
