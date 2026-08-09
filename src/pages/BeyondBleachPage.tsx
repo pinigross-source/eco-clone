@@ -39,6 +39,7 @@ import ctaRoom from "@/assets/bb-cta-room.jpg";
 import logo from "@/assets/logo.avif";
 import miniLifestyle from "@/assets/biologic-mini-new.jpg.asset.json";
 import bioticaLifestyle from "@/assets/biotica-800-new.jpg.asset.json";
+import protectionBiotica from "@/assets/protection-biotica.png.asset.json";
 import miniPhoto from "@/assets/biologic-mini-nobg-new.avif";
 import bioticaPhoto from "@/assets/biotica800-hero.avif";
 
@@ -581,8 +582,8 @@ const BeyondBleachPage = () => {
 
               <div className="relative order-1 min-h-[320px] sm:min-h-[420px] lg:order-2 lg:min-h-[640px]">
                 <img
-                  src={bioticaLifestyleUrl}
-                  alt="The Biotica 800 environmental probiotic device"
+                  src={protectionBiotica.url}
+                  alt="The Biotica 800 environmental probiotic device on a wooden table"
                   className="absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
                 />
