@@ -211,15 +211,6 @@ const IconStat = ({
   </div>
 );
 
-/* Deletable in one line: remove <MockupBanner /> below */
-const MockupBanner = () => (
-  <div
-    className="fixed top-0 left-0 right-0 z-[10000] flex h-9 w-full items-center justify-center px-4 text-center text-[15px]"
-    style={{ background: "#0A0A0A", color: "#E6E9EC" }}
-  >
-    MOCKUP — dotted values are placeholders. Replace before launch.
-  </div>
-);
 
 const PLACES = [
   "Sofa cushions",
@@ -287,7 +278,6 @@ const BeyondBleachPage = () => {
         .bb-focus:focus-visible { outline: 3px solid ${ORANGE}; outline-offset: 3px; }
         .bb-page :focus-visible { outline: 3px solid ${ORANGE}; outline-offset: 3px; }
         .bb-head { font-family: ${FONT_HEAD}; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.06; }
-        .bb-page > header { top: 36px !important; }
         @media (prefers-reduced-motion: reduce) {
           .bb-page *, .bb-page *::before, .bb-page *::after {
             animation-duration: 0.001ms !important;
@@ -297,7 +287,7 @@ const BeyondBleachPage = () => {
         }
       `}</style>
 
-      <MockupBanner />
+
 
       <div className="bb-page">
         <Navbar />
