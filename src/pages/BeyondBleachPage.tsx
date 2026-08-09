@@ -40,8 +40,6 @@ import logo from "@/assets/logo.avif";
 import miniLifestyle from "@/assets/biologic-mini-new.jpg.asset.json";
 import bioticaLifestyle from "@/assets/biotica-800-new.jpg.asset.json";
 import protectionBiotica from "@/assets/protection-biotica.png.asset.json";
-import miniPhoto from "@/assets/biologic-mini-nobg-new.avif";
-import bioticaPhoto from "@/assets/biotica800-hero.avif";
 
 const miniLifestyleUrl = miniLifestyle.url;
 const bioticaLifestyleUrl = bioticaLifestyle.url;
