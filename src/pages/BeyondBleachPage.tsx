@@ -37,9 +37,10 @@ import roomWithout from "@/assets/bb-room-without.jpg";
 import roomWith from "@/assets/bb-room-with.jpg";
 import ctaRoom from "@/assets/bb-cta-room.jpg";
 import logo from "@/assets/logo.avif";
-import miniLifestyle from "@/assets/biologic-mini-new.jpg.asset.json";
-import bioticaLifestyle from "@/assets/biotica-800-new.jpg.asset.json";
+import miniLifestyle from "@/assets/biologic-mini-landscape.jpg.asset.json";
+import bioticaLifestyle from "@/assets/biotica-800-landscape.jpg.asset.json";
 import protectionBiotica from "@/assets/protection-biotica.png.asset.json";
+
 
 const miniLifestyleUrl = miniLifestyle.url;
 const bioticaLifestyleUrl = bioticaLifestyle.url;
@@ -869,16 +870,16 @@ const BeyondBleachPage = () => {
                     className="overflow-hidden rounded-2xl bg-white"
                     style={{ border: `1px solid ${LINE}` }}
                   >
-                    <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden bg-[#F5F5F3]">
+                    <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-t-2xl bg-[#F5F5F3]">
                       <img
                         src={d.photo}
                         alt={d.alt}
-                        className="h-full w-full object-contain"
+                        className="h-full w-full object-cover"
                         loading="lazy"
                       />
                       <span
                         className="absolute left-4 top-4 inline-block rounded-full px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-[0.12em] shadow-sm backdrop-blur-sm"
-                        style={{ background: GREEN, color: "white" }}
+                        style={{ background: "white", color: NAVY }}
                       >
                         {d.pill}
                       </span>
