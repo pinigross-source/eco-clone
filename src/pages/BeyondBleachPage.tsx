@@ -869,7 +869,7 @@ const BeyondBleachPage = () => {
                     className="overflow-hidden rounded-2xl bg-white"
                     style={{ border: `1px solid ${LINE}` }}
                   >
-                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#F5F5F3]">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F5F5F3]">
                       <img
                         src={d.photo}
                         alt={d.alt}
