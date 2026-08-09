@@ -255,7 +255,7 @@ const TABLE_ROWS: [string, string, string][] = [
 // Real verified reviews from the EnviroBiotics Shopify store (Judge.me).
 const REVIEWS: [string, string][] = [
   [
-    "My son suffers from severe allergies waking up at night with stuffy nose and congestion. We tried everything with no success until we read about the EnviroBiotics Biotica 800 and decided to try it. We were amazed. We set it up in his bedroom and within two weeks he was sleeping soundly and waking up without congestion. We are going to buy the home bundle pack to outfit the whole house.",
+    "My son suffers from severe allergies, waking up at night with a stuffy nose and congestion. We tried everything with no success until we read about the EnviroBiotics Biotica 800 and decided to try it. We were amazed. We set it up in his bedroom and within two weeks he was sleeping soundly and waking up without congestion. We are going to buy the home bundle pack to outfit the whole house.",
     "Tom S. Verified buyer",
   ],
   [
