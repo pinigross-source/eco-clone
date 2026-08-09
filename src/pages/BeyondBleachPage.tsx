@@ -259,8 +259,8 @@ const REVIEWS: [string, string][] = [
     "Greg H., MD. Verified buyer",
   ],
   [
-    "My son suffers from severe allergies, waking up at night with a stuffy nose and congestion. We tried everything with no success until we read about the EnviroBiotics Biotica 800 and decided to try it. We were amazed. We set it up in his bedroom and within two weeks he was sleeping soundly and waking up without congestion. We are going to buy the home bundle pack to outfit the whole house.",
-    "Tom S. Verified buyer",
+    "Excellent product, keeps my bedroom fresh and free of pathogens. Better then any filter!",
+    "Zvi Sharf. Verified buyer",
   ],
   [
     "I've been allergic to cats and dogs my whole life, and my family insisted on getting them anyway. Getting it up and running was straightforward and fit easily into my home without disrupting daily life. Once I implemented the environmental probiotics, my indoor environment genuinely changed and I felt tremendous relief from my allergies.",
