@@ -856,7 +856,7 @@ const BeyondBleachPage = () => {
                     name: "Biologic Mini",
                     price: "$[[98]]",
                     body: "A bathroom, bedroom, nursery or office. About the height of a phone, so it sits on a shelf without anyone noticing it. Two lights tell you when the cartridge is low and when it needs charging.",
-                    cta: "Add the Mini",
+                    cta: "Add the Biologic Mini",
                     primary: false,
                   },
                   {
