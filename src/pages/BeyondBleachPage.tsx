@@ -877,8 +877,8 @@ const BeyondBleachPage = () => {
                         loading="lazy"
                       />
                       <span
-                        className="absolute left-4 top-4 inline-block rounded-full bg-white/95 px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-[0.12em] shadow-sm backdrop-blur-sm"
-                        style={{ color: NAVY }}
+                        className="absolute left-4 top-4 inline-block rounded-full px-3.5 py-1.5 text-[12px] font-semibold uppercase tracking-[0.12em] shadow-sm backdrop-blur-sm"
+                        style={{ background: GREEN, color: "white" }}
                       >
                         {d.pill}
                       </span>
