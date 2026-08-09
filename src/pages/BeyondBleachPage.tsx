@@ -261,20 +261,22 @@ const TABLE_ROWS: [string, string, string][] = [
   ["What it leaves", "Chemical residue and fumes.", "No harsh chemicals, no added fragrance."],
 ];
 
+// Real verified reviews from the EnviroBiotics Shopify store (Judge.me).
 const REVIEWS: [string, string][] = [
   [
-    "[[Real review. Pick one from a woman 40 to 55 about pet or bathroom odour, since that's who buys.]]",
-    "[[Name, age, state. Verified buyer]]",
+    "My son suffers from severe allergies waking up at night with stuffy nose and congestion. We tried everything with no success until we read about the EnviroBiotics Biotica 800 and decided to try it. We were amazed. We set it up in his bedroom and within two weeks he was sleeping soundly and waking up without congestion. We are going to buy the home bundle pack to outfit the whole house.",
+    "Tom S. Verified buyer",
   ],
   [
-    "[[Real review. Choose one about the basement, laundry room or a damp space.]]",
-    "[[Name, age, state. Verified buyer]]",
+    "I have been using these products for a couple of years and everyone comes into my home and says how clean and fresh it feels. I definitely attribute this to my EnviroBiotics products and highly recommend them to anyone looking to remove stressors from their indoor environment. A sure winner. Every home should have at least one.",
+    "Verified buyer",
   ],
   [
-    "[[Real review. Pick one about how easy the setup was, the loudest objection from older buyers.]]",
-    "[[Name, age, state. Verified buyer]]",
+    "I've been allergic to cats and dogs my whole life, and my family insisted on getting them anyway. Getting it up and running was straightforward and fit easily into my home without disrupting daily life. Once I implemented the environmental probiotics, my indoor environment genuinely changed and I felt tremendous relief from my allergies.",
+    "Randy W. Verified buyer",
   ],
 ];
+
 
 const BeyondBleachPage = () => {
   const [videoOpen, setVideoOpen] = useState(false);
@@ -369,9 +371,10 @@ const BeyondBleachPage = () => {
 
               <p className="mt-5 text-[15px] leading-[1.6]" style={{ color: GREY }}>
                 <span aria-hidden style={{ color: ORANGE }}>
-                  ★★★★☆
+                  ★★★★★
                 </span>{" "}
-                <T>{"[[4.6]] · [[1,200]] reviews · 30-day money-back guarantee · No subscription required"}</T>
+                <T>{"5.0 · 22 reviews · 30-day money-back guarantee · No subscription required"}</T>
+
               </p>
             </div>
 
