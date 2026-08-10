@@ -1206,8 +1206,14 @@ const BeyondBleachPage = () => {
                     <span aria-hidden className="h-px w-24" style={{ background: "rgba(255,255,255,0.4)" }} />
                   </div>
                   <p className="mt-6 max-w-[46ch] text-[18px] leading-[1.6]" style={{ color: "#DCE3EC" }}>
-                    Clean the way you always have. EnviroBiotics covers the days in between.
+                    Traditional cleaning removes yesterday&rsquo;s mess. EnviroBiotics continuously
+                    helps create a healthier indoor microbiome for tomorrow. Not simply cleaner —
+                    balanced. Not simply disinfected — continuously managed.
                   </p>
+                  <p className="mt-4 max-w-[46ch] text-[18px] font-semibold leading-[1.6]" style={{ color: "#8BE0A6" }}>
+                    Purify your home the way Mother Nature purifies hers, with probiotics.
+                  </p>
+
 
                   <div
                     className="mt-8 max-w-[46ch] rounded-xl p-6"
