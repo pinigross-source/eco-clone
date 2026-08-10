@@ -292,7 +292,7 @@ const BeyondBleachPage = () => {
       <div className="bb-page">
         <Navbar />
 
-        {/* Phone number strip — visible tel: link alongside the nav */}
+        {/* Phone number strip: visible tel: link alongside the nav */}
         <div
           className="w-full pt-[100px] lg:pt-[120px]"
           style={{ background: "#F2F2F0", borderBottom: `1px solid ${LINE}` }}
