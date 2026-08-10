@@ -1254,7 +1254,7 @@ const BeyondBleachPage = () => {
                 </div>
 
                 <div className="lg:flex lg:justify-center">
-                  <PrimaryCTA href={SHOP}>Find the right EnviroBiotics system</PrimaryCTA>
+                  <PrimaryCTA href={SHOP}>Choose your system today</PrimaryCTA>
                 </div>
               </div>
             </div>
