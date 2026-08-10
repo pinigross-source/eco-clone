@@ -1127,7 +1127,52 @@ const BeyondBleachPage = () => {
             </div>
           </section>
 
+          {/* ══════════ 10B · CLEANING AND NATURE ══════════ */}
+          <section className="w-full bg-white">
+            <div className="site-container py-16 sm:py-20 lg:py-24">
+              <h2
+                className="bb-head mx-auto max-w-[26ch] text-center text-[1.8rem] sm:text-[2.3rem]"
+                style={{ color: NAVY, lineHeight: 1.15 }}
+              >
+                It&rsquo;s not about choosing between{" "}
+                <span style={{ color: GREEN }}>cleaning and nature.</span>
+              </h2>
+              <div
+                className="mx-auto mt-8 max-w-[70ch] space-y-4 text-[18px] leading-[1.65]"
+                style={{ color: BODY }}
+              >
+                <p>
+                  Keep cleaning dirt and grime. Keep disinfecting when it is appropriate.
+                  Disinfection is appropriate when there is a known or suspected infectious risk,
+                  including:
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "After someone in the home has been sick with a contagious illness",
+                    "Food preparation areas where contamination with raw meat, poultry or seafood has occurred",
+                    "Bathrooms after exposure to bodily fluids",
+                    "During outbreaks of illnesses such as norovirus or influenza, when public health guidance recommends disinfecting high-touch surfaces",
+                    "Mold or sewage remediation, where specialized cleaning and disinfection protocols are part of the remediation process",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <Check aria-hidden className="mt-1.5 h-4 w-4 shrink-0" style={{ color: GREEN }} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p>In these situations, disinfectants remain an important and appropriate tool.</p>
+                <p style={{ color: NAVY, fontWeight: 600 }}>
+                  But ask yourself one question. What happens between cleanings?
+                </p>
+                <p style={{ color: GREEN_DEEP, fontWeight: 600 }}>
+                  That&rsquo;s where EnviroBiotics works — 24 hours a day, every day.
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* ══════════ 11 · NAVY CTA BAND ══════════ */}
+
           <section className="relative w-full overflow-hidden" style={{ background: NAVY }}>
             <img
               src={ctaRoom}
