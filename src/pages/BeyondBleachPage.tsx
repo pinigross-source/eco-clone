@@ -314,12 +314,6 @@ const BeyondBleachPage = () => {
           {/* ══════════ 2 · HERO ══════════ */}
           <section className="relative w-full overflow-hidden bg-white pt-6 sm:pt-8 lg:pt-10">
             <div className="site-container py-8 text-center sm:py-10 lg:py-16">
-              <span
-                className="inline-block text-[13px] font-semibold uppercase tracking-[0.22em]"
-                style={{ color: GREY }}
-              >
-                The Probiotic Alternative to Bleach
-              </span>
               <h1
                 className="bb-head mt-4 text-[2.6rem] sm:text-[3.2rem] lg:text-[4.25rem]"
                 style={{ color: NAVY, fontWeight: 800, lineHeight: 1.02 }}
