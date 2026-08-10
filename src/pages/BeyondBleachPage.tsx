@@ -577,26 +577,58 @@ const BeyondBleachPage = () => {
             </div>
           </section>
 
-          {/* ══════════ 5 · PROTECTION THAT CONTINUES ══════════ */}
+          {/* ══════════ 4B · NATURE LEAVES NO EMPTY SPACES ══════════ */}
+          <section className="w-full bg-white">
+            <div className="site-container pb-16 sm:pb-20 lg:pb-24">
+              <div
+                className="mx-auto max-w-[70ch] rounded-2xl px-6 py-10 sm:px-10 sm:py-12"
+                style={{ background: PALE, borderLeft: `4px solid ${GREEN}` }}
+              >
+                <h2 className="bb-head text-[1.8rem] sm:text-[2.2rem]" style={{ color: NAVY, lineHeight: 1.15 }}>
+                  Nature doesn&rsquo;t leave <span style={{ color: GREEN }}>empty spaces empty.</span>
+                </h2>
+                <div className="mt-6 space-y-4 text-[18px] leading-[1.65]" style={{ color: BODY }}>
+                  <p>Think about your lawn.</p>
+                  <p>
+                    When healthy grass fills the yard, weeds struggle to grow. Not because the weeds
+                    disappear, but because healthy grass already occupies the available space.
+                  </p>
+                  <p>
+                    Indoor environments work the same way. When microorganisms are removed,
+                    something else begins growing immediately.
+                  </p>
+                  <p style={{ color: GREEN_DEEP, fontWeight: 600 }}>
+                    The question isn&rsquo;t whether the microbes return. It&rsquo;s which microbes
+                    return first.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ══════════ 5 · A COMPLETELY DIFFERENT PHILOSOPHY ══════════ */}
           <section className="w-full" style={{ background: PALE }}>
             <div className="grid lg:grid-cols-2">
               <div className="order-2 flex items-center lg:order-1">
                 <div className="w-full px-5 py-14 sm:px-8 sm:py-16 lg:py-24 lg:pl-[max(1.5rem,calc((100vw-1440px)/2+2rem))] lg:pr-14">
                   <h2 className="bb-head text-[2rem] sm:text-[2.5rem]" style={{ color: NAVY }}>
-                    Protection that
+                    A completely
                     <br />
-                    <span style={{ color: GREEN }}>continues between</span>
-                    <br />
-                    <span style={{ color: GREEN }}>cleanings.</span>
+                    <span style={{ color: GREEN }}>different philosophy.</span>
                   </h2>
                   <p className="mt-6 max-w-[52ch] text-[18px] leading-[1.6]" style={{ color: BODY }}>
-                    EnviroBiotics releases beneficial environmental probiotics that settle onto your
-                    surfaces and stay there, competing for the same space and nutrients unwanted
-                    microorganisms need. The next arrival finds no vacancy.
+                    EnviroBiotics doesn&rsquo;t try to sterilize your home. It helps restore balance.
+                    Instead of relying on chemicals, EnviroBiotics continuously disperses carefully
+                    selected environmental probiotics that create a micro-flora coating on indoor
+                    surfaces. Once there, they occupy surfaces, compete for nutrients, break down
+                    organic residues and support a balanced, healthier indoor microbiome.
                   </p>
                   <p className="mt-3 text-[18px] font-semibold" style={{ color: GREEN_DEEP }}>
-                    Bleach clears the surface. We occupy it.
+                    Rather than masking problems, EnviroBiotics creates conditions that prevent them
+                    from developing.
                   </p>
+
+
 
                   <div className="mt-10 grid gap-8 sm:grid-cols-3 sm:gap-6">
                     {[
