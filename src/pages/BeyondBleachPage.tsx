@@ -913,9 +913,9 @@ const BeyondBleachPage = () => {
                 className="bb-head text-center text-[1.9rem] sm:text-[2.4rem]"
                 style={{ color: NAVY, lineHeight: 1.1 }}
               >
-                Two devices.
+                Choose the right
                 <br />
-                <span style={{ color: GREEN }}>Pick the one that fits your room.</span>
+                <span style={{ color: GREEN }}>EnviroBiotics system.</span>
               </h2>
               <p
                 className="mx-auto mt-5 max-w-[56ch] text-center text-[18px] leading-[1.6]"
@@ -932,7 +932,7 @@ const BeyondBleachPage = () => {
                     pill: "Up to 300 sq ft",
                     name: "Biologic Mini",
                     price: "$[[98]]",
-                    body: "A bathroom, bedroom, nursery or office. About the height of a phone, so it sits on a shelf without anyone noticing it. Two lights tell you when the cartridge is low and when it needs charging.",
+                    body: "Perfect for rooms up to 300 sq ft like bedrooms, bathrooms, home offices, dorm rooms and nurseries.",
                     cta: "Add the Biologic Mini",
                     primary: false,
                   },
@@ -942,11 +942,12 @@ const BeyondBleachPage = () => {
                     pill: "Up to 800 sq ft",
                     name: "Biotica 800",
                     price: "$[[299]]",
-                    body: "An open living area, a finished basement, or most of a small home. About the size of a small soundbar and sits flat on a console or shelf.",
+                    body: "Perfect for rooms up to 800 sq ft like living rooms, finished basements, open floor plans, studios and small homes.",
                     cta: "Add the Biotica 800",
                     primary: true,
                   },
                 ].map((d) => (
+
                   <article
                     key={d.name}
                     className="flex h-full flex-col overflow-hidden rounded-2xl bg-white"
