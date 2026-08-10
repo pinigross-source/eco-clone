@@ -1094,7 +1094,7 @@ const BeyondBleachPage = () => {
                 className="bb-head text-center text-[1.8rem] sm:text-[2.3rem]"
                 style={{ color: NAVY, lineHeight: 1.15 }}
               >
-                What customers notice first.
+                Real customers. <span style={{ color: GREEN }}>Real homes.</span>
               </h2>
 
               <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
