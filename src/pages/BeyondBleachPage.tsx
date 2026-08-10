@@ -238,29 +238,19 @@ const PLACES = [
 ];
 
 const TABLE_ROWS: [string, string, string][] = [
+  ["Step 1", "Clean", "Clean"],
+  ["Step 2", "Disinfect with toxic chemicals", "Introduce beneficial probiotics"],
+  ["Step 3", "Surfaces momentarily sit empty", "Beneficial probiotics occupy surfaces"],
+  ["Step 4", "Microorganisms return", "Competition for food begins immediately"],
   [
-    "First hour",
-    "Surface cleared. Nothing living on it.",
-    "Surface cleared, then seeded with beneficial probiotics.",
+    "Step 5",
+    "Pathogenic buildup returns",
+    "Probiotics outcompete pathogens, reducing their buildup",
   ],
-  [
-    "Same day",
-    "Empty surface. Whatever lands has no competition.",
-    "Beneficial colonies established and holding the space.",
-  ],
-  [
-    "Day 2–3",
-    "Build-up under way. Odour begins to return.",
-    "Still competing for space and nutrients. [[Odour outcome, substantiated.]]",
-  ],
-  [
-    "Day 7",
-    "Back to where you started. Time to clean again.",
-    "Protection still active between cleanings.",
-  ],
-  ["Where it reaches", "Only what the cloth touches.", "Everywhere in the room the air reaches."],
-  ["What it leaves", "Chemical residue and fumes.", "No harsh chemicals, no added fragrance."],
+  ["Step 6", "Odors return", "Fresher, balanced environment maintained"],
+  ["Step 7", "Repeat the cycle", "Continuous balanced environment created"],
 ];
+
 
 // Real verified reviews from the EnviroBiotics Shopify store (Judge.me).
 const REVIEWS: [string, string][] = [
