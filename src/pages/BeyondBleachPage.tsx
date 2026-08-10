@@ -313,24 +313,28 @@ const BeyondBleachPage = () => {
         <main id="main-content">
           {/* ══════════ 2 · HERO ══════════ */}
           <section className="relative w-full overflow-hidden bg-white pt-6 sm:pt-8 lg:pt-10">
-            <div className="site-container py-8 text-center sm:py-10 lg:py-12">
-              <h1
-                className="bb-head text-[2.8rem] sm:text-[3.6rem] lg:text-[4.4rem]"
-                style={{ color: NAVY, fontWeight: 800, lineHeight: 0.95 }}
+            <div className="site-container py-8 text-center sm:py-10 lg:py-16 lg:text-left">
+              <span
+                className="inline-block text-[13px] font-semibold uppercase tracking-[0.22em]"
+                style={{ color: GREY }}
               >
-                Beyond
-                <br />
-                <span style={{ color: GREEN }}>Bleach</span>
+                The Probiotic Alternative to Bleach
+              </span>
+              <h1
+                className="bb-head mt-4 text-[2.6rem] sm:text-[3.2rem] lg:text-[4.25rem]"
+                style={{ color: NAVY, fontWeight: 800, lineHeight: 1.02 }}
+              >
+                Beyond <span style={{ color: GREEN }}>Bleach</span>
               </h1>
 
               <p
-                className="mx-auto mt-5 max-w-[52ch] text-[1.15rem] leading-[1.6] sm:text-[1.3rem]"
+                className="mx-auto mt-5 max-w-[48ch] text-[1.15rem] leading-[1.5] sm:text-[1.3rem] lg:mx-0"
                 style={{ color: BODY, fontWeight: 600 }}
               >
                 Cleaning doesn&rsquo;t stop what happens tomorrow.
               </p>
               <p
-                className="mx-auto mt-4 max-w-[56ch] text-[1.0625rem] leading-[1.6] sm:text-[1.125rem]"
+                className="mx-auto mt-4 max-w-[54ch] text-[1.0625rem] leading-[1.6] sm:text-[1.125rem] lg:mx-0"
                 style={{ color: GREY }}
               >
                 You clean today. Tomorrow your indoor environment begins changing again.
@@ -339,14 +343,14 @@ const BeyondBleachPage = () => {
                 <strong style={{ color: BODY }}>what returns first.</strong>
               </p>
               <p
-                className="mx-auto mt-4 max-w-[56ch] text-[1.0625rem] font-semibold leading-[1.6] sm:text-[1.125rem]"
+                className="mx-auto mt-4 max-w-[54ch] text-[1.0625rem] font-semibold leading-[1.6] sm:text-[1.125rem] lg:mx-0"
                 style={{ color: NAVY }}
               >
                 What if your home could continuously help protect itself between cleanings?
                 That&rsquo;s where EnviroBiotics is different.
               </p>
 
-              <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+              <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row lg:items-start lg:justify-start">
                 <PrimaryCTA href={SHOP}>Shop EnviroBiotics</PrimaryCTA>
                 <button
                   type="button"
@@ -367,7 +371,7 @@ const BeyondBleachPage = () => {
                 </button>
               </div>
 
-              <p className="mt-5 text-[15px] leading-[1.6]" style={{ color: GREY }}>
+              <p className="mx-auto mt-5 text-[15px] leading-[1.6] lg:mx-0" style={{ color: GREY }}>
                 <span aria-hidden style={{ color: ORANGE }}>
                   ★★★★★
                 </span>{" "}
