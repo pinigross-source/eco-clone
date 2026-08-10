@@ -292,7 +292,7 @@ const BeyondBleachPage = () => {
       <div className="bb-page">
         <Navbar />
 
-        {/* Phone number strip — visible tel: link alongside the nav */}
+        {/* Phone number strip: visible tel: link alongside the nav */}
         <div
           className="w-full pt-[100px] lg:pt-[120px]"
           style={{ background: "#F2F2F0", borderBottom: `1px solid ${LINE}` }}
@@ -335,7 +335,7 @@ const BeyondBleachPage = () => {
               >
                 You clean today. Tomorrow your indoor environment begins changing again.
                 Microorganisms return. Dust returns. Odors return. The question isn&rsquo;t{" "}
-                <strong style={{ color: BODY }}>whether</strong> they&rsquo;ll return — it&rsquo;s{" "}
+                <strong style={{ color: BODY }}>whether</strong> they&rsquo;ll return. It&rsquo;s{" "}
                 <strong style={{ color: BODY }}>what returns first.</strong>
               </p>
               <p
@@ -1165,7 +1165,7 @@ const BeyondBleachPage = () => {
                   But ask yourself one question. What happens between cleanings?
                 </p>
                 <p style={{ color: GREEN_DEEP, fontWeight: 600 }}>
-                  That&rsquo;s where EnviroBiotics works — 24 hours a day, every day.
+                  That&rsquo;s where EnviroBiotics works, 24 hours a day, every day.
                 </p>
               </div>
             </div>
@@ -1207,8 +1207,8 @@ const BeyondBleachPage = () => {
                   </div>
                   <p className="mt-6 max-w-[46ch] text-[18px] leading-[1.6]" style={{ color: "#DCE3EC" }}>
                     Traditional cleaning removes yesterday&rsquo;s mess. EnviroBiotics continuously
-                    helps create a healthier indoor microbiome for tomorrow. Not simply cleaner —
-                    balanced. Not simply disinfected — continuously managed.
+                    helps create a healthier indoor microbiome for tomorrow. Not simply cleaner.
+                    Balanced. Not simply disinfected. Continuously managed.
                   </p>
                   <p className="mt-4 max-w-[46ch] text-[18px] font-semibold leading-[1.6]" style={{ color: "#8BE0A6" }}>
                     Purify your home the way Mother Nature purifies hers, with probiotics.
