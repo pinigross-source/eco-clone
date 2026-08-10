@@ -852,21 +852,22 @@ const BeyondBleachPage = () => {
                         className="w-[26%] px-3 py-4 text-[15px] font-bold uppercase leading-[1.3] tracking-[0.06em] text-white sm:w-[24%] sm:px-5"
                         style={{ background: NAVY }}
                       >
-                        After cleaning
+                        What happens
                       </th>
                       <th
                         scope="col"
                         className="px-3 py-4 text-[15px] font-bold uppercase leading-[1.3] tracking-[0.06em] text-white sm:px-5"
                         style={{ background: NAVY }}
                       >
-                        Disinfectant alone
+                        Traditional disinfectant cleaning
                       </th>
                       <th
                         scope="col"
                         className="px-3 py-4 text-[15px] font-bold uppercase leading-[1.3] tracking-[0.06em] text-white sm:px-5"
                         style={{ background: GREEN_DEEP }}
                       >
-                        Disinfectant + EnviroBiotics
+                        EnviroBiotics
+
                       </th>
                     </tr>
                   </thead>
