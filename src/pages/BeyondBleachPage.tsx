@@ -238,29 +238,19 @@ const PLACES = [
 ];
 
 const TABLE_ROWS: [string, string, string][] = [
+  ["Step 1", "Clean", "Clean"],
+  ["Step 2", "Disinfect with toxic chemicals", "Introduce beneficial probiotics"],
+  ["Step 3", "Surfaces momentarily sit empty", "Beneficial probiotics occupy surfaces"],
+  ["Step 4", "Microorganisms return", "Competition for food begins immediately"],
   [
-    "First hour",
-    "Surface cleared. Nothing living on it.",
-    "Surface cleared, then seeded with beneficial probiotics.",
+    "Step 5",
+    "Pathogenic buildup returns",
+    "Probiotics outcompete pathogens, reducing their buildup",
   ],
-  [
-    "Same day",
-    "Empty surface. Whatever lands has no competition.",
-    "Beneficial colonies established and holding the space.",
-  ],
-  [
-    "Day 2–3",
-    "Build-up under way. Odour begins to return.",
-    "Still competing for space and nutrients. [[Odour outcome, substantiated.]]",
-  ],
-  [
-    "Day 7",
-    "Back to where you started. Time to clean again.",
-    "Protection still active between cleanings.",
-  ],
-  ["Where it reaches", "Only what the cloth touches.", "Everywhere in the room the air reaches."],
-  ["What it leaves", "Chemical residue and fumes.", "No harsh chemicals, no added fragrance."],
+  ["Step 6", "Odors return", "Fresher, balanced environment maintained"],
+  ["Step 7", "Repeat the cycle", "Continuous balanced environment created"],
 ];
+
 
 // Real verified reviews from the EnviroBiotics Shopify store (Judge.me).
 const REVIEWS: [string, string][] = [
@@ -335,17 +325,25 @@ const BeyondBleachPage = () => {
 
               <p
                 className="mx-auto mt-5 max-w-[52ch] text-[1.15rem] leading-[1.6] sm:text-[1.3rem]"
-                style={{ color: BODY, fontWeight: 500 }}
+                style={{ color: BODY, fontWeight: 600 }}
               >
-                Bleach empties a surface for about an hour. EnviroBiotics puts good bacteria on it
-                and keeps them there for weeks.
+                Cleaning doesn&rsquo;t stop what happens tomorrow.
               </p>
               <p
-                className="mx-auto mt-3 max-w-[56ch] text-[1.0625rem] leading-[1.6] sm:text-[1.125rem]"
+                className="mx-auto mt-4 max-w-[56ch] text-[1.0625rem] leading-[1.6] sm:text-[1.125rem]"
                 style={{ color: GREY }}
               >
-                Think of a probiotic for your gut. Good bacteria hold the space, so the bad ones
-                have nowhere to settle.
+                You clean today. Tomorrow your indoor environment begins changing again.
+                Microorganisms return. Dust returns. Odors return. The question isn&rsquo;t{" "}
+                <strong style={{ color: BODY }}>whether</strong> they&rsquo;ll return — it&rsquo;s{" "}
+                <strong style={{ color: BODY }}>what returns first.</strong>
+              </p>
+              <p
+                className="mx-auto mt-4 max-w-[56ch] text-[1.0625rem] font-semibold leading-[1.6] sm:text-[1.125rem]"
+                style={{ color: NAVY }}
+              >
+                What if your home could continuously help protect itself between cleanings?
+                That&rsquo;s where EnviroBiotics is different.
               </p>
 
               <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
@@ -371,10 +369,11 @@ const BeyondBleachPage = () => {
 
               <p className="mt-5 text-[15px] leading-[1.6]" style={{ color: GREY }}>
                 <span aria-hidden style={{ color: ORANGE }}>
-                  ★★★★☆
+                  ★★★★★
                 </span>{" "}
-                <T>{"4.8 · 30-day money-back guarantee · No subscription required"}</T>
+                Rated by families across North America · 30-day money back guarantee
               </p>
+
             </div>
 
             <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
@@ -465,27 +464,70 @@ const BeyondBleachPage = () => {
             </div>
           </section>
 
+          {/* ══════════ 3B · FIGHTING NATURE ══════════ */}
+          <section className="w-full bg-white">
+            <div className="site-container py-16 sm:py-20 lg:py-24">
+              <h2
+                className="bb-head mx-auto max-w-[24ch] text-center text-[1.9rem] sm:text-[2.4rem]"
+                style={{ color: NAVY, lineHeight: 1.12 }}
+              >
+                We&rsquo;ve been fighting nature for more than 100 years.
+                <br />
+                <span style={{ color: GREEN }}>Maybe it&rsquo;s time to work with it instead.</span>
+              </h2>
+              <div
+                className="mx-auto mt-8 max-w-[68ch] space-y-4 text-[18px] leading-[1.65]"
+                style={{ color: BODY }}
+              >
+                <p>
+                  For generations we&rsquo;ve been taught that creating a healthy home is simple.{" "}
+                  <strong>Kill the germs.</strong>
+                </p>
+                <p>
+                  That philosophy changed medicine forever. It helped stop infectious diseases. It
+                  made surgery safer. It transformed public health. It saved millions of lives.
+                </p>
+                <p>
+                  But today science recognizes something equally important.{" "}
+                  <strong>Not all microorganisms are harmful.</strong> Many are beneficial and
+                  classified as probiotics.
+                </p>
+                <p>
+                  In fact, trillions of beneficial bacteria live inside your body, helping regulate
+                  digestion, immunity, metabolism and many other essential functions.
+                </p>
+                <p style={{ color: NAVY, fontWeight: 600 }}>
+                  So why do we still treat our homes as though every microorganism should be
+                  eliminated?
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* ══════════ 4 · CLEANING IS A MOMENT IN TIME ══════════ */}
           <section id="how" className="w-full bg-white">
             <div className="site-container grid gap-12 py-16 sm:py-20 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-16 lg:py-24">
               <div>
                 <h2 className="bb-head text-[2rem] sm:text-[2.5rem]" style={{ color: NAVY }}>
-                  Cleaning is
+                  Cleaning only lasts
                   <br />
                   <span style={{ color: GREEN }}>a moment in time.</span>
                 </h2>
                 <div className="mt-6 space-y-4 text-[18px] leading-[1.6]" style={{ color: BODY }}>
                   <p>
-                    You clean the bathroom on Sunday. By Wednesday it smells the same, and you
-                    figure you missed a spot.
+                    Disinfectants work while you&rsquo;re cleaning. But once they dry, your indoor
+                    environment immediately begins changing again.
                   </p>
                   <p>
-                    You didn&rsquo;t. You cleaned as well as bleach can clean, and bleach does one
-                    thing. It clears the surface.
+                    Family members move through the house, introducing new microorganisms. Every
+                    time a door opens or the HVAC system cycles, microscopic particles spread
+                    through your home. Pets deposit dander and organic debris.
                   </p>
                   <p>
-                    For about an hour that surface sits empty. Then something lands on it, off your
-                    shoes or off the dog or out of the air, and finds nothing competing for it.
+                    The process never stops. That&rsquo;s why{" "}
+                    <strong>cleaning is a moment in time</strong>, while your indoor environment is
+                    constantly changing. The question isn&rsquo;t whether your home will be
+                    recolonized. It&rsquo;s <strong>what will colonize it first.</strong>
                   </p>
                 </div>
               </div>
@@ -500,18 +542,18 @@ const BeyondBleachPage = () => {
                   },
                   {
                     icon: <CircleDashed className="h-8 w-8" strokeWidth={1.4} />,
-                    label: "The surface sits empty",
-                    caption: "For about an hour there is nothing on it at all.",
+                    label: "New microorganisms arrive",
+                    caption: "Organic matter begins to accumulate again.",
                     tone: "navy" as const,
                   },
                   {
                     icon: <Bug className="h-8 w-8" strokeWidth={1.4} />,
-                    label: "Whatever lands next spreads",
-                    caption:
-                      "With nothing competing for space, it takes the whole surface.",
+                    label: "Odors & allergens return",
+                    caption: "And the cycle starts over. You clean again.",
                     tone: "navy" as const,
                   },
                 ].map((s, i) => (
+
                   <Fragment key={s.label}>
                     <IconStat icon={s.icon} label={s.label} caption={s.caption} tone={s.tone} />
                     {i < 2 && (
@@ -525,26 +567,58 @@ const BeyondBleachPage = () => {
             </div>
           </section>
 
-          {/* ══════════ 5 · PROTECTION THAT CONTINUES ══════════ */}
+          {/* ══════════ 4B · NATURE LEAVES NO EMPTY SPACES ══════════ */}
+          <section className="w-full bg-white">
+            <div className="site-container pb-16 sm:pb-20 lg:pb-24">
+              <div
+                className="mx-auto max-w-[70ch] rounded-2xl px-6 py-10 sm:px-10 sm:py-12"
+                style={{ background: PALE, borderLeft: `4px solid ${GREEN}` }}
+              >
+                <h2 className="bb-head text-[1.8rem] sm:text-[2.2rem]" style={{ color: NAVY, lineHeight: 1.15 }}>
+                  Nature doesn&rsquo;t leave <span style={{ color: GREEN }}>empty spaces empty.</span>
+                </h2>
+                <div className="mt-6 space-y-4 text-[18px] leading-[1.65]" style={{ color: BODY }}>
+                  <p>Think about your lawn.</p>
+                  <p>
+                    When healthy grass fills the yard, weeds struggle to grow. Not because the weeds
+                    disappear, but because healthy grass already occupies the available space.
+                  </p>
+                  <p>
+                    Indoor environments work the same way. When microorganisms are removed,
+                    something else begins growing immediately.
+                  </p>
+                  <p style={{ color: GREEN_DEEP, fontWeight: 600 }}>
+                    The question isn&rsquo;t whether the microbes return. It&rsquo;s which microbes
+                    return first.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ══════════ 5 · A COMPLETELY DIFFERENT PHILOSOPHY ══════════ */}
           <section className="w-full" style={{ background: PALE }}>
             <div className="grid lg:grid-cols-2">
               <div className="order-2 flex items-center lg:order-1">
                 <div className="w-full px-5 py-14 sm:px-8 sm:py-16 lg:py-24 lg:pl-[max(1.5rem,calc((100vw-1440px)/2+2rem))] lg:pr-14">
                   <h2 className="bb-head text-[2rem] sm:text-[2.5rem]" style={{ color: NAVY }}>
-                    Protection that
+                    A completely
                     <br />
-                    <span style={{ color: GREEN }}>continues between</span>
-                    <br />
-                    <span style={{ color: GREEN }}>cleanings.</span>
+                    <span style={{ color: GREEN }}>different philosophy.</span>
                   </h2>
                   <p className="mt-6 max-w-[52ch] text-[18px] leading-[1.6]" style={{ color: BODY }}>
-                    EnviroBiotics releases beneficial environmental probiotics that settle onto your
-                    surfaces and stay there, competing for the same space and nutrients unwanted
-                    microorganisms need. The next arrival finds no vacancy.
+                    EnviroBiotics doesn&rsquo;t try to sterilize your home. It helps restore balance.
+                    Instead of relying on chemicals, EnviroBiotics continuously disperses carefully
+                    selected environmental probiotics that create a micro-flora coating on indoor
+                    surfaces. Once there, they occupy surfaces, compete for nutrients, break down
+                    organic residues and support a balanced, healthier indoor microbiome.
                   </p>
                   <p className="mt-3 text-[18px] font-semibold" style={{ color: GREEN_DEEP }}>
-                    Bleach clears the surface. We occupy it.
+                    Rather than masking problems, EnviroBiotics creates conditions that prevent them
+                    from developing.
                   </p>
+
+
 
                   <div className="mt-10 grid gap-8 sm:grid-cols-3 sm:gap-6">
                     {[
@@ -778,21 +852,22 @@ const BeyondBleachPage = () => {
                         className="w-[26%] px-3 py-4 text-[15px] font-bold uppercase leading-[1.3] tracking-[0.06em] text-white sm:w-[24%] sm:px-5"
                         style={{ background: NAVY }}
                       >
-                        After cleaning
+                        What happens
                       </th>
                       <th
                         scope="col"
                         className="px-3 py-4 text-[15px] font-bold uppercase leading-[1.3] tracking-[0.06em] text-white sm:px-5"
                         style={{ background: NAVY }}
                       >
-                        Disinfectant alone
+                        Traditional disinfectant cleaning
                       </th>
                       <th
                         scope="col"
                         className="px-3 py-4 text-[15px] font-bold uppercase leading-[1.3] tracking-[0.06em] text-white sm:px-5"
                         style={{ background: GREEN_DEEP }}
                       >
-                        Disinfectant + EnviroBiotics
+                        EnviroBiotics
+
                       </th>
                     </tr>
                   </thead>
@@ -824,9 +899,10 @@ const BeyondBleachPage = () => {
                 </table>
               </div>
               <p className="mt-4 text-[15px] leading-[1.6]" style={{ color: GREY }}>
-                You still clean. Your mop and your disinfectant keep the job they had. EnviroBiotics
-                covers the days in between.
+                EnviroBiotics disperses naturally throughout the entire room, reaching surfaces that
+                traditional cleaning simply can&rsquo;t.
               </p>
+
             </div>
           </section>
 
@@ -837,9 +913,9 @@ const BeyondBleachPage = () => {
                 className="bb-head text-center text-[1.9rem] sm:text-[2.4rem]"
                 style={{ color: NAVY, lineHeight: 1.1 }}
               >
-                Two devices.
+                Choose the right
                 <br />
-                <span style={{ color: GREEN }}>Pick the one that fits your room.</span>
+                <span style={{ color: GREEN }}>EnviroBiotics system.</span>
               </h2>
               <p
                 className="mx-auto mt-5 max-w-[56ch] text-center text-[18px] leading-[1.6]"
@@ -856,7 +932,7 @@ const BeyondBleachPage = () => {
                     pill: "Up to 300 sq ft",
                     name: "Biologic Mini",
                     price: "$[[98]]",
-                    body: "A bathroom, bedroom, nursery or office. About the height of a phone, so it sits on a shelf without anyone noticing it. Two lights tell you when the cartridge is low and when it needs charging.",
+                    body: "Perfect for rooms up to 300 sq ft like bedrooms, bathrooms, home offices, dorm rooms and nurseries.",
                     cta: "Add the Biologic Mini",
                     primary: false,
                   },
@@ -866,11 +942,12 @@ const BeyondBleachPage = () => {
                     pill: "Up to 800 sq ft",
                     name: "Biotica 800",
                     price: "$[[299]]",
-                    body: "An open living area, a finished basement, or most of a small home. About the size of a small soundbar and sits flat on a console or shelf.",
+                    body: "Perfect for rooms up to 800 sq ft like living rooms, finished basements, open floor plans, studios and small homes.",
                     cta: "Add the Biotica 800",
                     primary: true,
                   },
                 ].map((d) => (
+
                   <article
                     key={d.name}
                     className="flex h-full flex-col overflow-hidden rounded-2xl bg-white"
@@ -946,20 +1023,46 @@ const BeyondBleachPage = () => {
               >
                 &ldquo;You want me to put bacteria in my house?&rdquo;
               </h2>
-              <p className="mt-5 text-center text-[18px] leading-[1.6]" style={{ color: GREY }}>
-                Fair question, and it deserves a direct answer.
-              </p>
+              <div
+                className="mx-auto mt-6 max-w-[66ch] space-y-4 text-center text-[18px] leading-[1.65]"
+                style={{ color: BODY }}
+              >
+                <p>Fair question. Here&rsquo;s the difference. These aren&rsquo;t disease-causing bacteria.</p>
+                <p>
+                  They&rsquo;re carefully selected environmental probiotics, chosen because they
+                  naturally establish a balanced, healthier microbial balance.
+                </p>
+                <p style={{ color: GREY }}>
+                  Our technology has undergone extensive independent safety testing and carries
+                  multiple third-party recognitions, including:
+                </p>
+              </div>
+
+              <ul className="mx-auto mt-8 flex max-w-[70ch] flex-wrap justify-center gap-3">
+                {[
+                  "EPA Registered",
+                  "MADE SAFE®",
+                  "Allergy UK",
+                  "Sensitive Choice Australia",
+                  "Parent Tested Parent Approved",
+                ].map((c) => (
+                  <li
+                    key={c}
+                    className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-[15px] font-semibold"
+                    style={{ background: PALE, color: NAVY, border: `1px solid #D6E3DA` }}
+                  >
+                    <Check aria-hidden className="h-4 w-4" style={{ color: GREEN }} />
+                    {c}
+                  </li>
+                ))}
+              </ul>
 
               <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
                 <IconStat
                   icon={<Baby className="h-6 w-6" strokeWidth={1.4} />}
                   size={64}
-                  label="Safe around grandkids and pets"
-                  caption={
-                    <T>
-                      {"[[Specific guidance. If anyone should check with a doctor first, say so here.]]"}
-                    </T>
-                  }
+                  label="Family and pet friendly"
+                  caption="Designed for everyday use in homes with children and pets."
                 />
                 <IconStat
                   icon={<Wind className="h-6 w-6" strokeWidth={1.4} />}
@@ -971,11 +1074,7 @@ const BeyondBleachPage = () => {
                   icon={<FlaskConical className="h-6 w-6" strokeWidth={1.4} />}
                   size={64}
                   label="Independently tested"
-                  caption={
-                    <T>
-                      {"[[Third-party lab]] tested for [[specific endpoints]]. Full results published, not summarised."}
-                    </T>
-                  }
+                  caption="Extensive independent safety testing and multiple third-party recognitions."
                 />
                 <IconStat
                   icon={<HelpCircle className="h-6 w-6" strokeWidth={1.4} />}
@@ -984,6 +1083,7 @@ const BeyondBleachPage = () => {
                   caption="Not a disinfectant, not a pesticide, not a fragrance. Not intended to diagnose, treat, cure or prevent any disease."
                 />
               </div>
+
             </div>
           </section>
 
@@ -994,7 +1094,7 @@ const BeyondBleachPage = () => {
                 className="bb-head text-center text-[1.8rem] sm:text-[2.3rem]"
                 style={{ color: NAVY, lineHeight: 1.15 }}
               >
-                What customers notice first.
+                Real customers. <span style={{ color: GREEN }}>Real homes.</span>
               </h2>
 
               <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -1027,7 +1127,52 @@ const BeyondBleachPage = () => {
             </div>
           </section>
 
+          {/* ══════════ 10B · CLEANING AND NATURE ══════════ */}
+          <section className="w-full bg-white">
+            <div className="site-container py-16 sm:py-20 lg:py-24">
+              <h2
+                className="bb-head mx-auto max-w-[26ch] text-center text-[1.8rem] sm:text-[2.3rem]"
+                style={{ color: NAVY, lineHeight: 1.15 }}
+              >
+                It&rsquo;s not about choosing between{" "}
+                <span style={{ color: GREEN }}>cleaning and nature.</span>
+              </h2>
+              <div
+                className="mx-auto mt-8 max-w-[70ch] space-y-4 text-[18px] leading-[1.65]"
+                style={{ color: BODY }}
+              >
+                <p>
+                  Keep cleaning dirt and grime. Keep disinfecting when it is appropriate.
+                  Disinfection is appropriate when there is a known or suspected infectious risk,
+                  including:
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "After someone in the home has been sick with a contagious illness",
+                    "Food preparation areas where contamination with raw meat, poultry or seafood has occurred",
+                    "Bathrooms after exposure to bodily fluids",
+                    "During outbreaks of illnesses such as norovirus or influenza, when public health guidance recommends disinfecting high-touch surfaces",
+                    "Mold or sewage remediation, where specialized cleaning and disinfection protocols are part of the remediation process",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <Check aria-hidden className="mt-1.5 h-4 w-4 shrink-0" style={{ color: GREEN }} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p>In these situations, disinfectants remain an important and appropriate tool.</p>
+                <p style={{ color: NAVY, fontWeight: 600 }}>
+                  But ask yourself one question. What happens between cleanings?
+                </p>
+                <p style={{ color: GREEN_DEEP, fontWeight: 600 }}>
+                  That&rsquo;s where EnviroBiotics works — 24 hours a day, every day.
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* ══════════ 11 · NAVY CTA BAND ══════════ */}
+
           <section className="relative w-full overflow-hidden" style={{ background: NAVY }}>
             <img
               src={ctaRoom}
@@ -1061,8 +1206,14 @@ const BeyondBleachPage = () => {
                     <span aria-hidden className="h-px w-24" style={{ background: "rgba(255,255,255,0.4)" }} />
                   </div>
                   <p className="mt-6 max-w-[46ch] text-[18px] leading-[1.6]" style={{ color: "#DCE3EC" }}>
-                    Clean the way you always have. EnviroBiotics covers the days in between.
+                    Traditional cleaning removes yesterday&rsquo;s mess. EnviroBiotics continuously
+                    helps create a healthier indoor microbiome for tomorrow. Not simply cleaner —
+                    balanced. Not simply disinfected — continuously managed.
                   </p>
+                  <p className="mt-4 max-w-[46ch] text-[18px] font-semibold leading-[1.6]" style={{ color: "#8BE0A6" }}>
+                    Purify your home the way Mother Nature purifies hers, with probiotics.
+                  </p>
+
 
                   <div
                     className="mt-8 max-w-[46ch] rounded-xl p-6"
@@ -1103,7 +1254,7 @@ const BeyondBleachPage = () => {
                 </div>
 
                 <div className="lg:flex lg:justify-center">
-                  <PrimaryCTA href={SHOP}>Find the right EnviroBiotics system</PrimaryCTA>
+                  <PrimaryCTA href={SHOP}>Choose your system today</PrimaryCTA>
                 </div>
               </div>
             </div>
