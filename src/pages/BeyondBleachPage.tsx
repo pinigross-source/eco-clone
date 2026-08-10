@@ -335,17 +335,25 @@ const BeyondBleachPage = () => {
 
               <p
                 className="mx-auto mt-5 max-w-[52ch] text-[1.15rem] leading-[1.6] sm:text-[1.3rem]"
-                style={{ color: BODY, fontWeight: 500 }}
+                style={{ color: BODY, fontWeight: 600 }}
               >
-                Bleach empties a surface for about an hour. EnviroBiotics puts good bacteria on it
-                and keeps them there for weeks.
+                Cleaning doesn&rsquo;t stop what happens tomorrow.
               </p>
               <p
-                className="mx-auto mt-3 max-w-[56ch] text-[1.0625rem] leading-[1.6] sm:text-[1.125rem]"
+                className="mx-auto mt-4 max-w-[56ch] text-[1.0625rem] leading-[1.6] sm:text-[1.125rem]"
                 style={{ color: GREY }}
               >
-                Think of a probiotic for your gut. Good bacteria hold the space, so the bad ones
-                have nowhere to settle.
+                You clean today. Tomorrow your indoor environment begins changing again.
+                Microorganisms return. Dust returns. Odors return. The question isn&rsquo;t{" "}
+                <strong style={{ color: BODY }}>whether</strong> they&rsquo;ll return — it&rsquo;s{" "}
+                <strong style={{ color: BODY }}>what returns first.</strong>
+              </p>
+              <p
+                className="mx-auto mt-4 max-w-[56ch] text-[1.0625rem] font-semibold leading-[1.6] sm:text-[1.125rem]"
+                style={{ color: NAVY }}
+              >
+                What if your home could continuously help protect itself between cleanings?
+                That&rsquo;s where EnviroBiotics is different.
               </p>
 
               <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
@@ -371,10 +379,11 @@ const BeyondBleachPage = () => {
 
               <p className="mt-5 text-[15px] leading-[1.6]" style={{ color: GREY }}>
                 <span aria-hidden style={{ color: ORANGE }}>
-                  ★★★★☆
+                  ★★★★★
                 </span>{" "}
-                <T>{"4.8 · 30-day money-back guarantee · No subscription required"}</T>
+                Rated by families across North America · 30-day money back guarantee
               </p>
+
             </div>
 
             <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
