@@ -899,9 +899,10 @@ const BeyondBleachPage = () => {
                 </table>
               </div>
               <p className="mt-4 text-[15px] leading-[1.6]" style={{ color: GREY }}>
-                You still clean. Your mop and your disinfectant keep the job they had. EnviroBiotics
-                covers the days in between.
+                EnviroBiotics disperses naturally throughout the entire room, reaching surfaces that
+                traditional cleaning simply can&rsquo;t.
               </p>
+
             </div>
           </section>
 
