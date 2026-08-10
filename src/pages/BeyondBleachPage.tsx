@@ -474,27 +474,70 @@ const BeyondBleachPage = () => {
             </div>
           </section>
 
+          {/* ══════════ 3B · FIGHTING NATURE ══════════ */}
+          <section className="w-full bg-white">
+            <div className="site-container py-16 sm:py-20 lg:py-24">
+              <h2
+                className="bb-head mx-auto max-w-[24ch] text-center text-[1.9rem] sm:text-[2.4rem]"
+                style={{ color: NAVY, lineHeight: 1.12 }}
+              >
+                We&rsquo;ve been fighting nature for more than 100 years.
+                <br />
+                <span style={{ color: GREEN }}>Maybe it&rsquo;s time to work with it instead.</span>
+              </h2>
+              <div
+                className="mx-auto mt-8 max-w-[68ch] space-y-4 text-[18px] leading-[1.65]"
+                style={{ color: BODY }}
+              >
+                <p>
+                  For generations we&rsquo;ve been taught that creating a healthy home is simple.{" "}
+                  <strong>Kill the germs.</strong>
+                </p>
+                <p>
+                  That philosophy changed medicine forever. It helped stop infectious diseases. It
+                  made surgery safer. It transformed public health. It saved millions of lives.
+                </p>
+                <p>
+                  But today science recognizes something equally important.{" "}
+                  <strong>Not all microorganisms are harmful.</strong> Many are beneficial and
+                  classified as probiotics.
+                </p>
+                <p>
+                  In fact, trillions of beneficial bacteria live inside your body, helping regulate
+                  digestion, immunity, metabolism and many other essential functions.
+                </p>
+                <p style={{ color: NAVY, fontWeight: 600 }}>
+                  So why do we still treat our homes as though every microorganism should be
+                  eliminated?
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* ══════════ 4 · CLEANING IS A MOMENT IN TIME ══════════ */}
           <section id="how" className="w-full bg-white">
             <div className="site-container grid gap-12 py-16 sm:py-20 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-16 lg:py-24">
               <div>
                 <h2 className="bb-head text-[2rem] sm:text-[2.5rem]" style={{ color: NAVY }}>
-                  Cleaning is
+                  Cleaning only lasts
                   <br />
                   <span style={{ color: GREEN }}>a moment in time.</span>
                 </h2>
                 <div className="mt-6 space-y-4 text-[18px] leading-[1.6]" style={{ color: BODY }}>
                   <p>
-                    You clean the bathroom on Sunday. By Wednesday it smells the same, and you
-                    figure you missed a spot.
+                    Disinfectants work while you&rsquo;re cleaning. But once they dry, your indoor
+                    environment immediately begins changing again.
                   </p>
                   <p>
-                    You didn&rsquo;t. You cleaned as well as bleach can clean, and bleach does one
-                    thing. It clears the surface.
+                    Family members move through the house, introducing new microorganisms. Every
+                    time a door opens or the HVAC system cycles, microscopic particles spread
+                    through your home. Pets deposit dander and organic debris.
                   </p>
                   <p>
-                    For about an hour that surface sits empty. Then something lands on it, off your
-                    shoes or off the dog or out of the air, and finds nothing competing for it.
+                    The process never stops. That&rsquo;s why{" "}
+                    <strong>cleaning is a moment in time</strong>, while your indoor environment is
+                    constantly changing. The question isn&rsquo;t whether your home will be
+                    recolonized. It&rsquo;s <strong>what will colonize it first.</strong>
                   </p>
                 </div>
               </div>
@@ -509,18 +552,18 @@ const BeyondBleachPage = () => {
                   },
                   {
                     icon: <CircleDashed className="h-8 w-8" strokeWidth={1.4} />,
-                    label: "The surface sits empty",
-                    caption: "For about an hour there is nothing on it at all.",
+                    label: "New microorganisms arrive",
+                    caption: "Organic matter begins to accumulate again.",
                     tone: "navy" as const,
                   },
                   {
                     icon: <Bug className="h-8 w-8" strokeWidth={1.4} />,
-                    label: "Whatever lands next spreads",
-                    caption:
-                      "With nothing competing for space, it takes the whole surface.",
+                    label: "Odors & allergens return",
+                    caption: "And the cycle starts over. You clean again.",
                     tone: "navy" as const,
                   },
                 ].map((s, i) => (
+
                   <Fragment key={s.label}>
                     <IconStat icon={s.icon} label={s.label} caption={s.caption} tone={s.tone} />
                     {i < 2 && (
