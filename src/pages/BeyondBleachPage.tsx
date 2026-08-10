@@ -1023,20 +1023,46 @@ const BeyondBleachPage = () => {
               >
                 &ldquo;You want me to put bacteria in my house?&rdquo;
               </h2>
-              <p className="mt-5 text-center text-[18px] leading-[1.6]" style={{ color: GREY }}>
-                Fair question, and it deserves a direct answer.
-              </p>
+              <div
+                className="mx-auto mt-6 max-w-[66ch] space-y-4 text-center text-[18px] leading-[1.65]"
+                style={{ color: BODY }}
+              >
+                <p>Fair question. Here&rsquo;s the difference. These aren&rsquo;t disease-causing bacteria.</p>
+                <p>
+                  They&rsquo;re carefully selected environmental probiotics, chosen because they
+                  naturally establish a balanced, healthier microbial balance.
+                </p>
+                <p style={{ color: GREY }}>
+                  Our technology has undergone extensive independent safety testing and carries
+                  multiple third-party recognitions, including:
+                </p>
+              </div>
+
+              <ul className="mx-auto mt-8 flex max-w-[70ch] flex-wrap justify-center gap-3">
+                {[
+                  "EPA Registered",
+                  "MADE SAFE®",
+                  "Allergy UK",
+                  "Sensitive Choice Australia",
+                  "Parent Tested Parent Approved",
+                ].map((c) => (
+                  <li
+                    key={c}
+                    className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-[15px] font-semibold"
+                    style={{ background: PALE, color: NAVY, border: `1px solid #D6E3DA` }}
+                  >
+                    <Check aria-hidden className="h-4 w-4" style={{ color: GREEN }} />
+                    {c}
+                  </li>
+                ))}
+              </ul>
 
               <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
                 <IconStat
                   icon={<Baby className="h-6 w-6" strokeWidth={1.4} />}
                   size={64}
-                  label="Safe around grandkids and pets"
-                  caption={
-                    <T>
-                      {"[[Specific guidance. If anyone should check with a doctor first, say so here.]]"}
-                    </T>
-                  }
+                  label="Family and pet friendly"
+                  caption="Designed for everyday use in homes with children and pets."
                 />
                 <IconStat
                   icon={<Wind className="h-6 w-6" strokeWidth={1.4} />}
@@ -1048,11 +1074,7 @@ const BeyondBleachPage = () => {
                   icon={<FlaskConical className="h-6 w-6" strokeWidth={1.4} />}
                   size={64}
                   label="Independently tested"
-                  caption={
-                    <T>
-                      {"[[Third-party lab]] tested for [[specific endpoints]]. Full results published, not summarised."}
-                    </T>
-                  }
+                  caption="Extensive independent safety testing and multiple third-party recognitions."
                 />
                 <IconStat
                   icon={<HelpCircle className="h-6 w-6" strokeWidth={1.4} />}
@@ -1061,6 +1083,7 @@ const BeyondBleachPage = () => {
                   caption="Not a disinfectant, not a pesticide, not a fragrance. Not intended to diagnose, treat, cure or prevent any disease."
                 />
               </div>
+
             </div>
           </section>
 
