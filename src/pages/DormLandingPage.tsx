@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Loader2, Play, ShoppingCart } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { shopifyProductUrl } from "@/lib/shopify";
+import { shopifyProductUrl, decorateShopUrl } from "@/lib/shopify";
 import {
   Accordion,
   AccordionContent,
@@ -125,11 +125,11 @@ const DormLandingPage = () => {
 
   const handleBuyNow = () => {
     trackEvent("click_buy_dorm_landing");
-    window.location.href = SHOPIFY_BUY_URL;
+    window.location.href = decorateShopUrl(SHOPIFY_BUY_URL);
   };
 
   const handleAddToCart = () => {
-    window.location.href = SHOPIFY_BUY_URL;
+    window.location.href = decorateShopUrl(SHOPIFY_BUY_URL);
   };
 
   return (

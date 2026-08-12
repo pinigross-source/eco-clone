@@ -9,7 +9,7 @@ import ptpaAward from "@/assets/ptpa-award.png";
 import madeSafeLogo from "@/assets/made-safe-logo.png";
 import stripeLogo from "@/assets/stripe-logo.svg";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { shopifyProductUrl } from "@/lib/shopify";
+import { shopifyProductUrl, decorateShopUrl } from "@/lib/shopify";
 
 const BIOLOGIC_MINI_PRODUCT = {
   name: "BioLogic Mini",
@@ -30,11 +30,11 @@ const NurseryLandingPage = () => {
   }, []);
 
   const handleBuyNow = () => {
-    window.location.href = SHOPIFY_BUY_URL;
+    window.location.href = decorateShopUrl(SHOPIFY_BUY_URL);
   };
 
   const handleAddToCart = () => {
-    window.location.href = SHOPIFY_BUY_URL;
+    window.location.href = decorateShopUrl(SHOPIFY_BUY_URL);
   };
 
   const scrollToCTA = () => {
