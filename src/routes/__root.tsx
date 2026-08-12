@@ -124,6 +124,87 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
+            __html: `(function () {
+  var SHOP_HOSTS = ["shop.envirobiotics.com"];
+  var KEYS = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content",
+              "fbclid","gclid","gbraid","wbraid","ttclid","msclkid"];
+  var STORE_KEY = "eb_attribution";
+  var TTL_DAYS = 30;
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORE_KEY);
+      if (!raw) return null;
+      var obj = JSON.parse(raw);
+      if (Date.now() - obj.t > TTL_DAYS * 864e5) { localStorage.removeItem(STORE_KEY); return null; }
+      return obj.v;
+    } catch (e) { return null; }
+  }
+  function save(v) {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify({ t: Date.now(), v: v })); } catch (e) {}
+  }
+
+  var p = new URLSearchParams(window.location.search);
+  var incoming = {};
+  KEYS.forEach(function (k) { var v = p.get(k); if (v) incoming[k] = v; });
+
+  if (Object.keys(incoming).length) {
+    if (!incoming.utm_source) {
+      if (incoming.fbclid) { incoming.utm_source = "facebook"; incoming.utm_medium = incoming.utm_medium || "paid"; }
+      else if (incoming.gclid || incoming.gbraid || incoming.wbraid) {
+        incoming.utm_source = "google"; incoming.utm_medium = incoming.utm_medium || "cpc";
+      }
+    }
+    save(incoming);
+  } else if (!load() && document.referrer) {
+    try {
+      var rd = new URL(document.referrer).hostname;
+      if (rd && rd.indexOf("envirobiotics.com") === -1) {
+        save({ utm_source: rd.replace(/^www\\./, ""), utm_medium: "referral" });
+      }
+    } catch (e) {}
+  }
+
+  function decorate(href) {
+    var url;
+    try { url = new URL(href, window.location.href); } catch (e) { return href; }
+    if (SHOP_HOSTS.indexOf(url.hostname) === -1) return href;
+
+    var attr = load();
+    if (attr) {
+      KEYS.forEach(function (k) {
+        if (attr[k] && !url.searchParams.has(k)) url.searchParams.set(k, attr[k]);
+      });
+      if (attr.utm_source && url.searchParams.get("utm_source") === "envirobiotics") {
+        var lpCampaign = url.searchParams.get("utm_campaign");
+        if (lpCampaign) url.searchParams.set("lp_section", lpCampaign);
+        url.searchParams.set("utm_source", attr.utm_source);
+        if (attr.utm_medium) url.searchParams.set("utm_medium", attr.utm_medium);
+        if (attr.utm_campaign) url.searchParams.set("utm_campaign", attr.utm_campaign);
+      }
+    }
+    if (!url.searchParams.has("lp_page")) {
+      url.searchParams.set("lp_page", window.location.pathname || "/");
+    }
+    return url.toString();
+  }
+
+  function handler(ev) {
+    var a = ev.target && ev.target.closest ? ev.target.closest("a[href]") : null;
+    if (!a) return;
+    var d = decorate(a.href);
+    if (d !== a.href) a.href = d;
+  }
+  document.addEventListener("click", handler, true);
+  document.addEventListener("auxclick", handler, true);
+
+  window.ebDecorateUrl = decorate;
+})();`,
+          }}
+        />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
             __html: `(function(){try{var BENIGN=[/ResizeObserver loop/i,/messageHandlers/i,/window\\.webkit/i];var match=function(m){return typeof m==='string'&&BENIGN.some(function(r){return r.test(m)})};window.addEventListener('error',function(e){if(match(e&&e.message)){e.stopImmediatePropagation();e.preventDefault();}},true);window.addEventListener('unhandledrejection',function(e){var m=e&&e.reason&&(e.reason.message||String(e.reason));if(match(m)){e.stopImmediatePropagation();e.preventDefault();}});}catch(_){}})();`,
           }}
         />
