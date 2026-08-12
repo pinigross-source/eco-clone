@@ -149,6 +149,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <script src="//code.tidio.co/cmcu3h7cgcxwkhwe6bqxenc5cyipvzmu.js" async />
       </body>
     </html>
   );
