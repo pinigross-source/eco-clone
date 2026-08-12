@@ -24,10 +24,18 @@ function withUtm(url: string, campaign?: string): string {
       u.searchParams.set("utm_medium", "site");
       if (campaign) u.searchParams.set("utm_campaign", campaign);
     }
-    return u.toString();
+    return decorateShopUrl(u.toString());
   } catch {
     return url;
   }
+}
+
+/** Apply stored ad attribution (set by the pass-through script in the app shell). */
+export function decorateShopUrl(url: string): string {
+  if (typeof window === "undefined") return url;
+  const fn = (window as unknown as { ebDecorateUrl?: (u: string) => string })
+    .ebDecorateUrl;
+  return typeof fn === "function" ? fn(url) : url;
 }
 
 /** Build a Shopify URL from a path (e.g. "/products/biotica-800"). */
