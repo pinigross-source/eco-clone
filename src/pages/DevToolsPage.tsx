@@ -97,7 +97,7 @@ export default function DevToolsPage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Dev Tools  EnviroBiotics Test Hub"
+        title="Dev Tools | EnviroBiotics Test Hub"
         description="Test-environment utilities: clear cart, reset session, inspect config."
         path="/dev-tools"
       />

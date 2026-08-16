@@ -52,25 +52,25 @@ export const SEOHead = ({ title, description, path, type = "website", image, key
     }
     link.setAttribute("href", canonicalUrl);
 
-    // JSON-LD
-    const existingScript = document.querySelector('script[data-seo-jsonld]');
-    if (existingScript) existingScript.remove();
+    // NOTE: JSON-LD is NOT injected here. It is rendered inline below so that
+    // it is present in the server-rendered HTML for crawlers that do not run JS.
 
-    if (jsonLd) {
-      const script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.setAttribute("data-seo-jsonld", "true");
-      script.textContent = JSON.stringify(jsonLd);
-      document.head.appendChild(script);
-    }
+    // Clean up any legacy client-injected block from a previous render.
+    const legacy = document.querySelector('script[data-seo-jsonld]');
+    if (legacy) legacy.remove();
+  }, [fullTitle, description, canonicalUrl, type, ogImage, keywords]);
 
-    return () => {
-      const s = document.querySelector('script[data-seo-jsonld]');
-      if (s) s.remove();
-    };
-  }, [fullTitle, description, canonicalUrl, type, ogImage, jsonLd]);
+  if (!jsonLd) return null;
 
-  return null;
+  return (
+    <script
+      type="application/ld+json"
+      // Server-rendered: present in the initial HTML response.
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+      }}
+    />
+  );
 };
 
 // Organization schema used across the site (no @context  used inside @graph)
@@ -415,4 +415,15 @@ export const homepageFaqJsonLd = {
       },
     },
   ],
+};
+
+// Safely pull the FAQPage questions out of a JSON-LD @graph.
+// Looked up by @type so reordering the graph can never break a page render.
+export const getFaqEntities = (
+  schema: any,
+): { name: string; acceptedAnswer: { text: string } }[] => {
+  const graph = schema?.["@graph"];
+  if (!Array.isArray(graph)) return [];
+  const node = graph.find((n: any) => n?.["@type"] === "FAQPage");
+  return Array.isArray(node?.mainEntity) ? node.mainEntity : [];
 };

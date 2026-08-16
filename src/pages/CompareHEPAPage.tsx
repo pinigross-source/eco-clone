@@ -1,4 +1,4 @@
-import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
+import { SEOHead, makeBreadcrumbJsonLd, getFaqEntities } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Link } from "@/lib/link";
@@ -231,7 +231,7 @@ const CompareHEPAPage = () => {
           <div className="container max-w-4xl mx-auto px-5">
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-8">Frequently Asked Questions</h2>
             <div className="space-y-6">
-              {(jsonLd["@graph"][1] as any).mainEntity.map((q: any, i: number) => (
+              {getFaqEntities(jsonLd).map((q, i) => (
                 <div key={i} className="border-b border-border pb-5">
                   <h3 className="font-display font-semibold text-lg mb-2">{q.name}</h3>
                   <p className="text-muted-foreground text-sm">{q.acceptedAnswer.text}</p>

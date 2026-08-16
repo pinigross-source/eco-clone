@@ -29,7 +29,6 @@
 - [Health Benefits](/health-benefits): Reported outcomes from probiotic environmental care.
 - [Research](/research): Peer-reviewed studies and references.
 - [Glossary](/glossary): Microbiology and air-quality terms.
-- [FAQ](/faq): Common questions answered.
 - [Blog](/blog): Articles and updates.
 - [Videos](/videos): Demonstrations and explainers.
 - [Case Studies](/case-studies): Real-world deployments and results.
