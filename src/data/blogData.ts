@@ -940,7 +940,7 @@ export const blogPosts: BlogPost[] = [
       "**Secondary:** ventilation and removing the source, which is usually more effective than any device.",
       "## Room sizing and placement",
       "The bedroom is the highest-value placement in almost every asthma household, because it's where you spend six to ten uninterrupted hours breathing the same air. Size the unit generously to the room so it can hold clean-air delivery on a low, quiet setting rather than running loud all night.",
-      "For probiotic coverage, the [BioLogic Mini Gen 2](/product/biologic-mini-gen-2) covers up to 300 sq ft and is quiet enough for a bedroom or nursery. The [Biotica 800](/product/biotica-800) covers up to 800 sq ft for open living areas. For whole-home coverage through existing ductwork, the [E-Biotic Pro](/product/e-biotic-pro) is HVAC-integrated.",
+      "For probiotic coverage, the [BioLogic Mini Gen 2](/product/biologic-mini) covers up to 300 sq ft and is quiet enough for a bedroom or nursery. The [Biotica 800](/product/biotica-800) covers up to 800 sq ft for open living areas. For whole-home coverage through existing ductwork, the [E-Biotic Pro](/product/ebiotic-pro) is HVAC-integrated.",
       "## Buying a purifier for a child with asthma",
       "The priorities shift slightly for kids: noise matters more (a device that gets switched off at bedtime does nothing), and the no-ozone rule becomes non-negotiable. Practical checklist for a child's room: no ionizer or ozone mode, quiet on its lowest setting, allergen-proof mattress and pillow encasements, humidity held at 40 to 60%, soft toys washed regularly, and no smoking anywhere in the home. Coordinate any change with your child's pediatrician, and keep their action plan and medication exactly as prescribed.",
       "## What to look for on the box",
@@ -955,7 +955,7 @@ export const blogPosts: BlogPost[] = [
       "**Can an air purifier help a child with asthma?** It can reduce the triggers in a child's room, which supports their overall management, but it is not a treatment and doesn't replace a pediatrician's plan. For children, prioritize a quiet, no-ozone device for the bedroom, keep humidity at 40 to 60%, use allergen-proof bedding, and avoid any ionizing or ozone-producing product. Always coordinate environmental changes with your child's doctor.",
       "**Will a HEPA purifier get rid of dust mites?** Not on its own. Dust mites live inside bedding, mattresses, carpet, and upholstery and rarely become airborne, so a HEPA purifier seldom encounters them. Reducing dust-mite triggers means washing bedding hot, using encasements, keeping humidity low, HEPA-vacuuming, and treating surfaces. The air filter only catches allergen during the brief moments it's stirred into the air.",
       "**Should I run an air purifier all the time for asthma?** Generally yes for HEPA units. Continuous operation keeps airborne triggers from building back up, especially in the bedroom where you spend many hours. Size the unit to the room so it can run on a lower, quieter setting. Surface-focused probiotic systems are also designed for continuous background operation. Neither replaces medication or a medical asthma plan.",
-      "Want to cut triggers on surfaces, not just in the air? See the [BioLogic Mini Gen 2](/product/biologic-mini-gen-2)."
+      "Want to cut triggers on surfaces, not just in the air? See the [BioLogic Mini Gen 2](/product/biologic-mini)."
     ],
   },
   {
