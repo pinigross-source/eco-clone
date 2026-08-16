@@ -1,54 +1,52 @@
-## Goal
+# Review of the SEO / AEO / GEO task list
 
-92% of last-week conversions came from mobile. Reduce dead clicks, quick backs, and CTA friction on the three top converting pages: `/support`, `/allergy`, `/hvac`. Frontend / presentation only — no business logic changes.
+I verified each claim against the live site before writing this. Summary: the agency is broadly right, but two of their diagnoses are wrong in a way that changes the work.
 
-## Diagnostic pass (first)
+## What I confirmed
 
-Before editing, verify the actual dead-click and quick-back hot spots so fixes hit the real culprits, not guesses:
+**3.1 Broken /compare/* pages - real, and I found the exact cause.**
+All four pages return HTTP 200 with a ~22 KB shell, no H1, no content. It is not a failing data fetch as the doc assumes. The server render crashes on a one-character bug: each page reads the FAQ list from the wrong position in its schema array (`@graph[1]` is the Article node; the FAQ node is at `[2]`), so `.mainEntity.map` throws and the whole page render aborts. Same bug in all four files. It is a small fix, not a "Medium" effort item.
 
-1. Load each page in Playwright at 390×844 (mobile) and 768×1024 (tablet).
-2. Capture: full-height screenshots, DOM audit of every element with `onClick` / `role="button"` / `<a>` — flag any with tap target < 44×44 px, missing `href`, `cursor: default`, or `pointer-events: none`.
-3. Capture console + network errors on `/allergy` (3 JS errors reported) and record HVAC LCP / total blocking time.
-4. Save findings to `/tmp/browser/mobile-audit/report.md` and drive the rest of the plan from it.
+**3.2 Server-rendered content - half right.**
+The doc says body text and headings are client-rendered. That is only true on the four broken comparison pages. Healthy pages (`/`, `/faq`, `/glossary`, `/research`) already return their H1 and full body copy in raw HTML. This site is server-rendered.
 
-## Fixes by page
+The JSON-LD point is correct: zero `application/ld+json` blocks in the initial HTML anywhere. Cause is that schema is injected by a `useEffect` in the shared SEO component. This is fixable properly (no crawler user-agent pre-rendering workaround needed) by emitting schema through the route head instead.
 
-### /support (SupportPage.tsx)
-- Primary hero CTA `Contact Support` currently only scrolls to `#contact-form` via hash href — on mobile the sticky header can eat the anchor. Add scroll-margin-top to `#contact-form` and confirm smooth scroll works from the hero button.
-- Support option cards: the whole card should be tappable on mobile (currently only the small outline button is). Wrap card in a link OR enlarge the button to full-width on `sm:` and below.
-- PDF/Video rows: the small 40×40 Share icon buttons sit next to a large link — likely dead-click source when thumbs hit the icon area expecting the main action. Increase share button hit area to 44×44 with spacing, or hide share on mobile behind a "…" menu.
-- Video modal close button: verify 44px tap target.
+**4.1 Title separators - confirmed.** The About and Contact titles literally contain a double space where a dash was stripped. `/dorm`, `/nursery`, `/health-benefits` have no brand suffix.
 
-### /allergy (AllergyLandingPage.tsx)
-- Fix the 3 JS errors surfaced in the diagnostic pass (root cause first; likely a missing asset / undefined handler based on the Script-error report earlier).
-- Above-the-fold: ensure a single, high-contrast primary CTA is visible without scrolling on 390px width. Quick-backs at 11 suggest users bounce before finding the CTA.
-- Sticky bottom CTA: confirm `StickyMobileCTA` isn't hidden behind the page's own CTAs (avg scroll depth only 41% — users don't reach the footer CTA). Consider showing the sticky CTA earlier (scrollY > 200 instead of 400) on this landing page.
-- Reviews section swipe: verify tap targets on carousel dots/arrows are ≥44px.
+**9.3 Sitemap** lists `/shop`, which redirects. Confirmed.
 
-### /hvac (HVACPage.tsx)
-- **Performance (4.77s load):**
-  - Add `loading="lazy"` + `decoding="async"` to every non-hero image.
-  - Preload the hero image via `head().links` in `src/routes/hvac.tsx` (currently only has canonical).
-  - Convert large PNG/JPG hero to AVIF if not already.
-  - Defer any below-the-fold heavy sections with `DeferredSection` (pattern used on `HomePage.tsx`).
-- **Dead clicks (10):** audit any `<div onClick>` and convert to `<button>` / `<Link>`; ensure the primary "Request installation quote" CTA is a real submit-driving button, not a wrapper.
-- Quote form: verify mobile input types (`type="tel"`, `inputMode="numeric"` on zip, `autoComplete` hints) so the mobile keyboard is correct.
+## Where I disagree or want a decision
 
-### Cross-page mobile CTA polish
-- Enforce min 44×44 tap targets on all primary buttons (Tailwind `min-h-11`).
-- Ensure sticky CTAs never overlap page CTAs (add `pb-24 md:pb-0` where missing).
-- Standardize primary button style so the mobile conversion button reads the same on all three pages.
+- **Legal pages to noindex (7):** leave them `index, follow`. No crawl-budget problem on a site this size, and noindexing warranty/privacy can weaken trust signals.
+- **Stripping UTMs from internal store links (9.3):** we deliberately added attribution pass-through to the Shopify store so we can measure which landing page drives a sale. Removing it blinds that reporting. Better fix is to keep the parameters and exclude the internal source in analytics.
+- **Pricing "$98" vs schema "$400" (9.3):** this is not a bug to fix in code until we confirm which is correct. Needs your call.
+- **Named blog authors (8):** the doc asks your opinion. This is a content/legal decision - a named author on health-adjacent content raises the claim-liability bar. Recommend a single reviewed byline (one named person, with a bio page) rather than per-post authors.
+- **Everything in Section 9 (store)** is on Shopify, not this site. Product titles, merged Product schema, image alt text, `/collections/all` - none of it can be shipped from here. That work goes to whoever manages the Shopify theme.
 
-## Verification
+## Proposed work, in order
 
-After edits, re-run the Playwright audit at mobile + tablet:
-- Screenshots of the hero + primary CTA on each page.
-- Confirm 0 console errors on `/allergy`.
-- Confirm HVAC hero image is preloaded (network waterfall) and LCP < 2.5s in a local Lighthouse-style check.
-- Confirm every primary CTA has `getBoundingClientRect()` ≥ 44px in both dimensions.
+### Phase 1 - Critical (do now)
+1. Fix the FAQ index bug in the four comparison pages so they render again; verify each returns a single H1 and full comparison content in raw HTML.
+2. Add a render-safety guard so a schema/data shape mistake degrades one section instead of blanking the page.
+3. Move JSON-LD into server-rendered HTML site-wide: emit schema via the route head instead of the client-side effect, so every page ships its schema in the initial response.
 
-## Out of scope
+### Phase 2 - Schema enrichment
+4. `FAQPage` on `/faq` and `/safety`; `DefinedTermSet` on `/glossary`; `Article` markup on `/case-studies` and `/research`.
+5. `FAQPage` / `DefinedTerm` across the education cluster pages.
 
-- No backend, tracking, or pricing changes.
-- No copy rewrites beyond CTA label clarity where a dead-click points to ambiguous wording.
-- No new pages or routes.
+### Phase 3 - Metadata pass
+6. Standardise titles to `Primary Keyword | EnviroBiotics`; fix the About and Contact double-space separators; add brand suffix to `/dorm`, `/nursery`, `/health-benefits`.
+7. Trim the About description to ~155 chars; expand `/dust-mite-allergens` and `/pet-dander` descriptions toward ~150.
+8. Repoint the sitemap `/shop` entry to the store collection URL.
+
+### Phase 4 - Content (larger, separate pass)
+9. Lead each education page with a self-contained 40-60 word extractable answer, add primary-source citations, and tighten internal linking into `/how-it-works` and product pages.
+
+## Technical notes
+- Comparison pages: the FAQ block reads `jsonLd["@graph"][1]`; the FAQPage node sits at index `[2]`. Fix by referencing the node by `@type` rather than by array position, so reordering the graph cannot break the page again.
+- SSR schema: schema currently goes through `SEOHead`'s `useEffect`. It should be emitted from each route's `head()` so it is in the HTML stream. `/compare/*` pages additionally render an inline schema script that never shipped because the render crashed first.
+- No crawler user-agent pre-rendering is needed; the framework already server-renders.
+
+## Out of scope here
+Shopify store changes (Section 9.1, 9.2, store `robots.txt`) and Search Console domain association.
