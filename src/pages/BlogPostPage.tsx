@@ -70,6 +70,24 @@ const extractKeyTakeaways = (content: string[]): string[] => {
 };
 
 // Extract a compelling quote from content
+/** Extract FAQ pairs from paragraphs shaped as "**Question?** Answer" inside an FAQ section. */
+const extractFaqs = (content: string[]): { q: string; a: string }[] => {
+  const faqs: { q: string; a: string }[] = [];
+  let inFaqSection = false;
+  for (const item of content) {
+    if (item.startsWith("## ")) {
+      inFaqSection = /frequently asked|faq/i.test(item);
+      continue;
+    }
+    if (!inFaqSection) continue;
+    const match = item.match(/^\*\*(.+?)\*\*\s*(.+)$/s);
+    if (match && match[1].trim().endsWith("?")) {
+      faqs.push({ q: match[1].trim(), a: match[2].replace(/\*\*/g, "").trim() });
+    }
+  }
+  return faqs;
+};
+
 const extractPullQuote = (content: string[]): string => {
   for (const paragraph of content) {
     if (paragraph.includes("shift") || paragraph.includes("represents") || paragraph.includes("inevitable")) {
