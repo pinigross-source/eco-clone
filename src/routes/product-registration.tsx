@@ -77,7 +77,7 @@ function ProductRegistrationPage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Product Registration  EnviroBiotics"
+        title="Product Registration | EnviroBiotics"
         description="Register your EnviroBiotics product to activate your warranty and get support."
         path="/product-registration"
       />
