@@ -192,6 +192,18 @@ const BlogPostPage = () => {
               { name: "Blog", url: "/blog" },
               { name: post.title, url: `/blog/${slug}` },
             ]),
+            ...(faqs.length > 0
+              ? [
+                  {
+                    "@type": "FAQPage",
+                    mainEntity: faqs.map((f) => ({
+                      "@type": "Question",
+                      name: f.q,
+                      acceptedAnswer: { "@type": "Answer", text: f.a },
+                    })),
+                  },
+                ]
+              : []),
           ],
         }}
       />
