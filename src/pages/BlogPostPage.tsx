@@ -121,6 +121,7 @@ const BlogPostPage = () => {
   const readingTime = Math.ceil(post.content.join(" ").split(" ").length / 200);
   const keyTakeaways = extractKeyTakeaways(post.content);
   const pullQuote = extractPullQuote(post.content);
+  const faqs = extractFaqs(post.content);
   
   // Filter plain paragraphs for legacy layout (non-markdown posts)
   const plainParagraphs = post.content.filter(p => !p.startsWith("## ") && !p.startsWith("> "));
