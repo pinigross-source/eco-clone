@@ -26,6 +26,32 @@ const CaseStudiesPage = () => {
               "name": "Case Studies: Probiotic Air Purification Results",
               "description": "Read documented case studies showing measurable allergen reduction, viral suppression, and pet allergy relief with EnviroBiotics probiotic technology.",
               "isPartOf": { "@id": "https://envirobiotics.com/#website" },
+              "about": [
+                "Environmental probiotics",
+                "Indoor air quality",
+                "Allergen reduction",
+                "Surface disinfection",
+              ],
+              "hasPart": [
+                {
+                  "@type": "Study",
+                  "name": "Reducing Atopic Dermatitis in Dogs with Environmental Probiotics",
+                  "description": "A 21-day pilot study on dogs with atopic dermatitis found a statistically significant reduction in pruritus incidence (0.6% per day, p=0.022) and a 0.57% daily reduction in odor assessment following regular topical application of EnviroBiotics to the dogs and their sleeping area.",
+                  "sponsor": { "@type": "Organization", "name": "Orivet Genetic Pet Care" },
+                  "provider": { "@type": "Organization", "name": "Invetus, Yorklea, Australia" },
+                  "studySubject": "Dogs with atopic dermatitis",
+                },
+                {
+                  "@type": "Study",
+                  "name": "Suppressing SARS-CoV-2 on Surfaces: 97.7% Viral Neutralization",
+                  "description": "Experiments incubating EnviroBiotics liquids with SARS-CoV-2 viral particles measured the breakdown of the Spike protein and 97.7% viral neutralization on treated surfaces.",
+                  "provider": {
+                    "@type": "CollegeOrUniversity",
+                    "name": "University of Genova, Department of Experimental Medicine",
+                  },
+                  "studySubject": "SARS-CoV-2 surface contamination",
+                },
+              ],
             },
           ],
         }}
