@@ -416,3 +416,14 @@ export const homepageFaqJsonLd = {
     },
   ],
 };
+
+// Safely pull the FAQPage questions out of a JSON-LD @graph.
+// Looked up by @type so reordering the graph can never break a page render.
+export const getFaqEntities = (
+  schema: any,
+): { name: string; acceptedAnswer: { text: string } }[] => {
+  const graph = schema?.["@graph"];
+  if (!Array.isArray(graph)) return [];
+  const node = graph.find((n: any) => n?.["@type"] === "FAQPage");
+  return Array.isArray(node?.mainEntity) ? node.mainEntity : [];
+};
