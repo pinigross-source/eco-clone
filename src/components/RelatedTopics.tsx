@@ -39,7 +39,6 @@ const allLinks: RelatedLink[] = [
   
   { label: "Case Studies", href: "/case-studies", icon: FileBarChart, description: "Documented real-world results" },
   { label: "Research", href: "/research", icon: FlaskConical, description: "Published studies and whitepapers" },
-  { label: "FAQ", href: "/faq", icon: HelpCircle, description: "Common questions answered" },
   { label: "Blog", href: "/blog", icon: PenLine, description: "Latest news and insights" },
   { label: "Shop Products", href: "/shop", icon: ShoppingBag, description: "Browse all devices and refills" },
   { label: "HVAC Solutions", href: "/hvac", icon: Fan, description: "Commercial HVAC integration" },

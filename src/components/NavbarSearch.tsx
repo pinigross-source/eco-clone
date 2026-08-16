@@ -17,7 +17,6 @@ const contentPages = [
   { title: "Health Benefits", description: "Probiotic air purification health benefits", href: "/health-benefits", category: "page" as const, keywords: ["allergy", "asthma", "respiratory", "immune", "wellness", "breathing", "comfort", "sensitivity", "dust", "mold"] },
   { title: "About Us", description: "Our mission, team, and values", href: "/about", category: "page" as const, keywords: ["mission", "team", "story", "company", "who we are", "founded"] },
   { title: "Support", description: "Get help with your products", href: "/support", category: "page" as const, keywords: ["help", "contact", "troubleshoot", "setup", "install", "manual", "guide", "warranty", "return"] },
-  { title: "FAQ", description: "Frequently asked questions", href: "/faq", category: "page" as const, keywords: ["question", "answer", "how long", "how often", "refill", "replace", "noise", "power", "coverage", "safe"] },
   { title: "Warranty Policy", description: "Product warranty information", href: "/warranty-policy", category: "page" as const, keywords: ["warranty", "guarantee", "return", "repair", "replacement", "lifetime"] },
   { title: "Product Registration", description: "Register your EnviroBiotics product", href: "/product-registration", category: "page" as const, keywords: ["register", "serial number", "activate", "warranty registration"] },
   { title: "Videos", description: "Watch our video library", href: "/videos", category: "page" as const, keywords: ["video", "watch", "demo", "tutorial", "unboxing", "review"] },

@@ -49,7 +49,6 @@ import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as HealthBenefitsRouteImport } from './routes/health-benefits'
 import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as FdaGrasStatusRouteImport } from './routes/fda-gras-status'
-import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EmbedRouteImport } from './routes/embed'
 import { Route as EducationRouteImport } from './routes/education'
 import { Route as DustMiteAllergensRouteImport } from './routes/dust-mite-allergens'
@@ -294,11 +293,6 @@ const GlossaryRoute = GlossaryRouteImport.update({
 const FdaGrasStatusRoute = FdaGrasStatusRouteImport.update({
   id: '/fda-gras-status',
   path: '/fda-gras-status',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EmbedRoute = EmbedRouteImport.update({
@@ -552,7 +546,6 @@ export interface FileRoutesByFullPath {
   '/dust-mite-allergens': typeof DustMiteAllergensRoute
   '/education': typeof EducationRoute
   '/embed': typeof EmbedRoute
-  '/faq': typeof FaqRoute
   '/fda-gras-status': typeof FdaGrasStatusRoute
   '/glossary': typeof GlossaryRoute
   '/health-benefits': typeof HealthBenefitsRoute
@@ -639,7 +632,6 @@ export interface FileRoutesByTo {
   '/dust-mite-allergens': typeof DustMiteAllergensRoute
   '/education': typeof EducationRoute
   '/embed': typeof EmbedRoute
-  '/faq': typeof FaqRoute
   '/fda-gras-status': typeof FdaGrasStatusRoute
   '/glossary': typeof GlossaryRoute
   '/health-benefits': typeof HealthBenefitsRoute
@@ -727,7 +719,6 @@ export interface FileRoutesById {
   '/dust-mite-allergens': typeof DustMiteAllergensRoute
   '/education': typeof EducationRoute
   '/embed': typeof EmbedRoute
-  '/faq': typeof FaqRoute
   '/fda-gras-status': typeof FdaGrasStatusRoute
   '/glossary': typeof GlossaryRoute
   '/health-benefits': typeof HealthBenefitsRoute
@@ -816,7 +807,6 @@ export interface FileRouteTypes {
     | '/dust-mite-allergens'
     | '/education'
     | '/embed'
-    | '/faq'
     | '/fda-gras-status'
     | '/glossary'
     | '/health-benefits'
@@ -903,7 +893,6 @@ export interface FileRouteTypes {
     | '/dust-mite-allergens'
     | '/education'
     | '/embed'
-    | '/faq'
     | '/fda-gras-status'
     | '/glossary'
     | '/health-benefits'
@@ -990,7 +979,6 @@ export interface FileRouteTypes {
     | '/dust-mite-allergens'
     | '/education'
     | '/embed'
-    | '/faq'
     | '/fda-gras-status'
     | '/glossary'
     | '/health-benefits'
@@ -1078,7 +1066,6 @@ export interface RootRouteChildren {
   DustMiteAllergensRoute: typeof DustMiteAllergensRoute
   EducationRoute: typeof EducationRoute
   EmbedRoute: typeof EmbedRoute
-  FaqRoute: typeof FaqRoute
   FdaGrasStatusRoute: typeof FdaGrasStatusRoute
   GlossaryRoute: typeof GlossaryRoute
   HealthBenefitsRoute: typeof HealthBenefitsRoute
@@ -1417,13 +1404,6 @@ declare module '@tanstack/react-router' {
       path: '/fda-gras-status'
       fullPath: '/fda-gras-status'
       preLoaderRoute: typeof FdaGrasStatusRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/embed': {
@@ -1798,7 +1778,6 @@ const rootRouteChildren: RootRouteChildren = {
   DustMiteAllergensRoute: DustMiteAllergensRoute,
   EducationRoute: EducationRoute,
   EmbedRoute: EmbedRoute,
-  FaqRoute: FaqRoute,
   FdaGrasStatusRoute: FdaGrasStatusRoute,
   GlossaryRoute: GlossaryRoute,
   HealthBenefitsRoute: HealthBenefitsRoute,

@@ -33,7 +33,6 @@ const ENTRIES: SitemapEntry[] = [
   { path: "/health-benefits", changefreq: "monthly", priority: "0.7" },
   { path: "/research", changefreq: "monthly", priority: "0.7" },
   { path: "/glossary", changefreq: "monthly", priority: "0.5" },
-  { path: "/faq", changefreq: "monthly", priority: "0.7" },
   { path: "/blog", changefreq: "weekly", priority: "0.8" },
   { path: "/videos", changefreq: "monthly", priority: "0.6" },
   { path: "/case-studies", changefreq: "monthly", priority: "0.7" },
