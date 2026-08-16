@@ -30,23 +30,34 @@ The JSON-LD point is correct: zero `application/ld+json` blocks in the initial H
 1. Fix the FAQ index bug in the four comparison pages so they render again; verify each returns a single H1 and full comparison content in raw HTML.
 2. Add a render-safety guard so a schema/data shape mistake degrades one section instead of blanking the page.
 3. Move JSON-LD into server-rendered HTML site-wide: emit schema via the route head instead of the client-side effect, so every page ships its schema in the initial response.
+4. Retire the standalone `/faq` page (see below). FAQ content stays as sections on the individual pages.
 
 ### Phase 2 - Schema enrichment
-4. `FAQPage` on `/faq` and `/safety`; `DefinedTermSet` on `/glossary`; `Article` markup on `/case-studies` and `/research`.
-5. `FAQPage` / `DefinedTerm` across the education cluster pages.
+5. `FAQPage` on `/safety`; `DefinedTermSet` on `/glossary`; `Article` markup on `/case-studies` and `/research`.
+6. `FAQPage` / `DefinedTerm` across the education cluster pages.
 
 ### Phase 3 - Metadata pass
-6. Standardise titles to `Primary Keyword | EnviroBiotics`; fix the About and Contact double-space separators; add brand suffix to `/dorm`, `/nursery`, `/health-benefits`.
-7. Trim the About description to ~155 chars; expand `/dust-mite-allergens` and `/pet-dander` descriptions toward ~150.
-8. Repoint the sitemap `/shop` entry to the store collection URL.
+7. Standardise titles to `Primary Keyword | EnviroBiotics`; fix the About and Contact double-space separators; add brand suffix to `/dorm`, `/nursery`, `/health-benefits`.
+8. Trim the About description to ~155 chars; expand `/dust-mite-allergens` and `/pet-dander` descriptions toward ~150.
+9. Repoint the sitemap `/shop` entry to the store collection URL.
 
 ### Phase 4 - Content (larger, separate pass)
-9. Lead each education page with a self-contained 40-60 word extractable answer, add primary-source citations, and tighten internal linking into `/how-it-works` and product pages.
+10. Lead each education page with a self-contained 40-60 word extractable answer, add primary-source citations, and tighten internal linking into `/how-it-works` and product pages.
+
+## Retiring the /faq page
+The page is being pulled to be rewritten later, so it should stop existing as a URL rather than sit live in a weak state.
+- Delete the `/faq` route and its page component.
+- Remove the `/faq` entry from the sitemap and from `llms.txt`.
+- Remove the FAQ link from the search suggestions and from the related-topics link lists that point to it.
+- Send `/faq` and `/faqs` to a permanent redirect. There is already a legacy rule mapping both to the homepage FAQ anchor, which the live route was overriding; deleting the route makes that rule take effect, so no new redirect is needed.
+- No FAQ schema work on this URL. The per-page FAQ sections keep their own markup.
 
 ## Technical notes
 - Comparison pages: the FAQ block reads `jsonLd["@graph"][1]`; the FAQPage node sits at index `[2]`. Fix by referencing the node by `@type` rather than by array position, so reordering the graph cannot break the page again.
 - SSR schema: schema currently goes through `SEOHead`'s `useEffect`. It should be emitted from each route's `head()` so it is in the HTML stream. `/compare/*` pages additionally render an inline schema script that never shipped because the render crashed first.
 - No crawler user-agent pre-rendering is needed; the framework already server-renders.
+- `/faq` removal touches `src/routes/faq.tsx`, `src/pages/FAQPage.tsx`, the sitemap route, `public/llms.txt`, `RelatedTopics`, and `NavbarSearch`. `wpRedirects` already covers the redirect.
+
 
 ## Out of scope here
 Shopify store changes (Section 9.1, 9.2, store `robots.txt`) and Search Console domain association.
