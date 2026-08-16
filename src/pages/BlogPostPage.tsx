@@ -70,6 +70,24 @@ const extractKeyTakeaways = (content: string[]): string[] => {
 };
 
 // Extract a compelling quote from content
+/** Extract FAQ pairs from paragraphs shaped as "**Question?** Answer" inside an FAQ section. */
+const extractFaqs = (content: string[]): { q: string; a: string }[] => {
+  const faqs: { q: string; a: string }[] = [];
+  let inFaqSection = false;
+  for (const item of content) {
+    if (item.startsWith("## ")) {
+      inFaqSection = /frequently asked|faq/i.test(item);
+      continue;
+    }
+    if (!inFaqSection) continue;
+    const match = item.match(/^\*\*(.+?)\*\*\s*(.+)$/s);
+    if (match && match[1].trim().endsWith("?")) {
+      faqs.push({ q: match[1].trim(), a: match[2].replace(/\*\*/g, "").trim() });
+    }
+  }
+  return faqs;
+};
+
 const extractPullQuote = (content: string[]): string => {
   for (const paragraph of content) {
     if (paragraph.includes("shift") || paragraph.includes("represents") || paragraph.includes("inevitable")) {
@@ -103,6 +121,7 @@ const BlogPostPage = () => {
   const readingTime = Math.ceil(post.content.join(" ").split(" ").length / 200);
   const keyTakeaways = extractKeyTakeaways(post.content);
   const pullQuote = extractPullQuote(post.content);
+  const faqs = extractFaqs(post.content);
   
   // Filter plain paragraphs for legacy layout (non-markdown posts)
   const plainParagraphs = post.content.filter(p => !p.startsWith("## ") && !p.startsWith("> "));
@@ -174,6 +193,18 @@ const BlogPostPage = () => {
               { name: "Blog", url: "/blog" },
               { name: post.title, url: `/blog/${slug}` },
             ]),
+            ...(faqs.length > 0
+              ? [
+                  {
+                    "@type": "FAQPage",
+                    mainEntity: faqs.map((f) => ({
+                      "@type": "Question",
+                      name: f.q,
+                      acceptedAnswer: { "@type": "Answer", text: f.a },
+                    })),
+                  },
+                ]
+              : []),
           ],
         }}
       />
