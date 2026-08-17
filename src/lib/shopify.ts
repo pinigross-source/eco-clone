@@ -24,19 +24,29 @@ function withUtm(url: string, campaign?: string): string {
       u.searchParams.set("utm_medium", "site");
       if (campaign) u.searchParams.set("utm_campaign", campaign);
     }
-    return decorateShopUrl(u.toString());
+    // NOTE: intentionally NOT decorated here. Ad-attribution params are only
+    // known on the client, so decorating during render produces a different
+    // href than the server-rendered HTML (React hydration error #418).
+    // The delegated click/auxclick handler in __root.tsx decorates the anchor
+    // at click time instead, which is both SSR-safe and always up to date.
+    return u.toString();
   } catch {
     return url;
   }
 }
 
-/** Apply stored ad attribution (set by the pass-through script in the app shell). */
+/**
+ * Apply stored ad attribution (set by the pass-through script in the app shell).
+ * Only for imperative navigations (window.location.href = ...). Never call this
+ * during render — it would break hydration.
+ */
 export function decorateShopUrl(url: string): string {
   if (typeof window === "undefined") return url;
   const fn = (window as unknown as { ebDecorateUrl?: (u: string) => string })
     .ebDecorateUrl;
   return typeof fn === "function" ? fn(url) : url;
 }
+
 
 /** Build a Shopify URL from a path (e.g. "/products/biotica-800"). */
 export function shopifyUrl(path: string = "/", campaign?: string): string {
