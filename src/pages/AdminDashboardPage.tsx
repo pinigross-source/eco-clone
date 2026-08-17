@@ -412,6 +412,14 @@ export default function AdminDashboardPage() {
                 </div>
               )}
 
+              {activeTab === "attribution" && (
+                <div className="bg-card rounded-2xl border border-border p-6 shadow-sm">
+                  <AdAttributionSection />
+                </div>
+              )}
+
+
+
               {activeTab === "import" && (
                 <div className="bg-card rounded-2xl border border-border p-6 shadow-sm">
                   <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
