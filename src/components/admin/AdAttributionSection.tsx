@@ -316,6 +316,29 @@ export function AdAttributionSection() {
           >
             {onlyFacebook ? "Facebook only" : "All sources"}
           </Button>
+          <Button
+            variant="outline"
+            disabled={syncing}
+            onClick={async () => {
+              setSyncing(true);
+              try {
+                const res = await syncShopifyOrdersFn({ data: { days: 90 } });
+                toast.success(`Imported ${res.synced} Shopify orders`);
+                await load();
+              } catch {
+                toast.error("Could not import orders from Shopify");
+              } finally {
+                setSyncing(false);
+              }
+            }}
+          >
+            {syncing ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            ) : (
+              <DownloadCloud className="mr-2 h-4 w-4" />
+            )}
+            Import Shopify orders
+          </Button>
           <Button variant="outline" size="icon" onClick={() => void load()}>
             <RefreshCw className="h-4 w-4" />
           </Button>
