@@ -104,6 +104,129 @@ export type Database = {
         }
         Relationships: []
       }
+      attribution_orders: {
+        Row: {
+          click_id: string | null
+          click_id_type: string | null
+          created_at: string
+          currency: string | null
+          email: string | null
+          id: string
+          landing_page: string | null
+          landing_site: string | null
+          line_items: Json | null
+          lp_section: string | null
+          order_number: string | null
+          ordered_at: string | null
+          shopify_order_id: string
+          total_price: number | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+        }
+        Insert: {
+          click_id?: string | null
+          click_id_type?: string | null
+          created_at?: string
+          currency?: string | null
+          email?: string | null
+          id?: string
+          landing_page?: string | null
+          landing_site?: string | null
+          line_items?: Json | null
+          lp_section?: string | null
+          order_number?: string | null
+          ordered_at?: string | null
+          shopify_order_id: string
+          total_price?: number | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Update: {
+          click_id?: string | null
+          click_id_type?: string | null
+          created_at?: string
+          currency?: string | null
+          email?: string | null
+          id?: string
+          landing_page?: string | null
+          landing_site?: string | null
+          line_items?: Json | null
+          lp_section?: string | null
+          order_number?: string | null
+          ordered_at?: string | null
+          shopify_order_id?: string
+          total_price?: number | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Relationships: []
+      }
+      attribution_visits: {
+        Row: {
+          ad_id: string | null
+          adset_id: string | null
+          click_id: string | null
+          click_id_type: string | null
+          created_at: string
+          id: string
+          landing_page: string
+          referrer: string | null
+          session_id: string | null
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+          visitor_id: string
+        }
+        Insert: {
+          ad_id?: string | null
+          adset_id?: string | null
+          click_id?: string | null
+          click_id_type?: string | null
+          created_at?: string
+          id?: string
+          landing_page: string
+          referrer?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          visitor_id: string
+        }
+        Update: {
+          ad_id?: string | null
+          adset_id?: string | null
+          click_id?: string | null
+          click_id_type?: string | null
+          created_at?: string
+          id?: string
+          landing_page?: string
+          referrer?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          visitor_id?: string
+        }
+        Relationships: []
+      }
       commissions: {
         Row: {
           affiliate_id: string

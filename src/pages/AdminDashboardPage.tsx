@@ -56,6 +56,7 @@ import {
   CreditCard
 } from "lucide-react";
 import { UpsellAnalyticsSection } from "@/components/admin/UpsellAnalyticsSection";
+import { AdAttributionSection } from "@/components/admin/AdAttributionSection";
 import { SubscriptionManagementSection } from "@/components/admin/SubscriptionManagementSection";
 import { QuizLeadsSection } from "@/components/admin/QuizLeadsSection";
 import { ContactInquiriesSection } from "@/components/admin/ContactInquiriesSection";
@@ -411,6 +412,14 @@ export default function AdminDashboardPage() {
                   <UpsellAnalyticsSection />
                 </div>
               )}
+
+              {activeTab === "attribution" && (
+                <div className="bg-card rounded-2xl border border-border p-6 shadow-sm">
+                  <AdAttributionSection />
+                </div>
+              )}
+
+
 
               {activeTab === "import" && (
                 <div className="bg-card rounded-2xl border border-border p-6 shadow-sm">

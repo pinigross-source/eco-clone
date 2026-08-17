@@ -63,6 +63,7 @@ const navEntries: NavEntry[] = [
       { value: "affiliates", label: "Affiliates", icon: <TrendingUp className="w-4 h-4" /> },
       { value: "abandoned-carts", label: "Abandoned Carts", icon: <ShoppingCart className="w-4 h-4" />, adminOnly: true },
       { value: "analytics", label: "Upsell Analytics", icon: <BarChart3 className="w-4 h-4" />, adminOnly: true },
+      { value: "attribution", label: "Ad Attribution", icon: <TrendingUp className="w-4 h-4" />, adminOnly: true },
     ],
   },
   {
