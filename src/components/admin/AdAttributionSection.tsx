@@ -348,9 +348,11 @@ export function AdAttributionSection() {
                   <th className="px-4 py-3 font-medium">
                     {groupBy === "landing_page"
                       ? "Landing page"
-                      : groupBy === "utm_campaign"
-                        ? "Campaign"
-                        : "Ad / creative"}
+                      : groupBy === "utm_source"
+                        ? "Traffic source"
+                        : groupBy === "utm_campaign"
+                          ? "Campaign"
+                          : "Ad / creative"}
                   </th>
                   <th className="px-4 py-3 text-right font-medium">Visits</th>
                   <th className="px-4 py-3 text-right font-medium">Orders</th>
