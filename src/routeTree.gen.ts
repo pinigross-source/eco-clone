@@ -92,6 +92,8 @@ import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 import { Route as SolutionsRoomRouteImport } from './routes/solutions.room'
 import { Route as ApiPublicComingSoonRouteImport } from './routes/api/public/coming-soon'
 import { Route as ApiPublicInstallationQuoteRouteImport } from './routes/api/public/installation-quote'
+import { Route as ApiPublicShopifyOrderRouteImport } from './routes/api/public/shopify-order'
+import { Route as ApiPublicTrackVisitRouteImport } from './routes/api/public/track-visit'
 import { Route as ProsubAffIdRouteImport } from './routes/prosub.aff.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -514,6 +516,16 @@ const ApiPublicInstallationQuoteRoute =
     path: '/api/public/installation-quote',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicShopifyOrderRoute = ApiPublicShopifyOrderRouteImport.update({
+  id: '/api/public/shopify-order',
+  path: '/api/public/shopify-order',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicTrackVisitRoute = ApiPublicTrackVisitRouteImport.update({
+  id: '/api/public/track-visit',
+  path: '/api/public/track-visit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProsubAffIdRoute = ProsubAffIdRouteImport.update({
   id: '/aff/$id',
   path: '/aff/$id',
@@ -604,6 +616,8 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
+  '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
+  '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
   '/prosub/aff/$id': typeof ProsubAffIdRoute
 }
 export interface FileRoutesByTo {
@@ -690,6 +704,8 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
+  '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
+  '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
   '/prosub/aff/$id': typeof ProsubAffIdRoute
 }
 export interface FileRoutesById {
@@ -777,6 +793,8 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
+  '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
+  '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
   '/prosub/aff/$id': typeof ProsubAffIdRoute
 }
 export interface FileRouteTypes {
@@ -865,6 +883,8 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/api/public/coming-soon'
     | '/api/public/installation-quote'
+    | '/api/public/shopify-order'
+    | '/api/public/track-visit'
     | '/prosub/aff/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -951,6 +971,8 @@ export interface FileRouteTypes {
     | '/blog'
     | '/api/public/coming-soon'
     | '/api/public/installation-quote'
+    | '/api/public/shopify-order'
+    | '/api/public/track-visit'
     | '/prosub/aff/$id'
   id:
     | '__root__'
@@ -1037,6 +1059,8 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/api/public/coming-soon'
     | '/api/public/installation-quote'
+    | '/api/public/shopify-order'
+    | '/api/public/track-visit'
     | '/prosub/aff/$id'
   fileRoutesById: FileRoutesById
 }
@@ -1122,6 +1146,8 @@ export interface RootRouteChildren {
   BlogIndexRoute: typeof BlogIndexRoute
   ApiPublicComingSoonRoute: typeof ApiPublicComingSoonRoute
   ApiPublicInstallationQuoteRoute: typeof ApiPublicInstallationQuoteRoute
+  ApiPublicShopifyOrderRoute: typeof ApiPublicShopifyOrderRoute
+  ApiPublicTrackVisitRoute: typeof ApiPublicTrackVisitRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1707,6 +1733,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicInstallationQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/shopify-order': {
+      id: '/api/public/shopify-order'
+      path: '/api/public/shopify-order'
+      fullPath: '/api/public/shopify-order'
+      preLoaderRoute: typeof ApiPublicShopifyOrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/track-visit': {
+      id: '/api/public/track-visit'
+      path: '/api/public/track-visit'
+      fullPath: '/api/public/track-visit'
+      preLoaderRoute: typeof ApiPublicTrackVisitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/prosub/aff/$id': {
       id: '/prosub/aff/$id'
       path: '/aff/$id'
@@ -1834,6 +1874,8 @@ const rootRouteChildren: RootRouteChildren = {
   BlogIndexRoute: BlogIndexRoute,
   ApiPublicComingSoonRoute: ApiPublicComingSoonRoute,
   ApiPublicInstallationQuoteRoute: ApiPublicInstallationQuoteRoute,
+  ApiPublicShopifyOrderRoute: ApiPublicShopifyOrderRoute,
+  ApiPublicTrackVisitRoute: ApiPublicTrackVisitRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

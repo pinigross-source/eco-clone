@@ -93,10 +93,10 @@ export const Route = createFileRoute("/api/public/shopify-order")({
 
         const lineItems = Array.isArray(order["line_items"])
           ? (order["line_items"] as Array<Record<string, unknown>>).map((li) => ({
-              title: li["title"],
-              quantity: li["quantity"],
-              price: li["price"],
-              sku: li["sku"],
+              title: String(li["title"] ?? ""),
+              quantity: Number(li["quantity"] ?? 0),
+              price: String(li["price"] ?? ""),
+              sku: String(li["sku"] ?? ""),
             }))
           : [];
 
