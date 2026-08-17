@@ -56,6 +56,7 @@ import {
   CreditCard
 } from "lucide-react";
 import { UpsellAnalyticsSection } from "@/components/admin/UpsellAnalyticsSection";
+import { AdAttributionSection } from "@/components/admin/AdAttributionSection";
 import { SubscriptionManagementSection } from "@/components/admin/SubscriptionManagementSection";
 import { QuizLeadsSection } from "@/components/admin/QuizLeadsSection";
 import { ContactInquiriesSection } from "@/components/admin/ContactInquiriesSection";
