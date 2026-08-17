@@ -342,6 +342,84 @@ export function AdAttributionSection() {
             ))}
           </div>
 
+          {insights.length > 0 && (
+            <div className="mb-8 rounded-xl border border-border bg-muted/30 p-5">
+              <h3 className="mb-3 flex items-center gap-2 text-base font-semibold">
+                <Lightbulb className="h-4 w-4 text-primary" />
+                What the data says
+              </h3>
+              <ul className="space-y-2">
+                {insights.map((i, idx) => (
+                  <li key={idx} className="flex gap-3 text-sm">
+                    <span
+                      className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${
+                        i.tone === "good"
+                          ? "bg-emerald-500"
+                          : i.tone === "warn"
+                            ? "bg-amber-500"
+                            : "bg-destructive"
+                      }`}
+                    />
+                    <span className="text-muted-foreground">{i.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <h3 className="mb-3 text-lg font-semibold">Conversion by traffic source</h3>
+          <div className="mb-8 overflow-x-auto rounded-xl border border-border">
+            <table className="w-full text-sm">
+              <thead className="bg-muted/50 text-left">
+                <tr>
+                  <th className="px-4 py-3 font-medium">Source</th>
+                  <th className="px-4 py-3 text-right font-medium">Visits</th>
+                  <th className="px-4 py-3 text-right font-medium">Orders</th>
+                  <th className="px-4 py-3 text-right font-medium">CVR</th>
+                  <th className="px-4 py-3 text-right font-medium">Revenue</th>
+                  <th className="px-4 py-3 text-right font-medium">Share of revenue</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sourceRows.length === 0 && (
+                  <tr>
+                    <td colSpan={6} className="px-4 py-10 text-center text-muted-foreground">
+                      No tracked traffic yet for this period.
+                    </td>
+                  </tr>
+                )}
+                {sourceRows.map((s) => {
+                  const total = sourceRows.reduce((a, b) => a + b.revenue, 0);
+                  return (
+                    <tr key={s.key} className="border-t border-border">
+                      <td className="px-4 py-3 capitalize">{s.key}</td>
+                      <td className="px-4 py-3 text-right">{s.visits}</td>
+                      <td className="px-4 py-3 text-right">{s.orders}</td>
+                      <td className="px-4 py-3 text-right">
+                        {s.visits ? ((s.orders / s.visits) * 100).toFixed(2) : "0.00"}%
+                      </td>
+                      <td className="px-4 py-3 text-right">{money(s.revenue, currency)}</td>
+                      <td className="px-4 py-3 text-right">
+                        {total ? ((s.revenue / total) * 100).toFixed(0) : "0"}%
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+
+          <h3 className="mb-3 text-lg font-semibold">
+            {groupBy === "landing_page"
+              ? "Landing page performance"
+              : groupBy === "utm_source"
+                ? "Source performance"
+                : groupBy === "utm_campaign"
+                  ? "Campaign performance"
+                  : "Creative performance"}
+          </h3>
+
+
           <div className="overflow-x-auto rounded-xl border border-border">
             <table className="w-full text-sm">
               <thead className="bg-muted/50 text-left">
