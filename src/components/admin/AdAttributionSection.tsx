@@ -8,7 +8,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Lightbulb, Loader2, RefreshCw, TrendingUp } from "lucide-react";
+import { Lightbulb, Loader2, RefreshCw, TrendingUp, DownloadCloud } from "lucide-react";
+import { toast } from "sonner";
+import { syncShopifyOrdersFn } from "@/lib/attributionSync.functions";
 
 interface VisitRow {
   landing_page: string | null;
