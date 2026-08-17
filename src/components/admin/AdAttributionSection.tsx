@@ -8,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Loader2, RefreshCw, TrendingUp } from "lucide-react";
+import { Lightbulb, Loader2, RefreshCw, TrendingUp } from "lucide-react";
 
 interface VisitRow {
   landing_page: string | null;
