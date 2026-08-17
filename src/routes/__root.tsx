@@ -12,6 +12,7 @@ import appCss from "../styles.css?url";
 import { TestEnvironmentBanner } from "@/components/TestEnvironmentBanner";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { WordPressRedirectHandler } from "@/components/WordPressRedirectHandler";
+import { AttributionBeacon } from "@/components/AttributionBeacon";
 import { isTestEnv } from "@/lib/env";
 
 
@@ -243,6 +244,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ScrollToTop />
       <WordPressRedirectHandler />
+      <AttributionBeacon />
       <Outlet />
     </QueryClientProvider>
   );
