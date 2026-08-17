@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ArrowRight, Check } from "lucide-react";
-import { shopifyProductUrl } from "@/lib/shopify";
+import { shopifyProductDiscountUrl } from "@/lib/shopify";
 import { trackEvent } from "@/lib/tracking";
 
 import miniDevice from "@/assets/biologic-mini-nobg-new.avif";
@@ -68,7 +68,7 @@ export const MiniAdLanding = ({
   faqs,
   closingNote,
 }: MiniAdLandingProps) => {
-  const shopUrl = `${shopifyProductUrl("biologic-mini", campaign)}?discount=BIOLP15`;
+  const shopUrl = shopifyProductDiscountUrl("biologic-mini", "BIOLP15", campaign);
 
   const onClick = (label: string) =>
     trackEvent("cta_click", { location: `lp_${variant}`, label });

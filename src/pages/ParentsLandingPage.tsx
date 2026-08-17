@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { shopifyProductUrl } from "@/lib/shopify";
+import { shopifyProductDiscountUrl } from "@/lib/shopify";
 import {
   Accordion,
   AccordionContent,
@@ -57,9 +57,9 @@ const certifications = [
 const heroImg = heroAsset.url;
 
 const PROMO = "PARENTS";
-const MINI_URL = `${shopifyProductUrl("biologic-mini", "parents-landing")}`;
-const BUNDLE_URL = `${shopifyProductUrl("home-complete-bundle", "parents-landing")}?discount=${PROMO}`;
-const BIOTICA_URL = `${shopifyProductUrl("biotica-800", "parents-landing")}`;
+const MINI_URL = shopifyProductDiscountUrl("biologic-mini", PROMO, "parents-landing");
+const BUNDLE_URL = shopifyProductDiscountUrl("home-complete-bundle", PROMO, "parents-landing");
+const BIOTICA_URL = shopifyProductDiscountUrl("biotica-800", PROMO, "parents-landing");
 
 /* Reveal-on-scroll */
 const Reveal = ({

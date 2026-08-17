@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { ArrowRight, X, Check } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
+import { shopifyDiscountUrl, shopifyProductDiscountUrl } from "@/lib/shopify";
 import {
   Accordion,
   AccordionContent,
@@ -30,12 +30,15 @@ import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
 import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
 
 const PROMO = "PETS";
-const withDiscount = (url: string, code = PROMO) =>
-  `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
 
-const BIOTICA_URL = withDiscount(shopifyProductUrl("biotica-800", "pets-landing"));
-const MINI_URL = withDiscount(shopifyProductUrl("biologic-mini", "pets-landing"));
-const BUNDLE_URL = withDiscount(shopifyUrl("/products/home-complete-bundle", "pets-landing"));
+const BIOTICA_URL = shopifyProductDiscountUrl("biotica-800", PROMO, "pets-landing");
+const MINI_URL = shopifyProductDiscountUrl("biologic-mini", PROMO, "pets-landing");
+const BUNDLE_URL = shopifyDiscountUrl(PROMO, "/products/home-complete-bundle", "pets-landing");
+const BIOTICA_CART_URL = shopifyDiscountUrl(
+  PROMO,
+  "/cart/48644373184764:1",
+  "pets-landing-biotica-cta",
+);
 
 /* Dyson-inspired type stack: heavy, neutral, technical */
 const DISPLAY = `"Helvetica Neue", "Inter", system-ui, -apple-system, sans-serif`;
@@ -290,7 +293,7 @@ const PetsLandingPage = () => {
                     The Biotica 800 covers up to 800 sq ft - living rooms, open-plan spaces, and anywhere your pet roams. It continuously releases beneficial probiotics that break down dander and odor woven into fabric surfaces, so your home stays fresher without sprays or fragrances.
                   </p>
                   <a
-                    href="https://shop.envirobiotics.com/cart/48644373184764:1"
+                    href={BIOTICA_CART_URL}
                     onClick={() => trackEvent("click_pets_biotica_cta")}
                     className="group mt-8 inline-flex items-center rounded-full bg-neutral-900 px-8 py-4 text-[14px] font-medium text-white transition-all hover:bg-neutral-800"
                   >

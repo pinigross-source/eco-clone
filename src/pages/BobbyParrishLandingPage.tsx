@@ -23,14 +23,14 @@ import particlesImg from "@/assets/bobby/bobby-kitchen.jpg";
 import bathroomImg from "@/assets/bobby/bobby-bedroom.jpg";
 import travelImg from "@/assets/bobby-travel.avif";
 import iconsBar from "@/assets/bobby-icons-bar.svg";
+import { shopifyDiscountUrl } from "@/lib/shopify";
 
-const withDiscount = (url: string, code = "Bobby") =>
-  `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
+const PROMO = "BOBBY";
 
 const LINKS = {
-  biotica: withDiscount("https://shop.envirobiotics.com/products/biotica-800-bobby"),
-  bundle: withDiscount("https://shop.envirobiotics.com/products/home-complete-bundle"),
-  mini: withDiscount("https://shop.envirobiotics.com/products/biologic-mini-bobby"),
+  biotica: shopifyDiscountUrl(PROMO, "/products/biotica-800-bobby", "bobby-landing"),
+  bundle: shopifyDiscountUrl(PROMO, "/products/home-complete-bundle", "bobby-landing"),
+  mini: shopifyDiscountUrl(PROMO, "/products/biologic-mini-bobby", "bobby-landing"),
 };
 
 /* Smooth scroll to in-page anchor that re-aligns after layout shifts

@@ -66,6 +66,35 @@ export function shopifyProductUrl(slug: string, campaign = "product"): string {
 }
 
 /**
+ * Shopify's native discount link: /discount/CODE?redirect=/some-path
+ * Shopify stores the code in the customer's session and then redirects, so the
+ * discount survives all the way to checkout with no theme JS required.
+ *
+ * NOTE: never build product URLs with a `?discount=CODE` query param  that form
+ * is NOT native to Shopify and silently does nothing unless the theme has custom JS.
+ */
+export function shopifyDiscountUrl(
+  code: string,
+  redirectPath: string = "/",
+  campaign?: string,
+): string {
+  const clean = redirectPath.startsWith("/") ? redirectPath : `/${redirectPath}`;
+  const url = new URL(`${SHOPIFY_BASE}/discount/${encodeURIComponent(code)}`);
+  url.searchParams.set("redirect", clean);
+  return withUtm(url.toString(), campaign);
+}
+
+/** Discount link that lands on a product page, resolving the internal slug. */
+export function shopifyProductDiscountUrl(
+  slug: string,
+  code: string,
+  campaign = "product",
+): string {
+  const handle = PRODUCT_HANDLE_MAP[slug] ?? slug;
+  return shopifyDiscountUrl(code, `/products/${handle}`, campaign);
+}
+
+/**
  * Resolve any internal commerce path to a Shopify URL, or null if the path
  * is not commerce-related and should stay on the Lovable site.
  */
