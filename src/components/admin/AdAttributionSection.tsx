@@ -65,6 +65,7 @@ export function AdAttributionSection() {
   const [visits, setVisits] = useState<VisitRow[]>([]);
   const [orders, setOrders] = useState<OrderRow[]>([]);
   const [loading, setLoading] = useState(true);
+  const [syncing, setSyncing] = useState(false);
 
   const load = async () => {
     setLoading(true);
