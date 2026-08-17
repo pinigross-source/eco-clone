@@ -120,33 +120,159 @@ export function AdAttributionSection() {
   const currency = fOrders.find((o) => o.currency)?.currency ?? "USD";
   const cvr = fVisits.length ? (fOrders.length / fVisits.length) * 100 : 0;
 
-  const rows = useMemo(() => {
-    const map = new Map<
-      string,
-      { key: string; visits: number; orders: number; revenue: number }
-    >();
-    const keyOf = (r: { landing_page: string | null; utm_campaign: string | null; utm_content: string | null }) =>
-      (groupBy === "landing_page"
-        ? r.landing_page
-        : groupBy === "utm_campaign"
-          ? r.utm_campaign
-          : r.utm_content) || "(not set)";
+  type Bucket = { key: string; visits: number; orders: number; revenue: number };
 
-    for (const v of fVisits) {
-      const k = keyOf(v);
+  const aggregate = (
+    v: Array<Record<string, unknown>>,
+    o: Array<Record<string, unknown>>,
+    keyOf: (r: Record<string, unknown>) => string,
+  ) => {
+    const map = new Map<string, Bucket>();
+    for (const row of v) {
+      const k = keyOf(row);
       const e = map.get(k) ?? { key: k, visits: 0, orders: 0, revenue: 0 };
       e.visits++;
       map.set(k, e);
     }
-    for (const o of fOrders) {
-      const k = keyOf(o);
+    for (const row of o) {
+      const k = keyOf(row);
       const e = map.get(k) ?? { key: k, visits: 0, orders: 0, revenue: 0 };
       e.orders++;
-      e.revenue += o.total_price ?? 0;
+      e.revenue += (row.total_price as number | null) ?? 0;
       map.set(k, e);
     }
-    return [...map.values()].sort((a, b) => b.revenue - a.revenue || b.visits - a.visits);
+    return [...map.values()].sort(
+      (a, b) => b.revenue - a.revenue || b.visits - a.visits,
+    );
+  };
+
+  const sourceOf = (r: Record<string, unknown>) => {
+    const src = (r.utm_source as string | null) || null;
+    if (src) return src.toLowerCase();
+    const click = r.click_id_type as string | null;
+    if (click === "fbclid") return "facebook";
+    if (click === "gclid" || click === "gbraid" || click === "wbraid") return "google";
+    if (click === "ttclid") return "tiktok";
+    if (click === "msclkid") return "bing";
+    return "direct / organic";
+  };
+
+  const rows = useMemo(() => {
+    const keyOf = (r: Record<string, unknown>) =>
+      groupBy === "utm_source"
+        ? sourceOf(r)
+        : ((groupBy === "landing_page"
+            ? (r.landing_page as string | null)
+            : groupBy === "utm_campaign"
+              ? (r.utm_campaign as string | null)
+              : (r.utm_content as string | null)) || "(not set)");
+    return aggregate(
+      fVisits as unknown as Array<Record<string, unknown>>,
+      fOrders as unknown as Array<Record<string, unknown>>,
+      keyOf,
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fVisits, fOrders, groupBy]);
+
+  // Traffic sources, always grouped by source regardless of the table grouping
+  const sourceRows = useMemo(
+    () =>
+      aggregate(
+        visits as unknown as Array<Record<string, unknown>>,
+        orders as unknown as Array<Record<string, unknown>>,
+        sourceOf,
+      ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [visits, orders],
+  );
+
+  // Landing pages, always grouped by page (for the "what to improve" engine)
+  const pageRows = useMemo(
+    () =>
+      aggregate(
+        fVisits as unknown as Array<Record<string, unknown>>,
+        fOrders as unknown as Array<Record<string, unknown>>,
+        (r) => (r.landing_page as string | null) || "(not set)",
+      ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [fVisits, fOrders],
+  );
+
+  const insights = useMemo(() => {
+    const out: { tone: "good" | "warn" | "bad"; text: string }[] = [];
+    const withVisits = pageRows.filter((r) => r.visits >= 20);
+    const rate = (r: Bucket) => (r.visits ? r.orders / r.visits : 0);
+
+    if (fVisits.length < 50) {
+      out.push({
+        tone: "warn",
+        text: `Only ${fVisits.length} tracked visits in this window. Wait for at least a few hundred before acting on differences between pages, they are still noise.`,
+      });
+    }
+    if (fVisits.length > 0 && fOrders.length === 0) {
+      out.push({
+        tone: "bad",
+        text: "Traffic is being tracked but no orders are coming back from Shopify. Confirm the Order creation webhook points to /api/public/shopify-order, otherwise every conversion stays invisible here.",
+      });
+    }
+
+    if (withVisits.length) {
+      const best = [...withVisits].sort((a, b) => rate(b) - rate(a))[0];
+      const worst = [...withVisits].sort((a, b) => rate(a) - rate(b))[0];
+      out.push({
+        tone: "good",
+        text: `Best converting landing page: ${best.key} at ${(rate(best) * 100).toFixed(2)}% (${best.orders} orders from ${best.visits} visits).`,
+      });
+      if (worst.key !== best.key) {
+        out.push({
+          tone: "bad",
+          text: `Weakest page: ${worst.key} at ${(rate(worst) * 100).toFixed(2)}%. Send its ad budget to ${best.key}, or rewrite its hero and CTA to match what that page does.`,
+        });
+      }
+      const trafficHeavy = [...withVisits].sort((a, b) => b.visits - a.visits)[0];
+      if (trafficHeavy.key !== best.key && rate(trafficHeavy) < rate(best) * 0.7) {
+        out.push({
+          tone: "warn",
+          text: `${trafficHeavy.key} gets the most traffic but converts below ${best.key}. That gap is where the money is: shift spend or fix the page.`,
+        });
+      }
+    }
+
+    const paidSources = sourceRows.filter((s) => s.visits >= 20);
+    if (paidSources.length > 1) {
+      const bestSrc = [...paidSources].sort((a, b) => rate(b) - rate(a))[0];
+      out.push({
+        tone: "good",
+        text: `Highest converting traffic source: ${bestSrc.key} at ${(rate(bestSrc) * 100).toFixed(2)}% with ${money(bestSrc.revenue, currency)} revenue.`,
+      });
+      const zero = paidSources.filter((s) => s.orders === 0);
+      if (zero.length) {
+        out.push({
+          tone: "bad",
+          text: `No orders at all from: ${zero.map((z) => z.key).join(", ")}. Either the targeting is wrong or the click never reaches a page built to sell.`,
+        });
+      }
+    }
+
+    const unset = pageRows.find((r) => r.key === "(not set)");
+    if (unset && unset.visits > fVisits.length * 0.2) {
+      out.push({
+        tone: "warn",
+        text: "Over 20% of visits have no landing page recorded. Add utm_content and utm_campaign to every ad link so creatives can be compared.",
+      });
+    }
+
+    if (fOrders.length >= 5) {
+      const aov = revenue / fOrders.length;
+      out.push({
+        tone: "good",
+        text: `Average order value ${money(aov, currency)}. Raising it with a bundle or a refill add-on is usually cheaper than buying more clicks.`,
+      });
+    }
+    return out;
+  }, [pageRows, sourceRows, fVisits, fOrders, revenue, currency]);
+
+
 
   return (
     <div>
