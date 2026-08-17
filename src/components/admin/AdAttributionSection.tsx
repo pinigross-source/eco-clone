@@ -303,6 +303,7 @@ export function AdAttributionSection() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="landing_page">By landing page</SelectItem>
+              <SelectItem value="utm_source">By traffic source</SelectItem>
               <SelectItem value="utm_campaign">By campaign</SelectItem>
               <SelectItem value="utm_content">By ad / creative</SelectItem>
             </SelectContent>
