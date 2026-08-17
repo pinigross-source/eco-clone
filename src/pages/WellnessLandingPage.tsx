@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
+import { shopifyDiscountUrl } from "@/lib/shopify";
 import {
   Accordion,
   AccordionContent,
@@ -52,8 +52,6 @@ import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
 
 /* ---------- Editable pricing / offer config ---------- */
 const PROMO = "WELLNESS";
-const withDiscount = (url: string, code = PROMO) =>
-  `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
 
 const PRICING = {
   bundle: { price: "$395", compare: "$495", save: "$100 OFF" },
@@ -62,16 +60,12 @@ const PRICING = {
 };
 
 /**
- * Cart permalink: /cart/{variantId}:{qty} adds the item to the Shopify cart
- * and applies the discount code automatically, then shows the cart page.
+ * Native Shopify discount link: /discount/CODE?redirect=/cart/{variantId}:{qty}
+ * Shopify stores the code in the session, then redirects to the cart permalink
+ * which adds the item, so the discount carries through to checkout.
  */
 const cartAdd = (variantId: number, campaign = "wellness-landing") =>
-  withDiscount(
-    shopifyUrl(
-      `/cart/${variantId}:1`,
-      campaign,
-    ),
-  );
+  shopifyDiscountUrl(PROMO, `/cart/${variantId}:1`, campaign);
 
 const URLS = {
   bundle: cartAdd(48939477205244), // home-complete-bundle

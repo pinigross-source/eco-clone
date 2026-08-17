@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { ArrowRight, Check } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
+import { shopifyDiscountUrl, shopifyProductDiscountUrl } from "@/lib/shopify";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import {
   Accordion,
@@ -29,15 +29,15 @@ import bioticaProduct from "@/assets/shop/biotica-800.png";
 import bundleProduct from "@/assets/shop/home-complete-bundle.avif";
 
 const PROMO = "FAMILY";
-const withDiscount = (url: string, code = PROMO) =>
-  `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
 
-const BIOTICA_URL = withDiscount(shopifyProductUrl("biotica-800", "active-families"));
-const MINI_URL = withDiscount(shopifyProductUrl("biologic-mini", "active-families"));
-const BUNDLE_URL = withDiscount(shopifyUrl("/products/home-complete-bundle", "active-families"));
+const BIOTICA_URL = shopifyProductDiscountUrl("biotica-800", PROMO, "active-families");
+const MINI_URL = shopifyProductDiscountUrl("biologic-mini", PROMO, "active-families");
+const BUNDLE_URL = shopifyDiscountUrl(PROMO, "/products/home-complete-bundle", "active-families");
 const BUNDLE_VARIANT_ID = "48939477205244";
-const BUNDLE_ADD_TO_CART_URL = withDiscount(
-  shopifyUrl(`/cart/${BUNDLE_VARIANT_ID}:1`, "active-families-bundle-cta"),
+const BUNDLE_ADD_TO_CART_URL = shopifyDiscountUrl(
+  PROMO,
+  `/cart/${BUNDLE_VARIANT_ID}:1`,
+  "active-families-bundle-cta",
 );
 
 const DISPLAY = `"Helvetica Neue", "Inter", system-ui, -apple-system, sans-serif`;

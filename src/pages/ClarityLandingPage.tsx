@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Star, ShieldCheck, Leaf, Wind, Sparkles } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { shopifyProductUrl, shopifyUrl } from "@/lib/shopify";
+import { shopifyDiscountUrl, shopifyProductDiscountUrl } from "@/lib/shopify";
 import {
   Accordion,
   AccordionContent,
@@ -24,13 +24,11 @@ import endorsementImg from "@/assets/mini-lifestyle-family-new.avif";
 
 const PROMO = "CLARITY";
 
-const withDiscount = (url: string, code = PROMO) =>
-  `${url}${url.includes("?") ? "&" : "?"}discount=${code}`;
 
 const LINKS = {
-  mini: withDiscount(shopifyProductUrl("biologic-mini", "clarity-landing")),
-  biotica: withDiscount(shopifyProductUrl("biotica-800", "clarity-landing")),
-  bundle: withDiscount(shopifyUrl("/products/home-complete-bundle", "clarity-landing")),
+  mini: shopifyProductDiscountUrl("biologic-mini", PROMO, "clarity-landing"),
+  biotica: shopifyProductDiscountUrl("biotica-800", PROMO, "clarity-landing"),
+  bundle: shopifyDiscountUrl(PROMO, "/products/home-complete-bundle", "clarity-landing"),
 };
 
 const Reveal = ({

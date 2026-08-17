@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Wind, Sparkles, ShieldCheck, Star } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
-import { shopifyProductUrl } from "@/lib/shopify";
+import { shopifyProductDiscountUrl } from "@/lib/shopify";
 import {
   Accordion,
   AccordionContent,
@@ -24,9 +24,9 @@ import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
 import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
 
 const PROMO = "ALLERGY";
-const BIOTICA_URL = `${shopifyProductUrl("biotica-800", "allergy-landing")}`;
-const MINI_URL = `${shopifyProductUrl("biologic-mini", "allergy-landing")}`;
-const BUNDLE_URL = `${shopifyProductUrl("home-complete-bundle", "allergy-landing")}?discount=${PROMO}`;
+const BIOTICA_URL = shopifyProductDiscountUrl("biotica-800", PROMO, "allergy-landing");
+const MINI_URL = shopifyProductDiscountUrl("biologic-mini", PROMO, "allergy-landing");
+const BUNDLE_URL = shopifyProductDiscountUrl("home-complete-bundle", PROMO, "allergy-landing");
 
 const certifications = [
   { label: "EPA Registered", image: epaAsset.url },
