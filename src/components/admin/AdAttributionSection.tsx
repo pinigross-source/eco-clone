@@ -57,9 +57,9 @@ function money(n: number, currency = "USD") {
 export function AdAttributionSection() {
   const [range, setRange] = useState("28");
   const [onlyFacebook, setOnlyFacebook] = useState(true);
-  const [groupBy, setGroupBy] = useState<"landing_page" | "utm_campaign" | "utm_content">(
-    "landing_page",
-  );
+  const [groupBy, setGroupBy] = useState<
+    "landing_page" | "utm_source" | "utm_campaign" | "utm_content"
+  >("landing_page");
   const [visits, setVisits] = useState<VisitRow[]>([]);
   const [orders, setOrders] = useState<OrderRow[]>([]);
   const [loading, setLoading] = useState(true);
