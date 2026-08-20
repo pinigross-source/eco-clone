@@ -92,6 +92,7 @@ import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 import { Route as SolutionsRoomRouteImport } from './routes/solutions.room'
 import { Route as ApiPublicComingSoonRouteImport } from './routes/api/public/coming-soon'
 import { Route as ApiPublicInstallationQuoteRouteImport } from './routes/api/public/installation-quote'
+import { Route as ApiPublicPetsOfferRouteImport } from './routes/api/public/pets-offer'
 import { Route as ApiPublicShopifyOrderRouteImport } from './routes/api/public/shopify-order'
 import { Route as ApiPublicTrackVisitRouteImport } from './routes/api/public/track-visit'
 import { Route as ProsubAffIdRouteImport } from './routes/prosub.aff.$id'
@@ -516,6 +517,11 @@ const ApiPublicInstallationQuoteRoute =
     path: '/api/public/installation-quote',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicPetsOfferRoute = ApiPublicPetsOfferRouteImport.update({
+  id: '/api/public/pets-offer',
+  path: '/api/public/pets-offer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicShopifyOrderRoute = ApiPublicShopifyOrderRouteImport.update({
   id: '/api/public/shopify-order',
   path: '/api/public/shopify-order',
@@ -616,6 +622,7 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
+  '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
   '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
   '/prosub/aff/$id': typeof ProsubAffIdRoute
@@ -704,6 +711,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
+  '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
   '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
   '/prosub/aff/$id': typeof ProsubAffIdRoute
@@ -793,6 +801,7 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
+  '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
   '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
   '/prosub/aff/$id': typeof ProsubAffIdRoute
@@ -883,6 +892,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/api/public/coming-soon'
     | '/api/public/installation-quote'
+    | '/api/public/pets-offer'
     | '/api/public/shopify-order'
     | '/api/public/track-visit'
     | '/prosub/aff/$id'
@@ -971,6 +981,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/api/public/coming-soon'
     | '/api/public/installation-quote'
+    | '/api/public/pets-offer'
     | '/api/public/shopify-order'
     | '/api/public/track-visit'
     | '/prosub/aff/$id'
@@ -1059,6 +1070,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/api/public/coming-soon'
     | '/api/public/installation-quote'
+    | '/api/public/pets-offer'
     | '/api/public/shopify-order'
     | '/api/public/track-visit'
     | '/prosub/aff/$id'
@@ -1146,6 +1158,7 @@ export interface RootRouteChildren {
   BlogIndexRoute: typeof BlogIndexRoute
   ApiPublicComingSoonRoute: typeof ApiPublicComingSoonRoute
   ApiPublicInstallationQuoteRoute: typeof ApiPublicInstallationQuoteRoute
+  ApiPublicPetsOfferRoute: typeof ApiPublicPetsOfferRoute
   ApiPublicShopifyOrderRoute: typeof ApiPublicShopifyOrderRoute
   ApiPublicTrackVisitRoute: typeof ApiPublicTrackVisitRoute
 }
@@ -1733,6 +1746,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicInstallationQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/pets-offer': {
+      id: '/api/public/pets-offer'
+      path: '/api/public/pets-offer'
+      fullPath: '/api/public/pets-offer'
+      preLoaderRoute: typeof ApiPublicPetsOfferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/shopify-order': {
       id: '/api/public/shopify-order'
       path: '/api/public/shopify-order'
@@ -1874,6 +1894,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogIndexRoute: BlogIndexRoute,
   ApiPublicComingSoonRoute: ApiPublicComingSoonRoute,
   ApiPublicInstallationQuoteRoute: ApiPublicInstallationQuoteRoute,
+  ApiPublicPetsOfferRoute: ApiPublicPetsOfferRoute,
   ApiPublicShopifyOrderRoute: ApiPublicShopifyOrderRoute,
   ApiPublicTrackVisitRoute: ApiPublicTrackVisitRoute,
 }
