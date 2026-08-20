@@ -244,7 +244,7 @@ function ExitOffer({ open, onOpenChange }: { open: boolean; onOpenChange: (open:
           <>
             <DialogHeader>
               <DialogTitle className="pr-6 text-[28px] leading-tight">Not ready yet?</DialogTitle>
-              <DialogDescription className="pt-2 text-[16px] leading-relaxed">We’ll save your 15% and email you a one-click link to come back - it applies automatically.</DialogDescription>
+              <DialogDescription className="pt-2 text-[16px] leading-relaxed">We’ll save your 15% and email you a one-click link to come back, it applies automatically. Backed by our 30-day Fresh Home Guarantee.</DialogDescription>
             </DialogHeader>
             <form onSubmit={submit} className="mt-2 space-y-3">
               <label htmlFor="pets-offer-email" className="sr-only">Email address</label>
