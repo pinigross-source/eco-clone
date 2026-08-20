@@ -399,13 +399,22 @@ const PetsLandingPage = () => {
           <div className="mx-auto grid max-w-[1200px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.8fr_1.2fr]">
             <h2 className="text-[34px] font-semibold leading-none tracking-tight sm:text-[44px]">Pet owner questions, answered.</h2>
             <Accordion type="single" collapsible>
-              {[{ q: "Is it safe around my pets and family?", a: "Yes. It is chemical-free and designed for homes with cats, dogs, children, and adults." }, { q: "Will my house smell like fragrance?", a: "No. It addresses odor at the source rather than adding scent." }, { q: "Does it replace my purifier or vacuum?", a: "No. Keep vacuuming hair and using your purifier for airborne particles. EnviroBiotics works on residue that settles onto surfaces." }, { q: "What if it doesn’t work for us?", a: "Try it for 30 days. If it is not right for your home, return it for a refund." }].map((item, index) => (
+              {[{ q: "Is it safe around my pets and family?", a: "Yes. It is chemical-free and designed for homes with cats, dogs, children, and adults." }, { q: "Will my house smell like fragrance?", a: "No. It addresses odor at the source rather than adding scent." }, { q: "Does it replace my purifier or vacuum?", a: "No. Keep vacuuming hair and using your purifier for airborne particles. EnviroBiotics works on residue that settles onto surfaces." }, { q: "What does it cost to run?", a: "Very little. The devices draw about the same power as a small LED nightlight, roughly 2 to 5 watts, which works out to a few dollars a year on your electricity bill. The only other cost is the probiotic refill cartridge: one cartridge lasts about 2 to 3 months in continuous use, and refills start at around $29, so most pet homes spend roughly $10 to $15 a month." }, { q: "What if it doesn’t work for us?", a: "Try it for 30 days. If it is not right for your home, return it for a refund." }].map((item, index) => (
                 <AccordionItem key={item.q} value={`pets-${index}`}><AccordionTrigger className="text-left text-[17px]">{item.q}</AccordionTrigger><AccordionContent className="text-[15px] leading-relaxed text-black/70">{item.a}</AccordionContent></AccordionItem>
               ))}
             </Accordion>
           </div>
         </section>
+
+        <section className="bg-[#FBF3EC] py-16 sm:py-24">
+          <div className="mx-auto max-w-[720px] px-5 text-center sm:px-10">
+            <h2 className="text-[34px] font-semibold leading-[1.05] tracking-tight sm:text-[48px]">Give your pet the clean home they deserve</h2>
+            <p className="mt-5 text-[16px] leading-relaxed text-black/70">15% off + free shipping, 30-day guarantee</p>
+            <Button size="lg" className="mt-8 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions - from $83 <ArrowRight /></Button>
+          </div>
+        </section>
       </main>
+
 
       {showSticky ? (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t border-black/10 bg-white/95 p-3 shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.18)] backdrop-blur sm:hidden">
