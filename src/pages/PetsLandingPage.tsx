@@ -368,7 +368,7 @@ const PetsLandingPage = () => {
                 <span className="flex gap-0.5" aria-hidden>
                   {[0, 1, 2, 3, 4].map((star) => <Star key={star} className="h-[15px] w-[15px] fill-primary text-primary" />)}
                 </span>
-                <span>4.8 from 1,000+ pet homes</span>
+                <span>4.8&nbsp; | 1,000+ pet homes</span>
               </p>
               <h1 className="mt-4 max-w-[15ch] font-bold leading-[0.98] tracking-tight text-neutral-900 text-[clamp(38px,11vw,52px)] lg:text-[clamp(44px,3.5vw,54px)]">
                 {HERO_HEADLINE}
