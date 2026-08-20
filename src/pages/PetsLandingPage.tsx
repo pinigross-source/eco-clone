@@ -389,8 +389,8 @@ const PetsLandingPage = () => {
               <Button size="lg" className="mt-7 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions - from $83.30 <ArrowRight /></Button>
               <p className="mt-4 max-w-xl text-[11px] font-medium leading-relaxed text-neutral-600 sm:text-[12px]">✓ Fresh Home Guarantee&nbsp;&nbsp; ✓ Pet-safe & non-toxic</p>
             </div>
-            <div className="aspect-[16/11] overflow-hidden rounded-[32px] bg-neutral-100 shadow-2xl sm:rounded-[40px]">
-              <img src={heroImg} alt="Golden retriever resting on a cream sofa in a sunlit living room" className="h-full w-full object-cover" fetchPriority="high" loading="eager" decoding="async" width="1920" height="1080" />
+            <div className="aspect-[4/3] overflow-hidden rounded-[32px] bg-neutral-100 shadow-2xl sm:rounded-[40px] lg:aspect-[16/11]">
+              <img src={petHeroAsset.url} alt="Woman hugging her golden retriever on the sofa with a BioLogic Mini on the side table" className="h-full w-full object-cover object-center" fetchPriority="high" loading="eager" decoding="async" width="1920" height="1080" />
             </div>
           </div>
         </section>
