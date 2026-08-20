@@ -157,6 +157,16 @@ function ProductSection() {
           ))}
         </div>
 
+        <div id="guarantee" className="mx-auto mt-12 max-w-[820px] scroll-mt-24 rounded-[28px] border border-primary/25 bg-white p-8 text-center shadow-[0_24px_60px_-32px_rgba(0,0,0,0.28)] sm:mt-16 sm:p-10">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+            <ShieldCheck className="h-7 w-7 text-primary" strokeWidth={2} />
+          </div>
+          <h3 className="mt-5 text-[26px] font-semibold tracking-tight text-[#1d1d1f] sm:text-[32px]">The Fresh Home Guarantee</h3>
+          <p className="mx-auto mt-4 max-w-[56ch] text-[16px] leading-relaxed text-[#68686d]">
+            Notice the difference in your first month, or your money back. If you’re not satisfied within 30 days, we’ll refund every cent and cover the return shipping.
+          </p>
+        </div>
+
         <div className="mt-12 sm:mt-16">
           <ul className="mx-auto grid max-w-[900px] grid-cols-3 gap-3 sm:grid-cols-6 sm:gap-4">
             {CERTS.map((cert) => (
