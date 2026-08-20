@@ -55,7 +55,7 @@ const products = [
     name: "BioLogic Mini",
     description: "Bedrooms, litter areas, small spaces",
     originalPrice: "$98",
-    offerPrice: "$83",
+    offerPrice: "$83.30",
     image: miniProduct,
     href: MINI_URL,
     event: "click_pets_card_mini",
@@ -64,7 +64,7 @@ const products = [
     name: "Biotica 800",
     description: "Living rooms & open spaces up to 800 sq ft",
     originalPrice: "$299",
-    offerPrice: "$254",
+    offerPrice: "$254.15",
     image: bioticaProduct,
     href: BIOTICA_URL,
     event: "click_pets_card_biotica",
@@ -75,7 +75,7 @@ const products = [
     name: "Home Bundle",
     description: "Biotica 800 + 2 Minis for the whole home",
     originalPrice: "$395",
-    offerPrice: "$335",
+    offerPrice: "$335.75",
     image: bundleAsset.url,
     href: BUNDLE_URL,
     event: "click_pets_card_bundle",
@@ -353,7 +353,7 @@ const PetsLandingPage = () => {
               <h1 className="text-[43px] font-bold leading-[0.94] tracking-tight text-neutral-900 sm:text-[60px] lg:text-[72px]">You’re up against something you can’t see.</h1>
               <p className="mt-6 text-[18px] font-semibold text-neutral-800">Pet dander and odor are microscopic.</p>
               <p className="mt-4 max-w-md text-[15.5px] leading-relaxed text-neutral-600">You vacuum the hair and wash the covers, but the real problem settles deep into the couch, carpet, bedding, and other soft surfaces your pet loves. EnviroBiotics works at the source.</p>
-              <Button size="lg" className="mt-7 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions - from $83 <ArrowRight /></Button>
+              <Button size="lg" className="mt-7 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions - from $83.30 <ArrowRight /></Button>
               <p className="mt-4 max-w-xl text-[11px] font-medium leading-relaxed text-neutral-600 sm:text-[12px]">✓ 30-day money-back guarantee&nbsp;&nbsp; ✓ Pet-safe & non-toxic</p>
             </div>
             <div className="aspect-[16/11] overflow-hidden rounded-[32px] bg-neutral-100 shadow-2xl sm:rounded-[40px]">
@@ -415,7 +415,7 @@ const PetsLandingPage = () => {
           <div className="mx-auto max-w-[720px] px-5 text-center sm:px-10">
             <h2 className="text-[34px] font-semibold leading-[1.05] tracking-tight sm:text-[48px]">Give your pet the clean home they deserve</h2>
             <p className="mt-5 text-[16px] leading-relaxed text-black/70">15% off + free shipping over $200, 30-day guarantee</p>
-            <Button size="lg" className="mt-8 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions - from $83 <ArrowRight /></Button>
+            <Button size="lg" className="mt-8 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions - from $83.30 <ArrowRight /></Button>
           </div>
         </section>
       </main>
@@ -423,7 +423,7 @@ const PetsLandingPage = () => {
 
       {showSticky ? (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t border-black/10 bg-white/95 p-3 shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.18)] backdrop-blur sm:hidden">
-          <Button className="h-12 w-full" onClick={scrollToProducts}>Shop from $83 - 15% off <ArrowRight /></Button>
+          <Button className="h-12 w-full" onClick={scrollToProducts}>Shop from $83.30 - 15% off <ArrowRight /></Button>
         </div>
       ) : null}
       <CompactFooter />
