@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { ArrowRight, Check, Mail, Star } from "lucide-react";
+import { ArrowRight, Check, Mail, ShieldCheck, Star } from "lucide-react";
 import { Link } from "@/lib/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,7 +28,6 @@ import surfacesImg from "@/assets/pets/surfaces-soft.jpg";
 import bundleAsset from "@/assets/bundle-product.webp.asset.json";
 import epaAsset from "@/assets/certs/epa-new.webp.asset.json";
 import madeSafeAsset from "@/assets/certs/made-safe-new.png.asset.json";
-import fdaGrasAsset from "@/assets/certs/fda-gras-new.webp.asset.json";
 import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
 import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
 import isoAsset from "@/assets/certs/iso-new.webp.asset.json";
@@ -190,7 +189,7 @@ function ProductSection() {
         </div>
 
         <div className="mt-12 sm:mt-16">
-          <ul className="mx-auto grid max-w-[900px] grid-cols-3 gap-3 sm:grid-cols-6 sm:gap-4">
+          <ul className="mx-auto grid max-w-[900px] grid-cols-3 gap-3 sm:grid-cols-5 sm:gap-4">
             {CERTS.map((cert) => (
               <li
                 key={cert.label}
