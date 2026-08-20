@@ -104,8 +104,9 @@ const Reveal = ({ children, className = "" }: { children: ReactNode; className?:
 function LogoOnlyHeader() {
   return (
     <>
-      <div className="sticky top-0 z-[60] bg-[#EB8B59] px-4 py-2.5 text-center text-[12px] font-semibold leading-snug text-[#1A1A1A] sm:text-[13px]">
-        🎉 Your 15% off is applied automatically at checkout - no code needed.
+      <div className="sticky top-0 z-[60] bg-[#EB8B59] px-4 py-2 text-center text-[11.5px] font-semibold leading-snug text-[#1A1A1A] sm:py-2.5 sm:text-[13px]">
+        <span className="sm:hidden">15% off applied automatically at checkout</span>
+        <span className="hidden sm:inline">Your 15% off is applied automatically at checkout - no code needed.</span>
       </div>
       <header className="relative z-50 border-b border-black/5 bg-[#F0F0F0]">
         <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-center px-5 lg:h-20">
