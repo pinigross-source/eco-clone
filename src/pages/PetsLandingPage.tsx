@@ -215,6 +215,8 @@ function ExitOffer({ open, onOpenChange }: { open: boolean; onOpenChange: (open:
     if (response?.ok) {
       setStatus("sent");
       trackEvent("submit_pets_exit_offer");
+      trackFBEvent("Lead", { content_name: "pets_exit_offer" });
+      try { localStorage.setItem(EXIT_DONE_KEY, "1"); } catch { /* storage unavailable */ }
     } else {
       setStatus("error");
     }
@@ -223,22 +225,32 @@ function ExitOffer({ open, onOpenChange }: { open: boolean; onOpenChange: (open:
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md rounded-2xl border-0 p-7 sm:p-9">
-        <DialogHeader>
-          <DialogTitle className="pr-6 text-[28px] leading-tight">Not ready yet?</DialogTitle>
-          <DialogDescription className="pt-2 text-[16px] leading-relaxed">We’ll email you your 15% code.</DialogDescription>
-        </DialogHeader>
         {status === "sent" ? (
-          <div className="rounded-xl bg-muted p-5 text-center text-sm font-medium">Check your inbox. Your code is on its way.</div>
+          <>
+            <DialogHeader>
+              <DialogTitle className="pr-6 text-[28px] leading-tight">Done - check your inbox 📬</DialogTitle>
+              <DialogDescription className="pt-2 text-[16px] leading-relaxed">Your one-click link is on its way. The 15% applies automatically.</DialogDescription>
+            </DialogHeader>
+            <Button size="lg" className="mt-3 w-full" onClick={() => onOpenChange(false)}>Keep browsing</Button>
+          </>
         ) : (
-          <form onSubmit={submit} className="mt-2 space-y-3">
-            <label htmlFor="pets-offer-email" className="sr-only">Email address</label>
-            <div className="relative">
-              <Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <input id="pets-offer-email" type="email" required autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email address" className="h-12 w-full rounded-full border border-input bg-background pl-11 pr-4 text-sm outline-none focus:ring-2 focus:ring-ring" />
-            </div>
-            <Button type="submit" size="lg" className="w-full" disabled={status === "sending"}>{status === "sending" ? "Sending…" : "Email me my code"}</Button>
-            {status === "error" ? <p className="text-center text-xs text-destructive">Please try again.</p> : null}
-          </form>
+          <>
+            <DialogHeader>
+              <DialogTitle className="pr-6 text-[28px] leading-tight">Not ready yet?</DialogTitle>
+              <DialogDescription className="pt-2 text-[16px] leading-relaxed">We’ll save your 15% and email you a one-click link to come back - it applies automatically.</DialogDescription>
+            </DialogHeader>
+            <form onSubmit={submit} className="mt-2 space-y-3">
+              <label htmlFor="pets-offer-email" className="sr-only">Email address</label>
+              <div className="relative">
+                <Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                <input id="pets-offer-email" type="email" required autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email address" className="h-12 w-full rounded-full border border-input bg-background pl-11 pr-4 text-sm outline-none focus:ring-2 focus:ring-ring" />
+              </div>
+              <Button type="submit" size="lg" className="w-full" disabled={status === "sending"}>{status === "sending" ? "Saving…" : "Save my 15%"}</Button>
+              <p className="text-center text-[11px] text-muted-foreground">No spam - just your discount link. Unsubscribe anytime.</p>
+              <button type="button" onClick={() => onOpenChange(false)} className="mx-auto block text-xs font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground">No thanks</button>
+              {status === "error" ? <p className="text-center text-xs text-destructive">Please try again.</p> : null}
+            </form>
+          </>
         )}
       </DialogContent>
     </Dialog>
