@@ -21,10 +21,12 @@ import { shopifyDiscountUrl, shopifyProductDiscountUrl } from "@/lib/shopify";
 import { trackFBEvent } from "@/lib/fb-pixel";
 
 import logo from "@/assets/logo.avif";
-import heroImg from "@/assets/pets/hero-soft.jpg";
+import petHeroAsset from "@/assets/pet-hero.avif.asset.json";
+import continuousCareAsset from "@/assets/continuous-care.avif.asset.json";
+import invisibleProblemAsset from "@/assets/invisible-problem.avif.asset.json";
+import finalCtaAsset from "@/assets/final-cta.avif.asset.json";
 import bioticaProduct from "@/assets/pets/biotica-800-card.avif";
 import miniProduct from "@/assets/biologic-mini-nobg-new.avif";
-import surfacesImg from "@/assets/pets/surfaces-soft.jpg";
 import bundleAsset from "@/assets/bundle-product.webp.asset.json";
 import epaAsset from "@/assets/certs/epa-new.webp.asset.json";
 import madeSafeAsset from "@/assets/certs/made-safe-new.png.asset.json";
