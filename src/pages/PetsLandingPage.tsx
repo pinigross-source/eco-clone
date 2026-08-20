@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { ArrowRight, Mail, ShieldCheck, Star, Wind, Home, Infinity as InfinityIcon, Sparkles, Waves, Microscope } from "lucide-react";
+import { ArrowRight, Check, Mail, ShieldCheck, Star, Wind, Home, Infinity as InfinityIcon, Sparkles, Waves, Microscope } from "lucide-react";
 import { Link } from "@/lib/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -38,6 +38,8 @@ const BIOTICA_URL = shopifyDiscountUrl("META15", "/products/biotica-800", "pets-
 const MINI_URL = shopifyProductDiscountUrl("biologic-mini", "META15", "pets-landing");
 const BUNDLE_URL = shopifyDiscountUrl("META15", "/products/home-complete-bundle", "pets-landing");
 const DISPLAY = '"Helvetica Neue", "Inter", system-ui, -apple-system, sans-serif';
+// Hero headline (A/B ready). Version B: "Love your pet. Not the smell they leave behind."
+const HERO_HEADLINE = "You’re up against something you can’t see.";
 const EXIT_KEY = "eb_pets_offer_seen";
 const EXIT_DONE_KEY = "eb_pets_offer_done";
 const EXIT_TTL_MS = 30 * 24 * 60 * 60 * 1000;
@@ -105,8 +107,8 @@ function LogoOnlyHeader() {
   return (
     <>
       <div className="sticky top-0 z-[60] bg-[#EB8B59] px-4 py-2 text-center text-[11.5px] font-semibold leading-snug text-[#1A1A1A] sm:py-2.5 sm:text-[13px]">
-        <span className="sm:hidden">15% off applied automatically at checkout</span>
-        <span className="hidden sm:inline">Your 15% off is applied automatically at checkout - no code needed.</span>
+        <span className="sm:hidden">15% OFF applied at checkout • 30-Day Risk-Free</span>
+        <span className="hidden sm:inline">15% OFF Automatically Applied at Checkout • 30-Day Risk-Free Guarantee</span>
       </div>
       <header className="relative z-50 border-b border-black/5 bg-[#F0F0F0]">
         <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-center px-5 lg:h-20">
@@ -124,7 +126,7 @@ function ProductSection() {
     <section id="products" className="scroll-mt-12 bg-[#f5f5f7] py-11 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-10 lg:px-12">
         <div className="mb-10 text-center sm:mb-14">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#86868b]">The lineup</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#86868b]">The system</p>
           <h2 className="mt-3 text-[34px] font-semibold leading-none tracking-tight text-[#1d1d1f] sm:text-[48px]">
             Pick the size of your home.
           </h2>
@@ -192,29 +194,6 @@ function ProductSection() {
           </p>
         </div>
 
-        <div className="mt-10 sm:mt-16">
-          <ul className="mx-auto flex max-w-[900px] flex-wrap justify-center gap-3 sm:gap-4">
-            {CERTS.map((cert) => (
-              <li
-                key={cert.label}
-                title={cert.label}
-                className="group flex aspect-square w-[calc((100%-1.5rem)/3)] max-w-[160px] items-center justify-center rounded-2xl bg-white p-3 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_18px_36px_-24px_rgba(0,0,0,0.35)] ring-1 ring-black/[0.06] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(0,0,0,0.05),0_26px_48px_-24px_rgba(0,0,0,0.4)] sm:w-[calc((100%-4rem)/5)] sm:p-4"
-              >
-                <img
-                  src={cert.image}
-                  alt={cert.label}
-                  loading="lazy"
-                  decoding="async"
-                  width="160"
-                  height="160"
-                  className="max-h-[80%] max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              </li>
-            ))}
-          </ul>
-          <p className="mt-5 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-[#86868b] sm:mt-6 sm:text-[12px]">Independently verified for safety</p>
-
-        </div>
       </div>
     </section>
   );
@@ -225,7 +204,8 @@ function Testimonials() {
     <section className="bg-white py-11 sm:py-20">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-10 lg:px-12">
         <h2 className="text-center text-[32px] font-semibold leading-none tracking-tight text-black sm:text-[44px]">Pet owners notice the difference.</h2>
-        <p className="mt-4 text-center text-[15px] font-semibold text-black/70">★ 4.8 average - from 1,000+ pet homes</p>
+        <p className="mt-4 text-center text-[16px] text-black/60">Real people. Real homes. Real results.</p>
+        <p className="mt-2 text-center text-[14px] font-semibold text-black/70">★ 4.8 average - from 1,000+ pet homes</p>
         <div className="mt-9 grid gap-4 md:grid-cols-3">
           {testimonials.map((testimonial) => (
             <figure key={testimonial.person} className="flex h-full flex-col rounded-2xl bg-[#F4F5F6] p-7 sm:p-8">
@@ -576,7 +556,8 @@ const PetsLandingPage = () => {
                   <h2 className="text-[44px] font-semibold leading-[1.05] tracking-tight text-[#1A1A1A]">Give your pet the clean home they deserve.</h2>
                   <p className="mt-5 text-[17px] leading-relaxed text-black/70">Continuous care for the spaces you share with them.</p>
                   <Button size="lg" className="mt-8" onClick={scrollToProducts}>Shop EnviroBiotics - From $83.30 <ArrowRight /></Button>
-                  <p className="mt-4 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $200</p>
+                  <p className="mt-3 text-[13px] font-semibold text-[#bf4800]">15% OFF automatically applied at checkout</p>
+                  <p className="mt-2 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $200</p>
                 </div>
               </div>
 
@@ -586,7 +567,8 @@ const PetsLandingPage = () => {
                   <h2 className="text-[34px] font-semibold leading-[1.05] tracking-tight sm:text-[40px]">Give your pet the clean home they deserve.</h2>
                   <p className="mt-5 text-[16px] leading-relaxed text-black/70">Continuous care for the spaces you share with them.</p>
                   <Button size="lg" className="mt-8 w-full sm:w-auto" onClick={scrollToProducts}>Shop EnviroBiotics - From $83.30 <ArrowRight /></Button>
-                  <p className="mt-4 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $200</p>
+                  <p className="mt-3 text-[13px] font-semibold text-[#bf4800]">15% OFF automatically applied at checkout</p>
+                  <p className="mt-2 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $200</p>
                 </div>
                 <img src={finalCtaAsset.url} alt="BioLogic Mini on a shelf beside a green plant in a warm home" loading="lazy" decoding="async" width="1920" height="640" className="w-full object-cover object-center" />
               </div>
