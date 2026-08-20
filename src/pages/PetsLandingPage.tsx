@@ -168,14 +168,15 @@ function ProductSection() {
                   <p className="mt-1 text-[12px] font-semibold text-[#bf4800]">{product.note}</p>
                 ) : null}
               </div>
-              <Button asChild size="lg" className="mt-7 w-full max-w-[220px]">
+              <Button asChild size="lg" className="mt-6 w-full max-w-[260px] sm:mt-7 sm:max-w-[220px]">
                 <a href={product.href} onClick={() => trackEvent(product.event)}>Buy {product.name}</a>
               </Button>
               <a
                 href="#guarantee"
                 className="mt-3 text-[11px] text-[#68686d] underline underline-offset-2 hover:text-[#1d1d1f]"
               >
-                Fresh Home Guarantee ✓ - 30 days, return shipping on us
+                <span className="sm:hidden">Fresh Home Guarantee ✓ - 30 days</span>
+                <span className="hidden sm:inline">Fresh Home Guarantee ✓ - 30 days, return shipping on us</span>
               </a>
             </article>
           ))}
