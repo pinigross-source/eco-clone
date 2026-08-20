@@ -288,7 +288,7 @@ const PetsLandingPage = () => {
               <p className="mt-6 text-[18px] font-semibold text-neutral-800">Pet dander and odor are microscopic.</p>
               <p className="mt-4 max-w-md text-[15.5px] leading-relaxed text-neutral-600">You vacuum the hair and wash the covers, but the real problem settles deep into the couch, carpet, bedding, and other soft surfaces your pet loves. EnviroBiotics works at the source.</p>
               <Button size="lg" className="mt-7 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions - from $83 <ArrowRight /></Button>
-              <p className="mt-4 max-w-xl text-[11px] font-medium leading-relaxed text-neutral-600 sm:text-[12px]">✓ 30-day money-back guarantee&nbsp;&nbsp; ✓ Free shipping&nbsp;&nbsp; ✓ Pet-safe & non-toxic</p>
+              <p className="mt-4 max-w-xl text-[11px] font-medium leading-relaxed text-neutral-600 sm:text-[12px]">✓ 30-day money-back guarantee&nbsp;&nbsp; ✓ Pet-safe & non-toxic</p>
             </div>
             <div className="aspect-[16/11] overflow-hidden rounded-[32px] bg-neutral-100 shadow-2xl sm:rounded-[40px]">
               <img src={heroImg} alt="Golden retriever resting on a cream sofa in a sunlit living room" className="h-full w-full object-cover" fetchPriority="high" loading="eager" decoding="async" width="1920" height="1080" />
