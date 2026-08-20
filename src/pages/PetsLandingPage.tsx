@@ -70,9 +70,10 @@ const products = [
     event: "click_pets_card_biotica",
     badge: "Most popular for pet homes",
     featured: true,
+    freeShipping: true,
   },
   {
-    name: "Home Bundle",
+    name: "The Pet Home Reset",
     description: "Biotica 800 + 2 Minis for the whole home",
     originalPrice: "$395",
     offerPrice: "$335.75",
@@ -81,6 +82,12 @@ const products = [
     event: "click_pets_card_bundle",
     badge: "Best value",
     note: "Save $85 vs. buying separately",
+    freeShipping: true,
+    valueStack: [
+      "Biotica 800 ($299)",
+      "+ 2× BioLogic Mini ($196)",
+      "+ Free shipping ($15)",
+    ],
   },
 ];
 
