@@ -380,9 +380,9 @@ const PetsLandingPage = () => {
     <>
       <SEOHead title="Pet Dander & Odor Control for Your Home | EnviroBiotics" description="Engineered for homes with pets. EnviroBiotics breaks down dander and odor at the surface, where filters can't reach." path="/pets" />
       <LogoOnlyHeader />
-      <main className="bg-white text-[#1A1A1A]" style={{ fontFamily: DISPLAY }}>
+      <main className="bg-white pb-16 text-[#1A1A1A] sm:pb-0" style={{ fontFamily: DISPLAY }}>
         <section ref={heroRef} className="relative overflow-hidden bg-[linear-gradient(to_top_right,#fff7f0_0%,#f8f7ff_50%,#f0f9ff_100%)]">
-          <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-9 px-5 pb-14 pt-8 sm:px-10 sm:pb-20 sm:pt-12 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:py-20">
+          <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-7 px-5 pb-11 pt-6 sm:px-10 sm:pb-20 sm:pt-12 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:py-20">
             <div className="max-w-xl">
               <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">Pets · EnviroBiotics</p>
               <h1 className="text-[43px] font-bold leading-[0.94] tracking-tight text-neutral-900 sm:text-[60px] lg:text-[72px]">You’re up against something you can’t see.</h1>
@@ -401,7 +401,7 @@ const PetsLandingPage = () => {
         <Testimonials />
 
         <section className="bg-white py-11 sm:py-20">
-          <div className="mx-auto grid max-w-[1400px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-12">
+          <div className="mx-auto grid max-w-[1400px] gap-7 px-5 sm:gap-10 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-12">
             <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">Made for homes with pets</p>
               <h2 className="mt-4 text-[34px] font-semibold leading-none tracking-tight sm:text-[48px]">Continuous care where your pet lives.</h2>
@@ -426,7 +426,7 @@ const PetsLandingPage = () => {
         </section>
 
         <section className="bg-[#FBF3EC] py-11 sm:py-20">
-          <div className="mx-auto grid max-w-[1400px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-12">
+          <div className="mx-auto grid max-w-[1400px] gap-7 px-5 sm:gap-10 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-12">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">The problem</p>
               <h2 className="mt-4 text-[34px] font-semibold leading-none tracking-tight sm:text-[48px]">It’s not the hair. It’s what you can’t see.</h2>
