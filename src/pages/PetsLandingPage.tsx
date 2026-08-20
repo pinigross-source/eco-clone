@@ -409,7 +409,7 @@ const PetsLandingPage = () => {
         <section className="bg-[#FBF3EC] py-16 sm:py-24">
           <div className="mx-auto max-w-[720px] px-5 text-center sm:px-10">
             <h2 className="text-[34px] font-semibold leading-[1.05] tracking-tight sm:text-[48px]">Give your pet the clean home they deserve</h2>
-            <p className="mt-5 text-[16px] leading-relaxed text-black/70">15% off + free shipping, 30-day guarantee</p>
+            <p className="mt-5 text-[16px] leading-relaxed text-black/70">15% off + free shipping over $200, 30-day guarantee</p>
             <Button size="lg" className="mt-8 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions - from $83 <ArrowRight /></Button>
           </div>
         </section>
