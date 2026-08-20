@@ -487,25 +487,24 @@ const PetsLandingPage = () => {
           <div className="mx-auto max-w-[1100px] px-5 sm:px-10">
             <div className="grid gap-5 md:grid-cols-2">
               <div className="rounded-[28px] border border-black/10 bg-[#F4F5F6] p-7 sm:p-9">
-                <h3 className="text-[22px] font-semibold tracking-tight text-black/80">Masking it</h3>
-                <ul className="mt-5 space-y-2 text-[15px] leading-relaxed text-black/65">
-                  <li>Candles</li>
-                  <li>Sprays</li>
-                  <li>Carpet cleaner</li>
-                  <li>Filters</li>
+                <h3 className="text-[22px] font-semibold tracking-tight text-black/80">Masking the problem</h3>
+                <ul className="mt-5 space-y-2.5 text-[15px] leading-relaxed text-black/65">
+                  <li>✕ Temporary odor coverage</li>
+                  <li>✕ Fragrances</li>
+                  <li>✕ Requires repeated application</li>
+                  <li>✕ Does not address surrounding surfaces</li>
                 </ul>
                 <p className="mt-6 text-[16px] font-semibold text-black/75">~$40/month, forever</p>
-                <p className="mt-1 text-[15px] text-black/60">And the smell comes back.</p>
               </div>
               <div className="rounded-[28px] border border-primary/30 bg-[#FBF3EC] p-7 shadow-[0_24px_60px_-32px_rgba(0,0,0,0.3)] sm:p-9">
-                <h3 className="text-[22px] font-semibold tracking-tight text-[#1d1d1f]">Removing it</h3>
-                <ul className="mt-5 space-y-2 text-[15px] leading-relaxed text-black/70">
-                  <li>Biotica 800</li>
-                  <li>$254 once</li>
-                  <li>About $0.70/day</li>
-                  <li>Works while you sleep</li>
+                <h3 className="text-[22px] font-semibold tracking-tight text-[#1d1d1f]">Continuous environmental care</h3>
+                <ul className="mt-5 space-y-2.5 text-[15px] leading-relaxed text-black/70">
+                  <li>✓ Works throughout the environment</li>
+                  <li>✓ Air + surfaces</li>
+                  <li>✓ No fragrance masking</li>
+                  <li>✓ Runs continuously</li>
                 </ul>
-                <p className="mt-6 text-[16px] font-semibold text-[#bf4800]">One purchase. No refills of scent.</p>
+                <p className="mt-6 text-[16px] font-semibold text-[#bf4800]">Biotica 800 - $254.15 once, about $0.70/day.</p>
               </div>
             </div>
             <p className="mt-8 text-center text-[18px] font-semibold tracking-tight text-black sm:text-[22px]">
