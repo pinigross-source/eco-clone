@@ -399,24 +399,52 @@ const PetsLandingPage = () => {
         <Testimonials />
 
         <section className="bg-white py-14 sm:py-20">
-          <div className="mx-auto grid max-w-[1400px] gap-10 px-5 sm:px-10 lg:grid-cols-2 lg:items-center lg:px-12">
+          <div className="mx-auto grid max-w-[1400px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-12">
             <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">Made for homes with pets</p>
               <h2 className="mt-4 text-[34px] font-semibold leading-none tracking-tight sm:text-[48px]">Continuous care where your pet lives.</h2>
               <p className="mt-6 max-w-[58ch] text-[16px] leading-relaxed text-black/70">Beneficial probiotics settle onto surfaces and quietly break down the organic residue pets leave behind, including dander and odor-causing compounds. No sprays, fragrances, or complicated upkeep.</p>
+              <ul className="mt-8 space-y-4">
+                {[
+                  { Icon: Wind, text: "Works across air and surfaces" },
+                  { Icon: Home, text: "Reaches where your pet spends time" },
+                  { Icon: InfinityIcon, text: "Provides continuous environmental care" },
+                ].map(({ Icon, text }) => (
+                  <li key={text} className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/10 bg-[#FBF3EC]">
+                      <Icon className="h-[18px] w-[18px] text-[#7A5A47]" strokeWidth={1.5} />
+                    </span>
+                    <span className="text-[15.5px] font-medium text-black/75">{text}</span>
+                  </li>
+                ))}
+              </ul>
             </Reveal>
-            <img src={bioticaProduct} alt="Biotica 800 for pet homes" loading="lazy" decoding="async" width="900" height="900" className="mx-auto w-full max-w-[480px] object-contain" />
+            <img src={continuousCareAsset.url} alt="Golden retriever resting on a sofa with a BioLogic Mini dispersing probiotics across the room" loading="lazy" decoding="async" width="1600" height="1067" className="aspect-[4/3] w-full rounded-[20px] object-cover object-center lg:aspect-[16/11]" />
           </div>
         </section>
 
         <section className="bg-[#FBF3EC] py-14 sm:py-20">
-          <div className="mx-auto grid max-w-[1400px] gap-10 px-5 sm:px-10 lg:grid-cols-2 lg:items-center lg:px-12">
+          <div className="mx-auto grid max-w-[1400px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-12">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">The problem</p>
               <h2 className="mt-4 text-[34px] font-semibold leading-none tracking-tight sm:text-[48px]">It’s not the hair. It’s what you can’t see.</h2>
               <p className="mt-6 max-w-[58ch] text-[16px] leading-relaxed text-black/70">Dander and odor are microscopic, woven into the couch, rug, and bedding. Filters can’t reach them. Sprays just mask them. EnviroBiotics works right where they live.</p>
+              <div className="mt-8 flex flex-wrap gap-7">
+                {[
+                  { Icon: Sparkles, text: "Pet dander" },
+                  { Icon: Waves, text: "Allergens" },
+                  { Icon: Microscope, text: "Microscopic buildup" },
+                ].map(({ Icon, text }) => (
+                  <div key={text} className="flex flex-col items-center gap-2 text-center">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full border border-black/15 bg-white">
+                      <Icon className="h-5 w-5 text-[#7A5A47]" strokeWidth={1.5} />
+                    </span>
+                    <span className="text-[12px] font-medium text-black/65">{text}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <img src={surfacesImg} alt="Cat curled on a cream rug" loading="lazy" decoding="async" width="1600" height="1067" className="aspect-[4/3] w-full rounded-[28px] object-cover" />
+            <img src={invisibleProblemAsset.url} alt="Close-up of pet hair on upholstery with a magnified view of microscopic dander and allergens" loading="lazy" decoding="async" width="1600" height="1067" className="aspect-[4/3] w-full rounded-[20px] object-cover object-center" />
           </div>
         </section>
 
