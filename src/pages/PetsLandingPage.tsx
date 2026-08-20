@@ -381,24 +381,77 @@ const PetsLandingPage = () => {
       <SEOHead title="Pet Dander & Odor Control for Your Home | EnviroBiotics" description="Engineered for homes with pets. EnviroBiotics breaks down dander and odor at the surface, where filters can't reach." path="/pets" />
       <LogoOnlyHeader />
       <main className="bg-white pb-16 text-[#1A1A1A] sm:pb-0" style={{ fontFamily: DISPLAY }}>
-        <section ref={heroRef} className="relative overflow-hidden bg-[linear-gradient(to_top_right,#fff7f0_0%,#f8f7ff_50%,#f0f9ff_100%)]">
-          <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-7 px-5 pb-11 pt-6 sm:px-10 sm:pb-20 sm:pt-12 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:py-20">
-            <div className="max-w-xl">
-              <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">Pets · EnviroBiotics</p>
-              <h1 className="text-[43px] font-bold leading-[0.94] tracking-tight text-neutral-900 sm:text-[60px] lg:text-[72px]">You’re up against something you can’t see.</h1>
-              <p className="mt-6 text-[18px] font-semibold text-neutral-800">Pet dander and odor are microscopic.</p>
-              <p className="mt-4 max-w-md text-[15.5px] leading-relaxed text-neutral-600">You vacuum the hair and wash the covers, but the real problem settles deep into the couch, carpet, bedding, and other soft surfaces your pet loves. EnviroBiotics works at the source.</p>
-              <Button size="lg" className="mt-7 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions - from $83.30 <ArrowRight /></Button>
-              <p className="mt-4 max-w-xl text-[11px] font-medium leading-relaxed text-neutral-600 sm:text-[12px]">✓ Fresh Home Guarantee&nbsp;&nbsp; ✓ Pet-safe & non-toxic</p>
+        <section ref={heroRef} className="relative overflow-hidden bg-[linear-gradient(to_top_right,#fff7f0_0%,#fdfaf6_55%,#f6f8fb_100%)]">
+          <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-8 px-[clamp(20px,5vw,72px)] pb-10 pt-7 sm:pb-16 sm:pt-12 lg:grid-cols-[47fr_53fr] lg:gap-14 lg:py-16">
+            <div className="max-w-[560px]">
+              <p className="flex items-center gap-2 text-[13px] font-medium text-neutral-700">
+                <span className="flex gap-0.5" aria-hidden>
+                  {[0, 1, 2, 3, 4].map((star) => <Star key={star} className="h-[15px] w-[15px] fill-primary text-primary" />)}
+                </span>
+                <span>4.8 from 1,000+ pet homes</span>
+              </p>
+              <h1 className="mt-4 max-w-[13ch] font-bold leading-[0.98] tracking-tight text-neutral-900 text-[clamp(38px,11vw,52px)] lg:text-[clamp(46px,4.5vw,72px)]">
+                {HERO_HEADLINE}
+              </h1>
+              <p className="mt-6 max-w-[540px] text-[16px] leading-relaxed text-neutral-700">
+                Pet odor, dander and allergens don’t stay on your pet. They settle into couches, rugs, bedding and the surfaces your pet touches every day.
+              </p>
+              <p className="mt-4 max-w-[540px] text-[16px] leading-relaxed text-neutral-700">
+                EnviroBiotics continuously distributes beneficial probiotics throughout your pet’s environment, reaching the <strong className="font-semibold text-neutral-900">air and surfaces</strong> ordinary air filters can’t.
+              </p>
+              <Button
+                size="lg"
+                className="mt-7 h-[54px] w-full rounded-full px-7 text-[16px] font-semibold sm:w-auto"
+                onClick={scrollToProducts}
+              >
+                Shop Pet Solutions - From $83.30 <ArrowRight />
+              </Button>
+              <p className="mt-3 text-[13px] font-semibold text-[#bf4800]">15% OFF - Automatically applied at checkout</p>
+              <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[12.5px] font-medium text-neutral-600">
+                {["30-Day Risk-Free Guarantee", "Pet-Safe & Non-Toxic", "No Fragrances or Daily Spraying"].map((point) => (
+                  <li key={point} className="flex items-center gap-1.5">
+                    <Check className="h-3.5 w-3.5 text-primary" strokeWidth={2.5} />
+                    {point}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="aspect-[4/3] overflow-hidden rounded-[32px] bg-neutral-100 shadow-2xl sm:rounded-[40px] lg:aspect-[16/11]">
-              <img src={petHeroAsset.url} alt="Woman hugging her golden retriever on the sofa with a BioLogic Mini on the side table" className="h-full w-full object-cover object-center" fetchPriority="high" loading="eager" decoding="async" width="1920" height="1080" />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] bg-neutral-100 shadow-[0_30px_80px_-45px_rgba(0,0,0,0.5)] lg:aspect-auto lg:h-full lg:min-h-[520px] lg:max-h-[650px]">
+              <img src={petHeroAsset.url} alt="Pet owner hugging a Golden Retriever beside an EnviroBiotics BioLogic Mini" className="h-full w-full object-cover object-center" fetchPriority="high" loading="eager" decoding="async" width="1920" height="1080" />
+              <div className="absolute bottom-4 left-4 hidden rounded-xl bg-white/85 px-3.5 py-2.5 shadow-sm backdrop-blur-md sm:block">
+                <p className="text-[12.5px] font-semibold text-[#1d1d1f]">BioLogic Mini</p>
+                <p className="text-[11px] text-[#68686d]">Continuous probiotic care</p>
+              </div>
             </div>
+          </div>
+        </section>
+
+        {/* Credibility strip */}
+        <section className="border-y border-black/5 bg-white">
+          <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-center gap-x-7 gap-y-4 px-[clamp(20px,5vw,72px)] py-5">
+            <span className="text-[12px] font-medium text-[#68686d]">30-Day Guarantee</span>
+            <span className="hidden h-4 w-px bg-black/10 sm:block" />
+            {CERTS.map((cert) => (
+              <img
+                key={cert.label}
+                src={cert.image}
+                alt={cert.label}
+                title={cert.label}
+                loading="lazy"
+                decoding="async"
+                width="120"
+                height="60"
+                className="h-8 w-auto object-contain opacity-80 sm:h-10"
+              />
+            ))}
+            <span className="hidden h-4 w-px bg-black/10 sm:block" />
+            <span className="text-[12px] font-medium text-[#68686d]">1,000+ pet homes</span>
           </div>
         </section>
 
         <ProductSection />
         <Testimonials />
+
 
         <section className="bg-white py-11 sm:py-20">
           <div className="mx-auto grid max-w-[1400px] gap-7 px-5 sm:gap-10 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-12">
