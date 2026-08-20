@@ -25,12 +25,28 @@ import bioticaProduct from "@/assets/pets/biotica-800-card.avif";
 import miniProduct from "@/assets/biologic-mini-nobg-new.avif";
 import surfacesImg from "@/assets/pets/surfaces-soft.jpg";
 import bundleAsset from "@/assets/bundle-product.webp.asset.json";
+import epaAsset from "@/assets/certs/epa-new.webp.asset.json";
+import madeSafeAsset from "@/assets/certs/made-safe-new.png.asset.json";
+import fdaGrasAsset from "@/assets/certs/fda-gras-new.webp.asset.json";
+import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
+import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
+import isoAsset from "@/assets/certs/iso-new.webp.asset.json";
 
 const BIOTICA_URL = shopifyDiscountUrl("META15", "/products/biotica-800", "pets-landing");
 const MINI_URL = shopifyProductDiscountUrl("biologic-mini", "META15", "pets-landing");
 const BUNDLE_URL = shopifyDiscountUrl("META15", "/products/home-complete-bundle", "pets-landing");
 const DISPLAY = '"Helvetica Neue", "Inter", system-ui, -apple-system, sans-serif';
 const EXIT_KEY = "eb_pets_offer_seen";
+const EXIT_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+
+const CERTS = [
+  { label: "FDA GRAS", image: fdaGrasAsset.url },
+  { label: "EPA Registered", image: epaAsset.url },
+  { label: "MADE SAFE®", image: madeSafeAsset.url },
+  { label: "AllergyUK", image: allergyukAsset.url },
+  { label: "PTPA Winner", image: ptpaAsset.url },
+  { label: "ISO Certified", image: isoAsset.url },
+];
 
 const products = [
   {
