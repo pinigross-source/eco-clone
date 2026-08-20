@@ -182,23 +182,23 @@ function ProductSection() {
           ))}
         </div>
 
-        <div id="guarantee" className="mx-auto mt-12 max-w-[820px] scroll-mt-24 rounded-[28px] border border-primary/25 bg-white p-8 text-center shadow-[0_24px_60px_-32px_rgba(0,0,0,0.28)] sm:mt-16 sm:p-10">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-            <ShieldCheck className="h-7 w-7 text-primary" strokeWidth={2} />
+        <div id="guarantee" className="mx-auto mt-10 max-w-[820px] scroll-mt-24 rounded-[24px] border border-primary/25 bg-white p-6 text-center shadow-[0_24px_60px_-32px_rgba(0,0,0,0.28)] sm:mt-16 sm:rounded-[28px] sm:p-10">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 sm:h-14 sm:w-14">
+            <ShieldCheck className="h-6 w-6 text-primary sm:h-7 sm:w-7" strokeWidth={2} />
           </div>
-          <h3 className="mt-5 text-[26px] font-semibold tracking-tight text-[#1d1d1f] sm:text-[32px]">The Fresh Home Guarantee</h3>
-          <p className="mx-auto mt-4 max-w-[56ch] text-[16px] leading-relaxed text-[#68686d]">
+          <h3 className="mt-4 text-[24px] font-semibold leading-tight tracking-tight text-[#1d1d1f] sm:mt-5 sm:text-[32px]">The Fresh Home Guarantee</h3>
+          <p className="mx-auto mt-3 max-w-[56ch] text-[15px] leading-relaxed text-[#68686d] sm:mt-4 sm:text-[16px]">
             Notice the difference in your first month, or your money back. If you’re not satisfied within 30 days, we’ll refund every cent and cover the return shipping.
           </p>
         </div>
 
-        <div className="mt-12 sm:mt-16">
-          <ul className="mx-auto grid max-w-[900px] grid-cols-3 gap-3 sm:grid-cols-5 sm:gap-4">
+        <div className="mt-10 sm:mt-16">
+          <ul className="mx-auto flex max-w-[900px] flex-wrap justify-center gap-3 sm:gap-4">
             {CERTS.map((cert) => (
               <li
                 key={cert.label}
                 title={cert.label}
-                className="group flex aspect-square items-center justify-center rounded-2xl bg-white p-3 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_18px_36px_-24px_rgba(0,0,0,0.35)] ring-1 ring-black/[0.06] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(0,0,0,0.05),0_26px_48px_-24px_rgba(0,0,0,0.4)] sm:p-4"
+                className="group flex aspect-square w-[calc((100%-1.5rem)/3)] max-w-[160px] items-center justify-center rounded-2xl bg-white p-3 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_18px_36px_-24px_rgba(0,0,0,0.35)] ring-1 ring-black/[0.06] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(0,0,0,0.05),0_26px_48px_-24px_rgba(0,0,0,0.4)] sm:w-[calc((100%-4rem)/5)] sm:p-4"
               >
                 <img
                   src={cert.image}
@@ -212,7 +212,7 @@ function ProductSection() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-center text-[12px] font-medium uppercase tracking-[0.18em] text-[#86868b]">Independently verified for safety</p>
+          <p className="mt-5 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-[#86868b] sm:mt-6 sm:text-[12px]">Independently verified for safety</p>
 
         </div>
       </div>
