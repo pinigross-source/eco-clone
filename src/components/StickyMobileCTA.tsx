@@ -24,7 +24,7 @@ export const StickyMobileCTA = () => {
   // Don't show on product detail pages (they have their own StickyProductCTA)
   if (location.pathname.startsWith("/product/")) return null;
   // Don't show on checkout/auth/admin pages
-  if (["/auth", "/account", "/admin", "/payment-success", "/order-history", "/manage-subscription"].some(p => location.pathname.startsWith(p))) return null;
+  if (["/auth", "/account", "/admin", "/payment-success", "/order-history", "/manage-subscription", "/pets"].some(p => location.pathname.startsWith(p))) return null;
 
   const isHomePage = location.pathname === "/";
   const isShopPage = location.pathname === "/shop";

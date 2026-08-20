@@ -13,6 +13,7 @@ import { TestEnvironmentBanner } from "@/components/TestEnvironmentBanner";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { WordPressRedirectHandler } from "@/components/WordPressRedirectHandler";
 import { AttributionBeacon } from "@/components/AttributionBeacon";
+import { TidioChat } from "@/components/TidioChat";
 import { isTestEnv } from "@/lib/env";
 
 
@@ -231,7 +232,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <Scripts />
-        <script src="//code.tidio.co/cmcu3h7cgcxwkhwe6bqxenc5cyipvzmu.js" async />
       </body>
     </html>
   );
@@ -245,6 +245,7 @@ function RootComponent() {
       <ScrollToTop />
       <WordPressRedirectHandler />
       <AttributionBeacon />
+      <TidioChat collapsed />
       <Outlet />
     </QueryClientProvider>
   );

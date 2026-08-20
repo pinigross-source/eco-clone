@@ -18,6 +18,7 @@ import {
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyDiscountUrl, shopifyProductDiscountUrl } from "@/lib/shopify";
+import { trackFBEvent } from "@/lib/fb-pixel";
 
 import logo from "@/assets/logo.avif";
 import heroImg from "@/assets/pets/hero-soft.jpg";
@@ -25,12 +26,29 @@ import bioticaProduct from "@/assets/pets/biotica-800-card.avif";
 import miniProduct from "@/assets/biologic-mini-nobg-new.avif";
 import surfacesImg from "@/assets/pets/surfaces-soft.jpg";
 import bundleAsset from "@/assets/bundle-product.webp.asset.json";
+import epaAsset from "@/assets/certs/epa-new.webp.asset.json";
+import madeSafeAsset from "@/assets/certs/made-safe-new.png.asset.json";
+import fdaGrasAsset from "@/assets/certs/fda-gras-new.webp.asset.json";
+import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
+import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
+import isoAsset from "@/assets/certs/iso-new.webp.asset.json";
 
 const BIOTICA_URL = shopifyDiscountUrl("META15", "/products/biotica-800", "pets-landing");
 const MINI_URL = shopifyProductDiscountUrl("biologic-mini", "META15", "pets-landing");
 const BUNDLE_URL = shopifyDiscountUrl("META15", "/products/home-complete-bundle", "pets-landing");
 const DISPLAY = '"Helvetica Neue", "Inter", system-ui, -apple-system, sans-serif';
 const EXIT_KEY = "eb_pets_offer_seen";
+const EXIT_DONE_KEY = "eb_pets_offer_done";
+const EXIT_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+
+const CERTS = [
+  { label: "FDA GRAS", image: fdaGrasAsset.url },
+  { label: "EPA Registered", image: epaAsset.url },
+  { label: "MADE SAFE®", image: madeSafeAsset.url },
+  { label: "AllergyUK", image: allergyukAsset.url },
+  { label: "PTPA Winner", image: ptpaAsset.url },
+  { label: "ISO Certified", image: isoAsset.url },
+];
 
 const products = [
   {
@@ -62,6 +80,7 @@ const products = [
     href: BUNDLE_URL,
     event: "click_pets_card_bundle",
     badge: "Best value",
+    note: "Save $85 vs. buying separately",
   },
 ];
 
@@ -126,6 +145,9 @@ function ProductSection() {
                   <span className="text-[28px] font-semibold text-[#1d1d1f]">{product.offerPrice}</span>
                 </div>
                 <p className="mt-1 text-[12px] font-medium text-[#68686d]">15% applied at checkout</p>
+                {"note" in product && product.note ? (
+                  <p className="mt-1 text-[12px] font-semibold text-[#bf4800]">{product.note}</p>
+                ) : null}
               </div>
               <Button asChild size="lg" className="mt-7 w-full max-w-[220px]">
                 <a href={product.href} onClick={() => trackEvent(product.event)}>Buy {product.name}</a>
@@ -133,6 +155,25 @@ function ProductSection() {
               <p className="mt-3 text-[11px] text-[#68686d]">30-day money-back guarantee</p>
             </article>
           ))}
+        </div>
+
+        <div className="mt-12 text-center sm:mt-16">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:gap-x-12">
+            {CERTS.map((cert) => (
+              <img
+                key={cert.label}
+                src={cert.image}
+                alt={cert.label}
+                title={cert.label}
+                loading="lazy"
+                decoding="async"
+                width="160"
+                height="160"
+                className="h-12 w-auto object-contain sm:h-14"
+              />
+            ))}
+          </div>
+          <p className="mt-5 text-[12px] font-medium uppercase tracking-[0.18em] text-[#86868b]">Independently verified for safety</p>
         </div>
       </div>
     </section>
@@ -144,6 +185,7 @@ function Testimonials() {
     <section className="bg-white py-14 sm:py-20">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-10 lg:px-12">
         <h2 className="text-center text-[32px] font-semibold leading-none tracking-tight text-black sm:text-[44px]">Pet owners notice the difference.</h2>
+        <p className="mt-4 text-center text-[15px] font-semibold text-black/70">★ 4.8 average - from 1,000+ pet homes</p>
         <div className="mt-9 grid gap-4 md:grid-cols-3">
           {testimonials.map((testimonial) => (
             <figure key={testimonial.person} className="flex h-full flex-col rounded-2xl bg-[#F4F5F6] p-7 sm:p-8">
@@ -175,6 +217,8 @@ function ExitOffer({ open, onOpenChange }: { open: boolean; onOpenChange: (open:
     if (response?.ok) {
       setStatus("sent");
       trackEvent("submit_pets_exit_offer");
+      trackFBEvent("Lead", { content_name: "pets_exit_offer" });
+      try { localStorage.setItem(EXIT_DONE_KEY, "1"); } catch { /* storage unavailable */ }
     } else {
       setStatus("error");
     }
@@ -183,22 +227,32 @@ function ExitOffer({ open, onOpenChange }: { open: boolean; onOpenChange: (open:
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md rounded-2xl border-0 p-7 sm:p-9">
-        <DialogHeader>
-          <DialogTitle className="pr-6 text-[28px] leading-tight">Not ready yet?</DialogTitle>
-          <DialogDescription className="pt-2 text-[16px] leading-relaxed">We’ll email you your 15% code.</DialogDescription>
-        </DialogHeader>
         {status === "sent" ? (
-          <div className="rounded-xl bg-muted p-5 text-center text-sm font-medium">Check your inbox. Your code is on its way.</div>
+          <>
+            <DialogHeader>
+              <DialogTitle className="pr-6 text-[28px] leading-tight">Done - check your inbox 📬</DialogTitle>
+              <DialogDescription className="pt-2 text-[16px] leading-relaxed">Your one-click link is on its way. The 15% applies automatically.</DialogDescription>
+            </DialogHeader>
+            <Button size="lg" className="mt-3 w-full" onClick={() => onOpenChange(false)}>Keep browsing</Button>
+          </>
         ) : (
-          <form onSubmit={submit} className="mt-2 space-y-3">
-            <label htmlFor="pets-offer-email" className="sr-only">Email address</label>
-            <div className="relative">
-              <Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <input id="pets-offer-email" type="email" required autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email address" className="h-12 w-full rounded-full border border-input bg-background pl-11 pr-4 text-sm outline-none focus:ring-2 focus:ring-ring" />
-            </div>
-            <Button type="submit" size="lg" className="w-full" disabled={status === "sending"}>{status === "sending" ? "Sending…" : "Email me my code"}</Button>
-            {status === "error" ? <p className="text-center text-xs text-destructive">Please try again.</p> : null}
-          </form>
+          <>
+            <DialogHeader>
+              <DialogTitle className="pr-6 text-[28px] leading-tight">Not ready yet?</DialogTitle>
+              <DialogDescription className="pt-2 text-[16px] leading-relaxed">We’ll save your 15% and email you a one-click link to come back - it applies automatically.</DialogDescription>
+            </DialogHeader>
+            <form onSubmit={submit} className="mt-2 space-y-3">
+              <label htmlFor="pets-offer-email" className="sr-only">Email address</label>
+              <div className="relative">
+                <Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                <input id="pets-offer-email" type="email" required autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email address" className="h-12 w-full rounded-full border border-input bg-background pl-11 pr-4 text-sm outline-none focus:ring-2 focus:ring-ring" />
+              </div>
+              <Button type="submit" size="lg" className="w-full" disabled={status === "sending"}>{status === "sending" ? "Saving…" : "Save my 15%"}</Button>
+              <p className="text-center text-[11px] text-muted-foreground">No spam - just your discount link. Unsubscribe anytime.</p>
+              <button type="button" onClick={() => onOpenChange(false)} className="mx-auto block text-xs font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground">No thanks</button>
+              {status === "error" ? <p className="text-center text-xs text-destructive">Please try again.</p> : null}
+            </form>
+          </>
         )}
       </DialogContent>
     </Dialog>
@@ -241,39 +295,46 @@ const PetsLandingPage = () => {
 
   useEffect(() => {
     try {
-      if (localStorage.getItem(EXIT_KEY)) return;
+      if (localStorage.getItem(EXIT_DONE_KEY)) return;
+      const seenAt = Number(localStorage.getItem(EXIT_KEY) ?? 0);
+      if (seenAt && Date.now() - seenAt < EXIT_TTL_MS) return;
     } catch {
       return;
     }
+
+    let done = false;
+    const cleanupFns: Array<() => void> = [];
     const reveal = () => {
-      try { localStorage.setItem(EXIT_KEY, "1"); } catch { /* storage unavailable */ }
+      if (done) return;
+      done = true;
+      cleanupFns.forEach((fn) => fn());
+      try { localStorage.setItem(EXIT_KEY, String(Date.now())); } catch { /* storage unavailable */ }
       setShowExitOffer(true);
       trackEvent("view_pets_exit_offer");
     };
+
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    const timer = isMobile ? window.setTimeout(reveal, 30000) : undefined;
-    const onMouseOut = (event: MouseEvent) => {
-      if (!isMobile && event.clientY <= 0 && !event.relatedTarget) {
-        document.removeEventListener("mouseout", onMouseOut);
-        reveal();
-      }
-    };
-    document.addEventListener("mouseout", onMouseOut);
-    return () => {
-      if (timer) window.clearTimeout(timer);
-      document.removeEventListener("mouseout", onMouseOut);
-    };
+
+    if (isMobile) {
+      const timer = window.setTimeout(reveal, 60000);
+      cleanupFns.push(() => window.clearTimeout(timer));
+      const onScroll = () => {
+        const scrolled = window.scrollY + window.innerHeight;
+        if (scrolled / document.documentElement.scrollHeight >= 0.5) reveal();
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      cleanupFns.push(() => window.removeEventListener("scroll", onScroll));
+    } else {
+      const onMouseOut = (event: MouseEvent) => {
+        if (event.clientY <= 0 && !event.relatedTarget) reveal();
+      };
+      document.addEventListener("mouseout", onMouseOut);
+      cleanupFns.push(() => document.removeEventListener("mouseout", onMouseOut));
+    }
+
+    return () => cleanupFns.forEach((fn) => fn());
   }, []);
 
-  useEffect(() => {
-    const closeChat = () => {
-      const api = (window as unknown as { tidioChatApi?: { close?: () => void } }).tidioChatApi;
-      api?.close?.();
-    };
-    document.addEventListener("tidioChat-ready", closeChat);
-    closeChat();
-    return () => document.removeEventListener("tidioChat-ready", closeChat);
-  }, []);
 
   return (
     <>
@@ -338,13 +399,22 @@ const PetsLandingPage = () => {
           <div className="mx-auto grid max-w-[1200px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.8fr_1.2fr]">
             <h2 className="text-[34px] font-semibold leading-none tracking-tight sm:text-[44px]">Pet owner questions, answered.</h2>
             <Accordion type="single" collapsible>
-              {[{ q: "Is it safe around my pets and family?", a: "Yes. It is chemical-free and designed for homes with cats, dogs, children, and adults." }, { q: "Will my house smell like fragrance?", a: "No. It addresses odor at the source rather than adding scent." }, { q: "Does it replace my purifier or vacuum?", a: "No. Keep vacuuming hair and using your purifier for airborne particles. EnviroBiotics works on residue that settles onto surfaces." }, { q: "What if it doesn’t work for us?", a: "Try it for 30 days. If it is not right for your home, return it for a refund." }].map((item, index) => (
+              {[{ q: "Is it safe around my pets and family?", a: "Yes. It is chemical-free and designed for homes with cats, dogs, children, and adults." }, { q: "Will my house smell like fragrance?", a: "No. It addresses odor at the source rather than adding scent." }, { q: "Does it replace my purifier or vacuum?", a: "No. Keep vacuuming hair and using your purifier for airborne particles. EnviroBiotics works on residue that settles onto surfaces." }, { q: "What does it cost to run?", a: "Very little. The devices draw about the same power as a small LED nightlight, roughly 2 to 5 watts, which works out to a few dollars a year on your electricity bill. The only other cost is the probiotic refill cartridge: one cartridge lasts about 2 to 3 months in continuous use, and refills start at around $29, so most pet homes spend roughly $10 to $15 a month." }, { q: "What if it doesn’t work for us?", a: "Try it for 30 days. If it is not right for your home, return it for a refund." }].map((item, index) => (
                 <AccordionItem key={item.q} value={`pets-${index}`}><AccordionTrigger className="text-left text-[17px]">{item.q}</AccordionTrigger><AccordionContent className="text-[15px] leading-relaxed text-black/70">{item.a}</AccordionContent></AccordionItem>
               ))}
             </Accordion>
           </div>
         </section>
+
+        <section className="bg-[#FBF3EC] py-16 sm:py-24">
+          <div className="mx-auto max-w-[720px] px-5 text-center sm:px-10">
+            <h2 className="text-[34px] font-semibold leading-[1.05] tracking-tight sm:text-[48px]">Give your pet the clean home they deserve</h2>
+            <p className="mt-5 text-[16px] leading-relaxed text-black/70">15% off + free shipping over $200, 30-day guarantee</p>
+            <Button size="lg" className="mt-8 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions - from $83 <ArrowRight /></Button>
+          </div>
+        </section>
       </main>
+
 
       {showSticky ? (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t border-black/10 bg-white/95 p-3 shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.18)] backdrop-blur sm:hidden">
