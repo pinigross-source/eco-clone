@@ -18,6 +18,7 @@ import {
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyDiscountUrl, shopifyProductDiscountUrl } from "@/lib/shopify";
+import { trackFBEvent } from "@/lib/fb-pixel";
 
 import logo from "@/assets/logo.avif";
 import heroImg from "@/assets/pets/hero-soft.jpg";
@@ -37,6 +38,7 @@ const MINI_URL = shopifyProductDiscountUrl("biologic-mini", "META15", "pets-land
 const BUNDLE_URL = shopifyDiscountUrl("META15", "/products/home-complete-bundle", "pets-landing");
 const DISPLAY = '"Helvetica Neue", "Inter", system-ui, -apple-system, sans-serif';
 const EXIT_KEY = "eb_pets_offer_seen";
+const EXIT_DONE_KEY = "eb_pets_offer_done";
 const EXIT_TTL_MS = 30 * 24 * 60 * 60 * 1000;
 
 const CERTS = [
