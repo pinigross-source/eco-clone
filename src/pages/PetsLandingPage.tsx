@@ -78,6 +78,7 @@ const products = [
     href: BUNDLE_URL,
     event: "click_pets_card_bundle",
     badge: "Best value",
+    note: "Save $85 vs. buying separately",
   },
 ];
 
