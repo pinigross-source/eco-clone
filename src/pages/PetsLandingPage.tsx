@@ -22,7 +22,7 @@ import { shopifyDiscountUrl, shopifyProductDiscountUrl } from "@/lib/shopify";
 import logo from "@/assets/logo.avif";
 import heroImg from "@/assets/pets/hero-soft.jpg";
 import bioticaProduct from "@/assets/pets/biotica-800-card.avif";
-import miniProduct from "@/assets/pets/biologic-mini-card.avif";
+import miniProduct from "@/assets/biologic-mini-nobg-new.avif";
 import surfacesImg from "@/assets/pets/surfaces-soft.jpg";
 import bundleAsset from "@/assets/bundle-product.webp.asset.json";
 
@@ -78,7 +78,7 @@ const Reveal = ({ children, className = "" }: { children: ReactNode; className?:
 function LogoOnlyHeader() {
   return (
     <>
-      <div className="sticky top-0 z-[60] bg-primary px-4 py-2.5 text-center text-[12px] font-semibold leading-snug text-primary-foreground sm:text-[13px]">
+      <div className="sticky top-0 z-[60] bg-[#EB8B59] px-4 py-2.5 text-center text-[12px] font-semibold leading-snug text-[#1A1A1A] sm:text-[13px]">
         🎉 Your 15% off is applied automatically at checkout — no code needed.
       </div>
       <header className="relative z-50 border-b border-black/5 bg-[#F0F0F0]">
