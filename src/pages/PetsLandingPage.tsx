@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { ArrowRight, Check, Mail, Star } from "lucide-react";
+import { ArrowRight, Mail, ShieldCheck, Star } from "lucide-react";
 import { Link } from "@/lib/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,7 +28,6 @@ import surfacesImg from "@/assets/pets/surfaces-soft.jpg";
 import bundleAsset from "@/assets/bundle-product.webp.asset.json";
 import epaAsset from "@/assets/certs/epa-new.webp.asset.json";
 import madeSafeAsset from "@/assets/certs/made-safe-new.png.asset.json";
-import fdaGrasAsset from "@/assets/certs/fda-gras-new.webp.asset.json";
 import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
 import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
 import isoAsset from "@/assets/certs/iso-new.webp.asset.json";
@@ -42,7 +41,6 @@ const EXIT_DONE_KEY = "eb_pets_offer_done";
 const EXIT_TTL_MS = 30 * 24 * 60 * 60 * 1000;
 
 const CERTS = [
-  { label: "FDA GRAS", image: fdaGrasAsset.url },
   { label: "EPA Registered", image: epaAsset.url },
   { label: "MADE SAFE®", image: madeSafeAsset.url },
   { label: "AllergyUK", image: allergyukAsset.url },
@@ -70,9 +68,10 @@ const products = [
     event: "click_pets_card_biotica",
     badge: "Most popular for pet homes",
     featured: true,
+    freeShipping: true,
   },
   {
-    name: "Home Bundle",
+    name: "The Pet Home Reset",
     description: "Biotica 800 + 2 Minis for the whole home",
     originalPrice: "$395",
     offerPrice: "$335.75",
@@ -81,6 +80,12 @@ const products = [
     event: "click_pets_card_bundle",
     badge: "Best value",
     note: "Save $85 vs. buying separately",
+    freeShipping: true,
+    valueStack: [
+      "Biotica 800 ($299)",
+      "+ 2× BioLogic Mini ($196)",
+      "+ Free shipping ($15)",
+    ],
   },
 ];
 
@@ -140,11 +145,22 @@ function ProductSection() {
               <div className="flex flex-1 flex-col items-center">
                 <h3 className="text-[23px] font-semibold tracking-tight text-[#1d1d1f]">{product.name}</h3>
                 <p className="mt-2 min-h-12 max-w-[30ch] text-[15px] leading-relaxed text-[#68686d]">{product.description}</p>
+                {"valueStack" in product && product.valueStack ? (
+                  <ul className="mt-5 w-full max-w-[280px] space-y-1 text-[13px] leading-relaxed text-[#68686d]">
+                    {product.valueStack.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                    <li className="pt-1 text-[13px] font-medium text-[#86868b] line-through">$510 value</li>
+                  </ul>
+                ) : null}
                 <div className="mt-5 flex items-baseline gap-2">
                   <span className="text-[15px] text-[#86868b] line-through">{product.originalPrice}</span>
                   <span className="text-[28px] font-semibold text-[#1d1d1f]">{product.offerPrice}</span>
                 </div>
                 <p className="mt-1 text-[12px] font-medium text-[#68686d]">15% applied at checkout</p>
+                {"freeShipping" in product && product.freeShipping ? (
+                  <p className="mt-1 text-[12px] font-medium text-[#1d1d1f]">Free shipping</p>
+                ) : null}
                 {"note" in product && product.note ? (
                   <p className="mt-1 text-[12px] font-semibold text-[#bf4800]">{product.note}</p>
                 ) : null}
@@ -152,13 +168,28 @@ function ProductSection() {
               <Button asChild size="lg" className="mt-7 w-full max-w-[220px]">
                 <a href={product.href} onClick={() => trackEvent(product.event)}>Buy {product.name}</a>
               </Button>
-              <p className="mt-3 text-[11px] text-[#68686d]">30-day money-back guarantee</p>
+              <a
+                href="#guarantee"
+                className="mt-3 text-[11px] text-[#68686d] underline underline-offset-2 hover:text-[#1d1d1f]"
+              >
+                Fresh Home Guarantee ✓ - 30 days, return shipping on us
+              </a>
             </article>
           ))}
         </div>
 
+        <div id="guarantee" className="mx-auto mt-12 max-w-[820px] scroll-mt-24 rounded-[28px] border border-primary/25 bg-white p-8 text-center shadow-[0_24px_60px_-32px_rgba(0,0,0,0.28)] sm:mt-16 sm:p-10">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+            <ShieldCheck className="h-7 w-7 text-primary" strokeWidth={2} />
+          </div>
+          <h3 className="mt-5 text-[26px] font-semibold tracking-tight text-[#1d1d1f] sm:text-[32px]">The Fresh Home Guarantee</h3>
+          <p className="mx-auto mt-4 max-w-[56ch] text-[16px] leading-relaxed text-[#68686d]">
+            Notice the difference in your first month, or your money back. If you’re not satisfied within 30 days, we’ll refund every cent and cover the return shipping.
+          </p>
+        </div>
+
         <div className="mt-12 sm:mt-16">
-          <ul className="mx-auto grid max-w-[900px] grid-cols-3 gap-3 sm:grid-cols-6 sm:gap-4">
+          <ul className="mx-auto grid max-w-[900px] grid-cols-3 gap-3 sm:grid-cols-5 sm:gap-4">
             {CERTS.map((cert) => (
               <li
                 key={cert.label}
@@ -244,7 +275,7 @@ function ExitOffer({ open, onOpenChange }: { open: boolean; onOpenChange: (open:
           <>
             <DialogHeader>
               <DialogTitle className="pr-6 text-[28px] leading-tight">Not ready yet?</DialogTitle>
-              <DialogDescription className="pt-2 text-[16px] leading-relaxed">We’ll save your 15% and email you a one-click link to come back - it applies automatically.</DialogDescription>
+              <DialogDescription className="pt-2 text-[16px] leading-relaxed">We’ll save your 15% and email you a one-click link to come back, it applies automatically. Backed by our 30-day Fresh Home Guarantee.</DialogDescription>
             </DialogHeader>
             <form onSubmit={submit} className="mt-2 space-y-3">
               <label htmlFor="pets-offer-email" className="sr-only">Email address</label>
@@ -253,7 +284,7 @@ function ExitOffer({ open, onOpenChange }: { open: boolean; onOpenChange: (open:
                 <input id="pets-offer-email" type="email" required autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email address" className="h-12 w-full rounded-full border border-input bg-background pl-11 pr-4 text-sm outline-none focus:ring-2 focus:ring-ring" />
               </div>
               <Button type="submit" size="lg" className="w-full" disabled={status === "sending"}>{status === "sending" ? "Saving…" : "Save my 15%"}</Button>
-              <p className="text-center text-[11px] text-muted-foreground">No spam - just your discount link. Unsubscribe anytime.</p>
+              <p className="text-center text-[11px] text-muted-foreground">No spam - just your discount link.</p>
               <button type="button" onClick={() => onOpenChange(false)} className="mx-auto block text-xs font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground">No thanks</button>
               {status === "error" ? <p className="text-center text-xs text-destructive">Please try again.</p> : null}
             </form>
@@ -354,7 +385,7 @@ const PetsLandingPage = () => {
               <p className="mt-6 text-[18px] font-semibold text-neutral-800">Pet dander and odor are microscopic.</p>
               <p className="mt-4 max-w-md text-[15.5px] leading-relaxed text-neutral-600">You vacuum the hair and wash the covers, but the real problem settles deep into the couch, carpet, bedding, and other soft surfaces your pet loves. EnviroBiotics works at the source.</p>
               <Button size="lg" className="mt-7 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions - from $83.30 <ArrowRight /></Button>
-              <p className="mt-4 max-w-xl text-[11px] font-medium leading-relaxed text-neutral-600 sm:text-[12px]">✓ 30-day money-back guarantee&nbsp;&nbsp; ✓ Pet-safe & non-toxic</p>
+              <p className="mt-4 max-w-xl text-[11px] font-medium leading-relaxed text-neutral-600 sm:text-[12px]">✓ Fresh Home Guarantee&nbsp;&nbsp; ✓ Pet-safe & non-toxic</p>
             </div>
             <div className="aspect-[16/11] overflow-hidden rounded-[32px] bg-neutral-100 shadow-2xl sm:rounded-[40px]">
               <img src={heroImg} alt="Golden retriever resting on a cream sofa in a sunlit living room" className="h-full w-full object-cover" fetchPriority="high" loading="eager" decoding="async" width="1920" height="1080" />
@@ -388,6 +419,39 @@ const PetsLandingPage = () => {
         </section>
 
         <section className="bg-white py-14 sm:py-20">
+          <div className="mx-auto max-w-[1100px] px-5 sm:px-10">
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="rounded-[28px] border border-black/10 bg-[#F4F5F6] p-7 sm:p-9">
+                <h3 className="text-[22px] font-semibold tracking-tight text-black/80">Masking it</h3>
+                <ul className="mt-5 space-y-2 text-[15px] leading-relaxed text-black/65">
+                  <li>Candles</li>
+                  <li>Sprays</li>
+                  <li>Carpet cleaner</li>
+                  <li>Filters</li>
+                </ul>
+                <p className="mt-6 text-[16px] font-semibold text-black/75">~$40/month, forever</p>
+                <p className="mt-1 text-[15px] text-black/60">And the smell comes back.</p>
+              </div>
+              <div className="rounded-[28px] border border-primary/30 bg-[#FBF3EC] p-7 shadow-[0_24px_60px_-32px_rgba(0,0,0,0.3)] sm:p-9">
+                <h3 className="text-[22px] font-semibold tracking-tight text-[#1d1d1f]">Removing it</h3>
+                <ul className="mt-5 space-y-2 text-[15px] leading-relaxed text-black/70">
+                  <li>Biotica 800</li>
+                  <li>$254 once</li>
+                  <li>About $0.70/day</li>
+                  <li>Works while you sleep</li>
+                </ul>
+                <p className="mt-6 text-[16px] font-semibold text-[#bf4800]">One purchase. No refills of scent.</p>
+              </div>
+            </div>
+            <p className="mt-8 text-center text-[18px] font-semibold tracking-tight text-black sm:text-[22px]">
+              The expensive option is the one you’re already paying for.
+            </p>
+          </div>
+        </section>
+
+
+
+        <section className="bg-white py-14 sm:py-20">
           <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
             <h2 className="text-[34px] font-semibold leading-none tracking-tight sm:text-[48px]">Set it once. It handles the rest.</h2>
             <div className="mt-9 grid overflow-hidden rounded-2xl border border-black/10 sm:grid-cols-3">
@@ -404,7 +468,7 @@ const PetsLandingPage = () => {
           <div className="mx-auto grid max-w-[1200px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.8fr_1.2fr]">
             <h2 className="text-[34px] font-semibold leading-none tracking-tight sm:text-[44px]">Pet owner questions, answered.</h2>
             <Accordion type="single" collapsible>
-              {[{ q: "Is it safe around my pets and family?", a: "Yes. It is chemical-free and designed for homes with cats, dogs, children, and adults." }, { q: "Will my house smell like fragrance?", a: "No. It addresses odor at the source rather than adding scent." }, { q: "Does it replace my purifier or vacuum?", a: "No. Keep vacuuming hair and using your purifier for airborne particles. EnviroBiotics works on residue that settles onto surfaces." }, { q: "What does it cost to run?", a: "Very little. The devices draw about the same power as a small LED nightlight, roughly 2 to 5 watts, which works out to a few dollars a year on your electricity bill. The only other cost is the probiotic refill cartridge: one cartridge lasts about 2 to 3 months in continuous use, and refills start at around $29, so most pet homes spend roughly $10 to $15 a month." }, { q: "What if it doesn’t work for us?", a: "Try it for 30 days. If it is not right for your home, return it for a refund." }].map((item, index) => (
+              {[{ q: "Is it safe around my pets and family?", a: "Yes. It is chemical-free and designed for homes with cats, dogs, children, and adults." }, { q: "Will my house smell like fragrance?", a: "No. It addresses odor at the source rather than adding scent." }, { q: "Does it replace my purifier or vacuum?", a: "No. Keep vacuuming hair and using your purifier for airborne particles. EnviroBiotics works on residue that settles onto surfaces." }, { q: "What does it cost to run?", a: "Very little. The devices draw about the same power as a small LED nightlight, roughly 2 to 5 watts, which works out to a few dollars a year on your electricity bill. The only other cost is the probiotic refill cartridge: one cartridge lasts about 2 to 3 months in continuous use, and refills start at around $29, so most pet homes spend roughly $10 to $15 a month." }, { q: "What if it doesn’t work for us?", a: "Then it costs you nothing. You have a full month to see the difference. If you’re not satisfied, we refund 100% and pay the return shipping. No forms, no arguing." }].map((item, index) => (
                 <AccordionItem key={item.q} value={`pets-${index}`}><AccordionTrigger className="text-left text-[17px]">{item.q}</AccordionTrigger><AccordionContent className="text-[15px] leading-relaxed text-black/70">{item.a}</AccordionContent></AccordionItem>
               ))}
             </Accordion>
