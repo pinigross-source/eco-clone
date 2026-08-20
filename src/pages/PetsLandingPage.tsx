@@ -423,7 +423,7 @@ const PetsLandingPage = () => {
 
       {showSticky ? (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t border-black/10 bg-white/95 p-3 shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.18)] backdrop-blur sm:hidden">
-          <Button className="h-12 w-full" onClick={scrollToProducts}>Shop from $83 - 15% off <ArrowRight /></Button>
+          <Button className="h-12 w-full" onClick={scrollToProducts}>Shop from $83.30 - 15% off <ArrowRight /></Button>
         </div>
       ) : null}
       <CompactFooter />
