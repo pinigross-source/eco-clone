@@ -6,6 +6,7 @@ const SCRIPT_ID = "tidio-chat-loader";
 type TidioApi = {
   close?: () => void;
   display?: (visible: boolean) => void;
+  adjustStyles?: (styles: string) => void;
 };
 
 /**
@@ -33,13 +34,16 @@ export const TidioChat = ({ collapsed = false }: { collapsed?: boolean }) => {
 
     if (!collapsed) return;
 
-    const collapse = () => {
+    const applyConfig = () => {
       const api = (window as unknown as { tidioChatApi?: TidioApi }).tidioChatApi;
+      // Collapse to the launcher bubble only.
       api?.close?.();
+      // Hide the "Chat with us" text label; keep only the orange icon.
+      api?.adjustStyles?.('.widgetLabel { display: none !important; }');
     };
-    document.addEventListener("tidioChat-ready", collapse);
-    collapse();
-    return () => document.removeEventListener("tidioChat-ready", collapse);
+    document.addEventListener('tidioChat-ready', applyConfig);
+    applyConfig();
+    return () => document.removeEventListener('tidioChat-ready', applyConfig);
   }, [collapsed]);
 
   return null;
