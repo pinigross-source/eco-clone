@@ -121,7 +121,7 @@ function LogoOnlyHeader() {
 
 function ProductSection() {
   return (
-    <section id="products" className="scroll-mt-12 bg-[#f5f5f7] py-14 sm:py-20 lg:py-24">
+    <section id="products" className="scroll-mt-12 bg-[#f5f5f7] py-11 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-10 lg:px-12">
         <div className="mb-10 text-center sm:mb-14">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#86868b]">The lineup</p>
@@ -222,7 +222,7 @@ function ProductSection() {
 
 function Testimonials() {
   return (
-    <section className="bg-white py-14 sm:py-20">
+    <section className="bg-white py-11 sm:py-20">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-10 lg:px-12">
         <h2 className="text-center text-[32px] font-semibold leading-none tracking-tight text-black sm:text-[44px]">Pet owners notice the difference.</h2>
         <p className="mt-4 text-center text-[15px] font-semibold text-black/70">★ 4.8 average - from 1,000+ pet homes</p>
@@ -400,7 +400,7 @@ const PetsLandingPage = () => {
         <ProductSection />
         <Testimonials />
 
-        <section className="bg-white py-14 sm:py-20">
+        <section className="bg-white py-11 sm:py-20">
           <div className="mx-auto grid max-w-[1400px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-12">
             <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">Made for homes with pets</p>
@@ -425,7 +425,7 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        <section className="bg-[#FBF3EC] py-14 sm:py-20">
+        <section className="bg-[#FBF3EC] py-11 sm:py-20">
           <div className="mx-auto grid max-w-[1400px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-12">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">The problem</p>
@@ -450,7 +450,7 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        <section className="bg-white py-14 sm:py-20">
+        <section className="bg-white py-11 sm:py-20">
           <div className="mx-auto max-w-[1100px] px-5 sm:px-10">
             <div className="grid gap-5 md:grid-cols-2">
               <div className="rounded-[28px] border border-black/10 bg-[#F4F5F6] p-7 sm:p-9">
@@ -483,7 +483,7 @@ const PetsLandingPage = () => {
 
 
 
-        <section className="bg-white py-14 sm:py-20">
+        <section className="bg-white py-11 sm:py-20">
           <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
             <h2 className="text-[34px] font-semibold leading-none tracking-tight sm:text-[48px]">Set it once. It handles the rest.</h2>
             <div className="mt-9 grid overflow-hidden rounded-2xl border border-black/10 sm:grid-cols-3">
@@ -496,7 +496,7 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        <section className="bg-[#F4F5F6] py-14 sm:py-20">
+        <section className="bg-[#F4F5F6] py-11 sm:py-20">
           <div className="mx-auto grid max-w-[1200px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.8fr_1.2fr]">
             <h2 className="text-[34px] font-semibold leading-none tracking-tight sm:text-[44px]">Pet owner questions, answered.</h2>
             <Accordion type="single" collapsible>
@@ -507,7 +507,7 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        <section className="bg-[#FBF3EC] py-14 sm:py-20">
+        <section className="bg-[#FBF3EC] py-11 sm:py-20">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-10 lg:px-12">
             <div className="overflow-hidden rounded-[24px] bg-[#F4EFE7] shadow-[0_30px_80px_-50px_rgba(0,0,0,0.45)]">
               {/* Desktop: text over the left negative space of the image */}
