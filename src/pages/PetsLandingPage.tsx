@@ -79,7 +79,7 @@ function LogoOnlyHeader() {
   return (
     <>
       <div className="sticky top-0 z-[60] bg-[#EB8B59] px-4 py-2.5 text-center text-[12px] font-semibold leading-snug text-[#1A1A1A] sm:text-[13px]">
-        🎉 Your 15% off is applied automatically at checkout — no code needed.
+        🎉 Your 15% off is applied automatically at checkout - no code needed.
       </div>
       <header className="relative z-50 border-b border-black/5 bg-[#F0F0F0]">
         <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-center px-5 lg:h-20">
@@ -151,7 +151,7 @@ function Testimonials() {
                 {[0, 1, 2, 3, 4].map((star) => <Star key={star} className="h-4 w-4 fill-primary text-primary" />)}
               </div>
               <blockquote className="mt-5 flex-1 text-[18px] font-medium leading-[1.45] text-black">“{testimonial.quote}”</blockquote>
-              <figcaption className="mt-6 text-[13px] font-semibold text-black/60">— {testimonial.person}</figcaption>
+              <figcaption className="mt-6 text-[13px] font-semibold text-black/60">- {testimonial.person}</figcaption>
             </figure>
           ))}
         </div>
@@ -287,7 +287,7 @@ const PetsLandingPage = () => {
               <h1 className="text-[43px] font-bold leading-[0.94] tracking-tight text-neutral-900 sm:text-[60px] lg:text-[72px]">You’re up against something you can’t see.</h1>
               <p className="mt-6 text-[18px] font-semibold text-neutral-800">Pet dander and odor are microscopic.</p>
               <p className="mt-4 max-w-md text-[15.5px] leading-relaxed text-neutral-600">You vacuum the hair and wash the covers, but the real problem settles deep into the couch, carpet, bedding, and other soft surfaces your pet loves. EnviroBiotics works at the source.</p>
-              <Button size="lg" className="mt-7 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions — from $83 <ArrowRight /></Button>
+              <Button size="lg" className="mt-7 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions - from $83 <ArrowRight /></Button>
               <p className="mt-4 max-w-xl text-[11px] font-medium leading-relaxed text-neutral-600 sm:text-[12px]">✓ 30-day money-back guarantee&nbsp;&nbsp; ✓ Free shipping&nbsp;&nbsp; ✓ Pet-safe & non-toxic</p>
             </div>
             <div className="aspect-[16/11] overflow-hidden rounded-[32px] bg-neutral-100 shadow-2xl sm:rounded-[40px]">
@@ -348,7 +348,7 @@ const PetsLandingPage = () => {
 
       {showSticky ? (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t border-black/10 bg-white/95 p-3 shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.18)] backdrop-blur sm:hidden">
-          <Button className="h-12 w-full" onClick={scrollToProducts}>Shop from $83 — 15% off <ArrowRight /></Button>
+          <Button className="h-12 w-full" onClick={scrollToProducts}>Shop from $83 - 15% off <ArrowRight /></Button>
         </div>
       ) : null}
       <CompactFooter />
