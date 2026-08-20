@@ -523,7 +523,7 @@ const PetsLandingPage = () => {
                   <h2 className="text-[44px] font-semibold leading-[1.05] tracking-tight text-[#1A1A1A]">Give your pet the clean home they deserve.</h2>
                   <p className="mt-5 text-[17px] leading-relaxed text-black/70">Continuous care for the spaces you share with them.</p>
                   <Button size="lg" className="mt-8" onClick={scrollToProducts}>Shop EnviroBiotics - From $83.30 <ArrowRight /></Button>
-                  <p className="mt-4 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $100</p>
+                  <p className="mt-4 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $200</p>
                 </div>
               </div>
 
@@ -533,7 +533,7 @@ const PetsLandingPage = () => {
                   <h2 className="text-[34px] font-semibold leading-[1.05] tracking-tight sm:text-[40px]">Give your pet the clean home they deserve.</h2>
                   <p className="mt-5 text-[16px] leading-relaxed text-black/70">Continuous care for the spaces you share with them.</p>
                   <Button size="lg" className="mt-8 w-full sm:w-auto" onClick={scrollToProducts}>Shop EnviroBiotics - From $83.30 <ArrowRight /></Button>
-                  <p className="mt-4 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $100</p>
+                  <p className="mt-4 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $200</p>
                 </div>
                 <img src={finalCtaAsset.url} alt="BioLogic Mini on a shelf beside a green plant in a warm home" loading="lazy" decoding="async" width="1920" height="640" className="w-full object-cover object-center" />
               </div>
