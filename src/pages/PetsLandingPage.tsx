@@ -505,11 +505,37 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        <section className="bg-[#FBF3EC] py-16 sm:py-24">
-          <div className="mx-auto max-w-[720px] px-5 text-center sm:px-10">
-            <h2 className="text-[34px] font-semibold leading-[1.05] tracking-tight sm:text-[48px]">Give your pet the clean home they deserve</h2>
-            <p className="mt-5 text-[16px] leading-relaxed text-black/70">15% off + free shipping over $200, 30-day guarantee</p>
-            <Button size="lg" className="mt-8 w-full sm:w-auto" onClick={scrollToProducts}>Shop pet solutions - from $83.30 <ArrowRight /></Button>
+        <section className="bg-[#FBF3EC] py-14 sm:py-20">
+          <div className="mx-auto max-w-[1400px] px-5 sm:px-10 lg:px-12">
+            <div className="overflow-hidden rounded-[24px] bg-[#F4EFE7] shadow-[0_30px_80px_-50px_rgba(0,0,0,0.45)]">
+              {/* Desktop: text over the left negative space of the image */}
+              <div
+                className="hidden lg:flex min-h-[360px] items-center"
+                style={{
+                  backgroundImage: `url(${finalCtaAsset.url})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center right",
+                }}
+              >
+                <div className="w-[48%] px-12 py-16">
+                  <h2 className="text-[44px] font-semibold leading-[1.05] tracking-tight text-[#1A1A1A]">Give your pet the clean home they deserve.</h2>
+                  <p className="mt-5 text-[17px] leading-relaxed text-black/70">Continuous care for the spaces you share with them.</p>
+                  <Button size="lg" className="mt-8" onClick={scrollToProducts}>Shop EnviroBiotics - From $83.30 <ArrowRight /></Button>
+                  <p className="mt-4 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $100</p>
+                </div>
+              </div>
+
+              {/* Mobile / tablet: text above, image below */}
+              <div className="lg:hidden">
+                <div className="px-6 py-12 text-center sm:px-10">
+                  <h2 className="text-[34px] font-semibold leading-[1.05] tracking-tight sm:text-[40px]">Give your pet the clean home they deserve.</h2>
+                  <p className="mt-5 text-[16px] leading-relaxed text-black/70">Continuous care for the spaces you share with them.</p>
+                  <Button size="lg" className="mt-8 w-full sm:w-auto" onClick={scrollToProducts}>Shop EnviroBiotics - From $83.30 <ArrowRight /></Button>
+                  <p className="mt-4 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $100</p>
+                </div>
+                <img src={finalCtaAsset.url} alt="BioLogic Mini on a shelf beside a green plant in a warm home" loading="lazy" decoding="async" width="1920" height="640" className="w-full object-cover object-center" />
+              </div>
+            </div>
           </div>
         </section>
       </main>
