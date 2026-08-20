@@ -104,8 +104,9 @@ const Reveal = ({ children, className = "" }: { children: ReactNode; className?:
 function LogoOnlyHeader() {
   return (
     <>
-      <div className="sticky top-0 z-[60] bg-[#EB8B59] px-4 py-2.5 text-center text-[12px] font-semibold leading-snug text-[#1A1A1A] sm:text-[13px]">
-        🎉 Your 15% off is applied automatically at checkout - no code needed.
+      <div className="sticky top-0 z-[60] bg-[#EB8B59] px-4 py-2 text-center text-[11.5px] font-semibold leading-snug text-[#1A1A1A] sm:py-2.5 sm:text-[13px]">
+        <span className="sm:hidden">15% off applied automatically at checkout</span>
+        <span className="hidden sm:inline">Your 15% off is applied automatically at checkout - no code needed.</span>
       </div>
       <header className="relative z-50 border-b border-black/5 bg-[#F0F0F0]">
         <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-center px-5 lg:h-20">
@@ -120,7 +121,7 @@ function LogoOnlyHeader() {
 
 function ProductSection() {
   return (
-    <section id="products" className="scroll-mt-12 bg-[#f5f5f7] py-14 sm:py-20 lg:py-24">
+    <section id="products" className="scroll-mt-12 bg-[#f5f5f7] py-11 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-10 lg:px-12">
         <div className="mb-10 text-center sm:mb-14">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#86868b]">The lineup</p>
@@ -132,7 +133,7 @@ function ProductSection() {
           {products.map((product) => (
             <article
               key={product.name}
-              className={`relative flex h-full flex-col items-center rounded-[32px] bg-white p-7 text-center shadow-sm transition-transform duration-300 sm:p-9 ${product.featured ? "md:-translate-y-3 md:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.28)] md:ring-2 md:ring-primary" : ""}`}
+              className={`relative flex h-full flex-col items-center rounded-[28px] bg-white p-6 text-center shadow-sm transition-transform duration-300 sm:rounded-[32px] sm:p-9 ${product.featured ? "md:-translate-y-3 md:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.28)] md:ring-2 md:ring-primary" : ""}`}
             >
               <div className="flex min-h-7 items-center justify-center">
                 {product.badge ? (
@@ -141,7 +142,7 @@ function ProductSection() {
                   </span>
                 ) : null}
               </div>
-              <div className="my-5 aspect-square w-full max-w-[230px] sm:max-w-[250px]">
+              <div className="my-4 aspect-square w-full max-w-[168px] sm:my-5 sm:max-w-[250px]">
                 <img src={product.image} alt={product.name} loading="lazy" decoding="async" width="900" height="900" className="h-full w-full object-contain" />
               </div>
               <div className="flex flex-1 flex-col items-center">
@@ -167,36 +168,37 @@ function ProductSection() {
                   <p className="mt-1 text-[12px] font-semibold text-[#bf4800]">{product.note}</p>
                 ) : null}
               </div>
-              <Button asChild size="lg" className="mt-7 w-full max-w-[220px]">
+              <Button asChild size="lg" className="mt-6 w-full max-w-[260px] sm:mt-7 sm:max-w-[220px]">
                 <a href={product.href} onClick={() => trackEvent(product.event)}>Buy {product.name}</a>
               </Button>
               <a
                 href="#guarantee"
                 className="mt-3 text-[11px] text-[#68686d] underline underline-offset-2 hover:text-[#1d1d1f]"
               >
-                Fresh Home Guarantee ✓ - 30 days, return shipping on us
+                <span className="sm:hidden">Fresh Home Guarantee ✓ - 30 days</span>
+                <span className="hidden sm:inline">Fresh Home Guarantee ✓ - 30 days, return shipping on us</span>
               </a>
             </article>
           ))}
         </div>
 
-        <div id="guarantee" className="mx-auto mt-12 max-w-[820px] scroll-mt-24 rounded-[28px] border border-primary/25 bg-white p-8 text-center shadow-[0_24px_60px_-32px_rgba(0,0,0,0.28)] sm:mt-16 sm:p-10">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-            <ShieldCheck className="h-7 w-7 text-primary" strokeWidth={2} />
+        <div id="guarantee" className="mx-auto mt-10 max-w-[820px] scroll-mt-24 rounded-[24px] border border-primary/25 bg-white p-6 text-center shadow-[0_24px_60px_-32px_rgba(0,0,0,0.28)] sm:mt-16 sm:rounded-[28px] sm:p-10">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 sm:h-14 sm:w-14">
+            <ShieldCheck className="h-6 w-6 text-primary sm:h-7 sm:w-7" strokeWidth={2} />
           </div>
-          <h3 className="mt-5 text-[26px] font-semibold tracking-tight text-[#1d1d1f] sm:text-[32px]">The Fresh Home Guarantee</h3>
-          <p className="mx-auto mt-4 max-w-[56ch] text-[16px] leading-relaxed text-[#68686d]">
+          <h3 className="mt-4 text-[24px] font-semibold leading-tight tracking-tight text-[#1d1d1f] sm:mt-5 sm:text-[32px]">The Fresh Home Guarantee</h3>
+          <p className="mx-auto mt-3 max-w-[56ch] text-[15px] leading-relaxed text-[#68686d] sm:mt-4 sm:text-[16px]">
             Notice the difference in your first month, or your money back. If you’re not satisfied within 30 days, we’ll refund every cent and cover the return shipping.
           </p>
         </div>
 
-        <div className="mt-12 sm:mt-16">
-          <ul className="mx-auto grid max-w-[900px] grid-cols-3 gap-3 sm:grid-cols-5 sm:gap-4">
+        <div className="mt-10 sm:mt-16">
+          <ul className="mx-auto flex max-w-[900px] flex-wrap justify-center gap-3 sm:gap-4">
             {CERTS.map((cert) => (
               <li
                 key={cert.label}
                 title={cert.label}
-                className="group flex aspect-square items-center justify-center rounded-2xl bg-white p-3 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_18px_36px_-24px_rgba(0,0,0,0.35)] ring-1 ring-black/[0.06] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(0,0,0,0.05),0_26px_48px_-24px_rgba(0,0,0,0.4)] sm:p-4"
+                className="group flex aspect-square w-[calc((100%-1.5rem)/3)] max-w-[160px] items-center justify-center rounded-2xl bg-white p-3 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_18px_36px_-24px_rgba(0,0,0,0.35)] ring-1 ring-black/[0.06] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(0,0,0,0.05),0_26px_48px_-24px_rgba(0,0,0,0.4)] sm:w-[calc((100%-4rem)/5)] sm:p-4"
               >
                 <img
                   src={cert.image}
@@ -210,7 +212,7 @@ function ProductSection() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-center text-[12px] font-medium uppercase tracking-[0.18em] text-[#86868b]">Independently verified for safety</p>
+          <p className="mt-5 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-[#86868b] sm:mt-6 sm:text-[12px]">Independently verified for safety</p>
 
         </div>
       </div>
@@ -220,7 +222,7 @@ function ProductSection() {
 
 function Testimonials() {
   return (
-    <section className="bg-white py-14 sm:py-20">
+    <section className="bg-white py-11 sm:py-20">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-10 lg:px-12">
         <h2 className="text-center text-[32px] font-semibold leading-none tracking-tight text-black sm:text-[44px]">Pet owners notice the difference.</h2>
         <p className="mt-4 text-center text-[15px] font-semibold text-black/70">★ 4.8 average - from 1,000+ pet homes</p>
@@ -378,9 +380,9 @@ const PetsLandingPage = () => {
     <>
       <SEOHead title="Pet Dander & Odor Control for Your Home | EnviroBiotics" description="Engineered for homes with pets. EnviroBiotics breaks down dander and odor at the surface, where filters can't reach." path="/pets" />
       <LogoOnlyHeader />
-      <main className="bg-white text-[#1A1A1A]" style={{ fontFamily: DISPLAY }}>
+      <main className="bg-white pb-16 text-[#1A1A1A] sm:pb-0" style={{ fontFamily: DISPLAY }}>
         <section ref={heroRef} className="relative overflow-hidden bg-[linear-gradient(to_top_right,#fff7f0_0%,#f8f7ff_50%,#f0f9ff_100%)]">
-          <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-9 px-5 pb-14 pt-8 sm:px-10 sm:pb-20 sm:pt-12 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:py-20">
+          <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-7 px-5 pb-11 pt-6 sm:px-10 sm:pb-20 sm:pt-12 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:py-20">
             <div className="max-w-xl">
               <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">Pets · EnviroBiotics</p>
               <h1 className="text-[43px] font-bold leading-[0.94] tracking-tight text-neutral-900 sm:text-[60px] lg:text-[72px]">You’re up against something you can’t see.</h1>
@@ -398,8 +400,8 @@ const PetsLandingPage = () => {
         <ProductSection />
         <Testimonials />
 
-        <section className="bg-white py-14 sm:py-20">
-          <div className="mx-auto grid max-w-[1400px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-12">
+        <section className="bg-white py-11 sm:py-20">
+          <div className="mx-auto grid max-w-[1400px] gap-7 px-5 sm:gap-10 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-12">
             <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">Made for homes with pets</p>
               <h2 className="mt-4 text-[34px] font-semibold leading-none tracking-tight sm:text-[48px]">Continuous care where your pet lives.</h2>
@@ -423,8 +425,8 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        <section className="bg-[#FBF3EC] py-14 sm:py-20">
-          <div className="mx-auto grid max-w-[1400px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-12">
+        <section className="bg-[#FBF3EC] py-11 sm:py-20">
+          <div className="mx-auto grid max-w-[1400px] gap-7 px-5 sm:gap-10 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-12">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7A5A47]">The problem</p>
               <h2 className="mt-4 text-[34px] font-semibold leading-none tracking-tight sm:text-[48px]">It’s not the hair. It’s what you can’t see.</h2>
@@ -448,7 +450,7 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        <section className="bg-white py-14 sm:py-20">
+        <section className="bg-white py-11 sm:py-20">
           <div className="mx-auto max-w-[1100px] px-5 sm:px-10">
             <div className="grid gap-5 md:grid-cols-2">
               <div className="rounded-[28px] border border-black/10 bg-[#F4F5F6] p-7 sm:p-9">
@@ -481,7 +483,7 @@ const PetsLandingPage = () => {
 
 
 
-        <section className="bg-white py-14 sm:py-20">
+        <section className="bg-white py-11 sm:py-20">
           <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
             <h2 className="text-[34px] font-semibold leading-none tracking-tight sm:text-[48px]">Set it once. It handles the rest.</h2>
             <div className="mt-9 grid overflow-hidden rounded-2xl border border-black/10 sm:grid-cols-3">
@@ -494,7 +496,7 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        <section className="bg-[#F4F5F6] py-14 sm:py-20">
+        <section className="bg-[#F4F5F6] py-11 sm:py-20">
           <div className="mx-auto grid max-w-[1200px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.8fr_1.2fr]">
             <h2 className="text-[34px] font-semibold leading-none tracking-tight sm:text-[44px]">Pet owner questions, answered.</h2>
             <Accordion type="single" collapsible>
@@ -505,7 +507,7 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        <section className="bg-[#FBF3EC] py-14 sm:py-20">
+        <section className="bg-[#FBF3EC] py-11 sm:py-20">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-10 lg:px-12">
             <div className="overflow-hidden rounded-[24px] bg-[#F4EFE7] shadow-[0_30px_80px_-50px_rgba(0,0,0,0.45)]">
               {/* Desktop: text over the left negative space of the image */}
