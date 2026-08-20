@@ -133,7 +133,7 @@ function ProductSection() {
           {products.map((product) => (
             <article
               key={product.name}
-              className={`relative flex h-full flex-col items-center rounded-[32px] bg-white p-7 text-center shadow-sm transition-transform duration-300 sm:p-9 ${product.featured ? "md:-translate-y-3 md:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.28)] md:ring-2 md:ring-primary" : ""}`}
+              className={`relative flex h-full flex-col items-center rounded-[28px] bg-white p-6 text-center shadow-sm transition-transform duration-300 sm:rounded-[32px] sm:p-9 ${product.featured ? "md:-translate-y-3 md:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.28)] md:ring-2 md:ring-primary" : ""}`}
             >
               <div className="flex min-h-7 items-center justify-center">
                 {product.badge ? (
@@ -142,7 +142,7 @@ function ProductSection() {
                   </span>
                 ) : null}
               </div>
-              <div className="my-5 aspect-square w-full max-w-[230px] sm:max-w-[250px]">
+              <div className="my-4 aspect-square w-full max-w-[168px] sm:my-5 sm:max-w-[250px]">
                 <img src={product.image} alt={product.name} loading="lazy" decoding="async" width="900" height="900" className="h-full w-full object-contain" />
               </div>
               <div className="flex flex-1 flex-col items-center">
