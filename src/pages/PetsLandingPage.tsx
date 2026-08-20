@@ -295,39 +295,46 @@ const PetsLandingPage = () => {
 
   useEffect(() => {
     try {
-      if (localStorage.getItem(EXIT_KEY)) return;
+      if (localStorage.getItem(EXIT_DONE_KEY)) return;
+      const seenAt = Number(localStorage.getItem(EXIT_KEY) ?? 0);
+      if (seenAt && Date.now() - seenAt < EXIT_TTL_MS) return;
     } catch {
       return;
     }
+
+    let done = false;
+    const cleanupFns: Array<() => void> = [];
     const reveal = () => {
-      try { localStorage.setItem(EXIT_KEY, "1"); } catch { /* storage unavailable */ }
+      if (done) return;
+      done = true;
+      cleanupFns.forEach((fn) => fn());
+      try { localStorage.setItem(EXIT_KEY, String(Date.now())); } catch { /* storage unavailable */ }
       setShowExitOffer(true);
       trackEvent("view_pets_exit_offer");
     };
+
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    const timer = isMobile ? window.setTimeout(reveal, 30000) : undefined;
-    const onMouseOut = (event: MouseEvent) => {
-      if (!isMobile && event.clientY <= 0 && !event.relatedTarget) {
-        document.removeEventListener("mouseout", onMouseOut);
-        reveal();
-      }
-    };
-    document.addEventListener("mouseout", onMouseOut);
-    return () => {
-      if (timer) window.clearTimeout(timer);
-      document.removeEventListener("mouseout", onMouseOut);
-    };
+
+    if (isMobile) {
+      const timer = window.setTimeout(reveal, 60000);
+      cleanupFns.push(() => window.clearTimeout(timer));
+      const onScroll = () => {
+        const scrolled = window.scrollY + window.innerHeight;
+        if (scrolled / document.documentElement.scrollHeight >= 0.5) reveal();
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      cleanupFns.push(() => window.removeEventListener("scroll", onScroll));
+    } else {
+      const onMouseOut = (event: MouseEvent) => {
+        if (event.clientY <= 0 && !event.relatedTarget) reveal();
+      };
+      document.addEventListener("mouseout", onMouseOut);
+      cleanupFns.push(() => document.removeEventListener("mouseout", onMouseOut));
+    }
+
+    return () => cleanupFns.forEach((fn) => fn());
   }, []);
 
-  useEffect(() => {
-    const closeChat = () => {
-      const api = (window as unknown as { tidioChatApi?: { close?: () => void } }).tidioChatApi;
-      api?.close?.();
-    };
-    document.addEventListener("tidioChat-ready", closeChat);
-    closeChat();
-    return () => document.removeEventListener("tidioChat-ready", closeChat);
-  }, []);
 
   return (
     <>
