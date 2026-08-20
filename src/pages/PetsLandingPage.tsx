@@ -31,9 +31,9 @@ import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
 
 const PROMO = "PETS";
 
-const BIOTICA_URL = shopifyProductDiscountUrl("biotica-800", PROMO, "pets-landing");
+const BIOTICA_URL = shopifyDiscountUrl("META15", "/products/biotica-800", "pets-landing");
 const MINI_URL = shopifyProductDiscountUrl("biologic-mini", "META15", "pets-landing");
-const BUNDLE_URL = shopifyDiscountUrl(PROMO, "/products/home-complete-bundle", "pets-landing");
+const BUNDLE_URL = shopifyDiscountUrl("META15", "/products/home-complete-bundle", "pets-landing");
 const BIOTICA_CART_URL = shopifyDiscountUrl(
   PROMO,
   "/cart/48644373184764:1",
