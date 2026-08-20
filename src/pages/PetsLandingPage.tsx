@@ -140,11 +140,22 @@ function ProductSection() {
               <div className="flex flex-1 flex-col items-center">
                 <h3 className="text-[23px] font-semibold tracking-tight text-[#1d1d1f]">{product.name}</h3>
                 <p className="mt-2 min-h-12 max-w-[30ch] text-[15px] leading-relaxed text-[#68686d]">{product.description}</p>
+                {"valueStack" in product && product.valueStack ? (
+                  <ul className="mt-5 w-full max-w-[280px] space-y-1 text-[13px] leading-relaxed text-[#68686d]">
+                    {product.valueStack.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                    <li className="pt-1 text-[13px] font-medium text-[#86868b] line-through">$510 value</li>
+                  </ul>
+                ) : null}
                 <div className="mt-5 flex items-baseline gap-2">
                   <span className="text-[15px] text-[#86868b] line-through">{product.originalPrice}</span>
                   <span className="text-[28px] font-semibold text-[#1d1d1f]">{product.offerPrice}</span>
                 </div>
                 <p className="mt-1 text-[12px] font-medium text-[#68686d]">15% applied at checkout</p>
+                {"freeShipping" in product && product.freeShipping ? (
+                  <p className="mt-1 text-[12px] font-medium text-[#1d1d1f]">Free shipping</p>
+                ) : null}
                 {"note" in product && product.note ? (
                   <p className="mt-1 text-[12px] font-semibold text-[#bf4800]">{product.note}</p>
                 ) : null}
@@ -152,7 +163,12 @@ function ProductSection() {
               <Button asChild size="lg" className="mt-7 w-full max-w-[220px]">
                 <a href={product.href} onClick={() => trackEvent(product.event)}>Buy {product.name}</a>
               </Button>
-              <p className="mt-3 text-[11px] text-[#68686d]">30-day money-back guarantee</p>
+              <a
+                href="#guarantee"
+                className="mt-3 text-[11px] text-[#68686d] underline underline-offset-2 hover:text-[#1d1d1f]"
+              >
+                Fresh Home Guarantee ✓ - 30 days, return shipping on us
+              </a>
             </article>
           ))}
         </div>
