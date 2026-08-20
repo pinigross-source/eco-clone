@@ -143,6 +143,9 @@ function ProductSection() {
                   <span className="text-[28px] font-semibold text-[#1d1d1f]">{product.offerPrice}</span>
                 </div>
                 <p className="mt-1 text-[12px] font-medium text-[#68686d]">15% applied at checkout</p>
+                {"note" in product && product.note ? (
+                  <p className="mt-1 text-[12px] font-semibold text-[#bf4800]">{product.note}</p>
+                ) : null}
               </div>
               <Button asChild size="lg" className="mt-7 w-full max-w-[220px]">
                 <a href={product.href} onClick={() => trackEvent(product.event)}>Buy {product.name}</a>
@@ -150,6 +153,25 @@ function ProductSection() {
               <p className="mt-3 text-[11px] text-[#68686d]">30-day money-back guarantee</p>
             </article>
           ))}
+        </div>
+
+        <div className="mt-12 text-center sm:mt-16">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:gap-x-12">
+            {CERTS.map((cert) => (
+              <img
+                key={cert.label}
+                src={cert.image}
+                alt={cert.label}
+                title={cert.label}
+                loading="lazy"
+                decoding="async"
+                width="160"
+                height="160"
+                className="h-12 w-auto object-contain sm:h-14"
+              />
+            ))}
+          </div>
+          <p className="mt-5 text-[12px] font-medium uppercase tracking-[0.18em] text-[#86868b]">Independently verified for safety</p>
         </div>
       </div>
     </section>
