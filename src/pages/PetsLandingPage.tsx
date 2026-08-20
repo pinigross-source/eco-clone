@@ -183,6 +183,7 @@ function Testimonials() {
     <section className="bg-white py-14 sm:py-20">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-10 lg:px-12">
         <h2 className="text-center text-[32px] font-semibold leading-none tracking-tight text-black sm:text-[44px]">Pet owners notice the difference.</h2>
+        <p className="mt-4 text-center text-[15px] font-semibold text-black/70">★ 4.8 average - from 1,000+ pet homes</p>
         <div className="mt-9 grid gap-4 md:grid-cols-3">
           {testimonials.map((testimonial) => (
             <figure key={testimonial.person} className="flex h-full flex-col rounded-2xl bg-[#F4F5F6] p-7 sm:p-8">
