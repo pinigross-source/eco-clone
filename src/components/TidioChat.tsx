@@ -6,6 +6,7 @@ const SCRIPT_ID = "tidio-chat-loader";
 type TidioApi = {
   close?: () => void;
   display?: (visible: boolean) => void;
+  adjustStyles?: (styles: string) => void;
 };
 
 /**
