@@ -157,23 +157,28 @@ function ProductSection() {
           ))}
         </div>
 
-        <div className="mt-12 text-center sm:mt-16">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:gap-x-12">
+        <div className="mt-12 sm:mt-16">
+          <ul className="mx-auto grid max-w-[900px] grid-cols-3 gap-3 sm:grid-cols-6 sm:gap-4">
             {CERTS.map((cert) => (
-              <img
+              <li
                 key={cert.label}
-                src={cert.image}
-                alt={cert.label}
                 title={cert.label}
-                loading="lazy"
-                decoding="async"
-                width="160"
-                height="160"
-                className="h-12 w-auto object-contain sm:h-14"
-              />
+                className="group flex aspect-square items-center justify-center rounded-2xl bg-white p-3 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_18px_36px_-24px_rgba(0,0,0,0.35)] ring-1 ring-black/[0.06] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(0,0,0,0.05),0_26px_48px_-24px_rgba(0,0,0,0.4)] sm:p-4"
+              >
+                <img
+                  src={cert.image}
+                  alt={cert.label}
+                  loading="lazy"
+                  decoding="async"
+                  width="160"
+                  height="160"
+                  className="max-h-[80%] max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                />
+              </li>
             ))}
-          </div>
-          <p className="mt-5 text-[12px] font-medium uppercase tracking-[0.18em] text-[#86868b]">Independently verified for safety</p>
+          </ul>
+          <p className="mt-6 text-center text-[12px] font-medium uppercase tracking-[0.18em] text-[#86868b]">Independently verified for safety</p>
+
         </div>
       </div>
     </section>
