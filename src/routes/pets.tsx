@@ -10,7 +10,7 @@ export const Route = createFileRoute("/pets")({
       {
         name: "description",
         content:
-          "Tackle pet dander, odors, and microbes on beds, sofas, and floors. Chemical-free, safe for cats, dogs, and the whole family. Save 10% with code PETS.",
+          "Tackle pet dander and odors on beds, sofas, and floors. Pet-safe, non-toxic probiotic care with 15% automatically applied at checkout.",
       },
       {
         property: "og:title",
@@ -23,6 +23,7 @@ export const Route = createFileRoute("/pets")({
       },
       { property: "og:url", content: "https://envirobiotics.com/pets" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://envirobiotics.com/pets" }],
   }),
