@@ -253,7 +253,7 @@ function ExitOffer({ open, onOpenChange }: { open: boolean; onOpenChange: (open:
                 <input id="pets-offer-email" type="email" required autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email address" className="h-12 w-full rounded-full border border-input bg-background pl-11 pr-4 text-sm outline-none focus:ring-2 focus:ring-ring" />
               </div>
               <Button type="submit" size="lg" className="w-full" disabled={status === "sending"}>{status === "sending" ? "Saving…" : "Save my 15%"}</Button>
-              <p className="text-center text-[11px] text-muted-foreground">No spam - just your discount link. Unsubscribe anytime.</p>
+              <p className="text-center text-[11px] text-muted-foreground">No spam - just your discount link.</p>
               <button type="button" onClick={() => onOpenChange(false)} className="mx-auto block text-xs font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground">No thanks</button>
               {status === "error" ? <p className="text-center text-xs text-destructive">Please try again.</p> : null}
             </form>
