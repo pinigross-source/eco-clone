@@ -42,7 +42,7 @@ export const Route = createFileRoute("/api/public/coming-soon")({
               "X-Connection-Api-Key": RESEND_API_KEY,
             },
             body: JSON.stringify({
-              from: "EnviroBiotics Website <onboarding@resend.dev>",
+              from: "EnviroBiotics Website <hello@contact.envirobiotics.com>",
               to: ["contact@envirobiotics.com"],
               reply_to: email,
               subject: `New "Coming Soon" signup  ${product}`,
