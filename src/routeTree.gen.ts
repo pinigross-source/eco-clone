@@ -94,6 +94,7 @@ import { Route as SolutionsRoomRouteImport } from './routes/solutions.room'
 import { Route as ApiPublicComingSoonRouteImport } from './routes/api/public/coming-soon'
 import { Route as ApiPublicInstallationQuoteRouteImport } from './routes/api/public/installation-quote'
 import { Route as ApiPublicPetsOfferRouteImport } from './routes/api/public/pets-offer'
+import { Route as ApiPublicResendWebhookRouteImport } from './routes/api/public/resend-webhook'
 import { Route as ApiPublicShopifyOrderRouteImport } from './routes/api/public/shopify-order'
 import { Route as ApiPublicTrackVisitRouteImport } from './routes/api/public/track-visit'
 import { Route as ProsubAffIdRouteImport } from './routes/prosub.aff.$id'
@@ -528,6 +529,11 @@ const ApiPublicPetsOfferRoute = ApiPublicPetsOfferRouteImport.update({
   path: '/api/public/pets-offer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicResendWebhookRoute = ApiPublicResendWebhookRouteImport.update({
+  id: '/api/public/resend-webhook',
+  path: '/api/public/resend-webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicShopifyOrderRoute = ApiPublicShopifyOrderRouteImport.update({
   id: '/api/public/shopify-order',
   path: '/api/public/shopify-order',
@@ -630,6 +636,7 @@ export interface FileRoutesByFullPath {
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
   '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
+  '/api/public/resend-webhook': typeof ApiPublicResendWebhookRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
   '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
   '/prosub/aff/$id': typeof ProsubAffIdRoute
@@ -720,6 +727,7 @@ export interface FileRoutesByTo {
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
   '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
+  '/api/public/resend-webhook': typeof ApiPublicResendWebhookRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
   '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
   '/prosub/aff/$id': typeof ProsubAffIdRoute
@@ -811,6 +819,7 @@ export interface FileRoutesById {
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
   '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
+  '/api/public/resend-webhook': typeof ApiPublicResendWebhookRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
   '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
   '/prosub/aff/$id': typeof ProsubAffIdRoute
@@ -903,6 +912,7 @@ export interface FileRouteTypes {
     | '/api/public/coming-soon'
     | '/api/public/installation-quote'
     | '/api/public/pets-offer'
+    | '/api/public/resend-webhook'
     | '/api/public/shopify-order'
     | '/api/public/track-visit'
     | '/prosub/aff/$id'
@@ -993,6 +1003,7 @@ export interface FileRouteTypes {
     | '/api/public/coming-soon'
     | '/api/public/installation-quote'
     | '/api/public/pets-offer'
+    | '/api/public/resend-webhook'
     | '/api/public/shopify-order'
     | '/api/public/track-visit'
     | '/prosub/aff/$id'
@@ -1083,6 +1094,7 @@ export interface FileRouteTypes {
     | '/api/public/coming-soon'
     | '/api/public/installation-quote'
     | '/api/public/pets-offer'
+    | '/api/public/resend-webhook'
     | '/api/public/shopify-order'
     | '/api/public/track-visit'
     | '/prosub/aff/$id'
@@ -1171,6 +1183,7 @@ export interface RootRouteChildren {
   ApiPublicComingSoonRoute: typeof ApiPublicComingSoonRoute
   ApiPublicInstallationQuoteRoute: typeof ApiPublicInstallationQuoteRoute
   ApiPublicPetsOfferRoute: typeof ApiPublicPetsOfferRoute
+  ApiPublicResendWebhookRoute: typeof ApiPublicResendWebhookRoute
   ApiPublicShopifyOrderRoute: typeof ApiPublicShopifyOrderRoute
   ApiPublicTrackVisitRoute: typeof ApiPublicTrackVisitRoute
 }
@@ -1772,6 +1785,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicPetsOfferRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/resend-webhook': {
+      id: '/api/public/resend-webhook'
+      path: '/api/public/resend-webhook'
+      fullPath: '/api/public/resend-webhook'
+      preLoaderRoute: typeof ApiPublicResendWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/shopify-order': {
       id: '/api/public/shopify-order'
       path: '/api/public/shopify-order'
@@ -1924,6 +1944,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicComingSoonRoute: ApiPublicComingSoonRoute,
   ApiPublicInstallationQuoteRoute: ApiPublicInstallationQuoteRoute,
   ApiPublicPetsOfferRoute: ApiPublicPetsOfferRoute,
+  ApiPublicResendWebhookRoute: ApiPublicResendWebhookRoute,
   ApiPublicShopifyOrderRoute: ApiPublicShopifyOrderRoute,
   ApiPublicTrackVisitRoute: ApiPublicTrackVisitRoute,
 }

@@ -13,13 +13,15 @@ const PAGE_SIZE = 50;
 
 function StatusBadge({ status }: { status: string }) {
   const tone =
-    status === "sent"
-      ? "bg-emerald-100 text-emerald-800"
-      : status === "failed" || status === "dlq" || status === "bounced"
-        ? "bg-red-100 text-red-800"
-        : status === "suppressed"
-          ? "bg-amber-100 text-amber-800"
-          : "bg-muted text-muted-foreground";
+    status === "delivered"
+      ? "bg-emerald-600 text-white"
+      : status === "sent"
+        ? "bg-emerald-100 text-emerald-800"
+        : status === "failed" || status === "dlq" || status === "bounced"
+          ? "bg-red-100 text-red-800"
+          : status === "complained" || status === "suppressed" || status === "delayed"
+            ? "bg-amber-100 text-amber-800"
+            : "bg-muted text-muted-foreground";
   return (
     <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${tone}`}>
       {status}
@@ -68,8 +70,9 @@ export default function EmailLogPage() {
     return {
       total: scoped.length,
       sent: scoped.filter((r) => r.status === "sent").length,
+      delivered: scoped.filter((r) => r.status === "delivered").length,
       failed: scoped.filter((r) => ["failed", "dlq", "bounced"].includes(r.status)).length,
-      suppressed: scoped.filter((r) => r.status === "suppressed").length,
+      complained: scoped.filter((r) => ["complained", "suppressed"].includes(r.status)).length,
     };
   }, [data, template]);
 
@@ -153,6 +156,9 @@ export default function EmailLogPage() {
         >
           <option value="all">All statuses</option>
           <option value="sent">Sent</option>
+          <option value="delivered">Delivered</option>
+          <option value="bounced">Bounced</option>
+          <option value="complained">Spam complaint</option>
           <option value="failed">Failed</option>
           <option value="pending">Pending</option>
           <option value="suppressed">Suppressed</option>
@@ -162,9 +168,9 @@ export default function EmailLogPage() {
       <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
         {[
           { label: "Total emails", value: stats.total },
-          { label: "Sent", value: stats.sent },
-          { label: "Failed", value: stats.failed },
-          { label: "Suppressed", value: stats.suppressed },
+          { label: "Delivered", value: stats.delivered },
+          { label: "Failed / bounced", value: stats.failed },
+          { label: "Complaints", value: stats.complained },
         ].map((s) => (
           <div key={s.label} className="rounded-lg border bg-card p-4">
             <div className="text-xs text-muted-foreground">{s.label}</div>
