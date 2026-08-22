@@ -13,13 +13,15 @@ const PAGE_SIZE = 50;
 
 function StatusBadge({ status }: { status: string }) {
   const tone =
-    status === "sent"
-      ? "bg-emerald-100 text-emerald-800"
-      : status === "failed" || status === "dlq" || status === "bounced"
-        ? "bg-red-100 text-red-800"
-        : status === "suppressed"
-          ? "bg-amber-100 text-amber-800"
-          : "bg-muted text-muted-foreground";
+    status === "delivered"
+      ? "bg-emerald-600 text-white"
+      : status === "sent"
+        ? "bg-emerald-100 text-emerald-800"
+        : status === "failed" || status === "dlq" || status === "bounced"
+          ? "bg-red-100 text-red-800"
+          : status === "complained" || status === "suppressed" || status === "delayed"
+            ? "bg-amber-100 text-amber-800"
+            : "bg-muted text-muted-foreground";
   return (
     <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${tone}`}>
       {status}
