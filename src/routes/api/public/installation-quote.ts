@@ -44,7 +44,7 @@ export const Route = createFileRoute("/api/public/installation-quote")({
               "X-Connection-Api-Key": RESEND_API_KEY,
             },
             body: JSON.stringify({
-              from: "EnviroBiotics Website <onboarding@resend.dev>",
+              from: "EnviroBiotics Website <hello@contact.envirobiotics.com>",
               to: ["contact@envirobiotics.com"],
               reply_to: email,
               subject,
