@@ -74,6 +74,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as VideosRouteImport } from './routes/videos'
 import { Route as WarrantyPolicyRouteImport } from './routes/warranty-policy'
 import { Route as WellnessRouteImport } from './routes/wellness'
+import { Route as AdminEmailsRouteImport } from './routes/admin.emails'
 import { Route as AffIdRouteImport } from './routes/aff.$id'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -423,6 +424,11 @@ const WellnessRoute = WellnessRouteImport.update({
   path: '/wellness',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminEmailsRoute = AdminEmailsRouteImport.update({
+  id: '/emails',
+  path: '/emails',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AffIdRoute = AffIdRouteImport.update({
   id: '/aff/$id',
   path: '/aff/$id',
@@ -544,7 +550,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
   '/active-families': typeof ActiveFamiliesRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/affiliate-dashboard': typeof AffiliateDashboardRoute
   '/affiliate-signup': typeof AffiliateSignupRoute
   '/allergy': typeof AllergyRoute
@@ -604,6 +610,7 @@ export interface FileRoutesByFullPath {
   '/videos': typeof VideosRoute
   '/warranty-policy': typeof WarrantyPolicyRoute
   '/wellness': typeof WellnessRoute
+  '/admin/emails': typeof AdminEmailsRoute
   '/aff/$id': typeof AffIdRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -633,7 +640,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
   '/active-families': typeof ActiveFamiliesRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/affiliate-dashboard': typeof AffiliateDashboardRoute
   '/affiliate-signup': typeof AffiliateSignupRoute
   '/allergy': typeof AllergyRoute
@@ -693,6 +700,7 @@ export interface FileRoutesByTo {
   '/videos': typeof VideosRoute
   '/warranty-policy': typeof WarrantyPolicyRoute
   '/wellness': typeof WellnessRoute
+  '/admin/emails': typeof AdminEmailsRoute
   '/aff/$id': typeof AffIdRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -723,7 +731,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/account': typeof AccountRoute
   '/active-families': typeof ActiveFamiliesRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/affiliate-dashboard': typeof AffiliateDashboardRoute
   '/affiliate-signup': typeof AffiliateSignupRoute
   '/allergy': typeof AllergyRoute
@@ -783,6 +791,7 @@ export interface FileRoutesById {
   '/videos': typeof VideosRoute
   '/warranty-policy': typeof WarrantyPolicyRoute
   '/wellness': typeof WellnessRoute
+  '/admin/emails': typeof AdminEmailsRoute
   '/aff/$id': typeof AffIdRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -874,6 +883,7 @@ export interface FileRouteTypes {
     | '/videos'
     | '/warranty-policy'
     | '/wellness'
+    | '/admin/emails'
     | '/aff/$id'
     | '/blog/$slug'
     | '/case-studies/$slug'
@@ -963,6 +973,7 @@ export interface FileRouteTypes {
     | '/videos'
     | '/warranty-policy'
     | '/wellness'
+    | '/admin/emails'
     | '/aff/$id'
     | '/blog/$slug'
     | '/case-studies/$slug'
@@ -1052,6 +1063,7 @@ export interface FileRouteTypes {
     | '/videos'
     | '/warranty-policy'
     | '/wellness'
+    | '/admin/emails'
     | '/aff/$id'
     | '/blog/$slug'
     | '/case-studies/$slug'
@@ -1082,7 +1094,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AccountRoute: typeof AccountRoute
   ActiveFamiliesRoute: typeof ActiveFamiliesRoute
-  AdminRoute: typeof AdminRoute
+  AdminRoute: typeof AdminRouteWithChildren
   AffiliateDashboardRoute: typeof AffiliateDashboardRoute
   AffiliateSignupRoute: typeof AffiliateSignupRoute
   AllergyRoute: typeof AllergyRoute
@@ -1620,6 +1632,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WellnessRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/emails': {
+      id: '/admin/emails'
+      path: '/emails'
+      fullPath: '/admin/emails'
+      preLoaderRoute: typeof AdminEmailsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/aff/$id': {
       id: '/aff/$id'
       path: '/aff/$id'
@@ -1777,6 +1796,16 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AdminRouteChildren {
+  AdminEmailsRoute: typeof AdminEmailsRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminEmailsRoute: AdminEmailsRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 interface CaseStudiesRouteChildren {
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
 }
@@ -1818,7 +1847,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AccountRoute: AccountRoute,
   ActiveFamiliesRoute: ActiveFamiliesRoute,
-  AdminRoute: AdminRoute,
+  AdminRoute: AdminRouteWithChildren,
   AffiliateDashboardRoute: AffiliateDashboardRoute,
   AffiliateSignupRoute: AffiliateSignupRoute,
   AllergyRoute: AllergyRoute,
