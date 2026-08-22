@@ -156,6 +156,9 @@ export default function EmailLogPage() {
         >
           <option value="all">All statuses</option>
           <option value="sent">Sent</option>
+          <option value="delivered">Delivered</option>
+          <option value="bounced">Bounced</option>
+          <option value="complained">Spam complaint</option>
           <option value="failed">Failed</option>
           <option value="pending">Pending</option>
           <option value="suppressed">Suppressed</option>
@@ -165,9 +168,9 @@ export default function EmailLogPage() {
       <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
         {[
           { label: "Total emails", value: stats.total },
-          { label: "Sent", value: stats.sent },
-          { label: "Failed", value: stats.failed },
-          { label: "Suppressed", value: stats.suppressed },
+          { label: "Delivered", value: stats.delivered },
+          { label: "Failed / bounced", value: stats.failed },
+          { label: "Complaints", value: stats.complained },
         ].map((s) => (
           <div key={s.label} className="rounded-lg border bg-card p-4">
             <div className="text-xs text-muted-foreground">{s.label}</div>
