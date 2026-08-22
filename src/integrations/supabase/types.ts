@@ -372,6 +372,45 @@ export type Database = {
         }
         Relationships: []
       }
+      email_send_log: {
+        Row: {
+          created_at: string
+          error_message: string | null
+          id: string
+          message_id: string | null
+          metadata: Json
+          provider_response: Json | null
+          provider_status_code: number | null
+          recipient_email: string
+          status: string
+          template_name: string
+        }
+        Insert: {
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          message_id?: string | null
+          metadata?: Json
+          provider_response?: Json | null
+          provider_status_code?: number | null
+          recipient_email: string
+          status: string
+          template_name: string
+        }
+        Update: {
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          message_id?: string | null
+          metadata?: Json
+          provider_response?: Json | null
+          provider_status_code?: number | null
+          recipient_email?: string
+          status?: string
+          template_name?: string
+        }
+        Relationships: []
+      }
       inventory_logs: {
         Row: {
           change_type: string

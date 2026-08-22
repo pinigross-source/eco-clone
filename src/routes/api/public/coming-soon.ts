@@ -19,12 +19,6 @@ export const Route = createFileRoute("/api/public/coming-soon")({
           }
           const { name, email, product = "E-Biotic Home" } = parsed.data;
 
-          const LOVABLE_API_KEY = process.env.LOVABLE_API_KEY;
-          const RESEND_API_KEY = process.env.RESEND_API_KEY;
-          if (!LOVABLE_API_KEY || !RESEND_API_KEY) {
-            return Response.json({ error: "Email service not configured" }, { status: 500 });
-          }
-
           const html = `
             <div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;padding:24px;color:#111">
               <h2 style="margin:0 0 16px">New "Coming Soon" signup</h2>
@@ -34,29 +28,25 @@ export const Route = createFileRoute("/api/public/coming-soon")({
             </div>
           `;
 
-          const res = await fetch("https://connector-gateway.lovable.dev/resend/emails", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${LOVABLE_API_KEY}`,
-              "X-Connection-Api-Key": RESEND_API_KEY,
-            },
-            body: JSON.stringify({
-              from: "EnviroBiotics Website <hello@contact.envirobiotics.com>",
-              to: ["contact@envirobiotics.com"],
-              reply_to: email,
-              subject: `New "Coming Soon" signup  ${product}`,
-              html,
-            }),
+          const { sendLoggedEmail } = await import("@/lib/emailLog.server");
+          const result = await sendLoggedEmail({
+            templateName: "coming-soon",
+            from: "EnviroBiotics Website <hello@contact.envirobiotics.com>",
+            to: ["contact@envirobiotics.com"],
+            replyTo: email,
+            subject: `New "Coming Soon" signup — ${product}`,
+            html,
+            metadata: { submitter_email: email, submitter_name: name, product },
           });
 
-          if (!res.ok) {
-            const text = await res.text();
-            console.error("Resend gateway error", res.status, text);
-            return Response.json({ error: "Failed to send" }, { status: 502 });
+          if (!result.ok) {
+            return Response.json(
+              { error: "Failed to send", messageId: result.messageId },
+              { status: result.providerStatus ? 502 : 500 },
+            );
           }
 
-          return Response.json({ ok: true });
+          return Response.json({ ok: true, messageId: result.messageId });
         } catch (err) {
           console.error("coming-soon handler error", err);
           return Response.json({ error: "Server error" }, { status: 500 });
