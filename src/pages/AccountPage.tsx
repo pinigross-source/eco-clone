@@ -371,7 +371,7 @@ export default function AccountPage() {
                 {isAffiliate && (
                   <Button 
                     variant="outline" 
-                    onClick={() => navigate({ to: "/affiliate-dashboard" })}
+                    onClick={() => window.open("https://shop.envirobiotics.com/pages/affiliate-signup", "_blank", "noopener")}
                     className="w-fit"
                   >
                     <TrendingUp className="w-4 h-4 mr-2" />

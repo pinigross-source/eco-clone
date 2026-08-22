@@ -167,6 +167,34 @@ function RootShell({ children }: { children: React.ReactNode }) {
     } catch (e) {}
   }
 
+  // ---- Affiliate referral pass-through (GoAffPro lives on the Shopify store) ----
+  // The marketing site never owns the affiliate program; it only carries the
+  // referral code across the domain hop so GoAffPro can attribute the sale.
+  var AFF_KEY = "eb_affiliate_ref";
+  var AFF_EXP = "eb_affiliate_ref_expiry";
+
+  function saveRef(code) {
+    try {
+      localStorage.setItem(AFF_KEY, JSON.stringify({ code: code, type: "link" }));
+      localStorage.setItem(AFF_EXP, String(Date.now() + TTL_DAYS * 864e5));
+    } catch (e) {}
+  }
+  function loadRef() {
+    try {
+      var exp = localStorage.getItem(AFF_EXP);
+      if (exp && Date.now() > Number(exp)) {
+        localStorage.removeItem(AFF_KEY); localStorage.removeItem(AFF_EXP); return null;
+      }
+      var raw = localStorage.getItem(AFF_KEY);
+      if (!raw) return null;
+      var o = JSON.parse(raw);
+      return o && o.code ? o.code : null;
+    } catch (e) { return null; }
+  }
+
+  var incomingRef = p.get("ref") || p.get("sca_ref") || p.get("aff");
+  if (incomingRef) saveRef(incomingRef);
+
   function decorate(href) {
     var url;
     try { url = new URL(href, window.location.href); } catch (e) { return href; }
@@ -185,11 +213,14 @@ function RootShell({ children }: { children: React.ReactNode }) {
         if (attr.utm_campaign) url.searchParams.set("utm_campaign", attr.utm_campaign);
       }
     }
+    var ref = loadRef();
+    if (ref && !url.searchParams.has("ref")) url.searchParams.set("ref", ref);
     if (!url.searchParams.has("lp_page")) {
       url.searchParams.set("lp_page", window.location.pathname || "/");
     }
     return url.toString();
   }
+
 
   function handler(ev) {
     var a = ev.target && ev.target.closest ? ev.target.closest("a[href]") : null;
