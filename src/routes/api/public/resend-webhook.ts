@@ -54,11 +54,11 @@ async function verifySvixSignature(
   if (!Number.isFinite(ts) || Math.abs(Date.now() / 1000 - ts) > 300) return false;
 
   const rawSecret = secret.startsWith("whsec_") ? secret.slice(6) : secret;
-  let keyBytes: Uint8Array;
+  let keyBytes: Uint8Array<ArrayBuffer>;
   try {
     keyBytes = base64ToBytes(rawSecret);
   } catch {
-    keyBytes = new TextEncoder().encode(rawSecret);
+    keyBytes = new TextEncoder().encode(rawSecret) as Uint8Array<ArrayBuffer>;
   }
 
   const key = await crypto.subtle.importKey(
