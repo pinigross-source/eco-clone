@@ -32,9 +32,9 @@ function timingSafeEqual(a: Uint8Array, b: Uint8Array) {
   return diff === 0;
 }
 
-function base64ToBytes(value: string) {
+function base64ToBytes(value: string): Uint8Array<ArrayBuffer> {
   const bin = atob(value);
-  const out = new Uint8Array(bin.length);
+  const out = new Uint8Array(new ArrayBuffer(bin.length));
   for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
   return out;
 }
