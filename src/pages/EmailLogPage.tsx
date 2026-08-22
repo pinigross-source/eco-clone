@@ -70,8 +70,9 @@ export default function EmailLogPage() {
     return {
       total: scoped.length,
       sent: scoped.filter((r) => r.status === "sent").length,
+      delivered: scoped.filter((r) => r.status === "delivered").length,
       failed: scoped.filter((r) => ["failed", "dlq", "bounced"].includes(r.status)).length,
-      suppressed: scoped.filter((r) => r.status === "suppressed").length,
+      complained: scoped.filter((r) => ["complained", "suppressed"].includes(r.status)).length,
     };
   }, [data, template]);
 
