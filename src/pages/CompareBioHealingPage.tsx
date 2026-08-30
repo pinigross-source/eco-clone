@@ -33,7 +33,7 @@ const jsonLd = {
           name: "Are Bio Healing air purifiers worth buying based on user reviews and expert opinions?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Bio Healing air purifiers have mixed reviews. Some users report improved air freshness, but they lack the independent certifications (FDA GRAS, EPA registration, MADE SAFE) that validate safety and effectiveness. EnviroBiotics offers peer-reviewed research, hospital-grade validation, and multiple third-party certifications that Bio Healing products do not carry.",
+            text: "Bio Healing air purifiers have mixed reviews. Some users report improved air freshness, but they lack the independent certifications (FDA GRAS, EPA Registered status, MADE SAFE) that validate safety and effectiveness. EnviroBiotics offers peer-reviewed research, hospital-grade validation, and multiple third-party certifications that Bio Healing products do not carry.",
           },
         },
         {
@@ -57,7 +57,7 @@ const jsonLd = {
           name: "Where can I find trustworthy Bio Healing air purifier reviews and comparisons online?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "When comparing air purifiers, look for brands with transparent third-party certifications. EnviroBiotics products are FDA GRAS certified, EPA registered, MADE SAFE certified, and backed by peer-reviewed hospital studies. These certifications provide objective validation that goes beyond user reviews alone.",
+            text: "When comparing air purifiers, look for brands with transparent third-party certifications. EnviroBiotics products are FDA GRAS certified, EPA Registered, MADE SAFE certified, and backed by peer-reviewed hospital studies. These certifications provide objective validation that goes beyond user reviews alone.",
           },
         },
         {
@@ -73,7 +73,7 @@ const jsonLd = {
           name: "Which brands are the most reliable for probiotic air purification systems?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "EnviroBiotics (formerly BetterAir) is the leading brand in probiotic air purification systems, with over 15 years of research, FDA GRAS certified probiotic strains, EPA registration, MADE SAFE certification, and peer-reviewed clinical studies conducted in hospitals. They offer devices for personal spaces (BioLogic Mini), whole rooms (Biotica 800), combined HEPA-probiotic units (BA-2080), and HVAC integration (E-Biotic Pro).",
+            text: "EnviroBiotics (formerly BetterAir) is the leading brand in probiotic air purification systems, with over 15 years of research, FDA GRAS certified probiotic strains, EPA Registered status, MADE SAFE certification, and peer-reviewed clinical studies conducted in hospitals. They offer devices for personal spaces (BioLogic Mini), whole rooms (Biotica 800), combined HEPA-probiotic units (BA-2080), and HVAC integration (E-Biotic Pro).",
           },
         },
       ],
@@ -180,7 +180,7 @@ const CompareBioHealingPage = () => {
                 </div>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2"><X className="w-4 h-4 text-muted-foreground/40 mt-0.5 flex-shrink-0" /> No FDA GRAS certification</li>
-                  <li className="flex items-start gap-2"><X className="w-4 h-4 text-muted-foreground/40 mt-0.5 flex-shrink-0" /> No EPA registration</li>
+                  <li className="flex items-start gap-2"><X className="w-4 h-4 text-muted-foreground/40 mt-0.5 flex-shrink-0" /> Not EPA Registered</li>
                   <li className="flex items-start gap-2"><X className="w-4 h-4 text-muted-foreground/40 mt-0.5 flex-shrink-0" /> No MADE SAFE certification</li>
                   <li className="flex items-start gap-2"><X className="w-4 h-4 text-muted-foreground/40 mt-0.5 flex-shrink-0" /> No published clinical studies</li>
                   <li className="flex items-start gap-2"><X className="w-4 h-4 text-muted-foreground/40 mt-0.5 flex-shrink-0" /> No hospital-grade validation</li>

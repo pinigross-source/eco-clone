@@ -408,7 +408,7 @@ const HVACPage = () => {
                   name: "Is HVAC probiotic treatment safe for building occupants?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Yes. All EnviroBiotics HVAC products use EPA registered, FDA GRAS certified Bacillus probiotic strains. They are non-pathogenic, produce no ozone or VOCs, and are safe for continuous human exposure, including in hospitals, schools, and offices.",
+                    text: "Yes. All EnviroBiotics HVAC products use EPA Registered, FDA GRAS certified Bacillus probiotic strains. They are non-pathogenic, produce no ozone or VOCs, and are safe for continuous human exposure, including in hospitals, schools, and offices.",
                   },
                 },
               ],

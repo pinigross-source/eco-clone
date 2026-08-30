@@ -65,7 +65,7 @@ const jsonLd = {
           name: "Are probiotic air purifiers FDA approved?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "EnviroBiotics uses Bacillus probiotics classified as FDA GRAS (Generally Recognized As Safe). The products are also EPA-registered, MADE SAFE certified, and ISO 9001 certified.",
+            text: "EnviroBiotics uses Bacillus probiotics classified as FDA GRAS (Generally Recognized As Safe). The products are also EPA Registered, MADE SAFE certified, and ISO 9001 certified.",
           },
         },
       ],

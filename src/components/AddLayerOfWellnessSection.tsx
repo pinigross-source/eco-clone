@@ -33,7 +33,7 @@ const rows: Row[] = [
       "Dust, dander, mold, and other contaminants don't stay in the air. They settle onto cribs, rugs, toys, and every surface your child touches. Over time, these pollutants can contribute to allergies, irritation, and restless sleep.",
     pairedTitle: "What you get",
     pairedBody:
-      "EnviroBiotics® restores the natural balance of your indoor ecosystem, helping reduce harmful pathogens and surface contaminants throughout the room. Its quiet, automatic 24/7 dispersion reaches the surfaces traditional air purifiers can't. EPA-registered technology and PTPA (Parent Tested Parent Approved) endorsement provide trusted performance and peace of mind.",
+      "EnviroBiotics® restores the natural balance of your indoor ecosystem, helping reduce harmful pathogens and surface contaminants throughout the room. Its quiet, automatic 24/7 dispersion reaches the surfaces traditional air purifiers can't. EPA Registered technology and PTPA (Parent Tested Parent Approved) endorsement provide trusted performance and peace of mind.",
     primaryLabel: "Buy a Solution",
     primaryHref: "https://shop.envirobiotics.com/",
     secondaryLabel: "Learn more",
