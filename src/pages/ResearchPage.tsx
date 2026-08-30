@@ -16,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { LifestyleHero } from "@/components/LifestyleHero";
+import { GooglePreferredSourceButton } from "@/components/GooglePreferredSourceButton";
 import heroResearchLifestyleAsset from "@/assets/research-hero.avif.asset.json";
 const heroResearchLifestyle = heroResearchLifestyleAsset.url;
 const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").then(m => ({ default: m.ContentProductCTA })));
@@ -411,6 +412,12 @@ const ResearchPage = () => {
                 </div>
               </div>
             </ScrollReveal>
+
+            <div className="max-w-3xl mx-auto mt-10">
+              <ScrollReveal>
+                <GooglePreferredSourceButton />
+              </ScrollReveal>
+            </div>
           </div>
         </section>
       </main>

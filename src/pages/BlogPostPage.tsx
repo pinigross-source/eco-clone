@@ -10,6 +10,7 @@ import { getPostBySlug, getRelatedPosts, BlogPost } from "@/data/blogData";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BlogContentRenderer } from "@/components/blog/BlogContentRenderer";
+import { GooglePreferredSourceButton } from "@/components/GooglePreferredSourceButton";
 
 const RelatedPostCard = ({ post }: { post: BlogPost }) => (
   <Link
@@ -414,6 +415,11 @@ const BlogPostPage = () => {
                     </Link>
                   </div>
                 </div>
+              </ScrollReveal>
+
+              {/* Google Preferred Source */}
+              <ScrollReveal delay={0.2}>
+                <GooglePreferredSourceButton className="mt-8" />
               </ScrollReveal>
             </div>
           </div>
