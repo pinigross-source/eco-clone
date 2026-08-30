@@ -86,10 +86,10 @@ const glossaryTerms: GlossaryTerm[] = [
     ],
   },
   {
-    term: "EPA Registration",
+    term: "EPA Registered",
     slug: "epa-registration",
     definition: "Official registration with the U.S. Environmental Protection Agency, confirming a product has been reviewed for safety and efficacy claims.",
-    extendedDescription: "EPA registration is required for products that make antimicrobial or pesticidal claims. The registration process involves submitting toxicology data, product chemistry information, and efficacy studies. EnviroBiotics products carry EPA registration numbers, confirming they meet federal safety standards for use in occupied indoor environments, including homes, schools, offices, and healthcare facilities.",
+    extendedDescription: "EPA Registered status is required for products that make antimicrobial or pesticidal claims. The registration process involves submitting toxicology data, product chemistry information, and efficacy studies. EnviroBiotics products are EPA Registered with registration numbers, confirming they meet federal safety standards for use in occupied indoor environments, including homes, schools, offices, and healthcare facilities.",
     relatedLinks: [
       { label: "Safety & Certifications", url: "/safety" },
       { label: "Proof & Trust", url: "/proof-and-trust" },

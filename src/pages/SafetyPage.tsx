@@ -130,7 +130,7 @@ const SafetyPage = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Safety & Certifications | EnviroBiotics"
-        description="EnviroBiotics products are FDA GRAS certified, EPA registered, and allergy-friendly. Safe for children, pets, and daily use. View all certifications."
+        description="EnviroBiotics products are FDA GRAS certified, EPA Registered, and allergy-friendly. Safe for children, pets, and daily use. View all certifications."
         path="/safety"
         jsonLd={{
           "@context": "https://schema.org",
@@ -147,7 +147,7 @@ const SafetyPage = () => {
                   name: "Is EnviroBiotics safe for children and babies?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Yes. EnviroBiotics uses FDA GRAS certified Bacillus probiotics, the same class of bacteria found naturally in soil and used in food production. Products are MADE SAFE certified, EPA registered, and PTPA (Parent Tested Parent Approved) awarded. They are completely safe for infants, toddlers, and children for daily long-term use.",
+                    text: "Yes. EnviroBiotics uses FDA GRAS certified Bacillus probiotics, the same class of bacteria found naturally in soil and used in food production. Products are MADE SAFE certified, EPA Registered, and PTPA (Parent Tested Parent Approved) awarded. They are completely safe for infants, toddlers, and children for daily long-term use.",
                   },
                 },
                 {
@@ -163,7 +163,7 @@ const SafetyPage = () => {
                   name: "What certifications does EnviroBiotics have?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "EnviroBiotics holds EPA registration, FDA GRAS certification, ISO 9001 quality certification, AllergyUK approval, MADE SAFE certification, and PTPA (Parent Tested Parent Approved) award. These independent certifications confirm safety and efficacy for household use.",
+                    text: "EnviroBiotics is EPA Registered and holds FDA GRAS certification, ISO 9001 quality certification, AllergyUK approval, MADE SAFE certification, and PTPA (Parent Tested Parent Approved) award. These independent certifications confirm safety and efficacy for household use.",
                   },
                 },
               ],
@@ -391,7 +391,7 @@ const SafetyPage = () => {
       <section className="container max-w-4xl px-4 pb-8">
         <ContentProductCTA
           headline="Safe for your family. Proven by science."
-          subtitle="All EnviroBiotics devices use FDA GRAS, EPA-approved probiotic strains. Find yours."
+          subtitle="All EnviroBiotics devices use FDA GRAS, EPA Registered probiotic strains. Find yours."
         />
       </section>
 

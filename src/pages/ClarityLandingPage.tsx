@@ -572,7 +572,7 @@ const ClarityLandingPage = () => {
                       {
                         icon: ShieldCheck,
                         label: "FDA GRAS probiotic strains",
-                        copy: "Backed by recognized safety standards and EPA review.",
+                        copy: "Backed by recognized safety standards and EPA Registered.",
                       },
                     ].map((pillar) => {
                       const Icon = pillar.icon;

@@ -50,7 +50,7 @@ const jsonLd = {
         { "@type": "Question", name: "How long until I notice a difference?", acceptedAnswer: { "@type": "Answer", text: "Most people notice improvement in nasal congestion and sleep quality within 2–3 weeks of continuous use. Allergen reduction is measurable within 30 days." } },
         { "@type": "Question", name: "Will it work if I still have pets?", acceptedAnswer: { "@type": "Answer", text: "Yes. Probiotic purification reduces pet allergens on surfaces. You don't have to choose between your pet and breathing clearly." } },
         { "@type": "Question", name: "What if I have mold right now?", acceptedAnswer: { "@type": "Answer", text: "Fix the moisture source first. Probiotic treatment prevents mold from re-establishing after remediation." } },
-        { "@type": "Question", name: "Is it safe for my kids?", acceptedAnswer: { "@type": "Answer", text: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA registered. Safe for infants, children and pregnant women." } },
+        { "@type": "Question", name: "Is it safe for my kids?", acceptedAnswer: { "@type": "Answer", text: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA Registered. Safe for infants, children and pregnant women." } },
         { "@type": "Question", name: "Can I use it with my air purifier?", acceptedAnswer: { "@type": "Answer", text: "Yes. An air purifier handles the floating particles. EnviroBiotics handles the surfaces where most allergens live." } },
       ],
     },
@@ -125,7 +125,7 @@ const faqs = [
   { q: "How long until I notice a difference?", a: "Most people notice improvement in nasal congestion and sleep quality within 2–3 weeks of continuous use. Allergen reduction is measurable within 30 days. Severity of the starting allergen load determines the slope." },
   { q: "Will it work if I still have pets?", a: "Yes. Probiotic purification reduces pet allergens on surfaces, not by removing the pet. Most people find the resulting load very tolerable." },
   { q: "What if I have mold right now?", a: "Fix the moisture source first. Probiotic treatment prevents mold from re-establishing afterward, it works as prevention and maintenance, not as a replacement for fixing a leak." },
-  { q: "Is it safe for my kids?", a: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA registered, the same beneficial bacteria found in soil and on healthy skin. Safe for infants, children and pregnant women." },
+  { q: "Is it safe for my kids?", a: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA Registered, the same beneficial bacteria found in soil and on healthy skin. Safe for infants, children and pregnant women." },
   { q: "Can I use it with my air purifier?", a: "Yes. An air purifier handles floating particles. EnviroBiotics handles the surfaces where most allergens actually live. Together they cover the whole problem." },
 ];
 
@@ -445,7 +445,7 @@ const HealthBenefitsPage = () => {
             <div className="container px-5 sm:px-6">
               <p className="text-white/85 text-[11px] font-semibold tracking-[0.28em] uppercase mb-3">Safe from day one</p>
               <p className="text-white text-2xl sm:text-3xl md:text-4xl font-display font-semibold max-w-2xl leading-tight" style={{ textShadow: "0 2px 18px rgba(0,0,0,0.4)" }}>
-                FDA GRAS certified. EPA registered. Safe for infants, children and pregnant women, from birth.
+                FDA GRAS certified. EPA Registered. Safe for infants, children and pregnant women, from birth.
               </p>
             </div>
           </div>
@@ -563,7 +563,7 @@ const HealthBenefitsPage = () => {
           </Suspense>
 
           <p className="text-xs text-muted-foreground mt-16 leading-relaxed text-center max-w-3xl mx-auto">
-            All EnviroBiotics probiotic strains are FDA GRAS certified, EPA registered and MADE SAFE certified.
+            All EnviroBiotics probiotic strains are FDA GRAS certified, EPA Registered and MADE SAFE certified.
             Independent lab testing conducted by Indoor Biotechnologies. Health information provided for
             educational purposes. Not intended as medical advice. Consult a qualified healthcare provider
             for personal health guidance.

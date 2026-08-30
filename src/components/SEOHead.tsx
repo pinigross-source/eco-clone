@@ -272,7 +272,7 @@ export const makeProductJsonLd = (opts: {
     {
       "@type": "PropertyValue",
       name: "EPA Registered",
-      value: "Yes  EPA registered probiotic strains",
+      value: "Yes  EPA Registered probiotic strains",
     },
     {
       "@type": "PropertyValue",
@@ -355,7 +355,7 @@ export const homepageFaqJsonLd = {
       name: "Are EnviroBiotics products safe for children and pets?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. All EnviroBiotics probiotic strains are FDA GRAS (Generally Recognized As Safe) certified. Products are MADE SAFE certified, EPA registered, and AllergyUK approved. They produce no ozone, no VOCs, and no chemical residues: safe for daily use around infants, children, pregnant women, and pets.",
+        text: "Yes. All EnviroBiotics probiotic strains are FDA GRAS (Generally Recognized As Safe) certified. Products are MADE SAFE certified, EPA Registered, and AllergyUK approved. They produce no ozone, no VOCs, and no chemical residues: safe for daily use around infants, children, pregnant women, and pets.",
       },
     },
     {
@@ -387,7 +387,7 @@ export const homepageFaqJsonLd = {
       name: "Which brands are the most reliable for probiotic air purification systems?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "EnviroBiotics (formerly BetterAir) is the leading brand in probiotic air purification systems, with over 15 years of research, FDA GRAS certified strains, EPA registration, MADE SAFE certification, and peer-reviewed clinical studies. They offer the BioLogic Mini, Biotica 800, BA-2080, and E-Biotic Pro for spaces from 300 to 25,000 square feet.",
+        text: "EnviroBiotics (formerly BetterAir) is the leading brand in probiotic air purification systems, with over 15 years of research, FDA GRAS certified strains, EPA Registered status, MADE SAFE certification, and peer-reviewed clinical studies. They offer the BioLogic Mini, Biotica 800, BA-2080, and E-Biotic Pro for spaces from 300 to 25,000 square feet.",
       },
     },
     {

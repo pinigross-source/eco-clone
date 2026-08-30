@@ -124,7 +124,7 @@ const benefits = [
 /* ─── How to Choose checklist ───────────────────────────── */
 const chooseChecklist = [
   "FDA GRAS certified strains: this is non-negotiable. The specific Bacillus strains used must carry this certification.",
-  "EPA registration: confirms the product has been assessed for indoor environmental safety.",
+  "EPA Registered: confirms the product has been assessed for indoor environmental safety.",
   "Independent lab testing: look for published or verifiable third-party test data, not just marketing claims.",
   "Coverage area matching your space: probiotic purifiers are rated by square footage.",
   "Continuous operation design: effective probiotic purification requires continuous low-level dispersal, not periodic bursts.",
@@ -581,7 +581,7 @@ const ProbioticAirPurificationPage = () => {
                   For households dealing with allergies, mold sensitivity, pets, or a desire to reduce chemical cleaners, probiotic purification offers results that HEPA filtration alone simply cannot achieve.
                 </p>
                 <p>
-                  EnviroBiotics devices use exclusively FDA GRAS certified, EPA registered Bacillus strains. They are independently tested, MADE SAFE certified, and safe for every member of your household, including the smallest and most vulnerable.
+                  EnviroBiotics devices use exclusively FDA GRAS certified, EPA Registered Bacillus strains. They are independently tested, MADE SAFE certified, and safe for every member of your household, including the smallest and most vulnerable.
                 </p>
               </div>
             </ScrollReveal>
@@ -616,7 +616,7 @@ const ProbioticAirPurificationPage = () => {
                   </div>
 
                   <p className="text-xs text-muted-foreground mt-8 max-w-xl">
-                    All EnviroBiotics probiotic strains are FDA GRAS certified, EPA registered, and MADE SAFE certified. Independent lab testing conducted by Indoor Biotechnologies. Results may vary based on space size, environmental conditions, and continuous device operation.
+                    All EnviroBiotics probiotic strains are FDA GRAS certified, EPA Registered, and MADE SAFE certified. Independent lab testing conducted by Indoor Biotechnologies. Results may vary based on space size, environmental conditions, and continuous device operation.
                   </p>
                 </div>
               </div>

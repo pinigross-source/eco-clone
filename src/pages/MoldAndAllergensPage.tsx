@@ -52,7 +52,7 @@ const jsonLd = {
         { "@type": "Question", name: "Does an air purifier help with mold?", acceptedAnswer: { "@type": "Answer", text: "A HEPA purifier can capture airborne spores but has no effect on mold growing on surfaces, where the real problem lives. Probiotic purification reaches the surfaces and removes the food source spores need to germinate." } },
         { "@type": "Question", name: "What if I have active mold right now?", acceptedAnswer: { "@type": "Answer", text: "Fix the moisture source first. Clean visible mold with vinegar or a professional remediator, then deploy probiotic purification to prevent it from coming back." } },
         { "@type": "Question", name: "Can I use probiotic purification if I have pets?", acceptedAnswer: { "@type": "Answer", text: "Yes. Probiotic treatment reduces pet allergen load on surfaces. You don't have to choose between your pet and breathing easily." } },
-        { "@type": "Question", name: "Is it safe for kids?", acceptedAnswer: { "@type": "Answer", text: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA registered. Safe for infants, children, pregnant women and people with chemical sensitivities." } },
+        { "@type": "Question", name: "Is it safe for kids?", acceptedAnswer: { "@type": "Answer", text: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA Registered. Safe for infants, children, pregnant women and people with chemical sensitivities." } },
         { "@type": "Question", name: "What humidity level prevents both mold and dust mites?", acceptedAnswer: { "@type": "Answer", text: "40 to 50 percent relative humidity is the sweet spot. Below 50 percent slows dust mite reproduction. Below 60 percent prevents most mold growth." } },
       ],
     },
@@ -108,7 +108,7 @@ const faqs = [
   { q: "Does an air purifier help with mold?", a: "A HEPA purifier can capture airborne spores but has no effect on mold growing on surfaces, where the real problem lives. Probiotic purification reaches the surfaces and removes the food source spores need to germinate." },
   { q: "What if I have active mold right now?", a: "Fix the moisture source first, leaks, ventilation, humidity. Clean visible mold with vinegar or call a remediator if it's extensive. Then deploy probiotic purification to prevent regrowth, the layer that addresses re-accumulation." },
   { q: "Can I use probiotic purification if I have pets?", a: "Yes. Probiotic treatment reduces pet allergen load on surfaces, not by removing the pet. Most pet owners use it to manage allergens while keeping their animals comfortably." },
-  { q: "Is it safe for kids?", a: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA registered, the same beneficial bacteria found in soil and on healthy skin. Safe for infants, children, pregnant women and people with chemical sensitivities." },
+  { q: "Is it safe for kids?", a: "Yes. All EnviroBiotics strains are FDA GRAS certified and EPA Registered, the same beneficial bacteria found in soil and on healthy skin. Safe for infants, children, pregnant women and people with chemical sensitivities." },
   { q: "What humidity level prevents both mold and dust mites?", a: "40 to 50 percent relative humidity is the sweet spot. Below 50 percent slows dust mite reproduction. Below 60 percent prevents most mold growth. A simple hygrometer in problem rooms makes this trivial to monitor." },
 ];
 
@@ -562,7 +562,7 @@ const MoldAndAllergensPage = () => {
           </Suspense>
 
           <p className="text-xs text-muted-foreground mt-16 leading-relaxed text-center max-w-3xl mx-auto">
-            All EnviroBiotics probiotic strains are FDA GRAS certified, EPA registered and MADE SAFE certified.
+            All EnviroBiotics probiotic strains are FDA GRAS certified, EPA Registered and MADE SAFE certified.
             Independent lab testing conducted by Indoor Biotechnologies. Educational content. Not intended as
             medical advice. Consult a qualified healthcare provider for personal health guidance.
           </p>
