@@ -411,6 +411,12 @@ const ResearchPage = () => {
                 </div>
               </div>
             </ScrollReveal>
+
+            <div className="max-w-3xl mx-auto mt-10">
+              <ScrollReveal>
+                <GooglePreferredSourceButton />
+              </ScrollReveal>
+            </div>
           </div>
         </section>
       </main>

@@ -415,6 +415,11 @@ const BlogPostPage = () => {
                   </div>
                 </div>
               </ScrollReveal>
+
+              {/* Google Preferred Source */}
+              <ScrollReveal delay={0.2}>
+                <GooglePreferredSourceButton className="mt-8" />
+              </ScrollReveal>
             </div>
           </div>
         </section>

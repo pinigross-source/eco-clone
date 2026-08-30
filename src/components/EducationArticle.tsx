@@ -11,6 +11,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { GooglePreferredSourceButton } from "@/components/GooglePreferredSourceButton";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").then(m => ({ default: m.ContentProductCTA })));
@@ -232,6 +233,15 @@ export const EducationArticle = ({
             </div>
           </section>
         )}
+
+        {/* Preferred Source */}
+        <section className="container max-w-5xl px-5 sm:px-6 py-6 md:py-8">
+          <Suspense fallback={null}>
+            <ScrollReveal>
+              <GooglePreferredSourceButton />
+            </ScrollReveal>
+          </Suspense>
+        </section>
 
         {/* Product CTA */}
         <section className="container max-w-5xl px-5 sm:px-6 py-12 md:py-16">
