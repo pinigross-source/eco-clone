@@ -27,12 +27,13 @@ export const GooglePreferredSourceButton = ({
           </p>
         </div>
         <div className="shrink-0">
-          {/* Google's official button target */}
+          {/* Google's official button target.
+              dangerouslySetInnerHTML preserves the hyphenated custom attribute
+              that React's JSX renderer would otherwise strip on a plain div. */}
           <div
-            google-add-preferred-source-btn
-            data-theme={theme}
-            data-lang={lang}
-            className="min-h-[40px]"
+            dangerouslySetInnerHTML={{
+              __html: `<div google-add-preferred-source-btn data-theme="${theme}" data-lang="${lang}" class="min-h-[40px]"></div>`,
+            }}
           />
           {/* No-JS / email / social fallback */}
           <noscript>
