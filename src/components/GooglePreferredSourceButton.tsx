@@ -1,4 +1,7 @@
-import { Bookmark } from "lucide-react";
+import { Bookmark, ExternalLink } from "lucide-react";
+
+const GOOGLE_PREFERRED_SOURCE_URL =
+  "https://www.google.com/preferences/source?q=envirobiotics.com";
 
 interface GooglePreferredSourceButtonProps {
   theme?: "light" | "dark";
@@ -22,30 +25,27 @@ export const GooglePreferredSourceButton = ({
             Add EnviroBiotics as a preferred source
           </h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Get our latest research, guides, and air-quality insights highlighted
-            in your Google experience.
+            Get our latest research, guides, and air-quality insights
+            highlighted in your Google experience.
           </p>
         </div>
-        <div className="shrink-0">
-          {/* Google's official button target.
-              dangerouslySetInnerHTML preserves the hyphenated custom attribute
-              that React's JSX renderer would otherwise strip on a plain div. */}
+        <div className="shrink-0 flex flex-col items-start sm:items-end gap-3">
+          {/* Always-visible, always-working CTA using Google's official deeplink */}
+          <a
+            href={GOOGLE_PREFERRED_SOURCE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-xl text-sm font-semibold hover:bg-primary/90 transition-colors"
+          >
+            <ExternalLink className="w-4 h-4" />
+            Add on Google
+          </a>
+          {/* Google's official button target — renders only on eligible, registered domains */}
           <div
             dangerouslySetInnerHTML={{
-              __html: `<div google-add-preferred-source-btn data-theme="${theme}" data-lang="${lang}" class="min-h-[40px]"></div>`,
+              __html: `<div google-add-preferred-source-btn data-theme="${theme}" data-lang="${lang}" class="min-h-[8px]"></div>`,
             }}
           />
-          {/* No-JS / email / social fallback */}
-          <noscript>
-            <a
-              href="https://www.google.com/preferences/source?q=envirobiotics.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-xl text-sm font-medium hover:bg-primary/90 transition-colors"
-            >
-              Add on Google
-            </a>
-          </noscript>
         </div>
       </div>
     </div>
