@@ -13,7 +13,6 @@ import morpheusCodNuwa from "@/assets/clients/morpheus-cod-nuwa.png.asset.json";
 import carePartners from "@/assets/clients/care-partners.png.asset.json";
 import melco from "@/assets/clients/melco.png.asset.json";
 import shangriLa from "@/assets/clients/shangri-la.png.asset.json";
-import croceRossa from "@/assets/clients/croce-rossa-italiana.png.asset.json";
 import theFarm from "@/assets/clients/the-farm-san-benito.jpg.asset.json";
 
 const logos = [
