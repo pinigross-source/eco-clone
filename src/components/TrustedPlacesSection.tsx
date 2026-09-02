@@ -20,7 +20,6 @@ const logos = [
   { src: brooklynNets.url, alt: "Brooklyn Nets", scale: 2 },
   { src: shangriLa.url, alt: "Shangri-La Hotels and Resorts" },
   { src: cityOfDreams, alt: "City of Dreams Macau", scale: 1.6 },
-  { src: croceRossa.url, alt: "Croce Rossa Italiana" },
   { src: caSchool, alt: "Canadian International School of Hong Kong", scale: 1.5 },
   { src: medone, alt: "MedOne", scale: 1.6 },
   { src: ganther, alt: "Ganther" },
