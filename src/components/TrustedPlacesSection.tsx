@@ -13,7 +13,6 @@ import morpheusCodNuwa from "@/assets/clients/morpheus-cod-nuwa.png.asset.json";
 import carePartners from "@/assets/clients/care-partners.png.asset.json";
 import melco from "@/assets/clients/melco.png.asset.json";
 import shangriLa from "@/assets/clients/shangri-la.png.asset.json";
-import croceRossa from "@/assets/clients/croce-rossa-italiana.png.asset.json";
 import theFarm from "@/assets/clients/the-farm-san-benito.jpg.asset.json";
 
 const logos = [
@@ -21,7 +20,6 @@ const logos = [
   { src: brooklynNets.url, alt: "Brooklyn Nets", scale: 2 },
   { src: shangriLa.url, alt: "Shangri-La Hotels and Resorts" },
   { src: cityOfDreams, alt: "City of Dreams Macau", scale: 1.6 },
-  { src: croceRossa.url, alt: "Croce Rossa Italiana" },
   { src: caSchool, alt: "Canadian International School of Hong Kong", scale: 1.5 },
   { src: medone, alt: "MedOne", scale: 1.6 },
   { src: ganther, alt: "Ganther" },
