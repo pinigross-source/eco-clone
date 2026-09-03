@@ -56,7 +56,7 @@ const certifications = [
 
 const heroImg = heroAsset.url;
 
-const PROMO = "PARENTS";
+const PROMO = "META15";
 const MINI_URL = shopifyProductDiscountUrl("biologic-mini", PROMO, "parents-landing");
 const BUNDLE_URL = shopifyProductDiscountUrl("home-complete-bundle", PROMO, "parents-landing");
 const BIOTICA_URL = shopifyProductDiscountUrl("biotica-800", PROMO, "parents-landing");
@@ -567,10 +567,11 @@ const ParentsLandingPage = () => {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-6 border-t border-border/60 pt-5">
-                      <div className="mb-1 flex items-baseline gap-3">
-                        <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">$98</span>
-                      </div>
+                      <div className="mt-6 border-t border-border/60 pt-5">
+                        <div className="mb-1 flex items-baseline gap-3">
+                          <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">$83.30</span>
+                          <span className="text-base text-muted-foreground line-through">$98</span>
+                        </div>
                       <a
                         href={MINI_URL}
                         onClick={() => trackEvent("click_parents_products_mini")}
@@ -605,7 +606,7 @@ const ParentsLandingPage = () => {
                   </div>
                   <div className="flex flex-1 flex-col p-6 sm:p-8">
                     <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground">
-                      Most parents get two · Save $100
+                      Most parents get two · Save $59.25
                     </p>
                     <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-[1.75rem]">
                       Home Bundle
@@ -627,12 +628,12 @@ const ParentsLandingPage = () => {
                     </ul>
                     <div className="mt-6 border-t border-border/60 pt-5">
                       <div className="flex items-baseline gap-3">
-                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$395</span>
-                        <span className="text-base text-muted-foreground line-through">$495</span>
-                        <span className="text-[0.78rem] font-bold text-foreground">Save $100</span>
+                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$335.75</span>
+                        <span className="text-base text-muted-foreground line-through">$395</span>
+                        <span className="text-[0.78rem] font-bold text-foreground">Save $59.25</span>
                       </div>
                       <a
-                        href="https://shop.envirobiotics.com/products/home-complete-bundle"
+                        href={BUNDLE_URL}
                         onClick={() => trackEvent("click_parents_products_bundle")}
                         className="mt-4 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >
@@ -684,10 +685,11 @@ const ParentsLandingPage = () => {
                     </ul>
                     <div className="mt-6 border-t border-border/60 pt-5">
                       <div className="flex items-baseline gap-2">
-                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$299</span>
+                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$254.15</span>
+                        <span className="text-base text-muted-foreground line-through">$299</span>
                       </div>
                       <a
-                        href="https://shop.envirobiotics.com/products/biotica-800"
+                        href={BIOTICA_URL}
                         onClick={() => trackEvent("click_parents_products_biotica")}
                         className="mt-4 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground text-base font-semibold text-background transition-colors hover:bg-foreground/90"
                       >

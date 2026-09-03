@@ -23,7 +23,7 @@ import madeSafeAsset from "@/assets/certs/cert_5.png.asset.json";
 import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
 import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
 
-const PROMO = "ALLERGY";
+const PROMO = "META15";
 const BIOTICA_URL = shopifyProductDiscountUrl("biotica-800", PROMO, "allergy-landing");
 const MINI_URL = shopifyProductDiscountUrl("biologic-mini", PROMO, "allergy-landing");
 const BUNDLE_URL = shopifyProductDiscountUrl("home-complete-bundle", PROMO, "allergy-landing");
@@ -462,7 +462,7 @@ const AllergyLandingPage = () => {
           <Reveal delay={150}>
             <div className="mt-10 text-center">
               <a
-                href="https://shop.envirobiotics.com/products/biologic-mini"
+                href={MINI_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-sm font-semibold text-sage hover:text-sage/80 underline underline-offset-4"
@@ -492,7 +492,8 @@ const AllergyLandingPage = () => {
             <Reveal>
               <PriceCard
                 name="BioLogic Mini"
-                price="$98"
+                price="$83.30"
+                compareAt="$98"
                 best="Best for a single room, up to 300 sq ft."
                 href={MINI_URL}
                 onBuy={() => track("cta_click", { section: "pricing_mini" })}
@@ -503,7 +504,8 @@ const AllergyLandingPage = () => {
             <Reveal delay={80}>
               <PriceCard
                 name="Biotica"
-                price="$299"
+                price="$254.15"
+                compareAt="$299"
                 best="For spaces up to 800 sq ft."
                 href={BIOTICA_URL}
                 onBuy={() => track("cta_click", { section: "pricing_biotica" })}
@@ -514,9 +516,9 @@ const AllergyLandingPage = () => {
             <Reveal delay={160}>
               <PriceCard
                 name="Home Bundle"
-                price="$395"
-                compareAt="$495"
-                saveBadge="Save $100"
+                price="$335.75"
+                compareAt="$395"
+                saveBadge="Save $59.25"
                 topBadge="Most popular · Best value"
                 best="2 BioLogic Minis + 1 Biotica, whole home plus two rooms."
                 href={BUNDLE_URL}
