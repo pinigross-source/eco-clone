@@ -206,40 +206,47 @@ const ParentsLandingPage = () => {
             width={1920}
             height={1080}
           />
-          {/* Subtle scrim: only lightening behind text, full image visible below */}
+          {/* Scrim: soft top wash on mobile, left-side wash on desktop so copy never fights the subject */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-b from-[#f7f3ec]/40 via-[#f7f3ec]/5 to-transparent"
+            className="absolute inset-0 bg-gradient-to-b from-[#f7f3ec]/70 via-[#f7f3ec]/20 to-transparent lg:hidden"
           />
-          <div className="relative z-10 mx-auto flex h-full max-w-[1120px] flex-col items-center justify-start px-6 pt-24 sm:pt-28 lg:pt-32 text-center">
-            <Reveal>
-              <h1 className="font-display font-semibold text-foreground tracking-[-0.04em] text-[clamp(2.5rem,8vw,3.25rem)] leading-[1.02] sm:text-[clamp(3.5rem,6.5vw,5rem)] sm:leading-[1.0] lg:text-[clamp(4rem,5vw,5.75rem)]">
-                {hero.headline}
-              </h1>
-            </Reveal>
-            <Reveal>
-              <div className="mx-auto mt-6 sm:mt-8 inline-block rounded-2xl bg-[#f7f3ec]/70 px-6 py-4 sm:px-8 sm:py-5 backdrop-blur-sm">
-                <p className="max-w-[36rem] text-[1.15rem] font-normal leading-[1.55] text-foreground/90 sm:max-w-[40rem] sm:text-[1.35rem] sm:leading-[1.5]">
-                  {hero.sub}
-                </p>
-              </div>
-            </Reveal>
-            <Reveal>
-              <div className="mt-9 flex flex-col items-center gap-4 sm:mt-11">
-                <a
-                  href={MINI_URL}
-                  onClick={() => trackEvent("click_parents_hero_cta")}
-                >
-                  <Button
-                    size="lg"
-                    className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]"
+          <div
+            aria-hidden
+            className="absolute inset-0 hidden lg:block bg-gradient-to-r from-[#f7f3ec]/92 via-[#f7f3ec]/55 to-transparent"
+          />
+          <div className="relative z-10 mx-auto flex h-full max-w-[1240px] flex-col items-center justify-start px-6 pt-24 text-center sm:pt-28 lg:grid lg:grid-cols-[minmax(0,0.62fr)_minmax(0,0.38fr)] lg:items-center lg:justify-normal lg:pt-0 lg:text-left">
+            <div className="flex flex-col items-center lg:items-start lg:max-w-[36rem]">
+              <Reveal>
+                <h1 className="font-display font-semibold text-foreground tracking-[-0.04em] text-[clamp(2.5rem,8vw,3.25rem)] leading-[1.02] sm:text-[clamp(3.25rem,6vw,4.25rem)] sm:leading-[1.0] lg:text-[clamp(3.25rem,4.2vw,4.5rem)]">
+                  {hero.headline}
+                </h1>
+              </Reveal>
+              <Reveal>
+                <div className="mx-auto mt-6 inline-block rounded-2xl bg-[#f7f3ec]/70 px-6 py-4 backdrop-blur-sm sm:mt-8 sm:px-8 sm:py-5 lg:mx-0 lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none">
+                  <p className="max-w-[36rem] text-[1.05rem] font-normal leading-[1.55] text-foreground/90 sm:text-[1.2rem] sm:leading-[1.5] lg:text-[1.15rem]">
+                    {hero.sub}
+                  </p>
+                </div>
+              </Reveal>
+              <Reveal>
+                <div className="mt-8 flex flex-col items-center gap-4 sm:mt-10 lg:items-start">
+                  <a
+                    href={MINI_URL}
+                    onClick={() => trackEvent("click_parents_hero_cta")}
                   >
-                    Secure My Baby&apos;s Space
-                  </Button>
-                </a>
-              </div>
-            </Reveal>
+                    <Button
+                      size="lg"
+                      className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]"
+                    >
+                      Secure My Baby&apos;s Space
+                    </Button>
+                  </a>
+                </div>
+              </Reveal>
+            </div>
           </div>
+
           {/* Scroll cue */}
           <div className="pointer-events-none absolute bottom-8 left-1/2 z-10 -translate-x-1/2 animate-bounce text-foreground/40">
             <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
