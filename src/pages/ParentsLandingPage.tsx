@@ -195,7 +195,7 @@ const ParentsLandingPage = () => {
       <Navbar />
       <main className="parents-apple bg-background text-foreground pt-16 lg:pt-[124px]">
         {/* ============ HERO ============ */}
-        <section className="relative w-full overflow-hidden h-[100svh] min-h-[680px] sm:min-h-[760px]">
+        <section className="relative w-full overflow-hidden h-screen h-[100svh] min-h-[680px] sm:min-h-[760px]">
           <img
             src={heroImg}
             alt="Soft, warm nursery in morning light"
