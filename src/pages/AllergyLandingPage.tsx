@@ -462,7 +462,7 @@ const AllergyLandingPage = () => {
           <Reveal delay={150}>
             <div className="mt-10 text-center">
               <a
-                href="https://shop.envirobiotics.com/products/biologic-mini"
+                href={MINI_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-sm font-semibold text-sage hover:text-sage/80 underline underline-offset-4"
