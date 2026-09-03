@@ -199,7 +199,7 @@ const ParentsLandingPage = () => {
           <img
             src={heroImg}
             alt="Soft, warm nursery in morning light"
-            className="absolute inset-0 h-full w-full object-cover object-center scale-105"
+            className="absolute inset-0 h-full w-full scale-105 object-cover object-center lg:object-[70%_center]"
             fetchPriority="high"
             loading="eager"
             decoding="async"
