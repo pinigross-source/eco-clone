@@ -492,7 +492,8 @@ const AllergyLandingPage = () => {
             <Reveal>
               <PriceCard
                 name="BioLogic Mini"
-                price="$98"
+                price="$83.30"
+                compareAt="$98"
                 best="Best for a single room, up to 300 sq ft."
                 href={MINI_URL}
                 onBuy={() => track("cta_click", { section: "pricing_mini" })}
@@ -503,7 +504,8 @@ const AllergyLandingPage = () => {
             <Reveal delay={80}>
               <PriceCard
                 name="Biotica"
-                price="$299"
+                price="$254.15"
+                compareAt="$299"
                 best="For spaces up to 800 sq ft."
                 href={BIOTICA_URL}
                 onBuy={() => track("cta_click", { section: "pricing_biotica" })}
@@ -514,9 +516,9 @@ const AllergyLandingPage = () => {
             <Reveal delay={160}>
               <PriceCard
                 name="Home Bundle"
-                price="$395"
-                compareAt="$495"
-                saveBadge="Save $100"
+                price="$335.75"
+                compareAt="$395"
+                saveBadge="Save $59.25"
                 topBadge="Most popular · Best value"
                 best="2 BioLogic Minis + 1 Biotica, whole home plus two rooms."
                 href={BUNDLE_URL}
