@@ -56,7 +56,7 @@ const certifications = [
 
 const heroImg = heroAsset.url;
 
-const PROMO = "PARENTS";
+const PROMO = "META15";
 const MINI_URL = shopifyProductDiscountUrl("biologic-mini", PROMO, "parents-landing");
 const BUNDLE_URL = shopifyProductDiscountUrl("home-complete-bundle", PROMO, "parents-landing");
 const BIOTICA_URL = shopifyProductDiscountUrl("biotica-800", PROMO, "parents-landing");
