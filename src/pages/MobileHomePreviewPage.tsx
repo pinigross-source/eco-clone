@@ -369,20 +369,32 @@ export default function MobileHomePreviewPage() {
   };
 
   useEffect(() => {
-    const targets: Array<[Element | null, React.MutableRefObject<boolean>]> = [
-      [document.querySelector("[data-hero-actions]"), heroActionVisible],
-      [document.querySelector("[data-kit-action]"), kitActionsVisible],
-      [document.querySelector("[data-final-cta]"), finalActionVisible],
-    ];
-    const observers = targets.flatMap(([target, state]) => {
-      if (!target) return [];
+    const visibleKitActions = new Set<Element>();
+    const observers: IntersectionObserver[] = [];
+    const observe = (target: Element | null, onChange: (visible: boolean, target: Element) => void) => {
+      if (!target) return;
       const observer = new IntersectionObserver(([entry]) => {
-        state.current = entry.isIntersecting;
+        onChange(entry.isIntersecting, target);
         updateSticky();
       }, { threshold: 0.15 });
       observer.observe(target);
-      return [observer];
+      observers.push(observer);
+    };
+
+    observe(document.querySelector("[data-hero-actions]"), (visible) => {
+      heroActionVisible.current = visible;
     });
+    document.querySelectorAll("[data-kit-action]").forEach((target) => {
+      observe(target, (visible, element) => {
+        if (visible) visibleKitActions.add(element);
+        else visibleKitActions.delete(element);
+        kitActionsVisible.current = visibleKitActions.size > 0;
+      });
+    });
+    observe(document.querySelector("[data-final-cta]"), (visible) => {
+      finalActionVisible.current = visible;
+    });
+
     return () => observers.forEach((observer) => observer.disconnect());
   }, []);
 
@@ -390,7 +402,7 @@ export default function MobileHomePreviewPage() {
     const configureChat = () => {
       const api = (window as unknown as { tidioChatApi?: TidioApi }).tidioChatApi;
       api?.close?.();
-      api?.display?.(!showSticky && !videoOpen);
+      api?.display?.(false);
       api?.adjustStyles?.(".widgetLabel { display: none !important; }");
     };
     document.addEventListener("tidioChat-ready", configureChat);
@@ -399,7 +411,7 @@ export default function MobileHomePreviewPage() {
       document.removeEventListener("tidioChat-ready", configureChat);
       (window as unknown as { tidioChatApi?: TidioApi }).tidioChatApi?.display?.(true);
     };
-  }, [showSticky, videoOpen]);
+  }, []);
 
   const openDemo = () => {
     trackPreview("demo_open", "mobile_home_preview");

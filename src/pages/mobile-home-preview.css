@@ -528,6 +528,14 @@
   border: 0;
 }
 
+.preview-dialog > button {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  color: var(--preview-bg);
+}
+
 @media (min-width: 40rem) {
   .preview-shell {
     padding-inline: 2rem;
