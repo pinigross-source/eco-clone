@@ -280,6 +280,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <GoogleAnalytics />
       <ScrollToTop />
       <WordPressRedirectHandler />
       <AttributionBeacon />
