@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { shopifyUrl } from "@/lib/shopify";
+import { shopifyUrl, navigateToShopify } from "@/lib/shopify";
 
 function SubscribeRedirect() {
   useEffect(() => {
-    window.location.replace(shopifyUrl("/collections/subscribe-save", "subscribe"));
+    navigateToShopify(shopifyUrl("/collections/subscribe-save", "subscribe"), { replace: true });
   }, []);
   return (
     <div className="min-h-screen flex items-center justify-center bg-background text-foreground">

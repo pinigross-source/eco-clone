@@ -1,6 +1,6 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { shopifyProductUrl } from "@/lib/shopify";
+import { shopifyProductUrl, navigateToShopify } from "@/lib/shopify";
 
 // Legacy slugs that should 301 to their canonical product URL.
 const LEGACY_SLUG_REDIRECTS: Record<string, string> = {
@@ -10,7 +10,7 @@ const LEGACY_SLUG_REDIRECTS: Record<string, string> = {
 function ProductRedirect() {
   const { slug } = Route.useParams();
   useEffect(() => {
-    window.location.replace(shopifyProductUrl(slug));
+    navigateToShopify(shopifyProductUrl(slug), { replace: true });
   }, [slug]);
   return (
     <div className="min-h-screen flex items-center justify-center bg-background text-foreground">

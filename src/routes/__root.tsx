@@ -14,6 +14,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { WordPressRedirectHandler } from "@/components/WordPressRedirectHandler";
 import { AttributionBeacon } from "@/components/AttributionBeacon";
 import { TidioChat } from "@/components/TidioChat";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { isTestEnv } from "@/lib/env";
 
 
@@ -279,6 +280,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <GoogleAnalytics />
       <ScrollToTop />
       <WordPressRedirectHandler />
       <AttributionBeacon />

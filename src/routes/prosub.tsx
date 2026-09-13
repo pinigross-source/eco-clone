@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { useEffect } from "react"
-import { decorateShopUrl } from "@/lib/shopify"
+import { navigateToShopify } from "@/lib/shopify"
 
 export const Route = createFileRoute("/prosub")({
   server: {
@@ -17,9 +17,9 @@ export const Route = createFileRoute("/prosub")({
   },
   component: () => {
     useEffect(() => {
-      window.location.replace(
-        decorateShopUrl("https://shop.envirobiotics.com/collections/prosub"),
-      )
+      navigateToShopify("https://shop.envirobiotics.com/collections/prosub", {
+        replace: true,
+      })
     }, [])
     return null
   },
