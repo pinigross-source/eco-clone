@@ -17,9 +17,9 @@ export const Route = createFileRoute("/prosub")({
   },
   component: () => {
     useEffect(() => {
-      window.location.replace(
-        decorateShopUrl("https://shop.envirobiotics.com/collections/prosub"),
-      )
+      navigateToShopify("https://shop.envirobiotics.com/collections/prosub", {
+        replace: true,
+      })
     }, [])
     return null
   },

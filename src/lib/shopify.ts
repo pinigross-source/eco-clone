@@ -189,6 +189,6 @@ export function resolveShopifyUrl(to: string): string | null {
 /** Client-side redirect helper for route components that should hand off to Shopify. */
 export function redirectToShopify(path: string, campaign?: string): void {
   if (typeof window !== "undefined") {
-    window.location.replace(shopifyUrl(path, campaign));
+    navigateToShopify(shopifyUrl(path, campaign), { replace: true });
   }
 }

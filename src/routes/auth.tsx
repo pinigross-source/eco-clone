@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { shopifyAccount } from "@/lib/shopify";
+import { shopifyAccount, navigateToShopify } from "@/lib/shopify";
 
 function AuthRedirect() {
   useEffect(() => {
-    window.location.replace(shopifyAccount("auth"));
+    navigateToShopify(shopifyAccount("auth"), { replace: true });
   }, []);
   return (
     <div className="min-h-screen flex items-center justify-center bg-background text-foreground">

@@ -16,7 +16,7 @@ function ProsubAffiliateRedirect() {
 
   useEffect(() => {
     const url = id ? `${SHOP_URL}?ref=${encodeURIComponent(id)}` : SHOP_URL
-    window.location.replace(url)
+    navigateToShopify(url, { replace: true })
   }, [id])
 
   return null
