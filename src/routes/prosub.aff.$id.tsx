@@ -1,5 +1,6 @@
 import { createFileRoute, useParams } from "@tanstack/react-router"
 import { useEffect } from "react"
+import { navigateToShopify } from "@/lib/shopify"
 
 const SHOP_URL = "https://shop.envirobiotics.com/collections/prosub"
 
