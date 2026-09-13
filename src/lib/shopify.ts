@@ -48,6 +48,55 @@ export function decorateShopUrl(url: string): string {
 }
 
 
+/**
+ * Imperative navigation to the Shopify store.
+ *
+ * Always applies the stored ad-attribution / affiliate decoration, and routes
+ * through a real anchor click so Google's cross-domain linker can append its
+ * short-lived `_gl` parameter (the linker only decorates anchors on click, it
+ * never touches `window.location` assignments). Falls back to a plain
+ * navigation when no tag is present or the click did not navigate.
+ *
+ * `_gl` is produced by Google at click time and is never stored by us.
+ */
+export function navigateToShopify(
+  url: string,
+  options: { replace?: boolean } = {},
+): void {
+  if (typeof window === "undefined") return;
+  const target = decorateShopUrl(url);
+
+  const go = () => {
+    if (options.replace) window.location.replace(target);
+    else window.location.href = target;
+  };
+
+  const hasTag = typeof (window as unknown as { gtag?: unknown }).gtag === "function";
+  if (!hasTag || typeof document === "undefined") {
+    go();
+    return;
+  }
+
+  try {
+    const a = document.createElement("a");
+    a.href = target;
+    a.rel = "noopener";
+    a.style.display = "none";
+    document.body.appendChild(a);
+    a.click();
+    // If the synthetic click did not navigate, fall back (href may have been
+    // decorated with _gl by the linker in the meantime, so re-read it).
+    window.setTimeout(() => {
+      const decorated = a.href;
+      a.remove();
+      if (options.replace) window.location.replace(decorated);
+      else window.location.href = decorated;
+    }, 600);
+  } catch {
+    go();
+  }
+}
+
 /** Build a Shopify URL from a path (e.g. "/products/biotica-800"). */
 export function shopifyUrl(path: string = "/", campaign?: string): string {
   const clean = path.startsWith("/") ? path : `/${path}`;
