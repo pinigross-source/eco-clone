@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { useEffect } from "react"
-import { decorateShopUrl } from "@/lib/shopify"
+import { navigateToShopify } from "@/lib/shopify"
 
 export const Route = createFileRoute("/prosub")({
   server: {

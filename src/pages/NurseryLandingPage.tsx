@@ -9,7 +9,7 @@ import ptpaAward from "@/assets/ptpa-award.png";
 import madeSafeLogo from "@/assets/made-safe-logo.png";
 import stripeLogo from "@/assets/stripe-logo.svg";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { shopifyProductUrl, decorateShopUrl, navigateToShopify } from "@/lib/shopify";
+import { shopifyProductUrl, navigateToShopify } from "@/lib/shopify";
 
 const BIOLOGIC_MINI_PRODUCT = {
   name: "BioLogic Mini",
