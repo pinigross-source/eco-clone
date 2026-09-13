@@ -44,6 +44,7 @@ import { Route as HygieneHypothesisRouteImport } from './routes/hygiene-hypothes
 import { Route as IndoorMicrobiomeRouteImport } from './routes/indoor-microbiome'
 import { Route as LinkCheckRouteImport } from './routes/link-check'
 import { Route as ManageSubscriptionRouteImport } from './routes/manage-subscription'
+import { Route as MobileHomePreviewRouteImport } from './routes/mobile-home-preview'
 import { Route as MoldAndAllergensRouteImport } from './routes/mold-and-allergens'
 import { Route as MoldIndoorsRouteImport } from './routes/mold-indoors'
 import { Route as NurseryRouteImport } from './routes/nursery'
@@ -272,6 +273,11 @@ const LinkCheckRoute = LinkCheckRouteImport.update({
 const ManageSubscriptionRoute = ManageSubscriptionRouteImport.update({
   id: '/manage-subscription',
   path: '/manage-subscription',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MobileHomePreviewRoute = MobileHomePreviewRouteImport.update({
+  id: '/mobile-home-preview',
+  path: '/mobile-home-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MoldAndAllergensRoute = MoldAndAllergensRouteImport.update({
@@ -586,6 +592,7 @@ export interface FileRoutesByFullPath {
   '/indoor-microbiome': typeof IndoorMicrobiomeRoute
   '/link-check': typeof LinkCheckRoute
   '/manage-subscription': typeof ManageSubscriptionRoute
+  '/mobile-home-preview': typeof MobileHomePreviewRoute
   '/mold-and-allergens': typeof MoldAndAllergensRoute
   '/mold-indoors': typeof MoldIndoorsRoute
   '/nursery': typeof NurseryRoute
@@ -677,6 +684,7 @@ export interface FileRoutesByTo {
   '/indoor-microbiome': typeof IndoorMicrobiomeRoute
   '/link-check': typeof LinkCheckRoute
   '/manage-subscription': typeof ManageSubscriptionRoute
+  '/mobile-home-preview': typeof MobileHomePreviewRoute
   '/mold-and-allergens': typeof MoldAndAllergensRoute
   '/mold-indoors': typeof MoldIndoorsRoute
   '/nursery': typeof NurseryRoute
@@ -769,6 +777,7 @@ export interface FileRoutesById {
   '/indoor-microbiome': typeof IndoorMicrobiomeRoute
   '/link-check': typeof LinkCheckRoute
   '/manage-subscription': typeof ManageSubscriptionRoute
+  '/mobile-home-preview': typeof MobileHomePreviewRoute
   '/mold-and-allergens': typeof MoldAndAllergensRoute
   '/mold-indoors': typeof MoldIndoorsRoute
   '/nursery': typeof NurseryRoute
@@ -862,6 +871,7 @@ export interface FileRouteTypes {
     | '/indoor-microbiome'
     | '/link-check'
     | '/manage-subscription'
+    | '/mobile-home-preview'
     | '/mold-and-allergens'
     | '/mold-indoors'
     | '/nursery'
@@ -953,6 +963,7 @@ export interface FileRouteTypes {
     | '/indoor-microbiome'
     | '/link-check'
     | '/manage-subscription'
+    | '/mobile-home-preview'
     | '/mold-and-allergens'
     | '/mold-indoors'
     | '/nursery'
@@ -1044,6 +1055,7 @@ export interface FileRouteTypes {
     | '/indoor-microbiome'
     | '/link-check'
     | '/manage-subscription'
+    | '/mobile-home-preview'
     | '/mold-and-allergens'
     | '/mold-indoors'
     | '/nursery'
@@ -1136,6 +1148,7 @@ export interface RootRouteChildren {
   IndoorMicrobiomeRoute: typeof IndoorMicrobiomeRoute
   LinkCheckRoute: typeof LinkCheckRoute
   ManageSubscriptionRoute: typeof ManageSubscriptionRoute
+  MobileHomePreviewRoute: typeof MobileHomePreviewRoute
   MoldAndAllergensRoute: typeof MoldAndAllergensRoute
   MoldIndoorsRoute: typeof MoldIndoorsRoute
   NurseryRoute: typeof NurseryRoute
@@ -1433,6 +1446,13 @@ declare module '@tanstack/react-router' {
       path: '/manage-subscription'
       fullPath: '/manage-subscription'
       preLoaderRoute: typeof ManageSubscriptionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mobile-home-preview': {
+      id: '/mobile-home-preview'
+      path: '/mobile-home-preview'
+      fullPath: '/mobile-home-preview'
+      preLoaderRoute: typeof MobileHomePreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mold-and-allergens': {
@@ -1897,6 +1917,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndoorMicrobiomeRoute: IndoorMicrobiomeRoute,
   LinkCheckRoute: LinkCheckRoute,
   ManageSubscriptionRoute: ManageSubscriptionRoute,
+  MobileHomePreviewRoute: MobileHomePreviewRoute,
   MoldAndAllergensRoute: MoldAndAllergensRoute,
   MoldIndoorsRoute: MoldIndoorsRoute,
   NurseryRoute: NurseryRoute,
