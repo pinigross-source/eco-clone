@@ -32,8 +32,8 @@ export const HeroSection = () => {
           preload="metadata"
           poster={heroPoster}
         >
-          <source src={heroWebm} type="video/webm" />
-          <source src={heroMp4} type="video/mp4" />
+          <source src={heroWebm} type="video/webm" media="(min-width: 768px)" />
+          <source src={heroMp4} type="video/mp4" media="(min-width: 768px)" />
         </video>
 
         {/* Readability veil — top-down on mobile, left-to-right on tablet to keep text legible while device stays visible on the right */}

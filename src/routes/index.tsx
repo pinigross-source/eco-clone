@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Index from "@/pages/HomePage";
+import mobilePosterAsset from "@/assets/mobile-home-hero-poster.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -15,7 +16,8 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://envirobiotics.com/" },
-      { rel: "preload", as: "image", href: "/__l5e/assets-v1/eb9da0a0-4868-4032-906f-1acbd8d17468/hero-poster.jpg", fetchPriority: "high" },
+      { rel: "preload", as: "image", href: mobilePosterAsset.url, type: "image/webp", media: "(max-width: 767px)", fetchPriority: "high" },
+      { rel: "preload", as: "image", href: "/__l5e/assets-v1/eb9da0a0-4868-4032-906f-1acbd8d17468/hero-poster.jpg", media: "(min-width: 768px)", fetchPriority: "high" },
     ],
   }),
   component: Index,

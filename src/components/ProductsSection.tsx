@@ -44,7 +44,7 @@ const hvacOption = {
 
 export const ProductsSection = () => {
   return (
-    <section className="relative py-24 sm:py-32 lg:py-40 bg-background overflow-hidden">
+    <section id="room-kits" className="relative py-24 sm:py-32 lg:py-40 bg-background overflow-hidden">
       <div className="container max-w-6xl mx-auto px-5 sm:px-6">
         {/* Eyebrow + heading */}
         <div className="flex items-center gap-4 mb-8">
