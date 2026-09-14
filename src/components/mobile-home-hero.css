@@ -1,0 +1,129 @@
+.mobile-home-hero {
+  --mobile-hero-ink: oklch(0.2 0.018 55);
+  --mobile-hero-muted: oklch(0.47 0.018 60);
+  --mobile-hero-green: oklch(0.39 0.06 151);
+  --mobile-hero-panel: oklch(0.965 0.006 80);
+  display: block;
+  background: var(--color-background);
+  color: var(--mobile-hero-ink);
+}
+
+.mobile-home-hero__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--mobile-hero-panel);
+}
+
+.mobile-home-hero__poster,
+.mobile-home-hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobile-home-hero__video {
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.mobile-home-hero__video.is-ready {
+  opacity: 1;
+}
+
+.mobile-home-hero__content {
+  padding: 1.35rem 1.25rem 1.5rem;
+}
+
+.mobile-home-hero__eyebrow {
+  margin: 0 0 0.65rem;
+  color: var(--mobile-hero-green);
+  font-size: 0.59375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.mobile-home-hero__title {
+  max-width: 18ch;
+  margin: 0;
+  color: var(--mobile-hero-ink);
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 800;
+  line-height: 1.13;
+  letter-spacing: 0;
+}
+
+.mobile-home-hero__support {
+  max-width: 42ch;
+  margin: 0.75rem 0 0;
+  color: var(--mobile-hero-muted);
+  font-size: 0.78125rem;
+  line-height: 1.5;
+}
+
+.mobile-home-hero__offer {
+  margin: 0.9rem 0 0;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.5rem;
+  background: var(--mobile-hero-panel);
+  color: var(--mobile-hero-ink);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.mobile-home-hero__offer strong,
+.mobile-home-hero__offer span {
+  display: block;
+}
+
+.mobile-home-hero__button {
+  display: inline-flex;
+  width: 100%;
+  min-height: 2.875rem;
+  margin-top: 0.85rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5625rem;
+  background: var(--mobile-hero-ink);
+  color: var(--color-background);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mobile-home-hero__button:focus-visible,
+.mobile-home-hero__link:focus-visible {
+  outline: 2px solid var(--mobile-hero-green);
+  outline-offset: 3px;
+}
+
+.mobile-home-hero__link {
+  display: flex;
+  min-height: 2.75rem;
+  margin-top: 0.3rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--mobile-hero-green);
+  font-size: 0.8125rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+@media (min-width: 48rem) {
+  .mobile-home-hero {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-home-hero__video {
+    display: none;
+    transition: none;
+  }
+}

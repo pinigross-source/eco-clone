@@ -1,0 +1,93 @@
+import { useEffect, useRef, useState } from "react";
+import { trackEvent } from "@/lib/tracking";
+import posterWebpAsset from "@/assets/mobile-home-hero-poster.webp.asset.json";
+import posterJpgAsset from "@/assets/mobile-home-hero-poster.jpg.asset.json";
+import videoWebmAsset from "@/assets/mobile-home-hero-loop.webm.asset.json";
+import videoMp4Asset from "@/assets/mobile-home-hero-loop.mp4.asset.json";
+import "./mobile-home-hero.css";
+
+type NavigatorWithConnection = Navigator & {
+  connection?: {
+    saveData?: boolean;
+    effectiveType?: string;
+  };
+};
+
+export function MobileHomeHero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoEnabled, setVideoEnabled] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const connection = (navigator as NavigatorWithConnection).connection;
+    const constrainedConnection = connection?.saveData === true || connection?.effectiveType === "2g" || connection?.effectiveType === "slow-2g";
+    const mobileViewport = window.matchMedia("(max-width: 767px)").matches;
+
+    if (mobileViewport && !reducedMotion && !constrainedConnection) {
+      setVideoEnabled(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!videoEnabled) return;
+    videoRef.current?.load();
+  }, [videoEnabled]);
+
+  return (
+    <section className="mobile-home-hero" aria-labelledby="mobile-home-hero-title">
+      <div className="mobile-home-hero__media">
+        <picture>
+          <source srcSet={posterWebpAsset.url} type="image/webp" />
+          <img
+            className="mobile-home-hero__poster"
+            src={posterJpgAsset.url}
+            alt="A mother and daughter sitting on the living-room rug with their dog, a BioLogic Mini on the table beside them."
+            width="800"
+            height="600"
+            fetchPriority="high"
+          />
+        </picture>
+        <video
+          ref={videoRef}
+          className={`mobile-home-hero__video${videoReady ? " is-ready" : ""}`}
+          muted
+          loop
+          playsInline
+          autoPlay
+          preload="none"
+          aria-hidden="true"
+          tabIndex={-1}
+          onCanPlayThrough={() => setVideoReady(true)}
+        >
+          {videoEnabled ? <source src={videoWebmAsset.url} type="video/webm" /> : null}
+          {videoEnabled ? <source src={videoMp4Asset.url} type="video/mp4" /> : null}
+        </video>
+      </div>
+
+      <div className="mobile-home-hero__content">
+        <p className="mobile-home-hero__eyebrow">Beyond air filtration</p>
+        <h1 id="mobile-home-hero-title" className="mobile-home-hero__title">
+          You take probiotics. Your home doesn’t.
+        </h1>
+        <p className="mobile-home-hero__support">
+          Same idea, for the rooms you live in: probiotics released automatically into your indoor environment. From $98
+        </p>
+        <p className="mobile-home-hero__offer">
+          <strong>Kits from $98.</strong>
+          <span>Device plus first cartridge. No subscription required.</span>
+        </p>
+        <a
+          className="mobile-home-hero__button"
+          href="#room-kits"
+          onClick={() => trackEvent("homepage_cta_click", { placement: "hero" })}
+        >
+          Choose my room kit
+        </a>
+        <a className="mobile-home-hero__link" href="#how-it-works">
+          How it works ↓
+        </a>
+      </div>
+    </section>
+  );
+}
