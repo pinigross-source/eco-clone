@@ -71,7 +71,7 @@ export function MobileHomeHero() {
           You take probiotics. Your home doesn’t.
         </h1>
         <p className="mobile-home-hero__support">
-          Same idea, for the rooms you live in: probiotics released automatically into your indoor environment. From $98
+          Same idea, for the rooms you live in: probiotics released automatically into your indoor environment.&nbsp;
         </p>
         <p className="mobile-home-hero__offer">
           <strong>Kits from $98.</strong>
