@@ -1,8 +1,10 @@
 import { Home, Fan, Check, ArrowRight } from "lucide-react";
 import { Link } from "@/lib/link";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
-import roomLifestyle from "@/assets/mini-home-lifestyle.avif";
+import roomLifestyleAsset from "@/assets/mini-home-lifestyle.avif.asset.json";
 import hvacDevice from "@/assets/ebiotic-pro-lifestyle-v4.avif";
+
+const roomLifestyle = roomLifestyleAsset.url;
 
 const solutions = [
   {

@@ -27,11 +27,10 @@ import { useGoogleReCaptcha, GoogleReCaptchaProvider } from "react-google-recapt
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 
-import biologicMini from "@/assets/shop/biologic-mini.png";
-import biotica800 from "@/assets/shop/biotica-800.png";
-import ba2080 from "@/assets/shop/ba2080.png";
-import ebioticProProduct from "@/assets/ebiotic-pro-device.png";
-
+import biologicMiniAsset from "@/assets/shop/biologic-mini.png.asset.json";
+import biotica800Asset from "@/assets/shop/biotica-800.png.asset.json";
+import ba2080Asset from "@/assets/shop/ba2080.png.asset.json";
+import ebioticProProductAsset from "@/assets/ebiotic-pro-device.png.asset.json";
 interface QuizOption {
   id: string;
   label: string;
@@ -39,6 +38,11 @@ interface QuizOption {
   icon: React.ReactNode;
   value: number;
 }
+
+const ebioticProProduct = ebioticProProductAsset.url;
+const ba2080 = ba2080Asset.url;
+const biologicMini = biologicMiniAsset.url;
+const biotica800 = biotica800Asset.url;
 
 interface QuizQuestion {
   id: string;

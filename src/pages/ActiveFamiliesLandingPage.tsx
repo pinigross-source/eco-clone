@@ -23,10 +23,13 @@ const kitchenImg = kitchenAsset.url;
 const livingImg = livingAsset.url;
 const bedroomImg = bedroomAsset.url;
 const kidsImg = kidsAsset.url;
-import cleanHome from "@/assets/family-clean-home.jpg";
+import cleanHomeAsset from "@/assets/family-clean-home.jpg.asset.json";
 import miniProduct from "@/assets/biologic-mini-nobg-new.avif";
-import bioticaProduct from "@/assets/shop/biotica-800.png";
+import bioticaProductAsset from "@/assets/shop/biotica-800.png.asset.json";
 import bundleProduct from "@/assets/shop/home-complete-bundle.avif";
+
+const cleanHome = cleanHomeAsset.url;
+const bioticaProduct = bioticaProductAsset.url;
 
 const PROMO = "FAMILY";
 

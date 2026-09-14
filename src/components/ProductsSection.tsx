@@ -1,8 +1,10 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/lib/link";
 import biologicMini from "@/assets/biologic-mini-nobg-new.avif";
-import biotica800 from "@/assets/shop/biotica-800.png";
+import biotica800Asset from "@/assets/shop/biotica-800.png.asset.json";
 import hvacHomeAsset from "@/assets/hvac-home.avif.asset.json";
+
+const biotica800 = biotica800Asset.url;
 
 const hvacHome = hvacHomeAsset.url;
 

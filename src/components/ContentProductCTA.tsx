@@ -2,9 +2,8 @@ import { Link } from "@/lib/link";
 import { ShoppingCart, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import biologicMiniImg from "@/assets/biologic-mini-nobg-new.avif";
-import biotica800Img from "@/assets/shop/biotica-800.png";
-import ba2080Img from "@/assets/shop/ba2080.png";
-
+import biotica800ImgAsset from "@/assets/shop/biotica-800.png.asset.json";
+import ba2080ImgAsset from "@/assets/shop/ba2080.png.asset.json";
 interface RecommendedProduct {
   name: string;
   slug: string;
@@ -13,6 +12,9 @@ interface RecommendedProduct {
   image: string;
   alt: string;
 }
+
+const ba2080Img = ba2080ImgAsset.url;
+const biotica800Img = biotica800ImgAsset.url;
 
 const defaultProducts: RecommendedProduct[] = [
   {

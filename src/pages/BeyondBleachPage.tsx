@@ -33,14 +33,18 @@ const Footer = lazy(() =>
   import("@/components/Footer").then((m) => ({ default: m.Footer }))
 );
 
-import roomWithout from "@/assets/bb-room-without.jpg";
-import roomWith from "@/assets/bb-room-with.jpg";
-import ctaRoom from "@/assets/bb-cta-room.jpg";
+import roomWithoutAsset from "@/assets/bb-room-without.jpg.asset.json";
+import roomWithAsset from "@/assets/bb-room-with.jpg.asset.json";
+import ctaRoomAsset from "@/assets/bb-cta-room.jpg.asset.json";
 import logo from "@/assets/logo.avif";
 import miniLifestyle from "@/assets/biologic-mini-landscape.jpg.asset.json";
 import bioticaLifestyle from "@/assets/biotica-800-landscape.jpg.asset.json";
 import protectionBiotica from "@/assets/protection-biotica.png.asset.json";
 
+
+const ctaRoom = ctaRoomAsset.url;
+const roomWith = roomWithAsset.url;
+const roomWithout = roomWithoutAsset.url;
 
 const miniLifestyleUrl = miniLifestyle.url;
 const bioticaLifestyleUrl = bioticaLifestyle.url;

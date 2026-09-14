@@ -12,7 +12,7 @@ export interface BlogPost {
   tags?: string[];
 }
 
-import probioticAirPurifierHero from "@/assets/blog/probiotic-air-purifier-hero.avif";
+import probioticAirPurifierHeroAsset from "@/assets/blog/probiotic-air-purifier-hero.avif.asset.json";
 import candidaAurisImg from "@/assets/blog/candida-auris-threat.avif";
 import healthierHomeTipsImg from "@/assets/blog/healthier-home-tips.avif";
 import indoorConditionsImg from "@/assets/blog/indoor-conditions-disease.avif";
@@ -37,6 +37,8 @@ const probioticRoomSprayImg = probioticRoomSprayAsset.url;
 import biologicMiniHeroAsset from "@/assets/blog/biologic-mini-hero.avif.asset.json";
 const biologicMiniHeroImg = biologicMiniHeroAsset.url;
 import ebioticProHeroImg from "@/assets/ebiotic-pro-lifestyle-v4.avif";
+
+const probioticAirPurifierHero = probioticAirPurifierHeroAsset.url;
 
 export const blogPosts: BlogPost[] = [
   {

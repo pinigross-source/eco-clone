@@ -19,14 +19,22 @@ import { ContactFormDialog } from "@/components/ContactFormDialog";
 import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
 
-import hvacAnatomyDiagram from "@/assets/hvac-anatomy-diagram.png";
-import hvacBreathingDifficult from "@/assets/hvac-breathing-difficult.jpg";
-import hvacNewParadigm from "@/assets/hvac-new-paradigm.jpg";
-import probioticHvacProcess from "@/assets/probiotic-hvac-process.png";
-import hvacHealthyBuilding from "@/assets/hvac-healthy-building.jpg";
-import ebioticProDevice from "@/assets/ebiotic-pro-device.png";
-import ebioticProLifestyle from "@/assets/ebiotic-pro-lifestyle.jpg";
+import hvacAnatomyDiagramAsset from "@/assets/hvac-anatomy-diagram.png.asset.json";
+import hvacBreathingDifficultAsset from "@/assets/hvac-breathing-difficult.jpg.asset.json";
+import hvacNewParadigmAsset from "@/assets/hvac-new-paradigm.jpg.asset.json";
+import probioticHvacProcessAsset from "@/assets/probiotic-hvac-process.png.asset.json";
+import hvacHealthyBuildingAsset from "@/assets/hvac-healthy-building.jpg.asset.json";
+import ebioticProDeviceAsset from "@/assets/ebiotic-pro-device.png.asset.json";
+import ebioticProLifestyleAsset from "@/assets/ebiotic-pro-lifestyle.jpg.asset.json";
 import hvacBuildingLungsBg from "@/assets/hvac-building-lungs-bg.avif";
+
+const ebioticProDevice = ebioticProDeviceAsset.url;
+const ebioticProLifestyle = ebioticProLifestyleAsset.url;
+const hvacAnatomyDiagram = hvacAnatomyDiagramAsset.url;
+const hvacBreathingDifficult = hvacBreathingDifficultAsset.url;
+const hvacHealthyBuilding = hvacHealthyBuildingAsset.url;
+const hvacNewParadigm = hvacNewParadigmAsset.url;
+const probioticHvacProcess = probioticHvacProcessAsset.url;
 
 const anatomyPoints = [
   { label: "Fresh Air Intake", icon: Wind, description: "Inhales fresh air from outside" },

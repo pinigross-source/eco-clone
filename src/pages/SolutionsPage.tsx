@@ -23,9 +23,8 @@ import {
 } from "lucide-react";
 
 import solutionsHeroBg from "@/assets/solutions-hero-bg.avif";
-import familyLivingImg from "@/assets/family-living-cozy.jpg";
-import hiddenProblemImg from "@/assets/hidden-problem-livingroom.jpg";
-
+import familyLivingImgAsset from "@/assets/family-living-cozy.jpg.asset.json";
+import hiddenProblemImgAsset from "@/assets/hidden-problem-livingroom.jpg.asset.json";
 const problemPoints = [
   {
     icon: AlertTriangle,
@@ -49,6 +48,9 @@ const problemPoints = [
     locations: "Ductwork & vents",
   },
 ];
+
+const familyLivingImg = familyLivingImgAsset.url;
+const hiddenProblemImg = hiddenProblemImgAsset.url;
 
 const traditionalVsEnvirobiotics = [
   { category: "Approach", traditional: "React after problems appear", envirobiotics: "Proactively prevent buildup" },

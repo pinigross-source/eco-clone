@@ -30,12 +30,15 @@ import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { RelatedTopics } from "@/components/RelatedTopics";
 import { Link } from "@/lib/link";
 import biologicMiniImg from "@/assets/biologic-mini-nobg-new.avif";
-import biotica800Img from "@/assets/shop/biotica-800.png";
-import ba2080Img from "@/assets/shop/ba2080.png";
+import biotica800ImgAsset from "@/assets/shop/biotica-800.png.asset.json";
+import ba2080ImgAsset from "@/assets/shop/ba2080.png.asset.json";
 import ebioticProImg from "@/assets/ebiotic-pro.avif";
 import { LifestyleHero } from "@/components/LifestyleHero";
 import heroSupportLifestyleAsset from "@/assets/support-hero.avif.asset.json";
 const heroSupportLifestyle = heroSupportLifestyleAsset.url;
+
+const ba2080Img = ba2080ImgAsset.url;
+const biotica800Img = biotica800ImgAsset.url;
 
 const supportOptions = [
   {
@@ -84,7 +87,7 @@ const productSupport = [
     image: biologicMiniImg,
     vimeoId: "1099451099",
     videoTitle: "What's in the box?",
-    pdfUrl: "/manuals/BioLogic-Mini-User-Manual.pdf",
+    pdfUrl: "/__l5e/assets-v1/0b2ecbc5-a51d-4c6f-90d3-8aa222f0b9c1/BioLogic-Mini-User-Manual.pdf",
     pdfTitle: "User Manual",
   },
   {

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ShieldCheck, Check, Star, ArrowRight, Baby, Wind, Sparkles, Clock, RefreshCw, Heart, Volume2, Lock, X, Droplets, Fan, Zap, ChevronDown, Package, AlertTriangle, Gift, Loader2, ShoppingCart, Truck } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
-import biologicMiniImg from "@/assets/shop/biologic-mini.png";
+import biologicMiniImgAsset from "@/assets/shop/biologic-mini.png.asset.json";
 import nurseryLifestyle1 from "@/assets/mother-child-moment.avif";
 import nurseryLifestyle2 from "@/assets/nursery-lifestyle-2.avif";
 import ptpaAward from "@/assets/ptpa-award.png";
@@ -10,6 +10,8 @@ import madeSafeLogo from "@/assets/made-safe-logo.png";
 import stripeLogo from "@/assets/stripe-logo.svg";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { shopifyProductUrl, navigateToShopify } from "@/lib/shopify";
+
+const biologicMiniImg = biologicMiniImgAsset.url;
 
 const BIOLOGIC_MINI_PRODUCT = {
   name: "BioLogic Mini",

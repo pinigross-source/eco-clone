@@ -10,20 +10,30 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import miniImg from "@/assets/shop/biologic-mini.png";
-import bioticaImg from "@/assets/shop/biotica-800.png";
+import miniImgAsset from "@/assets/shop/biologic-mini.png.asset.json";
+import bioticaImgAsset from "@/assets/shop/biotica-800.png.asset.json";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
-import heroImg from "@/assets/bobby/bobby-hero-bright.avif";
-import heroImgMobile from "@/assets/bobby/bobby-hero-mobile-bright.avif";
-import ctaBgImg from "@/assets/bobby/bobby-cta-bg.jpg";
-import livingImg from "@/assets/bobby/bobby-ambient.jpg";
-import familyImg from "@/assets/bobby/bobby-ambient.jpg";
-import bobbyImg from "@/assets/bobby/bobby-portrait.jpg";
+import heroImgAsset from "@/assets/bobby/bobby-hero-bright.avif.asset.json";
+import heroImgMobileAsset from "@/assets/bobby/bobby-hero-mobile-bright.avif.asset.json";
+import ctaBgImgAsset from "@/assets/bobby/bobby-cta-bg.jpg.asset.json";
+import livingImgAsset from "@/assets/bobby/bobby-ambient.jpg.asset.json";
+import familyImgAsset from "@/assets/bobby/bobby-ambient.jpg.asset.json";
+import bobbyImgAsset from "@/assets/bobby/bobby-portrait.jpg.asset.json";
 import particlesImg from "@/assets/bobby/bobby-kitchen.jpg";
 import bathroomImg from "@/assets/bobby/bobby-bedroom.jpg";
 import travelImg from "@/assets/bobby-travel.avif";
-import iconsBar from "@/assets/bobby-icons-bar.svg";
+import iconsBarAsset from "@/assets/bobby-icons-bar.svg.asset.json";
 import { shopifyDiscountUrl } from "@/lib/shopify";
+
+const iconsBar = iconsBarAsset.url;
+const livingImg = livingImgAsset.url;
+const familyImg = familyImgAsset.url;
+const ctaBgImg = ctaBgImgAsset.url;
+const heroImg = heroImgAsset.url;
+const heroImgMobile = heroImgMobileAsset.url;
+const bobbyImg = bobbyImgAsset.url;
+const miniImg = miniImgAsset.url;
+const bioticaImg = bioticaImgAsset.url;
 
 const PROMO = "BOBBY";
 
