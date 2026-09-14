@@ -1,5 +1,7 @@
-import certIcons from "@/assets/certifications-icons.svg";
+import certIconsAsset from "@/assets/certifications-icons.svg.asset.json";
 import fdaLogo from "@/assets/fda-gras.png.asset.json";
+
+const certIcons = certIconsAsset.url;
 
 export const CertificationsBar = () => {
   return (

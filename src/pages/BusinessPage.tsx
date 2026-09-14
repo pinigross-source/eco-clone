@@ -24,12 +24,14 @@ import healthcareImg from "@/assets/biz-healthcare.jpg.asset.json";
 import educationImg from "@/assets/biz-education.jpg.asset.json";
 import officesImg from "@/assets/biz-offices.jpg.asset.json";
 import biotica800Img from "@/assets/ebiotic-pro-office.avif.asset.json";
-import lungsDiagram from "@/assets/hvac-lungs-anatomy.jpg";
+import lungsDiagramAsset from "@/assets/hvac-lungs-anatomy.jpg.asset.json";
 import hvacBuildingLungsBg from "@/assets/hvac-building-lungs-bg.avif";
 import bacteriaChart from "@/assets/evidence-bacteria-counts.avif.asset.json";
 import absenteeismChart from "@/assets/evidence-absenteeism.avif.asset.json";
 import moldChart from "@/assets/evidence-mold-reduction.avif.asset.json";
 import virusChart from "@/assets/evidence-virus-reduction.avif.asset.json";
+
+const lungsDiagram = lungsDiagramAsset.url;
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 

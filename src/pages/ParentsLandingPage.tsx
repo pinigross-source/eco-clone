@@ -24,8 +24,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import miniImg from "@/assets/shop/biologic-mini.png";
-import bioticaImg from "@/assets/shop/biotica-800.png";
+import miniImgAsset from "@/assets/shop/biologic-mini.png.asset.json";
+import bioticaImgAsset from "@/assets/shop/biotica-800.png.asset.json";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
 import heroAsset from "@/assets/parents-hero.avif.asset.json";
 import nurseryAsset from "@/assets/nursery-sleeping-baby.avif.asset.json";
@@ -41,6 +41,9 @@ import sensitiveAsset from "@/assets/certs/cert_6.png.asset.json";
 import ecocertAsset from "@/assets/certs/cert_7.png.asset.json";
 import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
 import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
+
+const miniImg = miniImgAsset.url;
+const bioticaImg = bioticaImgAsset.url;
 
 const certifications = [
   { label: "EPA Registered", image: epaAsset.url },

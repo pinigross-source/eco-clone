@@ -17,14 +17,19 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import heroImg from "@/assets/mold-scandi-hero.jpg";
-import bathroomImg from "@/assets/mold-scandi-bathroom.jpg";
-import petImg from "@/assets/mold-scandi-pet.jpg";
-import bedroomImg from "@/assets/health-scandi-bedroom.jpg";
-import windowImg from "@/assets/health-scandi-window.jpg";
-
+import heroImgAsset from "@/assets/mold-scandi-hero.jpg.asset.json";
+import bathroomImgAsset from "@/assets/mold-scandi-bathroom.jpg.asset.json";
+import petImgAsset from "@/assets/mold-scandi-pet.jpg.asset.json";
+import bedroomImgAsset from "@/assets/health-scandi-bedroom.jpg.asset.json";
+import windowImgAsset from "@/assets/health-scandi-window.jpg.asset.json";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const RelatedTopics = lazy(() => import("@/components/RelatedTopics").then(m => ({ default: m.RelatedTopics })));
+
+const bedroomImg = bedroomImgAsset.url;
+const windowImg = windowImgAsset.url;
+const bathroomImg = bathroomImgAsset.url;
+const heroImg = heroImgAsset.url;
+const petImg = petImgAsset.url;
 
 /* ─── JSON-LD ─────────────────────────────────────────────── */
 const jsonLd = {

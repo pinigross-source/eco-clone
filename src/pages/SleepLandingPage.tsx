@@ -11,16 +11,22 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import miniImg from "@/assets/shop/biologic-mini.png";
-import bioticaImg from "@/assets/shop/biotica-800.png";
+import miniImgAsset from "@/assets/shop/biologic-mini.png.asset.json";
+import bioticaImgAsset from "@/assets/shop/biotica-800.png.asset.json";
 import bundleImg from "@/assets/shop/home-complete-bundle.avif";
-import heroImg from "@/assets/health-scandi-bedroom.jpg";
-import heroImgMobile from "@/assets/health-scandi-bedroom.jpg";
+import heroImgAsset from "@/assets/health-scandi-bedroom.jpg.asset.json";
+import heroImgMobileAsset from "@/assets/health-scandi-bedroom.jpg.asset.json";
 import beddingImg from "@/assets/difference-bedding.jpg";
 import bedroomAllergensImg from "@/assets/edu-bedroom-allergens.jpg";
-import cozyImg from "@/assets/family-living-cozy.jpg";
+import cozyImgAsset from "@/assets/family-living-cozy.jpg.asset.json";
 import calmImg from "@/assets/guarantee-calm-home.avif";
 import endorsementImg from "@/assets/mini-lifestyle-2.avif";
+
+const cozyImg = cozyImgAsset.url;
+const heroImg = heroImgAsset.url;
+const heroImgMobile = heroImgMobileAsset.url;
+const miniImg = miniImgAsset.url;
+const bioticaImg = bioticaImgAsset.url;
 
 const PROMO = "SLEEP";
 

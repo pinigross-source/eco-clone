@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import caSchool from "@/assets/clients/ca-school.png";
+import caSchoolAsset from "@/assets/clients/ca-school.png.asset.json";
 import cityOfDreams from "@/assets/clients/city-of-dreams.png";
 import ganther from "@/assets/clients/ganther.png";
 import grandHyatt from "@/assets/clients/grand-hyatt.png";
@@ -14,6 +14,8 @@ import carePartners from "@/assets/clients/care-partners.png.asset.json";
 import melco from "@/assets/clients/melco.png.asset.json";
 import shangriLa from "@/assets/clients/shangri-la.png.asset.json";
 import theFarm from "@/assets/clients/the-farm-san-benito.jpg.asset.json";
+
+const caSchool = caSchoolAsset.url;
 
 const logos = [
   { src: grandHyatt, alt: "Grand Hyatt", scale: 1.5 },

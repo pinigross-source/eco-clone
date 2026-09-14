@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MiniAdLanding } from "@/components/lp/MiniAdLanding";
-import heroImg from "@/assets/hero-scandinavian-family.jpg";
+import heroImgAsset from "@/assets/hero-scandinavian-family.jpg.asset.json";
+
+const heroImg = heroImgAsset.url;
 
 export const Route = createFileRoute("/lp/p1-air-7k2m")({
   head: () => ({
@@ -18,7 +20,6 @@ export const Route = createFileRoute("/lp/p1-air-7k2m")({
     <MiniAdLanding
       variant="v1"
       campaign="meta-lp-v1-air"
-      
       headline={<>Parents: your air purifier has one blind spot.</>}
       subhead="Your child's world is not just air. It's rugs, toys, couches, blankets, and tiny hands touching everything."
       heroImage={heroImg}

@@ -5,11 +5,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import biologicMini from "@/assets/mini-hero-new.avif";
 import lifestyle1 from "@/assets/mini-lifestyle-1.avif";
 import lifestyle2 from "@/assets/mini-lifestyle-2.avif";
-import lifestyleFamily from "@/assets/mini-lifestyle-family.jpg";
+import lifestyleFamilyAsset from "@/assets/mini-lifestyle-family.jpg.asset.json";
 import lifestyle4 from "@/assets/mini-lifestyle-4.avif";
-import lifestyleKitchen from "@/assets/mini-lifestyle-kitchen.jpg";
+import lifestyleKitchenAsset from "@/assets/mini-lifestyle-kitchen.jpg.asset.json";
 import lifestyle6 from "@/assets/mini-lifestyle-6.avif";
 import lifestyleHand from "@/assets/mini-lifestyle-hand.jpg";
+
+const lifestyleFamily = lifestyleFamilyAsset.url;
+const lifestyleKitchen = lifestyleKitchenAsset.url;
 
 const galleryImages = [
   { src: biologicMini, alt: "BioLogic Mini product shot", fit: "object-contain bg-[#f5f5f5]" },

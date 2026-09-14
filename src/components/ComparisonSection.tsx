@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Wind, Droplets, Leaf, Check, X, Play } from "lucide-react";
-import comparisonVideoThumb from "@/assets/comparison-video-thumb.jpg";
+import comparisonVideoThumbAsset from "@/assets/comparison-video-thumb.jpg.asset.json";
 import { cn } from "@/lib/utils";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
+
+const comparisonVideoThumb = comparisonVideoThumbAsset.url;
 
 const comparisons = [
   {

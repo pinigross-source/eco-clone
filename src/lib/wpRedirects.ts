@@ -135,8 +135,8 @@ export const REDIRECT_MAP: Record<string, string> = {
   "/hepa": "/shop",
 
   // ── WordPress PDF/media redirects ──
-  "/wp-content/uploads/2024/12/Biotica800-User-Manual.pdf": "/manuals/Biotica800-User-Manual.pdf",
-  "/wp-content/uploads/2024/12/User-Guide-mini-0923-4.pdf": "/manuals/BioLogicMini-UM.pdf",
+  "/wp-content/uploads/2024/12/Biotica800-User-Manual.pdf": "/__l5e/assets-v1/f89bc86d-909c-477d-91a3-9a39596b80ba/Biotica800-User-Manual.pdf",
+  "/wp-content/uploads/2024/12/User-Guide-mini-0923-4.pdf": "/__l5e/assets-v1/7388b716-efc0-4a84-826b-ad9f8c32d694/BioLogicMini-UM.pdf",
 
   // ── WordPress Health-Benefit Pages → unified page ──
   "/alleviating-allergies": "/health-benefits#alleviating-allergies",

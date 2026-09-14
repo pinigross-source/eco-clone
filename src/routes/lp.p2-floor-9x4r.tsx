@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MiniAdLanding } from "@/components/lp/MiniAdLanding";
-import heroImg from "@/assets/nursery-scandinavian-bright.jpg";
+import heroImgAsset from "@/assets/nursery-scandinavian-bright.jpg.asset.json";
+
+const heroImg = heroImgAsset.url;
 
 export const Route = createFileRoute("/lp/p2-floor-9x4r")({
   head: () => ({

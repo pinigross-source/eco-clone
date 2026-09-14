@@ -1,11 +1,16 @@
 import biologicMini from "@/assets/biologic-mini-nobg-new.avif";
-import biotica800 from "@/assets/shop/biotica-800.png";
-import ba2080 from "@/assets/shop/ba2080.png";
+import biotica800Asset from "@/assets/shop/biotica-800.png.asset.json";
+import ba2080Asset from "@/assets/shop/ba2080.png.asset.json";
 import biologicMiniRefill from "@/assets/shop/biologic-mini-refill.jpg";
-import biotica800NvRefill from "@/assets/shop/biotica-800-nv-refill.png";
-import ba2080Combo from "@/assets/shop/ba-2080-combo.png";
+import biotica800NvRefillAsset from "@/assets/shop/biotica-800-nv-refill.png.asset.json";
+import ba2080ComboAsset from "@/assets/shop/ba-2080-combo.png.asset.json";
 import ebioticPro from "@/assets/ebiotic-pro.avif";
 import ebpf18 from "@/assets/shop/bapf-18.jpg";
+
+const ba2080Combo = ba2080ComboAsset.url;
+const ba2080 = ba2080Asset.url;
+const biotica800NvRefill = biotica800NvRefillAsset.url;
+const biotica800 = biotica800Asset.url;
 
 export interface ProductSpec {
   label: string;

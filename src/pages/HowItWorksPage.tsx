@@ -30,7 +30,7 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { SEOHead, howToJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
-import heroBuilding from "@/assets/hiw-hero-building.jpg";
+import heroBuildingAsset from "@/assets/hiw-hero-building.jpg.asset.json";
 import heroCutaway from "@/assets/hiw-hero-building-cutaway.jpg.asset.json";
 import heroSpacesWave from "@/assets/home-spaces-wave.jpg.asset.json";
 import techHeroMobile from "@/assets/tech-hero-mobile.avif.asset.json";
@@ -41,6 +41,8 @@ import ecoHvac from "@/assets/hiw-eco-hvac.jpg";
 import ecoZones from "@/assets/hiw-eco-zones.jpg";
 import ecoHidden from "@/assets/hiw-eco-hidden.jpg";
 import deviceImg from "@/assets/hiw-device.png";
+
+const heroBuilding = heroBuildingAsset.url;
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 

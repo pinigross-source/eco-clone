@@ -1,12 +1,13 @@
 import { SprayCan, Wind, ShieldCheck } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
-import livingRoomImage from "@/assets/how-it-works-living.avif";
-
+import livingRoomImageAsset from "@/assets/how-it-works-living.avif.asset.json";
 const steps = [
   { icon: SprayCan, number: "01", title: "Release", text: "Good bacteria are released into your space." },
   { icon: Wind, number: "02", title: "Settle", text: "They land on surfaces throughout the room." },
   { icon: ShieldCheck, number: "03", title: "Keep working", text: "They help reduce buildup between regular cleanings." },
 ];
+
+const livingRoomImage = livingRoomImageAsset.url;
 
 export const HowItWorksSection = () => {
   return (

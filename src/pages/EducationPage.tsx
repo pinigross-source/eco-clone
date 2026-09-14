@@ -27,14 +27,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import heroLivingRoom from "@/assets/edu-hero-living-room.jpg";
+import heroLivingRoomAsset from "@/assets/edu-hero-living-room.jpg.asset.json";
 import microbiomeMacro from "@/assets/edu-microbiome-macro.jpg";
 import bedroomAllergens from "@/assets/edu-bedroom-allergens.jpg";
-import petriStill from "@/assets/edu-petri-still.jpg";
-
+import petriStillAsset from "@/assets/edu-petri-still.jpg.asset.json";
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const ContentProductCTA = lazy(() => import("@/components/ContentProductCTA").then(m => ({ default: m.ContentProductCTA })));
 const RelatedTopics = lazy(() => import("@/components/RelatedTopics").then(m => ({ default: m.RelatedTopics })));
+
+const heroLivingRoom = heroLivingRoomAsset.url;
+const petriStill = petriStillAsset.url;
 
 /* ───────────────────────── Guide card ───────────────────────── */
 

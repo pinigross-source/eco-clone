@@ -11,10 +11,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import biologicMiniImg from "@/assets/shop/biologic-mini.png";
+import biologicMiniImgAsset from "@/assets/shop/biologic-mini.png.asset.json";
 import finalCtaProductImg from "@/assets/dorm/dorm-unpacking.avif";
 import videoPosterImg from "@/assets/dorm/dorm-video-poster.avif";
-import heroImg from "@/assets/dorm/dorm-hero-moving-in.jpg";
+import heroImgAsset from "@/assets/dorm/dorm-hero-moving-in.jpg.asset.json";
 import unpackingImg from "@/assets/dorm/dorm-move-in-bag.avif";
 import ventDustImg from "@/assets/dorm/dorm-vent-dust.avif";
 import bathroomImg from "@/assets/dorm/dorm-bathroom-moisture.avif";
@@ -23,11 +23,16 @@ import tiredImg from "@/assets/dorm/dorm-tired-student.avif";
 import sneezeImg from "@/assets/dorm/dorm-sneezing.jpg";
 import focusImg from "@/assets/dorm/dorm-losing-focus.jpg";
 import cleanRoomImg from "@/assets/dorm/dorm-clean-bedroom.avif";
-import productOnDeskImg from "@/assets/dorm/dorm-product-on-desk.jpg";
-import miniHeroImg from "@/assets/dorm/dorm-mini-hero.png";
+import productOnDeskImgAsset from "@/assets/dorm/dorm-product-on-desk.jpg.asset.json";
+import miniHeroImgAsset from "@/assets/dorm/dorm-mini-hero.png.asset.json";
 import readingImg from "@/assets/dorm/dorm-student-reading.jpg";
 import dropoffImg from "@/assets/dorm/dorm-parent-dropoff.avif";
 import studyingImg from "@/assets/dorm/dorm-students-studying.jpg";
+
+const heroImg = heroImgAsset.url;
+const miniHeroImg = miniHeroImgAsset.url;
+const productOnDeskImg = productOnDeskImgAsset.url;
+const biologicMiniImg = biologicMiniImgAsset.url;
 
 const BIOLOGIC_MINI_PRODUCT = {
   name: "BioLogic Mini",

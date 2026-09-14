@@ -8,8 +8,7 @@ import { shopifyProductUrl } from "@/lib/shopify";
 
 import biologicMini from "@/assets/biologic-mini-nobg-new.avif";
 import biotica800 from "@/assets/biotica800-hero.avif";
-import ba2080 from "@/assets/shop/ba2080.png";
-
+import ba2080Asset from "@/assets/shop/ba2080.png.asset.json";
 interface ComparisonProduct {
   name: string;
   slug: string;
@@ -27,6 +26,8 @@ interface ComparisonProduct {
   commercial: boolean;
   featured?: boolean;
 }
+
+const ba2080 = ba2080Asset.url;
 
 const comparisonProducts: ComparisonProduct[] = [
   {
