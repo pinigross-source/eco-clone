@@ -1,27 +1,30 @@
-# Mobile homepage review route
+# Mobile-only homepage hero update
 
 ## Goal
-Create an isolated, polished `/mobile-home-preview` experience for review without changing `/`, publishing, or altering commerce settings.
+Apply the uploaded 4:3 lifestyle-video format to the live homepage at `/` on mobile only. Keep the current tablet and desktop hero, all following homepage sections, commerce links, and site-wide behavior unchanged.
 
-## What will be built
-- Add a dedicated review route with unique metadata, `noindex,nofollow`, and a self-referencing canonical.
-- Build an isolated mobile-first page using the existing EnviroBiotics logo and original Mini/Biotica product photography.
-- Create a compact header and opening screen that shows the product, required copy, price, and both actions quickly on mobile.
-- Add the requested mechanism, two-kit selection, environmental-probiotics explanation, refill guidance, accessible FAQ, final action, support link, and footer.
-- Add an on-demand Vimeo dialog that loads only after interaction.
-- Add a mobile sticky action that appears after the opening action leaves view and hides near product/final actions or while the dialog is open.
-- Keep Tidio collapsed and move it away from the sticky action only on this preview route.
-- Track only `homepage_cta_click`, `kit_select`, and `demo_open`, marked as preview interactions.
+## What will change
+- Add a dedicated mobile hero directly below the existing site header, active only below the mobile breakpoint.
+- Use the uploaded mother, daughter, dog, and BioLogic Mini poster as the immediate hero image, with the uploaded silent WebM/MP4 loop fading in only after it can play.
+- Use the exact supplied mobile copy and order: `BEYOND AIR FILTRATION`, `You take probiotics. Your home doesn’t.`, supporting text, offer panel, full-width `Choose my room kit` action, and centered `How it works ↓` link.
+- Link the primary action to the existing product-selection section and the secondary action to the existing how-it-works section, preserving current tracking and Shopify attribution behavior.
+- Keep the current tablet/desktop hero markup and appearance intact.
+
+## Performance and accessibility
+- Host all four uploaded media files through the project asset system.
+- Reserve a fixed 4:3 media area to prevent layout movement; preload the mobile poster only for mobile while retaining the existing desktop poster preload for larger screens.
+- Do not request video files for reduced-motion users, data-saver users, or 2G/slow-2G connections; retain the complete poster experience when autoplay is blocked on iOS.
+- Keep the video silent, decorative, control-free, and hidden from assistive technology; retain visible keyboard focus and at least 44px touch targets.
 
 ## Technical details
-- New route file and dedicated page/component files; route-specific styling will be scoped under a preview-page class.
-- Use direct same-tab Shopify product links so the existing global attribution decorator remains authoritative.
-- Centralize the reviewed price snapshot with its review date and a production-sync TODO.
-- Use static product images with explicit dimensions, no mobile autoplay video, no delayed text reveal, and reduced-motion support.
-- Preserve the current homepage and shared site behavior.
+- Add a focused mobile hero component and scoped mobile-only styles rather than replacing the desktop hero.
+- Prevent the existing desktop background video from downloading on mobile while preserving its current desktop sources and poster.
+- Track the mobile primary action as `homepage_cta_click` with `placement: "hero"`; do not add experiment-assignment or purchase events.
+- Update the homepage image preload declarations with non-overlapping mobile and tablet/desktop media conditions.
 
 ## Verification
 - Validate types and the automatic build result.
-- Browser-check metadata, anchors, FAQ, modal open/close and keyboard focus, sticky behavior, exact product links, and image rendering.
-- Check 320, 360, 390, and 430px mobile widths plus tablet and desktop for overflow and cropping.
-- Confirm the main CTA is visible in a 390×844 opening viewport and `/` remains unchanged.
+- Browser-check the homepage at 320, 360, 390, and 430px for overflow, readable copy, full-width controls, stable poster-to-video transition, and correct anchor navigation.
+- Check reduced-motion and a simulated slow/data-saving connection to confirm that only the poster loads.
+- Compare tablet and desktop screenshots against the current hero to confirm they remain unchanged.
+- Verify the current review route and all sections below the homepage hero are unaffected.
