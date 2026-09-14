@@ -11,7 +11,7 @@
 .mobile-home-hero__media {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--mobile-hero-panel);
 }
@@ -35,7 +35,7 @@
 }
 
 .mobile-home-hero__content {
-  padding: 1.35rem 1.25rem 1.5rem;
+  padding: 1.1rem 1.25rem 1.5rem;
 }
 
 .mobile-home-hero__eyebrow {
