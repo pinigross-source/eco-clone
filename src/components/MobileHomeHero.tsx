@@ -31,7 +31,15 @@ export function MobileHomeHero() {
 
   useEffect(() => {
     if (!videoEnabled) return;
-    videoRef.current?.load();
+    const video = videoRef.current;
+    if (!video) return;
+    video.load();
+    const tryPlay = () => {
+      void video.play().catch(() => undefined);
+    };
+    video.addEventListener("loadeddata", tryPlay);
+    tryPlay();
+    return () => video.removeEventListener("loadeddata", tryPlay);
   }, [videoEnabled]);
 
   return (
