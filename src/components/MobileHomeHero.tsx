@@ -31,7 +31,15 @@ export function MobileHomeHero() {
 
   useEffect(() => {
     if (!videoEnabled) return;
-    videoRef.current?.load();
+    const video = videoRef.current;
+    if (!video) return;
+    video.load();
+    const tryPlay = () => {
+      void video.play().catch(() => undefined);
+    };
+    video.addEventListener("loadeddata", tryPlay);
+    tryPlay();
+    return () => video.removeEventListener("loadeddata", tryPlay);
   }, [videoEnabled]);
 
   return (
@@ -58,7 +66,8 @@ export function MobileHomeHero() {
           preload="none"
           aria-hidden="true"
           tabIndex={-1}
-          onCanPlayThrough={() => setVideoReady(true)}
+          onPlaying={() => setVideoReady(true)}
+          onCanPlay={() => setVideoReady(true)}
         >
           {videoEnabled ? <source src={videoWebmAsset.url} type="video/webm" /> : null}
           {videoEnabled ? <source src={videoMp4Asset.url} type="video/mp4" /> : null}
