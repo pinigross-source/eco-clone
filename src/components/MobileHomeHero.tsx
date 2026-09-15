@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/tracking";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import posterWebpAsset from "@/assets/mobile-home-hero-poster.webp.asset.json";
 import posterJpgAsset from "@/assets/mobile-home-hero-poster.jpg.asset.json";
 import videoWebmAsset from "@/assets/mobile-home-hero-loop.webm.asset.json";
@@ -17,6 +18,7 @@ export function MobileHomeHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoEnabled, setVideoEnabled] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -88,15 +90,44 @@ export function MobileHomeHero() {
         </p>
         <a
           className="mobile-home-hero__button"
-          href="#room-kits"
-          onClick={() => trackEvent("homepage_cta_click", { placement: "hero" })}
+          href="#find-your-system"
+          onClick={(e) => {
+            e.preventDefault();
+            trackEvent("homepage_cta_click", { placement: "hero" });
+            document
+              .getElementById("find-your-system")
+              ?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }}
         >
           Choose my room kit
         </a>
-        <a className="mobile-home-hero__link" href="#how-it-works">
-          How it works ↓
-        </a>
+        <button
+          type="button"
+          className="mobile-home-hero__link"
+          onClick={() => {
+            setVideoOpen(true);
+            trackEvent("click_see_how_it_works_video", { placement: "hero_mobile" });
+          }}
+        >
+          How it works ▸
+        </button>
       </div>
+
+      <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
+        <DialogContent className="max-w-4xl w-[95vw] p-0 bg-black border-none rounded-2xl overflow-hidden [&>button]:text-white [&>button]:hover:text-white/80">
+          <div className="aspect-video w-full">
+            {videoOpen && (
+              <iframe
+                src="https://player.vimeo.com/video/1146300437?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1"
+                title="See How EnviroBiotics Works"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
