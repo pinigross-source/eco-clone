@@ -11,6 +11,8 @@ import {
 import { Lightbulb, Loader2, RefreshCw, TrendingUp, DownloadCloud } from "lucide-react";
 import { toast } from "sonner";
 import { syncShopifyOrdersFn } from "@/lib/attributionSync.functions";
+import { syncMetaAdsInsightsFn } from "@/lib/metaAds.functions";
+
 
 interface VisitRow {
   landing_page: string | null;
@@ -38,7 +40,22 @@ interface OrderRow {
   created_at: string;
 }
 
+interface MetaInsightRow {
+  date_start: string | null;
+  campaign_name: string | null;
+  adset_name: string | null;
+  ad_name: string | null;
+  spend: number | null;
+  impressions: number | null;
+  clicks: number | null;
+  conversions: number | null;
+  cost_per_conversion: number | null;
+  ad_id?: string | null;
+}
+
 const RANGES = [
+
+
   { value: "7", label: "Last 7 days" },
   { value: "28", label: "Last 28 days" },
   { value: "90", label: "Last 90 days" },
@@ -64,15 +81,21 @@ export function AdAttributionSection() {
   >("landing_page");
   const [visits, setVisits] = useState<VisitRow[]>([]);
   const [orders, setOrders] = useState<OrderRow[]>([]);
+  const [metaInsights, setMetaInsights] = useState<MetaInsightRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [syncing, setSyncing] = useState(false);
+  const [metaSyncing, setMetaSyncing] = useState(false);
+
 
   const load = async () => {
     setLoading(true);
     const since = new Date(
       Date.now() - Number(range) * 864e5,
     ).toISOString();
-    const [v, o] = await Promise.all([
+    const metaSince = new Date(
+      Date.now() - Number(range) * 864e5,
+    ).toISOString().split("T")[0];
+    const [v, o, m] = await Promise.all([
       supabase
         .from("attribution_visits")
         .select(
@@ -89,11 +112,21 @@ export function AdAttributionSection() {
         .gte("created_at", since)
         .order("created_at", { ascending: false })
         .limit(5000),
+      supabase
+        .from("meta_ads_insights")
+        .select(
+          "date_start,campaign_name,adset_name,ad_name,spend,impressions,clicks,conversions,cost_per_conversion",
+        )
+        .gte("date_start", metaSince)
+        .order("date_start", { ascending: false })
+        .limit(5000),
     ]);
     setVisits((v.data as VisitRow[]) ?? []);
     setOrders((o.data as OrderRow[]) ?? []);
+    setMetaInsights((m.data as MetaInsightRow[]) ?? []);
     setLoading(false);
   };
+
 
   useEffect(() => {
     void load();
@@ -340,7 +373,31 @@ export function AdAttributionSection() {
             )}
             Import Shopify orders
           </Button>
+          <Button
+            variant="outline"
+            disabled={metaSyncing}
+            onClick={async () => {
+              setMetaSyncing(true);
+              try {
+                const res = await syncMetaAdsInsightsFn({ data: { days: 30 } });
+                toast.success(`Synced ${res.synced} Meta ad rows`);
+                await load();
+              } catch {
+                toast.error("Could not sync Meta Ads data");
+              } finally {
+                setMetaSyncing(false);
+              }
+            }}
+          >
+            {metaSyncing ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            ) : (
+              <TrendingUp className="mr-2 h-4 w-4" />
+            )}
+            Sync Meta Ads
+          </Button>
           <Button variant="outline" size="icon" onClick={() => void load()}>
+
             <RefreshCw className="h-4 w-4" />
           </Button>
         </div>
@@ -393,7 +450,113 @@ export function AdAttributionSection() {
             </div>
           )}
 
+          <div className="mb-8 rounded-xl border border-border p-5">
+            <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold">
+              <TrendingUp className="h-5 w-5 text-primary" />
+              Meta Ads performance
+            </h3>
+            {metaInsights.length === 0 ? (
+              <p className="text-sm text-muted-foreground">
+                No Meta Ads data yet. Click “Sync Meta Ads” above to pull the latest spend,
+                impressions, and conversions from your ad account.
+              </p>
+            ) : (
+              <>
+                <div className="mb-4 grid gap-4 sm:grid-cols-5">
+                  {(() => {
+                    const totalSpend = metaInsights.reduce(
+                      (s, i) => s + (i.spend ?? 0),
+                      0,
+                    );
+                    const totalImpressions = metaInsights.reduce(
+                      (s, i) => s + (i.impressions ?? 0),
+                      0,
+                    );
+                    const totalClicks = metaInsights.reduce(
+                      (s, i) => s + (i.clicks ?? 0),
+                      0,
+                    );
+                    const totalConversions = metaInsights.reduce(
+                      (s, i) => s + (i.conversions ?? 0),
+                      0,
+                    );
+                    const cpa =
+                      totalConversions > 0
+                        ? totalSpend / totalConversions
+                        : 0;
+                    return [
+                      { label: "Spend", value: money(totalSpend, "USD") },
+                      { label: "Impressions", value: totalImpressions.toLocaleString() },
+                      { label: "Clicks", value: totalClicks.toLocaleString() },
+                      { label: "Conversions", value: totalConversions.toLocaleString() },
+                      {
+                        label: "Cost per conversion",
+                        value: cpa ? money(cpa, "USD") : "—",
+                      },
+                    ].map((k) => (
+                      <div key={k.label} className="rounded-lg border border-border p-3">
+                        <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                          {k.label}
+                        </p>
+                        <p className="mt-1 text-xl font-semibold">{k.value}</p>
+                      </div>
+                    ));
+                  })()}
+                </div>
+                <div className="overflow-x-auto rounded-xl border border-border">
+                  <table className="w-full text-sm">
+                    <thead className="bg-muted/50 text-left">
+                      <tr>
+                        <th className="px-4 py-3 font-medium">Campaign</th>
+                        <th className="px-4 py-3 font-medium">Ad set</th>
+                        <th className="px-4 py-3 font-medium">Ad</th>
+                        <th className="px-4 py-3 text-right font-medium">Spend</th>
+                        <th className="px-4 py-3 text-right font-medium">Impr.</th>
+                        <th className="px-4 py-3 text-right font-medium">Clicks</th>
+                        <th className="px-4 py-3 text-right font-medium">Conv.</th>
+                        <th className="px-4 py-3 text-right font-medium">CPA</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {metaInsights.slice(0, 100).map((i, idx) => (
+                        <tr key={`${i.ad_id}-${idx}`} className="border-t border-border">
+                          <td className="max-w-[180px] truncate px-4 py-3">
+                            {i.campaign_name ?? "—"}
+                          </td>
+                          <td className="max-w-[180px] truncate px-4 py-3">
+                            {i.adset_name ?? "—"}
+                          </td>
+                          <td className="max-w-[200px] truncate px-4 py-3">
+                            {i.ad_name ?? "—"}
+                          </td>
+                          <td className="px-4 py-3 text-right">
+                            {i.spend != null ? money(i.spend, "USD") : "—"}
+                          </td>
+                          <td className="px-4 py-3 text-right">
+                            {i.impressions?.toLocaleString() ?? "—"}
+                          </td>
+                          <td className="px-4 py-3 text-right">
+                            {i.clicks?.toLocaleString() ?? "—"}
+                          </td>
+                          <td className="px-4 py-3 text-right">
+                            {i.conversions?.toLocaleString() ?? "—"}
+                          </td>
+                          <td className="px-4 py-3 text-right">
+                            {i.cost_per_conversion != null
+                              ? money(i.cost_per_conversion, "USD")
+                              : "—"}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </>
+            )}
+          </div>
+
           <h3 className="mb-3 text-lg font-semibold">Conversion by traffic source</h3>
+
           <div className="mb-8 overflow-x-auto rounded-xl border border-border">
             <table className="w-full text-sm">
               <thead className="bg-muted/50 text-left">

@@ -452,6 +452,78 @@ export type Database = {
           },
         ]
       }
+      meta_ads_insights: {
+        Row: {
+          actions: Json | null
+          ad_id: string | null
+          ad_name: string | null
+          adset_id: string | null
+          adset_name: string | null
+          campaign_id: string | null
+          campaign_name: string | null
+          clicks: number | null
+          conversions: number | null
+          cost_per_action_type: Json | null
+          cost_per_conversion: number | null
+          cpc: number | null
+          created_at: string
+          ctr: number | null
+          date_start: string | null
+          date_stop: string | null
+          frequency: number | null
+          id: string
+          impressions: number | null
+          reach: number | null
+          spend: number | null
+        }
+        Insert: {
+          actions?: Json | null
+          ad_id?: string | null
+          ad_name?: string | null
+          adset_id?: string | null
+          adset_name?: string | null
+          campaign_id?: string | null
+          campaign_name?: string | null
+          clicks?: number | null
+          conversions?: number | null
+          cost_per_action_type?: Json | null
+          cost_per_conversion?: number | null
+          cpc?: number | null
+          created_at?: string
+          ctr?: number | null
+          date_start?: string | null
+          date_stop?: string | null
+          frequency?: number | null
+          id?: string
+          impressions?: number | null
+          reach?: number | null
+          spend?: number | null
+        }
+        Update: {
+          actions?: Json | null
+          ad_id?: string | null
+          ad_name?: string | null
+          adset_id?: string | null
+          adset_name?: string | null
+          campaign_id?: string | null
+          campaign_name?: string | null
+          clicks?: number | null
+          conversions?: number | null
+          cost_per_action_type?: Json | null
+          cost_per_conversion?: number | null
+          cpc?: number | null
+          created_at?: string
+          ctr?: number | null
+          date_start?: string | null
+          date_stop?: string | null
+          frequency?: number | null
+          id?: string
+          impressions?: number | null
+          reach?: number | null
+          spend?: number | null
+        }
+        Relationships: []
+      }
       orders: {
         Row: {
           created_at: string
