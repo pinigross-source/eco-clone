@@ -448,7 +448,113 @@ export function AdAttributionSection() {
             </div>
           )}
 
+          <div className="mb-8 rounded-xl border border-border p-5">
+            <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold">
+              <TrendingUp className="h-5 w-5 text-primary" />
+              Meta Ads performance
+            </h3>
+            {metaInsights.length === 0 ? (
+              <p className="text-sm text-muted-foreground">
+                No Meta Ads data yet. Click “Sync Meta Ads” above to pull the latest spend,
+                impressions, and conversions from your ad account.
+              </p>
+            ) : (
+              <>
+                <div className="mb-4 grid gap-4 sm:grid-cols-5">
+                  {(() => {
+                    const totalSpend = metaInsights.reduce(
+                      (s, i) => s + (i.spend ?? 0),
+                      0,
+                    );
+                    const totalImpressions = metaInsights.reduce(
+                      (s, i) => s + (i.impressions ?? 0),
+                      0,
+                    );
+                    const totalClicks = metaInsights.reduce(
+                      (s, i) => s + (i.clicks ?? 0),
+                      0,
+                    );
+                    const totalConversions = metaInsights.reduce(
+                      (s, i) => s + (i.conversions ?? 0),
+                      0,
+                    );
+                    const cpa =
+                      totalConversions > 0
+                        ? totalSpend / totalConversions
+                        : 0;
+                    return [
+                      { label: "Spend", value: money(totalSpend, "USD") },
+                      { label: "Impressions", value: totalImpressions.toLocaleString() },
+                      { label: "Clicks", value: totalClicks.toLocaleString() },
+                      { label: "Conversions", value: totalConversions.toLocaleString() },
+                      {
+                        label: "Cost per conversion",
+                        value: cpa ? money(cpa, "USD") : "—",
+                      },
+                    ].map((k) => (
+                      <div key={k.label} className="rounded-lg border border-border p-3">
+                        <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                          {k.label}
+                        </p>
+                        <p className="mt-1 text-xl font-semibold">{k.value}</p>
+                      </div>
+                    ));
+                  })()}
+                </div>
+                <div className="overflow-x-auto rounded-xl border border-border">
+                  <table className="w-full text-sm">
+                    <thead className="bg-muted/50 text-left">
+                      <tr>
+                        <th className="px-4 py-3 font-medium">Campaign</th>
+                        <th className="px-4 py-3 font-medium">Ad set</th>
+                        <th className="px-4 py-3 font-medium">Ad</th>
+                        <th className="px-4 py-3 text-right font-medium">Spend</th>
+                        <th className="px-4 py-3 text-right font-medium">Impr.</th>
+                        <th className="px-4 py-3 text-right font-medium">Clicks</th>
+                        <th className="px-4 py-3 text-right font-medium">Conv.</th>
+                        <th className="px-4 py-3 text-right font-medium">CPA</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {metaInsights.slice(0, 100).map((i, idx) => (
+                        <tr key={`${i.ad_id}-${idx}`} className="border-t border-border">
+                          <td className="max-w-[180px] truncate px-4 py-3">
+                            {i.campaign_name ?? "—"}
+                          </td>
+                          <td className="max-w-[180px] truncate px-4 py-3">
+                            {i.adset_name ?? "—"}
+                          </td>
+                          <td className="max-w-[200px] truncate px-4 py-3">
+                            {i.ad_name ?? "—"}
+                          </td>
+                          <td className="px-4 py-3 text-right">
+                            {i.spend != null ? money(i.spend, "USD") : "—"}
+                          </td>
+                          <td className="px-4 py-3 text-right">
+                            {i.impressions?.toLocaleString() ?? "—"}
+                          </td>
+                          <td className="px-4 py-3 text-right">
+                            {i.clicks?.toLocaleString() ?? "—"}
+                          </td>
+                          <td className="px-4 py-3 text-right">
+                            {i.conversions?.toLocaleString() ?? "—"}
+                          </td>
+                          <td className="px-4 py-3 text-right">
+                            {i.cost_per_conversion != null
+                              ? money(i.cost_per_conversion, "USD")
+                              : "—"}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </>
+            )}
+          </div>
+
           <h3 className="mb-3 text-lg font-semibold">Conversion by traffic source</h3>
+
           <div className="mb-8 overflow-x-auto rounded-xl border border-border">
             <table className="w-full text-sm">
               <thead className="bg-muted/50 text-left">
