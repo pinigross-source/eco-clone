@@ -16,10 +16,11 @@ type NavigatorWithConnection = Navigator & {
 };
 
 export function MobileHomeHero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
+  const transitionPendingRef = useRef(false);
   const [videoEnabled, setVideoEnabled] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
-  const [videoFading, setVideoFading] = useState(false);
+  const [activeVideo, setActiveVideo] = useState(0);
   const [videoOpen, setVideoOpen] = useState(false);
 
   useEffect(() => {
@@ -35,7 +36,7 @@ export function MobileHomeHero() {
 
   useEffect(() => {
     if (!videoEnabled) return;
-    const video = videoRef.current;
+    const video = videoRefs.current[0];
     if (!video) return;
     video.load();
     const tryPlay = () => {
@@ -60,31 +61,57 @@ export function MobileHomeHero() {
             fetchPriority="high"
           />
         </picture>
-        <video
-          ref={videoRef}
-          className={`mobile-home-hero__video${videoReady ? " is-ready" : ""}${videoFading ? " is-loop-fading" : ""}`}
-          muted
-          loop
-          playsInline
-          autoPlay
-          preload="none"
-          aria-hidden="true"
-          tabIndex={-1}
-          onPlaying={() => setVideoReady(true)}
-          onCanPlay={() => setVideoReady(true)}
-          onTimeUpdate={(event) => {
-            const video = event.currentTarget;
-            if (!Number.isFinite(video.duration) || video.duration <= 0) return;
-            const nearLoopEnd = video.duration - video.currentTime <= 0.9;
-            setVideoFading(nearLoopEnd);
-          }}
-          onSeeked={(event) => {
-            if (event.currentTarget.currentTime < 0.5) setVideoFading(false);
-          }}
-        >
-          {videoEnabled ? <source src={videoWebmAsset.url} type="video/webm" /> : null}
-          {videoEnabled ? <source src={videoMp4Asset.url} type="video/mp4" /> : null}
-        </video>
+        {[0, 1].map((index) => (
+          <video
+            key={index}
+            ref={(element) => {
+              videoRefs.current[index] = element;
+            }}
+            className={`mobile-home-hero__video${videoReady && activeVideo === index ? " is-active" : ""}`}
+            muted
+            playsInline
+            autoPlay={index === 0}
+            preload={index === 0 ? "none" : "auto"}
+            aria-hidden="true"
+            tabIndex={-1}
+            onPlaying={() => {
+              if (index === 0) setVideoReady(true);
+            }}
+            onCanPlay={() => {
+              if (index === 0) setVideoReady(true);
+            }}
+            onTimeUpdate={(event) => {
+              if (index !== activeVideo || transitionPendingRef.current) return;
+              const current = event.currentTarget;
+              if (!Number.isFinite(current.duration) || current.duration - current.currentTime > 1.1) return;
+
+              const nextIndex = index === 0 ? 1 : 0;
+              const next = videoRefs.current[nextIndex];
+              if (!next || next.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) return;
+
+              transitionPendingRef.current = true;
+              next.currentTime = 0;
+              void next.play().then(() => {
+                setActiveVideo(nextIndex);
+                window.setTimeout(() => {
+                  current.pause();
+                  current.currentTime = 0;
+                  transitionPendingRef.current = false;
+                }, 900);
+              }).catch(() => {
+                transitionPendingRef.current = false;
+              });
+            }}
+            onEnded={(event) => {
+              if (index !== activeVideo || transitionPendingRef.current) return;
+              event.currentTarget.currentTime = 0;
+              void event.currentTarget.play().catch(() => undefined);
+            }}
+          >
+            {videoEnabled ? <source src={videoWebmAsset.url} type="video/webm" /> : null}
+            {videoEnabled ? <source src={videoMp4Asset.url} type="video/mp4" /> : null}
+          </video>
+        ))}
       </div>
 
       <div className="mobile-home-hero__content">
