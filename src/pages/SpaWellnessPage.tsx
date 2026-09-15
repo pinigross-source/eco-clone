@@ -38,7 +38,15 @@ const biotica800Img = biotica800Asset.url;
 
 const scrollTo = (id: string) => {
   const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (!el) return;
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+  // Lazy images below the fold can shift layout mid-scroll; re-align once settled.
+  window.setTimeout(() => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const top = target.getBoundingClientRect().top;
+    if (Math.abs(top) > 24) target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 700);
 };
 
 const steps = [
