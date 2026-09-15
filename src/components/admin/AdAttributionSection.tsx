@@ -50,9 +50,11 @@ interface MetaInsightRow {
   clicks: number | null;
   conversions: number | null;
   cost_per_conversion: number | null;
+  ad_id?: string | null;
 }
 
 const RANGES = [
+
 
   { value: "7", label: "Last 7 days" },
   { value: "28", label: "Last 28 days" },
