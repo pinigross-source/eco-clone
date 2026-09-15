@@ -36,7 +36,9 @@
 }
 
 .mobile-home-hero__content {
-  padding: 1.1rem 1.25rem 1.5rem;
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 1.75rem;
 }
 
 .mobile-home-hero__eyebrow {
@@ -106,14 +108,20 @@
 
 .mobile-home-hero__link {
   display: flex;
+  width: 100%;
   min-height: 2.75rem;
-  margin-top: 0.3rem;
+  margin-top: 0.4rem;
+  padding: 0;
   align-items: center;
   justify-content: center;
+  border: 0;
+  background: transparent;
   color: var(--mobile-hero-green);
+  font: inherit;
   font-size: 0.8125rem;
   font-weight: 650;
   text-decoration: none;
+  cursor: pointer;
 }
 
 @media (min-width: 48rem) {
