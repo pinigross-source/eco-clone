@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/tracking";
+import { Play } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import posterWebpAsset from "@/assets/mobile-home-hero-poster.webp.asset.json";
 import posterJpgAsset from "@/assets/mobile-home-hero-poster.jpg.asset.json";
@@ -109,7 +110,8 @@ export function MobileHomeHero() {
             trackEvent("click_see_how_it_works_video", { placement: "hero_mobile" });
           }}
         >
-          How it works ▸
+          <Play className="w-4 h-4" />
+          Watch how it works
         </button>
       </div>
 
