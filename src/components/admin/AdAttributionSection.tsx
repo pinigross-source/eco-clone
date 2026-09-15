@@ -371,7 +371,31 @@ export function AdAttributionSection() {
             )}
             Import Shopify orders
           </Button>
+          <Button
+            variant="outline"
+            disabled={metaSyncing}
+            onClick={async () => {
+              setMetaSyncing(true);
+              try {
+                const res = await syncMetaAdsInsightsFn({ data: { days: 30 } });
+                toast.success(`Synced ${res.synced} Meta ad rows`);
+                await load();
+              } catch {
+                toast.error("Could not sync Meta Ads data");
+              } finally {
+                setMetaSyncing(false);
+              }
+            }}
+          >
+            {metaSyncing ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            ) : (
+              <TrendingUp className="mr-2 h-4 w-4" />
+            )}
+            Sync Meta Ads
+          </Button>
           <Button variant="outline" size="icon" onClick={() => void load()}>
+
             <RefreshCw className="h-4 w-4" />
           </Button>
         </div>
