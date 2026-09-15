@@ -45,9 +45,9 @@ export const TrustedPlacesSection = () => {
       className="border-b border-border bg-white"
     >
       <div className="site-container pt-6 pb-14 sm:pt-8 sm:pb-32 lg:pb-40">
-        <div className="mb-10 flex flex-col items-center gap-6 sm:mb-14">
+        <div className="mb-8 sm:mb-14 flex flex-col items-center gap-6">
           <span className="h-px w-16 sm:w-20" style={{ background: "hsl(var(--primary))" }} />
-          <p className="font-display font-medium text-[1.15rem] sm:text-[1.35rem] lg:text-[1.5rem] leading-[1.4] text-muted-foreground text-balance text-center max-w-4xl">
+          <p className="font-display font-medium text-[1.05rem] sm:text-[1.35rem] lg:text-[1.5rem] leading-[1.4] text-muted-foreground text-balance text-center max-w-4xl">
             EnviroBiotics already protect people in Hospitals, emergency care, nursing homes, schools, Hotels, and airports.
           </p>
           <span className="h-px w-16 sm:w-20" style={{ background: "hsl(var(--primary))" }} />
@@ -58,7 +58,7 @@ export const TrustedPlacesSection = () => {
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-24" />
 
           <motion.div
-            className="flex items-center gap-16 sm:gap-16"
+            className="flex items-center gap-10 sm:gap-16"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
             style={{ width: "fit-content" }}
@@ -66,14 +66,14 @@ export const TrustedPlacesSection = () => {
             {track.map((logo, i) => (
               <div
                 key={`${logo.alt}-${i}`}
-                className="flex h-28 w-40 flex-shrink-0 items-center justify-center sm:h-24 sm:w-44"
+                className="flex h-20 w-32 flex-shrink-0 items-center justify-center sm:h-24 sm:w-44"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
                   width="176"
                   height="96"
-                  className="max-h-20 w-auto max-w-full object-contain sm:max-h-16"
+                  className="max-h-14 sm:max-h-16 w-auto max-w-full object-contain"
                   style={logo.scale ? { transform: `scale(${logo.scale})`, transformOrigin: "center" } : undefined}
                   loading="lazy"
                   decoding="async"
@@ -84,7 +84,7 @@ export const TrustedPlacesSection = () => {
           </motion.div>
         </div>
 
-        <h3 className="mt-10 sm:mt-12 font-display font-medium text-[1.25rem] sm:text-[1.5rem] lg:text-[1.75rem] leading-[1.3] text-foreground text-balance text-center mx-auto max-w-3xl lg:max-w-5xl">
+        <h3 className="mt-10 sm:mt-12 font-display font-medium text-[1.125rem] sm:text-[1.5rem] lg:text-[1.75rem] leading-[1.3] text-foreground text-balance text-center mx-auto max-w-3xl lg:max-w-5xl">
           Let EnviroBiotics protect everyone at your home, office, and on the go.
         </h3>
       </div>
