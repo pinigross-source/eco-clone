@@ -90,7 +90,10 @@ export function AdAttributionSection() {
     const since = new Date(
       Date.now() - Number(range) * 864e5,
     ).toISOString();
-    const [v, o] = await Promise.all([
+    const metaSince = new Date(
+      Date.now() - Number(range) * 864e5,
+    ).toISOString().split("T")[0];
+    const [v, o, m] = await Promise.all([
       supabase
         .from("attribution_visits")
         .select(
@@ -107,11 +110,21 @@ export function AdAttributionSection() {
         .gte("created_at", since)
         .order("created_at", { ascending: false })
         .limit(5000),
+      supabase
+        .from("meta_ads_insights")
+        .select(
+          "date_start,campaign_name,adset_name,ad_name,spend,impressions,clicks,conversions,cost_per_conversion",
+        )
+        .gte("date_start", metaSince)
+        .order("date_start", { ascending: false })
+        .limit(5000),
     ]);
     setVisits((v.data as VisitRow[]) ?? []);
     setOrders((o.data as OrderRow[]) ?? []);
+    setMetaInsights((m.data as MetaInsightRow[]) ?? []);
     setLoading(false);
   };
+
 
   useEffect(() => {
     void load();
