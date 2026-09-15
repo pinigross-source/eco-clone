@@ -2,13 +2,8 @@ import { useState } from "react";
 import { Link } from "@/lib/link";
 import { ArrowRight, Play } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import heroWebmAsset from "@/assets/hero-loop-forward.webm.asset.json";
-import heroMp4Asset from "@/assets/hero-loop-forward.mp4.asset.json";
-import heroPosterAsset from "@/assets/hero-poster.jpg.asset.json";
+import { HeroVideoLayer } from "@/components/hero/HeroVideoLayer";
 
-const heroWebm = heroWebmAsset.url;
-const heroMp4 = heroMp4Asset.url;
-const heroPoster = heroPosterAsset.url;
 
 const HERO_FONT = '"Hanken Grotesk", system-ui, -apple-system, sans-serif';
 
