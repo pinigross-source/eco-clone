@@ -107,21 +107,34 @@
 }
 
 .mobile-home-hero__link {
-  display: flex;
+  display: inline-flex;
   width: 100%;
-  min-height: 2.75rem;
-  margin-top: 0.4rem;
-  padding: 0;
+  min-height: 3rem;
+  margin-top: 0.55rem;
+  padding: 0.85em 1.6em;
   align-items: center;
   justify-content: center;
-  border: 0;
+  gap: 0.5rem;
+  border: 1px solid rgba(31, 35, 40, 0.25);
+  border-radius: 9999px;
   background: transparent;
-  color: var(--mobile-hero-green);
+  color: var(--mobile-hero-ink);
   font: inherit;
-  font-size: 0.8125rem;
-  font-weight: 650;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.mobile-home-hero__link:hover {
+  background: rgba(31, 35, 40, 0.05);
+}
+
+.mobile-home-hero__link:active {
+  transform: translateY(1px);
 }
 
 @media (min-width: 48rem) {
