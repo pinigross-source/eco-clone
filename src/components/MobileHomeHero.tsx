@@ -19,6 +19,7 @@ export function MobileHomeHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoEnabled, setVideoEnabled] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
+  const [videoFading, setVideoFading] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
 
   useEffect(() => {
@@ -61,7 +62,7 @@ export function MobileHomeHero() {
         </picture>
         <video
           ref={videoRef}
-          className={`mobile-home-hero__video${videoReady ? " is-ready" : ""}`}
+          className={`mobile-home-hero__video${videoReady ? " is-ready" : ""}${videoFading ? " is-loop-fading" : ""}`}
           muted
           loop
           playsInline
@@ -71,6 +72,15 @@ export function MobileHomeHero() {
           tabIndex={-1}
           onPlaying={() => setVideoReady(true)}
           onCanPlay={() => setVideoReady(true)}
+          onTimeUpdate={(event) => {
+            const video = event.currentTarget;
+            if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+            const nearLoopEnd = video.duration - video.currentTime <= 0.9;
+            setVideoFading(nearLoopEnd);
+          }}
+          onSeeked={(event) => {
+            if (event.currentTarget.currentTime < 0.5) setVideoFading(false);
+          }}
         >
           {videoEnabled ? <source src={videoWebmAsset.url} type="video/webm" /> : null}
           {videoEnabled ? <source src={videoMp4Asset.url} type="video/mp4" /> : null}
