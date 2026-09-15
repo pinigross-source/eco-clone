@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/tracking";
-import { Play } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import posterWebpAsset from "@/assets/mobile-home-hero-poster.webp.asset.json";
 import posterJpgAsset from "@/assets/mobile-home-hero-poster.jpg.asset.json";
@@ -100,7 +100,10 @@ export function MobileHomeHero() {
               ?.scrollIntoView({ behavior: "smooth", block: "start" });
           }}
         >
-          Choose my room kit
+          Choose Your System
+          <span className="mobile-home-hero__button-icon" aria-hidden="true">
+            <ArrowRight className="w-4 h-4" />
+          </span>
         </a>
         <button
           type="button"
