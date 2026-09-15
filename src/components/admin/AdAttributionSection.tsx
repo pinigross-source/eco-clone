@@ -40,7 +40,20 @@ interface OrderRow {
   created_at: string;
 }
 
+interface MetaInsightRow {
+  date_start: string | null;
+  campaign_name: string | null;
+  adset_name: string | null;
+  ad_name: string | null;
+  spend: number | null;
+  impressions: number | null;
+  clicks: number | null;
+  conversions: number | null;
+  cost_per_conversion: number | null;
+}
+
 const RANGES = [
+
   { value: "7", label: "Last 7 days" },
   { value: "28", label: "Last 28 days" },
   { value: "90", label: "Last 90 days" },
