@@ -94,6 +94,7 @@ import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 import { Route as SolutionsRoomRouteImport } from './routes/solutions.room'
 import { Route as ApiPublicComingSoonRouteImport } from './routes/api/public/coming-soon'
 import { Route as ApiPublicInstallationQuoteRouteImport } from './routes/api/public/installation-quote'
+import { Route as ApiPublicMetaAdsSyncRouteImport } from './routes/api/public/meta-ads-sync'
 import { Route as ApiPublicPetsOfferRouteImport } from './routes/api/public/pets-offer'
 import { Route as ApiPublicResendWebhookRouteImport } from './routes/api/public/resend-webhook'
 import { Route as ApiPublicShopifyOrderRouteImport } from './routes/api/public/shopify-order'
@@ -530,6 +531,11 @@ const ApiPublicInstallationQuoteRoute =
     path: '/api/public/installation-quote',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicMetaAdsSyncRoute = ApiPublicMetaAdsSyncRouteImport.update({
+  id: '/api/public/meta-ads-sync',
+  path: '/api/public/meta-ads-sync',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicPetsOfferRoute = ApiPublicPetsOfferRouteImport.update({
   id: '/api/public/pets-offer',
   path: '/api/public/pets-offer',
@@ -642,6 +648,7 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
+  '/api/public/meta-ads-sync': typeof ApiPublicMetaAdsSyncRoute
   '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
   '/api/public/resend-webhook': typeof ApiPublicResendWebhookRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
@@ -734,6 +741,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
+  '/api/public/meta-ads-sync': typeof ApiPublicMetaAdsSyncRoute
   '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
   '/api/public/resend-webhook': typeof ApiPublicResendWebhookRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
@@ -827,6 +835,7 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
+  '/api/public/meta-ads-sync': typeof ApiPublicMetaAdsSyncRoute
   '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
   '/api/public/resend-webhook': typeof ApiPublicResendWebhookRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
@@ -921,6 +930,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/api/public/coming-soon'
     | '/api/public/installation-quote'
+    | '/api/public/meta-ads-sync'
     | '/api/public/pets-offer'
     | '/api/public/resend-webhook'
     | '/api/public/shopify-order'
@@ -1013,6 +1023,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/api/public/coming-soon'
     | '/api/public/installation-quote'
+    | '/api/public/meta-ads-sync'
     | '/api/public/pets-offer'
     | '/api/public/resend-webhook'
     | '/api/public/shopify-order'
@@ -1105,6 +1116,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/api/public/coming-soon'
     | '/api/public/installation-quote'
+    | '/api/public/meta-ads-sync'
     | '/api/public/pets-offer'
     | '/api/public/resend-webhook'
     | '/api/public/shopify-order'
@@ -1195,6 +1207,7 @@ export interface RootRouteChildren {
   BlogIndexRoute: typeof BlogIndexRoute
   ApiPublicComingSoonRoute: typeof ApiPublicComingSoonRoute
   ApiPublicInstallationQuoteRoute: typeof ApiPublicInstallationQuoteRoute
+  ApiPublicMetaAdsSyncRoute: typeof ApiPublicMetaAdsSyncRoute
   ApiPublicPetsOfferRoute: typeof ApiPublicPetsOfferRoute
   ApiPublicResendWebhookRoute: typeof ApiPublicResendWebhookRoute
   ApiPublicShopifyOrderRoute: typeof ApiPublicShopifyOrderRoute
@@ -1798,6 +1811,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicInstallationQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/meta-ads-sync': {
+      id: '/api/public/meta-ads-sync'
+      path: '/api/public/meta-ads-sync'
+      fullPath: '/api/public/meta-ads-sync'
+      preLoaderRoute: typeof ApiPublicMetaAdsSyncRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/pets-offer': {
       id: '/api/public/pets-offer'
       path: '/api/public/pets-offer'
@@ -1964,6 +1984,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogIndexRoute: BlogIndexRoute,
   ApiPublicComingSoonRoute: ApiPublicComingSoonRoute,
   ApiPublicInstallationQuoteRoute: ApiPublicInstallationQuoteRoute,
+  ApiPublicMetaAdsSyncRoute: ApiPublicMetaAdsSyncRoute,
   ApiPublicPetsOfferRoute: ApiPublicPetsOfferRoute,
   ApiPublicResendWebhookRoute: ApiPublicResendWebhookRoute,
   ApiPublicShopifyOrderRoute: ApiPublicShopifyOrderRoute,
