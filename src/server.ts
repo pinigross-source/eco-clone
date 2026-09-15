@@ -77,4 +77,23 @@ export default {
       return brandedErrorResponse();
     }
   },
+  async scheduled(_event: unknown, env: unknown, ctx: { waitUntil: (p: Promise<unknown>) => void }) {
+    try {
+      const url = new URL("/api/public/meta-ads-sync", "https://envirobiotics.com");
+      const req = new Request(url, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${process.env.META_SYNC_SECRET ?? ""}` },
+      });
+      const promise = fetch(req).then(async (res) => {
+        if (!res.ok) {
+          const text = await res.text();
+          console.error("[scheduled:meta-ads-sync] failed", res.status, text);
+        }
+      });
+      ctx.waitUntil(promise);
+    } catch (error) {
+      console.error("[scheduled:meta-ads-sync] error", error);
+    }
+  },
 };
+
