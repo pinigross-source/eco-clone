@@ -42,27 +42,27 @@ export const ScienceOfBalanceSection = () => {
         <div className="flex flex-col justify-start pt-12 pb-[420px] sm:justify-center sm:py-32 sm:pb-32 lg:py-40 text-center items-center lg:text-left lg:items-start">
 
           <h2
-            className="font-display font-bold text-balance text-foreground text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem] max-w-[9ch] lg:max-w-none"
+            className="font-display font-bold text-balance text-foreground text-[2rem] sm:text-[3.25rem] lg:text-[4rem] max-w-[9ch] lg:max-w-none"
             style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
           >
             The Science of{" "}
             <span className="italic font-light text-heading-accent">Balance.</span>
           </h2>
           <p
-            className="mt-5 font-display italic font-light text-heading-accent max-w-[16ch] lg:max-w-[55ch] text-[1.35rem] sm:text-[2rem] lg:text-[2.35rem]"
+            className="mt-4 sm:mt-5 font-display italic font-light text-heading-accent max-w-[16ch] lg:max-w-[55ch] text-[1.25rem] sm:text-[2rem] lg:text-[2.35rem]"
             style={{ lineHeight: 1.2 }}
           >
             Environmental probiotics, intelligently dispersed.
           </p>
           <p
-            className="mt-6 max-w-[28ch] lg:max-w-[55ch] text-foreground/80 text-[1rem] sm:text-[1.15rem]"
+            className="mt-5 sm:mt-6 max-w-[28ch] lg:max-w-[55ch] text-foreground/80 text-[1rem] sm:text-[1.15rem]"
             style={{ lineHeight: 1.55 }}
           >
             When nature is invited in, allergies, fatigue, headaches, sleep disorders, low mood, and stubborn odors quietly fade.
           </p>
 
           <h3
-            className="mt-8 font-display font-medium text-balance text-foreground text-[1.65rem] sm:text-[3rem] lg:text-[3.5rem] max-w-[16ch] lg:max-w-none"
+            className="mt-7 sm:mt-8 font-display font-medium text-balance text-foreground text-[1.5rem] sm:text-[3rem] lg:text-[3.5rem] max-w-[16ch] lg:max-w-none"
             style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
           >
             Let Nature Back Indoors

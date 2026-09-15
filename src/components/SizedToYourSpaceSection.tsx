@@ -56,23 +56,23 @@ export const SizedToYourSpaceSection = () => {
       <div className="site-container">
         {/* Header */}
         <ScrollReveal>
-          <div className="max-w-3xl mb-14 mx-auto text-center">
+          <div className="max-w-3xl mb-8 sm:mb-14 mx-auto text-center">
             <h2 className="font-display font-bold text-foreground">
               <span
-                className="block text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem] text-balance"
+                className="block text-[2rem] sm:text-[3.25rem] lg:text-[4rem] text-balance"
                 style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
               >
                 Find the system
               </span>
               <span
-                className="block mt-1 sm:mt-2 font-display italic font-light text-heading-accent text-[1.5rem] sm:text-[2rem] lg:text-[2.35rem]"
+                className="block mt-1 sm:mt-2 font-display italic font-light text-heading-accent text-[1.375rem] sm:text-[2rem] lg:text-[2.35rem]"
                 style={{ lineHeight: 1.2 }}
               >
                 that suits your space.
               </span>
             </h2>
             <p
-              className="mt-8 font-semibold text-foreground max-w-2xl mx-auto text-[1.1rem] sm:text-[1.25rem] lg:text-[1.35rem]"
+              className="mt-6 sm:mt-8 font-semibold text-foreground max-w-2xl mx-auto text-[1.1rem] sm:text-[1.25rem] lg:text-[1.35rem]"
               style={{ lineHeight: 1.5 }}
             >
               Risk-free for 30 days. Try it at home. If it does not fit your needs, return it for a full refund. No questions asked.
@@ -82,7 +82,7 @@ export const SizedToYourSpaceSection = () => {
         </ScrollReveal>
 
         {/* Products */}
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 gap-6 mb-10 sm:mb-16">
           {products.map((p) => (
             <ScrollReveal key={p.name} variant="fadeUp">
               <article className="group rounded-2xl border border-foreground/10 bg-card overflow-hidden hover:border-foreground/20 transition-colors h-full flex flex-col relative">
@@ -91,7 +91,7 @@ export const SizedToYourSpaceSection = () => {
                     {p.tag}
                   </span>
                 </div>
-                <div className="relative w-full aspect-[3/4] overflow-hidden">
+                <div className="relative w-full aspect-[4/3] sm:aspect-[3/4] overflow-hidden">
                   <img
                     src={p.imageSrc}
                     alt={p.imageAlt}
@@ -103,7 +103,7 @@ export const SizedToYourSpaceSection = () => {
 
 
 
-                <div className="p-8 flex flex-col flex-1">
+                <div className="p-6 sm:p-8 flex flex-col flex-1">
                   <h4 className="text-2xl font-display font-bold text-foreground mb-1">
                     {p.name}
                   </h4>
