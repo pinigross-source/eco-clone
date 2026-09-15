@@ -79,8 +79,11 @@ export function AdAttributionSection() {
   >("landing_page");
   const [visits, setVisits] = useState<VisitRow[]>([]);
   const [orders, setOrders] = useState<OrderRow[]>([]);
+  const [metaInsights, setMetaInsights] = useState<MetaInsightRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [syncing, setSyncing] = useState(false);
+  const [metaSyncing, setMetaSyncing] = useState(false);
+
 
   const load = async () => {
     setLoading(true);
