@@ -2,13 +2,8 @@ import { useState } from "react";
 import { Link } from "@/lib/link";
 import { ArrowRight, Play } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import heroWebmAsset from "@/assets/hero-loop-forward.webm.asset.json";
-import heroMp4Asset from "@/assets/hero-loop-forward.mp4.asset.json";
-import heroPosterAsset from "@/assets/hero-poster.jpg.asset.json";
+import { HeroVideoLayer } from "@/components/hero/HeroVideoLayer";
 
-const heroWebm = heroWebmAsset.url;
-const heroMp4 = heroMp4Asset.url;
-const heroPoster = heroPosterAsset.url;
 
 const HERO_FONT = '"Hanken Grotesk", system-ui, -apple-system, sans-serif';
 
@@ -22,19 +17,7 @@ export const HeroSection = () => {
     >
       {/* Full-bleed background media */}
       <div className="absolute inset-0 z-0">
-        {/* Looping background video on all viewports; keep device in frame on mobile/tablet */}
-        <video
-          className="absolute inset-0 h-full w-full object-cover object-[85%_bottom] md:object-[90%_center] lg:object-center"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster={heroPoster}
-        >
-          <source src={heroWebm} type="video/webm" media="(min-width: 768px)" />
-          <source src={heroMp4} type="video/mp4" media="(min-width: 768px)" />
-        </video>
+        <HeroVideoLayer />
 
         {/* Readability veil — top-down on mobile, left-to-right on tablet to keep text legible while device stays visible on the right */}
         <div
@@ -42,6 +25,7 @@ export const HeroSection = () => {
           className="absolute inset-0 lg:hidden bg-gradient-to-b from-white/90 via-white/40 to-transparent"
         />
       </div>
+
 
 
 
