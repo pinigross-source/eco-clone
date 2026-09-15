@@ -11,6 +11,8 @@ import {
 import { Lightbulb, Loader2, RefreshCw, TrendingUp, DownloadCloud } from "lucide-react";
 import { toast } from "sonner";
 import { syncShopifyOrdersFn } from "@/lib/attributionSync.functions";
+import { syncMetaAdsInsightsFn } from "@/lib/metaAds.functions";
+
 
 interface VisitRow {
   landing_page: string | null;
