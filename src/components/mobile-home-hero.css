@@ -28,11 +28,15 @@
 
 .mobile-home-hero__video {
   opacity: 0;
-  transition: opacity 400ms ease;
+  transition: opacity 850ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-home-hero__video.is-ready {
   opacity: 1;
+}
+
+.mobile-home-hero__video.is-ready.is-loop-fading {
+  opacity: 0;
 }
 
 .mobile-home-hero__content {
