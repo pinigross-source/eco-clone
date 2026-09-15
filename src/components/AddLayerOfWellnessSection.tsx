@@ -100,7 +100,7 @@ const rows: Row[] = [
 
 const WellnessRow = ({ row }: { row: Row }) => {
   const imageEl = (
-    <div className="relative min-h-[380px] sm:min-h-[500px] lg:min-h-[620px] bg-white overflow-hidden">
+    <div className="relative min-h-[300px] sm:min-h-[500px] lg:min-h-[620px] bg-white overflow-hidden">
       <img
         src={row.image}
         alt={row.imageAlt}
@@ -119,19 +119,19 @@ const WellnessRow = ({ row }: { row: Row }) => {
         </span>
       </div>
       <h3
-        className="font-display font-bold text-foreground text-[1.85rem] sm:text-4xl lg:text-[2.75rem] mb-2 sm:mb-3"
+        className="font-display font-bold text-foreground text-[1.6rem] sm:text-4xl lg:text-[2.75rem] mb-2 sm:mb-3"
         style={{ lineHeight: 1.05, letterSpacing: "-0.02em" }}
       >
         {row.title}
       </h3>
       <p
-        className="font-display italic font-light text-heading-accent text-[1.45rem] sm:text-[1.85rem] lg:text-[2.1rem] mb-4 sm:mb-6"
+        className="font-display italic font-light text-heading-accent text-[1.25rem] sm:text-[1.85rem] lg:text-[2.1rem] mb-4 sm:mb-6"
         style={{ lineHeight: 1.2 }}
       >
         {row.italic}
       </p>
       <p
-        className="text-muted-foreground max-w-md text-[1.05rem] sm:text-[1.15rem] mb-6 sm:mb-8"
+        className="text-muted-foreground max-w-md text-[1rem] sm:text-[1.15rem] mb-6 sm:mb-8"
         style={{ lineHeight: 1.6 }}
       >
         {row.body}
@@ -202,13 +202,13 @@ export const AddLayerOfWellnessSection = () => {
         <div className="text-center mb-8 sm:mb-20">
           <h2 className="font-display font-bold text-foreground">
             <span
-              className="block text-balance text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem]"
+              className="block text-balance text-[2rem] sm:text-[3.25rem] lg:text-[4rem]"
               style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
             >
               Add a layer of wellness.
             </span>
             <span
-              className="block mt-1 sm:mt-2 text-balance text-[1.75rem] sm:text-[2.5rem] lg:text-[3rem]"
+              className="block mt-1 sm:mt-2 text-balance text-[1.5rem] sm:text-[2.5rem] lg:text-[3rem]"
               style={{ lineHeight: 1.08, letterSpacing: "-0.03em" }}
             >
               Protecting everyone in every environment.
