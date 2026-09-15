@@ -65,8 +65,10 @@ export async function syncMetaAdsInsights(days = 30) {
     "reach",
   ].join(",");
 
-  const base = `https://graph.facebook.com/v19.0/${accountId}/insights`;
+  const actId = accountId.startsWith("act_") ? accountId : `act_${accountId}`;
+  const base = `https://graph.facebook.com/v19.0/${actId}/insights`;
   const url = new URL(base);
+
   url.searchParams.set("fields", fields);
   url.searchParams.set("level", "ad");
   url.searchParams.set("time_range", JSON.stringify({ since, until }));
