@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Wind, Sparkles, ShieldCheck, Star } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductDiscountUrl } from "@/lib/shopify";
+import { CompactTrustStrip, MobileStickyShopCTA, ProductDecisionBlock, TrackedShopLink } from "@/components/consumer/ConsumerCRO";
 import {
   Accordion,
   AccordionContent,
@@ -119,6 +120,12 @@ const scrollToId = (id: string) => {
 };
 
 const AllergyLandingPage = () => {
+  const [showSticky, setShowSticky] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShowSticky(window.scrollY > 600);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
     <div className="min-h-screen bg-cream text-ink font-sans">
       <Navbar />
@@ -201,6 +208,30 @@ const AllergyLandingPage = () => {
           </Reveal>
         </div>
       </section>
+
+      <ProductDecisionBlock
+        route="/allergy"
+        eyebrow="Choose your coverage"
+        title="Start with the room where symptoms feel most noticeable."
+        intro="Choose a single-room device for a bedroom, or Biotica 800 for a larger shared space. Both complement appropriate cleaning and filtration."
+        decisions={[
+          {
+            slug: "biologic-mini",
+            bestFor: "Bedrooms and personal spaces",
+            installation: "Rechargeable, place on a shelf or nightstand",
+            destination: MINI_URL,
+            ctaLabel: "Shop BioLogic Mini",
+          },
+          {
+            slug: "biotica-800",
+            bestFor: "Living rooms and larger spaces",
+            installation: "Plug in and run continuously",
+            destination: BIOTICA_URL,
+            ctaLabel: "Shop Biotica 800",
+            featured: true,
+          },
+        ]}
+      />
 
       {/* 2. PROBLEM / MESSAGE MATCH */}
       <section className="bg-cream pb-14 md:pb-20">
@@ -378,36 +409,7 @@ const AllergyLandingPage = () => {
         </div>
       </section>
 
-      {/* 5. PROOF / CERTIFICATIONS */}
-      <section className="bg-white border-y border-ink/5 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <Reveal className="text-center">
-            <p className="text-xs md:text-sm uppercase tracking-[0.18em] text-sage font-semibold">
-              Independently verified
-            </p>
-            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-ink">
-              Trusted by allergy-sensitive households.
-            </h2>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <div className="mt-10 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-8 gap-6 items-center">
-              {certifications.map((c) => (
-                <div key={c.label} className="flex items-center justify-center">
-                  <img
-                    src={c.image}
-                    alt={c.label}
-                    title={c.label}
-                    loading="lazy"
-                    className="max-h-14 w-auto opacity-80 hover:opacity-100 transition"
-                  />
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-        </div>
-      </section>
+      <CompactTrustStrip />
 
       {/* 6. REVIEWS */}
       <section id="reviews" className="bg-cream py-16 md:py-24">
@@ -634,6 +636,14 @@ const AllergyLandingPage = () => {
       </div>
 
       <Footer />
+      <MobileStickyShopCTA
+        route="/allergy"
+        product="biologic-mini"
+        destination={MINI_URL}
+        label="Shop BioLogic Mini"
+        detail="Single room · $98"
+        visible={showSticky}
+      />
     </div>
   );
 };

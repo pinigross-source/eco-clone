@@ -19,6 +19,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyDiscountUrl, shopifyProductDiscountUrl } from "@/lib/shopify";
 import { trackFBEvent } from "@/lib/fb-pixel";
+import { CompactTrustStrip, MobileStickyShopCTA, ProductDecisionBlock, TrackedShopLink } from "@/components/consumer/ConsumerCRO";
 
 import logo from "@/assets/logo.avif";
 import petHeroAsset from "@/assets/pet-hero.avif.asset.json";
@@ -171,7 +172,7 @@ function ProductSection() {
                 ) : null}
               </div>
               <Button asChild size="lg" className="mt-6 w-full max-w-[260px] sm:mt-7 sm:max-w-[220px]">
-                <a href={product.href} onClick={() => trackEvent(product.event)}>Buy {product.name}</a>
+                <TrackedShopLink route="/pets" placement="mid_page" product={product.name} destination={product.href}>Buy {product.name}</TrackedShopLink>
               </Button>
               <a
                 href="#guarantee"
@@ -406,28 +407,21 @@ const PetsLandingPage = () => {
           </div>
         </section>
 
-        {/* Credibility strip */}
-        <section className="border-y border-black/5 bg-white">
-          <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-center gap-x-7 gap-y-4 px-[clamp(20px,5vw,72px)] py-5">
-            <span className="text-[12px] font-medium text-[#68686d]">30-Day Guarantee</span>
-            <span className="hidden h-4 w-px bg-black/10 sm:block" />
-            {CERTS.map((cert) => (
-              <img
-                key={cert.label}
-                src={cert.image}
-                alt={cert.label}
-                title={cert.label}
-                loading="lazy"
-                decoding="async"
-                width="120"
-                height="60"
-                className="h-8 w-auto object-contain opacity-80 sm:h-10"
-              />
-            ))}
-            <span className="hidden h-4 w-px bg-black/10 sm:block" />
-            <span className="text-[12px] font-medium text-[#68686d]">1,000+ pet homes</span>
-          </div>
-        </section>
+        <CompactTrustStrip marks={["epa", "allergyUk", "madeSafe", "ptpa"]} />
+        <ProductDecisionBlock
+          route="/pets"
+          eyebrow="Recommended for shared pet spaces"
+          title="Start with the room where your pet spends the most time."
+          intro="Biotica 800 is designed for living rooms and open shared spaces, including the soft surfaces where dander and odor-associated material settle."
+          decisions={[{
+            slug: "biotica-800",
+            bestFor: "Living rooms and open pet spaces",
+            installation: "Plug in and run continuously",
+            destination: BIOTICA_URL,
+            ctaLabel: "Shop Biotica 800",
+            featured: true,
+          }]}
+        />
 
         <ProductSection />
         <Testimonials />
@@ -577,11 +571,14 @@ const PetsLandingPage = () => {
       </main>
 
 
-      {showSticky ? (
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-black/10 bg-white/95 p-3 shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.18)] backdrop-blur sm:hidden">
-          <Button className="h-12 w-full" onClick={scrollToProducts}>Shop from $83.30 - 15% off <ArrowRight /></Button>
-        </div>
-      ) : null}
+      <MobileStickyShopCTA
+        route="/pets"
+        product="biotica-800"
+        destination={BIOTICA_URL}
+        label="Shop Biotica 800"
+        detail="Up to 800 sq ft · $299"
+        visible={showSticky}
+      />
       <CompactFooter />
       <ExitOffer open={showExitOffer} onOpenChange={setShowExitOffer} />
     </>

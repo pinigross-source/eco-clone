@@ -17,6 +17,7 @@ import {
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductDiscountUrl } from "@/lib/shopify";
+import { CompactTrustStrip, MobileStickyShopCTA, ProductDecisionBlock, TrackedShopLink } from "@/components/consumer/ConsumerCRO";
 import {
   Accordion,
   AccordionContent,
@@ -168,10 +169,10 @@ const ParentsLandingPage = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const angle: Angle = useMemo(() => {
-    if (typeof window === "undefined") return "a";
+  const [angle, setAngle] = useState<Angle>("a");
+  useEffect(() => {
     const v = new URLSearchParams(window.location.search).get("v");
-    return v === "b" || v === "c" ? v : "a";
+    if (v === "b" || v === "c") setAngle(v);
   }, []);
   const hero = HERO_VARIANTS[angle];
 
@@ -236,7 +237,7 @@ const ParentsLandingPage = () => {
                 <div className="mt-8 flex flex-col items-center gap-4 sm:mt-10 lg:items-start">
                   <a
                     href={MINI_URL}
-                    onClick={() => trackEvent("click_parents_hero_cta")}
+                    onClick={() => trackEvent("click_to_shop", { route: "/parents", placement: "hero_primary", product: "biologic-mini", destination: MINI_URL })}
                   >
                     <Button
                       size="lg"
@@ -257,6 +258,22 @@ const ParentsLandingPage = () => {
             </svg>
           </div>
         </section>
+
+        <ProductDecisionBlock
+          route="/parents"
+          eyebrow="The nursery fit"
+          title="BioLogic Mini, sized for one nursery."
+          intro="Place it on a shelf or dresser. Its rechargeable, ultra-quiet design supports a single room while complementing your normal cleaning routine."
+          decisions={[{
+            slug: "biologic-mini",
+            bestFor: "Nurseries and smaller rooms",
+            installation: "Rechargeable, no permanent installation",
+            destination: MINI_URL,
+            ctaLabel: "Shop BioLogic Mini",
+            featured: true,
+          }]}
+        />
+        <CompactTrustStrip marks={["fda", "epa", "madeSafe", "ptpa"]} />
 
         {/* ============ PROBLEM / PAIN ============ */}
         <section className="bg-[#F5F3EE] py-20 sm:py-28 lg:py-40">
