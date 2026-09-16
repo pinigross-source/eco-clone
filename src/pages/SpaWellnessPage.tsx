@@ -25,14 +25,15 @@ import {
 } from "lucide-react";
 import { SEOHead, organizationJsonLd } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import hospitalityAsset from "@/assets/biz-hospitality.jpg.asset.json";
 import ebioticProOfficeAsset from "@/assets/ebiotic-pro-office.avif.asset.json";
 import biologicMiniImg from "@/assets/biologic-mini-nobg-new.avif";
 import biotica800Asset from "@/assets/shop/biotica-800.png.asset.json";
+import spaHeroImg from "@/assets/spa-wellness-hero.jpg";
+import spaTreatmentImg from "@/assets/spa-treatment-lifestyle.jpg";
+import spaLoungeImg from "@/assets/spa-lounge-lifestyle.jpg";
 
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
-const heroImg = hospitalityAsset.url;
 const proImg = ebioticProOfficeAsset.url;
 const biotica800Img = biotica800Asset.url;
 
@@ -63,16 +64,16 @@ const steps = [
   {
     icon: Repeat,
     title: "Support balance",
-    body: "Once settled, they compete for the nutrients and ecological space that unwanted organisms rely on \u2014 across air, surfaces, and objects.",
+    body: "Once settled, they compete for the nutrients and ecological space that unwanted organisms rely on across air, surfaces, and objects.",
   },
 ];
 
 const benefits = [
   { icon: Repeat, title: "Continuous operation", body: "Designed to work between cleaning cycles, day and night, without staff involvement." },
-  { icon: Waves, title: "Whole-environment approach", body: "Air, surfaces, fabrics, and objects \u2014 not only what passes through a machine." },
+  { icon: Waves, title: "Whole-environment approach", body: "Air, surfaces, fabrics, and objects, not only what passes through a machine." },
   { icon: Leaf, title: "Biological competition", body: "Beneficial organisms compete for resources instead of relying on chemical residues." },
   { icon: Wind, title: "Odor management", body: "Can help address the organic material associated with lingering odors in treatment and locker areas." },
-  { icon: CheckCircle2, title: "Complements your protocols", body: "Sits alongside your existing cleaning and disinfection routine \u2014 it does not replace it." },
+  { icon: CheckCircle2, title: "Complements your protocols", body: "Sits alongside your existing cleaning and disinfection routine. It does not replace it." },
   { icon: Sparkles, title: "Low maintenance", body: "Cartridge replacement on a simple schedule. No filters to change on the diffuser systems." },
 ];
 
@@ -87,7 +88,7 @@ const faqs = [
   },
   {
     q: "Will it reach treatment-room surfaces and objects?",
-    a: "That is the intent of the design. The probiotics are carried by normal air movement and settle on surrounding surfaces \u2014 treatment tables, furniture, flooring, and fabrics \u2014 where they continue to compete for nutrients and space.",
+    a: "That is the intent of the design. The probiotics are carried by normal air movement and settle on surrounding surfaces, including treatment tables, furniture, flooring, and fabrics, where they continue to compete for nutrients and space.",
   },
   {
     q: "Which system is right for a single room versus a multi-room facility?",
@@ -140,7 +141,7 @@ export default function SpaWellnessPage() {
         body: JSON.stringify({
           name,
           email,
-          subject: `Spa facility recommendation request \u2014 ${facility}`,
+          subject: `Spa facility recommendation request: ${facility}`,
           message: [
             `Facility: ${facility}`,
             `Facility type: ${facilityType || "Not specified"}`,
@@ -224,29 +225,28 @@ export default function SpaWellnessPage() {
 
       <main className="pb-28 md:pb-0">
         {/* 1. Hero */}
-        <section className="relative w-full overflow-hidden">
-          <div className="relative min-h-[78vh] md:min-h-[86vh] w-full">
+        <section className="relative w-full overflow-hidden bg-cream">
+          <div className="relative min-h-[86svh] md:min-h-[88vh] w-full">
             <img
-              src={heroImg}
-              alt="Serene, sunlit spa reception with natural wood, soft light, and plants"
-              className="absolute inset-0 h-full w-full object-cover"
-              width={1600}
-              height={1600}
+              src={spaHeroImg}
+              alt="A guest arriving at a bright, serene spa reception"
+              className="absolute inset-0 h-full w-full object-cover object-[62%_center] md:object-center"
+              width={1920}
+              height={1280}
               fetchPriority="high"
               decoding="async"
             />
             <span
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/60 to-ink/25 md:bg-gradient-to-r md:from-ink/90 md:via-ink/60 md:to-transparent"
+              className="absolute inset-0 bg-gradient-to-t from-cream via-cream/90 to-cream/5 md:bg-gradient-to-r md:from-cream md:from-25% md:via-cream/80 md:via-45% md:to-transparent md:to-70%"
             />
-            <div className="relative mx-auto flex min-h-[78vh] md:min-h-[86vh] max-w-6xl items-end md:items-center px-5 sm:px-8 pb-14 md:pb-0 pt-28">
-              <div className="max-w-2xl">
-                <p className="text-[0.7rem] sm:text-xs uppercase tracking-[0.22em] text-cream/75">
+            <div className="relative mx-auto flex min-h-[86svh] md:min-h-[88vh] max-w-7xl items-end md:items-center px-5 sm:px-8 pb-12 md:pb-0 pt-28">
+              <div className="max-w-[42rem] rounded-sm bg-cream/80 p-5 backdrop-blur-[2px] sm:p-8 md:bg-transparent md:p-0 md:backdrop-blur-none">
+                <p className="text-[0.7rem] sm:text-xs font-semibold uppercase tracking-[0.22em] text-sage">
                   Environmental wellness for spas
                 </p>
-                <h1 className="mt-5 font-display text-[2rem] leading-[1.12] sm:text-5xl md:text-[3.4rem] text-cream">
-                  Your spa is dedicated to wellness.{" "}
-                  <span className="italic font-normal text-cream/85">Shouldn&apos;t your environment be too?</span>
+                <h1 className="mt-5 font-display text-[2.35rem] leading-[1.04] sm:text-5xl md:text-[3.65rem] text-ink">
+                  Your spa is dedicated to wellness.{
                 </h1>
                 <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-cream/85">
                   EnviroBiotics takes a different, biological approach to indoor environmental purification.
