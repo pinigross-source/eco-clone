@@ -247,10 +247,6 @@ export default function SpaWellnessPage() {
                 </p>
                 <h1 className="mt-5 font-display text-[2.35rem] leading-[1.04] sm:text-5xl md:text-[3.65rem] text-ink">
                   Your spa is dedicated to wellness.{
-                  EnviroBiotics takes a different, biological approach to indoor environmental purification.
-                  Beneficial environmental probiotics are dispersed continuously, working across air, surfaces,
-                  and objects to complement the cleaning you already do.
-                </p>
                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
                   {primaryCta("hero", "w-full sm:w-auto")}
                   <Button
