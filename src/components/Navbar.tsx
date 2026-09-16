@@ -224,7 +224,7 @@ export const Navbar = () => {
       <header
         style={{ fontFamily: "'Montserrat', sans-serif", backgroundColor: "#F0F0F0" }}
         className={cn(
-          "fixed top-0 z-[9999] w-full transition-shadow duration-300",
+          "site-header fixed top-0 z-[9999] w-full transition-shadow duration-300",
           scrolled ? "shadow-sm" : ""
         )}
       >
@@ -237,7 +237,7 @@ export const Navbar = () => {
           style={{ width: `${scrollProgress}%` }}
         />
 
-        <div className="site-container flex h-16 lg:h-[124px] items-center relative">
+        <div className="site-header__inner site-container relative flex h-16 items-center lg:h-[124px]">
           {/* Mobile: Hamburger + Search on left */}
           <div className="lg:hidden absolute left-3 z-20 flex items-center gap-1">
             <button
@@ -303,7 +303,7 @@ export const Navbar = () => {
       )}
       <div
         className={cn(
-          "lg:hidden fixed top-16 left-0 right-0 z-[200] border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
+          "site-mobile-menu lg:hidden fixed top-16 left-0 right-0 z-[200] border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
           isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         )}
         style={{ backgroundColor: "#F0F0F0", fontFamily: "'Montserrat', sans-serif" }}
