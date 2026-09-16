@@ -39,34 +39,35 @@ export const ScienceOfBalanceSection = () => {
 
       <div className="site-container relative grid grid-cols-1 lg:grid-cols-2">
         {/* Text side */}
-        <div className="flex flex-col items-center justify-start pb-[390px] pt-14 text-center sm:justify-center sm:py-28 lg:items-start lg:py-36 lg:text-left">
+        <div className="flex flex-col items-center justify-start px-1 pb-[390px] pt-14 text-center sm:justify-center sm:py-28 lg:items-start lg:py-36 lg:text-left">
 
           <h2
-            className="font-display font-bold text-balance text-foreground text-[2rem] sm:text-[3.25rem] lg:text-[4rem] max-w-[9ch] lg:max-w-none"
-            style={{ lineHeight: 1.05, letterSpacing: 0 }}
+            className="font-display font-bold text-balance text-foreground text-[2.05rem] sm:text-[3.25rem] lg:text-[4rem] max-w-[14ch] lg:max-w-none"
+            style={{ lineHeight: 1.08, letterSpacing: "-0.01em" }}
           >
             The Science of{" "}
             <span className="italic font-light text-heading-accent">Balance.</span>
           </h2>
           <p
-            className="mt-4 sm:mt-5 font-display italic font-light text-heading-accent max-w-[16ch] lg:max-w-[55ch] text-[1.25rem] sm:text-[2rem] lg:text-[2.35rem]"
-            style={{ lineHeight: 1.2 }}
+            className="mt-3.5 sm:mt-5 font-display italic font-light text-heading-accent text-balance max-w-[24ch] lg:max-w-[55ch] text-[1.2rem] sm:text-[2rem] lg:text-[2.35rem]"
+            style={{ lineHeight: 1.3 }}
           >
             Environmental probiotics, intelligently dispersed.
           </p>
           <p
-            className="mt-5 sm:mt-6 max-w-[28ch] lg:max-w-[55ch] text-foreground/80 text-[1rem] sm:text-[1.15rem]"
-            style={{ lineHeight: 1.55 }}
+            className="mt-4 sm:mt-6 max-w-[34ch] lg:max-w-[55ch] text-pretty text-foreground/80 text-[0.975rem] sm:text-[1.15rem]"
+            style={{ lineHeight: 1.6 }}
           >
             When nature is invited in, allergies, fatigue, headaches, sleep disorders, low mood, and stubborn odors quietly fade.
           </p>
 
           <h3
-            className="mt-7 sm:mt-8 font-display font-medium text-balance text-foreground text-[1.5rem] sm:text-[3rem] lg:text-[3.5rem] max-w-[16ch] lg:max-w-none"
-            style={{ lineHeight: 1.05, letterSpacing: 0 }}
+            className="mt-6 sm:mt-8 font-display font-medium text-balance text-foreground text-[1.55rem] sm:text-[3rem] lg:text-[3.5rem] max-w-[20ch] lg:max-w-none"
+            style={{ lineHeight: 1.12, letterSpacing: "-0.01em" }}
           >
             Let Nature Back Indoors
           </h3>
+
 
           <div className="mt-7 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full max-w-[300px] sm:max-w-none">
             <a
