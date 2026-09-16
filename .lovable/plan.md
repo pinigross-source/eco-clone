@@ -1,7 +1,7 @@
 # Apple-inspired homepage refinement
 
 ## Direction
-Transform the homepage into a bright, cinematic product-gallery experience. Use gallery white, soft silver, precise coral accents, generous whitespace, and the current EnviroBiotics fonts. Preserve all existing copy, imagery, product facts, links, tracking, navigation, metadata, and section order.
+Transform the homepage into a bright, cinematic product-gallery experience. Use gallery white, soft silver, precise coral accents, generous whitespace, the current EnviroBiotics fonts, and the current dark green-charcoal text color. Preserve all existing copy, imagery, product facts, links, tracking, navigation, metadata, and section order.
 
 ## Layout improvements
 - Refine the navigation into a slimmer translucent bar with clearer spacing, consistent icon targets, and stable mobile alignment.
