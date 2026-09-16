@@ -30,7 +30,7 @@ export const HeroSection = () => {
               className="h-full w-full object-cover object-center md:object-[center_center]"
             />
           </picture>
-          <div aria-hidden="true" className="absolute inset-0 hidden bg-gradient-to-r from-background/95 via-background/70 to-transparent md:block" />
+          <div aria-hidden="true" className="absolute inset-y-0 left-0 hidden w-[58%] bg-gradient-to-r from-background via-background/85 via-40% to-transparent md:block" />
         </div>
 
         <div className="site-container relative z-10 py-8 sm:py-10 md:flex md:min-h-[760px] md:items-center md:py-24 lg:min-h-[820px]">
