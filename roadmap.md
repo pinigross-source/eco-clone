@@ -13,3 +13,4 @@
 - [x] Keep the changes unpublished and report route-by-route results and external limitations.
 
 - [x] Restyle the homepage product-choice section with an Apple-inspired presentation and stronger product imagery.
+- [ ] Replace homepage hero background videos with optimized static AVIF imagery and align desktop copy with mobile.
