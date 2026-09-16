@@ -445,6 +445,7 @@
 .homepage-impact .home-product-gallery,
 .homepage-impact .home-testimonials { background-color: var(--color-home-silver); }
 .homepage-impact .home-product-gallery article:hover { border-color: var(--color-home-coral); }
+.homepage-impact .home-product-gallery { padding-bottom: 80px; }
 .homepage-impact .home-trust-strip { border-top: 0; }
 .homepage-impact .home-science-section { min-height: 640px; }
 .homepage-impact .home-wellness-section { background-color: hsl(var(--background)); }
@@ -464,6 +465,7 @@
   .homepage-impact .site-container { padding-inline: 20px; }
   .homepage-impact .home-cinematic-hero__content { padding-top: 28px; padding-bottom: 36px; }
   .homepage-impact .home-cinematic-hero__offer { margin-top: 20px; }
+  .homepage-impact .home-product-gallery { padding-bottom: 56px; }
   .homepage-impact .home-science-section { min-height: 760px; }
 }
 
