@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import desktopHeroAsset from "@/assets/home-hero-static-desktop.avif.asset.json";
+import desktopHeroAsset from "@/assets/home-hero-static-desktop-2.avif.asset.json";
 import mobileHeroAsset from "@/assets/home-hero-mobile-3.avif.asset.json";
 import { trackEvent } from "@/lib/tracking";
 
