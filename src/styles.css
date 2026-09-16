@@ -67,6 +67,8 @@
   --color-ink: #1B2A2A;
   --color-sage: #2E8B7F;
   --color-sage-soft: #E6EFEC;
+  --color-home-coral: var(--home-coral);
+  --color-home-silver: var(--home-silver);
 }
 
 :root {
@@ -388,11 +390,14 @@
   --primary-foreground: 0 0% 100%;
   --accent: 0 0% 0%;
   --accent-foreground: 0 0% 100%;
-  --background: 42 20% 98%;
+  --background: 60 5% 98%;
   --foreground: 190 10% 18%;
-  --muted: 42 18% 96%;
+  --muted: 120 3% 95%;
   --muted-foreground: 190 8% 40%;
-  --border: 40 14% 88%;
+  --card: 0 0% 100%;
+  --border: 150 5% 89%;
+  --home-coral: oklch(0.71 0.13 38);
+  --home-silver: oklch(0.96 0.004 160);
   position: relative;
   isolation: isolate;
   background-color: hsl(var(--background));
@@ -407,40 +412,6 @@
   background-image: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(0 0% 20%) 100%);
 }
 
-/* Ambient page mesh — sage green + warm sand washes drifting down */
-.homepage-impact::before,
-.homepage-impact::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-repeat: no-repeat;
-}
-
-.homepage-impact::before {
-  background-image:
-    radial-gradient(38% 22% at 8% 14%,  hsl(150 35% 70% / 0.18) 0%, transparent 70%),
-    radial-gradient(45% 28% at 92% 32%, hsl(36 55% 78% / 0.16)  0%, transparent 72%),
-    radial-gradient(40% 24% at 12% 52%, hsl(150 30% 68% / 0.14) 0%, transparent 70%),
-    radial-gradient(50% 30% at 88% 70%, hsl(36 50% 76% / 0.15)  0%, transparent 72%),
-    radial-gradient(42% 26% at 20% 88%, hsl(150 35% 72% / 0.13) 0%, transparent 70%);
-  filter: blur(60px);
-  opacity: 0.9;
-}
-
-.homepage-impact::after {
-  background-image:
-    radial-gradient(30% 18% at 70% 8%,  hsl(36 60% 82% / 0.14) 0%, transparent 70%),
-    radial-gradient(32% 20% at 30% 28%, hsl(150 30% 72% / 0.10) 0%, transparent 70%),
-    radial-gradient(36% 22% at 65% 48%, hsl(36 55% 80% / 0.12) 0%, transparent 72%),
-    radial-gradient(34% 20% at 25% 78%, hsl(36 50% 78% / 0.10) 0%, transparent 70%),
-    radial-gradient(40% 24% at 75% 95%, hsl(150 35% 70% / 0.12) 0%, transparent 72%);
-  filter: blur(80px);
-  opacity: 0.85;
-  mix-blend-mode: multiply;
-}
-
 .homepage-impact > main,
 .homepage-impact > footer,
 .homepage-impact > section,
@@ -449,14 +420,60 @@
   z-index: 1;
 }
 
-.homepage-impact section[class*="bg-background"],
-.homepage-impact section.bg-background {
-  background-color: transparent !important;
+.homepage-impact .site-header {
+  background-color: hsl(var(--background) / 0.86) !important;
+  border-bottom: 1px solid hsl(var(--border) / 0.7);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  backdrop-filter: saturate(180%) blur(18px);
+}
+
+.homepage-impact .site-header__inner { height: 72px; }
+.homepage-impact .site-mobile-menu {
+  top: 64px;
+  background-color: hsl(var(--background) / 0.96) !important;
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.homepage-impact .home-cinematic-hero { margin-top: 64px; }
+.homepage-impact .home-cinematic-hero__copy { animation: home-copy-enter 700ms cubic-bezier(.2,.7,.2,1) both; }
+.homepage-impact .home-cinematic-hero__image { animation: home-image-enter 900ms cubic-bezier(.2,.7,.2,1) both; }
+.homepage-impact .home-trusted-places { background-color: hsl(var(--card)); }
+.homepage-impact .home-product-gallery,
+.homepage-impact .home-testimonials { background-color: var(--color-home-silver); }
+.homepage-impact .home-trust-strip { border-top: 0; }
+.homepage-impact .home-science-section { min-height: 640px; }
+.homepage-impact .home-wellness-section { background-color: hsl(var(--background)); }
+.homepage-impact .home-wellness-row { box-shadow: 0 28px 70px -52px hsl(var(--foreground) / 0.3); }
+
+@keyframes home-copy-enter {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes home-image-enter {
+  from { opacity: 0.72; transform: scale(1.015); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 767px) {
+  .homepage-impact .site-container { padding-inline: 20px; }
+  .homepage-impact .home-cinematic-hero__content { padding-top: 28px; padding-bottom: 36px; }
+  .homepage-impact .home-cinematic-hero__offer { margin-top: 20px; }
+  .homepage-impact .home-science-section { min-height: 760px; }
+}
+
+@media (min-width: 768px) {
+  .homepage-impact .home-cinematic-hero { margin-top: 72px; }
+  .homepage-impact .home-cinematic-hero__veil {
+    width: 55%;
+    background-image: linear-gradient(90deg, hsl(var(--background)) 0%, hsl(var(--background) / 0.94) 46%, transparent 100%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .homepage-impact::before,
-  .homepage-impact::after { filter: blur(50px); }
+  .homepage-impact .home-cinematic-hero__copy,
+  .homepage-impact .home-cinematic-hero__image { animation: none; }
 }
 
 /* EnviroBiotics text accent utilities */
