@@ -175,7 +175,7 @@ const WellnessRow = ({ row }: { row: Row }) => {
 
 
   return (
-    <article className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch rounded-3xl border border-foreground/10 bg-card overflow-hidden">
+    <article className="home-wellness-row grid grid-cols-1 items-stretch gap-0 overflow-hidden rounded-lg border border-foreground/10 bg-card lg:grid-cols-2">
       {row.imageLeft ? (
         <>
           {imageEl}
@@ -196,27 +196,27 @@ export const AddLayerOfWellnessSection = () => {
   return (
     <section
       aria-label="Built for the life you actually live"
-      className="w-full bg-background py-14 sm:py-32 lg:py-40"
+      className="home-wellness-section w-full bg-background py-20 sm:py-28 lg:py-36"
     >
       <div className="site-container">
-        <div className="text-center mb-8 sm:mb-20">
+        <div className="mb-12 text-center sm:mb-16 lg:mb-20">
           <h2 className="font-display font-bold text-foreground">
             <span
               className="block text-balance text-[2rem] sm:text-[3.25rem] lg:text-[4rem]"
-              style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
+              style={{ lineHeight: 1.05, letterSpacing: 0 }}
             >
               Add a layer of wellness.
             </span>
             <span
               className="block mt-1 sm:mt-2 text-balance text-[1.5rem] sm:text-[2.5rem] lg:text-[3rem]"
-              style={{ lineHeight: 1.08, letterSpacing: "-0.03em" }}
+              style={{ lineHeight: 1.08, letterSpacing: 0 }}
             >
               Protecting everyone in every environment.
             </span>
           </h2>
         </div>
 
-        <div className="space-y-6 sm:space-y-8 lg:space-y-10">
+        <div className="space-y-5 sm:space-y-8 lg:space-y-10">
           {rows.map((r) => (
             <WellnessRow key={r.tag} row={r} />
           ))}

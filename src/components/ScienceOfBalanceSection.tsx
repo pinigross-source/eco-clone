@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Play } from "lucide-react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import bgImage from "@/assets/let-nature-bg.avif.asset.json";
 import bgImageMobile from "@/assets/science-balance-mobile.webp.asset.json";
 
@@ -9,7 +9,7 @@ export const ScienceOfBalanceSection = () => {
   return (
     <section
       aria-label="Let nature into your space"
-      className="relative w-full overflow-hidden border-y border-foreground/10"
+      className="home-science-section relative w-full overflow-hidden border-y border-foreground/10"
     >
       {/* Full-bleed background — mobile */}
       <img
@@ -32,18 +32,18 @@ export const ScienceOfBalanceSection = () => {
       {/* Readability wash — mobile only: very light so the device stays visible */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent lg:hidden"
+        className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/35 to-transparent lg:hidden"
       />
 
 
 
       <div className="site-container relative grid grid-cols-1 lg:grid-cols-2">
         {/* Text side */}
-        <div className="flex flex-col justify-start pt-12 pb-[420px] sm:justify-center sm:py-32 sm:pb-32 lg:py-40 text-center items-center lg:text-left lg:items-start">
+        <div className="flex flex-col items-center justify-start pb-[390px] pt-14 text-center sm:justify-center sm:py-28 lg:items-start lg:py-36 lg:text-left">
 
           <h2
             className="font-display font-bold text-balance text-foreground text-[2rem] sm:text-[3.25rem] lg:text-[4rem] max-w-[9ch] lg:max-w-none"
-            style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
+            style={{ lineHeight: 1.05, letterSpacing: 0 }}
           >
             The Science of{" "}
             <span className="italic font-light text-heading-accent">Balance.</span>
@@ -63,7 +63,7 @@ export const ScienceOfBalanceSection = () => {
 
           <h3
             className="mt-7 sm:mt-8 font-display font-medium text-balance text-foreground text-[1.5rem] sm:text-[3rem] lg:text-[3.5rem] max-w-[16ch] lg:max-w-none"
-            style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
+            style={{ lineHeight: 1.05, letterSpacing: 0 }}
           >
             Let Nature Back Indoors
           </h3>
@@ -86,7 +86,7 @@ export const ScienceOfBalanceSection = () => {
             <button
               type="button"
               onClick={() => setVideoOpen(true)}
-              className="inline-flex items-center gap-2 rounded-full border px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-foreground hover:bg-foreground/5 transition-colors"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-foreground transition-colors hover:bg-foreground/5"
               style={{ borderColor: "hsl(var(--foreground) / 0.2)", minHeight: 48 }}
             >
               <Play className="w-4 h-4" />
@@ -101,7 +101,8 @@ export const ScienceOfBalanceSection = () => {
       </div>
 
       <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
-        <DialogContent className="max-w-4xl w-[95vw] p-0 bg-black border-none rounded-2xl overflow-hidden [&>button]:text-white [&>button]:hover:text-white/80">
+        <DialogContent className="w-[95vw] max-w-4xl overflow-hidden rounded-lg border-none bg-foreground p-0 [&>button]:text-background">
+          <DialogTitle className="sr-only">How EnviroBiotics works</DialogTitle>
           <div className="aspect-video w-full">
             {videoOpen && (
               <iframe

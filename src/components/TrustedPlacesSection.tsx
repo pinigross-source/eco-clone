@@ -42,20 +42,20 @@ export const TrustedPlacesSection = () => {
   return (
     <section
       aria-label="Trusted by leading venues"
-      className="border-b border-border bg-white"
+      className="home-trusted-places border-b border-border bg-card"
     >
-      <div className="site-container pt-6 pb-14 sm:pt-8 sm:pb-32 lg:pb-40">
-        <div className="mb-8 sm:mb-14 flex flex-col items-center gap-6">
-          <span className="h-px w-16 sm:w-20" style={{ background: "hsl(var(--primary))" }} />
+      <div className="site-container py-14 sm:py-20 lg:py-24">
+        <div className="mb-8 flex flex-col items-center gap-5 sm:mb-12">
+          <span className="h-px w-16 bg-eyebrow-accent sm:w-20" />
           <p className="font-display font-medium text-[1.05rem] sm:text-[1.35rem] lg:text-[1.5rem] leading-[1.4] text-muted-foreground text-balance text-center max-w-4xl">
             EnviroBiotics already protect people in Hospitals, emergency care, nursing homes, schools, Hotels, and airports.
           </p>
-          <span className="h-px w-16 sm:w-20" style={{ background: "hsl(var(--primary))" }} />
+          <span className="h-px w-16 bg-eyebrow-accent sm:w-20" />
         </div>
 
         <div className="relative overflow-hidden">
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-24" />
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-24" />
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-10 bg-gradient-to-r from-card to-transparent sm:w-24" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-10 bg-gradient-to-l from-card to-transparent sm:w-24" />
 
           <motion.div
             className="flex items-center gap-10 sm:gap-16"
@@ -84,7 +84,7 @@ export const TrustedPlacesSection = () => {
           </motion.div>
         </div>
 
-        <h3 className="mt-10 sm:mt-12 font-display font-medium text-[1.125rem] sm:text-[1.5rem] lg:text-[1.75rem] leading-[1.3] text-foreground text-balance text-center mx-auto max-w-3xl lg:max-w-5xl">
+        <h3 className="mx-auto mt-8 max-w-3xl text-balance text-center font-display text-[1.125rem] font-medium leading-[1.3] text-foreground sm:mt-10 sm:text-[1.5rem] lg:max-w-5xl lg:text-[1.75rem]">
           Let EnviroBiotics protect everyone at your home, office, and on the go.
         </h3>
       </div>

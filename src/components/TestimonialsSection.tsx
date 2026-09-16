@@ -49,7 +49,7 @@ const allTestimonials = [
 const TestimonialCard = ({ name, category, text, rating, avatar, image }: {
   name: string; category: string; text: string; rating: number; avatar: string; image?: string;
 }) => (
-  <div className="bg-background/60 backdrop-blur-xl rounded-3xl p-7 sm:p-9 h-full flex flex-col min-h-[260px] shadow-[0_10px_40px_-15px_hsl(var(--foreground)/0.08)] hover:shadow-[0_20px_60px_-20px_hsl(var(--foreground)/0.14)] transition-shadow duration-500">
+  <div className="flex min-h-[260px] h-full flex-col rounded-lg border border-border/70 bg-background/80 p-7 shadow-[0_18px_50px_-34px_hsl(var(--foreground)/0.16)] backdrop-blur-xl transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_-34px_hsl(var(--foreground)/0.22)] sm:p-9">
     <span className="text-[10px] font-semibold uppercase tracking-wider text-eyebrow-accent mb-4">{category}</span>
     <div className="flex gap-0.5 mb-4">
       {[...Array(rating)].map((_, i) => (
@@ -70,20 +70,20 @@ const TestimonialCard = ({ name, category, text, rating, avatar, image }: {
 
 export const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="pt-16 pb-10 sm:pt-44 sm:pb-14 lg:pt-56 lg:pb-20 bg-card">
+    <section id="testimonials" className="home-testimonials bg-card py-20 sm:py-28 lg:py-36">
       <div className="site-container">
-        <ScrollReveal variant="fadeUp" className="text-center mb-16">
+        <ScrollReveal variant="fadeUp" className="mb-12 text-center sm:mb-16">
           <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/60 mb-6">
             Testimonials
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-display font-bold leading-[1.06] tracking-[-0.03em] text-foreground max-w-3xl mx-auto">
+          <h2 className="mx-auto max-w-3xl font-display text-4xl font-bold leading-[1.06] text-foreground sm:text-5xl md:text-6xl lg:text-[4.25rem]">
             Protecting thousands{" "}
             <span className="text-heading-accent">of families.</span>
           </h2>
         </ScrollReveal>
 
         <ScrollReveal variant="fadeUp" delay={0.1} className="mb-12">
-          <figure className="max-w-3xl mx-auto bg-background/70 backdrop-blur-xl rounded-3xl p-8 sm:p-12 shadow-[0_25px_80px_-30px_hsl(var(--primary)/0.25)]">
+           <figure className="mx-auto max-w-3xl rounded-lg border border-border/70 bg-background/80 p-8 shadow-[0_24px_70px_-40px_hsl(var(--foreground)/0.24)] backdrop-blur-xl sm:p-12">
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
               <img src={ptpaAward} alt="Parent Tested Parent Approved" className="w-16 h-16 object-contain flex-shrink-0" loading="lazy" decoding="async" width="64" height="64" />
               <div className="text-center sm:text-left">
