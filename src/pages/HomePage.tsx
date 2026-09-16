@@ -62,6 +62,8 @@ const Index = () => {
       <Navbar />
       <main id="main-content" className="relative pb-20 md:pb-0">
         <HeroSection />
+        <NatureStatementSection />
+        <TrustedPlacesSection />
         <ProductDecisionBlock
           route="/"
           id="find-your-system"
@@ -88,8 +90,6 @@ const Index = () => {
           ]}
         />
         <CompactTrustStrip />
-        <NatureStatementSection />
-        <TrustedPlacesSection />
         <ScienceOfBalanceSection />
         <AddLayerOfWellnessSection />
         <TestimonialsSection />
