@@ -66,6 +66,7 @@ const Index = () => {
           route="/"
           id="find-your-system"
           presentation="showcase"
+          className="home-product-gallery"
           eyebrow="Find my system"
           title="Start with the room you use most."
           intro="Probiotic purification is designed to work beyond the air, reaching surfaces and objects throughout your space."
@@ -87,7 +88,7 @@ const Index = () => {
             },
           ]}
         />
-        <CompactTrustStrip />
+        <CompactTrustStrip className="home-trust-strip" />
         <ScienceOfBalanceSection />
         <AddLayerOfWellnessSection />
         <TestimonialsSection />
