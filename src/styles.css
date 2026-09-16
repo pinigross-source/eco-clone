@@ -447,7 +447,7 @@
 .homepage-impact .home-product-gallery article:hover { border-color: var(--color-home-coral); }
 .homepage-impact .home-product-gallery { padding-bottom: 80px; }
 .homepage-impact .home-trust-strip { border-top: 0; }
-.homepage-impact .home-science-section { min-height: 640px; }
+.homepage-impact .home-science-section { min-height: 640px; margin-top: 48px; border-top: 0; }
 .homepage-impact .home-wellness-section { background-color: hsl(var(--background)); }
 .homepage-impact .home-wellness-row { box-shadow: 0 28px 70px -52px hsl(var(--foreground) / 0.3); }
 
@@ -466,7 +466,7 @@
   .homepage-impact .home-cinematic-hero__content { padding-top: 28px; padding-bottom: 36px; }
   .homepage-impact .home-cinematic-hero__offer { margin-top: 20px; }
   .homepage-impact .home-product-gallery { padding-bottom: 56px; }
-  .homepage-impact .home-science-section { min-height: 760px; }
+  .homepage-impact .home-science-section { min-height: 760px; margin-top: 36px; }
 }
 
 @media (min-width: 768px) {
