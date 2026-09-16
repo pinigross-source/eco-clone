@@ -69,6 +69,7 @@ const Index = () => {
         <ProductDecisionBlock
           route="/"
           id="find-your-system"
+          presentation="showcase"
           eyebrow="Find my system"
           title="Start with the room you use most."
           intro="Probiotic purification is designed to work beyond the air, reaching surfaces and objects throughout your space."

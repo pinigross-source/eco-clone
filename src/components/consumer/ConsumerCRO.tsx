@@ -8,6 +8,8 @@ import fdaAsset from "@/assets/certs/fda-gras-new.webp.asset.json";
 import allergyUkAsset from "@/assets/certs/allergyuk.webp.asset.json";
 import madeSafeAsset from "@/assets/certs/made-safe-new.png.asset.json";
 import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
+import biologicMiniLandscapeAsset from "@/assets/biologic-mini-landscape.jpg.asset.json";
+import biotica800LandscapeAsset from "@/assets/biotica-800-landscape.jpg.asset.json";
 
 const TRUST_MARKS = {
   epa: { label: "EPA Registered", src: epaAsset.url },
@@ -107,6 +109,11 @@ type ProductDecision = {
   featured?: boolean;
 };
 
+const PRODUCT_LIFESTYLE_IMAGES = {
+  "biologic-mini": biologicMiniLandscapeAsset.url,
+  "biotica-800": biotica800LandscapeAsset.url,
+} as const;
+
 export function ProductDecisionBlock({
   route,
   eyebrow = "Choose by room size",
@@ -116,6 +123,7 @@ export function ProductDecisionBlock({
   placement = "early_product",
   id,
   className = "",
+  presentation = "standard",
 }: {
   route: string;
   eyebrow?: string;
@@ -125,19 +133,74 @@ export function ProductDecisionBlock({
   placement?: CtaPlacement;
   id?: string;
   className?: string;
+  presentation?: "standard" | "showcase";
 }) {
+  const isShowcase = presentation === "showcase";
+
   return (
-    <section id={id} className={`scroll-mt-24 bg-background py-12 sm:py-20 ${className}`}>
+    <section id={id} className={`scroll-mt-24 bg-background ${isShowcase ? "py-16 sm:py-24 lg:py-32" : "py-12 sm:py-20"} ${className}`}>
       <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <div className="max-w-2xl">
+        <div className={isShowcase ? "mx-auto max-w-3xl text-center" : "max-w-2xl"}>
           <p className="text-xs font-semibold uppercase text-sage">{eyebrow}</p>
-          <h2 className="mt-3 text-3xl font-bold leading-tight text-ink sm:text-4xl">{title}</h2>
-          {intro ? <p className="mt-4 text-base leading-relaxed text-ink/70 sm:text-lg">{intro}</p> : null}
+          <h2 className={`mt-3 font-bold text-ink ${isShowcase ? "text-4xl leading-[1.04] sm:text-5xl lg:text-6xl" : "text-3xl leading-tight sm:text-4xl"}`}>{title}</h2>
+          {intro ? <p className={`mt-4 leading-relaxed text-ink/70 ${isShowcase ? "mx-auto max-w-2xl text-lg sm:mt-6 sm:text-xl" : "text-base sm:text-lg"}`}>{intro}</p> : null}
         </div>
-        <div className={`mt-8 grid gap-4 ${decisions.length > 1 ? "md:grid-cols-2" : "max-w-3xl"}`}>
+        <div className={`${isShowcase ? "mt-10 sm:mt-14" : "mt-8"} grid gap-5 ${decisions.length > 1 ? "md:grid-cols-2" : "max-w-3xl"}`}>
           {decisions.map((decision) => {
             const product = products.find((item) => item.slug === decision.slug);
             if (!product || product.price === undefined) return null;
+            if (isShowcase) {
+              return (
+                <article
+                  key={decision.slug}
+                  className={`group relative isolate overflow-hidden rounded-lg border bg-card transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 ${
+                    decision.featured
+                      ? "border-sage/70 shadow-[0_32px_80px_-48px_hsl(var(--foreground)/0.48)]"
+                      : "border-border shadow-[0_26px_70px_-52px_hsl(var(--foreground)/0.38)]"
+                  }`}
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden bg-cream">
+                    <img
+                      src={PRODUCT_LIFESTYLE_IMAGES[decision.slug]}
+                      alt={`${product.name} in a home setting`}
+                      width={1200}
+                      height={900}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card to-transparent" aria-hidden="true" />
+                    {decision.featured ? (
+                      <span className="absolute left-5 top-5 rounded-full bg-background/90 px-3 py-1.5 text-[11px] font-bold uppercase text-ink shadow-sm backdrop-blur-md">
+                        Most popular
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="relative -mt-8 flex flex-col px-6 pb-7 sm:px-8 sm:pb-9">
+                    <p className="text-xs font-semibold uppercase text-sage">{decision.bestFor}</p>
+                    <div className="mt-2 flex items-end justify-between gap-4">
+                      <h3 className="text-3xl font-bold leading-none text-ink sm:text-4xl">{product.name}</h3>
+                      <p className="shrink-0 text-2xl font-semibold text-ink">${product.price}</p>
+                    </div>
+                    <div className="my-6 h-px bg-border" />
+                    <ul className="space-y-3 text-base leading-6 text-ink/70">
+                      <li className="flex gap-3"><Check className="mt-1 h-4 w-4 shrink-0 text-sage" />{product.coverage}</li>
+                      <li className="flex gap-3"><Check className="mt-1 h-4 w-4 shrink-0 text-sage" />{decision.installation}</li>
+                    </ul>
+                    <Button asChild size="lg" className="mt-7 w-full sm:w-fit">
+                      <TrackedShopLink
+                        route={route}
+                        placement={placement}
+                        product={product.slug}
+                        destination={decision.destination}
+                      >
+                        {decision.ctaLabel}<ArrowRight className="h-4 w-4 group-hover:translate-x-0.5" />
+                      </TrackedShopLink>
+                    </Button>
+                  </div>
+                </article>
+              );
+            }
             return (
               <article
                 key={decision.slug}
