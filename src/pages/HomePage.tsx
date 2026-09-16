@@ -6,7 +6,6 @@ import { HeroSection } from "@/components/HeroSection";
 import { MobileHomeHero } from "@/components/MobileHomeHero";
 import { NatureStatementSection } from "@/components/NatureStatementSection";
 import { TrustedPlacesSection } from "@/components/TrustedPlacesSection";
-import { SizedToYourSpaceSection } from "@/components/SizedToYourSpaceSection";
 import { ScienceOfBalanceSection } from "@/components/ScienceOfBalanceSection";
 import { AddLayerOfWellnessSection } from "@/components/AddLayerOfWellnessSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";

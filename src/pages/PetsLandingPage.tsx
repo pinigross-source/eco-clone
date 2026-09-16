@@ -45,14 +45,6 @@ const EXIT_KEY = "eb_pets_offer_seen";
 const EXIT_DONE_KEY = "eb_pets_offer_done";
 const EXIT_TTL_MS = 30 * 24 * 60 * 60 * 1000;
 
-const CERTS = [
-  { label: "EPA Registered", image: epaAsset.url },
-  { label: "MADE SAFE®", image: madeSafeAsset.url },
-  { label: "AllergyUK", image: allergyukAsset.url },
-  { label: "PTPA Winner", image: ptpaAsset.url },
-  { label: "ISO Certified", image: isoAsset.url },
-];
-
 const products = [
   {
     name: "BioLogic Mini",

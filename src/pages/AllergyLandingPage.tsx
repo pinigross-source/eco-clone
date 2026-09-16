@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Wind, Sparkles, ShieldCheck, Star } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductDiscountUrl } from "@/lib/shopify";
-import { CompactTrustStrip, MobileStickyShopCTA, ProductDecisionBlock, TrackedShopLink } from "@/components/consumer/ConsumerCRO";
+import { CompactTrustStrip, MobileStickyShopCTA, ProductDecisionBlock } from "@/components/consumer/ConsumerCRO";
 import {
   Accordion,
   AccordionContent,
@@ -28,16 +28,6 @@ const PROMO = "META15";
 const BIOTICA_URL = shopifyProductDiscountUrl("biotica-800", PROMO, "allergy-landing");
 const MINI_URL = shopifyProductDiscountUrl("biologic-mini", PROMO, "allergy-landing");
 const BUNDLE_URL = shopifyProductDiscountUrl("home-complete-bundle", PROMO, "allergy-landing");
-
-const certifications = [
-  { label: "EPA Registered", image: epaAsset.url },
-  { label: "FDA GRAS", image: fdaGrasAsset.url },
-  { label: "AllergyUK", image: allergyukAsset.url },
-  { label: "PTPA Winner", image: ptpaAsset.url },
-  { label: "MADE SAFE®", image: madeSafeAsset.url },
-  { label: "Instituto de Salud Pública", image: ispAsset.url },
-  { label: "Società Italiana di Medicina Ambientale", image: simaAsset.url },
-];
 
 const reviews = [
   {

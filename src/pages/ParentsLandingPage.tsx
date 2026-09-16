@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -17,7 +17,7 @@ import {
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductDiscountUrl } from "@/lib/shopify";
-import { CompactTrustStrip, MobileStickyShopCTA, ProductDecisionBlock, TrackedShopLink } from "@/components/consumer/ConsumerCRO";
+import { CompactTrustStrip, MobileStickyShopCTA, ProductDecisionBlock } from "@/components/consumer/ConsumerCRO";
 import {
   Accordion,
   AccordionContent,
@@ -963,27 +963,14 @@ const ParentsLandingPage = () => {
         </section>
       </main>
 
-      {/* Sticky mobile bar */}
-      <div
-        className={`fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 backdrop-blur sm:hidden transition-transform duration-300 ${
-          showSticky ? "translate-y-0" : "translate-y-full"
-        }`}
-      >
-        <div className="flex items-center justify-between gap-3 px-4 py-3">
-          <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-foreground">30-night guarantee</p>
-            <p className="truncate text-xs text-muted-foreground">Quiet · Chemical-free</p>
-          </div>
-          <a
-            href={MINI_URL}
-            onClick={() => trackEvent("click_parents_sticky_cta")}
-          >
-            <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-              Secure My Baby&apos;s Space
-            </Button>
-          </a>
-        </div>
-      </div>
+      <MobileStickyShopCTA
+        route="/parents"
+        product="biologic-mini"
+        destination={MINI_URL}
+        label="Shop BioLogic Mini"
+        detail="Up to 300 sq ft · $98"
+        visible={showSticky}
+      />
       <Footer />
     </>
   );
