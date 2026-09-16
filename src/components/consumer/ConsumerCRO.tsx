@@ -98,10 +98,12 @@ export function CompactTrustStrip({
             );
           })}
         </div>
-        <p className="mt-2.5 flex items-center justify-center gap-1.5 text-[11px] font-medium text-foreground/70 sm:mt-3 sm:text-xs">
-          <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
-          30-day money-back guarantee
-        </p>
+        <div className="mt-3 flex justify-center sm:mt-4">
+          <p className="flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-2 text-[13px] font-semibold text-foreground sm:gap-2.5 sm:px-5 sm:py-2.5 sm:text-[15px]">
+            <ShieldCheck className="h-5 w-5 shrink-0 text-primary sm:h-6 sm:w-6" aria-hidden="true" />
+            30-day money-back guarantee
+          </p>
+        </div>
       </div>
     </section>
   );
