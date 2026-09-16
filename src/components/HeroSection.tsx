@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import desktopHeroAsset from "@/assets/home-hero-static-desktop.avif.asset.json";
+import desktopHeroAsset from "@/assets/home-hero-static-desktop-2.avif.asset.json";
 import mobileHeroAsset from "@/assets/home-hero-mobile-3.avif.asset.json";
 import { trackEvent } from "@/lib/tracking";
 
@@ -23,8 +23,8 @@ export const HeroSection = () => {
             <img
               src={desktopHeroAsset.url}
               alt="A mother, her daughter, and their dog in a bright living room, with an EnviroBiotics device on the side table."
-              width="1600"
-              height="900"
+              width="1672"
+              height="941"
               fetchPriority="high"
               decoding="async"
               className="h-full w-full object-cover object-center md:object-[center_center]"
