@@ -248,6 +248,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
             __html: `(function(){try{var BENIGN=[/ResizeObserver loop/i,/messageHandlers/i,/window\\.webkit/i];var match=function(m){return typeof m==='string'&&BENIGN.some(function(r){return r.test(m)})};window.addEventListener('error',function(e){if(match(e&&e.message)){e.stopImmediatePropagation();e.preventDefault();}},true);window.addEventListener('unhandledrejection',function(e){var m=e&&e.reason&&(e.reason.message||String(e.reason));if(match(m)){e.stopImmediatePropagation();e.preventDefault();}});}catch(_){}})();`,
           }}
         />
+        {/* Microsoft Clarity (project x3td09c108) — standard loader, injected once
+            in the document head so it covers every route, including SPA
+            navigations, which Clarity tracks natively via history events.
+            The project ID is public, not a secret. */}
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
