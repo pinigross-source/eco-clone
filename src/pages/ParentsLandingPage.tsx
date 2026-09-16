@@ -535,7 +535,7 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ PRODUCTS - 3 OPTIONS ============ */}
-        <section id="products" className="scroll-mt-24 bg-[#F5F3EE] py-20 sm:py-28 lg:py-36">
+        <section id="products" className="hidden scroll-mt-24 bg-[#F5F3EE] py-20 md:block sm:py-28 lg:py-36">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-3xl text-center">
@@ -791,7 +791,7 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ CERTIFICATIONS / SAFETY ============ */}
-        <section className="relative w-full overflow-hidden bg-white py-20 sm:py-28">
+        <section className="hidden">
           <div className="relative mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto mb-12 flex max-w-3xl flex-col items-center text-center sm:mb-16">

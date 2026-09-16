@@ -16,14 +16,6 @@ import {
 import heroImgAsset from "@/assets/allergy-hero.avif.asset.json";
 const heroImg = heroImgAsset.url;
 
-import epaAsset from "@/assets/certs/cert_0.png.asset.json";
-import ispAsset from "@/assets/certs/cert_1.png.asset.json";
-import simaAsset from "@/assets/certs/cert_2.png.asset.json";
-import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
-import madeSafeAsset from "@/assets/certs/cert_5.png.asset.json";
-import fdaGrasAsset from "@/assets/certs/fda_gras_v2.png.asset.json";
-import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
-
 const PROMO = "META15";
 const BIOTICA_URL = shopifyProductDiscountUrl("biotica-800", PROMO, "allergy-landing");
 const MINI_URL = shopifyProductDiscountUrl("biologic-mini", PROMO, "allergy-landing");

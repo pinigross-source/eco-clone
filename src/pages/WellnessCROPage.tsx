@@ -107,10 +107,10 @@ export default function WellnessCROPage() {
                   <h3 className="mt-4 text-xl font-bold">Conventional air purifier</h3>
                   <p className="mt-3 text-base leading-relaxed text-ink/65">Primarily addresses material in air that passes through the machine.</p>
                 </div>
-                <div className="bg-sage p-6 text-white sm:p-8">
+                <div className="bg-sage p-6 text-primary-foreground sm:p-8">
                   <Sparkles className="h-6 w-6" />
                   <h3 className="mt-4 text-xl font-bold">EnviroBiotics</h3>
-                  <p className="mt-3 text-base leading-relaxed text-white/90">Designed to disperse throughout the occupied room and reach air, surfaces, and objects.</p>
+                  <p className="mt-3 text-base leading-relaxed text-primary-foreground/90">Designed to disperse throughout the occupied room and reach air, surfaces, and objects.</p>
                 </div>
               </div>
             </div>
@@ -176,11 +176,11 @@ export default function WellnessCROPage() {
           </div>
         </section>
 
-        <section className="bg-ink py-16 text-white sm:py-24">
+        <section className="bg-ink py-16 text-primary-foreground sm:py-24">
           <div className="mx-auto max-w-3xl px-5 text-center md:px-8">
             <h2 className="text-3xl font-bold leading-tight sm:text-5xl">Create a fresher environment around your routine.</h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">Start with the room where you live, rest, or recover most.</p>
-            <Button asChild size="lg" className="mt-8 min-h-12 rounded-full bg-sage px-8 text-white hover:bg-sage/90">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/75 sm:text-lg">Start with the room where you live, rest, or recover most.</p>
+            <Button asChild size="lg" className="mt-8 min-h-12 rounded-full bg-sage px-8 text-primary-foreground hover:bg-sage/90">
               <TrackedShopLink route="/wellness" placement="final_cta" product="biotica-800" destination={BIOTICA_URL}>Shop Biotica 800 <ArrowRight className="h-4 w-4" /></TrackedShopLink>
             </Button>
           </div>

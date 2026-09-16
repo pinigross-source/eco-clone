@@ -29,11 +29,6 @@ import finalCtaAsset from "@/assets/final-cta.avif.asset.json";
 import bioticaProduct from "@/assets/pets/biotica-800-card.avif";
 import miniProduct from "@/assets/biologic-mini-nobg-new.avif";
 import bundleAsset from "@/assets/bundle-product.webp.asset.json";
-import epaAsset from "@/assets/certs/epa-new.webp.asset.json";
-import madeSafeAsset from "@/assets/certs/made-safe-new.png.asset.json";
-import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
-import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
-import isoAsset from "@/assets/certs/iso-new.webp.asset.json";
 
 const BIOTICA_URL = shopifyDiscountUrl("META15", "/products/biotica-800", "pets-landing");
 const MINI_URL = shopifyProductDiscountUrl("biologic-mini", "META15", "pets-landing");

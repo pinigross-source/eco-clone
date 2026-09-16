@@ -79,9 +79,9 @@ export function MobileHomeHero() {
 
       <div className="mobile-home-hero__content">
         <p className="mobile-home-hero__eyebrow">Beyond air filtration</p>
-        <h1 id="mobile-home-hero-title" className="mobile-home-hero__title">
+        <div id="mobile-home-hero-title" role="heading" aria-level={1} className="mobile-home-hero__title">
           You take probiotics. Your home doesn’t.
-        </h1>
+        </div>
         <p className="mobile-home-hero__support">
           Probiotic purification designed for the air, surfaces, and objects throughout your room.&nbsp;
         </p>
