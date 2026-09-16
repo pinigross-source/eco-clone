@@ -7,3 +7,7 @@
 - [x] Preserve `/`, shared commerce settings, and unpublished state.
 - [x] Validate build, metadata, interactions, links, assets, and responsive layouts.
 - [x] Report exact files, review URL, results, and limits.
+- [ ] Build the approved shared CRO components for the five consumer routes.
+- [ ] Upgrade `/`, `/parents`, `/pets`, `/allergy`, and `/wellness` exactly as approved.
+- [ ] Validate CTA destinations, tracking, sticky actions, hydration, performance, metadata, and responsive layouts.
+- [ ] Keep the changes unpublished and report route-by-route results and external limitations.
