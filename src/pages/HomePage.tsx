@@ -3,7 +3,6 @@ import { useLocation } from "@tanstack/react-router";
 import { SEOHead, organizationJsonLd, websiteJsonLd, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
-import { MobileHomeHero } from "@/components/MobileHomeHero";
 import { NatureStatementSection } from "@/components/NatureStatementSection";
 import { TrustedPlacesSection } from "@/components/TrustedPlacesSection";
 import { ScienceOfBalanceSection } from "@/components/ScienceOfBalanceSection";
@@ -62,10 +61,7 @@ const Index = () => {
       />
       <Navbar />
       <main id="main-content" className="relative pb-20 md:pb-0">
-        <MobileHomeHero />
-        <div className="hidden md:block">
-          <HeroSection />
-        </div>
+        <HeroSection />
         <ProductDecisionBlock
           route="/"
           id="find-your-system"
