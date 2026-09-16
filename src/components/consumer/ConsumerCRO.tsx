@@ -1,0 +1,224 @@
+import type { ComponentProps, ReactNode } from "react";
+import { ArrowRight, Check, ShoppingBag } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { products } from "@/data/productData";
+import { trackEvent } from "@/lib/tracking";
+import epaAsset from "@/assets/certs/epa-new.webp.asset.json";
+import fdaAsset from "@/assets/certs/fda-gras-new.webp.asset.json";
+import allergyUkAsset from "@/assets/certs/allergyuk.webp.asset.json";
+import madeSafeAsset from "@/assets/certs/made-safe-new.png.asset.json";
+import ptpaAsset from "@/assets/certs/ptpa_v2.png.asset.json";
+
+const TRUST_MARKS = {
+  epa: { label: "EPA Registered", src: epaAsset.url },
+  fda: { label: "FDA GRAS", src: fdaAsset.url },
+  allergyUk: { label: "AllergyUK", src: allergyUkAsset.url },
+  madeSafe: { label: "MADE SAFE®", src: madeSafeAsset.url },
+  ptpa: { label: "PTPA Winner", src: ptpaAsset.url },
+} as const;
+
+export type TrustMark = keyof typeof TRUST_MARKS;
+export type CtaPlacement =
+  | "hero_primary"
+  | "early_product"
+  | "mid_page"
+  | "sticky_mobile"
+  | "final_cta";
+
+type TrackedShopLinkProps = ComponentProps<"a"> & {
+  route: string;
+  placement: CtaPlacement;
+  product: string;
+  destination: string;
+};
+
+export function TrackedShopLink({
+  route,
+  placement,
+  product,
+  destination,
+  onClick,
+  children,
+  ...props
+}: TrackedShopLinkProps) {
+  return (
+    <a
+      {...props}
+      href={destination}
+      data-cta-placement={placement}
+      data-product={product}
+      onClick={(event) => {
+        trackEvent("click_to_shop", {
+          route,
+          placement,
+          product,
+          destination,
+        });
+        onClick?.(event);
+      }}
+    >
+      {children}
+    </a>
+  );
+}
+
+export function CompactTrustStrip({
+  marks = ["epa", "fda", "allergyUk", "madeSafe", "ptpa"],
+  label = "Independent standards and trusted certifications",
+  className = "",
+}: {
+  marks?: TrustMark[];
+  label?: string;
+  className?: string;
+}) {
+  return (
+    <section aria-label={label} className={`border-y border-border/70 bg-background ${className}`}>
+      <div className="mx-auto flex min-h-24 max-w-6xl items-center gap-5 overflow-x-auto px-5 py-4 sm:justify-center sm:gap-8 md:px-8">
+        <p className="min-w-28 text-[11px] font-semibold uppercase leading-4 text-muted-foreground">
+          Trusted standards
+        </p>
+        {marks.map((key) => {
+          const mark = TRUST_MARKS[key];
+          return (
+            <img
+              key={key}
+              src={mark.src}
+              alt={mark.label}
+              title={mark.label}
+              width={112}
+              height={56}
+              loading="lazy"
+              decoding="async"
+              className="h-10 w-auto max-w-24 shrink-0 object-contain sm:h-11 sm:max-w-28"
+            />
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+type ProductDecision = {
+  slug: "biologic-mini" | "biotica-800";
+  bestFor: string;
+  installation: string;
+  destination: string;
+  ctaLabel: string;
+  featured?: boolean;
+};
+
+export function ProductDecisionBlock({
+  route,
+  eyebrow = "Choose by room size",
+  title = "A clear fit for every room.",
+  intro,
+  decisions,
+  placement = "early_product",
+  id,
+  className = "",
+}: {
+  route: string;
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+  decisions: ProductDecision[];
+  placement?: CtaPlacement;
+  id?: string;
+  className?: string;
+}) {
+  return (
+    <section id={id} className={`scroll-mt-24 bg-background py-12 sm:py-20 ${className}`}>
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <div className="max-w-2xl">
+          <p className="text-xs font-semibold uppercase text-sage">{eyebrow}</p>
+          <h2 className="mt-3 text-3xl font-bold leading-tight text-ink sm:text-4xl">{title}</h2>
+          {intro ? <p className="mt-4 text-base leading-relaxed text-ink/70 sm:text-lg">{intro}</p> : null}
+        </div>
+        <div className={`mt-8 grid gap-4 ${decisions.length > 1 ? "md:grid-cols-2" : "max-w-3xl"}`}>
+          {decisions.map((decision) => {
+            const product = products.find((item) => item.slug === decision.slug);
+            if (!product || product.price === undefined) return null;
+            return (
+              <article
+                key={decision.slug}
+                className={`grid grid-cols-[112px_1fr] overflow-hidden rounded-lg border bg-card sm:grid-cols-[180px_1fr] ${
+                  decision.featured ? "border-sage shadow-[0_18px_50px_-35px_hsl(var(--foreground)/0.35)]" : "border-border"
+                }`}
+              >
+                <div className="flex min-h-44 items-center justify-center bg-cream p-3 sm:min-h-56 sm:p-6">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    width={360}
+                    height={360}
+                    loading="lazy"
+                    decoding="async"
+                    className="aspect-square w-full object-contain"
+                  />
+                </div>
+                <div className="flex min-w-0 flex-col p-4 sm:p-6">
+                  <p className="text-xs font-semibold uppercase text-sage">{decision.bestFor}</p>
+                  <h3 className="mt-2 text-xl font-bold text-ink sm:text-2xl">{product.name}</h3>
+                  <ul className="mt-3 space-y-2 text-sm leading-5 text-ink/70 sm:text-base">
+                    <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-sage" />{product.coverage}</li>
+                    <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-sage" />{decision.installation}</li>
+                  </ul>
+                  <p className="mt-4 text-2xl font-bold text-ink">${product.price}</p>
+                  <Button asChild className="mt-4 min-h-11 w-full sm:w-fit">
+                    <TrackedShopLink
+                      route={route}
+                      placement={placement}
+                      product={product.slug}
+                      destination={decision.destination}
+                    >
+                      {decision.ctaLabel}<ArrowRight className="h-4 w-4" />
+                    </TrackedShopLink>
+                  </Button>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function MobileStickyShopCTA({
+  route,
+  product,
+  destination,
+  label,
+  detail,
+  visible = true,
+}: {
+  route: string;
+  product: string;
+  destination: string;
+  label: string;
+  detail?: string;
+  visible?: boolean;
+}) {
+  if (!visible) return null;
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 px-4 py-3 shadow-[0_-8px_28px_-18px_hsl(var(--foreground)/0.4)] backdrop-blur-md md:hidden">
+      <div className="mx-auto flex max-w-lg items-center gap-3">
+        {detail ? <p className="min-w-0 flex-1 text-sm font-semibold leading-5 text-foreground">{detail}</p> : null}
+        <Button asChild className={`${detail ? "shrink-0" : "w-full"} min-h-11 rounded-full px-5`}>
+          <TrackedShopLink
+            route={route}
+            placement="sticky_mobile"
+            product={product}
+            destination={destination}
+          >
+            <ShoppingBag className="h-4 w-4" />{label}
+          </TrackedShopLink>
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+export function CtaText({ children }: { children: ReactNode }) {
+  return <>{children}</>;
+}
