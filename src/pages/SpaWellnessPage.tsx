@@ -246,13 +246,20 @@ export default function SpaWellnessPage() {
                   Environmental wellness for spas
                 </p>
                 <h1 className="mt-5 font-display text-[2.35rem] leading-[1.04] sm:text-5xl md:text-[3.65rem] text-ink">
-                  Your spa is dedicated to wellness.{
+                  Your spa is dedicated to wellness.{" "}
+                  <span className="block mt-2 italic font-normal text-ink/72">Shouldn&apos;t your environment be too?</span>
+                </h1>
+                <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-ink/75">
+                  A natural, biological approach to indoor environmental purification. Beneficial environmental
+                  probiotics work continuously across air, surfaces, and objects, complementing the care your team
+                  already provides.
+                </p>
                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
                   {primaryCta("hero", "w-full sm:w-auto")}
                   <Button
                     size="lg"
                     variant="outline"
-                    className="min-h-[48px] w-full sm:w-auto rounded-full border-cream/45 bg-transparent text-base text-cream hover:bg-cream/10 hover:text-cream"
+                    className="min-h-[48px] w-full sm:w-auto rounded-full border-ink/30 bg-cream/30 text-base text-ink hover:bg-cream/70 hover:text-ink"
                     data-cta="see-how-it-works"
                     data-placement="hero"
                     onClick={() => {
@@ -263,7 +270,7 @@ export default function SpaWellnessPage() {
                     See How It Works
                   </Button>
                 </div>
-                <p className="mt-6 text-sm text-cream/70">
+                <p className="mt-6 text-sm font-medium text-ink/65">
                   Continuous &nbsp;•&nbsp; Low maintenance &nbsp;•&nbsp; Complements routine cleaning
                 </p>
               </div>
@@ -273,17 +280,27 @@ export default function SpaWellnessPage() {
 
         {/* 2. Problem */}
         <section className="bg-cream py-20 sm:py-28">
-          <div className="mx-auto max-w-5xl px-5 sm:px-8">
-            <h2 className="font-display text-[1.75rem] sm:text-4xl leading-tight text-ink max-w-3xl">
-              Your clients notice every detail. The microscopic environment deserves the same care.
-            </h2>
-            <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-ink/70">
-              You already control the treatments, the skincare, the water, the fragrance. The environment around
-              them is harder to see: treatment tables and linens, robes and towels, carpeting and locker rooms,
-              showers and humidity, and a steady turnover of guests through every room.
-            </p>
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
+            <div className="grid items-center gap-10 md:grid-cols-[1.05fr_0.95fr] md:gap-16">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">Care beyond the treatment</p>
+                <h2 className="mt-4 font-display text-[1.9rem] sm:text-4xl leading-tight text-ink max-w-3xl">
+                  Your clients notice every detail. The microscopic environment deserves the same care.
+                </h2>
+                <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-ink/70">
+                  You already control the treatments, skincare, water, fragrance, linens, and every guest touchpoint.
+                  The environment around them is less visible, yet it moves through every room.
+                </p>
+              </div>
+              <figure className="relative overflow-hidden rounded-sm">
+                <img src={spaTreatmentImg} alt="A spa therapist preparing a sunlit treatment room" className="aspect-[4/5] w-full object-cover" width={1280} height={1600} loading="lazy" decoding="async" />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-cream/90 px-5 py-4 text-sm text-ink/65 backdrop-blur-sm">
+                  Treatment rooms, linens, towels, locker areas, humidity, and constant guest turnover.
+                </figcaption>
+              </figure>
+            </div>
 
-            <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-ink/10 sm:grid-cols-2">
+            <div className="mt-14 grid gap-px overflow-hidden rounded-sm border border-ink/10 bg-ink/10 sm:grid-cols-2">
               <div className="bg-cream p-7 sm:p-9">
                 <p className="text-xs uppercase tracking-[0.18em] text-ink/50">Traditional cleaning</p>
                 <p className="mt-4 font-display text-xl sm:text-2xl text-ink">Essential, but periodic.</p>
@@ -305,24 +322,24 @@ export default function SpaWellnessPage() {
         </section>
 
         {/* 3. How it works */}
-        <section id="how-it-works" className="scroll-mt-24 bg-ink py-20 sm:py-28">
+        <section id="how-it-works" className="scroll-mt-24 bg-sage-soft py-20 sm:py-28">
           <div className="mx-auto max-w-5xl px-5 sm:px-8">
-            <h2 className="font-display text-[1.75rem] sm:text-4xl leading-tight text-cream max-w-3xl">
+            <h2 className="font-display text-[1.9rem] sm:text-4xl leading-tight text-ink max-w-3xl">
               Nature doesn&apos;t create healthy environments by sterilizing them.
             </h2>
-            <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-cream/75">
+            <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-ink/70">
               In a balanced environment, organisms compete for the same nutrients and the same space. EnviroBiotics
               applies that principle indoors: beneficial environmental probiotics are dispersed into the occupied
               space and compete for the resources and ecological room that unwanted organisms depend on.
             </p>
 
-            <ol className="mt-14 grid gap-10 sm:grid-cols-3">
+            <ol className="mt-14 grid gap-8 sm:grid-cols-3">
               {steps.map((s, i) => (
-                <li key={s.title} className="relative">
-                  <span className="text-xs tracking-[0.2em] text-cream/45">0{i + 1}</span>
+                <li key={s.title} className="relative border-t border-sage/35 pt-7">
+                  <span className="text-xs tracking-[0.2em] text-sage">0{i + 1}</span>
                   <s.icon className="mt-4 h-6 w-6 text-sage" aria-hidden="true" />
-                  <h3 className="mt-4 font-display text-xl text-cream">{s.title}</h3>
-                  <p className="mt-3 text-[0.975rem] leading-relaxed text-cream/70">{s.body}</p>
+                  <h3 className="mt-4 font-display text-xl text-ink">{s.title}</h3>
+                  <p className="mt-3 text-[0.975rem] leading-relaxed text-ink/70">{s.body}</p>
                 </li>
               ))}
             </ol>
@@ -335,12 +352,15 @@ export default function SpaWellnessPage() {
             <h2 className="font-display text-[1.75rem] sm:text-4xl leading-tight text-ink">
               Your spa isn&apos;t made of air.
             </h2>
+            <div className="mt-10 overflow-hidden rounded-sm">
+              <img src={spaLoungeImg} alt="Guests relaxing together in a bright wellness lounge" className="aspect-[4/3] w-full object-cover md:aspect-[16/7]" width={1600} height={1104} loading="lazy" decoding="async" />
+            </div>
             <div className="mt-10 grid gap-10 md:grid-cols-2">
               <div className="border-t border-ink/15 pt-7">
                 <h3 className="font-display text-xl text-ink">A conventional air purifier</h3>
                 <p className="mt-3 text-[0.975rem] leading-relaxed text-ink/70">
                   Primarily addresses the material that physically reaches the machine. Everything outside that
-                  airstream &mdash; the table your guest lies on, the robe they wear, the floor they walk across &mdash;
+                  airstream, including the table your guest lies on, the robe they wear, and the floor they walk across,
                   is untouched by it.
                 </p>
               </div>
@@ -348,7 +368,7 @@ export default function SpaWellnessPage() {
                 <h3 className="font-display text-xl text-ink">EnviroBiotics</h3>
                 <p className="mt-3 text-[0.975rem] leading-relaxed text-ink/70">
                   Takes a whole-environment approach: treatment rooms, massage tables, reception areas, furniture,
-                  floors and carpeting, locker rooms, surfaces, objects &mdash; and the air that moves between them.
+                  floors and carpeting, locker rooms, surfaces, objects, and the air that moves between them.
                 </p>
               </div>
             </div>
@@ -365,7 +385,7 @@ export default function SpaWellnessPage() {
             </blockquote>
             <figcaption className="mt-7 text-sm leading-relaxed text-ink/70">
               <span className="block font-medium text-ink">John Breslin</span>
-              Regional Director Spa Operations, NE &mdash; OneSpaWorld
+              Regional Director Spa Operations, NE, OneSpaWorld
               <span className="block mt-1 text-ink/55">Mandara Spa at Mohegan Sun</span>
             </figcaption>
             <div className="mt-9">{primaryCta("proof")}</div>
@@ -398,12 +418,13 @@ export default function SpaWellnessPage() {
         </section>
 
         {/* 7. Science */}
-        <section className="bg-ink py-20 sm:py-28">
+        <section className="bg-background py-20 sm:py-28">
           <div className="mx-auto max-w-4xl px-5 sm:px-8">
-            <h2 className="font-display text-[1.75rem] sm:text-4xl leading-tight text-cream">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">Evidence with context</p>
+            <h2 className="mt-4 font-display text-[1.9rem] sm:text-4xl leading-tight text-ink">
               A biological approach grounded in environmental microbiology.
             </h2>
-            <div className="mt-7 space-y-5 text-base leading-relaxed text-cream/75">
+            <div className="mt-7 space-y-5 text-base leading-relaxed text-ink/70">
               <p>
                 A 2024 peer-reviewed review describes environmental probiotic cleaning as a biological approach in
                 which beneficial organisms compete for nutrients and habitat, and discusses the biological
@@ -413,14 +434,14 @@ export default function SpaWellnessPage() {
                 Published studies in healthcare environments have reported reductions in environmental pathogens and
                 in antimicrobial-resistance genes following probiotic-based environmental interventions.
               </p>
-              <p className="text-cream/60">
+              <p className="border-l-2 border-sage pl-5 text-ink/60">
                 That evidence comes from healthcare settings and is contextual: it does not prove identical outcomes
                 in every spa or wellness facility.
               </p>
             </div>
             <Link
               to="/research"
-              className="mt-8 inline-flex min-h-[44px] items-center gap-2 rounded-full border border-cream/35 px-6 text-sm text-cream transition-colors hover:bg-cream/10"
+              className="mt-8 inline-flex min-h-[44px] items-center gap-2 rounded-full border border-ink/25 px-6 text-sm text-ink transition-colors hover:bg-sage-soft"
               data-cta="research"
               data-placement="science"
               onClick={() => trackEvent("spa_cta_click", { cta: "research", placement: "science" })}
@@ -440,7 +461,7 @@ export default function SpaWellnessPage() {
               </h2>
               <p className="mt-6 text-[0.975rem] sm:text-base leading-relaxed text-ink/70">
                 Environmental wellness is easy to make visible. A line at reception, a note in the treatment room,
-                a paragraph on your website &mdash; it tells guests that the care extends past the treatment itself.
+                a paragraph on your website. It tells guests that the care extends past the treatment itself.
               </p>
               <figure className="mt-8 border-l-2 border-sage pl-6">
                 <blockquote className="font-display text-lg sm:text-xl italic leading-snug text-ink">
@@ -544,7 +565,7 @@ export default function SpaWellnessPage() {
               </article>
             </div>
 
-            <div className="mt-14 rounded-3xl bg-cream p-8 text-center sm:p-10">
+            <div className="mt-14 border-y border-sage/30 bg-cream px-5 py-10 text-center sm:px-10">
               <h3 className="font-display text-2xl text-ink">Not sure which fits?</h3>
               <p className="mx-auto mt-3 max-w-xl text-[0.975rem] leading-relaxed text-ink/70">
                 Tell us the size of your space and how it&apos;s used. We&apos;ll come back with a recommendation
@@ -557,8 +578,9 @@ export default function SpaWellnessPage() {
 
         {/* 10. Lead form */}
         <section id="recommendation" className="scroll-mt-24 bg-cream py-20 sm:py-28">
-          <div className="mx-auto max-w-2xl px-5 sm:px-8">
-            <h2 className="font-display text-[1.75rem] sm:text-4xl leading-tight text-ink">
+          <div className="mx-auto max-w-4xl px-5 sm:px-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">A considered recommendation, not a sales script</p>
+            <h2 className="mt-4 font-display text-[1.9rem] sm:text-4xl leading-tight text-ink">
               Get a facility recommendation
             </h2>
             <p className="mt-4 text-[0.975rem] leading-relaxed text-ink/70">
@@ -576,7 +598,7 @@ export default function SpaWellnessPage() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="mt-10 space-y-5" noValidate={false}>
+              <form onSubmit={handleSubmit} className="mt-10 space-y-5 border-t border-ink/15 pt-8" noValidate={false}>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="spa-name">Name *</Label>
@@ -668,8 +690,10 @@ export default function SpaWellnessPage() {
         </section>
 
         {/* 12. Final CTA */}
-        <section className="bg-ink py-20 sm:py-28">
-          <div className="mx-auto max-w-3xl px-5 sm:px-8 text-center">
+        <section className="relative overflow-hidden py-24 sm:py-32">
+          <img src={spaLoungeImg} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" width={1600} height={1104} loading="lazy" decoding="async" />
+          <div aria-hidden="true" className="absolute inset-0 bg-ink/55" />
+          <div className="relative mx-auto max-w-3xl px-5 sm:px-8 text-center">
             <h2 className="font-display text-[1.75rem] sm:text-4xl leading-tight text-cream">
               Make wellness more than a service you provide.
             </h2>
