@@ -11,9 +11,6 @@ export const NatureStatementSection = () => {
         >
           Probiotics collected from nature in their pure state; nothing is modified or added.
         </h2>
-        <p className="mt-5 sm:mt-6 font-display font-medium text-[1.15rem] sm:text-[1.35rem] lg:text-[1.5rem] leading-[1.4] text-muted-foreground text-balance text-center max-w-4xl mx-auto">
-          Nature's wisdom, imported indoors.
-        </p>
       </div>
     </section>
   );
