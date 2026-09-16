@@ -226,11 +226,11 @@ export default function SpaWellnessPage() {
       <main className="pb-28 md:pb-0">
         {/* 1. Hero */}
         <section className="relative w-full overflow-hidden bg-cream">
-          <div className="relative min-h-[86svh] md:min-h-[88vh] w-full">
+          <div className="relative w-full md:min-h-[88vh]">
             <img
               src={spaHeroImg}
               alt="A guest arriving at a bright, serene spa reception"
-              className="absolute inset-0 h-full w-full object-cover object-[62%_center] md:object-center"
+              className="absolute inset-x-0 top-0 h-[46svh] w-full object-cover object-[62%_center] md:inset-0 md:h-full md:object-center"
               width={1920}
               height={1280}
               fetchPriority="high"
@@ -238,9 +238,9 @@ export default function SpaWellnessPage() {
             />
             <span
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-cream via-cream/90 to-cream/5 md:bg-gradient-to-r md:from-cream md:from-25% md:via-cream/80 md:via-45% md:to-transparent md:to-70%"
+              className="absolute inset-x-0 top-0 h-[46svh] bg-gradient-to-t from-cream/90 via-transparent to-transparent md:inset-0 md:h-full md:bg-gradient-to-r md:from-cream md:from-25% md:via-cream/80 md:via-45% md:to-transparent md:to-70%"
             />
-            <div className="relative mx-auto flex min-h-[86svh] md:min-h-[88vh] max-w-7xl items-end md:items-center px-5 sm:px-8 pb-12 md:pb-0 pt-28">
+            <div className="relative mx-auto flex max-w-7xl items-start px-5 pb-12 pt-[39svh] sm:px-8 md:min-h-[88vh] md:items-center md:pb-0 md:pt-28">
               <div className="max-w-[42rem] rounded-sm bg-cream/80 p-5 backdrop-blur-[2px] sm:p-8 md:bg-transparent md:p-0 md:backdrop-blur-none">
                 <p className="text-[0.7rem] sm:text-xs font-semibold uppercase tracking-[0.22em] text-sage">
                   Environmental wellness for spas
