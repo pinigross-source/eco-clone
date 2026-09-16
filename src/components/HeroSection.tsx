@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import desktopHeroAsset from "@/assets/home-hero-static-desktop-3.avif.asset.json";
 import mobileHeroAsset from "@/assets/home-hero-mobile-3.avif.asset.json";
 import { trackEvent } from "@/lib/tracking";
@@ -71,6 +71,7 @@ export const HeroSection = () => {
 
       <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
         <DialogContent className="w-[95vw] max-w-4xl overflow-hidden rounded-lg border-none bg-foreground p-0 [&>button]:text-background">
+          <DialogTitle className="sr-only">How EnviroBiotics works</DialogTitle>
           <div className="aspect-video w-full">
             {videoOpen ? (
               <iframe

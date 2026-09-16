@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Play } from "lucide-react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import bgImage from "@/assets/let-nature-bg.avif.asset.json";
 import bgImageMobile from "@/assets/science-balance-mobile.webp.asset.json";
 
@@ -102,6 +102,7 @@ export const ScienceOfBalanceSection = () => {
 
       <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
         <DialogContent className="w-[95vw] max-w-4xl overflow-hidden rounded-lg border-none bg-foreground p-0 [&>button]:text-background">
+          <DialogTitle className="sr-only">How EnviroBiotics works</DialogTitle>
           <div className="aspect-video w-full">
             {videoOpen && (
               <iframe
