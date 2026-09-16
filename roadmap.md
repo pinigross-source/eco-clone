@@ -10,4 +10,4 @@
 - [x] Build the approved shared CRO components for the five consumer routes.
 - [x] Upgrade `/`, `/parents`, `/pets`, `/allergy`, and `/wellness` exactly as approved.
 - [x] Validate CTA destinations, tracking, sticky actions, hydration, performance, metadata, and responsive layouts.
-- [ ] Keep the changes unpublished and report route-by-route results and external limitations.
+- [x] Keep the changes unpublished and report route-by-route results and external limitations.
