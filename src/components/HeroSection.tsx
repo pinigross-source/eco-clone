@@ -3,6 +3,7 @@ import { Link } from "@/lib/link";
 import { ArrowRight, Play } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { HeroVideoLayer } from "@/components/hero/HeroVideoLayer";
+import { trackEvent } from "@/lib/tracking";
 
 
 const HERO_FONT = '"Hanken Grotesk", system-ui, -apple-system, sans-serif';
@@ -62,9 +63,8 @@ export const HeroSection = () => {
 
           <div className="hidden lg:flex lg:mt-8 flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-start sm:justify-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none mx-auto">
             <a
-              href="https://shop.envirobiotics.com/"
-              target="_top"
-              rel="noopener"
+              href="#find-your-system"
+              onClick={() => trackEvent("homepage_cta_click", { placement: "hero_primary" })}
               className="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full transition-all duration-300 hover:-translate-y-0.5"
               style={{
                 background: "#1F2328",
@@ -76,7 +76,7 @@ export const HeroSection = () => {
                 boxShadow: "0 12px 30px -12px rgba(31,35,40,0.55)",
               }}
             >
-              Choose Your System
+              Find My System
               <span
                 className="inline-flex items-center justify-center rounded-full"
                 style={{ width: 32, height: 32, background: "rgba(244,240,231,0.18)" }}

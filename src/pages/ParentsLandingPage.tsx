@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -17,6 +17,7 @@ import {
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyProductDiscountUrl } from "@/lib/shopify";
+import { CompactTrustStrip, MobileStickyShopCTA, ProductDecisionBlock } from "@/components/consumer/ConsumerCRO";
 import {
   Accordion,
   AccordionContent,
@@ -168,10 +169,10 @@ const ParentsLandingPage = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const angle: Angle = useMemo(() => {
-    if (typeof window === "undefined") return "a";
+  const [angle, setAngle] = useState<Angle>("a");
+  useEffect(() => {
     const v = new URLSearchParams(window.location.search).get("v");
-    return v === "b" || v === "c" ? v : "a";
+    if (v === "b" || v === "c") setAngle(v);
   }, []);
   const hero = HERO_VARIANTS[angle];
 
@@ -236,7 +237,7 @@ const ParentsLandingPage = () => {
                 <div className="mt-8 flex flex-col items-center gap-4 sm:mt-10 lg:items-start">
                   <a
                     href={MINI_URL}
-                    onClick={() => trackEvent("click_parents_hero_cta")}
+                    onClick={() => trackEvent("click_to_shop", { route: "/parents", placement: "hero_primary", product: "biologic-mini", destination: MINI_URL })}
                   >
                     <Button
                       size="lg"
@@ -257,6 +258,22 @@ const ParentsLandingPage = () => {
             </svg>
           </div>
         </section>
+
+        <ProductDecisionBlock
+          route="/parents"
+          eyebrow="The nursery fit"
+          title="BioLogic Mini, sized for one nursery."
+          intro="Place it on a shelf or dresser. Its rechargeable, ultra-quiet design supports a single room while complementing your normal cleaning routine."
+          decisions={[{
+            slug: "biologic-mini",
+            bestFor: "Nurseries and smaller rooms",
+            installation: "Rechargeable, no permanent installation",
+            destination: MINI_URL,
+            ctaLabel: "Shop BioLogic Mini",
+            featured: true,
+          }]}
+        />
+        <CompactTrustStrip marks={["fda", "epa", "madeSafe", "ptpa"]} />
 
         {/* ============ PROBLEM / PAIN ============ */}
         <section className="bg-[#F5F3EE] py-20 sm:py-28 lg:py-40">
@@ -518,7 +535,7 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ PRODUCTS - 3 OPTIONS ============ */}
-        <section id="products" className="scroll-mt-24 bg-[#F5F3EE] py-20 sm:py-28 lg:py-36">
+        <section id="products" className="hidden scroll-mt-24 bg-[#F5F3EE] py-20 md:block sm:py-28 lg:py-36">
           <div className="mx-auto max-w-[1480px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto max-w-3xl text-center">
@@ -774,7 +791,7 @@ const ParentsLandingPage = () => {
         </section>
 
         {/* ============ CERTIFICATIONS / SAFETY ============ */}
-        <section className="relative w-full overflow-hidden bg-white py-20 sm:py-28">
+        <section className="hidden">
           <div className="relative mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
             <Reveal>
               <div className="mx-auto mb-12 flex max-w-3xl flex-col items-center text-center sm:mb-16">
@@ -946,27 +963,14 @@ const ParentsLandingPage = () => {
         </section>
       </main>
 
-      {/* Sticky mobile bar */}
-      <div
-        className={`fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 backdrop-blur sm:hidden transition-transform duration-300 ${
-          showSticky ? "translate-y-0" : "translate-y-full"
-        }`}
-      >
-        <div className="flex items-center justify-between gap-3 px-4 py-3">
-          <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-foreground">30-night guarantee</p>
-            <p className="truncate text-xs text-muted-foreground">Quiet · Chemical-free</p>
-          </div>
-          <a
-            href={MINI_URL}
-            onClick={() => trackEvent("click_parents_sticky_cta")}
-          >
-            <Button className="h-11 shrink-0 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90">
-              Secure My Baby&apos;s Space
-            </Button>
-          </a>
-        </div>
-      </div>
+      <MobileStickyShopCTA
+        route="/parents"
+        product="biologic-mini"
+        destination={MINI_URL}
+        label="Shop BioLogic Mini"
+        detail="Up to 300 sq ft · $98"
+        visible={showSticky}
+      />
       <Footer />
     </>
   );

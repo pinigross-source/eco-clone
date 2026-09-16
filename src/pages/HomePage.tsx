@@ -6,11 +6,12 @@ import { HeroSection } from "@/components/HeroSection";
 import { MobileHomeHero } from "@/components/MobileHomeHero";
 import { NatureStatementSection } from "@/components/NatureStatementSection";
 import { TrustedPlacesSection } from "@/components/TrustedPlacesSection";
-import { SizedToYourSpaceSection } from "@/components/SizedToYourSpaceSection";
 import { ScienceOfBalanceSection } from "@/components/ScienceOfBalanceSection";
 import { AddLayerOfWellnessSection } from "@/components/AddLayerOfWellnessSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { DeferredSection } from "@/components/DeferredSection";
+import { CompactTrustStrip, ProductDecisionBlock } from "@/components/consumer/ConsumerCRO";
+import { shopifyProductUrl } from "@/lib/shopify";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
@@ -65,14 +66,38 @@ const Index = () => {
         <div className="hidden md:block">
           <HeroSection />
         </div>
+        <ProductDecisionBlock
+          route="/"
+          id="find-your-system"
+          eyebrow="Find my system"
+          title="Start with the room you use most."
+          intro="Probiotic purification is designed to work beyond the air, reaching surfaces and objects throughout your space."
+          decisions={[
+            {
+              slug: "biologic-mini",
+              bestFor: "Bedrooms, nurseries and personal spaces",
+              installation: "Rechargeable, place on a shelf or nightstand",
+              destination: shopifyProductUrl("biologic-mini", "home-early-product"),
+              ctaLabel: "Shop BioLogic Mini",
+            },
+            {
+              slug: "biotica-800",
+              bestFor: "Living rooms and larger shared spaces",
+              installation: "Plug in and let it run continuously",
+              destination: shopifyProductUrl("biotica-800", "home-early-product"),
+              ctaLabel: "Shop Biotica 800",
+              featured: true,
+            },
+          ]}
+        />
+        <CompactTrustStrip />
         <NatureStatementSection />
         <TrustedPlacesSection />
-        <SizedToYourSpaceSection />
         <ScienceOfBalanceSection />
         <AddLayerOfWellnessSection />
         <TestimonialsSection />
       </main>
-      <DeferredSection forceMount={hasHash} minHeight="200px" rootMargin="200px">
+      <DeferredSection forceMount={hasHash} minHeight="520px" rootMargin="200px">
         <Suspense fallback={null}>
           <Footer />
         </Suspense>

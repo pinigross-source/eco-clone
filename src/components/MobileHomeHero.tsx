@@ -16,11 +16,9 @@ type NavigatorWithConnection = Navigator & {
 };
 
 export function MobileHomeHero() {
-  const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
-  const transitionPendingRef = useRef(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [videoEnabled, setVideoEnabled] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
-  const [activeVideo, setActiveVideo] = useState(0);
   const [videoOpen, setVideoOpen] = useState(false);
 
   useEffect(() => {
@@ -36,7 +34,7 @@ export function MobileHomeHero() {
 
   useEffect(() => {
     if (!videoEnabled) return;
-    const video = videoRefs.current[0];
+    const video = videoRef.current;
     if (!video) return;
     video.load();
     const tryPlay = () => {
@@ -61,66 +59,31 @@ export function MobileHomeHero() {
             fetchPriority="high"
           />
         </picture>
-        {[0, 1].map((index) => (
-          <video
-            key={index}
-            ref={(element) => {
-              videoRefs.current[index] = element;
-            }}
-            className={`mobile-home-hero__video${videoReady && activeVideo === index ? " is-active" : ""}`}
-            muted
-            playsInline
-            autoPlay={index === 0}
-            preload={index === 0 ? "none" : "auto"}
-            aria-hidden="true"
-            tabIndex={-1}
-            onPlaying={() => {
-              if (index === 0) setVideoReady(true);
-            }}
-            onCanPlay={() => {
-              if (index === 0) setVideoReady(true);
-            }}
-            onTimeUpdate={(event) => {
-              if (index !== activeVideo || transitionPendingRef.current) return;
-              const current = event.currentTarget;
-              if (!Number.isFinite(current.duration) || current.duration - current.currentTime > 1.1) return;
-
-              const nextIndex = index === 0 ? 1 : 0;
-              const next = videoRefs.current[nextIndex];
-              if (!next || next.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) return;
-
-              transitionPendingRef.current = true;
-              next.currentTime = 0;
-              void next.play().then(() => {
-                setActiveVideo(nextIndex);
-                window.setTimeout(() => {
-                  current.pause();
-                  current.currentTime = 0;
-                  transitionPendingRef.current = false;
-                }, 900);
-              }).catch(() => {
-                transitionPendingRef.current = false;
-              });
-            }}
-            onEnded={(event) => {
-              if (index !== activeVideo || transitionPendingRef.current) return;
-              event.currentTarget.currentTime = 0;
-              void event.currentTarget.play().catch(() => undefined);
-            }}
-          >
-            {videoEnabled ? <source src={videoWebmAsset.url} type="video/webm" /> : null}
-            {videoEnabled ? <source src={videoMp4Asset.url} type="video/mp4" /> : null}
-          </video>
-        ))}
+        <video
+          ref={videoRef}
+          className={`mobile-home-hero__video${videoReady ? " is-active" : ""}`}
+          muted
+          playsInline
+          autoPlay
+          loop
+          preload="none"
+          aria-hidden="true"
+          tabIndex={-1}
+          onPlaying={() => setVideoReady(true)}
+          onCanPlay={() => setVideoReady(true)}
+        >
+          {videoEnabled ? <source src={videoWebmAsset.url} type="video/webm" /> : null}
+          {videoEnabled ? <source src={videoMp4Asset.url} type="video/mp4" /> : null}
+        </video>
       </div>
 
       <div className="mobile-home-hero__content">
         <p className="mobile-home-hero__eyebrow">Beyond air filtration</p>
-        <h1 id="mobile-home-hero-title" className="mobile-home-hero__title">
+        <div id="mobile-home-hero-title" role="heading" aria-level={1} className="mobile-home-hero__title">
           You take probiotics. Your home doesn’t.
-        </h1>
+        </div>
         <p className="mobile-home-hero__support">
-          Same idea, for the rooms you live in: probiotics released automatically into your indoor environment.&nbsp;
+          Probiotic purification designed for the air, surfaces, and objects throughout your room.&nbsp;
         </p>
         <p className="mobile-home-hero__offer">
           <strong>Kits from $98.</strong>
@@ -131,13 +94,13 @@ export function MobileHomeHero() {
           href="#find-your-system"
           onClick={(e) => {
             e.preventDefault();
-            trackEvent("homepage_cta_click", { placement: "hero" });
+            trackEvent("homepage_cta_click", { placement: "hero_primary" });
             document
               .getElementById("find-your-system")
               ?.scrollIntoView({ behavior: "smooth", block: "start" });
           }}
         >
-          Choose Your System
+          Find My System
           <span className="mobile-home-hero__button-icon" aria-hidden="true">
             <ArrowRight className="w-4 h-4" />
           </span>
