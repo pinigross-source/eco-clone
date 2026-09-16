@@ -428,6 +428,9 @@
 }
 
 .homepage-impact .site-header__inner { height: 72px; }
+.homepage-impact .site-header [class*="bg-gradient-to-r"] {
+  background-image: linear-gradient(90deg, transparent, var(--color-home-coral), transparent);
+}
 .homepage-impact .site-mobile-menu {
   top: 64px;
   background-color: hsl(var(--background) / 0.96) !important;
@@ -441,6 +444,7 @@
 .homepage-impact .home-trusted-places { background-color: hsl(var(--card)); }
 .homepage-impact .home-product-gallery,
 .homepage-impact .home-testimonials { background-color: var(--color-home-silver); }
+.homepage-impact .home-product-gallery article:hover { border-color: var(--color-home-coral); }
 .homepage-impact .home-trust-strip { border-top: 0; }
 .homepage-impact .home-science-section { min-height: 640px; }
 .homepage-impact .home-wellness-section { background-color: hsl(var(--background)); }
