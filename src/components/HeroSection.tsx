@@ -3,7 +3,7 @@ import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import desktopHeroAsset from "@/assets/home-hero-static-desktop.avif.asset.json";
-import mobileHeroAsset from "@/assets/home-hero-static-mobile.avif.asset.json";
+import mobileHeroAsset from "@/assets/home-hero-mobile-3.avif.asset.json";
 import { trackEvent } from "@/lib/tracking";
 
 export const HeroSection = () => {
@@ -17,12 +17,12 @@ export const HeroSection = () => {
   return (
     <>
       <section className="relative overflow-hidden bg-background" aria-labelledby="home-hero-title">
-        <div className="relative aspect-[16/9] w-full overflow-hidden bg-muted md:absolute md:inset-0 md:aspect-auto">
+        <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted sm:aspect-[16/9] md:absolute md:inset-0 md:aspect-auto">
           <picture>
             <source media="(max-width: 767px)" srcSet={mobileHeroAsset.url} type="image/avif" />
             <img
               src={desktopHeroAsset.url}
-              alt="A mother reading with her two daughters in a bright room, with an EnviroBiotics device nearby."
+              alt="A mother, her daughter, and their dog in a bright living room, with an EnviroBiotics device on the side table."
               width="1600"
               height="900"
               fetchPriority="high"

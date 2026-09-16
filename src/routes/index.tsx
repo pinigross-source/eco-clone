@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Index from "@/pages/HomePage";
 import desktopHeroAsset from "@/assets/home-hero-static-desktop.avif.asset.json";
-import mobileHeroAsset from "@/assets/home-hero-static-mobile.avif.asset.json";
+import mobileHeroAsset from "@/assets/home-hero-mobile-3.avif.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
