@@ -23,8 +23,8 @@ export const HeroSection = () => {
             <img
               src={desktopHeroAsset.url}
               alt="A mother, her daughter, and their dog in a bright living room, with an EnviroBiotics device on the side table."
-              width="1600"
-              height="900"
+              width="1672"
+              height="941"
               fetchPriority="high"
               decoding="async"
               className="h-full w-full object-cover object-center md:object-[center_center]"
