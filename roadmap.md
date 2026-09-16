@@ -14,6 +14,6 @@
 
 - [x] Restyle the homepage product-choice section with an Apple-inspired presentation and stronger product imagery.
 - [x] Replace homepage hero background videos with optimized static AVIF imagery and align desktop copy with mobile.
-- [ ] Refine the homepage into the approved Apple-inspired cinematic layout across mobile and desktop.
-- [ ] Preserve the homepage's current dark green-charcoal text color throughout the refinement.
-- [ ] Validate complete homepage spacing, interactions, performance, and Apple-device layouts without publishing.
+- [x] Refine the homepage into the approved Apple-inspired cinematic layout across mobile and desktop.
+- [x] Preserve the homepage's current dark green-charcoal text color throughout the refinement.
+- [x] Validate complete homepage spacing, interactions, performance, and Apple-device layouts without publishing.
