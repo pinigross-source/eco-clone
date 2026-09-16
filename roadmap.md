@@ -12,4 +12,4 @@
 - [x] Validate CTA destinations, tracking, sticky actions, hydration, performance, metadata, and responsive layouts.
 - [x] Keep the changes unpublished and report route-by-route results and external limitations.
 
-- [ ] Restyle the homepage product-choice section with an Apple-inspired presentation and stronger product imagery.
+- [x] Restyle the homepage product-choice section with an Apple-inspired presentation and stronger product imagery.
