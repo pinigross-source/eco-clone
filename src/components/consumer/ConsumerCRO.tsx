@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode } from "react";
-import { ArrowRight, Check, ShoppingBag } from "lucide-react";
+import { ArrowRight, Check, ShieldCheck, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { products } from "@/data/productData";
 import { trackEvent } from "@/lib/tracking";
@@ -75,27 +75,33 @@ export function CompactTrustStrip({
 }) {
   return (
     <section aria-label={label} className={`border-y border-border/70 bg-background ${className}`}>
-      <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)_repeat(5,44px)] items-center gap-2 px-5 py-3 sm:grid-cols-[minmax(0,160px)_repeat(5,56px)] sm:justify-center sm:gap-5 sm:px-8 sm:py-4">
-        <p className="min-w-0 text-[10px] font-semibold uppercase leading-4 text-muted-foreground sm:text-[11px]">
-          Trusted standards
+      <div className="mx-auto max-w-5xl px-5 py-4 sm:px-8 sm:py-5">
+        <div className="grid grid-cols-[minmax(0,1fr)_repeat(5,44px)] items-center gap-2 sm:grid-cols-[minmax(0,160px)_repeat(5,56px)] sm:justify-center sm:gap-5">
+          <p className="min-w-0 text-[10px] font-semibold uppercase leading-4 text-muted-foreground sm:text-[11px]">
+            Trusted standards
+          </p>
+          {marks.map((key) => {
+            const mark = TRUST_MARKS[key];
+            return (
+              <span key={key} className="grid h-12 w-11 shrink-0 place-items-center sm:h-14 sm:w-14">
+                <img
+                  src={mark.src}
+                  alt={mark.label}
+                  title={mark.label}
+                  width={56}
+                  height={56}
+                  loading="lazy"
+                  decoding="async"
+                  className={`${mark.size} object-contain`}
+                />
+              </span>
+            );
+          })}
+        </div>
+        <p className="mt-2.5 flex items-center justify-center gap-1.5 text-[11px] font-medium text-foreground/70 sm:mt-3 sm:text-xs">
+          <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
+          30-day money-back guarantee
         </p>
-        {marks.map((key) => {
-          const mark = TRUST_MARKS[key];
-          return (
-            <span key={key} className="grid h-12 w-11 shrink-0 place-items-center sm:h-14 sm:w-14">
-              <img
-                src={mark.src}
-                alt={mark.label}
-                title={mark.label}
-                width={56}
-                height={56}
-                loading="lazy"
-                decoding="async"
-                className={`${mark.size} object-contain`}
-              />
-            </span>
-          );
-        })}
       </div>
     </section>
   );
