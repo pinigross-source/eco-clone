@@ -12,11 +12,11 @@ import biologicMiniLandscapeAsset from "@/assets/biologic-mini-landscape.jpg.ass
 import biotica800LandscapeAsset from "@/assets/biotica-800-landscape.jpg.asset.json";
 
 const TRUST_MARKS = {
-  epa: { label: "EPA Registered", src: epaAsset.url },
-  fda: { label: "FDA GRAS", src: fdaAsset.url },
-  allergyUk: { label: "AllergyUK", src: allergyUkAsset.url },
-  madeSafe: { label: "MADE SAFE®", src: madeSafeAsset.url },
-  ptpa: { label: "PTPA Winner", src: ptpaAsset.url },
+  epa: { label: "EPA Registered", src: epaAsset.url, size: "h-11 w-11 sm:h-12 sm:w-12" },
+  fda: { label: "FDA GRAS", src: fdaAsset.url, size: "h-12 w-12 sm:h-14 sm:w-14" },
+  allergyUk: { label: "AllergyUK", src: allergyUkAsset.url, size: "h-12 w-12 sm:h-14 sm:w-14" },
+  madeSafe: { label: "MADE SAFE®", src: madeSafeAsset.url, size: "h-11 w-11 sm:h-12 sm:w-12" },
+  ptpa: { label: "PTPA Winner", src: ptpaAsset.url, size: "h-12 w-12 sm:h-14 sm:w-14" },
 } as const;
 
 export type TrustMark = keyof typeof TRUST_MARKS;
@@ -75,24 +75,25 @@ export function CompactTrustStrip({
 }) {
   return (
     <section aria-label={label} className={`border-y border-border/70 bg-background ${className}`}>
-      <div className="mx-auto flex min-h-24 max-w-6xl items-center gap-5 overflow-x-auto px-5 py-4 sm:justify-center sm:gap-8 md:px-8">
-        <p className="min-w-28 text-[11px] font-semibold uppercase leading-4 text-muted-foreground">
+      <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)_repeat(5,44px)] items-center gap-2 px-5 py-3 sm:grid-cols-[minmax(0,160px)_repeat(5,56px)] sm:justify-center sm:gap-5 sm:px-8 sm:py-4">
+        <p className="min-w-0 text-[10px] font-semibold uppercase leading-4 text-muted-foreground sm:text-[11px]">
           Trusted standards
         </p>
         {marks.map((key) => {
           const mark = TRUST_MARKS[key];
           return (
-            <img
-              key={key}
-              src={mark.src}
-              alt={mark.label}
-              title={mark.label}
-              width={112}
-              height={56}
-              loading="lazy"
-              decoding="async"
-              className="h-10 w-auto max-w-24 shrink-0 object-contain sm:h-11 sm:max-w-28"
-            />
+            <span key={key} className="grid h-12 w-11 shrink-0 place-items-center sm:h-14 sm:w-14">
+              <img
+                src={mark.src}
+                alt={mark.label}
+                title={mark.label}
+                width={56}
+                height={56}
+                loading="lazy"
+                decoding="async"
+                className={`${mark.size} object-contain`}
+              />
+            </span>
           );
         })}
       </div>
