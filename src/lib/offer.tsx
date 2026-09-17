@@ -58,6 +58,28 @@ export function OfferProvider({
       }
       if (!host.startsWith("shop.")) return;
       anchor.href = withVisitorAttribution(anchor.href, utmContentFor(pageName, offer));
+
+      // Promo/shop click tracking for every outbound shop link on the page.
+      const isDiscountLink = anchor.href.includes("/discount/");
+      trackEvent("shop_link_click", {
+        offer,
+        page_name: pageName,
+        utm_content: utmContentFor(pageName, offer),
+        destination: anchor.href,
+        is_promo: offer === "meta15",
+        is_discount_link: isDiscountLink,
+        discount_code: isDiscountLink ? META15_DISCOUNT_CODE : undefined,
+        placement: anchor.dataset.ctaPlacement ?? "other",
+        product: anchor.dataset.product ?? undefined,
+      });
+      if (isDiscountLink) {
+        trackEvent("promo_discount_click", {
+          offer,
+          page_name: pageName,
+          discount_code: META15_DISCOUNT_CODE,
+          destination: anchor.href,
+        });
+      }
     };
     document.addEventListener("click", onPointer, true);
     document.addEventListener("auxclick", onPointer, true);
