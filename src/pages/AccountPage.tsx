@@ -42,6 +42,7 @@ import {
 } from "lucide-react";
 import { User as SupabaseUser, Session } from "@supabase/supabase-js";
 import { z } from "zod";
+import { buildShopUrl } from "@/lib/shopify";
 
 interface Profile {
   id: string;
@@ -371,7 +372,7 @@ export default function AccountPage() {
                 {isAffiliate && (
                   <Button 
                     variant="outline" 
-                    onClick={() => window.open("https://shop.envirobiotics.com/pages/affiliate-signup", "_blank", "noopener")}
+                    onClick={() => window.open(buildShopUrl("/pages/affiliate-signup"), "_blank", "noopener")}
                     className="w-fit"
                   >
                     <TrendingUp className="w-4 h-4 mr-2" />

@@ -3,6 +3,7 @@ import { ArrowRight, RotateCcw, ShieldCheck, Truck } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 import thirtyDaysMobile from "@/assets/30days-mobile.avif.asset.json";
 import calmHomeImage from "@/assets/guarantee-calm-home.avif";
+import { buildShopUrl } from "@/lib/shopify";
 
 const promises = [
   {
@@ -91,7 +92,7 @@ export const GuaranteeSection = () => {
 
             <ScrollReveal variant="fadeUp" delay={0.15} className="text-center lg:text-left">
               <Button variant="hero" size="impact-lg" asChild className="w-full sm:w-auto">
-                <a href="https://shop.envirobiotics.com/" target="_top">
+                <a href={buildShopUrl("/")} target="_top">
                   Start My Trial
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { buildShopUrl } from "@/lib/shopify";
 
-const AFFILIATE_URL = "https://shop.envirobiotics.com/pages/affiliate-signup";
+const AFFILIATE_URL = buildShopUrl("/pages/affiliate-signup");
 
 export const Route = createFileRoute("/affiliate-signup")({
   beforeLoad: () => {

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/tracking";
 import { shopifyCart } from "@/lib/shopify";
 import { NavbarSearch } from "./NavbarSearch";
+import { buildShopUrl } from "@/lib/shopify";
 // Use public path to avoid bundling; preloaded in index.html
 const logo = "/assets/logo.avif";
 
@@ -33,10 +34,10 @@ const navLinks: NavItem[] = [
   { label: "How it works", href: "/how-it-works" },
   {
     label: "Products",
-    href: "https://shop.envirobiotics.com/",
+    href: buildShopUrl("/"),
     dropdown: [
-      { label: "BioLogic Mini", href: "https://shop.envirobiotics.com/products/biologic-mini" },
-      { label: "Biotica 800", href: "https://shop.envirobiotics.com/products/biotica-800" },
+      { label: "BioLogic Mini", href: buildShopUrl("/products/biologic-mini") },
+      { label: "Biotica 800", href: buildShopUrl("/products/biotica-800") },
       { label: "Subscribe & Save", href: "/subscribe" },
     ],
   },
@@ -50,14 +51,14 @@ const navLinks: NavItem[] = [
       { label: "Help Center", href: "/support" },
     ],
   },
-  { label: "Shop", href: "https://shop.envirobiotics.com/" },
+  { label: "Shop", href: buildShopUrl("/") },
 ];
 
 const businessLink: NavItem = { label: "Business", href: "/business", bold: true };
 
 const storeDropdown: NavItem = {
   label: "Shop",
-  href: "https://shop.envirobiotics.com/",
+  href: buildShopUrl("/"),
 };
 
 // Desktop dropdown component

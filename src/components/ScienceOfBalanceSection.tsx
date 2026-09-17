@@ -3,6 +3,7 @@ import { Play } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import bgImage from "@/assets/let-nature-bg.avif.asset.json";
 import bgImageMobile from "@/assets/science-balance-mobile.webp.asset.json";
+import { buildShopUrl } from "@/lib/shopify";
 
 export const ScienceOfBalanceSection = () => {
   const [videoOpen, setVideoOpen] = useState(false);
@@ -71,7 +72,7 @@ export const ScienceOfBalanceSection = () => {
 
           <div className="mt-7 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full max-w-[300px] sm:max-w-none">
             <a
-              href="https://shop.envirobiotics.com/"
+              href={buildShopUrl("/")}
               target="_top"
               rel="noopener"
               className="inline-flex items-center justify-center whitespace-nowrap rounded-full px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:-translate-y-0.5"

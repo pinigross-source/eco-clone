@@ -25,6 +25,7 @@ import {
 import solutionsHeroBg from "@/assets/solutions-hero-bg.avif";
 import familyLivingImgAsset from "@/assets/family-living-cozy.jpg.asset.json";
 import hiddenProblemImgAsset from "@/assets/hidden-problem-livingroom.jpg.asset.json";
+import { buildShopUrl } from "@/lib/shopify";
 const problemPoints = [
   {
     icon: AlertTriangle,
@@ -73,7 +74,7 @@ const solutionCategories = [
       "Perfect for homes, offices & clinics",
     ],
     cta: "Browse Room Purifiers",
-    href: "https://shop.envirobiotics.com/collections/all",
+    href: buildShopUrl("/collections/all"),
     external: true,
     badge: "Most Popular",
     featured: true,

@@ -5,6 +5,7 @@ import epaAsset from "@/assets/certs/epa-new.webp.asset.json";
 import madeSafeAsset from "@/assets/certs/made-safe-new.png.asset.json";
 import fdaGrasAsset from "@/assets/certs/fda-gras-new.webp.asset.json";
 import allergyukAsset from "@/assets/certs/allergyuk.webp.asset.json";
+import { buildShopUrl } from "@/lib/shopify";
 
 const biologicMini = biologicMiniAsset.url;
 const biotica800 = biotica800Asset.url;
@@ -35,8 +36,8 @@ const products: Product[] = [
     body: "Your personal, take-anywhere unit. Compact enough to plug in at home and pack for the road.",
     imageSrc: biologicMini,
     imageAlt: "BioLogic Mini probiotic air purifier next to a phone on a wooden table",
-    shopUrl: "https://shop.envirobiotics.com/cart/add?id=48644372496636&quantity=1&return_to=/cart",
-    learnUrl: "https://shop.envirobiotics.com/products/biologic-mini",
+    shopUrl: buildShopUrl("/cart/add?id=48644372496636&quantity=1&return_to=/cart"),
+    learnUrl: buildShopUrl("/products/biologic-mini"),
   },
   {
     tag: "Up to 800 sq ft",
@@ -45,8 +46,8 @@ const products: Product[] = [
     body: "Set-and-forget coverage for the spaces you spend the most time in.",
     imageSrc: biotica800,
     imageAlt: "Biotica 800 ecological balancing system on a wooden table with reading glasses",
-    shopUrl: "https://shop.envirobiotics.com/cart/add?id=48644373184764&quantity=1&return_to=/cart",
-    learnUrl: "https://shop.envirobiotics.com/products/biotica-800",
+    shopUrl: buildShopUrl("/cart/add?id=48644373184764&quantity=1&return_to=/cart"),
+    learnUrl: buildShopUrl("/products/biotica-800"),
   },
 ];
 

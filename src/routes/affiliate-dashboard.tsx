@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { buildShopUrl } from "@/lib/shopify";
 
 // The affiliate program (applications, links, commissions, payouts) is run by
 // GoAffPro on the Shopify store. This site only forwards affiliates there.
-const AFFILIATE_PORTAL_URL = "https://shop.envirobiotics.com/pages/affiliate-signup";
+const AFFILIATE_PORTAL_URL = buildShopUrl("/pages/affiliate-signup");
 
 export const Route = createFileRoute("/affiliate-dashboard")({
   beforeLoad: () => {
