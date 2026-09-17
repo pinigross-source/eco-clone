@@ -23,11 +23,17 @@ export type OfferValue = {
 
 const OfferContext = createContext<OfferValue | null>(null);
 
-function buildShopUrl(path: string, offer: OfferId): string {
+function buildShopUrl(path: string, offer: OfferId, pageName?: string): string {
   const clean = path.startsWith("/") ? path : `/${path}`;
   if (offer === "meta15") {
     const url = new URL(`${SHOPIFY_BASE}/discount/${META15_CODE}`);
     url.searchParams.set("redirect", clean);
+    // Fixed campaign tags (same as the pre-refactor promo pages). The
+    // click-time visitor attribution only fills params that are missing,
+    // so these always win.
+    url.searchParams.set("utm_source", "envirobiotics");
+    url.searchParams.set("utm_medium", "site");
+    if (pageName) url.searchParams.set("utm_campaign", `${pageName}-landing`);
     return url.toString();
   }
   return `${SHOPIFY_BASE}${clean}`;
@@ -58,6 +64,17 @@ export function OfferProvider({
       }
       if (!host.startsWith("shop.")) return;
       anchor.href = withVisitorAttribution(anchor.href, pageName);
+      if (offer === "meta15") {
+        try {
+          const url = new URL(anchor.href, window.location.href);
+          url.searchParams.set("utm_source", "envirobiotics");
+          url.searchParams.set("utm_medium", "site");
+          url.searchParams.set("utm_campaign", `${pageName}-landing`);
+          anchor.href = url.toString();
+        } catch {
+          // keep the decorated href
+        }
+      }
     };
     document.addEventListener("click", onPointer, true);
     document.addEventListener("auxclick", onPointer, true);
@@ -65,7 +82,7 @@ export function OfferProvider({
       document.removeEventListener("click", onPointer, true);
       document.removeEventListener("auxclick", onPointer, true);
     };
-  }, [pageName]);
+  }, [pageName, offer]);
 
   const value = useMemo<OfferValue>(() => {
     const isPromo = offer === "meta15";
@@ -75,8 +92,8 @@ export function OfferProvider({
       isPromo,
       discountPercent: isPromo ? META15_PERCENT : 0,
       shopUrl: (slugOrHandle: string) =>
-        buildShopUrl(`/products/${PRODUCT_HANDLE_MAP[slugOrHandle] ?? slugOrHandle}`, offer),
-      shopPathUrl: (path: string) => buildShopUrl(path, offer),
+        buildShopUrl(`/products/${PRODUCT_HANDLE_MAP[slugOrHandle] ?? slugOrHandle}`, offer, pageName),
+      shopPathUrl: (path: string) => buildShopUrl(path, offer, pageName),
       salePrice: (basePrice: number) =>
         isPromo ? Math.round(basePrice * (1 - META15_PERCENT / 100) * 100) / 100 : basePrice,
     };
