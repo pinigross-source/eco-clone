@@ -9,6 +9,7 @@ export const REDIRECT_MAP: Record<string, string> = {
   "/tackling-the-candida-auris-threat-with-innovative-enviro-biotics-technology": "/blog/candida-auris-threat",
   "/the-surprising-link-between-indoor-living-and-chronic-disease-and-what-we-can-do-about-it": "/blog/indoor-living-chronic-disease",
   "/5-tips-for-healthier-happier-home-with-envirobiotics": "/blog/5-tips-healthier-home",
+  "/blog/ba-2080-review-6-months": "/blog/biotica-800-review",
 
   // ── WordPress Product Pages ──
   "/ba2080-advanced-purification": "/product/ba-2080",

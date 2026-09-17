@@ -1,13 +1,16 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import Page from "@/pages/BlogPostPage";
 import { getPostBySlug } from "@/data/blogData";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
+    if (params.slug === "ba-2080-review-6-months") {
+      throw redirect({ href: "/blog/biotica-800-review", statusCode: 301 });
+    }
     const post = getPostBySlug(params.slug);
     if (!post) throw notFound();
     return {
-      title: post.title,
+      title: post.metaTitle ?? post.title,
       description: post.description,
     };
   },

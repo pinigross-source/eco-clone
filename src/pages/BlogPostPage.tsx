@@ -9,7 +9,7 @@ import { ArrowLeft, Calendar, Clock, ArrowRight, BookOpen, Lightbulb, CheckCircl
 import { getPostBySlug, getRelatedPosts, BlogPost } from "@/data/blogData";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { BlogContentRenderer } from "@/components/blog/BlogContentRenderer";
+import { BlogContentRenderer, renderInlineMarkdown } from "@/components/blog/BlogContentRenderer";
 import { GooglePreferredSourceButton } from "@/components/GooglePreferredSourceButton";
 
 const RelatedPostCard = ({ post }: { post: BlogPost }) => (
@@ -119,10 +119,10 @@ const BlogPostPage = () => {
     return <Navigate to="/blog" replace />;
   }
 
-  const readingTime = Math.ceil(post.content.join(" ").split(" ").length / 200);
-  const keyTakeaways = extractKeyTakeaways(post.content);
+  const readingTime = post.readTime ?? `${Math.ceil(post.content.join(" ").split(" ").length / 200)} min read`;
+  const keyTakeaways = post.keyTakeaways ?? extractKeyTakeaways(post.content);
   const pullQuote = extractPullQuote(post.content);
-  const faqs = extractFaqs(post.content);
+  const faqs = post.faqs ?? extractFaqs(post.content);
   
   // Filter plain paragraphs for legacy layout (non-markdown posts)
   const plainParagraphs = post.content.filter(p => !p.startsWith("## ") && !p.startsWith("> "));
@@ -147,7 +147,7 @@ const BlogPostPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={post.title}
+        title={post.metaTitle ?? post.title}
         description={post.description}
         path={`/blog/${slug}`}
         type="article"
@@ -160,12 +160,12 @@ const BlogPostPage = () => {
               headline: post.title,
               description: post.description,
               image: typeof post.image === 'string' ? post.image : undefined,
-              datePublished: "2026-02-01",
-              dateModified: "2026-03-11",
+               datePublished: post.publishDate ?? "2026-02-01",
+               dateModified: post.publishDate ?? "2026-02-01",
               wordCount: post.content.join(" ").split(" ").length,
               author: {
-                "@type": "Organization",
-                name: "EnviroBiotics",
+                 "@type": post.author && post.author !== "EnviroBiotics" ? "Person" : "Organization",
+                 name: post.author ?? "EnviroBiotics",
                 url: "https://envirobiotics.com",
               },
               publisher: {
@@ -182,7 +182,7 @@ const BlogPostPage = () => {
               },
               url: `https://envirobiotics.com/blog/${slug}/`,
               inLanguage: "en-US",
-              keywords: ["probiotic air purifier", "indoor air quality", "environmental probiotics", "EnviroBiotics"],
+               keywords: post.tags ?? ["probiotic air purifier", "indoor air quality", "environmental probiotics", "EnviroBiotics"],
               about: {
                 "@type": "Thing",
                 name: "Probiotic Air Purification",
@@ -236,7 +236,7 @@ const BlogPostPage = () => {
                   </span>
                   <span className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Clock className="w-4 h-4" />
-                    {readingTime} min read
+                     {readingTime}
                   </span>
                 </div>
               </ScrollReveal>
@@ -283,7 +283,9 @@ const BlogPostPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-10" />
                   <img
                     src={post.image}
-                    alt={post.title}
+                     alt={post.imageAlt ?? post.title}
+                     width={1200}
+                      height={630}
                     className="w-full h-[300px] md:h-[500px] object-cover"
                   />
                 </div>
@@ -292,11 +294,17 @@ const BlogPostPage = () => {
           </div>
         </section>
 
-        {/* Key Takeaways Card */}
+        {/* Authored summary and key takeaways */}
         <section className="pb-16">
           <div className="container">
             <div className="max-w-3xl mx-auto">
               <ScrollReveal>
+                {post.quickAnswer && (
+                  <div className="mb-6 border-l-4 border-primary bg-primary/5 px-6 py-5">
+                    <p className="text-sm font-semibold uppercase text-primary">Quick answer</p>
+                    <p className="mt-2 text-lg leading-relaxed text-foreground/80">{renderInlineMarkdown(post.quickAnswer)}</p>
+                  </div>
+                )}
                 <Card className="bg-gradient-to-br from-primary/5 via-primary/10 to-transparent border-primary/20 overflow-hidden">
                   <CardContent className="p-8">
                     <div className="flex items-center gap-3 mb-6">
@@ -309,7 +317,7 @@ const BlogPostPage = () => {
                       {keyTakeaways.map((takeaway, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                          <span className="text-foreground/80">{takeaway}</span>
+                          <span className="text-foreground/80">{renderInlineMarkdown(takeaway)}</span>
                         </li>
                       ))}
                     </ul>
