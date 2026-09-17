@@ -40,6 +40,7 @@ import logo from "@/assets/logo.avif";
 import miniLifestyle from "@/assets/biologic-mini-landscape.jpg.asset.json";
 import bioticaLifestyle from "@/assets/biotica-800-landscape.jpg.asset.json";
 import protectionBiotica from "@/assets/protection-biotica.png.asset.json";
+import { buildShopUrl } from "@/lib/shopify";
 
 
 const ctaRoom = ctaRoomAsset.url;
@@ -64,7 +65,7 @@ const LINE = "#E3E8EE";
 const FONT_HEAD = `"Poppins", system-ui, -apple-system, sans-serif`;
 const FONT_BODY = `"Inter", system-ui, -apple-system, sans-serif`;
 
-const SHOP = "https://shop.envirobiotics.com/";
+const SHOP = buildShopUrl("/");
 const PHONE = "(833) 692-3883";
 const PHONE_HREF = "tel:+18336923883";
 

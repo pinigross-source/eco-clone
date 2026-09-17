@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { CompactTrustStrip, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
+import { CompactTrustStrip, GUARANTEE_BODY, GUARANTEE_FAQ_QUESTION, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
 import { OfferLanding, type LandingPageProps } from "@/components/landing/OfferLanding";
 import { useOffer } from "@/lib/offer";
 import {
@@ -839,7 +839,7 @@ const ParentsLandingContent = () => {
           </div>
         </section>
 
-        <TrialGuaranteeSection />
+        <TrialGuaranteeSection firstLine="Give it 30 days in the nursery. If you're not convinced, send it back." />
 
         {/* ============ FAQ ============ */}
         <section className="bg-background py-20 sm:py-28 lg:py-36">
@@ -877,8 +877,8 @@ const ParentsLandingContent = () => {
                   a: "Silent operation, designed for a bedroom. No fan.",
                 },
                 {
-                  q: "What if it's not for us?",
-                  a: "Try it for 30 nights. If your nursery doesn't feel calmer, send it back for a full refund. No questions.",
+                  q: GUARANTEE_FAQ_QUESTION,
+                  a: GUARANTEE_BODY,
                 },
               ].map((item, idx) => (
                 <AccordionItem

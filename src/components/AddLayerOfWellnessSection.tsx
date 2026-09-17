@@ -5,6 +5,7 @@ import petsImg from "@/assets/pets-dog-phone.avif.asset.json";
 import familyAsset from "@/assets/family-v2.avif.asset.json";
 const familyImg = familyAsset.url;
 import bedroomImg from "@/assets/allergy-v2.avif.asset.json";
+import { buildShopUrl } from "@/lib/shopify";
 
 type Row = {
   eyebrow: string;
@@ -35,7 +36,7 @@ const rows: Row[] = [
     pairedBody:
       "EnviroBiotics® restores the natural balance of your indoor ecosystem, helping reduce harmful pathogens and surface contaminants throughout the room. Its quiet, automatic 24/7 dispersion reaches the surfaces traditional air purifiers can't. EPA Registered technology and PTPA (Parent Tested Parent Approved) endorsement provide trusted performance and peace of mind.",
     primaryLabel: "Buy a Solution",
-    primaryHref: "https://shop.envirobiotics.com/",
+    primaryHref: buildShopUrl("/"),
     secondaryLabel: "Learn more",
     secondaryHref: "/parents",
     image: nurseryImg.url,
@@ -53,7 +54,7 @@ const rows: Row[] = [
     pairedBody:
       "EnviroBiotics® restores the natural balance of your indoor ecosystem, helping reduce pet dander, harmful pathogens, allergens, and odor-causing microbes on the surfaces your pets contact every day. The result is a fresher, healthier home for both pets and people.",
     primaryLabel: "Buy a Solution",
-    primaryHref: "https://shop.envirobiotics.com/",
+    primaryHref: buildShopUrl("/"),
     secondaryLabel: "Learn more",
     secondaryHref: "/pets",
     image: petsImg.url,
@@ -71,7 +72,7 @@ const rows: Row[] = [
     pairedBody:
       "Continuous, whole-home protection for your air, surfaces, and everyday objects. EnviroBiotics® quietly restores the natural balance of your indoor ecosystem 24/7, helping reduce harmful pathogens, mold, allergens, and odor-causing microbes, without harsh chemicals or noisy filters.",
     primaryLabel: "Buy a Solution",
-    primaryHref: "https://shop.envirobiotics.com/",
+    primaryHref: buildShopUrl("/"),
     secondaryLabel: "Learn more",
     secondaryHref: "/active-families",
     image: familyImg,
@@ -89,7 +90,7 @@ const rows: Row[] = [
     pairedBody:
       "Quiet, automatic 24/7 protection that helps reduce dust mite allergens and other indoor contaminants where you sleep, creating a healthier bedroom, where your immune system can rest and heal.",
     primaryLabel: "Buy a Solution",
-    primaryHref: "https://shop.envirobiotics.com/",
+    primaryHref: buildShopUrl("/"),
     secondaryLabel: "Learn more",
     secondaryHref: "/allergy",
     image: bedroomImg.url,

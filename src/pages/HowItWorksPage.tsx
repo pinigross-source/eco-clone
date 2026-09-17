@@ -41,6 +41,7 @@ import ecoHvac from "@/assets/hiw-eco-hvac.jpg";
 import ecoZones from "@/assets/hiw-eco-zones.jpg";
 import ecoHidden from "@/assets/hiw-eco-hidden.jpg";
 import deviceImg from "@/assets/hiw-device.png";
+import { buildShopUrl } from "@/lib/shopify";
 
 const heroBuilding = heroBuildingAsset.url;
 
@@ -597,7 +598,7 @@ const HowItWorksPage = () => {
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <a
-                href="https://shop.envirobiotics.com"
+                href={buildShopUrl("/")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background font-semibold text-sm hover:bg-foreground/90 transition-all shadow-[0_0_0_1px_rgba(0,0,0,0.08),0_20px_60px_-15px_rgba(0,0,0,0.25)]"

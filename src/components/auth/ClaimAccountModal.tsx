@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { trackEvent } from "@/lib/tracking";
 import { z } from "zod";
+import { buildShopUrl } from "@/lib/shopify";
 
 const emailSchema = z.string().email("Please enter a valid email address");
 
@@ -243,7 +244,7 @@ export function ClaimAccountModal({ open, onOpenChange }: Props) {
               </Button>
 
               <div className="flex flex-col items-center gap-2 text-sm pt-1">
-                <a href="https://shop.envirobiotics.com/collections/all" className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1 transition-colors">
+                <a href={buildShopUrl("/collections/all")} className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1 transition-colors">
                   <ShoppingBag className="w-3 h-3" />
                   Continue shopping
                 </a>

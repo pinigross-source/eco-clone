@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { useEffect } from "react"
 import { navigateToShopify } from "@/lib/shopify"
+import { buildShopUrl } from "@/lib/shopify";
 
 export const Route = createFileRoute("/prosub")({
   server: {
@@ -9,7 +10,7 @@ export const Route = createFileRoute("/prosub")({
         return new Response(null, {
           status: 301,
           headers: {
-            Location: "https://shop.envirobiotics.com/collections/prosub",
+            Location: buildShopUrl("/collections/prosub"),
           },
         })
       },
@@ -17,7 +18,7 @@ export const Route = createFileRoute("/prosub")({
   },
   component: () => {
     useEffect(() => {
-      navigateToShopify("https://shop.envirobiotics.com/collections/prosub", {
+      navigateToShopify(buildShopUrl("/collections/prosub"), {
         replace: true,
       })
     }, [])

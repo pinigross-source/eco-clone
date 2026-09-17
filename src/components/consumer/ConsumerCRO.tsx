@@ -3,7 +3,7 @@ import { ArrowRight, Check, ShieldCheck, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { products } from "@/data/productData";
 import { trackEvent } from "@/lib/tracking";
-import { formatPrice, useOffer } from "@/lib/offer";
+import { buildShopUrl, formatPrice, useOffer } from "@/lib/offer";
 import { withVisitorAttribution } from "@/lib/attribution-session";
 import epaAsset from "@/assets/certs/epa-new.webp.asset.json";
 import fdaAsset from "@/assets/certs/fda-gras-new.webp.asset.json";
@@ -45,11 +45,11 @@ export function TrackedShopLink({
   children,
   ...props
 }: TrackedShopLinkProps) {
-  const { pageName } = useOffer();
+  const { utmContent } = useOffer();
   const decorate = (event: React.MouseEvent<HTMLAnchorElement>) => {
     // Click-time only: decorating during render would break SSR hydration.
     const anchor = event.currentTarget;
-    const decorated = withVisitorAttribution(anchor.href, pageName);
+    const decorated = withVisitorAttribution(anchor.href, utmContent);
     if (decorated !== anchor.href) anchor.href = decorated;
   };
 
@@ -95,7 +95,7 @@ export function OfferPromoBar() {
   if (!isPromo) return null;
   return (
     <div className="sticky top-0 z-[60] bg-[#EB8B59] px-4 py-2 text-center text-[12px] font-semibold leading-snug text-[#1A1A1A] sm:py-2.5 sm:text-[13px]">
-      15% off applied at checkout
+      15% off applied automatically at checkout
     </div>
   );
 }
@@ -118,8 +118,22 @@ export function OfferPrice({
   );
 }
 
+/** Shared guarantee copy, also used as the answer of the FAQ item. */
+export const GUARANTEE_BODY =
+  "Probiotics need two to three weeks to settle into a room, so we give you a full 30 days from delivery. Run it, live with it, notice the difference. If you're not happy, send the device back for a full refund of the device price. No restocking fee.";
+
+export const GUARANTEE_FAQ_QUESTION = "What if it doesn't work for me?";
+
+const REFUND_POLICY_URL = buildShopUrl("/policies/refund-policy");
+
 /** Guarantee details section, rendered above the FAQ on every landing page. */
-export function TrialGuaranteeSection({ className = "" }: { className?: string }) {
+export function TrialGuaranteeSection({
+  firstLine,
+  className = "",
+}: {
+  firstLine?: string;
+  className?: string;
+}) {
   return (
     <section id="guarantee" className={`scroll-mt-24 border-y border-border/70 bg-background py-12 sm:py-16 ${className}`}>
       <div className="mx-auto max-w-3xl px-5 md:px-8">
@@ -128,22 +142,22 @@ export function TrialGuaranteeSection({ className = "" }: { className?: string }
           30-Day Home Trial
         </p>
         <h2 className="mt-3 text-3xl font-bold leading-tight text-foreground sm:text-4xl">
-          Love it or your money back.
+          Try it at home for 30 days
         </h2>
-        <ul className="mt-6 space-y-4 text-base leading-relaxed text-foreground/75 sm:text-lg">
-          <li className="flex gap-3">
-            <Check className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-            <span><strong className="font-semibold text-foreground">How long:</strong> 30 days from the day your order is delivered.</span>
-          </li>
-          <li className="flex gap-3">
-            <Check className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-            <span><strong className="font-semibold text-foreground">What is refunded:</strong> the full price you paid for the device, back to your original payment method.</span>
-          </li>
-          <li className="flex gap-3">
-            <Check className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-            <span><strong className="font-semibold text-foreground">How to start a return:</strong> email support@envirobiotics.com with your order number and we send you a return label.</span>
-          </li>
-        </ul>
+        {firstLine ? (
+          <p className="mt-5 text-base font-semibold leading-relaxed text-foreground sm:text-lg">{firstLine}</p>
+        ) : null}
+        <p className="mt-4 text-base leading-relaxed text-foreground/75 sm:text-lg">{GUARANTEE_BODY}</p>
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+          Cartridges are consumable and non-refundable. Return shipping is paid by the customer.
+        </p>
+        <a
+          href={REFUND_POLICY_URL}
+          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+        >
+          Read the full return policy
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </a>
       </div>
     </section>
   );

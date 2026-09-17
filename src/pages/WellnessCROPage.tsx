@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CompactTrustStrip, GuaranteeBadge, MobileStickyShopCTA, ProductDecisionBlock, TrackedShopLink, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
+import { CompactTrustStrip, GUARANTEE_BODY, GUARANTEE_FAQ_QUESTION, GuaranteeBadge, MobileStickyShopCTA, ProductDecisionBlock, TrackedShopLink, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
 import { OfferLanding, type LandingPageProps } from "@/components/landing/OfferLanding";
 import { useOffer } from "@/lib/offer";
 import heroAsset from "@/assets/eb_well.avif.asset.json";
@@ -31,6 +31,10 @@ const faqs = [
   {
     q: "What maintenance is required?",
     a: "Replace the probiotic cartridge on its recommended schedule. There is no filter to wash or replace on BioLogic Mini or Biotica 800.",
+  },
+  {
+    q: GUARANTEE_FAQ_QUESTION,
+    a: GUARANTEE_BODY,
   },
 ];
 

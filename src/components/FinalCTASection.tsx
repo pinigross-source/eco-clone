@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { trackEvent } from "@/lib/tracking";
 import finalCtaFamily from "@/assets/find-solution-nature.avif";
+import { buildShopUrl } from "@/lib/shopify";
 
 export const FinalCTASection = () => {
   return (
@@ -63,7 +64,7 @@ export const FinalCTASection = () => {
                     className="group bg-foreground text-background hover:bg-primary hover:text-primary-foreground hover:shadow-[0_20px_40px_-10px_hsl(var(--primary)/0.4)] transition-all duration-300 rounded-full"
                   >
                     <a
-                      href="https://shop.envirobiotics.com"
+                      href={buildShopUrl("/")}
                       target="_blank"
                       rel="noopener noreferrer"
                       data-cta="final_start_trial"

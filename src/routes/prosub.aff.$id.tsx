@@ -1,8 +1,9 @@
 import { createFileRoute, useParams } from "@tanstack/react-router"
 import { useEffect } from "react"
 import { navigateToShopify } from "@/lib/shopify"
+import { buildShopUrl } from "@/lib/shopify";
 
-const SHOP_URL = "https://shop.envirobiotics.com/collections/prosub"
+const SHOP_URL = buildShopUrl("/collections/prosub")
 
 export const Route = createFileRoute("/prosub/aff/$id")({
   component: ProsubAffiliateRedirect,

@@ -10,6 +10,7 @@ import bedroomAsset from "@/assets/The_bedroom_you_rest_in.avif.asset.json";
 import livingRoomAsset from "@/assets/The_living_room_floor.avif.asset.json";
 import playroomAsset from "@/assets/The_playroom_and_beyond.avif.asset.json";
 import "./mobile-home-preview.css";
+import { buildShopUrl } from "@/lib/shopify";
 
 const REVIEWED_PRICES = {
   reviewedOn: "2026-09-13",
@@ -18,8 +19,8 @@ const REVIEWED_PRICES = {
   biotica: { price: "$299", coverage: "Up to 800 sq ft" },
 } as const;
 
-const MINI_URL = "https://shop.envirobiotics.com/products/biologic-mini";
-const BIOTICA_URL = "https://shop.envirobiotics.com/products/biotica-800";
+const MINI_URL = buildShopUrl("/products/biologic-mini");
+const BIOTICA_URL = buildShopUrl("/products/biotica-800");
 
 type TidioApi = {
   close?: () => void;
@@ -321,7 +322,7 @@ function FAQ() {
               <p>
                 {item.answer}{" "}
                 {item.question === "What is the return policy?" ? (
-                  <a className="preview-text-link" href="https://shop.envirobiotics.com/policies/shipping-policy">Read the shipping and returns policy.</a>
+                  <a className="preview-text-link" href={buildShopUrl("/policies/shipping-policy")}>Read the shipping and returns policy.</a>
                 ) : null}
                 {item.question === "Where can I get product-use help?" ? (
                   <a className="preview-text-link" href="mailto:contact@envirobiotics.com">Email support.</a>

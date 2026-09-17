@@ -9,10 +9,14 @@ export const ATTRIBUTION_KEYS = [
   "utm_medium",
   "utm_campaign",
   "utm_term",
+  "utm_id",
   "utm_content",
   "fbclid",
   "gclid",
+  "gbraid",
+  "wbraid",
   "ttclid",
+  "msclkid",
 ] as const;
 
 export type AttributionParams = Partial<Record<(typeof ATTRIBUTION_KEYS)[number], string>>;

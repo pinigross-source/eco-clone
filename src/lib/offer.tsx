@@ -1,16 +1,19 @@
 import { createContext, useContext, useEffect, useMemo, type ReactNode } from "react";
-import { SHOPIFY_BASE, PRODUCT_HANDLE_MAP } from "@/lib/shopify";
+import { buildShopUrl, PRODUCT_HANDLE_MAP } from "@/lib/shopify";
 import { captureSessionAttribution, withVisitorAttribution } from "@/lib/attribution-session";
+
+export { buildShopUrl };
 
 export type OfferId = "guarantee" | "meta15";
 
-export const META15_CODE = "META15";
 export const META15_PERCENT = 15;
 
 export type OfferValue = {
   offer: OfferId;
   /** Page name used for utm_content on outbound shop links. */
   pageName: string;
+  /** Exact utm_content value stamped on outbound shop links. */
+  utmContent: string;
   isPromo: boolean;
   discountPercent: number;
   /** Build an outbound shop URL for an internal product slug or handle. */
@@ -21,23 +24,14 @@ export type OfferValue = {
   salePrice: (basePrice: number) => number;
 };
 
+/** utm_content value: home, pets-landing, go-pets-landing, ... */
+export function utmContentFor(pageName: string, offer: OfferId): string {
+  if (pageName === "home") return "home";
+  return offer === "meta15" ? `go-${pageName}-landing` : `${pageName}-landing`;
+}
+
 const OfferContext = createContext<OfferValue | null>(null);
 
-function buildShopUrl(path: string, offer: OfferId, pageName?: string): string {
-  const clean = path.startsWith("/") ? path : `/${path}`;
-  if (offer === "meta15") {
-    const url = new URL(`${SHOPIFY_BASE}/discount/${META15_CODE}`);
-    url.searchParams.set("redirect", clean);
-    // Fixed campaign tags (same as the pre-refactor promo pages). The
-    // click-time visitor attribution only fills params that are missing,
-    // so these always win.
-    url.searchParams.set("utm_source", "envirobiotics");
-    url.searchParams.set("utm_medium", "site");
-    if (pageName) url.searchParams.set("utm_campaign", `${pageName}-landing`);
-    return url.toString();
-  }
-  return `${SHOPIFY_BASE}${clean}`;
-}
 
 export function OfferProvider({
   offer,
@@ -63,18 +57,7 @@ export function OfferProvider({
         return;
       }
       if (!host.startsWith("shop.")) return;
-      anchor.href = withVisitorAttribution(anchor.href, pageName);
-      if (offer === "meta15") {
-        try {
-          const url = new URL(anchor.href, window.location.href);
-          url.searchParams.set("utm_source", "envirobiotics");
-          url.searchParams.set("utm_medium", "site");
-          url.searchParams.set("utm_campaign", `${pageName}-landing`);
-          anchor.href = url.toString();
-        } catch {
-          // keep the decorated href
-        }
-      }
+      anchor.href = withVisitorAttribution(anchor.href, utmContentFor(pageName, offer));
     };
     document.addEventListener("click", onPointer, true);
     document.addEventListener("auxclick", onPointer, true);
@@ -89,6 +72,7 @@ export function OfferProvider({
     return {
       offer,
       pageName,
+      utmContent: utmContentFor(pageName, offer),
       isPromo,
       discountPercent: isPromo ? META15_PERCENT : 0,
       shopUrl: (slugOrHandle: string) =>
@@ -105,6 +89,7 @@ export function OfferProvider({
 const DEFAULT_OFFER: OfferValue = {
   offer: "guarantee",
   pageName: "site",
+  utmContent: "site",
   isPromo: false,
   discountPercent: 0,
   shopUrl: (slugOrHandle: string) =>

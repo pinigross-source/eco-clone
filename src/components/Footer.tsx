@@ -1,9 +1,10 @@
 import { ShieldCheck, FlaskConical, PawPrint, ArrowUpRight, Phone, Mail, Clock, BookOpen, Video, Microscope, FileText, ClipboardList } from "lucide-react";
 import { Link } from "@/lib/link";
 import logo from "@/assets/logo.avif";
+import { buildShopUrl } from "@/lib/shopify";
 
 const exploreLinks = [
-  { label: "Shop", href: "https://shop.envirobiotics.com/" },
+  { label: "Shop", href: buildShopUrl("/") },
   { label: "How It Works", href: "/how-it-works" },
   { label: "Certified & Verified", href: "/safety" },
   { label: "Solutions", href: "/solutions" },
@@ -18,12 +19,12 @@ const resourceLinks = [
   { label: "Blog & Articles", href: "/blog" },
   { label: "Videos", href: "/videos" },
   { label: "Research & Case Studies", href: "/research" },
-  { label: "Subscribe & Save", href: "https://shop.envirobiotics.com/collections/subscribe-save" },
+  { label: "Subscribe & Save", href: buildShopUrl("/collections/subscribe-save") },
   { label: "Register Product", href: "/product-registration" },
   { label: "About Us", href: "/about" },
   { label: "Glossary", href: "/glossary" },
   { label: "BetterAir Rebrand", href: "/betterair-rebrand" },
-  { label: "Affiliate Program", href: "https://shop.envirobiotics.com/pages/affiliate-signup" },
+  { label: "Affiliate Program", href: buildShopUrl("/pages/affiliate-signup") },
   
   
 ];

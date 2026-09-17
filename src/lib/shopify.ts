@@ -7,6 +7,32 @@ export const SHOPIFY_BASE =
   (import.meta.env.VITE_SHOPIFY_URL as string | undefined) ??
   "https://shop.envirobiotics.com";
 
+
+export type ShopOfferId = "guarantee" | "meta15";
+export const META15_DISCOUNT_CODE = "META15";
+
+/**
+ * The single source of truth for every outbound shop.envirobiotics.com URL.
+ * guarantee -> https://shop.envirobiotics.com{productPath}
+ * meta15    -> https://shop.envirobiotics.com/discount/META15?redirect={encoded productPath}
+ *
+ * No hard-coded utm_source / utm_medium / utm_campaign here: the visitor's own
+ * campaign params (saved in sessionStorage on the first page load of the
+ * session) plus utm_content={pageName} are appended at click time, because
+ * decorating during render would break SSR hydration.
+ */
+export function buildShopUrl(
+  productPath: string = "/",
+  offer: ShopOfferId = "guarantee",
+  _pageName?: string,
+): string {
+  const clean = productPath.startsWith("/") ? productPath : `/${productPath}`;
+  if (offer === "meta15") {
+    return `${SHOPIFY_BASE}/discount/${META15_DISCOUNT_CODE}?redirect=${encodeURIComponent(clean)}`;
+  }
+  return `${SHOPIFY_BASE}${clean}`;
+}
+
 // Internal product slug → Shopify product handle.
 export const PRODUCT_HANDLE_MAP: Record<string, string> = {
   "biologic-mini": "biologic-mini",
@@ -66,8 +92,7 @@ export function navigateToShopify(
 
 /** Build a Shopify URL from a path (e.g. "/products/biotica-800"). */
 export function shopifyUrl(path: string = "/", campaign?: string): string {
-  const clean = path.startsWith("/") ? path : `/${path}`;
-  return withUtm(SHOPIFY_BASE + clean, campaign);
+  return withUtm(buildShopUrl(path), campaign);
 }
 
 /** All-products collection. */
