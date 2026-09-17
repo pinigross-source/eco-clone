@@ -16,23 +16,15 @@ export const PRODUCT_HANDLE_MAP: Record<string, string> = {
   "ebiotic-pro": "e-biotic-pro",
 };
 
-function withUtm(url: string, campaign?: string): string {
-  try {
-    const u = new URL(url);
-    if (!u.searchParams.has("utm_source")) {
-      u.searchParams.set("utm_source", "envirobiotics");
-      u.searchParams.set("utm_medium", "site");
-      if (campaign) u.searchParams.set("utm_campaign", campaign);
-    }
-    // NOTE: intentionally NOT decorated here. Ad-attribution params are only
-    // known on the client, so decorating during render produces a different
-    // href than the server-rendered HTML (React hydration error #418).
-    // The delegated click/auxclick handler in __root.tsx decorates the anchor
-    // at click time instead, which is both SSR-safe and always up to date.
-    return u.toString();
-  } catch {
-    return url;
-  }
+/**
+ * Shop URLs carry no hard-coded utm_source/utm_medium. The visitor's own
+ * utm_*, fbclid, gclid and ttclid parameters (captured on first page load)
+ * are appended at click time, together with utm_content for the page name.
+ * Decorating during render would break hydration, so it never happens here.
+ * `campaign` is kept in the signature for call-site readability only.
+ */
+function withUtm(url: string, _campaign?: string): string {
+  return url;
 }
 
 /**

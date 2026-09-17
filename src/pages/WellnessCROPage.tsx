@@ -4,14 +4,12 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CompactTrustStrip, MobileStickyShopCTA, ProductDecisionBlock, TrackedShopLink } from "@/components/consumer/ConsumerCRO";
-import { shopifyDiscountUrl } from "@/lib/shopify";
+import { CompactTrustStrip, GuaranteeBadge, MobileStickyShopCTA, ProductDecisionBlock, TrackedShopLink, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
+import { OfferLanding, type LandingPageProps } from "@/components/landing/OfferLanding";
+import { useOffer } from "@/lib/offer";
 import heroAsset from "@/assets/eb_well.avif.asset.json";
 import livingAsset from "@/assets/let-it-work-living.avif.asset.json";
 import ritualAsset from "@/assets/final-cta-wellness.avif.asset.json";
-
-const BIOTICA_URL = shopifyDiscountUrl("WELLNESS", "/cart/48644373184764:1", "wellness-landing");
-const MINI_URL = shopifyDiscountUrl("WELLNESS", "/cart/48644372496636:1", "wellness-landing");
 
 const faqs = [
   {
@@ -36,7 +34,10 @@ const faqs = [
   },
 ];
 
-export default function WellnessCROPage() {
+function WellnessCROContent() {
+  const { shopUrl } = useOffer();
+  const BIOTICA_URL = shopUrl("biotica-800");
+  const MINI_URL = shopUrl("biologic-mini");
   const [showSticky, setShowSticky] = useState(false);
   useEffect(() => {
     const onScroll = () => setShowSticky(window.scrollY > 620);
@@ -64,6 +65,7 @@ export default function WellnessCROPage() {
                     Shop Biotica 800 <ArrowRight className="h-4 w-4" />
                   </TrackedShopLink>
                 </Button>
+                <GuaranteeBadge className="sm:hidden" />
                 <Button asChild variant="outline" size="lg" className="min-h-12 rounded-full px-7">
                   <a href="#why-different">Why it is different</a>
                 </Button>
@@ -162,6 +164,8 @@ export default function WellnessCROPage() {
           </div>
         </section>
 
+        <TrialGuaranteeSection />
+
         <section className="border-y border-ink/10 bg-cream py-14 sm:py-20">
           <div className="mx-auto max-w-3xl px-5 md:px-8">
             <h2 className="text-3xl font-bold sm:text-4xl">Wellness questions, answered.</h2>
@@ -183,11 +187,20 @@ export default function WellnessCROPage() {
             <Button asChild size="lg" className="mt-8 min-h-12 rounded-full bg-sage px-8 text-primary-foreground hover:bg-sage/90">
               <TrackedShopLink route="/wellness" placement="final_cta" product="biotica-800" destination={BIOTICA_URL}>Shop Biotica 800 <ArrowRight className="h-4 w-4" /></TrackedShopLink>
             </Button>
+            <GuaranteeBadge className="mt-3 justify-center text-center text-primary-foreground/80" />
           </div>
         </section>
       </main>
       <Footer />
       <MobileStickyShopCTA route="/wellness" product="biotica-800" destination={BIOTICA_URL} label="Shop Biotica 800" detail="Up to 800 sq ft · $299" visible={showSticky} />
     </div>
+  );
+}
+
+export default function WellnessCROPage({ offer = "guarantee" }: LandingPageProps) {
+  return (
+    <OfferLanding offer={offer} pageName="wellness">
+      <WellnessCROContent />
+    </OfferLanding>
   );
 }

@@ -8,12 +8,12 @@ import { ScienceOfBalanceSection } from "@/components/ScienceOfBalanceSection";
 import { AddLayerOfWellnessSection } from "@/components/AddLayerOfWellnessSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { DeferredSection } from "@/components/DeferredSection";
-import { CompactTrustStrip, ProductDecisionBlock } from "@/components/consumer/ConsumerCRO";
-import { shopifyProductUrl } from "@/lib/shopify";
+import { CompactTrustStrip, ProductDecisionBlock, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
+import { OfferLanding, type LandingPageProps } from "@/components/landing/OfferLanding";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
-const Index = () => {
+const HomeContent = () => {
   const location = useLocation();
   const hasHash = !!location.hash;
   useEffect(() => {
@@ -75,14 +75,12 @@ const Index = () => {
               slug: "biologic-mini",
               bestFor: "Bedrooms, nurseries and personal spaces",
               installation: "Rechargeable, place on a shelf or nightstand",
-              destination: shopifyProductUrl("biologic-mini", "home-early-product"),
               ctaLabel: "Shop BioLogic Mini",
             },
             {
               slug: "biotica-800",
               bestFor: "Living rooms and larger shared spaces",
               installation: "Plug in and let it run continuously",
-              destination: shopifyProductUrl("biotica-800", "home-early-product"),
               ctaLabel: "Shop Biotica 800",
               featured: true,
             },
@@ -92,6 +90,7 @@ const Index = () => {
         <ScienceOfBalanceSection />
         <AddLayerOfWellnessSection />
         <TestimonialsSection />
+        <TrialGuaranteeSection />
       </main>
       <DeferredSection forceMount={hasHash} minHeight="520px" rootMargin="200px">
         <Suspense fallback={null}>
@@ -101,5 +100,11 @@ const Index = () => {
     </div>
   );
 };
+
+const Index = ({ offer = "guarantee" }: LandingPageProps) => (
+  <OfferLanding offer={offer} pageName="home">
+    <HomeContent />
+  </OfferLanding>
+);
 
 export default Index;

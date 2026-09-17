@@ -16,8 +16,9 @@ import {
 } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { shopifyProductDiscountUrl } from "@/lib/shopify";
-import { CompactTrustStrip, MobileStickyShopCTA, ProductDecisionBlock } from "@/components/consumer/ConsumerCRO";
+import { CompactTrustStrip, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
+import { OfferLanding, type LandingPageProps } from "@/components/landing/OfferLanding";
+import { useOffer } from "@/lib/offer";
 import {
   Accordion,
   AccordionContent,
@@ -60,10 +61,9 @@ const certifications = [
 
 const heroImg = heroAsset.url;
 
-const PROMO = "META15";
-const MINI_URL = shopifyProductDiscountUrl("biologic-mini", PROMO, "parents-landing");
-const BUNDLE_URL = shopifyProductDiscountUrl("home-complete-bundle", PROMO, "parents-landing");
-const BIOTICA_URL = shopifyProductDiscountUrl("biotica-800", PROMO, "parents-landing");
+const MINI_PRICE = 98;
+const BUNDLE_PRICE = 395;
+const BIOTICA_PRICE = 299;
 
 /* Reveal-on-scroll */
 const Reveal = ({
@@ -160,7 +160,11 @@ const HERO_VARIANTS: Record<Angle, { headline: React.ReactNode; sub: string }> =
 };
 
 
-const ParentsLandingPage = () => {
+const ParentsLandingContent = () => {
+  const { shopUrl } = useOffer();
+  const MINI_URL = shopUrl("biologic-mini");
+  const BUNDLE_URL = shopUrl("home-complete-bundle");
+  const BIOTICA_URL = shopUrl("biotica-800");
   const [showSticky, setShowSticky] = useState(false);
 
   useEffect(() => {
@@ -595,9 +599,8 @@ const ParentsLandingPage = () => {
                       ))}
                     </ul>
                       <div className="mt-6 border-t border-border/60 pt-5">
-                        <div className="mb-1 flex items-baseline gap-3">
-                          <span className="font-display text-4xl font-bold tracking-[-0.02em] text-foreground">$83.30</span>
-                          <span className="text-base text-muted-foreground line-through">$98</span>
+                        <div className="mb-1 flex items-baseline gap-3 font-display text-4xl font-bold tracking-[-0.02em] text-foreground">
+                          <OfferPrice basePrice={MINI_PRICE} />
                         </div>
                       <a
                         href={MINI_URL}
@@ -607,9 +610,7 @@ const ParentsLandingPage = () => {
                         Secure My Baby's Space
                         <ArrowRight className="h-4 w-4" />
                       </a>
-                      <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                        30-day money-back · Cancel anytime
-                      </p>
+                      <GuaranteeBadge className="mt-3 justify-center text-center" />
                     </div>
                   </div>
                 </div>
@@ -654,10 +655,8 @@ const ParentsLandingPage = () => {
                       ))}
                     </ul>
                     <div className="mt-6 border-t border-border/60 pt-5">
-                      <div className="flex items-baseline gap-3">
-                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$335.75</span>
-                        <span className="text-base text-muted-foreground line-through">$395</span>
-                        <span className="text-[0.78rem] font-bold text-foreground">Save $59.25</span>
+                      <div className="flex items-baseline gap-3 font-display text-3xl font-bold tracking-[-0.02em] text-foreground">
+                        <OfferPrice basePrice={BUNDLE_PRICE} />
                       </div>
                       <a
                         href={BUNDLE_URL}
@@ -667,9 +666,7 @@ const ParentsLandingPage = () => {
                         Get the Bundle
                         <ArrowRight className="h-4 w-4" />
                       </a>
-                      <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                        30-day risk-free trial · Free shipping
-                      </p>
+                      <GuaranteeBadge className="mt-3 justify-center text-center" />
                     </div>
                   </div>
                 </div>
@@ -711,9 +708,8 @@ const ParentsLandingPage = () => {
                       ))}
                     </ul>
                     <div className="mt-6 border-t border-border/60 pt-5">
-                      <div className="flex items-baseline gap-2">
-                        <span className="font-display text-3xl font-bold tracking-[-0.02em] text-foreground">$254.15</span>
-                        <span className="text-base text-muted-foreground line-through">$299</span>
+                      <div className="flex items-baseline gap-2 font-display text-3xl font-bold tracking-[-0.02em] text-foreground">
+                        <OfferPrice basePrice={BIOTICA_PRICE} />
                       </div>
                       <a
                         href={BIOTICA_URL}
@@ -723,10 +719,7 @@ const ParentsLandingPage = () => {
                         Larger home? Get the 800
                         <ArrowRight className="h-4 w-4" />
                       </a>
-                      <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                        30-day risk-free trial-Free Shipping
-
-                      </p>
+                      <GuaranteeBadge className="mt-3 justify-center text-center" />
                     </div>
                   </div>
                 </div>
@@ -845,6 +838,8 @@ const ParentsLandingPage = () => {
             </div>
           </div>
         </section>
+
+        <TrialGuaranteeSection />
 
         {/* ============ FAQ ============ */}
         <section className="bg-background py-20 sm:py-28 lg:py-36">
@@ -975,5 +970,11 @@ const ParentsLandingPage = () => {
     </>
   );
 };
+
+const ParentsLandingPage = ({ offer = "guarantee" }: LandingPageProps) => (
+  <OfferLanding offer={offer} pageName="parents">
+    <ParentsLandingContent />
+  </OfferLanding>
+);
 
 export default ParentsLandingPage;
