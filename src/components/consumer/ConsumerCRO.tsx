@@ -36,6 +36,10 @@ type TrackedShopLinkProps = ComponentProps<"a"> & {
   destination: string;
 };
 
+function anchorHref(event: React.MouseEvent<HTMLAnchorElement>): string {
+  return event.currentTarget?.href ?? "";
+}
+
 export function TrackedShopLink({
   route,
   placement,
