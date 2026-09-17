@@ -32,6 +32,10 @@ const faqs = [
     q: "What maintenance is required?",
     a: "Replace the probiotic cartridge on its recommended schedule. There is no filter to wash or replace on BioLogic Mini or Biotica 800.",
   },
+  {
+    q: GUARANTEE_FAQ_QUESTION,
+    a: GUARANTEE_BODY,
+  },
 ];
 
 function WellnessCROContent() {

@@ -516,7 +516,7 @@ const AllergyLandingContent = () => {
         </div>
       </section>
 
-      <TrialGuaranteeSection />
+      <TrialGuaranteeSection firstLine="Give it 30 days through a full cleaning cycle. If you don't feel the difference, send it back." />
 
       {/* 8. FAQ */}
       <section className="bg-white border-y border-ink/5 py-16 md:py-24">
@@ -550,8 +550,8 @@ const AllergyLandingContent = () => {
                   a: "Most households report a fresher, cleaner-feeling room within the first few weeks of continuous use. Results vary by space and conditions.",
                 },
                 {
-                  q: "What's the return policy?",
-                  a: "30-day money-back guarantee. Free shipping and easy returns.",
+                  q: GUARANTEE_FAQ_QUESTION,
+                  a: GUARANTEE_BODY,
                 },
               ].map((f, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-ink/10">
