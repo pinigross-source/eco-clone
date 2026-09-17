@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, type ReactNode } from "react";
-import { SHOPIFY_BASE, PRODUCT_HANDLE_MAP } from "@/lib/shopify";
+import { buildShopUrl, PRODUCT_HANDLE_MAP } from "@/lib/shopify";
+
+export { buildShopUrl };
 import { captureSessionAttribution, withVisitorAttribution } from "@/lib/attribution-session";
 
 export type OfferId = "guarantee" | "meta15";
@@ -23,24 +25,6 @@ export type OfferValue = {
 
 const OfferContext = createContext<OfferValue | null>(null);
 
-/**
- * The single source of truth for every outbound shop.envirobiotics.com URL.
- *
- * guarantee -> https://shop.envirobiotics.com{productPath}
- * meta15    -> https://shop.envirobiotics.com/discount/META15?redirect={encoded productPath}
- *
- * No hard-coded utm_source / utm_medium / utm_campaign. The visitor's own
- * campaign params (saved in sessionStorage on the first page load) plus
- * utm_content={pageName} are appended at click time, because decorating
- * during render would break SSR hydration.
- */
-export function buildShopUrl(productPath: string, offer: OfferId = "guarantee", _pageName?: string): string {
-  const clean = productPath.startsWith("/") ? productPath : `/${productPath}`;
-  if (offer === "meta15") {
-    return `${SHOPIFY_BASE}/discount/${META15_CODE}?redirect=${encodeURIComponent(clean)}`;
-  }
-  return `${SHOPIFY_BASE}${clean}`;
-}
 
 export function OfferProvider({
   offer,
