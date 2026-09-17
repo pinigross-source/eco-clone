@@ -90,6 +90,7 @@ import { Route as CompareUvcRouteImport } from './routes/compare.uvc'
 import { Route as GoAllergyRouteImport } from './routes/go.allergy'
 import { Route as GoParentsRouteImport } from './routes/go.parents'
 import { Route as GoPetsRouteImport } from './routes/go.pets'
+import { Route as GoWellnessRouteImport } from './routes/go.wellness'
 import { Route as LpP1Air7k2mRouteImport } from './routes/lp.p1-air-7k2m'
 import { Route as LpP2Floor9x4rRouteImport } from './routes/lp.p2-floor-9x4r'
 import { Route as LpP3Between3n8qRouteImport } from './routes/lp.p3-between-3n8q'
@@ -514,6 +515,11 @@ const GoPetsRoute = GoPetsRouteImport.update({
   path: '/go/pets',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GoWellnessRoute = GoWellnessRouteImport.update({
+  id: '/go/wellness',
+  path: '/go/wellness',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LpP1Air7k2mRoute = LpP1Air7k2mRouteImport.update({
   id: '/lp/p1-air-7k2m',
   path: '/lp/p1-air-7k2m',
@@ -667,6 +673,7 @@ export interface FileRoutesByFullPath {
   '/go/allergy': typeof GoAllergyRoute
   '/go/parents': typeof GoParentsRoute
   '/go/pets': typeof GoPetsRoute
+  '/go/wellness': typeof GoWellnessRoute
   '/lp/p1-air-7k2m': typeof LpP1Air7k2mRoute
   '/lp/p2-floor-9x4r': typeof LpP2Floor9x4rRoute
   '/lp/p3-between-3n8q': typeof LpP3Between3n8qRoute
@@ -764,6 +771,7 @@ export interface FileRoutesByTo {
   '/go/allergy': typeof GoAllergyRoute
   '/go/parents': typeof GoParentsRoute
   '/go/pets': typeof GoPetsRoute
+  '/go/wellness': typeof GoWellnessRoute
   '/lp/p1-air-7k2m': typeof LpP1Air7k2mRoute
   '/lp/p2-floor-9x4r': typeof LpP2Floor9x4rRoute
   '/lp/p3-between-3n8q': typeof LpP3Between3n8qRoute
@@ -862,6 +870,7 @@ export interface FileRoutesById {
   '/go/allergy': typeof GoAllergyRoute
   '/go/parents': typeof GoParentsRoute
   '/go/pets': typeof GoPetsRoute
+  '/go/wellness': typeof GoWellnessRoute
   '/lp/p1-air-7k2m': typeof LpP1Air7k2mRoute
   '/lp/p2-floor-9x4r': typeof LpP2Floor9x4rRoute
   '/lp/p3-between-3n8q': typeof LpP3Between3n8qRoute
@@ -961,6 +970,7 @@ export interface FileRouteTypes {
     | '/go/allergy'
     | '/go/parents'
     | '/go/pets'
+    | '/go/wellness'
     | '/lp/p1-air-7k2m'
     | '/lp/p2-floor-9x4r'
     | '/lp/p3-between-3n8q'
@@ -1058,6 +1068,7 @@ export interface FileRouteTypes {
     | '/go/allergy'
     | '/go/parents'
     | '/go/pets'
+    | '/go/wellness'
     | '/lp/p1-air-7k2m'
     | '/lp/p2-floor-9x4r'
     | '/lp/p3-between-3n8q'
@@ -1155,6 +1166,7 @@ export interface FileRouteTypes {
     | '/go/allergy'
     | '/go/parents'
     | '/go/pets'
+    | '/go/wellness'
     | '/lp/p1-air-7k2m'
     | '/lp/p2-floor-9x4r'
     | '/lp/p3-between-3n8q'
@@ -1251,6 +1263,7 @@ export interface RootRouteChildren {
   GoAllergyRoute: typeof GoAllergyRoute
   GoParentsRoute: typeof GoParentsRoute
   GoPetsRoute: typeof GoPetsRoute
+  GoWellnessRoute: typeof GoWellnessRoute
   LpP1Air7k2mRoute: typeof LpP1Air7k2mRoute
   LpP2Floor9x4rRoute: typeof LpP2Floor9x4rRoute
   LpP3Between3n8qRoute: typeof LpP3Between3n8qRoute
@@ -1835,6 +1848,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GoPetsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/go/wellness': {
+      id: '/go/wellness'
+      path: '/go/wellness'
+      fullPath: '/go/wellness'
+      preLoaderRoute: typeof GoWellnessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lp/p1-air-7k2m': {
       id: '/lp/p1-air-7k2m'
       path: '/lp/p1-air-7k2m'
@@ -2060,6 +2080,7 @@ const rootRouteChildren: RootRouteChildren = {
   GoAllergyRoute: GoAllergyRoute,
   GoParentsRoute: GoParentsRoute,
   GoPetsRoute: GoPetsRoute,
+  GoWellnessRoute: GoWellnessRoute,
   LpP1Air7k2mRoute: LpP1Air7k2mRoute,
   LpP2Floor9x4rRoute: LpP2Floor9x4rRoute,
   LpP3Between3n8qRoute: LpP3Between3n8qRoute,
