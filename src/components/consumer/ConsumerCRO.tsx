@@ -36,6 +36,10 @@ type TrackedShopLinkProps = ComponentProps<"a"> & {
   destination: string;
 };
 
+function anchorHref(event: React.MouseEvent<HTMLAnchorElement>): string {
+  return event.currentTarget?.href ?? "";
+}
+
 export function TrackedShopLink({
   route,
   placement,
@@ -45,7 +49,7 @@ export function TrackedShopLink({
   children,
   ...props
 }: TrackedShopLinkProps) {
-  const { utmContent } = useOffer();
+  const { utmContent, offer, isPromo, pageName } = useOffer();
   const decorate = (event: React.MouseEvent<HTMLAnchorElement>) => {
     // Click-time only: decorating during render would break SSR hydration.
     const anchor = event.currentTarget;
@@ -62,11 +66,17 @@ export function TrackedShopLink({
       onAuxClick={decorate}
       onClick={(event) => {
         decorate(event);
+        const finalHref = anchorHref(event);
         trackEvent("click_to_shop", {
           route,
           placement,
           product,
-          destination,
+          destination: finalHref,
+          offer,
+          page_name: pageName,
+          utm_content: utmContent,
+          is_promo: isPromo,
+          discount_code: finalHref.includes("/discount/META15") ? "META15" : undefined,
         });
         onClick?.(event);
       }}
