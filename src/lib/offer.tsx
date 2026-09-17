@@ -64,6 +64,17 @@ export function OfferProvider({
       }
       if (!host.startsWith("shop.")) return;
       anchor.href = withVisitorAttribution(anchor.href, pageName);
+      if (offer === "meta15") {
+        try {
+          const url = new URL(anchor.href, window.location.href);
+          url.searchParams.set("utm_source", "envirobiotics");
+          url.searchParams.set("utm_medium", "site");
+          url.searchParams.set("utm_campaign", `${pageName}-landing`);
+          anchor.href = url.toString();
+        } catch {
+          // keep the decorated href
+        }
+      }
     };
     document.addEventListener("click", onPointer, true);
     document.addEventListener("auxclick", onPointer, true);
@@ -71,7 +82,7 @@ export function OfferProvider({
       document.removeEventListener("click", onPointer, true);
       document.removeEventListener("auxclick", onPointer, true);
     };
-  }, [pageName]);
+  }, [pageName, offer]);
 
   const value = useMemo<OfferValue>(() => {
     const isPromo = offer === "meta15";

@@ -17,3 +17,5 @@
 - [x] Refine the homepage into the approved Apple-inspired cinematic layout across mobile and desktop.
 - [x] Preserve the homepage's current dark green-charcoal text color throughout the refinement.
 - [x] Validate complete homepage spacing, interactions, performance, and Apple-device layouts without publishing.
+- [x] /go/* pages: keep /discount/META15?redirect= links exactly as before the refactor; removed the duplicate META15 price rule (user's existing META15 stays the only one).
+- [x] /go/* pages: shop links carry fixed campaign tags (utm_source=envirobiotics, utm_medium=site, utm_campaign=<page>-landing), on buy links at render and on any shop link at click.
