@@ -81,8 +81,8 @@ export function OfferProvider({
       isPromo,
       discountPercent: isPromo ? META15_PERCENT : 0,
       shopUrl: (slugOrHandle: string) =>
-        buildShopUrl(`/products/${PRODUCT_HANDLE_MAP[slugOrHandle] ?? slugOrHandle}`, offer),
-      shopPathUrl: (path: string) => buildShopUrl(path, offer),
+        buildShopUrl(`/products/${PRODUCT_HANDLE_MAP[slugOrHandle] ?? slugOrHandle}`, offer, pageName),
+      shopPathUrl: (path: string) => buildShopUrl(path, offer, pageName),
       salePrice: (basePrice: number) =>
         isPromo ? Math.round(basePrice * (1 - META15_PERCENT / 100) * 100) / 100 : basePrice,
     };
