@@ -62,11 +62,17 @@ export function TrackedShopLink({
       onAuxClick={decorate}
       onClick={(event) => {
         decorate(event);
+        const finalHref = anchorHref(event);
         trackEvent("click_to_shop", {
           route,
           placement,
           product,
-          destination,
+          destination: finalHref,
+          offer,
+          page_name: pageName,
+          utm_content: utmContent,
+          is_promo: isPromo,
+          discount_code: finalHref.includes("/discount/META15") ? "META15" : undefined,
         });
         onClick?.(event);
       }}
