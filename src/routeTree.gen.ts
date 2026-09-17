@@ -87,6 +87,9 @@ import { Route as CompareBioHealingRouteImport } from './routes/compare.bio-heal
 import { Route as CompareChemicalFreshenersRouteImport } from './routes/compare.chemical-fresheners'
 import { Route as CompareHepaRouteImport } from './routes/compare.hepa'
 import { Route as CompareUvcRouteImport } from './routes/compare.uvc'
+import { Route as GoAllergyRouteImport } from './routes/go.allergy'
+import { Route as GoParentsRouteImport } from './routes/go.parents'
+import { Route as GoPetsRouteImport } from './routes/go.pets'
 import { Route as LpP1Air7k2mRouteImport } from './routes/lp.p1-air-7k2m'
 import { Route as LpP2Floor9x4rRouteImport } from './routes/lp.p2-floor-9x4r'
 import { Route as LpP3Between3n8qRouteImport } from './routes/lp.p3-between-3n8q'
@@ -496,6 +499,21 @@ const CompareUvcRoute = CompareUvcRouteImport.update({
   path: '/compare/uvc',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GoAllergyRoute = GoAllergyRouteImport.update({
+  id: '/go/allergy',
+  path: '/go/allergy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoParentsRoute = GoParentsRouteImport.update({
+  id: '/go/parents',
+  path: '/go/parents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoPetsRoute = GoPetsRouteImport.update({
+  id: '/go/pets',
+  path: '/go/pets',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LpP1Air7k2mRoute = LpP1Air7k2mRouteImport.update({
   id: '/lp/p1-air-7k2m',
   path: '/lp/p1-air-7k2m',
@@ -646,6 +664,9 @@ export interface FileRoutesByFullPath {
   '/compare/chemical-fresheners': typeof CompareChemicalFreshenersRoute
   '/compare/hepa': typeof CompareHepaRoute
   '/compare/uvc': typeof CompareUvcRoute
+  '/go/allergy': typeof GoAllergyRoute
+  '/go/parents': typeof GoParentsRoute
+  '/go/pets': typeof GoPetsRoute
   '/lp/p1-air-7k2m': typeof LpP1Air7k2mRoute
   '/lp/p2-floor-9x4r': typeof LpP2Floor9x4rRoute
   '/lp/p3-between-3n8q': typeof LpP3Between3n8qRoute
@@ -740,6 +761,9 @@ export interface FileRoutesByTo {
   '/compare/chemical-fresheners': typeof CompareChemicalFreshenersRoute
   '/compare/hepa': typeof CompareHepaRoute
   '/compare/uvc': typeof CompareUvcRoute
+  '/go/allergy': typeof GoAllergyRoute
+  '/go/parents': typeof GoParentsRoute
+  '/go/pets': typeof GoPetsRoute
   '/lp/p1-air-7k2m': typeof LpP1Air7k2mRoute
   '/lp/p2-floor-9x4r': typeof LpP2Floor9x4rRoute
   '/lp/p3-between-3n8q': typeof LpP3Between3n8qRoute
@@ -835,6 +859,9 @@ export interface FileRoutesById {
   '/compare/chemical-fresheners': typeof CompareChemicalFreshenersRoute
   '/compare/hepa': typeof CompareHepaRoute
   '/compare/uvc': typeof CompareUvcRoute
+  '/go/allergy': typeof GoAllergyRoute
+  '/go/parents': typeof GoParentsRoute
+  '/go/pets': typeof GoPetsRoute
   '/lp/p1-air-7k2m': typeof LpP1Air7k2mRoute
   '/lp/p2-floor-9x4r': typeof LpP2Floor9x4rRoute
   '/lp/p3-between-3n8q': typeof LpP3Between3n8qRoute
@@ -931,6 +958,9 @@ export interface FileRouteTypes {
     | '/compare/chemical-fresheners'
     | '/compare/hepa'
     | '/compare/uvc'
+    | '/go/allergy'
+    | '/go/parents'
+    | '/go/pets'
     | '/lp/p1-air-7k2m'
     | '/lp/p2-floor-9x4r'
     | '/lp/p3-between-3n8q'
@@ -1025,6 +1055,9 @@ export interface FileRouteTypes {
     | '/compare/chemical-fresheners'
     | '/compare/hepa'
     | '/compare/uvc'
+    | '/go/allergy'
+    | '/go/parents'
+    | '/go/pets'
     | '/lp/p1-air-7k2m'
     | '/lp/p2-floor-9x4r'
     | '/lp/p3-between-3n8q'
@@ -1119,6 +1152,9 @@ export interface FileRouteTypes {
     | '/compare/chemical-fresheners'
     | '/compare/hepa'
     | '/compare/uvc'
+    | '/go/allergy'
+    | '/go/parents'
+    | '/go/pets'
     | '/lp/p1-air-7k2m'
     | '/lp/p2-floor-9x4r'
     | '/lp/p3-between-3n8q'
@@ -1212,6 +1248,9 @@ export interface RootRouteChildren {
   CompareChemicalFreshenersRoute: typeof CompareChemicalFreshenersRoute
   CompareHepaRoute: typeof CompareHepaRoute
   CompareUvcRoute: typeof CompareUvcRoute
+  GoAllergyRoute: typeof GoAllergyRoute
+  GoParentsRoute: typeof GoParentsRoute
+  GoPetsRoute: typeof GoPetsRoute
   LpP1Air7k2mRoute: typeof LpP1Air7k2mRoute
   LpP2Floor9x4rRoute: typeof LpP2Floor9x4rRoute
   LpP3Between3n8qRoute: typeof LpP3Between3n8qRoute
@@ -1775,6 +1814,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareUvcRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/go/allergy': {
+      id: '/go/allergy'
+      path: '/go/allergy'
+      fullPath: '/go/allergy'
+      preLoaderRoute: typeof GoAllergyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/go/parents': {
+      id: '/go/parents'
+      path: '/go/parents'
+      fullPath: '/go/parents'
+      preLoaderRoute: typeof GoParentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/go/pets': {
+      id: '/go/pets'
+      path: '/go/pets'
+      fullPath: '/go/pets'
+      preLoaderRoute: typeof GoPetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lp/p1-air-7k2m': {
       id: '/lp/p1-air-7k2m'
       path: '/lp/p1-air-7k2m'
@@ -1997,6 +2057,9 @@ const rootRouteChildren: RootRouteChildren = {
   CompareChemicalFreshenersRoute: CompareChemicalFreshenersRoute,
   CompareHepaRoute: CompareHepaRoute,
   CompareUvcRoute: CompareUvcRoute,
+  GoAllergyRoute: GoAllergyRoute,
+  GoParentsRoute: GoParentsRoute,
+  GoPetsRoute: GoPetsRoute,
   LpP1Air7k2mRoute: LpP1Air7k2mRoute,
   LpP2Floor9x4rRoute: LpP2Floor9x4rRoute,
   LpP3Between3n8qRoute: LpP3Between3n8qRoute,

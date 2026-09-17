@@ -2,10 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Wind, Sparkles, ShieldCheck, Star } from "lucide-react";
+import { ArrowRight, Check, Wind, Sparkles, Star } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
-import { shopifyProductDiscountUrl } from "@/lib/shopify";
-import { CompactTrustStrip, MobileStickyShopCTA, ProductDecisionBlock } from "@/components/consumer/ConsumerCRO";
+import { CompactTrustStrip, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
+import { OfferLanding, type LandingPageProps } from "@/components/landing/OfferLanding";
+import { useOffer } from "@/lib/offer";
 import {
   Accordion,
   AccordionContent,
@@ -16,10 +17,9 @@ import {
 import heroImgAsset from "@/assets/allergy-hero.avif.asset.json";
 const heroImg = heroImgAsset.url;
 
-const PROMO = "META15";
-const BIOTICA_URL = shopifyProductDiscountUrl("biotica-800", PROMO, "allergy-landing");
-const MINI_URL = shopifyProductDiscountUrl("biologic-mini", PROMO, "allergy-landing");
-const BUNDLE_URL = shopifyProductDiscountUrl("home-complete-bundle", PROMO, "allergy-landing");
+const MINI_PRICE = 98;
+const BIOTICA_PRICE = 299;
+const BUNDLE_PRICE = 395;
 
 const reviews = [
   {
@@ -101,7 +101,11 @@ const scrollToId = (id: string) => {
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-const AllergyLandingPage = () => {
+const AllergyLandingContent = () => {
+  const { shopUrl } = useOffer();
+  const MINI_URL = shopUrl("biologic-mini");
+  const BIOTICA_URL = shopUrl("biotica-800");
+  const BUNDLE_URL = shopUrl("home-complete-bundle");
   const [showSticky, setShowSticky] = useState(false);
   useEffect(() => {
     const onScroll = () => setShowSticky(window.scrollY > 600);
@@ -476,8 +480,7 @@ const AllergyLandingPage = () => {
             <Reveal>
               <PriceCard
                 name="BioLogic Mini"
-                price="$83.30"
-                compareAt="$98"
+                basePrice={MINI_PRICE}
                 best="Best for a single room, up to 300 sq ft."
                 href={MINI_URL}
                 onBuy={() => track("cta_click", { section: "pricing_mini" })}
@@ -488,8 +491,7 @@ const AllergyLandingPage = () => {
             <Reveal delay={80}>
               <PriceCard
                 name="Biotica"
-                price="$254.15"
-                compareAt="$299"
+                basePrice={BIOTICA_PRICE}
                 best="For spaces up to 800 sq ft."
                 href={BIOTICA_URL}
                 onBuy={() => track("cta_click", { section: "pricing_biotica" })}
@@ -500,9 +502,7 @@ const AllergyLandingPage = () => {
             <Reveal delay={160}>
               <PriceCard
                 name="Home Bundle"
-                price="$335.75"
-                compareAt="$395"
-                saveBadge="Save $59.25"
+                basePrice={BUNDLE_PRICE}
                 topBadge="Most popular · Best value"
                 best="2 BioLogic Minis + 1 Biotica, whole home plus two rooms."
                 href={BUNDLE_URL}
@@ -513,23 +513,10 @@ const AllergyLandingPage = () => {
             </Reveal>
           </div>
 
-          {/* 7. GUARANTEE */}
-          <Reveal>
-            <div className="mt-12 rounded-3xl bg-sage-soft border border-sage/20 p-8 md:p-10 text-center">
-              <div className="mx-auto h-12 w-12 rounded-full bg-sage/15 flex items-center justify-center">
-                <ShieldCheck className="h-6 w-6 text-sage" />
-              </div>
-              <h3 className="mt-4 text-2xl md:text-3xl font-bold text-ink">
-                Try it in your home for 30 days, risk-free.
-              </h3>
-              <p className="mt-3 text-ink/70">
-                If you&apos;re not happy, return it within 30 days for a full
-                refund. Free shipping. Easy returns.
-              </p>
-            </div>
-          </Reveal>
         </div>
       </section>
+
+      <TrialGuaranteeSection />
 
       {/* 8. FAQ */}
       <section className="bg-white border-y border-ink/5 py-16 md:py-24">
@@ -630,12 +617,16 @@ const AllergyLandingPage = () => {
   );
 };
 
+const AllergyLandingPage = ({ offer = "guarantee" }: LandingPageProps) => (
+  <OfferLanding offer={offer} pageName="allergy">
+    <AllergyLandingContent />
+  </OfferLanding>
+);
+
 /* ------------ Price card ------------ */
 function PriceCard({
   name,
-  price,
-  compareAt,
-  saveBadge,
+  basePrice,
   topBadge,
   best,
   href,
@@ -644,9 +635,7 @@ function PriceCard({
   highlight = false,
 }: {
   name: string;
-  price: string;
-  compareAt?: string;
-  saveBadge?: string;
+  basePrice: number;
   topBadge?: string;
   best: string;
   href: string;
@@ -669,16 +658,8 @@ function PriceCard({
       )}
       <h3 className="text-xl font-semibold text-ink">{name}</h3>
 
-      <div className="mt-4 flex items-end gap-3">
-        <div className="text-4xl md:text-5xl font-bold text-ink tracking-tight">
-          {price}
-        </div>
-        {compareAt && (
-          <div className="pb-2 text-ink/50 line-through text-lg">{compareAt}</div>
-        )}
-        {saveBadge && (
-          <div className="pb-2 text-sage text-sm font-semibold">{saveBadge}</div>
-        )}
+      <div className="mt-4 flex items-end gap-3 text-4xl md:text-5xl font-bold text-ink tracking-tight">
+        <OfferPrice basePrice={basePrice} />
       </div>
 
       <p className="mt-4 text-ink/70 leading-relaxed text-[15px] min-h-[3.5rem]">
@@ -695,6 +676,7 @@ function PriceCard({
             Buy Once
           </a>
         </Button>
+        <GuaranteeBadge className="mt-3 justify-center text-center" />
         <div className="mt-2 text-center">
           <a
             href={subHref}

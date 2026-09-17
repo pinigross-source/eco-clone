@@ -1,21 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Page from "@/pages/PetsLandingPage";
 
-export const Route = createFileRoute("/pets")({
+export const Route = createFileRoute("/go/pets")({
   head: () => ({
     meta: [
-      {
-        title: "Probiotic Air & Surface Care for Pet Homes | EnviroBiotics",
-      },
+      { title: "Probiotic Air & Surface Care for Pet Homes | EnviroBiotics" },
       {
         name: "description",
         content:
-          "Tackle pet dander and odors on beds, sofas, and floors. Pet-safe, non-toxic probiotic care with a 30-day home trial.",
+          "Tackle pet dander and odors on beds, sofas, and floors with pet-safe, non-toxic probiotic care. 30-day home trial.",
       },
-      {
-        property: "og:title",
-        content: "Probiotic Air & Surface Care for Pet Homes | EnviroBiotics",
-      },
+      { name: "robots", content: "noindex,follow" },
+      { property: "og:title", content: "Probiotic Air & Surface Care for Pet Homes | EnviroBiotics" },
       {
         property: "og:description",
         content:
@@ -27,5 +23,5 @@ export const Route = createFileRoute("/pets")({
     ],
     links: [{ rel: "canonical", href: "https://envirobiotics.com/pets" }],
   }),
-  component: Page,
+  component: () => <Page offer="meta15" />,
 });

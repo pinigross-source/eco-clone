@@ -3,6 +3,8 @@ import { ArrowRight, Check, ShieldCheck, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { products } from "@/data/productData";
 import { trackEvent } from "@/lib/tracking";
+import { formatPrice, useOffer } from "@/lib/offer";
+import { withVisitorAttribution } from "@/lib/attribution-session";
 import epaAsset from "@/assets/certs/epa-new.webp.asset.json";
 import fdaAsset from "@/assets/certs/fda-gras-new.webp.asset.json";
 import allergyUkAsset from "@/assets/certs/allergyuk.webp.asset.json";
@@ -43,13 +45,23 @@ export function TrackedShopLink({
   children,
   ...props
 }: TrackedShopLinkProps) {
+  const { pageName } = useOffer();
+  const decorate = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    // Click-time only: decorating during render would break SSR hydration.
+    const anchor = event.currentTarget;
+    const decorated = withVisitorAttribution(anchor.href, pageName);
+    if (decorated !== anchor.href) anchor.href = decorated;
+  };
+
   return (
     <a
       {...props}
       href={destination}
       data-cta-placement={placement}
       data-product={product}
+      onAuxClick={decorate}
       onClick={(event) => {
+        decorate(event);
         trackEvent("click_to_shop", {
           route,
           placement,
@@ -61,6 +73,79 @@ export function TrackedShopLink({
     >
       {children}
     </a>
+  );
+}
+
+/** Reassurance badge that sits directly under a buy button. */
+export function GuaranteeBadge({ className = "" }: { className?: string }) {
+  return (
+    <a
+      href="#guarantee"
+      className={`inline-flex items-center gap-1.5 text-[12.5px] font-medium text-foreground/70 underline-offset-4 hover:underline sm:text-[13px] ${className}`}
+    >
+      <ShieldCheck className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+      30-Day Home Trial. Love it or your money back
+    </a>
+  );
+}
+
+/** Sticky promo bar shown only on promo (meta15) landing pages. */
+export function OfferPromoBar() {
+  const { isPromo } = useOffer();
+  if (!isPromo) return null;
+  return (
+    <div className="sticky top-0 z-[60] bg-[#EB8B59] px-4 py-2 text-center text-[12px] font-semibold leading-snug text-[#1A1A1A] sm:py-2.5 sm:text-[13px]">
+      15% off applied at checkout
+    </div>
+  );
+}
+
+/** Price display: plain on organic pages, struck-through pair on promo pages. */
+export function OfferPrice({
+  basePrice,
+  className = "",
+}: {
+  basePrice: number;
+  className?: string;
+}) {
+  const { isPromo, salePrice } = useOffer();
+  if (!isPromo) return <span className={className}>{formatPrice(basePrice)}</span>;
+  return (
+    <span className={`inline-flex items-baseline gap-2 ${className}`}>
+      <span className="text-muted-foreground line-through">{formatPrice(basePrice)}</span>
+      <span>{formatPrice(salePrice(basePrice))}</span>
+    </span>
+  );
+}
+
+/** Guarantee details section, rendered above the FAQ on every landing page. */
+export function TrialGuaranteeSection({ className = "" }: { className?: string }) {
+  return (
+    <section id="guarantee" className={`scroll-mt-24 border-y border-border/70 bg-background py-12 sm:py-16 ${className}`}>
+      <div className="mx-auto max-w-3xl px-5 md:px-8">
+        <p className="flex items-center gap-2 text-xs font-semibold uppercase text-muted-foreground">
+          <ShieldCheck className="h-4 w-4 text-primary" aria-hidden="true" />
+          30-Day Home Trial
+        </p>
+        <h2 className="mt-3 text-3xl font-bold leading-tight text-foreground sm:text-4xl">
+          Love it or your money back.
+        </h2>
+        <ul className="mt-6 space-y-4 text-base leading-relaxed text-foreground/75 sm:text-lg">
+          <li className="flex gap-3">
+            <Check className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+            <span><strong className="font-semibold text-foreground">How long:</strong> 30 days from the day your order is delivered.</span>
+          </li>
+          <li className="flex gap-3">
+            <Check className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+            <span><strong className="font-semibold text-foreground">What is refunded:</strong> the full price you paid for the device, back to your original payment method.</span>
+          </li>
+          <li className="flex gap-3">
+            <Check className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+            <span><strong className="font-semibold text-foreground">How to start a return:</strong> email support@envirobiotics.com with your order number and we send you a return label.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
   );
 }
 
@@ -113,7 +198,8 @@ type ProductDecision = {
   slug: "biologic-mini" | "biotica-800";
   bestFor: string;
   installation: string;
-  destination: string;
+  /** Optional override; by default the URL comes from the active offer. */
+  destination?: string;
   ctaLabel: string;
   featured?: boolean;
 };
@@ -145,6 +231,8 @@ export function ProductDecisionBlock({
   presentation?: "standard" | "showcase";
 }) {
   const isShowcase = presentation === "showcase";
+  const { shopUrl } = useOffer();
+
 
   return (
     <section id={id} className={`scroll-mt-24 bg-background ${isShowcase ? "py-20 sm:py-28 lg:py-36" : "py-12 sm:py-20"} ${className}`}>
@@ -158,6 +246,7 @@ export function ProductDecisionBlock({
           {decisions.map((decision) => {
             const product = products.find((item) => item.slug === decision.slug);
             if (!product || product.price === undefined) return null;
+            const destination = decision.destination ?? shopUrl(decision.slug);
             if (isShowcase) {
               return (
                 <article
@@ -189,7 +278,7 @@ export function ProductDecisionBlock({
                      <p className="text-xs font-semibold uppercase text-eyebrow-accent">{decision.bestFor}</p>
                      <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] items-end gap-4">
                        <h3 className="min-w-0 text-3xl font-bold leading-none text-ink sm:text-4xl">{product.name}</h3>
-                      <p className="shrink-0 text-2xl font-semibold text-ink">${product.price}</p>
+                      <p className="shrink-0 text-2xl font-semibold text-ink"><OfferPrice basePrice={product.price} /></p>
                     </div>
                     <div className="my-6 h-px bg-border" />
                     <ul className="space-y-3 text-base leading-6 text-ink/70">
@@ -201,11 +290,12 @@ export function ProductDecisionBlock({
                         route={route}
                         placement={placement}
                         product={product.slug}
-                        destination={decision.destination}
+                        destination={destination}
                       >
                         {decision.ctaLabel}<ArrowRight className="h-4 w-4 group-hover:translate-x-0.5" />
                       </TrackedShopLink>
                     </Button>
+                    <GuaranteeBadge className="mt-3" />
                   </div>
                 </article>
               );
@@ -235,17 +325,18 @@ export function ProductDecisionBlock({
                     <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-sage" />{product.coverage}</li>
                     <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-sage" />{decision.installation}</li>
                   </ul>
-                  <p className="mt-4 text-2xl font-bold text-ink">${product.price}</p>
+                  <p className="mt-4 text-2xl font-bold text-ink"><OfferPrice basePrice={product.price} /></p>
                   <Button asChild className="mt-4 min-h-11 w-full sm:w-fit">
                     <TrackedShopLink
                       route={route}
                       placement={placement}
                       product={product.slug}
-                      destination={decision.destination}
+                      destination={destination}
                     >
                       {decision.ctaLabel}<ArrowRight className="h-4 w-4" />
                     </TrackedShopLink>
                   </Button>
+                  <GuaranteeBadge className="mt-3" />
                 </div>
               </article>
             );

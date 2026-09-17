@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { ArrowRight, Check, Mail, ShieldCheck, Star, Wind, Home, Infinity as InfinityIcon, Sparkles, Waves, Microscope } from "lucide-react";
+import { ArrowRight, Check, Mail, Star, Wind, Home, Infinity as InfinityIcon, Sparkles, Waves, Microscope } from "lucide-react";
 import { Link } from "@/lib/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,9 +17,10 @@ import {
 } from "@/components/ui/accordion";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { shopifyDiscountUrl, shopifyProductDiscountUrl } from "@/lib/shopify";
 import { trackFBEvent } from "@/lib/fb-pixel";
-import { CompactTrustStrip, MobileStickyShopCTA, ProductDecisionBlock, TrackedShopLink } from "@/components/consumer/ConsumerCRO";
+import { CompactTrustStrip, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrackedShopLink, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
+import { OfferLanding, type LandingPageProps } from "@/components/landing/OfferLanding";
+import { formatPrice, useOffer } from "@/lib/offer";
 
 import logo from "@/assets/logo.avif";
 import petHeroAsset from "@/assets/pet-hero.avif.asset.json";
@@ -30,33 +31,30 @@ import bioticaProduct from "@/assets/pets/biotica-800-card.avif";
 import miniProduct from "@/assets/biologic-mini-nobg-new.avif";
 import bundleAsset from "@/assets/bundle-product.webp.asset.json";
 
-const BIOTICA_URL = shopifyDiscountUrl("META15", "/products/biotica-800", "pets-landing");
-const MINI_URL = shopifyProductDiscountUrl("biologic-mini", "META15", "pets-landing");
-const BUNDLE_URL = shopifyDiscountUrl("META15", "/products/home-complete-bundle", "pets-landing");
 const DISPLAY = '"Helvetica Neue", "Inter", system-ui, -apple-system, sans-serif';
 // Hero headline (A/B ready). Version B: "Love your pet. Not the smell they leave behind."
 const HERO_HEADLINE = "You’re up against something you can’t see.";
 const EXIT_KEY = "eb_pets_offer_seen";
 const EXIT_DONE_KEY = "eb_pets_offer_done";
 const EXIT_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+const MINI_PRICE = 98;
+const BIOTICA_PRICE = 299;
 
 const products = [
   {
     name: "BioLogic Mini",
+    handle: "biologic-mini",
     description: "Bedrooms, litter areas, small spaces",
-    originalPrice: "$98",
-    offerPrice: "$83.30",
+    basePrice: MINI_PRICE,
     image: miniProduct,
-    href: MINI_URL,
     event: "click_pets_card_mini",
   },
   {
     name: "Biotica 800",
+    handle: "biotica-800",
     description: "Living rooms & open spaces up to 800 sq ft",
-    originalPrice: "$299",
-    offerPrice: "$254.15",
+    basePrice: BIOTICA_PRICE,
     image: bioticaProduct,
-    href: BIOTICA_URL,
     event: "click_pets_card_biotica",
     badge: "Most popular for pet homes",
     featured: true,
@@ -64,11 +62,10 @@ const products = [
   },
   {
     name: "The Pet Home Reset",
+    handle: "home-complete-bundle",
     description: "Biotica 800 + 2 Minis for the whole home",
-    originalPrice: "$395",
-    offerPrice: "$335.75",
+    basePrice: 395,
     image: bundleAsset.url,
-    href: BUNDLE_URL,
     event: "click_pets_card_bundle",
     badge: "Best value",
     note: "Save $85 vs. buying separately",
@@ -93,23 +90,18 @@ const Reveal = ({ children, className = "" }: { children: ReactNode; className?:
 
 function LogoOnlyHeader() {
   return (
-    <>
-      <div className="sticky top-0 z-[60] bg-[#EB8B59] px-4 py-2 text-center text-[11.5px] font-semibold leading-snug text-[#1A1A1A] sm:py-2.5 sm:text-[13px]">
-        <span className="sm:hidden">15% OFF applied at checkout • 30-Day Risk-Free</span>
-        <span className="hidden sm:inline">15% OFF Automatically Applied at Checkout • 30-Day Risk-Free Guarantee</span>
+    <header className="relative z-50 border-b border-black/5 bg-[#F0F0F0]">
+      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-center px-5 lg:h-20">
+        <Link to="/" aria-label="EnviroBiotics home">
+          <img src={logo} alt="EnviroBiotics" className="h-10 w-auto lg:h-12" width="210" height="80" />
+        </Link>
       </div>
-      <header className="relative z-50 border-b border-black/5 bg-[#F0F0F0]">
-        <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-center px-5 lg:h-20">
-          <Link to="/" aria-label="EnviroBiotics home">
-            <img src={logo} alt="EnviroBiotics" className="h-10 w-auto lg:h-12" width="210" height="80" />
-          </Link>
-        </div>
-      </header>
-    </>
+    </header>
   );
 }
 
 function ProductSection() {
+  const { shopUrl } = useOffer();
   return (
     <section id="products" className="scroll-mt-12 bg-[#f5f5f7] py-11 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-10 lg:px-12">
@@ -146,11 +138,9 @@ function ProductSection() {
                     <li className="pt-1 text-[13px] font-medium text-[#86868b] line-through">$510 value</li>
                   </ul>
                 ) : null}
-                <div className="mt-5 flex items-baseline gap-2">
-                  <span className="text-[15px] text-[#86868b] line-through">{product.originalPrice}</span>
-                  <span className="text-[28px] font-semibold text-[#1d1d1f]">{product.offerPrice}</span>
+                <div className="mt-5 text-[28px] font-semibold text-[#1d1d1f]">
+                  <OfferPrice basePrice={product.basePrice} />
                 </div>
-                <p className="mt-1 text-[12px] font-medium text-[#68686d]">15% applied at checkout</p>
                 {"freeShipping" in product && product.freeShipping ? (
                   <p className="mt-1 text-[12px] font-medium text-[#1d1d1f]">Free shipping</p>
                 ) : null}
@@ -159,29 +149,12 @@ function ProductSection() {
                 ) : null}
               </div>
               <Button asChild size="lg" className="mt-6 w-full max-w-[260px] sm:mt-7 sm:max-w-[220px]">
-                <TrackedShopLink route="/pets" placement="mid_page" product={product.name} destination={product.href}>Buy {product.name}</TrackedShopLink>
+                <TrackedShopLink route="/pets" placement="mid_page" product={product.name} destination={shopUrl(product.handle)}>Buy {product.name}</TrackedShopLink>
               </Button>
-              <a
-                href="#guarantee"
-                className="mt-3 text-[11px] text-[#68686d] underline underline-offset-2 hover:text-[#1d1d1f]"
-              >
-                <span className="sm:hidden">Fresh Home Guarantee ✓ - 30 days</span>
-                <span className="hidden sm:inline">Fresh Home Guarantee ✓ - 30 days, return shipping on us</span>
-              </a>
+              <GuaranteeBadge className="mt-3 justify-center text-center" />
             </article>
           ))}
         </div>
-
-        <div id="guarantee" className="mx-auto mt-10 max-w-[820px] scroll-mt-24 rounded-[24px] border border-primary/25 bg-white p-6 text-center shadow-[0_24px_60px_-32px_rgba(0,0,0,0.28)] sm:mt-16 sm:rounded-[28px] sm:p-10">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 sm:h-14 sm:w-14">
-            <ShieldCheck className="h-6 w-6 text-primary sm:h-7 sm:w-7" strokeWidth={2} />
-          </div>
-          <h3 className="mt-4 text-[24px] font-semibold leading-tight tracking-tight text-[#1d1d1f] sm:mt-5 sm:text-[32px]">The Fresh Home Guarantee</h3>
-          <p className="mx-auto mt-3 max-w-[56ch] text-[15px] leading-relaxed text-[#68686d] sm:mt-4 sm:text-[16px]">
-            Notice the difference in your first month, or your money back. If you’re not satisfied within 30 days, we’ll refund every cent and cover the return shipping.
-          </p>
-        </div>
-
       </div>
     </section>
   );
@@ -283,10 +256,12 @@ function CompactFooter() {
   );
 }
 
-const PetsLandingPage = () => {
+const PetsLandingContent = () => {
+  const { isPromo, salePrice, shopUrl } = useOffer();
   const heroRef = useRef<HTMLElement>(null);
   const [showSticky, setShowSticky] = useState(false);
   const [showExitOffer, setShowExitOffer] = useState(false);
+  const fromPrice = formatPrice(salePrice(MINI_PRICE));
 
   const scrollToProducts = () => {
     trackEvent("click_pets_products_scroll");
@@ -372,9 +347,12 @@ const PetsLandingPage = () => {
                 className="mt-7 h-[54px] w-full rounded-full px-7 text-[16px] font-semibold sm:w-auto"
                 onClick={scrollToProducts}
               >
-                Shop Pet Solutions - From $83.30 <ArrowRight />
+                Shop Pet Solutions - From {fromPrice} <ArrowRight />
               </Button>
-              <p className="mt-3 text-[13px] font-semibold text-[#bf4800]">15% OFF - Automatically applied at checkout</p>
+              {isPromo ? (
+                <p className="mt-3 text-[13px] font-semibold text-[#bf4800]">15% OFF - Automatically applied at checkout</p>
+              ) : null}
+              <GuaranteeBadge className="mt-3" />
               <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[12.5px] font-medium text-neutral-600">
                 {["30-Day Risk-Free Guarantee", "Pet-Safe & Non-Toxic", "No Fragrances or Daily Spraying"].map((point) => (
                   <li key={point} className="flex items-center gap-1.5">
@@ -404,7 +382,7 @@ const PetsLandingPage = () => {
             slug: "biotica-800",
             bestFor: "Living rooms and open pet spaces",
             installation: "Plug in and run continuously",
-            destination: BIOTICA_URL,
+            destination: shopUrl("biotica-800"),
             ctaLabel: "Shop Biotica 800",
             featured: true,
           }]}
@@ -485,7 +463,7 @@ const PetsLandingPage = () => {
                   <li>✓ No fragrance masking</li>
                   <li>✓ Runs continuously</li>
                 </ul>
-                <p className="mt-6 text-[16px] font-semibold text-[#bf4800]">Biotica 800 - $254.15 once, about $0.70/day.</p>
+                <p className="mt-6 text-[16px] font-semibold text-[#bf4800]">Biotica 800 - {formatPrice(salePrice(BIOTICA_PRICE))} once, about $0.70/day.</p>
               </div>
             </div>
             <p className="mt-8 text-center text-[18px] font-semibold tracking-tight text-black sm:text-[22px]">
@@ -508,6 +486,8 @@ const PetsLandingPage = () => {
             </div>
           </div>
         </section>
+
+        <TrialGuaranteeSection />
 
         <section className="bg-[#F4F5F6] py-11 sm:py-20">
           <div className="mx-auto grid max-w-[1200px] gap-10 px-5 sm:px-10 lg:grid-cols-[0.8fr_1.2fr]">
@@ -535,8 +515,9 @@ const PetsLandingPage = () => {
                 <div className="w-[48%] px-12 py-16">
                   <h2 className="text-[44px] font-semibold leading-[1.05] tracking-tight text-[#1A1A1A]">Give your pet the clean home they deserve.</h2>
                   <p className="mt-5 text-[17px] leading-relaxed text-black/70">Continuous care for the spaces you share with them.</p>
-                  <Button size="lg" className="mt-8" onClick={scrollToProducts}>Shop EnviroBiotics - From $83.30 <ArrowRight /></Button>
-                  <p className="mt-3 text-[13px] font-semibold text-[#bf4800]">15% OFF automatically applied at checkout</p>
+                  <Button size="lg" className="mt-8" onClick={scrollToProducts}>Shop EnviroBiotics - From {fromPrice} <ArrowRight /></Button>
+                  {isPromo ? <p className="mt-3 text-[13px] font-semibold text-[#bf4800]">15% OFF automatically applied at checkout</p> : null}
+                  <GuaranteeBadge className="mt-3" />
                   <p className="mt-2 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $200</p>
                 </div>
               </div>
@@ -546,8 +527,9 @@ const PetsLandingPage = () => {
                 <div className="px-6 py-12 text-center sm:px-10">
                   <h2 className="text-[34px] font-semibold leading-[1.05] tracking-tight sm:text-[40px]">Give your pet the clean home they deserve.</h2>
                   <p className="mt-5 text-[16px] leading-relaxed text-black/70">Continuous care for the spaces you share with them.</p>
-                  <Button size="lg" className="mt-8 w-full sm:w-auto" onClick={scrollToProducts}>Shop EnviroBiotics - From $83.30 <ArrowRight /></Button>
-                  <p className="mt-3 text-[13px] font-semibold text-[#bf4800]">15% OFF automatically applied at checkout</p>
+                  <Button size="lg" className="mt-8 w-full sm:w-auto" onClick={scrollToProducts}>Shop EnviroBiotics - From {fromPrice} <ArrowRight /></Button>
+                  {isPromo ? <p className="mt-3 text-[13px] font-semibold text-[#bf4800]">15% OFF automatically applied at checkout</p> : null}
+                  <GuaranteeBadge className="mt-3 justify-center" />
                   <p className="mt-2 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $200</p>
                 </div>
                 <img src={finalCtaAsset.url} alt="BioLogic Mini on a shelf beside a green plant in a warm home" loading="lazy" decoding="async" width="1920" height="640" className="w-full object-cover object-center" />
@@ -561,15 +543,22 @@ const PetsLandingPage = () => {
       <MobileStickyShopCTA
         route="/pets"
         product="biotica-800"
-        destination={BIOTICA_URL}
+        destination={shopUrl("biotica-800")}
         label="Shop Biotica 800"
         detail="Up to 800 sq ft · $299"
         visible={showSticky}
       />
       <CompactFooter />
-      <ExitOffer open={showExitOffer} onOpenChange={setShowExitOffer} />
+      {isPromo ? <ExitOffer open={showExitOffer} onOpenChange={setShowExitOffer} /> : null}
     </>
   );
 };
+
+const PetsLandingPage = ({ offer = "guarantee" }: LandingPageProps) => (
+  <OfferLanding offer={offer} pageName="pets">
+    <PetsLandingContent />
+  </OfferLanding>
+);
+
 
 export default PetsLandingPage;
