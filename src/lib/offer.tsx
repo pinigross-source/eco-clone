@@ -1,12 +1,11 @@
 import { createContext, useContext, useEffect, useMemo, type ReactNode } from "react";
 import { buildShopUrl, PRODUCT_HANDLE_MAP } from "@/lib/shopify";
+import { captureSessionAttribution, withVisitorAttribution } from "@/lib/attribution-session";
 
 export { buildShopUrl };
-import { captureSessionAttribution, withVisitorAttribution } from "@/lib/attribution-session";
 
 export type OfferId = "guarantee" | "meta15";
 
-export const META15_CODE = "META15";
 export const META15_PERCENT = 15;
 
 export type OfferValue = {
