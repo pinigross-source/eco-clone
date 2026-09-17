@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { CompactTrustStrip, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
+import { CompactTrustStrip, GUARANTEE_BODY, GUARANTEE_FAQ_QUESTION, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
 import { OfferLanding, type LandingPageProps } from "@/components/landing/OfferLanding";
 import { useOffer } from "@/lib/offer";
 import {

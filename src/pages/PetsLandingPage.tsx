@@ -18,7 +18,7 @@ import {
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
 import { trackFBEvent } from "@/lib/fb-pixel";
-import { CompactTrustStrip, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrackedShopLink, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
+import { CompactTrustStrip, GUARANTEE_BODY, GUARANTEE_FAQ_QUESTION, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrackedShopLink, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
 import { OfferLanding, type LandingPageProps } from "@/components/landing/OfferLanding";
 import { formatPrice, useOffer } from "@/lib/offer";
 
