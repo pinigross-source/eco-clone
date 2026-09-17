@@ -19,7 +19,7 @@ import areProbioticsSafeImg from "@/assets/blog/are-environmental-probiotics-saf
 import biologicalAirFiltrationImg from "@/assets/blog/biological-air-filtration.avif";
 import whyAirPurifiersDontSolveAllergiesImg from "@/assets/blog/why-air-purifiers-dont-solve-allergies.avif";
 import purificationVsDisinfectionImg from "@/assets/blog/purification-vs-disinfection.avif";
-import ba2080ReviewImg from "@/assets/blog/biotica-800-review.avif";
+import ba2080ReviewImg from "@/assets/blog/ba-2080-review-6-months.avif";
 import betterairRebrandImg from "@/assets/blog/betterair-to-envirobiotics-rebrand.avif";
 import improveIaqNaturallyImg from "@/assets/blog/improve-indoor-air-quality-naturally.avif";
 import mustySmellImg from "@/assets/blog/get-rid-of-musty-smell.avif";
