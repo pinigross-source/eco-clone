@@ -9,7 +9,7 @@ import { ArrowLeft, Calendar, Clock, ArrowRight, BookOpen, Lightbulb, CheckCircl
 import { getPostBySlug, getRelatedPosts, BlogPost } from "@/data/blogData";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { BlogContentRenderer } from "@/components/blog/BlogContentRenderer";
+import { BlogContentRenderer, renderInlineMarkdown } from "@/components/blog/BlogContentRenderer";
 import { GooglePreferredSourceButton } from "@/components/GooglePreferredSourceButton";
 
 const RelatedPostCard = ({ post }: { post: BlogPost }) => (
@@ -285,7 +285,7 @@ const BlogPostPage = () => {
                     src={post.image}
                      alt={post.imageAlt ?? post.title}
                      width={1200}
-                     height={640}
+                      height={630}
                     className="w-full h-[300px] md:h-[500px] object-cover"
                   />
                 </div>
@@ -302,7 +302,7 @@ const BlogPostPage = () => {
                 {post.quickAnswer && (
                   <div className="mb-6 border-l-4 border-primary bg-primary/5 px-6 py-5">
                     <p className="text-sm font-semibold uppercase text-primary">Quick answer</p>
-                    <p className="mt-2 text-lg leading-relaxed text-foreground/80">{post.quickAnswer}</p>
+                    <p className="mt-2 text-lg leading-relaxed text-foreground/80">{renderInlineMarkdown(post.quickAnswer)}</p>
                   </div>
                 )}
                 <Card className="bg-gradient-to-br from-primary/5 via-primary/10 to-transparent border-primary/20 overflow-hidden">
@@ -317,7 +317,7 @@ const BlogPostPage = () => {
                       {keyTakeaways.map((takeaway, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                          <span className="text-foreground/80">{takeaway}</span>
+                          <span className="text-foreground/80">{renderInlineMarkdown(takeaway)}</span>
                         </li>
                       ))}
                     </ul>

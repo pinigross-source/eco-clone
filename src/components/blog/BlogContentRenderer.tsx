@@ -3,7 +3,7 @@ import { Link } from "@/lib/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 // Render the inline Markdown used by the authored articles.
-const renderInlineMarkdown = (text: string): React.ReactNode => {
+export const renderInlineMarkdown = (text: string): React.ReactNode => {
   const parts: React.ReactNode[] = [];
   let remaining = text;
   let key = 0;
