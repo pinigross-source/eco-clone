@@ -45,11 +45,11 @@ export function TrackedShopLink({
   children,
   ...props
 }: TrackedShopLinkProps) {
-  const { pageName } = useOffer();
+  const { utmContent } = useOffer();
   const decorate = (event: React.MouseEvent<HTMLAnchorElement>) => {
     // Click-time only: decorating during render would break SSR hydration.
     const anchor = event.currentTarget;
-    const decorated = withVisitorAttribution(anchor.href, pageName);
+    const decorated = withVisitorAttribution(anchor.href, utmContent);
     if (decorated !== anchor.href) anchor.href = decorated;
   };
 

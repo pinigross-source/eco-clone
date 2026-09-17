@@ -12,6 +12,8 @@ export type OfferValue = {
   offer: OfferId;
   /** Page name used for utm_content on outbound shop links. */
   pageName: string;
+  /** Exact utm_content value stamped on outbound shop links. */
+  utmContent: string;
   isPromo: boolean;
   discountPercent: number;
   /** Build an outbound shop URL for an internal product slug or handle. */
@@ -21,6 +23,12 @@ export type OfferValue = {
   /** Discounted price for the current offer, rounded to cents. */
   salePrice: (basePrice: number) => number;
 };
+
+/** utm_content value: home, pets-landing, go-pets-landing, ... */
+export function utmContentFor(pageName: string, offer: OfferId): string {
+  if (pageName === "home") return "home";
+  return offer === "meta15" ? `go-${pageName}-landing` : `${pageName}-landing`;
+}
 
 const OfferContext = createContext<OfferValue | null>(null);
 
@@ -49,7 +57,7 @@ export function OfferProvider({
         return;
       }
       if (!host.startsWith("shop.")) return;
-      anchor.href = withVisitorAttribution(anchor.href, pageName);
+      anchor.href = withVisitorAttribution(anchor.href, utmContentFor(pageName, offer));
     };
     document.addEventListener("click", onPointer, true);
     document.addEventListener("auxclick", onPointer, true);
@@ -64,6 +72,7 @@ export function OfferProvider({
     return {
       offer,
       pageName,
+      utmContent: utmContentFor(pageName, offer),
       isPromo,
       discountPercent: isPromo ? META15_PERCENT : 0,
       shopUrl: (slugOrHandle: string) =>
@@ -80,6 +89,7 @@ export function OfferProvider({
 const DEFAULT_OFFER: OfferValue = {
   offer: "guarantee",
   pageName: "site",
+  utmContent: "site",
   isPromo: false,
   discountPercent: 0,
   shopUrl: (slugOrHandle: string) =>
