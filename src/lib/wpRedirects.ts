@@ -1,3 +1,4 @@
+import { buildShopUrl } from "@/lib/shopify";
 /** Legacy WordPress URL redirect maps, shared by the splat route and client handler. */
 export const REDIRECT_MAP: Record<string, string> = {
   // ── WordPress Blog Posts ──
@@ -19,7 +20,7 @@ export const REDIRECT_MAP: Record<string, string> = {
   // ── Product Refills & Accessories → Shop ──
   "/biologic-mini-refill-twin-refill-subscription": "/shop",
   "/e-biotic-refill-subscription-250ml-6m": "/shop",
-  "/e-biotic-pro-500ml-refill": "https://shop.envirobiotics.com/products/e-biotic-pro-500ml-refill",
+  "/e-biotic-pro-500ml-refill": buildShopUrl("/products/e-biotic-pro-500ml-refill"),
   "/biodify-cartridge-2-pack": "/shop",
   "/bapf-18": "/shop",
   "/pet-spray": "/shop",
