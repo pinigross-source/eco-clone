@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "@/lib/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
-// Render inline markdown: **bold** and [link text](/path)
+// Render the inline Markdown used by the authored articles.
 const renderInlineMarkdown = (text: string): React.ReactNode => {
   const parts: React.ReactNode[] = [];
   let remaining = text;
@@ -11,17 +11,19 @@ const renderInlineMarkdown = (text: string): React.ReactNode => {
   while (remaining.length > 0) {
     // Find the earliest match of bold or link
     const boldMatch = remaining.match(/\*\*(.+?)\*\*/);
+    const italicMatch = remaining.match(/(?<!\*)\*([^*]+?)\*(?!\*)/);
     const linkMatch = remaining.match(/\[([^\]]+)\]\(([^)]+)\)/);
 
     const boldIdx = boldMatch?.index ?? Infinity;
     const linkIdx = linkMatch?.index ?? Infinity;
+    const italicIdx = italicMatch?.index ?? Infinity;
 
-    if (boldIdx === Infinity && linkIdx === Infinity) {
+    if (boldIdx === Infinity && linkIdx === Infinity && italicIdx === Infinity) {
       parts.push(remaining);
       break;
     }
 
-    if (linkIdx < boldIdx && linkMatch && linkMatch.index !== undefined) {
+    if (linkIdx < boldIdx && linkIdx < italicIdx && linkMatch && linkMatch.index !== undefined) {
       // Link comes first
       if (linkMatch.index > 0) parts.push(remaining.slice(0, linkMatch.index));
       const href = linkMatch[2];
@@ -40,7 +42,7 @@ const renderInlineMarkdown = (text: string): React.ReactNode => {
         );
       }
       remaining = remaining.slice(linkMatch.index + linkMatch[0].length);
-    } else if (boldMatch && boldMatch.index !== undefined) {
+    } else if (boldIdx < italicIdx && boldMatch && boldMatch.index !== undefined) {
       // Bold comes first
       if (boldMatch.index > 0) parts.push(remaining.slice(0, boldMatch.index));
       parts.push(
@@ -49,6 +51,10 @@ const renderInlineMarkdown = (text: string): React.ReactNode => {
         </strong>
       );
       remaining = remaining.slice(boldMatch.index + boldMatch[0].length);
+    } else if (italicMatch && italicMatch.index !== undefined) {
+      if (italicMatch.index > 0) parts.push(remaining.slice(0, italicMatch.index));
+      parts.push(<em key={key++}>{italicMatch[1]}</em>);
+      remaining = remaining.slice(italicMatch.index + italicMatch[0].length);
     }
   }
 
@@ -61,11 +67,36 @@ interface ContentBlockProps {
 }
 
 const ContentBlock = ({ item, isFirstParagraph = false }: ContentBlockProps) => {
+  if (item.startsWith("|") && item.includes("\n")) {
+    const rows = item.split("\n").filter((row) => !/^\|?[\s:|-]+\|?$/.test(row));
+    const cells = rows.map((row) => row.replace(/^\||\|$/g, "").split("|").map((cell) => cell.trim()));
+    const [head, ...body] = cells;
+    if (!head) return null;
+    return (
+      <div className="my-8 overflow-x-auto rounded-xl border border-border">
+        <table className="w-full min-w-[640px] border-collapse text-left text-sm">
+          <thead className="bg-muted/70">
+            <tr>{head.map((cell, index) => <th key={index} className="border-b border-border px-4 py-3 font-semibold text-foreground">{renderInlineMarkdown(cell)}</th>)}</tr>
+          </thead>
+          <tbody>{body.map((row, rowIndex) => <tr key={rowIndex} className="border-b border-border/60 last:border-0">{row.map((cell, cellIndex) => <td key={cellIndex} className="px-4 py-3 align-top text-muted-foreground">{renderInlineMarkdown(cell)}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+    );
+  }
+
+  const unordered = item.match(/^[-*]\s+(.+)/);
+  const ordered = item.match(/^\d+\.\s+(.+)/);
+  if (unordered || ordered) {
+    const content = unordered?.[1] ?? ordered?.[1] ?? "";
+    const List = ordered ? "ol" : "ul";
+    return <List className={ordered ? "ml-6 list-decimal text-lg text-muted-foreground" : "ml-6 list-disc text-lg text-muted-foreground"}><li className="pl-1 leading-relaxed">{renderInlineMarkdown(content)}</li></List>;
+  }
+
   // Heading ###
   if (item.startsWith("### ")) {
     return (
       <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mt-8 mb-2">
-        {item.slice(4)}
+        {renderInlineMarkdown(item.slice(4))}
       </h3>
     );
   }
@@ -74,7 +105,7 @@ const ContentBlock = ({ item, isFirstParagraph = false }: ContentBlockProps) => 
   if (item.startsWith("## ")) {
     return (
       <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mt-12 mb-2">
-        {item.slice(3)}
+        {renderInlineMarkdown(item.slice(3))}
       </h2>
     );
   }

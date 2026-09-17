@@ -1,16 +1,8 @@
-export interface BlogPost {
-  slug: string;
-  title: string;
-  description: string;
-  image: string;
-  category: "blog" | "article";
-  content: string[];
-  externalUrl?: string;
-  /** Slugs of related blog posts for internal linking */
-  relatedSlugs?: string[];
-  /** Tags for smarter related-post matching */
-  tags?: string[];
-}
+import { BlogPost, FAQ, RelatedLink } from "@/types/blog";
+
+export type { BlogPost, FAQ, RelatedLink };
+
+import { generatedBlogPosts } from "./generatedBlogPosts";
 
 import probioticAirPurifierHeroAsset from "@/assets/blog/probiotic-air-purifier-hero.avif.asset.json";
 import candidaAurisImg from "@/assets/blog/candida-auris-threat.avif";
@@ -27,7 +19,7 @@ import areProbioticsSafeImg from "@/assets/blog/are-environmental-probiotics-saf
 import biologicalAirFiltrationImg from "@/assets/blog/biological-air-filtration.avif";
 import whyAirPurifiersDontSolveAllergiesImg from "@/assets/blog/why-air-purifiers-dont-solve-allergies.avif";
 import purificationVsDisinfectionImg from "@/assets/blog/purification-vs-disinfection.avif";
-import ba2080ReviewImg from "@/assets/blog/ba-2080-review-6-months.avif";
+import ba2080ReviewImg from "@/assets/blog/biotica-800-review.avif";
 import betterairRebrandImg from "@/assets/blog/betterair-to-envirobiotics-rebrand.avif";
 import improveIaqNaturallyImg from "@/assets/blog/improve-indoor-air-quality-naturally.avif";
 import mustySmellImg from "@/assets/blog/get-rid-of-musty-smell.avif";
@@ -40,7 +32,7 @@ import ebioticProHeroImg from "@/assets/ebiotic-pro-lifestyle-v4.avif";
 
 const probioticAirPurifierHero = probioticAirPurifierHeroAsset.url;
 
-export const blogPosts: BlogPost[] = [
+const legacyBlogPosts: BlogPost[] = [
   {
     slug: "why-air-purifiers-dont-solve-allergies",
     title: "Air Purifiers Alone Don't Stop Allergy Triggers. Here's What Actually Works.",
@@ -543,7 +535,7 @@ export const blogPosts: BlogPost[] = [
       "### 2. Two paths off the homepage",
       "The new website acknowledges that \"Room\" and \"Whole-Home\" are two different decisions made by two different kinds of buyers. A renter in a one-bedroom apartment doesn't need an HVAC system; an empty-nester finishing a 3,000 sq ft basement renovation doesn't want to run six portable units. The site forks early so each buyer ends up on the right page.",
       "### 3. Distribution channels",
-      "Under BetterAir, almost everything went through institutional contracts. Under EnviroBiotics, you can buy **direct-to-consumer at envirobiotics.com**,  the BioLogic Mini, Biotica 800, BA-2080, and BioLogic Mini Gen 2 ship to your door. **Lowe's**,  the E-Biotic Pro is listed there, which is the brand's mass-market trust signal. **Certified contractor / installer network**,  companies like GreenWorks Environmental and Natural Air Solution handle the installed E-Biotic Pro bundle (around $2,895 including professional install and first-year solution). **Affiliate program**,  for creators and consultants who want to recommend the technology. **Refill subscriptions**,  set-and-forget recurring solution shipments so you're not tracking refill cadence yourself.",
+      "Under BetterAir, almost everything went through institutional contracts. Under EnviroBiotics, you can buy **direct-to-consumer at envirobiotics.com**,  the BioLogic Mini, Biotica 800, BA-2080, and BioLogic Mini Gen 2 ship to your door. **Certified dealer network**, the E-Biotic Pro is sold and installed through EnviroBiotics certified dealers. **Affiliate program**,  for creators and consultants who want to recommend the technology. **Refill subscriptions**,  set-and-forget recurring solution shipments so you're not tracking refill cadence yourself.",
       "## Old product names → current product names",
       "If you bought from BetterAir in 2018, 2020, or 2023, here's the rough map. **BetterAir BioLogic Mini → BioLogic Mini** (same product, same name, same refill). **BetterAir Biotica 800 → Biotica 800** (same product, same name, same refill). **BetterAir BA-2080 → BA-2080** (same product, same name, same refill). **BetterAir \"HVAC Series\" / commercial HVAC unit → E-Biotic Pro** (refreshed hardware launched April 2025; consult certified installer for migration path). **Discontinued BetterAir commercial models → Contact support** (most legacy units still take current refill solutions,  call us first).",
       "If you have a unit that isn't on this list, contact support before assuming it's unsupported. We're still servicing a lot of older institutional installs.",
@@ -1062,7 +1054,7 @@ export const blogPosts: BlogPost[] = [
       "**First cartridge and calibration.** The installer loads the initial 500ml probiotic cartridge and sets the dispersion cadence appropriate to your home's size and duct layout.",
       "**Walkthrough.** You get shown how to check the cartridge level and when to reorder.",
       "Start to finish, installation typically takes a couple of hours. You don't need to be an HVAC expert, that's what the certified installer is for, but you should budget for a scheduled appointment, not a same-day unboxing.",
-      "A note on availability: EnviroBiotics has expanded retail distribution, and the E-Biotic Pro is available through Lowe's alongside the certified-installer channel. Whichever route you take, the installation itself should be done by a certified technician.",
+      "The E-Biotic Pro is sold and installed through EnviroBiotics certified dealers.",
       "## E-Biotic Pro vs multiple room units",
       "If you have a large home, the real decision is usually between one whole-home system and several room units. Here's the straight comparison:",
       "- **Coverage:** The E-Biotic Pro reaches every room the HVAC serves, plus the ductwork itself. Room units only cover the rooms they sit in.",
@@ -1105,7 +1097,7 @@ export const blogPosts: BlogPost[] = [
       "**Is the E-Biotic Pro worth it compared to running several room units?** For a larger home with a distributed problem, usually yes. Room units only cover the rooms they're in and leave gaps, and once you'd be running four or more of them, the whole-home system is comparable up front and simpler to maintain, plus it treats the ductwork, which room units never reach. For a small home or a single problem room, room units are the better value.",
       "**Does the E-Biotic Pro replace my furnace filter?** No, and it isn't meant to. A furnace filter captures airborne particulate; the E-Biotic Pro treats surfaces with beneficial probiotics. They address different halves of the problem, airborne versus surface, and work well together. Keep your filter and add the probiotic system.",
       "**Is it safe to disperse probiotics through my home's air?** Yes. The Bacillus strains used are FDA GRAS classified, MADE SAFE certified, and EPA Registered. The system produces no ozone, no VOCs, no fragrance, and no chemical residue, and is designed for continuous use in homes with children and pets.",
-      "**Where can I buy the E-Biotic Pro?** Through EnviroBiotics and its certified installer network, and through retail availability at Lowe's. Regardless of where you purchase, the unit should be installed by a certified technician to ensure correct placement and calibration with your HVAC system.",
+      "**Where can I buy the E-Biotic Pro?** The E-Biotic Pro is sold and installed through EnviroBiotics certified dealers. A certified technician ensures correct placement and calibration with your HVAC system.",
       "Ready for whole-home coverage? See the [E-Biotic Pro](/product/e-biotic-pro) and find a certified installer."
     ],
   },
@@ -1381,6 +1373,16 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 ];
+
+export const blogPosts: BlogPost[] = [
+  ...generatedBlogPosts,
+  ...legacyBlogPosts.filter((post) => post.slug !== "ba-2080-review-6-months"),
+].sort((a, b) => {
+  if (a.publishDate && b.publishDate) return b.publishDate.localeCompare(a.publishDate);
+  if (a.publishDate) return -1;
+  if (b.publishDate) return 1;
+  return 0;
+});
 
 export const articlePosts: BlogPost[] = [];
 
