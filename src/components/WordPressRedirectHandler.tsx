@@ -27,7 +27,17 @@ export const WordPressRedirectHandler = () => {
     // Handle ?p=123 WordPress numeric post IDs → send to homepage
     const params = new URLSearchParams(location.search);
     if (params.has("p") || params.has("page_id")) {
-      navigate({ to: "/", replace: true });
+      // Drop only the legacy WordPress ids; keep campaign parameters.
+      navigate({
+        to: "/",
+        search: (prev: Record<string, unknown>) => {
+          const next = { ...(prev ?? {}) };
+          delete next.p;
+          delete next.page_id;
+          return next;
+        },
+        replace: true,
+      });
     }
   }, [location.pathname, location.search, navigate]);
 
