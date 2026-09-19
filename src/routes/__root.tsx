@@ -161,6 +161,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
   }
 
   var p = new URLSearchParams(window.location.search);
+  try {
+    var gl0 = p.get("_gl");
+    if (gl0 && !sessionStorage.getItem("eb_gl")) sessionStorage.setItem("eb_gl", gl0);
+  } catch (e) {}
   var incoming = {};
   KEYS.forEach(function (k) { var v = p.get(k); if (v) incoming[k] = v; });
 
