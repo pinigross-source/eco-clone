@@ -13,13 +13,15 @@ export const WordPressRedirectHandler = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Legacy redirects must keep the visitor's campaign query string intact.
+    const search = location.search ?? "";
     const target = resolveWpRedirect(location.pathname);
     if (target) {
       if (/^https?:\/\//i.test(target)) {
         if (typeof window !== "undefined") window.location.replace(target);
         return;
       }
-      navigate({ to: target as never, replace: true });
+      navigate({ to: target as never, search: (prev: unknown) => prev, replace: true });
       return;
     }
 
