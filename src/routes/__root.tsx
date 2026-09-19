@@ -232,6 +232,16 @@ function RootShell({ children }: { children: React.ReactNode }) {
     if (!url.searchParams.has("lp_page")) {
       url.searchParams.set("lp_page", window.location.pathname || "/");
     }
+    // GA's cross-domain linker parameter: forward whatever the visitor arrived
+    // with if GA's own click decorator has not already stamped one.
+    if (!url.searchParams.has("_gl")) {
+      var gl = null;
+      try {
+        gl = new URLSearchParams(window.location.search).get("_gl") ||
+             sessionStorage.getItem("eb_gl");
+      } catch (e) {}
+      if (gl) url.searchParams.set("_gl", gl);
+    }
     return url.toString();
   }
 
