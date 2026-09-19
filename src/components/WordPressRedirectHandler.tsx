@@ -20,7 +20,11 @@ export const WordPressRedirectHandler = () => {
         if (typeof window !== "undefined") window.location.replace(target);
         return;
       }
-      navigate({ to: target as never, search: (prev: unknown) => prev, replace: true });
+      navigate({
+        to: target as never,
+        search: ((prev: Record<string, unknown>) => prev) as never,
+        replace: true,
+      });
       return;
     }
 
