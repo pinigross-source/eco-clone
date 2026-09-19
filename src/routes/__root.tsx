@@ -14,7 +14,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { WordPressRedirectHandler } from "@/components/WordPressRedirectHandler";
 import { AttributionBeacon } from "@/components/AttributionBeacon";
 import { TidioChat } from "@/components/TidioChat";
-import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { GoogleAnalytics, GA_HEAD_SNIPPET } from "@/components/GoogleAnalytics";
 import { isTestEnv } from "@/lib/env";
 
 
@@ -130,6 +130,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Google Analytics 4 — loaded exactly once, before the app mounts.
+            Cookie domain is the shared root domain so shop.envirobiotics.com
+            reads the same _ga value and the session continues across the hop. */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{ __html: GA_HEAD_SNIPPET }}
+        />
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
@@ -154,6 +161,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
   }
 
   var p = new URLSearchParams(window.location.search);
+  try {
+    var gl0 = p.get("_gl");
+    if (gl0 && !sessionStorage.getItem("eb_gl")) sessionStorage.setItem("eb_gl", gl0);
+  } catch (e) {}
   var incoming = {};
   KEYS.forEach(function (k) { var v = p.get(k); if (v) incoming[k] = v; });
 
@@ -224,6 +235,16 @@ function RootShell({ children }: { children: React.ReactNode }) {
     if (ref && !url.searchParams.has("ref")) url.searchParams.set("ref", ref);
     if (!url.searchParams.has("lp_page")) {
       url.searchParams.set("lp_page", window.location.pathname || "/");
+    }
+    // GA's cross-domain linker parameter: forward whatever the visitor arrived
+    // with if GA's own click decorator has not already stamped one.
+    if (!url.searchParams.has("_gl")) {
+      var gl = null;
+      try {
+        gl = new URLSearchParams(window.location.search).get("_gl") ||
+             sessionStorage.getItem("eb_gl");
+      } catch (e) {}
+      if (gl) url.searchParams.set("_gl", gl);
     }
     return url.toString();
   }

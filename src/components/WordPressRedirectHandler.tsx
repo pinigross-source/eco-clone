@@ -13,20 +13,35 @@ export const WordPressRedirectHandler = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Legacy redirects must keep the visitor's campaign query string intact.
     const target = resolveWpRedirect(location.pathname);
     if (target) {
       if (/^https?:\/\//i.test(target)) {
         if (typeof window !== "undefined") window.location.replace(target);
         return;
       }
-      navigate({ to: target as never, replace: true });
+      navigate({
+        to: target as never,
+        search: ((prev: Record<string, unknown>) => prev) as never,
+        replace: true,
+      });
       return;
     }
 
     // Handle ?p=123 WordPress numeric post IDs → send to homepage
     const params = new URLSearchParams(location.search);
     if (params.has("p") || params.has("page_id")) {
-      navigate({ to: "/", replace: true });
+      // Drop only the legacy WordPress ids; keep campaign parameters.
+      navigate({
+        to: "/",
+        search: (prev: Record<string, unknown>) => {
+          const next = { ...(prev ?? {}) };
+          delete next.p;
+          delete next.page_id;
+          return next;
+        },
+        replace: true,
+      });
     }
   }, [location.pathname, location.search, navigate]);
 
