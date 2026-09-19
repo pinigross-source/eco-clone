@@ -130,6 +130,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Google Analytics 4 — loaded exactly once, before the app mounts.
+            Cookie domain is the shared root domain so shop.envirobiotics.com
+            reads the same _ga value and the session continues across the hop. */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{ __html: GA_HEAD_SNIPPET }}
+        />
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
