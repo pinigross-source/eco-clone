@@ -14,7 +14,6 @@ export const WordPressRedirectHandler = () => {
 
   useEffect(() => {
     // Legacy redirects must keep the visitor's campaign query string intact.
-    const search = location.search ?? "";
     const target = resolveWpRedirect(location.pathname);
     if (target) {
       if (/^https?:\/\//i.test(target)) {
