@@ -1,31 +1,29 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useRouterState } from "@tanstack/react-router";
 
 /**
  * GA4 for the marketing site.
  *
- * The measurement ID is the SAME stream already used by the Shopify store
- * (Google & YouTube app), so sessions stitch across envirobiotics.com and
- * shop.envirobiotics.com. We never create a second Shopify GA4 property and
- * never send ecommerce/purchase events from here.
+ * The tag itself is loaded ONCE from an inline snippet in the document head
+ * (see src/routes/__root.tsx) so it is initialised before the app mounts and is
+ * never re-initialised on route changes. That snippet sets:
+ *   cookie_domain: ".envirobiotics.com"  -> _ga is shared with the Shopify store
+ *   cookie_flags:  "SameSite=None;Secure"
+ *   send_page_view: false                -> SPA page views are sent from here
+ *   linker: { domains: [...], accept_incoming: true }
  *
- * Page views: we use Google's recommended setup — the automatic initial
- * page_view from `config`, plus GA4 enhanced measurement's native History API
- * tracking for client-side route changes. There is NO manual page_view firing
- * here on purpose: manual events plus enhanced measurement history events
- * double-count, and `send_page_view: false` does not turn the history events
- * off.
+ * The measurement ID is the SAME stream used by shop.envirobiotics.com, so a
+ * visitor crossing to the store continues the same GA4 session and keeps the
+ * original source/medium.
  *
- * REQUIRES (unverified from here — needs GA4 Admin access):
- *   Admin → Data streams → this web stream → Enhanced measurement →
- *   "Page changes based on browser history events" must be ENABLED,
- *   otherwise client-side route changes are not counted at all.
- *
- * Loading is gated to the production hostnames only (see GA_HOSTS): localhost,
- * lovable.app previews and the editor never send hits.
+ * This component only fires the manual page_view on the initial load and on
+ * every client-side route change.
  */
 export const GA_MEASUREMENT_ID = "G-E86NY68N0Y";
 
 export const GA_HOSTS = ["envirobiotics.com", "www.envirobiotics.com"];
+
+export const GA_COOKIE_DOMAIN = ".envirobiotics.com";
 
 export const GA_LINKER_DOMAINS = [
   "envirobiotics.com",
@@ -47,56 +45,64 @@ export function isGaExcludedPath(pathname: string): boolean {
 }
 
 type GtagWindow = Window & {
-  dataLayer?: IArguments[];
   gtag?: (...args: unknown[]) => void;
-  __ebGaReady?: boolean;
 };
 
-function initGa() {
-  const w = window as GtagWindow;
-  if (w.__ebGaReady) return true;
-  if (!isGaHost(window.location.hostname)) return false;
-  // The review route is deliberately not measured. Because enhanced
-  // measurement owns history events once the tag is loaded, the only reliable
-  // exclusion is to not load the tag at all on that entry page.
-  if (isGaExcludedPath(window.location.pathname)) return false;
-
-  w.dataLayer = w.dataLayer || [];
-  // Google's canonical wrapper: it must push the raw `arguments` object.
-  function gtag() {
-    // eslint-disable-next-line prefer-rest-params
-    (w.dataLayer as IArguments[]).push(arguments);
+/** The inline head snippet, kept here so the config lives in one file. */
+export const GA_HEAD_SNIPPET = `(function(){
+  var ID = ${JSON.stringify(GA_MEASUREMENT_ID)};
+  var HOSTS = ${JSON.stringify(GA_HOSTS)};
+  var EXCLUDED = ${JSON.stringify(GA_EXCLUDED_PATHS)};
+  var h = window.location.hostname;
+  if (HOSTS.indexOf(h) === -1) return;
+  for (var i = 0; i < EXCLUDED.length; i++) {
+    var p = EXCLUDED[i];
+    if (window.location.pathname === p || window.location.pathname.indexOf(p + "/") === 0) return;
   }
-  if (typeof w.gtag !== "function") w.gtag = gtag as unknown as GtagWindow["gtag"];
-
-  // NOTE: no consent defaults are written here. If a consent tool is added it
-  // owns gtag('consent', ...) and any denial it sets is respected as-is.
-
-  // Cross-domain linking is set before js/config, per Google's docs.
-  w.gtag!("set", "linker", {
-    domains: GA_LINKER_DOMAINS,
-    accept_incoming: true,
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ window.dataLayer.push(arguments); }
+  window.gtag = window.gtag || gtag;
+  var LINKER = { domains: ${JSON.stringify(GA_LINKER_DOMAINS)}, accept_incoming: true };
+  window.gtag('set', 'linker', LINKER);
+  window.gtag('js', new Date());
+  window.gtag('config', ID, {
+    cookie_domain: ${JSON.stringify(GA_COOKIE_DOMAIN)},
+    cookie_flags: 'SameSite=None;Secure',
+    send_page_view: false,
+    linker: LINKER
   });
-  w.gtag!("js", new Date());
-  w.gtag!("config", GA_MEASUREMENT_ID, {
-    cookie_domain: "envirobiotics.com",
-    linker: { domains: GA_LINKER_DOMAINS, accept_incoming: true },
-  });
-
-  const s = document.createElement("script");
+  var s = document.createElement('script');
   s.async = true;
-  s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
   document.head.appendChild(s);
+})();`;
 
-  w.__ebGaReady = true;
-  return true;
+function sendPageView() {
+  const w = window as GtagWindow;
+  if (typeof w.gtag !== "function") return;
+  if (!isGaHost(window.location.hostname)) return;
+  if (isGaExcludedPath(window.location.pathname)) return;
+  w.gtag("event", "page_view", {
+    page_location: window.location.href,
+    page_path: window.location.pathname + window.location.search,
+    page_title: document.title,
+  });
 }
 
 export function GoogleAnalytics() {
+  const href = useRouterState({
+    select: (s) => s.location.pathname + s.location.searchStr,
+  });
+  const lastSent = useRef<string | null>(null);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
-    initGa();
-  }, []);
+    if (lastSent.current === href) return;
+    lastSent.current = href;
+    // Let the route's head() update document.title before reporting.
+    const t = window.setTimeout(sendPageView, 0);
+    return () => window.clearTimeout(t);
+  }, [href]);
 
   return null;
 }
