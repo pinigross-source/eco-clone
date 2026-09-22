@@ -1,4 +1,4 @@
-import { useParams } from "@tanstack/react-router";
+import { useParams, useLoaderData } from "@tanstack/react-router";
 import { Link } from "@/lib/link";
 import { Navigate } from "@/lib/router-compat";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
@@ -6,7 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 import { ArrowLeft, Calendar, Clock, ArrowRight, BookOpen, Lightbulb, CheckCircle2, Share2, Bookmark } from "lucide-react";
-import { getPostBySlug, getRelatedPosts, BlogPost } from "@/data/blogData";
+import { getPostBySlug, getRelatedPosts, filterNewBlogPosts, isNewBlogSlug, BlogPost } from "@/data/blogData";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BlogContentRenderer, renderInlineMarkdown } from "@/components/blog/BlogContentRenderer";
@@ -105,8 +105,12 @@ const extractPullQuote = (content: string[]): string => {
 
 const BlogPostPage = () => {
   const { slug } = useParams({ strict: false }) as { slug?: string };
+  const loaderData = useLoaderData({ strict: false }) as
+    | { showNewBlogs?: boolean }
+    | undefined;
+  const showNewBlogs = loaderData?.showNewBlogs ?? true;
   const post = slug ? getPostBySlug(slug) : undefined;
-  const relatedPosts = slug ? getRelatedPosts(slug, 3) : [];
+  const relatedPosts = filterNewBlogPosts(slug ? getRelatedPosts(slug, 6) : [], showNewBlogs).slice(0, 3);
 
   // If post has external URL, redirect there
   if (post?.externalUrl) {
@@ -114,8 +118,8 @@ const BlogPostPage = () => {
     return null;
   }
 
-  // If post not found, redirect to blog
-  if (!post) {
+  // If post not found (or not yet launched on this host), redirect to blog
+  if (!post || (!showNewBlogs && isNewBlogSlug(post.slug))) {
     return <Navigate to="/blog" replace />;
   }
 

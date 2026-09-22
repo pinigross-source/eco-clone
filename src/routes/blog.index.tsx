@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Page from "@/pages/BlogPage";
+import { resolveShowNewBlogs } from "@/lib/blogVisibility";
 
 export const Route = createFileRoute("/blog/")({
+  loader: async () => ({ showNewBlogs: await resolveShowNewBlogs() }),
   head: () => ({
     meta: [
       { title: "Blog | EnviroBiotics" },

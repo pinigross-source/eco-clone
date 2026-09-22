@@ -1,9 +1,10 @@
+import { useLoaderData } from "@tanstack/react-router";
 import { Link } from "@/lib/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 import { ExternalLink, ArrowRight, BookOpen } from "lucide-react";
-import { blogPosts, articlePosts, BlogPost } from "@/data/blogData";
+import { blogPosts, articlePosts, filterNewBlogPosts, BlogPost } from "@/data/blogData";
 import { SEOHead, makeBreadcrumbJsonLd } from "@/components/SEOHead";
 import { RelatedTopics } from "@/components/RelatedTopics";
 import { LifestyleHero } from "@/components/LifestyleHero";
@@ -66,6 +67,8 @@ const BlogCard = ({ post }: { post: BlogPost }) => {
 };
 
 const BlogPage = () => {
+  const { showNewBlogs } = useLoaderData({ from: "/blog/" });
+  const visibleBlogPosts = filterNewBlogPosts(blogPosts, showNewBlogs);
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
@@ -111,7 +114,7 @@ const BlogPage = () => {
               </h2>
             </ScrollReveal>
             <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post) => (
+              {visibleBlogPosts.map((post) => (
                 <StaggerItem key={post.slug}>
                   <BlogCard post={post} />
                 </StaggerItem>

@@ -23,3 +23,7 @@ function detectIsTestEnv(): boolean {
 }
 
 export const isTestEnv = detectIsTestEnv();
+
+/** True when the request/page is served from the real customer-facing domain. */
+export const isProductionHostname = (hostname: string | null | undefined): boolean =>
+  !!hostname && PROD_HOSTS.has(hostname);

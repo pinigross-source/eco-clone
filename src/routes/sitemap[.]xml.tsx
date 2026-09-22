@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { blogPosts, articlePosts } from "@/data/blogData";
+import { blogPosts, articlePosts, isNewBlogSlug } from "@/data/blogData";
 
 const BASE_URL = "https://envirobiotics.com";
 
@@ -51,7 +51,8 @@ const ENTRIES: SitemapEntry[] = [
 
 // Dynamically include all internal blog posts (skip externally-hosted ones).
 const BLOG_ENTRIES: SitemapEntry[] = [...blogPosts, ...articlePosts]
-  .filter((post) => !post.externalUrl)
+  // Newest posts stay out of the sitemap until they launch on the live site.
+  .filter((post) => !post.externalUrl && !isNewBlogSlug(post.slug))
   .map((post) => ({
     path: `/blog/${post.slug}`,
     changefreq: "monthly" as const,
