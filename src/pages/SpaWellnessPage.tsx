@@ -54,33 +54,37 @@ const steps = [
   {
     icon: Waves,
     title: "Disperse",
-    body: "The system releases beneficial environmental probiotics into the occupied space in a fine, invisible mist.",
+    body: "Beneficial environmental probiotics are atomized into a fine mist and dispersed throughout the indoor environment.",
   },
   {
     icon: Wind,
     title: "Travel with airflow",
-    body: "They move with normal air movement, reaching treatment rooms, corridors, and the surfaces in between.",
+    body: "They move with normal air circulation throughout treatment rooms, relaxation areas, corridors and shared spaces before settling onto surrounding surfaces and objects.",
   },
   {
     icon: Repeat,
     title: "Support balance",
-    body: "Once settled, they compete for the nutrients and ecological space that unwanted organisms rely on across air, surfaces, and objects.",
+    body: "Once deposited, the beneficial Bacillus compete for available nutrients and ecological space within the microscopic environment.",
   },
 ];
 
 const benefits = [
-  { icon: Repeat, title: "Continuous operation", body: "Designed to work between cleaning cycles, day and night, without staff involvement." },
-  { icon: Waves, title: "Whole-environment approach", body: "Air, surfaces, fabrics, and objects, not only what passes through a machine." },
-  { icon: Leaf, title: "Biological competition", body: "Beneficial organisms compete for resources instead of relying on chemical residues." },
-  { icon: Wind, title: "Odor management", body: "Can help address the organic material associated with lingering odors in treatment and locker areas." },
-  { icon: CheckCircle2, title: "Complements your protocols", body: "Sits alongside your existing cleaning and disinfection routine. It does not replace it." },
-  { icon: Sparkles, title: "Low maintenance", body: "Cartridge replacement on a simple schedule. No filters to change on the diffuser systems." },
+  { icon: Repeat, title: "Continuous environmental care", body: "Designed to operate automatically between routine cleaning cycles with minimal staff involvement." },
+  { icon: Waves, title: "Whole-environment approach", body: "Extends beyond air to surfaces, fabrics, furnishings and objects throughout the treated environment." },
+  { icon: Leaf, title: "Beneficial biology", body: "Uses selected environmental probiotics and biological competition to help manage the microscopic environment." },
+  { icon: Wind, title: "Odor management", body: "Helps address organic material associated with persistent odors rather than simply covering odors with fragrance." },
+  { icon: CheckCircle2, title: "Complements your protocols", body: "Works alongside your existing cleaning and disinfection program rather than replacing it." },
+  { icon: Sparkles, title: "A wellness story worth sharing", body: "Gives your spa another meaningful way to demonstrate its commitment to creating a thoughtfully managed environment for guests." },
 ];
 
 const faqs = [
   {
-    q: "Does this replace normal cleaning or disinfection?",
-    a: "No. EnviroBiotics is designed to complement your existing cleaning and disinfection protocols by working continuously in between them. Your cleaning schedule stays exactly as it is.",
+    q: "Does EnviroBiotics replace our existing cleaning and disinfection program?",
+    a: "No. EnviroBiotics complements your existing cleaning and disinfection protocols by providing continuous environmental probiotic activity between routine cleaning cycles. Your established cleaning schedule remains in place.",
+  },
+  {
+    q: "What does \u201CEnvironmental Wellness\u201D mean?",
+    a: "Environmental Wellness is the idea that wellbeing extends beyond treatments, products and services to include the environment surrounding the guest. EnviroBiotics adds beneficial environmental probiotics to that environment as another layer of ongoing environmental care.",
   },
   {
     q: "How does it differ from a conventional air purifier?",
@@ -96,7 +100,7 @@ const faqs = [
   },
   {
     q: "What maintenance is required?",
-    a: "Cartridge replacement on a set schedule \u2014 every 90 days for the BioLogic Mini and every 180 days for E-Biotic Pro. There are no filters to change on the probiotic diffuser systems.",
+    a: "Cartridge replacement on a set schedule: every 90 days for the BioLogic Mini and every 180 days for E-Biotic Pro. There are no filters to change on the probiotic diffuser systems.",
   },
 ];
 
@@ -249,10 +253,21 @@ export default function SpaWellnessPage() {
                   Your spa is dedicated to wellness.{" "}
                   <span className="block mt-2 italic font-normal text-ink/72">Shouldn&apos;t your environment be too?</span>
                 </h1>
-                <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-ink/75">
-                  A natural, biological approach to indoor environmental purification. Beneficial environmental
-                  probiotics work continuously across air, surfaces, and objects, complementing the care your team
-                  already provides.
+                <div className="mt-6 max-w-xl space-y-4 text-base sm:text-[1.05rem] leading-relaxed text-ink/75">
+                  <p>
+                    You carefully consider everything that contributes to your guest&apos;s wellbeing: the treatments
+                    you provide, the products that touch their skin, the linens surrounding them, the water they enter
+                    and the spaces where they relax.
+                  </p>
+                  <p>EnviroBiotics adds another dimension of care: the environment itself.</p>
+                  <p>
+                    Using beneficial environmental probiotics inspired by the balance found in nature, EnviroBiotics
+                    works continuously throughout your spa, across surfaces, objects and the surrounding environment,
+                    to help maintain a thoughtfully managed indoor environment between routine cleanings.
+                  </p>
+                </div>
+                <p className="mt-5 font-display text-xl sm:text-2xl italic text-sage">
+                  Welcome to Environmental Wellness.
                 </p>
                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
                   {primaryCta("hero", "w-full sm:w-auto")}
@@ -270,8 +285,8 @@ export default function SpaWellnessPage() {
                     See How It Works
                   </Button>
                 </div>
-                <p className="mt-6 text-sm font-medium text-ink/65">
-                  Continuous &nbsp;•&nbsp; Low maintenance &nbsp;•&nbsp; Complements routine cleaning
+                <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-ink/60">
+                  Natural &nbsp;•&nbsp; Biological &nbsp;•&nbsp; Continuous &nbsp;•&nbsp; Low maintenance
                 </p>
               </div>
             </div>
@@ -283,14 +298,28 @@ export default function SpaWellnessPage() {
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <div className="grid items-center gap-10 md:grid-cols-[1.05fr_0.95fr] md:gap-16">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">Care beyond the treatment</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">Wellness beyond the treatment</p>
                 <h2 className="mt-4 font-display text-[1.9rem] sm:text-4xl leading-tight text-ink max-w-3xl">
-                  Your clients notice every detail. The microscopic environment deserves the same care.
+                  Your guests notice every detail. The environment deserves the same care.
                 </h2>
-                <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-ink/70">
-                  You already control the treatments, skincare, water, fragrance, linens, and every guest touchpoint.
-                  The environment around them is less visible, yet it moves through every room.
-                </p>
+                <div className="mt-6 max-w-2xl space-y-4 text-base sm:text-lg leading-relaxed text-ink/70">
+                  <p>
+                    A truly exceptional spa experience is created by much more than a massage, facial or treatment.
+                  </p>
+                  <p>
+                    It&apos;s the products that touch your guest&apos;s skin. The linens surrounding them. The
+                    treatment table beneath them. The water they enter. The air they breathe. The relaxation lounge.
+                    The locker room. The surfaces they touch.
+                  </p>
+                  <p>
+                    These details collectively create an experience, even when your guests never consciously think
+                    about them.
+                  </p>
+                  <p className="font-semibold text-ink">
+                    EnviroBiotics allows your commitment to wellness to extend beyond the treatment itself, to the
+                    environment surrounding every guest.
+                  </p>
+                </div>
               </div>
               <figure className="relative overflow-hidden rounded-sm">
                 <img src={spaTreatmentImg} alt="A spa therapist preparing a sunlit treatment room" className="aspect-[4/5] w-full object-cover" width={1280} height={1600} loading="lazy" decoding="async" />
@@ -305,19 +334,29 @@ export default function SpaWellnessPage() {
                 <p className="text-xs uppercase tracking-[0.18em] text-ink/50">Traditional cleaning</p>
                 <p className="mt-4 font-display text-xl sm:text-2xl text-ink">Essential, but periodic.</p>
                 <p className="mt-3 text-[0.975rem] leading-relaxed text-ink/70">
-                  It resets a room to a clean baseline. The moment the next guest walks in, the environment begins
-                  to change again.
+                  Your staff cleans and prepares a treatment room beautifully for the next guest. Then another guest
+                  enters. Towels are used. Doors open. People move through the space. The microscopic environment
+                  begins changing again.
                 </p>
               </div>
               <div className="bg-sage-soft p-7 sm:p-9">
                 <p className="text-xs uppercase tracking-[0.18em] text-ink/50">EnviroBiotics</p>
-                <p className="mt-4 font-display text-xl sm:text-2xl text-ink">Designed to work continuously.</p>
+                <p className="mt-4 font-display text-xl sm:text-2xl text-ink">Designed to work continuously between cleaning cycles.</p>
                 <p className="mt-3 text-[0.975rem] leading-relaxed text-ink/70">
-                  It runs between cleaning cycles, supporting the environment in the hours your team isn&apos;t in
-                  the room. It does not replace cleaning or disinfection.
+                  Beneficial environmental probiotics are automatically dispersed throughout the environment,
+                  extending environmental care into the hours between routine cleanings.
                 </p>
               </div>
             </div>
+            <p className="mt-8 max-w-3xl font-display text-lg sm:text-xl leading-snug text-ink">
+              <strong className="font-semibold">
+                Your team cares for the room periodically. EnviroBiotics helps manage its microscopic environment
+                continuously.
+              </strong>
+            </p>
+            <p className="mt-3 text-xs sm:text-sm text-ink/55">
+              EnviroBiotics complements established cleaning and disinfection protocols. It does not replace them.
+            </p>
           </div>
         </section>
 
@@ -325,13 +364,19 @@ export default function SpaWellnessPage() {
         <section id="how-it-works" className="scroll-mt-24 bg-sage-soft py-20 sm:py-28">
           <div className="mx-auto max-w-5xl px-5 sm:px-8">
             <h2 className="font-display text-[1.9rem] sm:text-4xl leading-tight text-ink max-w-3xl">
-              Nature doesn&apos;t create healthy environments by sterilizing them.
+              Nature doesn&apos;t create balance by eliminating every microorganism.
             </h2>
-            <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-ink/70">
-              In a balanced environment, organisms compete for the same nutrients and the same space. EnviroBiotics
-              applies that principle indoors: beneficial environmental probiotics are dispersed into the occupied
-              space and compete for the resources and ecological room that unwanted organisms depend on.
-            </p>
+            <div className="mt-6 max-w-2xl space-y-4 text-base sm:text-lg leading-relaxed text-ink/70">
+              <p>
+                The world around us is naturally populated by complex communities of microorganisms. EnviroBiotics
+                brings the principle of beneficial microbial competition into the built environment.
+              </p>
+              <p>
+                Selected beneficial Bacillus environmental probiotics are atomized into microscopic droplets and
+                dispersed throughout the space. They travel with normal airflow and settle onto surrounding surfaces
+                and objects, where they participate in the microbial ecology of the environment.
+              </p>
+            </div>
 
             <ol className="mt-14 grid gap-8 sm:grid-cols-3">
               {steps.map((s, i) => (
@@ -358,45 +403,61 @@ export default function SpaWellnessPage() {
             <div className="mt-10 grid gap-10 md:grid-cols-2">
               <div className="border-t border-ink/15 pt-7">
                 <h3 className="font-display text-xl text-ink">A conventional air purifier</h3>
-                <p className="mt-3 text-[0.975rem] leading-relaxed text-ink/70">
-                  Primarily addresses the material that physically reaches the machine. Everything outside that
-                  airstream, including the table your guest lies on, the robe they wear, and the floor they walk across,
-                  is untouched by it.
-                </p>
+                <div className="mt-3 space-y-3 text-[0.975rem] leading-relaxed text-ink/70">
+                  <p>A conventional air purifier primarily addresses material that physically reaches the machine.</p>
+                  <p>
+                    But your guest&apos;s experience extends far beyond that airstream, to treatment tables, linens,
+                    furniture, carpeting, locker rooms, relaxation areas and the many surfaces surrounding them.
+                  </p>
+                </div>
               </div>
               <div className="border-t-2 border-sage pt-7">
                 <h3 className="font-display text-xl text-ink">EnviroBiotics</h3>
-                <p className="mt-3 text-[0.975rem] leading-relaxed text-ink/70">
-                  Takes a whole-environment approach: treatment rooms, massage tables, reception areas, furniture,
-                  floors and carpeting, locker rooms, surfaces, objects, and the air that moves between them.
-                </p>
+                <div className="mt-3 space-y-3 text-[0.975rem] leading-relaxed text-ink/70">
+                  <p>EnviroBiotics takes a whole-environment approach.</p>
+                  <p>
+                    Airflow becomes the delivery mechanism, carrying beneficial environmental probiotics beyond the
+                    device and throughout the treated environment.
+                  </p>
+                </div>
               </div>
             </div>
+            <p className="mt-10 max-w-3xl font-display text-lg sm:text-xl leading-snug text-ink">
+              <strong className="font-semibold">
+                The difference is moving from simply thinking about air purification to thinking about Environmental
+                Wellness.
+              </strong>
+            </p>
           </div>
         </section>
 
         {/* 5. Social proof */}
-        <section className="bg-sage-soft py-20 sm:py-24">
-          <div className="mx-auto max-w-3xl px-5 sm:px-8 text-center">
-            <Quote className="mx-auto h-7 w-7 text-sage" aria-hidden="true" />
-            <blockquote className="mt-6 font-display text-xl sm:text-3xl leading-snug text-ink">
+        <section className="relative overflow-hidden bg-ink py-24 sm:py-32">
+          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.22),transparent_60%)]" />
+          <div className="relative mx-auto max-w-5xl px-5 sm:px-8 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sage-soft/80">
+              Environmental wellness in practice
+            </p>
+            <Quote className="mx-auto mt-8 h-9 w-9 text-sage" aria-hidden="true" />
+            <blockquote className="mt-6 font-display text-2xl sm:text-4xl md:text-[2.75rem] leading-[1.2] text-cream">
               &ldquo;EnviroBiotics probiotic purification systems have proven to be instrumental in achieving the
               healthy indoor environment standards we set for our spa.&rdquo;
             </blockquote>
-            <figcaption className="mt-7 text-sm leading-relaxed text-ink/70">
-              <span className="block font-medium text-ink">John Breslin</span>
-              Regional Director Spa Operations, NE, OneSpaWorld
-              <span className="block mt-1 text-ink/55">Mandara Spa at Mohegan Sun</span>
+            <figcaption className="mt-10 text-sm sm:text-base leading-relaxed text-cream/70">
+              <span className="block font-display text-lg text-cream">John Breslin</span>
+              <span className="block mt-1">Regional Director Spa Operations, NE</span>
+              <span className="block">OneSpaWorld</span>
+              <span className="block mt-1 text-cream/55">Mandara Spa at Mohegan Sun</span>
             </figcaption>
-            <div className="mt-9">{primaryCta("proof")}</div>
+            <div className="mt-10">{primaryCta("proof")}</div>
           </div>
         </section>
 
         {/* 6. Benefits */}
         <section className="bg-cream py-20 sm:py-28">
           <div className="mx-auto max-w-5xl px-5 sm:px-8">
-            <h2 className="font-display text-[1.75rem] sm:text-4xl leading-tight text-ink">
-              What it brings to a wellness facility
+            <h2 className="font-display text-[1.75rem] sm:text-4xl leading-tight text-ink max-w-3xl">
+              Environmental Wellness working quietly in the background.
             </h2>
             <dl className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2">
               {benefits.map((b) => (
@@ -406,13 +467,6 @@ export default function SpaWellnessPage() {
                   <dd className="mt-2 text-[0.975rem] leading-relaxed text-ink/70">{b.body}</dd>
                 </div>
               ))}
-              <div className="border-t border-ink/12 pt-6">
-                <Sparkles className="h-5 w-5 text-sage" aria-hidden="true" />
-                <dt className="mt-3 font-display text-lg text-ink">A wellness story worth telling</dt>
-                <dd className="mt-2 text-[0.975rem] leading-relaxed text-ink/70">
-                  A sustainability-aligned approach your guests can understand in a sentence.
-                </dd>
-              </div>
             </dl>
           </div>
         </section>
@@ -420,19 +474,22 @@ export default function SpaWellnessPage() {
         {/* 7. Science */}
         <section className="bg-background py-20 sm:py-28">
           <div className="mx-auto max-w-4xl px-5 sm:px-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">Evidence with context</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">The science behind the wellness</p>
             <h2 className="mt-4 font-display text-[1.9rem] sm:text-4xl leading-tight text-ink">
-              A biological approach grounded in environmental microbiology.
+              Environmental Wellness sounds simple. The biology behind it is sophisticated.
             </h2>
             <div className="mt-7 space-y-5 text-base leading-relaxed text-ink/70">
+              <p>EnviroBiotics uses selected strains of beneficial Bacillus environmental probiotics.</p>
               <p>
-                A 2024 peer-reviewed review describes environmental probiotic cleaning as a biological approach in
-                which beneficial organisms compete for nutrients and habitat, and discusses the biological
-                degradation of organic material along with potential odor-control mechanisms.
+                Once dispersed, these organisms are carried by normal airflow throughout the environment and onto
+                surrounding surfaces and objects. There, microorganisms compete for available nutrients and
+                ecological space.
               </p>
               <p>
-                Published studies in healthcare environments have reported reductions in environmental pathogens and
-                in antimicrobial-resistance genes following probiotic-based environmental interventions.
+                Research into probiotic-based environmental management has examined mechanisms including microbial
+                competition and biological degradation of organic material. Published research in healthcare
+                environments has also reported reductions in environmental pathogens and antimicrobial-resistance
+                genes following probiotic-based environmental interventions.
               </p>
               <p className="border-l-2 border-sage pl-5 text-ink/60">
                 That evidence comes from healthcare settings and is contextual: it does not prove identical outcomes
@@ -454,41 +511,71 @@ export default function SpaWellnessPage() {
 
         {/* 8. Brand experience */}
         <section className="bg-cream py-20 sm:py-28">
-          <div className="mx-auto grid max-w-5xl items-center gap-12 px-5 sm:px-8 md:grid-cols-2">
+          <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 md:grid-cols-[1fr_1fr] md:gap-16">
             <div>
-              <h2 className="font-display text-[1.75rem] sm:text-4xl leading-tight text-ink">
-                More than clean. An environment that reflects your brand.
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">Wellness your guests can experience</p>
+              <h2 className="mt-4 font-display text-[1.75rem] sm:text-4xl leading-tight text-ink">
+                Give your guests another reason to feel good about where they are.
               </h2>
-              <p className="mt-6 text-[0.975rem] sm:text-base leading-relaxed text-ink/70">
-                Environmental wellness is easy to make visible. A line at reception, a note in the treatment room,
-                a paragraph on your website. It tells guests that the care extends past the treatment itself.
+              <div className="mt-6 space-y-4 text-[0.975rem] sm:text-base leading-relaxed text-ink/70">
+                <p>EnviroBiotics doesn&apos;t have to be something your guests never know about.</p>
+                <p>
+                  Environmental Wellness can become part of your spa&apos;s story, communicated through an elegant
+                  message at reception, in a treatment room, on your website or through your staff.
+                </p>
+                <p>The message doesn&apos;t need to focus on bacteria, pathogens or cleaning.</p>
+                <p>It simply tells your guests:</p>
+              </div>
+              <p className="mt-5 border-l-2 border-sage pl-5 font-display text-xl sm:text-2xl italic leading-snug text-ink">
+                We&apos;ve considered another dimension of your wellbeing.
               </p>
-              <figure className="mt-8 border-l-2 border-sage pl-6">
-                <blockquote className="font-display text-lg sm:text-xl italic leading-snug text-ink">
-                  &ldquo;Our commitment to wellness doesn&apos;t stop with the treatments we provide. We&apos;ve
-                  incorporated environmental probiotic purification as another part of the environment we create for
-                  our guests.&rdquo;
-                </blockquote>
-                <figcaption className="mt-3 text-sm text-ink/55">Sample guest-facing statement</figcaption>
+            </div>
+
+            <div className="relative">
+              <img
+                src={spaTreatmentImg}
+                alt=""
+                aria-hidden="true"
+                className="aspect-[4/5] w-full rounded-sm object-cover"
+                width={1280}
+                height={1600}
+                loading="lazy"
+                decoding="async"
+              />
+              <figure
+                className="relative mx-4 -mt-40 rounded-sm border border-ink/10 bg-cream p-2 shadow-[0_30px_60px_-20px_rgba(27,42,42,0.35)] sm:mx-10 sm:-mt-56"
+                aria-label="Sample guest-facing signage"
+              >
+                <div className="border border-sage/40 px-6 py-8 text-center sm:px-9 sm:py-10">
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-sage">Environmental Wellness</p>
+                  <p className="mt-1 text-[0.6rem] uppercase tracking-[0.28em] text-ink/55">by EnviroBiotics&trade;</p>
+                  <span aria-hidden="true" className="mx-auto mt-5 block h-px w-10 bg-sage/50" />
+                  <p className="mt-5 font-display text-base sm:text-lg leading-snug text-ink">
+                    Our commitment to your wellbeing extends beyond the treatments we provide.
+                  </p>
+                  <p className="mt-4 text-[0.85rem] leading-relaxed text-ink/65">
+                    This spa incorporates EnviroBiotics environmental probiotic technology as another part of the
+                    environment we&apos;ve thoughtfully created for our guests.
+                  </p>
+                  <p className="mt-5 font-display text-[0.95rem] sm:text-base italic leading-snug text-ink/80">
+                    Because wellness isn&apos;t only about what touches you.
+                    <span className="block">It&apos;s also about what surrounds you.</span>
+                  </p>
+                </div>
+                <figcaption className="mt-2 text-center text-[0.7rem] uppercase tracking-[0.18em] text-ink/45">
+                  Sample guest-facing signage
+                </figcaption>
               </figure>
             </div>
-            <img
-              src={proImg}
-              alt="Calm, softly lit interior with an EnviroBiotics system supporting the environment"
-              className="h-full w-full rounded-3xl object-cover"
-              width={900}
-              height={1100}
-              loading="lazy"
-              decoding="async"
-            />
           </div>
         </section>
 
         {/* 9. Product fit */}
         <section id="systems" className="scroll-mt-24 bg-sage-soft py-20 sm:py-28">
           <div className="mx-auto max-w-5xl px-5 sm:px-8">
-            <h2 className="font-display text-[1.75rem] sm:text-4xl leading-tight text-ink">
-              Which EnviroBiotics system fits your spa?
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">One philosophy. A system for every spa.</p>
+            <h2 className="mt-4 font-display text-[1.75rem] sm:text-4xl leading-tight text-ink max-w-3xl">
+              Bring Environmental Wellness to spaces of virtually any size.
             </h2>
 
             <div className="mt-12 space-y-10">
@@ -496,11 +583,11 @@ export default function SpaWellnessPage() {
                 <img src={biologicMiniImg} alt="BioLogic Mini environmental probiotic diffuser" className="mx-auto h-40 w-auto object-contain" width={220} height={220} loading="lazy" />
                 <div>
                   <h3 className="font-display text-2xl text-ink">BioLogic Mini</h3>
-                  <p className="mt-1 text-sm text-ink/60">Up to 300 sq ft &middot; $98</p>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-sage">Individual Environmental Wellness</p>
                   <p className="mt-3 text-[0.975rem] leading-relaxed text-ink/70">
-                    Individual treatment and massage rooms, reception desks, offices, and smaller studios. Ultra-quiet,
-                    cordless, 90-day cartridge.
+                    For individual treatment and massage rooms, reception areas, offices and smaller studios.
                   </p>
+                  <p className="mt-2 text-sm text-ink/60">Up to 300 sq. ft. &nbsp;|&nbsp; $98</p>
                   <Button
                     asChild
                     variant="outline"
@@ -519,11 +606,11 @@ export default function SpaWellnessPage() {
                 <img src={biotica800Img} alt="Biotica 800 probiotic purification system" className="mx-auto h-40 w-auto object-contain" width={220} height={220} loading="lazy" />
                 <div>
                   <h3 className="font-display text-2xl text-ink">Biotica 800</h3>
-                  <p className="mt-1 text-sm text-ink/60">Up to 800 sq ft &middot; $299</p>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-sage">Multi-Room Environmental Wellness</p>
                   <p className="mt-3 text-[0.975rem] leading-relaxed text-ink/70">
-                    Broader distribution for relaxation lounges, larger treatment suites, reception areas, and studio
-                    floors.
+                    For relaxation lounges, larger treatment suites, reception areas and studio floors.
                   </p>
+                  <p className="mt-2 text-sm text-ink/60">Up to 800 sq. ft. &nbsp;|&nbsp; $299</p>
                   <Button
                     asChild
                     variant="outline"
@@ -542,11 +629,12 @@ export default function SpaWellnessPage() {
                 <img src={proImg} alt="E-Biotic Pro HVAC-integrated probiotic system" className="mx-auto h-40 w-full rounded-2xl object-cover sm:w-auto" width={220} height={220} loading="lazy" />
                 <div>
                   <h3 className="font-display text-2xl text-ink">E-Biotic Pro</h3>
-                  <p className="mt-1 text-sm text-ink/60">Multi-room facilities &middot; HVAC-integrated &middot; Specified per facility</p>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-sage">Whole-Facility Environmental Wellness</p>
                   <p className="mt-3 text-[0.975rem] leading-relaxed text-ink/70">
-                    For larger spas, wellness centers, resorts, and multi-room facilities. It installs into existing
-                    ductwork and distributes with the airflow you already run, with a 180-day cartridge.
+                    HVAC-integrated environmental probiotic distribution for larger spas, resorts, wellness centers and
+                    multi-room facilities.
                   </p>
+                  <p className="mt-2 text-sm text-ink/60">Specified by Facility</p>
                   <div className="mt-5 flex flex-col gap-3 sm:flex-row">
                     {primaryCta("systems-pro", "w-full sm:w-auto")}
                     <Button
@@ -581,11 +669,15 @@ export default function SpaWellnessPage() {
           <div className="mx-auto max-w-4xl px-5 sm:px-8">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">A considered recommendation, not a sales script</p>
             <h2 className="mt-4 font-display text-[1.9rem] sm:text-4xl leading-tight text-ink">
-              Get a facility recommendation
+              Let us design an Environmental Wellness solution for your spa.
             </h2>
             <p className="mt-4 text-[0.975rem] leading-relaxed text-ink/70">
-              Share a few details and our team will respond with a system recommendation for your space. Fields
-              marked <span aria-hidden="true">*</span> are required.
+              Tell us about your facility: its size, number of treatment rooms and how the space is used. Our team
+              will recommend an EnviroBiotics system designed around your environment rather than a generic
+              specification.
+            </p>
+            <p className="mt-2 text-xs text-ink/55">
+              Fields marked <span aria-hidden="true">*</span> are required.
             </p>
 
             {submitted ? (
@@ -659,7 +751,7 @@ export default function SpaWellnessPage() {
                   {submitting ? (
                     <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending...</>
                   ) : (
-                    <>Get a Facility Recommendation</>
+                    <>Get My Facility Recommendation</>
                   )}
                 </Button>
                 <p className="text-xs text-ink/55">
@@ -694,12 +786,27 @@ export default function SpaWellnessPage() {
           <img src={spaLoungeImg} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" width={1600} height={1104} loading="lazy" decoding="async" />
           <div aria-hidden="true" className="absolute inset-0 bg-ink/55" />
           <div className="relative mx-auto max-w-3xl px-5 sm:px-8 text-center">
-            <h2 className="font-display text-[1.75rem] sm:text-4xl leading-tight text-cream">
-              Make wellness more than a service you provide.
-            </h2>
-            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-cream/75">
-              You already think carefully about what touches your clients. Now think about what surrounds them.
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cream/75">
+              Wellness Beyond the Treatment&trade;
             </p>
+            <h2 className="mt-5 font-display text-[1.9rem] sm:text-5xl leading-[1.1] text-cream">
+              Wellness isn&apos;t just what you do.
+              <span className="block italic font-normal text-cream/85">It&apos;s the environment you create.</span>
+            </h2>
+            <div className="mx-auto mt-7 max-w-2xl space-y-4 text-base leading-relaxed text-cream/80">
+              <p>Your guests trust you with their wellbeing.</p>
+              <p>
+                You carefully select the treatments they receive, the products that touch their skin, the linens
+                surrounding them, the water they enter and the spaces where they relax.
+              </p>
+              <p>Now there is another dimension of wellness to consider.</p>
+              <p className="font-display text-xl sm:text-2xl italic text-cream">The environment itself.</p>
+              <p>
+                EnviroBiotics brings the principles of beneficial biology into the built environment, working
+                continuously and quietly in the background as another layer of care for the spaces you&apos;ve worked
+                so carefully to create.
+              </p>
+            </div>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               {primaryCta("final")}
               <Button
