@@ -433,7 +433,7 @@ export default function SpaWellnessPage() {
 
         {/* 5. Social proof */}
         <section className="relative overflow-hidden bg-ink py-24 sm:py-32">
-          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.22),transparent_60%)]" />
+          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,color-mix(in_oklab,var(--color-sage)_32%,transparent),transparent_62%)]" />
           <div className="relative mx-auto max-w-5xl px-5 sm:px-8 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sage-soft/80">
               Environmental wellness in practice
