@@ -105,7 +105,7 @@ const extractPullQuote = (content: string[]): string => {
 
 const BlogPostPage = () => {
   const { slug } = useParams({ strict: false }) as { slug?: string };
-  const loaderData = useLoaderData({ from: "/blog/$slug", strict: false }) as
+  const loaderData = useLoaderData({ strict: false }) as
     | { showNewBlogs?: boolean }
     | undefined;
   const showNewBlogs = loaderData?.showNewBlogs ?? true;
