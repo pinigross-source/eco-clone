@@ -1,17 +1,21 @@
 import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import Page from "@/pages/BlogPostPage";
-import { getPostBySlug } from "@/data/blogData";
+import { getPostBySlug, isNewBlogSlug } from "@/data/blogData";
+import { resolveShowNewBlogs } from "@/lib/blogVisibility";
 
 export const Route = createFileRoute("/blog/$slug")({
-  loader: ({ params }) => {
+  loader: async ({ params }) => {
     if (params.slug === "ba-2080-review-6-months") {
       throw redirect({ href: "/blog/biotica-800-review", statusCode: 301 });
     }
+    const showNewBlogs = await resolveShowNewBlogs();
+    if (!showNewBlogs && isNewBlogSlug(params.slug)) throw notFound();
     const post = getPostBySlug(params.slug);
     if (!post) throw notFound();
     return {
       title: post.metaTitle ?? post.title,
       description: post.description,
+      showNewBlogs,
     };
   },
   head: ({ params, loaderData }) => {
