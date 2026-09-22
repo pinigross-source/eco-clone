@@ -4,7 +4,8 @@ import { Search, X, ShoppingBag, FileText, BookOpen, ArrowRight } from "lucide-r
 import { ShopSearchIcon } from "@/components/ShopIcons";
 import { cn } from "@/lib/utils";
 import { products, type ProductData } from "@/data/productData";
-import { blogPosts, type BlogPost } from "@/data/blogData";
+import { filterNewBlogPosts, blogPosts, type BlogPost } from "@/data/blogData";
+import { isTestEnv } from "@/lib/env";
 
 /* ── static content pages ── */
 const contentPages = [
@@ -79,7 +80,8 @@ export const NavbarSearch = () => {
       }
     });
 
-    blogPosts.forEach((b) => {
+    // Search runs client-side only, so the environment flag is stable here.
+    filterNewBlogPosts(blogPosts, isTestEnv).forEach((b) => {
       if (
         b.title.toLowerCase().includes(q) ||
         b.description.toLowerCase().includes(q)
