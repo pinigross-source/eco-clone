@@ -3,7 +3,7 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 export const syncMetaAdsInsightsFn = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { days?: number }) => ({
+  .validator((data: { days?: number }) => ({
     days: Math.min(Math.max(Number(data?.days ?? 30), 1), 365),
   }))
   .handler(async ({ data, context }) => {

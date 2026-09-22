@@ -14,7 +14,7 @@ export interface EmailLogRow {
 
 export const listEmailLogs = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((input: { sinceIso: string }) => input)
+  .validator((input: { sinceIso: string }) => input)
   .handler(async ({ data, context }) => {
     const { data: isAdmin } = await context.supabase.rpc("has_role", {
       _user_id: context.userId,

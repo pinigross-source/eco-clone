@@ -93,7 +93,7 @@ function normalizeProduct(p: any): ShopifyProduct {
 
 /** Fetch a single product by its Shopify handle. */
 export const getShopifyProduct = createServerFn({ method: "GET" })
-  .inputValidator(z.object({ handle: z.string().min(1).max(255) }).parse)
+  .validator(z.object({ handle: z.string().min(1).max(255) }).parse)
   .handler(async ({ data }) => {
     const result = await storefrontFetch<{ product: any | null }>(
       `query Product($handle: String!) {
@@ -106,7 +106,7 @@ export const getShopifyProduct = createServerFn({ method: "GET" })
 
 /** Fetch multiple products by handle in a single request. */
 export const getShopifyProducts = createServerFn({ method: "GET" })
-  .inputValidator(z.object({ handles: z.array(z.string().min(1).max(255)).min(1).max(50) }).parse)
+  .validator(z.object({ handles: z.array(z.string().min(1).max(255)).min(1).max(50) }).parse)
   .handler(async ({ data }) => {
     const aliases = data.handles
       .map(
@@ -123,7 +123,7 @@ export const getShopifyProducts = createServerFn({ method: "GET" })
 
 /** Lightweight inventory + availability check for a list of handles. */
 export const getShopifyInventory = createServerFn({ method: "GET" })
-  .inputValidator(z.object({ handles: z.array(z.string().min(1).max(255)).min(1).max(50) }).parse)
+  .validator(z.object({ handles: z.array(z.string().min(1).max(255)).min(1).max(50) }).parse)
   .handler(async ({ data }) => {
     const aliases = data.handles
       .map(
