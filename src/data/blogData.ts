@@ -1384,6 +1384,16 @@ export const blogPosts: BlogPost[] = [
   return 0;
 });
 
+// The newest batch of posts stays preview-only until approved for launch.
+// On the live domain they are hidden from the index, search, related posts,
+// and the sitemap, and their URLs return 404.
+const newBlogSlugs = new Set(generatedBlogPosts.map((p) => p.slug));
+
+export const isNewBlogSlug = (slug: string): boolean => newBlogSlugs.has(slug);
+
+export const filterNewBlogPosts = (posts: BlogPost[], showNew: boolean): BlogPost[] =>
+  showNew ? posts : posts.filter((p) => !newBlogSlugs.has(p.slug));
+
 export const articlePosts: BlogPost[] = [];
 
 export const getAllPosts = (): BlogPost[] => [...blogPosts, ...articlePosts];
