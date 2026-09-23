@@ -15,6 +15,7 @@ import { WordPressRedirectHandler } from "@/components/WordPressRedirectHandler"
 import { AttributionBeacon } from "@/components/AttributionBeacon";
 import { TidioChat } from "@/components/TidioChat";
 import { GoogleAnalytics, GA_HEAD_SNIPPET } from "@/components/GoogleAnalytics";
+import { TriplePixelPageTracker, TRIPLE_PIXEL_HEAD_SNIPPET } from "@/components/TriplePixel";
 import { isTestEnv } from "@/lib/env";
 
 
@@ -99,6 +100,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "apple-touch-icon", href: "/favicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      // Triple Whale pixel endpoints
+      { rel: "preconnect dns-prefetch", href: "https://api.config-security.com/", crossOrigin: "anonymous" },
+      { rel: "preconnect dns-prefetch", href: "https://conf.config-security.com/", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Manrope:wght@600;700;800&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap",
@@ -136,6 +140,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{ __html: GA_HEAD_SNIPPET }}
+        />
+        {/* Triple Whale pixel (headless variant of the store's pixel), production hosts only. */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{ __html: TRIPLE_PIXEL_HEAD_SNIPPET }}
         />
         <script
           type="text/javascript"
@@ -306,6 +315,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <GoogleAnalytics />
+      <TriplePixelPageTracker />
       <ScrollToTop />
       <WordPressRedirectHandler />
       <AttributionBeacon />
