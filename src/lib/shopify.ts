@@ -39,7 +39,6 @@ export const PRODUCT_HANDLE_MAP: Record<string, string> = {
   "biotica-800": "biotica-800",
   "ba-2080": "biotica-800",
   "betterair-2080": "biotica-800",
-  "ebiotic-pro": "e-biotic-pro",
 };
 
 /**
@@ -110,6 +109,11 @@ export function shopifyAccount(campaign = "account"): string {
   return shopifyUrl("/account", campaign);
 }
 
+/** E-Biotic Pro has no Shopify product page; links go to /business instead. */
+export function isEbioticProSlug(slug: string): boolean {
+  return slug === "ebiotic-pro" || slug === "e-biotic-pro";
+}
+
 /** Map an internal /product/:slug path to Shopify. */
 export function shopifyProductUrl(slug: string, campaign = "product"): string {
   const handle = PRODUCT_HANDLE_MAP[slug] ?? slug;
@@ -173,7 +177,11 @@ export function resolveShopifyUrl(to: string): string | null {
     return shopifyAccount("manage-subscription");
   }
   const productMatch = pathOnly.match(/^\/product\/([^/]+)$/);
-  if (productMatch) return shopifyProductUrl(productMatch[1]);
+  if (productMatch) {
+    // E-Biotic Pro has no Shopify product page; it stays on-site (/business).
+    if (isEbioticProSlug(productMatch[1])) return null;
+    return shopifyProductUrl(productMatch[1]);
+  }
 
   return null;
 }

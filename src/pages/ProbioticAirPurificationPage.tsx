@@ -526,7 +526,7 @@ const ProbioticAirPurificationPage = () => {
 
             <ScrollReveal variant="fadeUp" delay={0.2}>
               <p className="text-muted-foreground leading-relaxed mt-8 max-w-3xl">
-                EnviroBiotics offers three devices covering spaces from 300 sq ft (<Link to="/product/biologic-mini" className="text-primary underline underline-offset-2">BioLogic Mini</Link>) to 800 sq ft (<Link to="/product/biotica-800" className="text-primary underline underline-offset-2">Biotica 800</Link>), as well as the <Link to="/product/ebiotic-pro" className="text-primary underline underline-offset-2">E-Biotic Pro</Link> for whole-home HVAC integration.
+                EnviroBiotics offers three devices covering spaces from 300 sq ft (<Link to="/product/biologic-mini" className="text-primary underline underline-offset-2">BioLogic Mini</Link>) to 800 sq ft (<Link to="/product/biotica-800" className="text-primary underline underline-offset-2">Biotica 800</Link>), as well as the <Link to="/business" className="text-primary underline underline-offset-2">E-Biotic Pro</Link> for whole-home HVAC integration.
               </p>
             </ScrollReveal>
           </Suspense>

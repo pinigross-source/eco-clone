@@ -1,6 +1,6 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { shopifyProductUrl, navigateToShopify } from "@/lib/shopify";
+import { shopifyProductUrl, navigateToShopify, isEbioticProSlug } from "@/lib/shopify";
 
 // Legacy slugs that should 301 to their canonical product URL.
 const LEGACY_SLUG_REDIRECTS: Record<string, string> = {
@@ -21,6 +21,9 @@ function ProductRedirect() {
 
 export const Route = createFileRoute("/product/$slug")({
   beforeLoad: ({ params }) => {
+    if (isEbioticProSlug(params.slug)) {
+      throw redirect({ to: "/business", statusCode: 301 });
+    }
     const target = LEGACY_SLUG_REDIRECTS[params.slug];
     if (target) {
       throw redirect({

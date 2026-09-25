@@ -154,7 +154,7 @@ const BetterAirRebrandPage = () => {
               ].map((p) => (
                 <Link
                   key={p.slug}
-                  to={`/product/${p.slug}`}
+                  to={p.slug === "ebiotic-pro" ? "/business" : `/product/${p.slug}`}
                   className="block p-4 rounded-xl border border-border hover:border-primary/40 transition bg-card"
                 >
                   <h3 className="font-semibold text-foreground mb-1">{p.name}</h3>
