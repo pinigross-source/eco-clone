@@ -45,7 +45,7 @@ const PRODUCTS = {
     name: "HVAC Series",
     cover: "Whole home (ducted systems)",
     fit: "Installed in central HVAC with ducts",
-    url: "/product/ebiotic-pro",
+    url: "/business",
     img: hvacImage,
     also: ["mini", "biotica800"]
   }

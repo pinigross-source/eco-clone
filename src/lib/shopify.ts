@@ -39,7 +39,6 @@ export const PRODUCT_HANDLE_MAP: Record<string, string> = {
   "biotica-800": "biotica-800",
   "ba-2080": "biotica-800",
   "betterair-2080": "biotica-800",
-  "ebiotic-pro": "e-biotic-pro",
 };
 
 /**

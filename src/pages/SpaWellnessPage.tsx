@@ -644,7 +644,7 @@ export default function SpaWellnessPage() {
                       data-cta="product"
                       data-placement="systems-ebiotic-pro"
                     >
-                      <Link to="/product/ebiotic-pro" onClick={() => trackEvent("spa_cta_click", { cta: "product", placement: "systems", product: "ebiotic-pro" })}>
+                      <Link to="/business" onClick={() => trackEvent("spa_cta_click", { cta: "product", placement: "systems", product: "ebiotic-pro" })}>
                         See specifications
                       </Link>
                     </Button>

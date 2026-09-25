@@ -122,7 +122,7 @@ const glossaryTerms: GlossaryTerm[] = [
     relatedLinks: [
       { label: "HVAC Solutions", url: "/hvac" },
       { label: "HVAC Applications", url: "/hvac-applications" },
-      { label: "eBiotic Pro", url: "/product/ebiotic-pro" },
+      { label: "eBiotic Pro", url: "/business" },
     ],
   },
   {

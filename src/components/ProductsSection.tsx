@@ -40,7 +40,7 @@ const hvacOption = {
   product: "E-Biotic",
   productNote: "Integrated probiotic coverage for the entire home, refilled on schedule.",
   image: hvacHome,
-  href: "/product/ebiotic-pro",
+  href: "/business",
 };
 
 

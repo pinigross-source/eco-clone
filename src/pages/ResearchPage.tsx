@@ -238,7 +238,7 @@ const ResearchPage = () => {
                   and{" "}
                   <Link to="/product/biotica-800" className="text-primary font-medium hover:underline">Biotica 800</Link>{" "}
                   apply the surface-activity evidence, and the{" "}
-                  <Link to="/product/ebiotic-pro" className="text-primary font-medium hover:underline">E-Biotic Pro</Link>{" "}
+                  <Link to="/business" className="text-primary font-medium hover:underline">E-Biotic Pro</Link>{" "}
                   applies the whole-home / HVAC evidence.
                 </p>
               </div>
@@ -286,7 +286,7 @@ const ResearchPage = () => {
                   method: "Multicentre prospective trial across six Italian hospitals. Conventional chemical disinfection was replaced by a Bacillus-based probiotic cleaning system (PCHS). HAI rates and antimicrobial use tracked over the intervention period.",
                   result: "~52% reduction in cumulative HAI incidence and a parallel reduction in antimicrobial drug consumption. Published in PLOS ONE.",
                   url: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0199616",
-                  productLine: <>Whole-facility, HVAC-level evidence  closest in scale to the <Link to="/product/ebiotic-pro" className="text-primary font-medium hover:underline">E-Biotic Pro</Link> deployed across whole homes and small commercial spaces.</>,
+                  productLine: <>Whole-facility, HVAC-level evidence  closest in scale to the <Link to="/business" className="text-primary font-medium hover:underline">E-Biotic Pro</Link> deployed across whole homes and small commercial spaces.</>,
                 },
                 {
                   authors: "D'Accolti M., Soffritti I., Mazzacane S., Caselli E.",
@@ -295,7 +295,7 @@ const ResearchPage = () => {
                   method: "Review and field data on the impact of Bacillus-based probiotic sanitation (PCHS) on the resistome of indoor environments, with metagenomic profiling of antimicrobial resistance genes (ARGs).",
                   result: "Continuous probiotic cleaning significantly lowered pathogen load and the abundance of ARGs on indoor surfaces vs. chemical disinfection. Published in Microorganisms (MDPI).",
                   url: "https://www.mdpi.com/2076-2607/9/2/225",
-                  productLine: <>Mechanism evidence for competitive exclusion at scale  relevant to the <Link to="/product/ebiotic-pro" className="text-primary font-medium hover:underline">E-Biotic Pro</Link> for whole-home HVAC integration.</>,
+                  productLine: <>Mechanism evidence for competitive exclusion at scale  relevant to the <Link to="/business" className="text-primary font-medium hover:underline">E-Biotic Pro</Link> for whole-home HVAC integration.</>,
                 },
                 {
                   authors: "Vandini A., Temmerman R., Frabetti A. et al.",
