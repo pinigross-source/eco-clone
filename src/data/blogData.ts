@@ -983,7 +983,7 @@ const legacyBlogPosts: BlogPost[] = [
       "In **Nighttime Mode**, the device dims all indicator lights to off and reduces the misting frequency. The pump click is barely audible even close-up. In a room with normal background noise, a furnace cycling, traffic outside, a white-noise machine, it's effectively silent.",
       "For comparison: a typical HEPA purifier on its lowest setting runs around 35–45 dB. A white-noise machine sits at 40–60 dB. The Gen 2 in Nighttime Mode is meaningfully quieter than either. This is the spec the original BioLogic Mini got dinged on in some reviews, and the Gen 2 is a real upgrade here.",
       "The other relevant Nighttime Mode detail: every indicator light goes dark. No glowing power LED, no status indicator, nothing visible. For a nursery, this is what you want. A glowing blue dot across the room from a crib is a small thing that becomes a big thing at 2 AM.",
-      "> The [BioLogic Mini Gen 2](/product/biologic-mini-gen-2) is $98 and ships free in the US.",
+      "> The [BioLogic Mini Gen 2](/product/biologic-mini-gen-2) is $98 and ships free within the continental US.",
       "## Performance: what changed in six weeks",
       "I have to caveat what follows. Six weeks in a maintenance setup isn't going to produce dramatic before/after photos. The device isn't trying to solve a crisis, it's trying to keep the surface microbiome in a state where odor, allergen, and pathogen-producing microbes don't get a foothold. That kind of effect is mostly visible in what **doesn't** happen rather than what does.",
       "What I noticed:",

@@ -222,7 +222,7 @@ function RoomKits() {
             coverage={REVIEWED_PRICES.mini.coverage}
             room="Bedroom, desk, or small room"
             power="Rechargeable"
-            shipping="Shipping calculated at checkout"
+            shipping="Free shipping"
             image={miniAsset}
             imageWidth={896}
             imageHeight={1200}
@@ -235,7 +235,7 @@ function RoomKits() {
             coverage={REVIEWED_PRICES.biotica.coverage}
             room="Larger shared room"
             power="Plug-in"
-            shipping="Eligible for continental US shipping over $200"
+            shipping="Free shipping"
             image={bioticaAsset}
             imageWidth={1432}
             imageHeight={1920}

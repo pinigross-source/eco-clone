@@ -10,7 +10,7 @@ const sections = [
     title: "Free Shipping",
     content: (
       <p>
-        Ecological Balancing Technologies Corporation (EBT Corp.) offers free USPS Priority Mail shipping on orders over $200 within the continental United States. Shipping rates, duties, and applicable taxes apply for orders to Hawaii, Canada, and other territories or countries.
+        Free shipping within the continental US on every order that includes an EnviroBiotics device (such as the BioLogic Mini or Biotica 800) or a Subscribe &amp; Save item. All other orders ship free over $200. Orders to Hawaii, Canada and other countries: shipping rates, customs duties and taxes are calculated at checkout.
       </p>
     ),
   },
@@ -87,7 +87,7 @@ const sections = [
         <ul className="list-disc pl-5 space-y-1">
           <li>Check your bank or credit card statement.</li>
           <li>Please contact your bank or credit card company for additional assistance.</li>
-          <li>If the issue persists, contact us at <a href="tel:8336923883" className="text-primary hover:underline">(833) 692-3883</a> (Mon–Fri, 9 AM–5 PM EST).</li>
+          <li>If the issue persists, contact us at <a href="tel:8336923883" className="text-primary hover:underline">(833) 692-3883</a> (Mon–Fri, 9 AM–4 PM EST).</li>
         </ul>
       </>
     ),
@@ -204,7 +204,7 @@ const WarrantyPolicyPage = () => {
               </a>
               <span className="inline-flex items-center gap-2 text-muted-foreground">
                 <Clock className="h-4 w-4 text-primary" />
-                Mon–Fri, 9 AM–5 PM EST
+                Mon–Fri, 9 AM–4 PM EST
               </span>
             </div>
           </div>

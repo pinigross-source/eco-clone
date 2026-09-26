@@ -73,7 +73,7 @@ const products = [
     valueStack: [
       "Biotica 800 ($299)",
       "+ 2× BioLogic Mini ($196)",
-      "+ Free shipping ($15)",
+      "+ Free shipping",
     ],
   },
 ];
@@ -518,7 +518,7 @@ const PetsLandingContent = () => {
                   <Button size="lg" className="mt-8" onClick={scrollToProducts}>Shop EnviroBiotics - From {fromPrice} <ArrowRight /></Button>
                   {isPromo ? <p className="mt-3 text-[13px] font-semibold text-[#bf4800]">15% OFF automatically applied at checkout</p> : null}
                   <GuaranteeBadge className="mt-3" />
-                  <p className="mt-2 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $200</p>
+                  <p className="mt-2 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping</p>
                 </div>
               </div>
 
@@ -530,7 +530,7 @@ const PetsLandingContent = () => {
                   <Button size="lg" className="mt-8 w-full sm:w-auto" onClick={scrollToProducts}>Shop EnviroBiotics - From {fromPrice} <ArrowRight /></Button>
                   {isPromo ? <p className="mt-3 text-[13px] font-semibold text-[#bf4800]">15% OFF automatically applied at checkout</p> : null}
                   <GuaranteeBadge className="mt-3 justify-center" />
-                  <p className="mt-2 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping Over $200</p>
+                  <p className="mt-2 text-[12px] font-medium text-black/60">30-Day Risk-Free Guarantee • Free Shipping</p>
                 </div>
                 <img src={finalCtaAsset.url} alt="BioLogic Mini on a shelf beside a green plant in a warm home" loading="lazy" decoding="async" width="1920" height="640" className="w-full object-cover object-center" />
               </div>

@@ -55,9 +55,8 @@ const sections = [
     content: (
       <>
         <ul className="list-disc pl-5 space-y-1">
-          <li>Free USPS Priority Mail shipping is available on orders over $200 within the continental United States.</li>
+          <li>Free shipping within the continental US on every order that includes an EnviroBiotics device (such as the BioLogic Mini or Biotica 800) or a Subscribe &amp; Save item. All other orders ship free over $200. Orders to Hawaii, Canada and other countries: shipping rates, customs duties and taxes are calculated at checkout.</li>
           <li>Expedited shipping options (including FedEx Standard Overnight) are available at additional cost.</li>
-          <li>International orders are subject to additional shipping rates, duties, and taxes.</li>
           <li>Estimated delivery times are not guaranteed and may vary based on carrier and destination.</li>
           <li>Risk of loss and title for items pass to you upon delivery to the carrier.</li>
         </ul>
@@ -240,7 +239,7 @@ const TermsPage = () => {
               </a>
               <span className="inline-flex items-center gap-2 text-muted-foreground">
                 <Clock className="h-4 w-4 text-primary" />
-                Mon–Fri, 9 AM–5 PM EST
+                Mon–Fri, 9 AM–4 PM EST
               </span>
             </div>
           </div>

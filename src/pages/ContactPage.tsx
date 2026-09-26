@@ -97,7 +97,7 @@ const ContactPage = () => {
                       <Clock className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-semibold text-foreground">Mon – Fri, 9 AM – 4 PM EST</p>
+                      <p className="font-semibold text-foreground">Mon–Fri, 9 AM–4 PM EST</p>
                       <p className="text-sm text-muted-foreground">Excluding US public holidays</p>
                     </div>
                   </div>
