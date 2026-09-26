@@ -23,11 +23,11 @@ const allTestimonials = [
     image: testimonialTinaHuang,
   },
   {
-    name: "Marcus R.",
+    name: "Jay, NJ",
     category: "Pet Owner",
     text: "Six months in, I sleep through the night now. My wife says the bedroom doesn't feel like our cats live there anymore.",
     rating: 5,
-    avatar: "M",
+    avatar: "J",
     image: testimonialDogOwner,
   },
   {
