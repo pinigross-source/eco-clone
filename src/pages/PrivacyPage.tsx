@@ -232,7 +232,7 @@ const PrivacyPage = () => {
               </a>
               <span className="inline-flex items-center gap-2 text-muted-foreground">
                 <Clock className="h-4 w-4 text-primary" />
-                Mon–Fri, 9 AM–5 PM EST
+                Mon–Fri, 9 AM–4 PM EST
               </span>
             </div>
           </div>

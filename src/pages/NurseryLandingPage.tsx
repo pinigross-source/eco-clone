@@ -431,7 +431,7 @@ const NurseryLandingPage = () => {
                 </div>
                 <p className="text-sm text-muted-foreground flex items-center justify-center gap-1">
                   <Truck className="w-4 h-4" />
-                  + {formatPrice(895)} shipping
+                  Free shipping
                 </p>
 
                 {/* Quantity Selector */}
@@ -497,7 +497,7 @@ const NurseryLandingPage = () => {
                 <img src={stripeLogo} alt="Stripe" className="h-9 w-auto" style={{ imageRendering: 'crisp-edges' }} />
               </div>
               <div className="flex items-center gap-4 text-sm text-muted-foreground pointer-events-none select-none">
-                <p className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" aria-hidden="true" /> Free shipping over $200</p>
+                <p className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" aria-hidden="true" /> Free shipping</p>
                 <p className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" aria-hidden="true" /> 30 day guarantee</p>
                 <p className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" aria-hidden="true" /> Cancel anytime</p>
               </div>

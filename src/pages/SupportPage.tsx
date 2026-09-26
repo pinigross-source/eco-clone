@@ -63,7 +63,7 @@ const contactInfo = [
     icon: Phone,
     label: "Phone",
     value: "(833) 692 3883",
-    subtext: "Monday to Friday, 9AM - 4PM EST",
+    subtext: "Mon–Fri, 9 AM–4 PM EST",
     href: "tel:+18336923883",
   },
   {
@@ -76,8 +76,8 @@ const contactInfo = [
   {
     icon: Clock,
     label: "Open During",
-    value: "Monday to Friday",
-    subtext: "9AM - 4PM EST",
+    value: "Support Hours",
+    subtext: "Mon–Fri, 9 AM–4 PM EST",
   },
 ];
 

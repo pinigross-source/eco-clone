@@ -1285,7 +1285,7 @@ const BeyondBleachPage = () => {
                 {
                   icon: <Phone className="h-6 w-6" strokeWidth={1.4} />,
                   title: "Real phone support",
-                  copy: "Mon–Fri, 9AM–4PM ET.",
+                  copy: "Mon–Fri, 9 AM–4 PM EST",
                 },
               ].map((t, i) => (
                 <div

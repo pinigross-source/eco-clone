@@ -37,7 +37,7 @@ const companyLinks = [
 const contactInfo = [
   { icon: Phone, label: "(833) 692 3883" },
   { icon: Mail, label: "contact@envirobiotics.com" },
-  { icon: Clock, label: "Mon-Fri, 9AM - 4PM EST" },
+  { icon: Clock, label: "Mon–Fri, 9 AM–4 PM EST" },
 ];
 
 const trustBadges = [
