@@ -131,7 +131,7 @@ export const MiniAdLanding = ({
               </Button>
             </div>
             <p className="mt-5 text-xs text-foreground/55 tracking-wide">
-              30-day money-back  Free U.S. shipping  5,000+ homes
+              30-day money-back  Free shipping  5,000+ homes
             </p>
           </div>
 
