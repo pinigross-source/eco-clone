@@ -258,7 +258,7 @@ function CompactFooter() {
 
 const PetsLandingContent = () => {
   const { isPromo, salePrice, shopUrl } = useOffer();
-  const heroRef = useRef<HTMLElement>(null);
+  const primaryShopRef = useRef<HTMLAnchorElement>(null);
   const [showSticky, setShowSticky] = useState(false);
   const [showExitOffer, setShowExitOffer] = useState(false);
   const fromPrice = formatPrice(salePrice(MINI_PRICE));
@@ -269,10 +269,10 @@ const PetsLandingContent = () => {
   };
 
   useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero) return;
-    const observer = new IntersectionObserver(([entry]) => setShowSticky(!entry.isIntersecting), { threshold: 0.05 });
-    observer.observe(hero);
+    const trigger = primaryShopRef.current;
+    if (!trigger) return;
+    const observer = new IntersectionObserver(([entry]) => setShowSticky(!entry.isIntersecting), { threshold: 0 });
+    observer.observe(trigger);
     return () => observer.disconnect();
   }, []);
 
@@ -324,14 +324,14 @@ const PetsLandingContent = () => {
       <SEOHead title="Pet Dander & Odor Control for Your Home | EnviroBiotics" description="Engineered for homes with pets. EnviroBiotics breaks down dander and odor at the surface, where filters can't reach." path="/pets" />
       <LogoOnlyHeader />
       <main className="bg-white pb-16 text-[#1A1A1A] sm:pb-0" style={{ fontFamily: DISPLAY }}>
-        <section ref={heroRef} className="relative overflow-hidden bg-[linear-gradient(to_top_right,#fff7f0_0%,#fdfaf6_55%,#f6f8fb_100%)]">
+        <section className="relative overflow-hidden bg-[linear-gradient(to_top_right,#fff7f0_0%,#fdfaf6_55%,#f6f8fb_100%)]">
           <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-8 px-[clamp(20px,5vw,72px)] pb-10 pt-7 sm:pb-14 sm:pt-10 lg:grid-cols-[47fr_53fr] lg:gap-14 lg:py-10">
             <div className="max-w-[560px]">
               <p className="flex items-center gap-2 text-[13px] font-medium text-neutral-700">
                 <span className="flex gap-0.5" aria-hidden>
                   {[0, 1, 2, 3, 4].map((star) => <Star key={star} className="h-[15px] w-[15px] fill-primary text-primary" />)}
                 </span>
-                <span>4.8&nbsp; | 1,000+ pet homes</span>
+                <span>★★★★★ Rated 5.0 by verified buyers</span>
               </p>
               <h1 className="mt-4 max-w-[15ch] font-bold leading-[0.98] tracking-tight text-neutral-900 text-[clamp(38px,11vw,52px)] lg:text-[clamp(44px,3.5vw,54px)]">
                 {HERO_HEADLINE}
@@ -342,12 +342,10 @@ const PetsLandingContent = () => {
               <p className="mt-4 max-w-[540px] text-[16px] leading-relaxed text-neutral-700">
                 EnviroBiotics continuously distributes beneficial probiotics throughout your pet’s environment, reaching the <strong className="font-semibold text-neutral-900">air and surfaces</strong> ordinary air filters can’t.
               </p>
-              <Button
-                size="lg"
-                className="mt-7 h-[54px] w-full rounded-full px-7 text-[16px] font-semibold sm:w-auto"
-                onClick={scrollToProducts}
-              >
-                Shop Pet Solutions - From {fromPrice} <ArrowRight />
+              <Button asChild size="lg" className="mt-7 h-[54px] w-full rounded-full px-7 text-[16px] font-semibold sm:w-auto">
+                <TrackedShopLink ref={primaryShopRef} route="/pets" placement="hero_primary" product="biologic-mini" destination={shopUrl("biologic-mini")}>
+                  Shop BioLogic Mini · $98 <ArrowRight />
+                </TrackedShopLink>
               </Button>
               {isPromo ? (
                 <p className="mt-3 text-[13px] font-semibold text-[#bf4800]">15% OFF - Automatically applied at checkout</p>
@@ -542,10 +540,9 @@ const PetsLandingContent = () => {
 
       <MobileStickyShopCTA
         route="/pets"
-        product="biotica-800"
-        destination={shopUrl("biotica-800")}
-        label="Shop Biotica 800"
-        detail="Up to 800 sq ft · $299"
+        product="biologic-mini"
+        destination={shopUrl("biologic-mini")}
+        label="Shop BioLogic Mini · $98"
         visible={showSticky}
       />
       <CompactFooter />

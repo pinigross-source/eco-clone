@@ -21,3 +21,4 @@
 - [x] /go/* pages: shop links carry fixed campaign tags (utm_source=envirobiotics, utm_medium=site, utm_campaign=<page>-landing), on buy links at render and on any shop link at click.
 
 - [x] Update all customer-facing shipping-rule wording and support hours without other changes.
+- [ ] Add the requested first-screen conversion buttons, personalization, factual corrections, and observer-based mobile sticky bars.

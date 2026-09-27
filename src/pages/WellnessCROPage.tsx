@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Check, Leaf, Sparkles, Wind } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -43,10 +43,13 @@ function WellnessCROContent() {
   const BIOTICA_URL = shopUrl("biotica-800");
   const MINI_URL = shopUrl("biologic-mini");
   const [showSticky, setShowSticky] = useState(false);
+  const primaryShopRef = useRef<HTMLAnchorElement>(null);
   useEffect(() => {
-    const onScroll = () => setShowSticky(window.scrollY > 620);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const trigger = primaryShopRef.current;
+    if (!trigger) return;
+    const observer = new IntersectionObserver(([entry]) => setShowSticky(!entry.isIntersecting), { threshold: 0 });
+    observer.observe(trigger);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -65,13 +68,13 @@ function WellnessCROContent() {
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="min-h-12 rounded-full px-7">
-                  <TrackedShopLink route="/wellness" placement="hero_primary" product="biotica-800" destination={BIOTICA_URL}>
-                    Shop Biotica 800 <ArrowRight className="h-4 w-4" />
+                  <TrackedShopLink ref={primaryShopRef} route="/wellness" placement="hero_primary" product="biologic-mini" destination={MINI_URL}>
+                    Shop BioLogic Mini <ArrowRight className="h-4 w-4" />
                   </TrackedShopLink>
                 </Button>
                 <GuaranteeBadge className="sm:hidden" />
                 <Button asChild variant="outline" size="lg" className="min-h-12 rounded-full px-7">
-                  <a href="#why-different">Why it is different</a>
+                  <TrackedShopLink route="/wellness" placement="hero_primary" product="biotica-800" destination={BIOTICA_URL}>Shop Biotica 800</TrackedShopLink>
                 </Button>
               </div>
               <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink/70">
@@ -94,8 +97,8 @@ function WellnessCROContent() {
           title="Start with the space where you spend the most time."
           intro="Choose a quiet personal-room device or broader coverage for a main living area."
           decisions={[
-            { slug: "biotica-800", bestFor: "Main living rooms and shared spaces", installation: "Plug in and run continuously", destination: BIOTICA_URL, ctaLabel: "Shop Biotica 800", featured: true },
             { slug: "biologic-mini", bestFor: "Bedrooms and personal spaces", installation: "Rechargeable and portable", destination: MINI_URL, ctaLabel: "Shop BioLogic Mini" },
+            { slug: "biotica-800", bestFor: "Main living rooms and shared spaces", installation: "Plug in and run continuously", destination: BIOTICA_URL, ctaLabel: "Shop Biotica 800", featured: true },
           ]}
         />
 
@@ -196,7 +199,7 @@ function WellnessCROContent() {
         </section>
       </main>
       <Footer />
-      <MobileStickyShopCTA route="/wellness" product="biotica-800" destination={BIOTICA_URL} label="Shop Biotica 800" detail="Up to 800 sq ft · $299" visible={showSticky} />
+      <MobileStickyShopCTA route="/wellness" product="biologic-mini" destination={MINI_URL} label="Shop BioLogic Mini · $98" visible={showSticky} />
     </div>
   );
 }

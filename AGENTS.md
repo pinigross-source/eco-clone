@@ -1,0 +1,1 @@
+Tracked outbound Shopify CTAs must use `TrackedShopLink` inside `OfferLanding`, because click-time decoration preserves visitor attribution, `lp_page`, and analytics continuity.
