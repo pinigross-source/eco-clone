@@ -42,7 +42,7 @@ export const HeroSection = () => {
   return (
     <>
       <section className="home-cinematic-hero relative overflow-hidden bg-background" aria-labelledby="home-hero-title">
-        <div className="home-cinematic-hero__media relative aspect-[4/3] w-full overflow-hidden bg-muted sm:aspect-[16/9] md:absolute md:inset-0 md:aspect-auto">
+        <div className="home-cinematic-hero__media relative aspect-[16/9] w-full overflow-hidden bg-muted md:absolute md:inset-0 md:aspect-auto">
           <picture>
             <source media="(max-width: 767px)" srcSet={mobileHeroAsset.url} type="image/avif" />
             <img
@@ -58,10 +58,10 @@ export const HeroSection = () => {
           <div aria-hidden="true" className="home-cinematic-hero__veil absolute inset-y-0 left-0 hidden w-[58%] bg-gradient-to-r from-background via-background/85 via-40% to-transparent md:block" />
         </div>
 
-        <div className="home-cinematic-hero__content site-container relative z-10 py-8 sm:py-10 md:flex md:min-h-[680px] md:items-center md:py-20 lg:min-h-[740px]">
+        <div className="home-cinematic-hero__content site-container relative z-10 py-6 sm:py-10 md:flex md:min-h-[680px] md:items-center md:py-20 lg:min-h-[740px]">
           <div className="home-cinematic-hero__copy max-w-xl md:w-[48%]">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-eyebrow-accent">Beyond air filtration</p>
-            <h1 id="home-hero-title" className="max-w-[18ch] font-display text-[2.35rem] font-bold leading-[1.08] text-foreground sm:text-[3rem] lg:text-[4rem]">
+            <h1 id="home-hero-title" className="max-w-[18ch] font-display text-[2.15rem] font-bold leading-[1.08] text-foreground sm:text-[3rem] lg:text-[4rem]">
               You take probiotics. Your home doesn’t.
             </h1>
             <p className="mt-5 max-w-[42ch] text-base leading-7 text-muted-foreground sm:text-lg">

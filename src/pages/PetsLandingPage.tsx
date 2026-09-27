@@ -330,12 +330,7 @@ const PetsLandingContent = () => {
         <section className="relative overflow-hidden bg-[linear-gradient(to_top_right,#fff7f0_0%,#fdfaf6_55%,#f6f8fb_100%)]">
           <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-8 px-[clamp(20px,5vw,72px)] pb-10 pt-7 sm:pb-14 sm:pt-10 lg:grid-cols-[47fr_53fr] lg:gap-14 lg:py-10">
             <div className="max-w-[560px]">
-              <p className="flex items-center gap-2 text-[13px] font-medium text-neutral-700">
-                <span className="flex gap-0.5" aria-hidden>
-                  {[0, 1, 2, 3, 4].map((star) => <Star key={star} className="h-[15px] w-[15px] fill-primary text-primary" />)}
-                </span>
-                <span>★★★★★ Rated 5.0 by verified buyers</span>
-              </p>
+              <p className="text-[13px] font-medium text-neutral-700">★★★★★ Rated 5.0 by verified buyers</p>
               <h1 className="mt-4 max-w-[15ch] font-bold leading-[0.98] tracking-tight text-neutral-900 text-[clamp(38px,11vw,52px)] lg:text-[clamp(44px,3.5vw,54px)]">
                 {HERO_HEADLINE}
               </h1>

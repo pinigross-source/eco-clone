@@ -245,14 +245,11 @@ const ParentsLandingContent = () => {
               </Reveal>
               <Reveal>
                 <div className="mt-8 flex flex-col items-center gap-4 sm:mt-10 lg:items-start">
-                  <TrackedShopLink ref={primaryShopRef} route="/parents" placement="hero_primary" product="biologic-mini" destination={MINI_URL}>
-                    <Button
-                      size="lg"
-                      className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]"
-                    >
+                  <Button asChild size="lg" className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]">
+                    <TrackedShopLink ref={primaryShopRef} route="/parents" placement="hero_primary" product="biologic-mini" destination={MINI_URL}>
                       Secure My Baby&apos;s Space
-                    </Button>
-                  </TrackedShopLink>
+                    </TrackedShopLink>
+                  </Button>
                 </div>
               </Reveal>
             </div>
