@@ -1,13 +1,38 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { MobileStickyShopCTA, TrackedShopLink } from "@/components/consumer/ConsumerCRO";
 import desktopHeroAsset from "@/assets/home-hero-static-desktop-3.avif.asset.json";
 import mobileHeroAsset from "@/assets/home-hero-mobile-3.avif.asset.json";
+import { useOffer } from "@/lib/offer";
 import { trackEvent } from "@/lib/tracking";
 
 export const HeroSection = () => {
   const [videoOpen, setVideoOpen] = useState(false);
+  const [isParentsCampaign, setIsParentsCampaign] = useState(false);
+  const [showSticky, setShowSticky] = useState(false);
+  const primaryShopRef = useRef<HTMLAnchorElement>(null);
+  const { shopUrl } = useOffer();
+  const miniUrl = shopUrl("biologic-mini");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const campaign = params.get("utm_campaign") ?? "";
+    const content = params.get("utm_content") ?? "";
+    setIsParentsCampaign(campaign.toLowerCase() === "parents" || content.toLowerCase().includes("parents"));
+  }, []);
+
+  useEffect(() => {
+    const trigger = primaryShopRef.current;
+    if (!trigger) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowSticky(!entry.isIntersecting && entry.boundingClientRect.top < 0),
+      { threshold: 0 },
+    );
+    observer.observe(trigger);
+    return () => observer.disconnect();
+  }, []);
 
   const scrollToProducts = () => {
     trackEvent("homepage_cta_click", { placement: "hero_primary" });
@@ -17,7 +42,7 @@ export const HeroSection = () => {
   return (
     <>
       <section className="home-cinematic-hero relative overflow-hidden bg-background" aria-labelledby="home-hero-title">
-        <div className="home-cinematic-hero__media relative aspect-[4/3] w-full overflow-hidden bg-muted sm:aspect-[16/9] md:absolute md:inset-0 md:aspect-auto">
+        <div className="home-cinematic-hero__media relative aspect-[16/9] w-full overflow-hidden bg-muted md:absolute md:inset-0 md:aspect-auto">
           <picture>
             <source media="(max-width: 767px)" srcSet={mobileHeroAsset.url} type="image/avif" />
             <img
@@ -33,38 +58,45 @@ export const HeroSection = () => {
           <div aria-hidden="true" className="home-cinematic-hero__veil absolute inset-y-0 left-0 hidden w-[58%] bg-gradient-to-r from-background via-background/85 via-40% to-transparent md:block" />
         </div>
 
-        <div className="home-cinematic-hero__content site-container relative z-10 py-8 sm:py-10 md:flex md:min-h-[680px] md:items-center md:py-20 lg:min-h-[740px]">
+        <div className="home-cinematic-hero__content site-container relative z-10 py-6 sm:py-10 md:flex md:min-h-[680px] md:items-center md:py-20 lg:min-h-[740px]">
           <div className="home-cinematic-hero__copy max-w-xl md:w-[48%]">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-eyebrow-accent">Beyond air filtration</p>
-            <h1 id="home-hero-title" className="max-w-[18ch] font-display text-[2.35rem] font-bold leading-[1.08] text-foreground sm:text-[3rem] lg:text-[4rem]">
+            <h1 id="home-hero-title" className="max-w-[18ch] font-display text-[2.15rem] font-bold leading-[1.08] text-foreground sm:text-[3rem] lg:text-[4rem]">
               You take probiotics. Your home doesn’t.
             </h1>
             <p className="mt-5 max-w-[42ch] text-base leading-7 text-muted-foreground sm:text-lg">
-              Probiotic purification designed for the air, surfaces, and objects throughout your room.&nbsp;
+              {isParentsCampaign
+                ? "Air purifiers clean the air. Your baby lives on the floor. EnviroBiotics works on the surfaces your baby touches — crib, playmat, floor. No sprays, no filters, no noise."
+                : "Probiotic purification designed for the air, surfaces, and objects throughout your room."}
             </p>
             <div className="home-cinematic-hero__offer mt-6 max-w-md rounded-lg border border-border/60 bg-background/72 px-4 py-3 text-sm leading-6 text-foreground backdrop-blur-xl sm:text-base">
               <strong className="block">Kits from $98.</strong>
               <span className="block">Device plus first cartridge. No subscription required.</span>
             </div>
             <div className="mt-5 flex max-w-md flex-col gap-3 sm:flex-row">
-              <Button type="button" size="lg" onClick={scrollToProducts} className="min-h-12 flex-1 rounded-full text-base shadow-[0_12px_32px_-18px_hsl(var(--foreground)/0.5)] transition-transform duration-300 hover:-translate-y-0.5">
-                Find My System
-                <ArrowRight className="size-4" aria-hidden="true" />
+              <Button asChild size="lg" className="min-h-12 flex-1 rounded-full text-base shadow-[0_12px_32px_-18px_hsl(var(--foreground)/0.5)] transition-transform duration-300 hover:-translate-y-0.5">
+                <TrackedShopLink ref={primaryShopRef} route="/" placement="hero_primary" product="biologic-mini" destination={miniUrl}>
+                  {isParentsCampaign ? "Secure My Baby's Space" : "Shop BioLogic Mini · $98"}
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </TrackedShopLink>
               </Button>
-              <Button
-                type="button"
-                size="lg"
-                variant="outline"
-                onClick={() => {
-                  setVideoOpen(true);
-                  trackEvent("click_see_how_it_works_video", { placement: "hero" });
-                }}
-                className="min-h-12 flex-1 rounded-full text-xs font-semibold uppercase tracking-[0.12em]"
-              >
-                <Play className="size-4" aria-hidden="true" />
-                Watch how it works
+              <Button type="button" size="lg" variant="outline" onClick={scrollToProducts} className="min-h-12 flex-1 rounded-full text-base">
+                Find My System
               </Button>
             </div>
+            <Button
+              type="button"
+              variant="link"
+              onClick={() => {
+                setVideoOpen(true);
+                trackEvent("click_see_how_it_works_video", { placement: "hero" });
+              }}
+              className="mt-2 min-h-10 px-0 text-sm font-semibold text-foreground underline underline-offset-4"
+            >
+              <Play className="size-4" aria-hidden="true" />
+              Watch how it works
+            </Button>
+            <p className="mt-3 max-w-md text-sm font-medium text-muted-foreground">Free US shipping · 30-day money-back · No filters ever</p>
           </div>
         </div>
       </section>
@@ -85,6 +117,7 @@ export const HeroSection = () => {
           </div>
         </DialogContent>
       </Dialog>
+      <MobileStickyShopCTA route="/" product="biologic-mini" destination={miniUrl} label="Shop BioLogic Mini · $98" visible={showSticky} />
     </>
   );
 };

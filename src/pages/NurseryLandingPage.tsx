@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ShieldCheck, Check, Star, ArrowRight, Baby, Wind, Sparkles, Clock, RefreshCw, Heart, Volume2, Lock, X, Droplets, Fan, Zap, ChevronDown, Package, AlertTriangle, Gift, Loader2, ShoppingCart, Truck } from "lucide-react";
+import { ShieldCheck, Check, Star, ArrowRight, Baby, Wind, Sparkles, Clock, RefreshCw, Heart, Volume2, Lock, X, Droplets, Fan, Zap, ChevronDown, Package, AlertTriangle, Gift, ShoppingCart, Truck } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import biologicMiniImgAsset from "@/assets/shop/biologic-mini.png.asset.json";
 import nurseryLifestyle1 from "@/assets/mother-child-moment.avif";
 import nurseryLifestyle2 from "@/assets/nursery-lifestyle-2.avif";
 import ptpaAward from "@/assets/ptpa-award.png";
 import madeSafeLogo from "@/assets/made-safe-logo.png";
-import stripeLogo from "@/assets/stripe-logo.svg";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { shopifyProductUrl, navigateToShopify } from "@/lib/shopify";
+import { TrackedShopLink } from "@/components/consumer/ConsumerCRO";
+import { OfferLanding } from "@/components/landing/OfferLanding";
+import { useOffer } from "@/lib/offer";
 
 const biologicMiniImg = biologicMiniImgAsset.url;
 
@@ -18,26 +19,16 @@ const BIOLOGIC_MINI_PRODUCT = {
   price: 9800,
   image: biologicMiniImg,
 };
-const SHOPIFY_BUY_URL = shopifyProductUrl("biologic-mini", "nursery");
-
-const NurseryLandingPage = () => {
+const NurseryLandingContent = () => {
   const [showSticky, setShowSticky] = useState(false);
-  const [quantity, setQuantity] = useState(1);
-  const isLoading = false;
+  const { shopUrl } = useOffer();
+  const miniUrl = shopUrl("biologic-mini");
 
   useEffect(() => {
     const onScroll = () => setShowSticky(window.scrollY > 600);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const handleBuyNow = () => {
-    navigateToShopify(SHOPIFY_BUY_URL);
-  };
-
-  const handleAddToCart = () => {
-    navigateToShopify(SHOPIFY_BUY_URL);
-  };
 
   const scrollToCTA = () => {
     document.getElementById("nursery-cta")?.scrollIntoView({ behavior: "smooth" });
@@ -102,7 +93,7 @@ const NurseryLandingPage = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-5 text-sm text-foreground font-medium pointer-events-none select-none">
               <p className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" aria-hidden="true" /> 30 Day Risk&#8209;Free Trial</p>
-              <p className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" aria-hidden="true" /> Free Shipping Today</p>
+              <p className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" aria-hidden="true" /> Free US shipping</p>
               <p className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" aria-hidden="true" /> Lifetime Warranty With Care Plan</p>
               <p className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" aria-hidden="true" /> Trusted by parents (PTPA 5/5)</p>
             </div>
@@ -431,59 +422,16 @@ const NurseryLandingPage = () => {
                 </div>
                 <p className="text-sm text-muted-foreground flex items-center justify-center gap-1">
                   <Truck className="w-4 h-4" />
-                  Free shipping
+                  Free US shipping
                 </p>
-
-                {/* Quantity Selector */}
-                <div className="flex items-center justify-center">
-                  <div className="flex items-center h-11 border border-border rounded-md overflow-hidden bg-background">
-                    <button
-                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="w-11 h-full flex items-center justify-center hover:bg-muted active:bg-muted/80 transition-colors text-muted-foreground hover:text-foreground"
-                    >
-                      <span className="text-lg leading-none">−</span>
-                    </button>
-                    <input
-                      type="text"
-                      value={quantity}
-                      onChange={(e) => {
-                        const val = parseInt(e.target.value);
-                        if (!isNaN(val) && val > 0) setQuantity(val);
-                      }}
-                      className="w-12 h-full text-center text-sm font-medium border-x border-border bg-background focus:outline-none"
-                    />
-                    <button
-                      onClick={() => setQuantity(quantity + 1)}
-                      className="w-11 h-full flex items-center justify-center hover:bg-muted active:bg-muted/80 transition-colors text-muted-foreground hover:text-foreground"
-                    >
-                      <span className="text-lg leading-none">+</span>
-                    </button>
-                  </div>
-                </div>
 
                 {/* Action Buttons */}
                 <div className="grid grid-cols-2 gap-3">
-                  <Button
-                    onClick={handleAddToCart}
-                    variant="outline"
-                    className="w-full rounded-full font-semibold"
-                  >
-                    <ShoppingCart className="w-4 h-4 mr-1.5" />
-                    Add to Cart
+                  <Button asChild variant="outline" className="w-full rounded-full font-semibold">
+                    <TrackedShopLink route="/nursery" placement="mid_page" product="biologic-mini" destination={miniUrl}><ShoppingCart className="w-4 h-4 mr-1.5" />Add to Cart</TrackedShopLink>
                   </Button>
-                  <Button
-                    onClick={handleBuyNow}
-                    disabled={isLoading}
-                    className="w-full rounded-full font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    {isLoading ? (
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                    ) : (
-                      <>
-                        <Zap className="w-4 h-4 mr-1.5" />
-                        Buy Now
-                      </>
-                    )}
+                  <Button asChild className="w-full rounded-full font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300">
+                    <TrackedShopLink route="/nursery" placement="mid_page" product="biologic-mini" destination={miniUrl}><Zap className="w-4 h-4 mr-1.5" />Buy Now</TrackedShopLink>
                   </Button>
                 </div>
               </div>
@@ -493,13 +441,11 @@ const NurseryLandingPage = () => {
             <div className="mt-8 flex flex-col items-center gap-3">
               <div className="flex items-center gap-2 bg-muted/60 border border-border/40 rounded-full px-5 py-2.5 shadow-sm">
                 <Lock className="w-4 h-4 text-muted-foreground" />
-                <span className="text-sm font-medium text-foreground">Secure checkout powered by</span>
-                <img src={stripeLogo} alt="Stripe" className="h-9 w-auto" style={{ imageRendering: 'crisp-edges' }} />
+                <span className="text-sm font-medium text-foreground">Secure checkout on Shopify</span>
               </div>
               <div className="flex items-center gap-4 text-sm text-muted-foreground pointer-events-none select-none">
-                <p className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" aria-hidden="true" /> Free shipping</p>
+                <p className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" aria-hidden="true" /> Free US shipping</p>
                 <p className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" aria-hidden="true" /> 30 day guarantee</p>
-                <p className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" aria-hidden="true" /> Cancel anytime</p>
               </div>
             </div>
           </div>
@@ -637,5 +583,11 @@ function PainQuote({ icon, children }: { icon: React.ReactNode; children: React.
     </div>
   );
 }
+
+const NurseryLandingPage = () => (
+  <OfferLanding pageName="nursery">
+    <NurseryLandingContent />
+  </OfferLanding>
+);
 
 export default NurseryLandingPage;

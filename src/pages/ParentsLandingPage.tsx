@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { CompactTrustStrip, GUARANTEE_BODY, GUARANTEE_FAQ_QUESTION, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
+import { CompactTrustStrip, GUARANTEE_BODY, GUARANTEE_FAQ_QUESTION, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrackedShopLink, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
 import { OfferLanding, type LandingPageProps } from "@/components/landing/OfferLanding";
 import { useOffer } from "@/lib/offer";
 import {
@@ -166,11 +166,17 @@ const ParentsLandingContent = () => {
   const BUNDLE_URL = shopUrl("home-complete-bundle");
   const BIOTICA_URL = shopUrl("biotica-800");
   const [showSticky, setShowSticky] = useState(false);
+  const primaryShopRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setShowSticky(window.scrollY > 600);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const trigger = primaryShopRef.current;
+    if (!trigger) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowSticky(!entry.isIntersecting && entry.boundingClientRect.top < 0),
+      { threshold: 0 },
+    );
+    observer.observe(trigger);
+    return () => observer.disconnect();
   }, []);
 
   const [angle, setAngle] = useState<Angle>("a");
@@ -239,17 +245,11 @@ const ParentsLandingContent = () => {
               </Reveal>
               <Reveal>
                 <div className="mt-8 flex flex-col items-center gap-4 sm:mt-10 lg:items-start">
-                  <a
-                    href={MINI_URL}
-                    onClick={() => trackEvent("click_to_shop", { route: "/parents", placement: "hero_primary", product: "biologic-mini", destination: MINI_URL })}
-                  >
-                    <Button
-                      size="lg"
-                      className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]"
-                    >
+                  <Button asChild size="lg" className="h-[3.25rem] rounded-full bg-foreground px-9 text-[15px] font-medium tracking-[-0.01em] text-background hover:bg-foreground/90 sm:h-[3.5rem] sm:px-10 sm:text-[16px]">
+                    <TrackedShopLink ref={primaryShopRef} route="/parents" placement="hero_primary" product="biologic-mini" destination={MINI_URL}>
                       Secure My Baby&apos;s Space
-                    </Button>
-                  </a>
+                    </TrackedShopLink>
+                  </Button>
                 </div>
               </Reveal>
             </div>
@@ -962,8 +962,7 @@ const ParentsLandingContent = () => {
         route="/parents"
         product="biologic-mini"
         destination={MINI_URL}
-        label="Shop BioLogic Mini"
-        detail="Up to 300 sq ft · $98"
+        label="Shop BioLogic Mini · $98"
         visible={showSticky}
       />
       <Footer />

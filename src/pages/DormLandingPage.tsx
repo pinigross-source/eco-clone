@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Loader2, Play, ShoppingCart } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
+import { MobileStickyShopCTA, TrackedShopLink } from "@/components/consumer/ConsumerCRO";
+import { OfferLanding } from "@/components/landing/OfferLanding";
+import { useOffer } from "@/lib/offer";
 import { shopifyProductUrl, navigateToShopify } from "@/lib/shopify";
 import {
   Accordion,
@@ -118,14 +121,22 @@ const VideoPlayer = ({ src, poster, title }: { src: string; poster: string; titl
   );
 };
 
-const DormLandingPage = () => {
+const DormLandingContent = () => {
   const [showSticky, setShowSticky] = useState(false);
   const isLoading = false;
+  const { shopUrl } = useOffer();
+  const miniUrl = shopUrl("biologic-mini");
+  const primaryShopRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setShowSticky(window.scrollY > 700);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const trigger = primaryShopRef.current;
+    if (!trigger) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowSticky(!entry.isIntersecting && entry.boundingClientRect.top < 0),
+      { threshold: 0 },
+    );
+    observer.observe(trigger);
+    return () => observer.disconnect();
   }, []);
 
   const handleBuyNow = () => {
@@ -181,20 +192,10 @@ const DormLandingPage = () => {
                 EnviroBiotics creates a protective, hypoallergenic safe zone, without chemicals.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                <Button
-                  onClick={handleBuyNow}
-                  disabled={isLoading}
-                  size="lg"
-                  className="h-14 rounded-full bg-white px-8 text-base font-semibold text-foreground hover:bg-white/90"
-                >
-                  {isLoading ? (
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                  ) : (
-                    <>
-                      Get Biologic Mini™
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </>
-                  )}
+                <Button asChild size="lg" className="h-14 rounded-full bg-white px-8 text-base font-semibold text-foreground hover:bg-white/90">
+                  <TrackedShopLink ref={primaryShopRef} route="/dorm" placement="hero_primary" product="biologic-mini" destination={miniUrl}>
+                    Get Biologic Mini™ <ArrowRight className="ml-2 h-4 w-4" />
+                  </TrackedShopLink>
                 </Button>
                 <a
                   href="#how-it-works"
@@ -604,30 +605,17 @@ const DormLandingPage = () => {
         </section>
       </main>
 
-      {/* Sticky mobile bar */}
-      <div
-        className={`fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 backdrop-blur sm:hidden transition-transform duration-300 ${
-          showSticky ? "translate-y-0" : "translate-y-full"
-        }`}
-      >
-        <div className="flex items-center justify-between gap-3 px-4 py-3">
-          <div>
-            <p className="text-sm font-semibold text-foreground">Biologic Mini™</p>
-            <p className="text-xs text-muted-foreground">$98 · Free shipping</p>
-          </div>
-          <Button
-            onClick={handleBuyNow}
-            disabled={isLoading}
-            className="h-11 rounded-full bg-foreground px-5 text-sm font-semibold text-background hover:bg-foreground/90"
-          >
-            {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Buy now"}
-          </Button>
-        </div>
-      </div>
+      <MobileStickyShopCTA route="/dorm" product="biologic-mini" destination={miniUrl} label="Shop BioLogic Mini · $98" visible={showSticky} />
 
       {/* Subscription upsell + in-app cart removed  checkout happens on Shopify */}
     </>
   );
 };
+
+const DormLandingPage = () => (
+  <OfferLanding pageName="dorm">
+    <DormLandingContent />
+  </OfferLanding>
+);
 
 export default DormLandingPage;
