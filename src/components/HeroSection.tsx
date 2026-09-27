@@ -81,17 +81,18 @@ export const HeroSection = () => {
                 Find My System
               </Button>
             </div>
-            <button
+            <Button
               type="button"
+              variant="link"
               onClick={() => {
                 setVideoOpen(true);
                 trackEvent("click_see_how_it_works_video", { placement: "hero" });
               }}
-              className="mt-4 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-foreground underline underline-offset-4"
+              className="mt-2 min-h-10 px-0 text-sm font-semibold text-foreground underline underline-offset-4"
             >
               <Play className="size-4" aria-hidden="true" />
               Watch how it works
-            </button>
+            </Button>
             <p className="mt-3 max-w-md text-sm font-medium text-muted-foreground">Free US shipping · 30-day money-back · No filters ever</p>
           </div>
         </div>

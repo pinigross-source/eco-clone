@@ -93,7 +93,7 @@ const NurseryLandingContent = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-5 text-sm text-foreground font-medium pointer-events-none select-none">
               <p className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" aria-hidden="true" /> 30 Day Risk&#8209;Free Trial</p>
-              <p className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" aria-hidden="true" /> Free Shipping Today</p>
+              <p className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" aria-hidden="true" /> Free US shipping</p>
               <p className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" aria-hidden="true" /> Lifetime Warranty With Care Plan</p>
               <p className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" aria-hidden="true" /> Trusted by parents (PTPA 5/5)</p>
             </div>
@@ -422,7 +422,7 @@ const NurseryLandingContent = () => {
                 </div>
                 <p className="text-sm text-muted-foreground flex items-center justify-center gap-1">
                   <Truck className="w-4 h-4" />
-                  Free shipping
+                  Free US shipping
                 </p>
 
                 {/* Action Buttons */}
@@ -444,7 +444,7 @@ const NurseryLandingContent = () => {
                 <span className="text-sm font-medium text-foreground">Secure checkout on Shopify</span>
               </div>
               <div className="flex items-center gap-4 text-sm text-muted-foreground pointer-events-none select-none">
-                <p className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" aria-hidden="true" /> Free shipping</p>
+                <p className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" aria-hidden="true" /> Free US shipping</p>
                 <p className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" aria-hidden="true" /> 30 day guarantee</p>
               </div>
             </div>

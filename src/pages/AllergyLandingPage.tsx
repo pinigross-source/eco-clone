@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Wind, Sparkles, Star } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
-import { CompactTrustStrip, GUARANTEE_BODY, GUARANTEE_FAQ_QUESTION, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
+import { CompactTrustStrip, GUARANTEE_BODY, GUARANTEE_FAQ_QUESTION, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrackedShopLink, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
 import { OfferLanding, type LandingPageProps } from "@/components/landing/OfferLanding";
 import { useOffer } from "@/lib/offer";
 import {
@@ -107,10 +107,13 @@ const AllergyLandingContent = () => {
   const BIOTICA_URL = shopUrl("biotica-800");
   const BUNDLE_URL = shopUrl("home-complete-bundle");
   const [showSticky, setShowSticky] = useState(false);
+  const primaryShopRef = useRef<HTMLAnchorElement>(null);
   useEffect(() => {
-    const onScroll = () => setShowSticky(window.scrollY > 600);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const trigger = primaryShopRef.current;
+    if (!trigger) return;
+    const observer = new IntersectionObserver(([entry]) => setShowSticky(!entry.isIntersecting), { threshold: 0 });
+    observer.observe(trigger);
+    return () => observer.disconnect();
   }, []);
   return (
     <div className="min-h-screen bg-cream text-ink font-sans">
@@ -138,12 +141,16 @@ const AllergyLandingContent = () => {
                 size="lg"
                 className="h-14 rounded-full bg-sage hover:bg-sage/90 text-white text-base px-8 shadow-lg shadow-sage/20"
               >
-                <a
-                  href={BUNDLE_URL}
+                <TrackedShopLink
+                  ref={primaryShopRef}
+                  route="/allergy"
+                  placement="hero_primary"
+                  product="home-complete-bundle"
+                  destination={BUNDLE_URL}
                   onClick={() => track("cta_click", { section: "hero", target: "bundle" })}
                 >
                   Shop EnviroBiotics <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                </TrackedShopLink>
               </Button>
               <Button
                 variant="outline"
@@ -609,8 +616,7 @@ const AllergyLandingContent = () => {
         route="/allergy"
         product="biologic-mini"
         destination={MINI_URL}
-        label="Shop BioLogic Mini"
-        detail="Single room · $98"
+        label="Shop BioLogic Mini · $98"
         visible={showSticky}
       />
     </div>
