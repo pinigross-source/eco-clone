@@ -171,7 +171,10 @@ const ParentsLandingContent = () => {
   useEffect(() => {
     const trigger = primaryShopRef.current;
     if (!trigger) return;
-    const observer = new IntersectionObserver(([entry]) => setShowSticky(!entry.isIntersecting), { threshold: 0 });
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowSticky(!entry.isIntersecting && entry.boundingClientRect.top < 0),
+      { threshold: 0 },
+    );
     observer.observe(trigger);
     return () => observer.disconnect();
   }, []);

@@ -21,6 +21,9 @@ export const StickyMobileCTA = () => {
 
   if (!isMobile) return null;
 
+  // These conversion pages render their own hero-aware tracked shop bar.
+  if (["/", "/pets", "/parents", "/wellness", "/allergy", "/dorm"].includes(location.pathname)) return null;
+
   // Don't show on product detail pages (they have their own StickyProductCTA)
   if (location.pathname.startsWith("/product/")) return null;
   // Don't show on checkout/auth/admin pages
