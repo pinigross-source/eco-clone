@@ -1,12 +1,18 @@
-# Update shipping rules and support hours
+# Improve first-screen conversion paths
 
 ## Changes
-- Replace outdated purchase-shipping thresholds and charges with the current rule: devices and Subscribe & Save items ship free in the continental US; other orders ship free over $200; Hawaii, Canada, and other international charges are calculated at checkout.
-- On device-specific offers, use the concise wording “Free shipping.” Remove the BioLogic Mini paid-shipping claim.
-- Update the Warranty Policy and Terms shipping sections to state the full current rule while preserving unrelated policy wording.
-- Standardize every customer-support schedule to exactly “Mon–Fri, 9 AM–4 PM EST.”
-- Leave return-shipping rules, administrative shipping controls, layout, styling, links, tracking, and all unrelated copy unchanged.
+- Add a tracked BioLogic Mini purchase button, secondary finder action, video text link, trust line, and Parents-campaign sub-headline to the homepage hero.
+- Add a tracked BioLogic Mini purchase button and verified-buyer rating line to the pets hero.
+- Put BioLogic Mini before Biotica 800 in the wellness hero and product comparison.
+- Correct the four nursery purchase details, removing the unused quantity selector and routing purchases through the existing decorated shop-link flow.
+- Standardize the mobile sticky purchase bar on `/`, `/pets`, `/parents`, `/wellness`, `/allergy`, and `/dorm`, controlled by whether each hero’s primary shop button is visible.
+- Leave blogs, policies, `/go/*`, existing analytics scripts, and existing shop-link decoration unchanged.
+
+## Technical details
+- Reuse `TrackedShopLink` with `useOffer().shopUrl("biologic-mini")`; its click handler calls `withVisitorAttribution(...)`, preserving campaign IDs, `lp_page`, and cross-domain linking.
+- Use an `IntersectionObserver` tied to each hero primary link instead of fixed scroll distances.
+- Keep all changes within the existing page and shared conversion components.
 
 ## Verification
-- Search the full customer-facing code for outdated shipping thresholds, paid Mini shipping, and 5 PM support hours.
-- Confirm the preview builds cleanly and report every changed file with each old and new sentence.
+- Check all six routes at 375px: hero ordering, personalized homepage copy, sticky appearance/disappearance, and decorated shop destinations.
+- Confirm unchanged tracking scripts and a clean preview build.
