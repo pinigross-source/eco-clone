@@ -32,6 +32,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DevToolsRouteImport } from './routes/dev-tools'
 import { Route as DormRouteImport } from './routes/dorm'
 import { Route as DustMiteAllergensRouteImport } from './routes/dust-mite-allergens'
+import { Route as EbioticProRefillRouteImport } from './routes/ebiotic-pro-refill'
 import { Route as EducationRouteImport } from './routes/education'
 import { Route as EmbedRouteImport } from './routes/embed'
 import { Route as FdaGrasStatusRouteImport } from './routes/fda-gras-status'
@@ -101,6 +102,7 @@ import { Route as ApiPublicComingSoonRouteImport } from './routes/api/public/com
 import { Route as ApiPublicInstallationQuoteRouteImport } from './routes/api/public/installation-quote'
 import { Route as ApiPublicMetaAdsSyncRouteImport } from './routes/api/public/meta-ads-sync'
 import { Route as ApiPublicPetsOfferRouteImport } from './routes/api/public/pets-offer'
+import { Route as ApiPublicRefillRequestRouteImport } from './routes/api/public/refill-request'
 import { Route as ApiPublicResendWebhookRouteImport } from './routes/api/public/resend-webhook'
 import { Route as ApiPublicShopifyOrderRouteImport } from './routes/api/public/shopify-order'
 import { Route as ApiPublicTrackVisitRouteImport } from './routes/api/public/track-visit'
@@ -219,6 +221,11 @@ const DormRoute = DormRouteImport.update({
 const DustMiteAllergensRoute = DustMiteAllergensRouteImport.update({
   id: '/dust-mite-allergens',
   path: '/dust-mite-allergens',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EbioticProRefillRoute = EbioticProRefillRouteImport.update({
+  id: '/ebiotic-pro-refill',
+  path: '/ebiotic-pro-refill',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EducationRoute = EducationRouteImport.update({
@@ -571,6 +578,11 @@ const ApiPublicPetsOfferRoute = ApiPublicPetsOfferRouteImport.update({
   path: '/api/public/pets-offer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicRefillRequestRoute = ApiPublicRefillRequestRouteImport.update({
+  id: '/api/public/refill-request',
+  path: '/api/public/refill-request',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicResendWebhookRoute = ApiPublicResendWebhookRouteImport.update({
   id: '/api/public/resend-webhook',
   path: '/api/public/resend-webhook',
@@ -616,6 +628,7 @@ export interface FileRoutesByFullPath {
   '/dev-tools': typeof DevToolsRoute
   '/dorm': typeof DormRoute
   '/dust-mite-allergens': typeof DustMiteAllergensRoute
+  '/ebiotic-pro-refill': typeof EbioticProRefillRoute
   '/education': typeof EducationRoute
   '/embed': typeof EmbedRoute
   '/fda-gras-status': typeof FdaGrasStatusRoute
@@ -685,6 +698,7 @@ export interface FileRoutesByFullPath {
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
   '/api/public/meta-ads-sync': typeof ApiPublicMetaAdsSyncRoute
   '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
+  '/api/public/refill-request': typeof ApiPublicRefillRequestRoute
   '/api/public/resend-webhook': typeof ApiPublicResendWebhookRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
   '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
@@ -714,6 +728,7 @@ export interface FileRoutesByTo {
   '/dev-tools': typeof DevToolsRoute
   '/dorm': typeof DormRoute
   '/dust-mite-allergens': typeof DustMiteAllergensRoute
+  '/ebiotic-pro-refill': typeof EbioticProRefillRoute
   '/education': typeof EducationRoute
   '/embed': typeof EmbedRoute
   '/fda-gras-status': typeof FdaGrasStatusRoute
@@ -783,6 +798,7 @@ export interface FileRoutesByTo {
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
   '/api/public/meta-ads-sync': typeof ApiPublicMetaAdsSyncRoute
   '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
+  '/api/public/refill-request': typeof ApiPublicRefillRequestRoute
   '/api/public/resend-webhook': typeof ApiPublicResendWebhookRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
   '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
@@ -813,6 +829,7 @@ export interface FileRoutesById {
   '/dev-tools': typeof DevToolsRoute
   '/dorm': typeof DormRoute
   '/dust-mite-allergens': typeof DustMiteAllergensRoute
+  '/ebiotic-pro-refill': typeof EbioticProRefillRoute
   '/education': typeof EducationRoute
   '/embed': typeof EmbedRoute
   '/fda-gras-status': typeof FdaGrasStatusRoute
@@ -882,6 +899,7 @@ export interface FileRoutesById {
   '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
   '/api/public/meta-ads-sync': typeof ApiPublicMetaAdsSyncRoute
   '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
+  '/api/public/refill-request': typeof ApiPublicRefillRequestRoute
   '/api/public/resend-webhook': typeof ApiPublicResendWebhookRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
   '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
@@ -913,6 +931,7 @@ export interface FileRouteTypes {
     | '/dev-tools'
     | '/dorm'
     | '/dust-mite-allergens'
+    | '/ebiotic-pro-refill'
     | '/education'
     | '/embed'
     | '/fda-gras-status'
@@ -982,6 +1001,7 @@ export interface FileRouteTypes {
     | '/api/public/installation-quote'
     | '/api/public/meta-ads-sync'
     | '/api/public/pets-offer'
+    | '/api/public/refill-request'
     | '/api/public/resend-webhook'
     | '/api/public/shopify-order'
     | '/api/public/track-visit'
@@ -1011,6 +1031,7 @@ export interface FileRouteTypes {
     | '/dev-tools'
     | '/dorm'
     | '/dust-mite-allergens'
+    | '/ebiotic-pro-refill'
     | '/education'
     | '/embed'
     | '/fda-gras-status'
@@ -1080,6 +1101,7 @@ export interface FileRouteTypes {
     | '/api/public/installation-quote'
     | '/api/public/meta-ads-sync'
     | '/api/public/pets-offer'
+    | '/api/public/refill-request'
     | '/api/public/resend-webhook'
     | '/api/public/shopify-order'
     | '/api/public/track-visit'
@@ -1109,6 +1131,7 @@ export interface FileRouteTypes {
     | '/dev-tools'
     | '/dorm'
     | '/dust-mite-allergens'
+    | '/ebiotic-pro-refill'
     | '/education'
     | '/embed'
     | '/fda-gras-status'
@@ -1178,6 +1201,7 @@ export interface FileRouteTypes {
     | '/api/public/installation-quote'
     | '/api/public/meta-ads-sync'
     | '/api/public/pets-offer'
+    | '/api/public/refill-request'
     | '/api/public/resend-webhook'
     | '/api/public/shopify-order'
     | '/api/public/track-visit'
@@ -1208,6 +1232,7 @@ export interface RootRouteChildren {
   DevToolsRoute: typeof DevToolsRoute
   DormRoute: typeof DormRoute
   DustMiteAllergensRoute: typeof DustMiteAllergensRoute
+  EbioticProRefillRoute: typeof EbioticProRefillRoute
   EducationRoute: typeof EducationRoute
   EmbedRoute: typeof EmbedRoute
   FdaGrasStatusRoute: typeof FdaGrasStatusRoute
@@ -1274,6 +1299,7 @@ export interface RootRouteChildren {
   ApiPublicInstallationQuoteRoute: typeof ApiPublicInstallationQuoteRoute
   ApiPublicMetaAdsSyncRoute: typeof ApiPublicMetaAdsSyncRoute
   ApiPublicPetsOfferRoute: typeof ApiPublicPetsOfferRoute
+  ApiPublicRefillRequestRoute: typeof ApiPublicRefillRequestRoute
   ApiPublicResendWebhookRoute: typeof ApiPublicResendWebhookRoute
   ApiPublicShopifyOrderRoute: typeof ApiPublicShopifyOrderRoute
   ApiPublicTrackVisitRoute: typeof ApiPublicTrackVisitRoute
@@ -1440,6 +1466,13 @@ declare module '@tanstack/react-router' {
       path: '/dust-mite-allergens'
       fullPath: '/dust-mite-allergens'
       preLoaderRoute: typeof DustMiteAllergensRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ebiotic-pro-refill': {
+      id: '/ebiotic-pro-refill'
+      path: '/ebiotic-pro-refill'
+      fullPath: '/ebiotic-pro-refill'
+      preLoaderRoute: typeof EbioticProRefillRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/education': {
@@ -1925,6 +1958,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicPetsOfferRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/refill-request': {
+      id: '/api/public/refill-request'
+      path: '/api/public/refill-request'
+      fullPath: '/api/public/refill-request'
+      preLoaderRoute: typeof ApiPublicRefillRequestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/resend-webhook': {
       id: '/api/public/resend-webhook'
       path: '/api/public/resend-webhook'
@@ -2025,6 +2065,7 @@ const rootRouteChildren: RootRouteChildren = {
   DevToolsRoute: DevToolsRoute,
   DormRoute: DormRoute,
   DustMiteAllergensRoute: DustMiteAllergensRoute,
+  EbioticProRefillRoute: EbioticProRefillRoute,
   EducationRoute: EducationRoute,
   EmbedRoute: EmbedRoute,
   FdaGrasStatusRoute: FdaGrasStatusRoute,
@@ -2091,6 +2132,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicInstallationQuoteRoute: ApiPublicInstallationQuoteRoute,
   ApiPublicMetaAdsSyncRoute: ApiPublicMetaAdsSyncRoute,
   ApiPublicPetsOfferRoute: ApiPublicPetsOfferRoute,
+  ApiPublicRefillRequestRoute: ApiPublicRefillRequestRoute,
   ApiPublicResendWebhookRoute: ApiPublicResendWebhookRoute,
   ApiPublicShopifyOrderRoute: ApiPublicShopifyOrderRoute,
   ApiPublicTrackVisitRoute: ApiPublicTrackVisitRoute,
