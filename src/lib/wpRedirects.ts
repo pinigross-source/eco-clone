@@ -1,4 +1,3 @@
-import { buildShopUrl } from "@/lib/shopify";
 /** Legacy WordPress URL redirect maps, shared by the splat route and client handler. */
 export const REDIRECT_MAP: Record<string, string> = {
   // ── WordPress Blog Posts ──
