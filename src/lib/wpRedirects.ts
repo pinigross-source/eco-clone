@@ -21,7 +21,7 @@ export const REDIRECT_MAP: Record<string, string> = {
   // ── Product Refills & Accessories → Shop ──
   "/biologic-mini-refill-twin-refill-subscription": "/shop",
   "/e-biotic-refill-subscription-250ml-6m": "/shop",
-  "/e-biotic-pro-500ml-refill": buildShopUrl("/products/e-biotic-pro-500ml-refill"),
+  "/e-biotic-pro-500ml-refill": "/ebiotic-pro-refill",
   "/biodify-cartridge-2-pack": "/shop",
   "/bapf-18": "/shop",
   "/pet-spray": "/shop",
