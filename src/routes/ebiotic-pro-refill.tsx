@@ -9,7 +9,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Send, Loader2, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
-import refillImage from "@/assets/shop/ebiotic-pro-500ml-refill.avif";
+import refillImageAsset from "@/assets/shop/ebiotic-pro-5ml-refill.avif.asset.json";
+const refillImage = refillImageAsset.url;
 
 export const Route = createFileRoute("/ebiotic-pro-refill")({
   head: () => ({
