@@ -38,6 +38,10 @@ export const TidioChat = ({ collapsed = false }: { collapsed?: boolean }) => {
       const api = (window as unknown as { tidioChatApi?: TidioApi }).tidioChatApi;
       // Collapse to the launcher bubble only.
       api?.close?.();
+      // On mobile, never auto-open: keep only the small launcher bubble.
+      if (window.matchMedia("(max-width: 767px)").matches) {
+        api?.adjustStyles?.('#button-body { width: 52px !important; height: 52px !important; }');
+      }
       // Hide the "Chat with us" text label; keep only the orange icon.
       api?.adjustStyles?.('.widgetLabel { display: none !important; }');
     };

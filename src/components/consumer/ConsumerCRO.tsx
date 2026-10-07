@@ -1,3 +1,4 @@
+import { Link } from "@/lib/link";
 import type { ComponentProps, ReactNode } from "react";
 import { ArrowRight, Check, ShieldCheck, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,11 +15,11 @@ import biologicMiniLandscapeAsset from "@/assets/biologic-mini-landscape.jpg.ass
 import biotica800LandscapeAsset from "@/assets/biotica-800-landscape.jpg.asset.json";
 
 const TRUST_MARKS = {
-  epa: { label: "EPA Registered", src: epaAsset.url, size: "h-11 w-11 sm:h-12 sm:w-12" },
-  fda: { label: "FDA GRAS", src: fdaAsset.url, size: "h-12 w-12 sm:h-14 sm:w-14" },
-  allergyUk: { label: "AllergyUK", src: allergyUkAsset.url, size: "h-12 w-12 sm:h-14 sm:w-14" },
-  madeSafe: { label: "MADE SAFE®", src: madeSafeAsset.url, size: "h-11 w-11 sm:h-12 sm:w-12" },
-  ptpa: { label: "PTPA Winner", src: ptpaAsset.url, size: "h-12 w-12 sm:h-14 sm:w-14" },
+  epa: { label: "EPA Registered", src: epaAsset.url, href: "/safety", hash: "certifications", size: "h-11 w-11 sm:h-12 sm:w-12" },
+  fda: { label: "FDA GRAS", src: fdaAsset.url, href: "/fda-gras-status", hash: undefined, size: "h-12 w-12 sm:h-14 sm:w-14" },
+  allergyUk: { label: "AllergyUK", src: allergyUkAsset.url, href: "/safety", hash: "certifications", size: "h-12 w-12 sm:h-14 sm:w-14" },
+  madeSafe: { label: "MADE SAFE®", src: madeSafeAsset.url, href: "/safety", hash: "certifications", size: "h-11 w-11 sm:h-12 sm:w-12" },
+  ptpa: { label: "PTPA Winner", src: ptpaAsset.url, href: "/safety", hash: "certifications", size: "h-12 w-12 sm:h-14 sm:w-14" },
 } as const;
 
 export type TrustMark = keyof typeof TRUST_MARKS;
@@ -192,7 +193,13 @@ export function CompactTrustStrip({
           {marks.map((key) => {
             const mark = TRUST_MARKS[key];
             return (
-              <span key={key} className="grid h-12 w-11 shrink-0 place-items-center sm:h-14 sm:w-14">
+              <Link
+                key={key}
+                to={mark.href}
+                hash={mark.hash}
+                aria-label={`Learn about ${mark.label}`}
+                className="grid h-12 w-11 shrink-0 place-items-center rounded-md transition-transform duration-200 hover:-translate-y-0.5 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:h-14 sm:w-14"
+              >
                 <img
                   src={mark.src}
                   alt={mark.label}
@@ -203,7 +210,7 @@ export function CompactTrustStrip({
                   decoding="async"
                   className={`${mark.size} object-contain`}
                 />
-              </span>
+              </Link>
             );
           })}
         </div>

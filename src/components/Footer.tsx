@@ -35,9 +35,9 @@ const companyLinks = [
 ];
 
 const contactInfo = [
-  { icon: Phone, label: "(833) 692 3883" },
-  { icon: Mail, label: "contact@envirobiotics.com" },
-  { icon: Clock, label: "Mon–Fri, 9 AM–4 PM EST" },
+  { icon: Phone, label: "(833) 692 3883", href: "tel:+18336923883" },
+  { icon: Mail, label: "contact@envirobiotics.com", href: "mailto:contact@envirobiotics.com" },
+  { icon: Clock, label: "Mon–Fri, 9 AM–4 PM EST", href: undefined as string | undefined },
 ];
 
 const trustBadges = [
@@ -120,7 +120,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               {exploreLinks.map((link) => {
                 const isExternal = link.href.startsWith("http");
-                const className = "group inline-flex items-center gap-1 text-sm text-background/80 hover:text-white hover:font-bold transition-colors";
+                const className = "group inline-flex items-center gap-1 text-sm text-background/80 hover:text-white hover:underline underline-offset-4 transition-colors";
                 const content = (
                   <>
                     {link.label}
@@ -152,7 +152,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               {resourceLinks.map((link) => {
                 const isExternal = link.href.startsWith("http");
-                const className = "group inline-flex items-center gap-1 text-sm text-background/80 hover:text-white hover:font-bold transition-colors";
+                const className = "group inline-flex items-center gap-1 text-sm text-background/80 hover:text-white hover:underline underline-offset-4 transition-colors";
                 const content = (
                   <>
                     {link.label}
@@ -187,9 +187,22 @@ export const Footer = () => {
                   <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                     <info.icon className="h-4 w-4 text-primary" />
                   </div>
-                  <span>{info.label}</span>
+                  {info.href ? (
+                    <a href={info.href} className="touch-manipulation py-1 hover:text-white hover:underline underline-offset-4">{info.label}</a>
+                  ) : (
+                    <span>{info.label}</span>
+                  )}
                 </li>
               ))}
+              <li className="flex items-center justify-center sm:justify-start gap-2 text-sm">
+                <Link to="/contact" className="touch-manipulation py-1 font-semibold text-background/90 hover:text-white hover:underline underline-offset-4">
+                  Contact form
+                </Link>
+                <span className="text-background/40" aria-hidden="true">·</span>
+                <Link to="/support" className="touch-manipulation py-1 font-semibold text-background/90 hover:text-white hover:underline underline-offset-4">
+                  Help Center
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -212,16 +225,16 @@ export const Footer = () => {
               © 2026 Ecological Balancing Technologies Corporation, d/b/a EnviroBiotics. All rights reserved.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-              <Link to="/contact" className="text-xs text-background/70 hover:text-white hover:font-bold transition-colors">
+              <Link to="/contact" className="touch-manipulation inline-block py-2 text-xs text-background/70 hover:text-white hover:underline underline-offset-4 transition-colors">
                 Contact Us
               </Link>
-              <Link to="/privacy" className="text-xs text-background/70 hover:text-white hover:font-bold transition-colors">
+              <Link to="/privacy" className="touch-manipulation inline-block py-2 text-xs text-background/70 hover:text-white hover:underline underline-offset-4 transition-colors">
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-xs text-background/70 hover:text-white hover:font-bold transition-colors">
+              <Link to="/terms" className="touch-manipulation inline-block py-2 text-xs text-background/70 hover:text-white hover:underline underline-offset-4 transition-colors">
                 Terms of Service
               </Link>
-              <Link to="/warranty-policy" className="text-xs text-background/70 hover:text-white hover:font-bold transition-colors">
+              <Link to="/warranty-policy" className="touch-manipulation inline-block py-2 text-xs text-background/70 hover:text-white hover:underline underline-offset-4 transition-colors">
                 Shipping &amp; Returns
               </Link>
             </div>
