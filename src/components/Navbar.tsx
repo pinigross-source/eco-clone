@@ -242,9 +242,11 @@ export const Navbar = () => {
           {/* Mobile: Hamburger + Search on left */}
           <div className="lg:hidden absolute left-3 z-20 flex items-center gap-1">
             <button
-              className="flex h-11 w-11 items-center justify-center text-foreground transition-transform active:scale-95"
-              onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              className="flex h-11 w-11 touch-manipulation items-center justify-center text-foreground transition-transform active:scale-95"
+              onClick={() => setIsOpen((v) => !v)}
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               <X className={cn("h-6 w-6 absolute transition-all duration-200", isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90")} />
               <Menu className={cn("h-6 w-6 absolute transition-all duration-200", isOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0")} />
@@ -304,8 +306,8 @@ export const Navbar = () => {
       )}
       <div
         className={cn(
-          "site-mobile-menu lg:hidden fixed top-16 left-0 right-0 z-[200] border-b border-border shadow-xl transition-all duration-300 ease-in-out overflow-y-auto",
-          isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+          "site-mobile-menu lg:hidden fixed top-16 left-0 right-0 z-[200] border-b border-border shadow-xl transition-opacity duration-150 ease-out overflow-y-auto",
+          isOpen ? "max-h-[calc(100dvh-4rem)] opacity-100" : "max-h-0 opacity-0 pointer-events-none invisible"
         )}
         style={{ backgroundColor: "#F0F0F0", fontFamily: "'Montserrat', sans-serif" }}
       >
@@ -315,15 +317,17 @@ export const Navbar = () => {
               {link.dropdown ? (
                 <>
                   <button
-                    className="w-full text-[16px] font-bold text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
-                    onClick={() => setExpandedMobile(expandedMobile === link.label ? null : link.label)}
+                    type="button"
+                    aria-expanded={expandedMobile === link.label}
+                    className="w-full touch-manipulation text-[16px] font-bold text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
+                    onClick={() => setExpandedMobile((cur) => (cur === link.label ? null : link.label))}
                   >
                     <span>{link.label}</span>
                     <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", expandedMobile === link.label && "rotate-180")} />
                   </button>
                   <div className={cn(
                     "overflow-hidden transition-all duration-200",
-                    expandedMobile === link.label ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                    expandedMobile === link.label ? "max-h-[1200px] opacity-100" : "max-h-0 opacity-0 invisible"
                   )}>
                     <div className="pl-4 pr-2 pb-1 space-y-0.5">
                       {link.dropdown.map(({ label, href }) => {

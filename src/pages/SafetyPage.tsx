@@ -192,7 +192,7 @@ const SafetyPage = () => {
       </section>
 
       {/* Certifications Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section id="certifications" className="scroll-mt-24 py-16 md:py-24 bg-muted/30">
         <div className="container px-4 sm:px-6">
           <div className="text-center mb-12">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">

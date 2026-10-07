@@ -8,6 +8,15 @@ import mobileHeroAsset from "@/assets/home-hero-mobile-3.avif.asset.json";
 import { useOffer } from "@/lib/offer";
 import { trackEvent } from "@/lib/tracking";
 
+export const scrollToSystemCards = () => {
+  const el = document.getElementById("find-your-system");
+  if (!el) return;
+  const header = document.querySelector<HTMLElement>(".site-header");
+  const offset = (header?.offsetHeight ?? 64) + 12;
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+};
+
 export const HeroSection = () => {
   const [videoOpen, setVideoOpen] = useState(false);
   const [isParentsCampaign, setIsParentsCampaign] = useState(false);
@@ -36,7 +45,7 @@ export const HeroSection = () => {
 
   const scrollToProducts = () => {
     trackEvent("homepage_cta_click", { placement: "hero_primary" });
-    document.getElementById("find-your-system")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    scrollToSystemCards();
   };
 
   return (
@@ -80,7 +89,7 @@ export const HeroSection = () => {
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </TrackedShopLink>
               </Button>
-              <Button type="button" size="lg" variant="outline" onClick={scrollToProducts} className="min-h-12 flex-1 rounded-full text-base">
+              <Button type="button" size="lg" variant="outline" onClick={scrollToProducts} className="touch-manipulation min-h-12 flex-1 rounded-full text-base">
                 Find My System
               </Button>
             </div>
