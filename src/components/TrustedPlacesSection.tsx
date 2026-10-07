@@ -1,3 +1,4 @@
+import { Link } from "@/lib/link";
 import { motion } from "framer-motion";
 import caSchoolAsset from "@/assets/clients/ca-school.png.asset.json";
 import cityOfDreams from "@/assets/clients/city-of-dreams.png";
@@ -53,7 +54,11 @@ export const TrustedPlacesSection = () => {
           <span className="h-px w-16 bg-eyebrow-accent sm:w-20" />
         </div>
 
-        <div className="relative overflow-hidden">
+        <Link
+          to="/case-studies"
+          aria-label="See case studies from hospitals, schools, hotels and more"
+          className="group relative block overflow-hidden rounded-lg transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
           <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-10 bg-gradient-to-r from-card to-transparent sm:w-24" />
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-10 bg-gradient-to-l from-card to-transparent sm:w-24" />
 
@@ -82,7 +87,7 @@ export const TrustedPlacesSection = () => {
             ))}
 
           </motion.div>
-        </div>
+        </Link>
 
         <h3 className="mx-auto mt-8 max-w-3xl text-balance text-center font-display text-[1.125rem] font-medium leading-[1.3] text-foreground sm:mt-10 sm:text-[1.5rem] lg:max-w-5xl lg:text-[1.75rem]">
           Let EnviroBiotics protect everyone at your home, office, and on the go.
