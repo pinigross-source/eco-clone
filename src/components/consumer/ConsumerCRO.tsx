@@ -1,3 +1,4 @@
+import { Link } from "@/lib/link";
 import type { ComponentProps, ReactNode } from "react";
 import { ArrowRight, Check, ShieldCheck, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
