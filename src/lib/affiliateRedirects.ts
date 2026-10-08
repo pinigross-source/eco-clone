@@ -1,0 +1,15 @@
+/**
+ * Legacy in-site affiliate links (/aff/:id) → new GoAffPro links on the
+ * Shopify store. Edit this table to map old affiliate IDs to their new URLs.
+ * Any ID not listed here redirects to the shop homepage.
+ */
+export const AFFILIATE_REDIRECT_MAP: Record<string, string> = {
+  "14": "https://shop.envirobiotics.com/discount/MICHAELBISCOTTO?ref=MICHAELBISCOTTO",
+};
+
+export const AFFILIATE_FALLBACK_URL = "https://shop.envirobiotics.com/";
+
+export function resolveAffiliateRedirect(id: string | undefined): string {
+  if (id && AFFILIATE_REDIRECT_MAP[id]) return AFFILIATE_REDIRECT_MAP[id];
+  return AFFILIATE_FALLBACK_URL;
+}
