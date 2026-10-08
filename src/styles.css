@@ -431,6 +431,12 @@
 .homepage-impact .site-header [class*="bg-gradient-to-r"] {
   background-image: linear-gradient(90deg, transparent, var(--color-home-coral), transparent);
 }
+
+/* Promo (/go/*) pages: the fixed offer bar sits above the fixed navbar. */
+.has-offer-promo-bar .site-header { top: 33px; }
+@media (min-width: 640px) {
+  .has-offer-promo-bar .site-header { top: 37px; }
+}
 .homepage-impact .site-mobile-menu {
   top: 64px;
   background-color: hsl(var(--background) / 0.96) !important;
