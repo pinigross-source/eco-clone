@@ -103,6 +103,12 @@ export function GuaranteeBadge({ className = "" }: { className?: string }) {
 /** Sticky promo bar shown only on promo (meta15) landing pages. */
 export function OfferPromoBar() {
   const { isPromo } = useOffer();
+  // Push the fixed site navbar below the bar while it is shown.
+  useEffect(() => {
+    if (!isPromo) return;
+    document.documentElement.classList.add("has-offer-promo-bar");
+    return () => document.documentElement.classList.remove("has-offer-promo-bar");
+  }, [isPromo]);
   if (!isPromo) return null;
   return (
     <>
