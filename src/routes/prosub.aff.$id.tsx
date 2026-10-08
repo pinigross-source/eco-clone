@@ -2,6 +2,7 @@ import { createFileRoute, useParams } from "@tanstack/react-router"
 import { useEffect } from "react"
 import { navigateToShopify } from "@/lib/shopify"
 import { buildShopUrl } from "@/lib/shopify";
+import { AFFILIATE_REDIRECT_MAP } from "@/lib/affiliateRedirects";
 
 const SHOP_URL = buildShopUrl("/collections/prosub")
 
@@ -17,7 +18,10 @@ function ProsubAffiliateRedirect() {
   const { id } = useParams({ from: "/prosub/aff/$id" })
 
   useEffect(() => {
-    const url = id ? `${SHOP_URL}?ref=${encodeURIComponent(id)}` : SHOP_URL
+    // Numeric legacy IDs (e.g. /prosub/aff/16) resolve through the affiliate
+    // mapping table; anything else is passed through as a GoAffPro ref.
+    const mapped = id ? AFFILIATE_REDIRECT_MAP[id] : undefined
+    const url = mapped ?? (id ? `${SHOP_URL}?ref=${encodeURIComponent(id)}` : SHOP_URL)
     navigateToShopify(url, { replace: true })
   }, [id])
 
