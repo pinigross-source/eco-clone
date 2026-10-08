@@ -4,7 +4,10 @@
  * Any ID not listed here redirects to the shop homepage.
  */
 export const AFFILIATE_REDIRECT_MAP: Record<string, string> = {
+  "9": "https://shop.envirobiotics.com/collections/prosub?ref=BLAKEENGEL",
   "14": "https://shop.envirobiotics.com/discount/MICHAELBISCOTTO?ref=MICHAELBISCOTTO",
+  "16": "https://shop.envirobiotics.com/collections/prosub?ref=TIBORKLEIN",
+  "21": "https://shop.envirobiotics.com/collections/prosub?ref=JASONTOREY",
 };
 
 export const AFFILIATE_FALLBACK_URL = "https://shop.envirobiotics.com/";
