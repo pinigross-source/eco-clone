@@ -105,9 +105,15 @@ export function OfferPromoBar() {
   const { isPromo } = useOffer();
   if (!isPromo) return null;
   return (
-    <div className="sticky top-0 z-[60] bg-[#EB8B59] px-4 py-2 text-center text-[12px] font-semibold leading-snug text-[#1A1A1A] sm:py-2.5 sm:text-[13px]">
-      15% off applied automatically at checkout
-    </div>
+    <>
+      {/* In-flow spacer reserves the bar's height so page content (and the
+          fixed navbar's usual offsets) still line up. */}
+      <div aria-hidden="true" className="h-[33px] sm:h-[37px]" />
+      {/* Fixed above the navbar (z-[9999]) so ad visitors actually see it. */}
+      <div className="fixed inset-x-0 top-0 z-[10000] bg-[#EB8B59] px-4 py-2 text-center text-[12px] font-semibold leading-snug text-[#1A1A1A] sm:py-2.5 sm:text-[13px]">
+        15% off applied automatically at checkout
+      </div>
+    </>
   );
 }
 
