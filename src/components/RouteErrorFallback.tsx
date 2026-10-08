@@ -1,10 +1,11 @@
 import { Link } from "@/lib/link";
+import type { ErrorComponentProps } from "@tanstack/react-router";
 
 /**
  * Shown when a route render throws. Keeps the site chrome usable instead of
  * serving an empty 200 shell, and tells crawlers not to index the failure.
  */
-export const RouteErrorFallback = ({ error }: { error?: Error }) => {
+export const RouteErrorFallback = ({ error }: ErrorComponentProps) => {
   if (import.meta.env.DEV && error) {
     console.error("Route render error:", error);
   }

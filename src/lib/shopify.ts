@@ -171,7 +171,7 @@ export function resolveShopifyUrl(to: string): string | null {
     return shopifyUrl("/collections/subscribe-save", "subscribe");
   }
   if (pathOnly === "/pro-subscription") {
-    return shopifyUrl("/collections/pro-subscriptions", "pro-subscribe");
+    return shopifyUrl("/collections/prosub", "pro-subscribe");
   }
   if (pathOnly === "/manage-subscription") {
     return shopifyAccount("manage-subscription");

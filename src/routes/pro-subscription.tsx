@@ -4,7 +4,7 @@ import { shopifyUrl, navigateToShopify } from "@/lib/shopify";
 
 function ProSubRedirect() {
   useEffect(() => {
-    navigateToShopify(shopifyUrl("/collections/pro-subscriptions", "pro-subscribe"), { replace: true });
+    navigateToShopify(shopifyUrl("/collections/prosub", "pro-subscribe"), { replace: true });
   }, []);
   return (
     <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
