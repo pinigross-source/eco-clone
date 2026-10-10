@@ -116,6 +116,27 @@
   --color-business-dark: oklch(0.18 0 0);
 }
 
+/* Explainer-only palette and media treatment; shared pages remain unchanged. */
+.how-it-works-page {
+  --primary: 24 95% 53%;
+  --primary-foreground: 0 0% 6%;
+  --hiw-dark: oklch(0.18 0 0);
+  --hiw-overlay: linear-gradient(to top, oklch(0.18 0 0 / 0.92), oklch(0.18 0 0 / 0) 80%);
+}
+.how-it-works-page :is(h1, h2, h3, a, button) { letter-spacing: 0; }
+.how-it-works-page .hiw-dark {
+  --foreground: 0 0% 98%;
+  --muted-foreground: 0 0% 75%;
+  --border: 0 0% 30%;
+  background: var(--hiw-dark);
+  color: hsl(var(--foreground));
+}
+.how-it-works-page .hiw-video-overlay { background: var(--hiw-overlay); }
+.how-it-works-page .hiw-always-video { max-height: 760px; }
+@media (max-width: 639px) {
+  .how-it-works-page .hiw-always-video { aspect-ratio: 4 / 5; }
+}
+
 /* Bobby landing page — EnviroBiotics editorial palette overrides */
 .bobby-page {
   --background: 150 20% 97%;
