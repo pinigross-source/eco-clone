@@ -69,7 +69,7 @@ export default function BusinessPage() {
   const [videoOpen, setVideoOpen] = useState(false);
 
   return (
-    <div className="business-page min-h-screen bg-background">
+    <div className="business-page min-h-screen bg-background pt-16 lg:pt-[124px]">
       <SEOHead
         title="For Hotels, Offices, Gyms & Clinics | EnviroBiotics"
         description="Probiotic environmental care for hotels, healthcare, schools and offices. HVAC-connected coverage of surfaces, objects, air and ducts, 24/7. Free facility quote."
@@ -85,7 +85,7 @@ export default function BusinessPage() {
       {/* Section nav */}
       <nav
         aria-label="Business sections"
-        className="sticky top-16 z-30 border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70"
+        className="sticky top-16 lg:top-[124px] z-30 border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70"
       >
         <div className="container px-4 sm:px-6 max-w-6xl mx-auto">
           <ul className="flex gap-1 overflow-x-auto no-scrollbar py-2 -mx-1 text-sm">
@@ -365,7 +365,7 @@ export default function BusinessPage() {
 
 
       <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
-        <DialogContent className="max-w-4xl p-0 overflow-hidden business-dark border-0">
+        <DialogContent className="max-w-4xl p-0 overflow-hidden bg-foreground text-background border-0 [&>button]:text-background">
           <DialogTitle className="sr-only">How EnviroBiotics works for business</DialogTitle>
           <div className="aspect-video w-full">
             {videoOpen && (

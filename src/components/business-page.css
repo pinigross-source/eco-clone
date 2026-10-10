@@ -1,9 +1,4 @@
-/* Business-only palette: retains the site's orange brand accent and display font. */
-.business-page {
-  --primary: 24 95% 53%;
-  --primary-foreground: 0 0% 6%;
-  --color-business-dark: oklch(0.18 0 0);
-}
+/* Business-only presentation, using the scoped global semantic tokens. */
 .business-page .business-dark { background: var(--color-business-dark); }
 .business-page .business-hero-title { font-family: "Manrope", var(--font-display); }
 .business-page :is(h1, h2, h3, a, button) { letter-spacing: 0; }
