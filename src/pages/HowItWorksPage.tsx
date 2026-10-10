@@ -1,5 +1,5 @@
 import { lazy, Suspense, useState } from 'react';
-import { ArrowRight, Play, Check, ShieldCheck, Sparkles, Wind, SprayCan, Droplets } from 'lucide-react';
+import { ArrowRight, Play, Check, ShieldCheck, Sparkles, Wind, SprayCan, Droplets, Layers, Laptop } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { SEOHead, howToJsonLd, makeBreadcrumbJsonLd } from '@/components/SEOHead';
 import { Button } from '@/components/ui/button';
@@ -29,6 +29,7 @@ import fabric from '@/assets/how-it-works/fabric.png.asset.json';
 import mold from '@/assets/how-it-works/mold-laundry.jpg.asset.json';
 import allergenPets from '@/assets/how-it-works/allergens-pets.png.asset.json';
 import pollen from '@/assets/how-it-works/pollen.png.asset.json';
+import lungsDiagram from '@/assets/hvac-lungs-anatomy.jpg.asset.json';
 
 const Footer = lazy(() => import('@/components/Footer').then(m => ({ default: m.Footer })));
 const title = 'How EnviroBiotics Works | Natural Probiotics for Odor, Mold and Allergens';
@@ -39,20 +40,37 @@ const ecosystem = [
   { img: ecoSurfaces, title: 'Surfaces', text: 'Counters, floors, walls and furniture.' },
   { img: ecoHidden, title: 'Hidden spaces', text: 'Corners, grooves and under the furniture.' },
   { img: ecoObjects, title: 'Objects', text: 'Keyboards, phones, toys and shared equipment.' },
-  { img: ecoHvac, title: 'HVAC pathways', text: 'Ducts and vents, in buildings with central air.' },
+  { img: ecoHvac, title: 'Ducts and vents', text: 'Inside the HVAC, with E-Biotic Pro.' },
   { img: ecoZones, title: 'Busy zones', text: 'Offices, classrooms, clinics and lobbies.' },
 ];
 const indoorIssues = [
   { img: fabric.url, label: 'Odor', title: 'Odor-causing bacteria', hides: 'Couches, rugs, pet beds, mattresses and curtains.', returns: 'The bacteria feed on sweat, skin and pet oils in the fabric. Sprays cover the smell; the bacteria stay.' },
-  { img: mold.url, label: 'Mold', title: 'Mold and musty spores', hides: 'Basements, laundry rooms, closets, bathrooms and anywhere damp.', returns: 'Spores are always in the air. Where moisture stays, they settle and grow back after every wipe-down.' },
+  { img: mold.url, label: 'Mold', title: 'Mold and musty spores', hides: 'Basements, laundry rooms, closets, bathrooms, air ducts and anywhere damp.', returns: 'Spores are always in the air. Where moisture stays, they settle and grow back after every wipe-down.' },
   { img: allergenPets.url, label: 'Allergens', title: 'Dust mites and pet dander', hides: "Bedding, upholstery, carpets and the dog's favorite spot.", returns: 'The allergens are tiny proteins. Vacuuming and washing lift some of them; the rest stay deep in the fibers.' },
   { img: pollen.url, label: 'Seasonal', title: 'Pollen', hides: 'Window sills, floors, couches and everything near the door.', returns: 'It rides in on clothes, shoes, pets and open windows, every day of the season.' },
 ];
 const comparisons = [
   { icon: SprayCan, title: 'Sprays and candles', text: 'Cover the smell for a few hours. Nothing underneath changes.' },
   { icon: Droplets, title: 'Disinfectants', text: 'Wipe a surface clean for a moment. Bacteria and spores settle right back, and nothing is left to hold the space.' },
-  { icon: Wind, title: 'Air purifiers', text: 'Clean the air that passes through them. What has already settled on fabrics stays there.' },
-  { icon: Sparkles, title: 'EnviroBiotics', text: 'Works on the surfaces themselves, all day, every day, and is topped up every few minutes.' },
+  { icon: Wind, title: 'Air purifiers', text: 'Clean the air that passes through them. What has already settled on fabrics and in the ducts stays there.' },
+  { icon: Sparkles, title: 'EnviroBiotics', text: 'Works on the air, the surfaces and the objects themselves, all day, every day, topped up every few minutes.' },
+];
+const coverage = [
+  { icon: Wind, label: 'AIR', title: 'Carried by the air', text: 'Released in short bursts, the probiotics move with the natural airflow of the room, or through the ducts with E-Biotic Pro, and reach every corner of the space.' },
+  { icon: Layers, label: 'SURFACES', title: 'Settled on every surface', text: 'They settle on floors, counters, walls, couches, rugs, bedding and curtains, the large surfaces where odor, mold and allergens collect.' },
+  { icon: Laptop, label: 'OBJECTS', title: 'On the things you touch', text: 'Keyboards, phones, toys, remotes and the corners under the furniture. Delicate objects and fabrics are reached without harm, because nothing is sprayed on them directly.' },
+];
+const ductChallenges = [
+  { title: 'Dark and out of reach', text: 'Ducts run behind walls, ceilings and floors. No one wipes them, and most people never see inside them.' },
+  { title: 'Dust and debris build up', text: 'Dust, skin flakes, pet dander and pollen collect along the inside of the ducts, year after year.' },
+  { title: 'Moisture from cooling', text: 'Cooling creates condensation and humidity inside the system, the perfect conditions for mold and odor-causing bacteria to grow.' },
+  { title: "Then it's blown into every room", text: 'Every time the system runs, air passes over all of it on its way to the bedrooms, the nursery and the living room.' },
+];
+const hvacProtection = [
+  { title: 'Connected at the air handler.', text: 'E-Biotic Pro is installed on your existing HVAC. No new ducts and no redesign.' },
+  { title: 'Through every duct.', text: 'Natural probiotics travel with the airflow along the ductwork, settling on its inner surfaces, where mold and bacteria like to grow.' },
+  { title: 'Into every room.', text: 'They come out of every vent and settle on the air, surfaces and objects of each room the system serves.' },
+  { title: 'Continuously.', text: 'Every time the system breathes, the protection is renewed, instead of waiting years for the next duct cleaning.' },
 ];
 const science = [
   { title: 'They take the space', text: 'Probiotics settle on fabrics and surfaces and use up the room and the food that odor-causing bacteria and mold need. Less room for them means less smell and less musty growth.' },
@@ -68,7 +86,7 @@ const timeline = [
 const deviceSummaries = [
   'One room, up to 300 sq ft. Battery or USB-C, under 25 dB.',
   'Living spaces up to 800 sq ft. Plug it in once.',
-  'Whole buildings, connected to the HVAC, up to 25,000 sq ft.',
+  'Whole homes and buildings through the HVAC, ducts included, up to 25,000 sq ft.',
 ];
 const labResults = [
   { stat: '8 days', text: 'to a measurable drop in dust-mite, pet-dander and mold allergens on treated surfaces, with continuous use.', source: 'Indoor Biotechnologies, Cardiff, UK, 2024, with a parallel simulation at EMSL Analytical Laboratories.' },
@@ -76,7 +94,7 @@ const labResults = [
 ];
 const steps = [
   { title: 'It releases', text: 'A short, quiet burst of natural probiotics every few minutes. No sprays to remember, no filters to change.' },
-  { title: 'It settles', text: 'The probiotics travel with the air in the room and settle on fabrics, rugs, furniture and the corners you never clean.' },
+  { title: 'It settles', text: 'The probiotics travel with the air in the room and settle on fabrics, rugs, furniture, objects and the corners you never clean.' },
   { title: 'It keeps working', text: 'On those surfaces they crowd out odor-causing bacteria and mold and break down allergens, every day, between your cleanings.' },
 ];
 const container = 'mx-auto max-w-7xl px-5 sm:px-8';
@@ -93,12 +111,12 @@ export default function HowItWorksPage() {
         <div className={`${container} text-center`}>
           <p className="text-sm font-semibold text-muted-foreground mb-5">How it works</p>
           <h1 className="font-display text-[32px] sm:text-5xl lg:text-6xl font-semibold leading-tight text-balance">Cleaning works for a day.<br /><span className="text-primary">EnviroBiotics keeps working.</span></h1>
-          <p className="max-w-3xl mx-auto mt-6 text-base sm:text-lg leading-relaxed text-muted-foreground">Odor-causing bacteria, mold, dust-mite and pet-dander allergens and pollen settle into the couch, the rug and every soft surface. A small, quiet device releases natural probiotics that settle there too, and keep working on them every day, between your cleanings.</p>
+          <p className="max-w-3xl mx-auto mt-6 text-base sm:text-lg leading-relaxed text-muted-foreground">Odor-causing bacteria, mold, dust-mite and pet-dander allergens and pollen settle into the couch, the rug, the air ducts and every soft surface. A small, quiet device releases natural probiotics that reach the air, the surfaces and the objects in your home, and keep working on them every day, between your cleanings.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 mt-8 mb-6">
             <Button variant="hero" size="lg" asChild><Link to={shopifyAllProducts()}>Find your device <ArrowRight /></Link></Button>
             <Button variant="outline" size="lg" onClick={() => setVideoOpen(true)}><Play /> Watch how it works (2 min)</Button>
           </div>
-          <nav aria-label="Explore how it works" className="flex flex-wrap justify-center gap-2 mb-12">{[['What lives in your home', 'what'], ['The science', 'science'], ['What to expect', 'timeline'], ['Is it safe?', 'safety'], ['Choose a device', 'shop']].map(([label, id]) => <Button key={id} variant="outline" size="sm" asChild><a href={`#${id}`}>{label}</a></Button>)}</nav>
+          <nav aria-label="Explore how it works" className="flex flex-wrap justify-center gap-2 mb-12">{[['What lives in your home', 'what'], ['The science', 'science'], ['3D coverage', 'coverage'], ['Your home has lungs', 'lungs'], ['What to expect', 'timeline'], ['Is it safe?', 'safety'], ['Choose a device', 'shop']].map(([label, id]) => <Button key={id} variant="outline" size="sm" asChild><a href={`#${id}`}>{label}</a></Button>)}</nav>
         </div>
         <div className="mx-auto max-w-[1320px] px-5 sm:px-8"><ExplainerVideo eager src={release.url} webm={releaseWebm.url} poster={studio.url} label="BioLogic Mini releasing a short mist from its front nozzle, then stopping" className="rounded-2xl" /></div>
       </section>
@@ -106,7 +124,7 @@ export default function HowItWorksPage() {
       <section id="what" className="py-16 sm:py-24"><div className={container}>
         <p className="text-sm font-semibold text-primary mb-5">What lives in your home</p>
         <h2 className={heading}>Your home is more than the air you breathe.</h2>
-        <p className="mt-6 max-w-3xl text-lg text-muted-foreground leading-relaxed">Four things build up indoors, and all four end up in the same place: on soft surfaces, where air purifiers never reach and cleaning only lasts a day or two.</p>
+        <p className="mt-6 max-w-3xl text-lg text-muted-foreground leading-relaxed">Four things build up indoors, and all four end up in the same place: on surfaces, in fabrics and inside the ducts, where air purifiers never reach and cleaning only lasts a day or two.</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">{indoorIssues.map(issue => <article key={issue.label} className="rounded-lg border border-border bg-card overflow-hidden">
           <img src={issue.img} alt={issue.title} loading="lazy" decoding="async" className="w-full aspect-[4/3] object-cover" />
           <div className="p-5"><p className="text-sm font-semibold text-primary mb-3">{issue.label}</p><h3 className="font-display text-xl font-semibold">{issue.title}</h3><dl className="mt-5 text-sm leading-relaxed"><dt className="font-semibold">Where it hides</dt><dd className="text-muted-foreground mt-1">{issue.hides}</dd><dt className="font-semibold mt-4">Why it comes back</dt><dd className="text-muted-foreground mt-1">{issue.returns}</dd></dl></div>
@@ -127,9 +145,21 @@ export default function HowItWorksPage() {
         <p className="bg-primary/5 border-l-2 border-primary p-6 mt-8 text-lg leading-relaxed">Same idea as a probiotic for your gut, applied to your home: instead of killing everything and starting from zero, you keep the good kind in charge.</p>
       </div></section>
 
-      <section className="py-16 sm:py-24 bg-muted/40"><div className={container}>
-        <p className="text-sm font-semibold text-primary mb-5">Where it reaches</p><h2 className={heading}>Everywhere the air goes, it settles.</h2><p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-3xl">The probiotics travel with the air in the room and settle on everything it touches, including the spots you never clean.</p>
+      <section id="coverage" className="py-16 sm:py-24 bg-muted/40"><div className={container}>
+        <p className="text-sm font-semibold text-primary mb-5">3D coverage</p><h2 className={heading}>The air, the surfaces and the objects. All three, all the time.</h2><p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-3xl">Sprays reach the spot you aim at. Air purifiers reach the air that passes through them. Natural probiotics travel with the air itself, so they reach every dimension of a room, including the places no cloth or filter gets to.</p>
+        <div className="grid md:grid-cols-3 gap-5 mt-10">{coverage.map(({ icon: Icon, label, title: cardTitle, text }) => <article key={label} className="rounded-lg border border-border bg-card p-7"><Icon aria-hidden="true" className="w-8 h-8 text-primary mb-6" /><p className="text-sm font-semibold text-primary">{label}</p><h3 className="font-display text-xl font-semibold mt-3">{cardTitle}</h3><p className="text-muted-foreground leading-relaxed mt-3">{text}</p></article>)}</div>
+      </div><div className="hiw-dark py-7 mt-10"><p className={`${container} text-lg font-medium leading-relaxed`}>Three dimensions, one device: air, surfaces and objects, treated together, around the clock.</p></div><div className={container}>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">{ecosystem.map(item => <article key={item.title} className="rounded-lg border border-border overflow-hidden bg-card"><img src={item.img} alt={item.title} loading="lazy" decoding="async" width={800} height={550} className="aspect-[16/11] w-full object-cover" /><div className="p-6"><h3 className="font-display text-xl font-semibold">{item.title}</h3><p className="mt-2 text-muted-foreground leading-relaxed">{item.text}</p></div></article>)}</div>
+      </div></section>
+
+      <section id="lungs" className="hiw-dark py-16 sm:py-24"><div className={container}>
+        <p className="text-sm font-semibold text-primary mb-5">Your home has lungs</p><h2 className={heading}>The HVAC is your home's respiratory system.</h2><p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-3xl">Just like your lungs, your heating and cooling system breathes for the whole house. It draws air in, filters it, carries it through a network of ducts to every room, and breathes it out again, all day and all night.</p>
+        <div className="rounded-lg bg-card p-3 sm:p-6 mt-10 overflow-hidden"><img src={lungsDiagram.url} alt="Human lungs alongside a home's HVAC system, comparing their branching air pathways" loading="lazy" decoding="async" className="w-full h-auto" /></div>
+        <dl className="grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-border py-8">{[['Inhales', 'Fresh-air intake'], ['Filters', 'Air filters'], ['Distributes', 'Ducts and supply vents'], ['Exhales', 'Return and exhaust vents']].map(([label, text]) => <div key={label}><dt className="font-display text-xl font-semibold text-primary">{label}</dt><dd className="text-muted-foreground mt-2 leading-relaxed">{text}</dd></div>)}</dl>
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 mt-12 items-start">
+          <div><h3 className="font-display text-2xl sm:text-3xl font-semibold leading-tight">The hardest place in the house to clean: inside the ducts.</h3><ul className="space-y-6 mt-8">{ductChallenges.map(item => <li key={item.title}><h4 className="font-semibold text-lg">{item.title}</h4><p className="text-muted-foreground leading-relaxed mt-2">{item.text}</p></li>)}</ul></div>
+          <article className="rounded-lg bg-card text-card-foreground p-6 sm:p-8"><p className="text-sm font-semibold text-primary mb-4">How EnviroBiotics protects it</p><h3 className="font-display text-2xl sm:text-3xl font-semibold leading-tight">Probiotics that travel through the whole system.</h3><ol className="space-y-6 mt-8">{hvacProtection.map((item, i) => <li key={item.title} className="flex gap-4"><span className="text-primary font-display text-2xl font-semibold shrink-0" aria-hidden="true">0{i + 1}</span><p className="leading-relaxed"><strong>{item.title}</strong> {item.text}</p></li>)}</ol><div className="flex flex-col gap-3 mt-8"><Button variant="hero" asChild><Link to="/business" hash="quote">Ask about E-Biotic Pro <ArrowRight /></Link></Button><Button variant="outline" asChild className="text-card-foreground"><Link to="/business" hash="ebiotic-pro">How it installs <ArrowRight /></Link></Button></div></article>
+        </div><p className="text-sm text-muted-foreground leading-relaxed mt-8">No central air? The Biotica 800 and BioLogic Mini treat the air, surfaces and objects room by room; they don't reach inside ducts.</p>
       </div></section>
 
       <section className="hiw-dark">
