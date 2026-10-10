@@ -1,7 +1,7 @@
 # Roadmap
 
-- [ ] Refresh only `/how-it-works` with the ten requested sections, media, buying paths and metadata.
-- [ ] Verify videos, reduced motion, FAQ, product links and 375px layout; keep unpublished.
+- [x] Refresh only `/how-it-works` with the ten requested sections, media, buying paths and metadata.
+- [x] Verify videos, reduced motion, FAQ, product links and 375px layout; keep unpublished.
 
 - [x] Refresh only the business page with the requested copy, imagery, sections, FAQ and metadata.
 - [x] Add validated business quote email and contact inquiry persistence through the existing installation quote endpoint.
