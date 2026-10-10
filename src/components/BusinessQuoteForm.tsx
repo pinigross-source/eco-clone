@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import type { z } from "zod";
 import { CheckCircle2, Loader2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,7 +13,7 @@ import { businessQuoteSchema, businessSpaceTypes, type BusinessQuoteData } from 
 export function BusinessQuoteForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
-  const { register, handleSubmit, setValue, formState: { errors, isSubmitting } } = useForm<BusinessQuoteData>({ resolver: zodResolver(businessQuoteSchema), defaultValues: { source: "business", company: "", phone: "", area: "", needs: "", spaceType: "" } });
+  const { register, handleSubmit, setValue, formState: { errors, isSubmitting } } = useForm<z.input<typeof businessQuoteSchema>, unknown, BusinessQuoteData>({ resolver: zodResolver(businessQuoteSchema), defaultValues: { source: "business", company: "", phone: "", area: "", needs: "", spaceType: "" } });
   async function submit(data: BusinessQuoteData) {
     setError("");
     try {
