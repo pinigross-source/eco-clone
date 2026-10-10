@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { createClient } from "@supabase/supabase-js";
+import { businessQuoteSchema, businessQuoteMessage, BUSINESS_QUOTE_SUBJECT } from "@/lib/businessQuote";
 
 const Schema = z.object({
   name: z.string().min(1).max(200),
@@ -14,11 +16,34 @@ export const Route = createFileRoute("/api/public/installation-quote")({
       POST: async ({ request }) => {
         try {
           const json = await request.json();
-          const parsed = Schema.safeParse(json);
+          const isBusiness = json?.source === "business";
+          const business = isBusiness ? businessQuoteSchema.safeParse(json) : undefined;
+          const parsed = isBusiness && business?.success
+            ? Schema.safeParse({ name: business.data.name, email: business.data.email, subject: BUSINESS_QUOTE_SUBJECT, message: businessQuoteMessage(business.data) })
+            : isBusiness ? Schema.safeParse({}) : Schema.safeParse(json);
           if (!parsed.success) {
             return Response.json({ success: false, error: "Invalid input" }, { status: 400 });
           }
           const { name, email, subject, message } = parsed.data;
+
+          // Public, insert-only form submission: use the anonymous client and the
+          // existing contact_inquiries INSERT policy, never privileged access.
+          if (isBusiness) {
+            const url = process.env["SUPABASE_URL"];
+            const key = process.env["SUPABASE_PUBLISHABLE_KEY"];
+            if (!url || !key) return Response.json({ success: false, error: "Your request could not be saved. Please call (833) 692-3883." }, { status: 503 });
+            const client = createClient(url, key, {
+              auth: { persistSession: false, autoRefreshToken: false },
+              global: { fetch: (input, init) => {
+                const headers = new Headers(init?.headers);
+                if (key.startsWith("sb_") && headers.get("Authorization") === `Bearer ${key}`) headers.delete("Authorization");
+                headers.set("apikey", key);
+                return fetch(input, { ...init, headers });
+              } },
+            });
+            const { error } = await client.from("contact_inquiries").insert({ name, email, subject, message, status: "new" });
+            if (error) return Response.json({ success: false, error: "Your request could not be saved. Please try again or call (833) 692-3883." }, { status: 500 });
+          }
 
           const html = `
             <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:24px;color:#111">
@@ -32,7 +57,7 @@ export const Route = createFileRoute("/api/public/installation-quote")({
 
           const { sendLoggedEmail } = await import("@/lib/emailLog.server");
           const result = await sendLoggedEmail({
-            templateName: "installation-quote",
+            templateName: isBusiness ? "business-facility-quote" : "installation-quote",
             from: "EnviroBiotics Website <hello@contact.envirobiotics.com>",
             to: ["contact@envirobiotics.com"],
             replyTo: email,
@@ -43,7 +68,7 @@ export const Route = createFileRoute("/api/public/installation-quote")({
 
           if (!result.ok) {
             return Response.json(
-              { success: false, error: "Failed to send", messageId: result.messageId },
+              { success: false, error: isBusiness ? "Your request was saved, but the email could not be sent. Please call (833) 692-3883 to confirm." : "Failed to send", messageId: result.messageId },
               { status: result.providerStatus ? 502 : 500 },
             );
           }

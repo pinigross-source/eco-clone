@@ -109,6 +109,13 @@
   --eyebrow-accent: 150 12% 28%;
 }
 
+/* Facility-page tokens are scoped so the rest of the site is unchanged. */
+.business-page {
+  --primary: 24 95% 53%;
+  --primary-foreground: 0 0% 6%;
+  --color-business-dark: oklch(0.18 0 0);
+}
+
 /* Bobby landing page — EnviroBiotics editorial palette overrides */
 .bobby-page {
   --background: 150 20% 97%;

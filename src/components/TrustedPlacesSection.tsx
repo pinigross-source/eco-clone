@@ -39,7 +39,7 @@ const logos = [
 
 const track = [...logos, ...logos];
 
-export const TrustedPlacesSection = () => {
+export const TrustedPlacesSection = ({ heading, hideClosing = false }: { heading?: string; hideClosing?: boolean } = {}) => {
   return (
     <section
       aria-label="Trusted by leading venues"
@@ -49,7 +49,7 @@ export const TrustedPlacesSection = () => {
         <div className="mb-8 flex flex-col items-center gap-5 sm:mb-12">
           <span className="h-px w-16 bg-eyebrow-accent sm:w-20" />
           <p className="font-display font-medium text-[1.05rem] sm:text-[1.35rem] lg:text-[1.5rem] leading-[1.4] text-muted-foreground text-balance text-center max-w-4xl">
-            EnviroBiotics already protect people in Hospitals, emergency care, nursing homes, schools, Hotels, and airports.
+            {heading ?? "EnviroBiotics already protect people in Hospitals, emergency care, nursing homes, schools, Hotels, and airports."}
           </p>
           <span className="h-px w-16 bg-eyebrow-accent sm:w-20" />
         </div>
@@ -89,9 +89,9 @@ export const TrustedPlacesSection = () => {
           </motion.div>
         </Link>
 
-        <h3 className="mx-auto mt-8 max-w-3xl text-balance text-center font-display text-[1.125rem] font-medium leading-[1.3] text-foreground sm:mt-10 sm:text-[1.5rem] lg:max-w-5xl lg:text-[1.75rem]">
+        {!hideClosing && <h3 className="mx-auto mt-8 max-w-3xl text-balance text-center font-display text-[1.125rem] font-medium leading-[1.3] text-foreground sm:mt-10 sm:text-[1.5rem] lg:max-w-5xl lg:text-[1.75rem]">
           Let EnviroBiotics protect everyone at your home, office, and on the go.
-        </h3>
+        </h3>}
       </div>
     </section>
   );

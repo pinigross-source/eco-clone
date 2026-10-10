@@ -1,0 +1,4 @@
+/* Business-only presentation, using the scoped global semantic tokens. */
+.business-page .business-dark { background: var(--color-business-dark); }
+.business-page .business-hero-title { font-family: "Manrope", var(--font-display); }
+.business-page :is(h1, h2, h3, a, button) { letter-spacing: 0; }
