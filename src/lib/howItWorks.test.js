@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'bun:test';
-import { explainerProducts, explainerTrial } from './howItWorks';
+import { explainerProducts, explainerTrial, explainerFaqs, settleSteps } from './howItWorks';
 describe('explainer product and trial rules', () => {
   it('Mini costs $98', () => expect(explainerProducts[0].price).toBe(98));
   it('Mini covers up to 300 sq ft', () => expect(explainerProducts[0].coverage).toBe(300));
@@ -10,4 +10,6 @@ describe('explainer product and trial rules', () => {
   it('trial lasts 30 days', () => expect(explainerTrial.days).toBe(30));
   it('trial starts at delivery', () => expect(explainerTrial.startsAt).toBe('delivery'));
   it('return shipping is covered', () => expect(explainerTrial.returnShippingPaid).toBe(true));
+  it('surfaces-and-air FAQ is the second question', () => expect(explainerFaqs[1].question).toBe('If it works on surfaces, does it help the air too?'));
+  it('settle cycle has four steps', () => expect(settleSteps).toHaveLength(4));
 });
