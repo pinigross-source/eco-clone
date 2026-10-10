@@ -17,8 +17,10 @@ import ecoHvac from '@/assets/hiw-eco-hvac.jpg';
 import ecoZones from '@/assets/hiw-eco-zones.jpg';
 import ecoHidden from '@/assets/hiw-eco-hidden.jpg';
 import release from '@/assets/how-it-works/release.mp4.asset.json';
+import releaseWebm from '@/assets/how-it-works/release.webm.asset.json';
 import studio from '@/assets/how-it-works/mini-studio.png.asset.json';
 import alwaysOn from '@/assets/how-it-works/always-on.mp4.asset.json';
+import alwaysOnWebm from '@/assets/how-it-works/always-on.webm.asset.json';
 import pets from '@/assets/how-it-works/pets.png.asset.json';
 import mini from '@/assets/how-it-works/mini-living.png.asset.json';
 import biotica from '@/assets/how-it-works/biotica-room.png.asset.json';
@@ -72,7 +74,7 @@ export default function HowItWorksPage() {
             <Button variant="outline" size="lg" onClick={() => setVideoOpen(true)}><Play /> Watch how it works (2 min)</Button>
           </div>
         </div>
-        <div className="mx-auto max-w-[1320px] px-5 sm:px-8"><ExplainerVideo eager src={release.url} poster={studio.url} label="BioLogic Mini releasing a short mist from its front nozzle, then stopping" className="rounded-2xl" /></div>
+        <div className="mx-auto max-w-[1320px] px-5 sm:px-8"><ExplainerVideo eager src={release.url} webm={releaseWebm.url} poster={studio.url} label="BioLogic Mini releasing a short mist from its front nozzle, then stopping" className="rounded-2xl" /></div>
       </section>
 
       <section className="hiw-dark py-16 sm:py-24">
@@ -103,7 +105,7 @@ export default function HowItWorksPage() {
 
       <section className="hiw-dark">
         <div className="relative">
-          <ExplainerVideo src={alwaysOn.url} poster={pets.url} label="EnviroBiotics working quietly in a home with pets" className="hiw-always-video" />
+          <ExplainerVideo src={alwaysOn.url} webm={alwaysOnWebm.url} poster={pets.url} label="EnviroBiotics working quietly in a home with pets" className="hiw-always-video" />
           <div className="hiw-video-overlay absolute inset-0 flex items-end pointer-events-none"><div className={`${container} w-full pb-8 sm:pb-14`}>
             <p className="text-primary font-semibold text-sm mb-3">Always on</p><p className="font-display text-3xl sm:text-5xl font-semibold max-w-xl text-balance">Set it once. It keeps working.</p>
           </div></div>

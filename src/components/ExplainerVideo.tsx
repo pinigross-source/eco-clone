@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 /** Poster-first, viewport-gated media; never loads video with reduced motion. */
-export function ExplainerVideo({ src, poster, label, eager = false, className = '' }: { src: string; poster: string; label: string; eager?: boolean; className?: string }) {
+export function ExplainerVideo({ src, webm, poster, label, eager = false, className = '' }: { src: string; webm: string; poster: string; label: string; eager?: boolean; className?: string }) {
   const container = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const [reduced, setReduced] = useState<boolean | null>(null);
@@ -30,6 +30,6 @@ export function ExplainerVideo({ src, poster, label, eager = false, className = 
   }, [visible, reduced, near]);
   return <div ref={container} className={`relative overflow-hidden aspect-video ${className}`} role="img" aria-label={label}>
     <img src={poster} alt="" loading={eager ? 'eager' : 'lazy'} fetchPriority={eager ? 'high' : 'auto'} decoding="async" className="absolute inset-0 h-full w-full object-cover" />
-    {near && reduced === false && <video ref={video} src={src} poster={poster} autoPlay={visible} muted loop playsInline preload={eager ? 'auto' : 'metadata'} aria-hidden="true" onCanPlay={() => setReady(true)} className={`absolute inset-0 h-full w-full object-cover ${ready ? 'opacity-100' : 'opacity-0'}`} />}
+    {near && reduced === false && <video ref={video} poster={poster} autoPlay={visible} muted loop playsInline preload={eager ? 'auto' : 'metadata'} aria-hidden="true" onCanPlay={() => setReady(true)} className={`absolute inset-0 h-full w-full object-cover ${ready ? 'opacity-100' : 'opacity-0'}`}><source src={webm} type="video/webm" /><source src={src} type="video/mp4" /></video>}
   </div>;
 }
