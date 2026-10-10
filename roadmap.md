@@ -1,5 +1,8 @@
 # Roadmap
 
+- [ ] Add 3D coverage and HVAC-lungs sections only to the how-it-works page, with updated copy and FAQ data.
+- [ ] Verify new anchors, diagram, business links, FAQ schema and mobile layout; keep unpublished.
+
 - [x] Expand only the how-it-works explainer with science, four indoor issues, timeline, safety, lab evidence and ten FAQs.
 - [x] Verify jump links, videos, FAQ schema and mobile layout; keep unpublished.
 
