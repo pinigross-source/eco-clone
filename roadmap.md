@@ -1,6 +1,7 @@
 # Roadmap
 
 - [x] Add 3D coverage and HVAC-lungs sections only to the how-it-works page, with updated copy and FAQ data.
+- [x] Add the settle-cycle section, the surfaces-help-the-air FAQ and the updated air-purifier comparison to /how-it-works only.
 - [x] Verify new anchors, diagram, business links, FAQ schema and mobile layout; keep unpublished.
 
 - [x] Expand only the how-it-works explainer with science, four indoor issues, timeline, safety, lab evidence and ten FAQs.

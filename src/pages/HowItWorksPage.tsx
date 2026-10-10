@@ -1,5 +1,5 @@
-import { lazy, Suspense, useState } from 'react';
-import { ArrowRight, Play, Check, ShieldCheck, Sparkles, Wind, SprayCan, Droplets, Layers, Laptop } from 'lucide-react';
+import { Fragment, lazy, Suspense, useState } from 'react';
+import { ArrowRight, Play, Check, ShieldCheck, Sparkles, Wind, SprayCan, Droplets, Layers, Laptop, MoveDown, MoveRight } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { SEOHead, howToJsonLd, makeBreadcrumbJsonLd } from '@/components/SEOHead';
 import { Button } from '@/components/ui/button';
@@ -8,7 +8,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/
 import { ExplainerVideo } from '@/components/ExplainerVideo';
 import { Link } from '@/lib/link';
 import { shopifyAllProducts, shopifyProductUrl } from '@/lib/shopify';
-import { explainerProducts, explainerFaqs, explainerTrial } from '@/lib/howItWorks';
+import { explainerProducts, explainerFaqs, explainerTrial, settleSteps } from '@/lib/howItWorks';
 import girlGreen from '@/assets/girl-green.avif.asset.json';
 import ecoSurfaces from '@/assets/hiw-eco-surfaces.jpg';
 import ecoObjects from '@/assets/hiw-eco-objects.jpg';
@@ -52,7 +52,7 @@ const indoorIssues = [
 const comparisons = [
   { icon: SprayCan, title: 'Sprays and candles', text: 'Cover the smell for a few hours. Nothing underneath changes.' },
   { icon: Droplets, title: 'Disinfectants', text: 'Wipe a surface clean for a moment. Bacteria and spores settle right back, and nothing is left to hold the space.' },
-  { icon: Wind, title: 'Air purifiers', text: 'Clean the air that passes through them. What has already settled on fabrics and in the ducts stays there.' },
+  { icon: Wind, title: 'Air purifiers', text: 'Clean the air that passes through them. What has already settled on fabrics and in the ducts stays there, and gets stirred back up.' },
   { icon: Sparkles, title: 'EnviroBiotics', text: 'Works on the air, the surfaces and the objects themselves, all day, every day, topped up every few minutes.' },
 ];
 const coverage = [
@@ -116,7 +116,7 @@ export default function HowItWorksPage() {
             <Button variant="hero" size="lg" asChild><Link to={shopifyAllProducts()}>Find your device <ArrowRight /></Link></Button>
             <Button variant="outline" size="lg" onClick={() => setVideoOpen(true)}><Play /> Watch how it works (2 min)</Button>
           </div>
-          <nav aria-label="Explore how it works" className="flex flex-wrap justify-center gap-2 mb-12">{[['What lives in your home', 'what'], ['The science', 'science'], ['3D coverage', 'coverage'], ['Your home has lungs', 'lungs'], ['What to expect', 'timeline'], ['Is it safe?', 'safety'], ['Choose a device', 'shop']].map(([label, id]) => <Button key={id} variant="outline" size="sm" asChild><a href={`#${id}`}>{label}</a></Button>)}</nav>
+          <nav aria-label="Explore how it works" className="flex flex-wrap justify-center gap-2 mb-12">{[['What lives in your home', 'what'], ['Why surfaces matter', 'settle'], ['The science', 'science'], ['3D coverage', 'coverage'], ['Your home has lungs', 'lungs'], ['What to expect', 'timeline'], ['Is it safe?', 'safety'], ['Choose a device', 'shop']].map(([label, id]) => <Button key={id} variant="outline" size="sm" asChild><a href={`#${id}`}>{label}</a></Button>)}</nav>
         </div>
         <div className="mx-auto max-w-[1320px] px-5 sm:px-8"><ExplainerVideo eager src={release.url} webm={releaseWebm.url} poster={studio.url} label="BioLogic Mini releasing a short mist from its front nozzle, then stopping" className="rounded-2xl" /></div>
       </section>
@@ -129,6 +129,30 @@ export default function HowItWorksPage() {
           <img src={issue.img} alt={issue.title} loading="lazy" decoding="async" className="w-full aspect-[4/3] object-cover" />
           <div className="p-5"><p className="text-sm font-semibold text-primary mb-3">{issue.label}</p><h3 className="font-display text-xl font-semibold">{issue.title}</h3><dl className="mt-5 text-sm leading-relaxed"><dt className="font-semibold">Where it hides</dt><dd className="text-muted-foreground mt-1">{issue.hides}</dd><dt className="font-semibold mt-4">Why it comes back</dt><dd className="text-muted-foreground mt-1">{issue.returns}</dd></dl></div>
         </article>)}</div>
+      </div></section>
+
+      <section id="settle" className="py-16 sm:py-24 bg-muted/40"><div className={container}>
+        <p className="text-sm font-semibold text-primary mb-5">From the air to the surfaces, and back again</p>
+        <h2 className={heading}>What's in the air doesn't stay in the air.</h2>
+        <p className="mt-6 max-w-3xl text-lg text-muted-foreground leading-relaxed">Bacteria, mold spores, allergens and dust are heavier than air. Sooner or later they settle onto floors, fabrics and the objects you touch, and those surfaces become a reservoir of contamination that feeds the air again and again.</p>
+        <div className="grid lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-stretch gap-6 lg:gap-3 mt-12">
+          {settleSteps.map((step, i) => <Fragment key={step.title}>
+            <article className="rounded-lg border border-border bg-card p-6">
+              <span aria-hidden="true" className={`font-display text-xl font-semibold w-11 h-11 rounded-full inline-flex items-center justify-center ${i === 2 ? 'bg-primary text-primary-foreground' : 'bg-foreground text-background'}`}>{i + 1}</span>
+              <h3 className="font-display text-lg font-semibold mt-4 leading-snug">{step.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mt-2">{step.text}</p>
+              {i === 3 && <p className="text-primary text-sm font-semibold mt-4">↻ Back to step 1</p>}
+            </article>
+            {i < 3 && <Fragment>
+              <MoveRight aria-hidden="true" className="hidden lg:block w-6 h-6 text-muted-foreground self-center" />
+              <MoveDown aria-hidden="true" className="lg:hidden w-6 h-6 text-muted-foreground mx-auto" />
+            </Fragment>}
+          </Fragment>)}
+        </div>
+        <div className="hiw-dark rounded-lg mt-12 p-8 sm:p-10 grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+          <h3 className="font-display text-2xl sm:text-3xl font-semibold leading-tight">Cleaner surfaces mean <span className="text-primary">cleaner air.</span></h3>
+          <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">By reducing contamination on surfaces and objects, EnviroBiotics shrinks the reservoir itself, so less of it returns to the room with every movement you make. Air purifiers can only catch what is already floating; EnviroBiotics works on the place it comes back from.</p>
+        </div>
       </div></section>
 
       <section className="hiw-dark py-16 sm:py-24"><div className={container}>
