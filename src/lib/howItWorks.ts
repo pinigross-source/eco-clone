@@ -6,6 +6,7 @@ export const explainerProducts = [
 export const explainerTrial = { days: 30, startsAt: 'delivery', returnShippingPaid: true } as const;
 export const explainerFaqs = [
   { question: 'Is it an air purifier?', answer: "No. It doesn't filter air. It releases natural probiotics that travel with the air and settle on surfaces, fabrics and objects, where odor-causing bacteria, mold and allergens build up, and keep working there." },
+  { question: 'If it works on surfaces, does it help the air too?', answer: 'Yes. Most of what floats in a room has settled on a surface before and gets stirred back up every time someone walks, sits or shakes out a blanket. Less contamination on surfaces and objects means less of it returning to the air.' },
   { question: "Wait, you're adding bacteria to my home?", answer: 'Yes, the good kind. Every surface already carries microbes; EnviroBiotics adds beneficial probiotics so they, not odor-causing bacteria and mold, take up the space. The product is EPA registered (Reg. No. 94339-1); use it as the label directs.' },
   { question: 'Does it help with allergies?', answer: "It works on allergen proteins from dust mites, pet dander and mold on the surfaces where they settle. In lab testing, allergen levels on treated surfaces dropped within 8 days. It is not a medical device and does not treat any condition; keep following your doctor's advice." },
   { question: 'Does it clean my air ducts?', answer: "The E-Biotic Pro does: it connects to your HVAC so the probiotics travel through the ductwork and settle on its inner surfaces, then reach every room. The BioLogic Mini and Biotica 800 work room by room and don't reach inside ducts." },
@@ -17,3 +18,9 @@ export const explainerFaqs = [
   { question: 'How often do I change the cartridge?', answer: 'About every 90 days. Auto-Refill can send them for you.' },
   { question: 'Is it noisy?', answer: 'The BioLogic Mini runs under 25 dB, quiet enough for a nightstand.' },
 ];
+export const settleSteps = [
+  { title: 'They settle', text: 'Airborne particles drift down onto rugs, couches, bedding, counters and toys.' },
+  { title: 'They build up', text: 'Surfaces collect a little more every hour, and fabrics hold on to it deep in the fibers.' },
+  { title: 'They get stirred back up', text: 'Every step across the rug, every sit-down on the couch, every shaken blanket or pet jumping off the bed lifts part of it back into the air. Scientists call this resuspension.' },
+  { title: 'You breathe it, then it settles again', text: 'The particles float for a while, land again, and the cycle repeats all day long.' },
+] as const;
