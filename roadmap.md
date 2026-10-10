@@ -1,7 +1,7 @@
 # Roadmap
 
-- [ ] Expand only the how-it-works explainer with science, four indoor issues, timeline, safety, lab evidence and ten FAQs.
-- [ ] Verify jump links, videos, FAQ schema and mobile layout; keep unpublished.
+- [x] Expand only the how-it-works explainer with science, four indoor issues, timeline, safety, lab evidence and ten FAQs.
+- [x] Verify jump links, videos, FAQ schema and mobile layout; keep unpublished.
 
 - [x] Refresh only `/how-it-works` with the ten requested sections, media, buying paths and metadata.
 - [x] Verify videos, reduced motion, FAQ, product links and 375px layout; keep unpublished.
