@@ -47,9 +47,9 @@ const rows: Row[] = [
     eyebrow: "For Pet Homes",
     tag: "Pets",
     title: "Love the pet.",
-    italic: "Not the dander.",
+    italic: "Not the smell.",
     body:
-      "Pet dander, allergens, microbes, and odors don't stay in the air. They settle on furniture, bedding, rugs, and even your pet's coat and skin, contributing to odors, allergies, and general discomfort.",
+      "Pet odor, dander and allergens don't stay in the air. They settle into the couch, the bedding, the rug and the pet bed, which is why the smell comes back a day after you clean. Natural probiotics keep working right there, every day.",
     pairedTitle: "What you get",
     pairedBody:
       "EnviroBiotics® restores the natural balance of your indoor ecosystem, helping reduce pet dander, harmful pathogens, allergens, and odor-causing microbes on the surfaces your pets contact every day. The result is a fresher, healthier home for both pets and people.",
