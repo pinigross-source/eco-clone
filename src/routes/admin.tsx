@@ -8,7 +8,7 @@ export const Route = createFileRoute("/admin")({
     const { data: userData, error: userErr } = await supabase.auth.getUser();
     if (userErr || !userData?.user) {
       throw redirect({
-        to: "/auth",
+        to: "/staff-login",
         search: { redirect: location.href } as never,
       });
     }

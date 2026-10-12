@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { ArrowRight, Check, Mail, Star, Wind, Home, Infinity as InfinityIcon, Sparkles, Waves, Microscope } from "lucide-react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { META15_DISCOUNT_CODE, shopifyDiscountUrl } from "@/lib/shopify";
+import { ArrowRight, Check, Star, Wind, Home, Infinity as InfinityIcon, Sparkles, Waves, Microscope } from "lucide-react";
 import { Link } from "@/lib/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,7 +18,6 @@ import {
 } from "@/components/ui/accordion";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { trackFBEvent } from "@/lib/fb-pixel";
 import { CompactTrustStrip, GUARANTEE_BODY, GUARANTEE_FAQ_QUESTION, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrackedShopLink, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
 import { OfferLanding, type LandingPageProps } from "@/components/landing/OfferLanding";
 import { formatPrice, useOffer } from "@/lib/offer";
@@ -184,57 +184,25 @@ function Testimonials() {
 }
 
 function ExitOffer({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-
-  const submit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setStatus("sending");
-    const response = await fetch("/api/public/pets-offer", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, website: "" }),
-    }).catch(() => null);
-    if (response?.ok) {
-      setStatus("sent");
-      trackEvent("submit_pets_exit_offer");
-      trackFBEvent("Lead", { content_name: "pets_exit_offer" });
-      try { localStorage.setItem(EXIT_DONE_KEY, "1"); } catch { /* storage unavailable */ }
-    } else {
-      setStatus("error");
-    }
+  const offerUrl = shopifyDiscountUrl(META15_DISCOUNT_CODE, "/products/biologic-mini");
+  const markDone = () => {
+    trackEvent("click_pets_exit_offer");
+    try { localStorage.setItem(EXIT_DONE_KEY, "1"); } catch { /* storage unavailable */ }
   };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md rounded-2xl border-0 p-7 sm:p-9">
-        {status === "sent" ? (
-          <>
-            <DialogHeader>
-              <DialogTitle className="pr-6 text-[28px] leading-tight">Done - check your inbox 📬</DialogTitle>
-              <DialogDescription className="pt-2 text-[16px] leading-relaxed">Your one-click link is on its way. The 15% applies automatically.</DialogDescription>
-            </DialogHeader>
-            <Button size="lg" className="mt-3 w-full" onClick={() => onOpenChange(false)}>Keep browsing</Button>
-          </>
-        ) : (
-          <>
-            <DialogHeader>
-              <DialogTitle className="pr-6 text-[28px] leading-tight">Not ready yet?</DialogTitle>
-              <DialogDescription className="pt-2 text-[16px] leading-relaxed">We’ll save your 15% and email you a one-click link to come back, it applies automatically. Backed by our 30-day Fresh Home Guarantee.</DialogDescription>
-            </DialogHeader>
-            <form onSubmit={submit} className="mt-2 space-y-3">
-              <label htmlFor="pets-offer-email" className="sr-only">Email address</label>
-              <div className="relative">
-                <Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <input id="pets-offer-email" type="email" required autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email address" className="h-12 w-full rounded-full border border-input bg-background pl-11 pr-4 text-sm outline-none focus:ring-2 focus:ring-ring" />
-              </div>
-              <Button type="submit" size="lg" className="w-full" disabled={status === "sending"}>{status === "sending" ? "Saving…" : "Save my 15%"}</Button>
-              <p className="text-center text-[11px] text-muted-foreground">No spam - just your discount link.</p>
-              <button type="button" onClick={() => onOpenChange(false)} className="mx-auto block text-xs font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground">No thanks</button>
-              {status === "error" ? <p className="text-center text-xs text-destructive">Please try again.</p> : null}
-            </form>
-          </>
-        )}
+        <DialogHeader>
+          <DialogTitle className="pr-6 text-[28px] leading-tight">Not ready yet?</DialogTitle>
+          <DialogDescription className="pt-2 text-[16px] leading-relaxed">Take your 15% with you. It applies automatically at checkout. Backed by our 30-day Fresh Home Guarantee.</DialogDescription>
+        </DialogHeader>
+        <div className="mt-2 space-y-3">
+          <Button asChild size="lg" className="w-full">
+            <a href={offerUrl} target="_top" onClick={markDone}>Apply my 15%</a>
+          </Button>
+          <button type="button" onClick={() => onOpenChange(false)} className="mx-auto block text-xs font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground">No thanks</button>
+        </div>
       </DialogContent>
     </Dialog>
   );

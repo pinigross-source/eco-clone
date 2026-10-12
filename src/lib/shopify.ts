@@ -1,3 +1,5 @@
+import { isAppKeptPath } from "@/lib/hosts";
+
 // Central Shopify integration helper.
 // All commerce (cart, checkout, accounts, orders) lives on the Shopify store.
 // This Lovable site is the marketing/content front-end and links out for any
@@ -5,7 +7,7 @@
 
 export const SHOPIFY_BASE =
   (import.meta.env.VITE_SHOPIFY_URL as string | undefined) ??
-  "https://shop.envirobiotics.com";
+  "https://envirobiotics.com";
 
 
 export type ShopOfferId = "guarantee" | "meta15";
@@ -13,8 +15,8 @@ export const META15_DISCOUNT_CODE = "META15";
 
 /**
  * The single source of truth for every outbound shop.envirobiotics.com URL.
- * guarantee -> https://shop.envirobiotics.com{productPath}
- * meta15    -> https://shop.envirobiotics.com/discount/META15?redirect={encoded productPath}
+ * guarantee -> https://envirobiotics.com{productPath}
+ * meta15    -> https://envirobiotics.com/discount/META15?redirect={encoded productPath}
  *
  * No hard-coded utm_source / utm_medium / utm_campaign here: the visitor's own
  * campaign params (saved in sessionStorage on the first page load of the
@@ -178,9 +180,16 @@ export function resolveShopifyUrl(to: string): string | null {
   }
   const productMatch = pathOnly.match(/^\/product\/([^/]+)$/);
   if (productMatch) {
-    // E-Biotic Pro has no Shopify product page; it stays on-site (/business).
-    if (isEbioticProSlug(productMatch[1])) return null;
+    // E-Biotic Pro has no Shopify product page; the store's /business covers it.
+    if (isEbioticProSlug(productMatch[1])) return `${SHOPIFY_BASE}/business`;
     return shopifyProductUrl(productMatch[1]);
+  }
+  if (pathOnly === "/contact" || pathOnly === "/support") {
+    return `${SHOPIFY_BASE}/pages/support`;
+  }
+  // Any other page this app no longer serves: same path on the store.
+  if (pathOnly.startsWith("/") && !to.startsWith("#") && !isAppKeptPath(pathOnly)) {
+    return `${SHOPIFY_BASE}${to}`;
   }
 
   return null;

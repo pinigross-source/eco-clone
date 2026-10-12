@@ -39,7 +39,7 @@ const CLICK_IDS = ["fbclid", "gclid", "gbraid", "wbraid", "ttclid", "msclkid"];
 function paramsFrom(url: string | null | undefined): URLSearchParams {
   if (!url) return new URLSearchParams();
   try {
-    return new URL(url, "https://shop.envirobiotics.com").searchParams;
+    return new URL(url, "https://envirobiotics.com").searchParams;
   } catch {
     return new URLSearchParams();
   }

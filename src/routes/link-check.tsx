@@ -14,7 +14,7 @@ export const Route = createFileRoute("/link-check")({
     if (typeof window === "undefined") return;
     const { data: userData } = await supabase.auth.getUser();
     if (!userData?.user) {
-      throw redirect({ to: "/auth", search: { redirect: location.href } as never });
+      throw redirect({ to: "/staff-login", search: { redirect: location.href } as never });
     }
     const { data: isAdmin } = await supabase.rpc("has_role", {
       _user_id: userData.user.id,
