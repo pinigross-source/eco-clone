@@ -3,6 +3,7 @@ import {
   Outlet,
   Link,
   createRootRouteWithContext,
+  redirect,
   useRouter,
   HeadContent,
   Scripts,
@@ -14,7 +15,7 @@ import { TestEnvironmentBanner } from "@/components/TestEnvironmentBanner";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { WordPressRedirectHandler } from "@/components/WordPressRedirectHandler";
 import { AttributionBeacon } from "@/components/AttributionBeacon";
-import { TidioChat } from "@/components/TidioChat";
+import { customerRedirectTarget } from "@/lib/hosts";
 import { GoogleAnalytics, GA_HEAD_SNIPPET } from "@/components/GoogleAnalytics";
 import { TriplePixelPageTracker, TRIPLE_PIXEL_HEAD_SNIPPET } from "@/components/TriplePixel";
 import { isTestEnv } from "@/lib/env";
@@ -78,6 +79,11 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  // Customer-facing pages live on the Shopify store; nothing renders here.
+  beforeLoad: ({ location }) => {
+    const target = customerRedirectTarget(location.pathname, location.searchStr ?? "");
+    if (target) throw redirect({ href: target, statusCode: 301, replace: true });
+  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -323,7 +329,6 @@ function RootComponent() {
       <ScrollToTop />
       <WordPressRedirectHandler />
       <AttributionBeacon />
-      <TidioChat collapsed />
       <Outlet />
     </QueryClientProvider>
   );
