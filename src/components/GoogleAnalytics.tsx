@@ -21,7 +21,12 @@ import { useRouterState } from "@tanstack/react-router";
  */
 export const GA_MEASUREMENT_ID = "G-E86NY68N0Y";
 
-export const GA_HOSTS = ["envirobiotics.com", "www.envirobiotics.com"];
+export const GA_HOSTS = [
+  "envirobiotics.com",
+  "www.envirobiotics.com",
+  "app.envirobiotics.com",
+  "shop.envirobiotics.com",
+];
 
 export const GA_COOKIE_DOMAIN = ".envirobiotics.com";
 
@@ -29,6 +34,7 @@ export const GA_LINKER_DOMAINS = [
   "envirobiotics.com",
   "www.envirobiotics.com",
   "shop.envirobiotics.com",
+  "app.envirobiotics.com",
 ];
 
 /** Review-only routes that must never be measured in the production property. */

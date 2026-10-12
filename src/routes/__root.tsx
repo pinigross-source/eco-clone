@@ -151,7 +151,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `(function () {
-  var SHOP_HOSTS = ["shop.envirobiotics.com"];
+  var SHOP_HOSTS = ["shop.envirobiotics.com", "envirobiotics.com", "www.envirobiotics.com"];
   var KEYS = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content",
               "fbclid","gclid","gbraid","wbraid","ttclid","msclkid"];
   var STORE_KEY = "eb_attribution";
