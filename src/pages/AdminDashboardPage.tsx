@@ -143,7 +143,7 @@ export default function AdminDashboardPage() {
     const { data: { session } } = await supabase.auth.getSession();
     
     if (!session) {
-      navigate({ to: "/auth", search: { redirect: "/admin" } });
+      navigate({ to: "/staff-login" });
       return;
     }
 
