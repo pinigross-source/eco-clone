@@ -29,7 +29,6 @@ import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ClarityRouteImport } from './routes/clarity'
 import { Route as CompetitiveExclusionRouteImport } from './routes/competitive-exclusion'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as DevToolsRouteImport } from './routes/dev-tools'
 import { Route as DormRouteImport } from './routes/dorm'
 import { Route as DustMiteAllergensRouteImport } from './routes/dust-mite-allergens'
 import { Route as EbioticProRefillRouteImport } from './routes/ebiotic-pro-refill'
@@ -99,11 +98,7 @@ import { Route as LpP3Between3n8qRouteImport } from './routes/lp.p3-between-3n8q
 import { Route as LpP4Learn5j6wRouteImport } from './routes/lp.p4-learn-5j6w'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 import { Route as SolutionsRoomRouteImport } from './routes/solutions.room'
-import { Route as ApiPublicComingSoonRouteImport } from './routes/api/public/coming-soon'
-import { Route as ApiPublicInstallationQuoteRouteImport } from './routes/api/public/installation-quote'
 import { Route as ApiPublicMetaAdsSyncRouteImport } from './routes/api/public/meta-ads-sync'
-import { Route as ApiPublicPetsOfferRouteImport } from './routes/api/public/pets-offer'
-import { Route as ApiPublicRefillRequestRouteImport } from './routes/api/public/refill-request'
 import { Route as ApiPublicResendWebhookRouteImport } from './routes/api/public/resend-webhook'
 import { Route as ApiPublicShopifyOrderRouteImport } from './routes/api/public/shopify-order'
 import { Route as ApiPublicTrackVisitRouteImport } from './routes/api/public/track-visit'
@@ -207,11 +202,6 @@ const CompetitiveExclusionRoute = CompetitiveExclusionRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DevToolsRoute = DevToolsRouteImport.update({
-  id: '/dev-tools',
-  path: '/dev-tools',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DormRoute = DormRouteImport.update({
@@ -563,30 +553,9 @@ const SolutionsRoomRoute = SolutionsRoomRouteImport.update({
   path: '/room',
   getParentRoute: () => SolutionsRoute,
 } as any)
-const ApiPublicComingSoonRoute = ApiPublicComingSoonRouteImport.update({
-  id: '/api/public/coming-soon',
-  path: '/api/public/coming-soon',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicInstallationQuoteRoute =
-  ApiPublicInstallationQuoteRouteImport.update({
-    id: '/api/public/installation-quote',
-    path: '/api/public/installation-quote',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const ApiPublicMetaAdsSyncRoute = ApiPublicMetaAdsSyncRouteImport.update({
   id: '/api/public/meta-ads-sync',
   path: '/api/public/meta-ads-sync',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicPetsOfferRoute = ApiPublicPetsOfferRouteImport.update({
-  id: '/api/public/pets-offer',
-  path: '/api/public/pets-offer',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicRefillRequestRoute = ApiPublicRefillRequestRouteImport.update({
-  id: '/api/public/refill-request',
-  path: '/api/public/refill-request',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicResendWebhookRoute = ApiPublicResendWebhookRouteImport.update({
@@ -631,7 +600,6 @@ export interface FileRoutesByFullPath {
   '/clarity': typeof ClarityRoute
   '/competitive-exclusion': typeof CompetitiveExclusionRoute
   '/contact': typeof ContactRoute
-  '/dev-tools': typeof DevToolsRoute
   '/dorm': typeof DormRoute
   '/dust-mite-allergens': typeof DustMiteAllergensRoute
   '/ebiotic-pro-refill': typeof EbioticProRefillRoute
@@ -701,11 +669,7 @@ export interface FileRoutesByFullPath {
   '/product/$slug': typeof ProductSlugRoute
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog/': typeof BlogIndexRoute
-  '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
-  '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
   '/api/public/meta-ads-sync': typeof ApiPublicMetaAdsSyncRoute
-  '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
-  '/api/public/refill-request': typeof ApiPublicRefillRequestRoute
   '/api/public/resend-webhook': typeof ApiPublicResendWebhookRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
   '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
@@ -732,7 +696,6 @@ export interface FileRoutesByTo {
   '/clarity': typeof ClarityRoute
   '/competitive-exclusion': typeof CompetitiveExclusionRoute
   '/contact': typeof ContactRoute
-  '/dev-tools': typeof DevToolsRoute
   '/dorm': typeof DormRoute
   '/dust-mite-allergens': typeof DustMiteAllergensRoute
   '/ebiotic-pro-refill': typeof EbioticProRefillRoute
@@ -802,11 +765,7 @@ export interface FileRoutesByTo {
   '/product/$slug': typeof ProductSlugRoute
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog': typeof BlogIndexRoute
-  '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
-  '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
   '/api/public/meta-ads-sync': typeof ApiPublicMetaAdsSyncRoute
-  '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
-  '/api/public/refill-request': typeof ApiPublicRefillRequestRoute
   '/api/public/resend-webhook': typeof ApiPublicResendWebhookRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
   '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
@@ -834,7 +793,6 @@ export interface FileRoutesById {
   '/clarity': typeof ClarityRoute
   '/competitive-exclusion': typeof CompetitiveExclusionRoute
   '/contact': typeof ContactRoute
-  '/dev-tools': typeof DevToolsRoute
   '/dorm': typeof DormRoute
   '/dust-mite-allergens': typeof DustMiteAllergensRoute
   '/ebiotic-pro-refill': typeof EbioticProRefillRoute
@@ -904,11 +862,7 @@ export interface FileRoutesById {
   '/product/$slug': typeof ProductSlugRoute
   '/solutions/room': typeof SolutionsRoomRoute
   '/blog/': typeof BlogIndexRoute
-  '/api/public/coming-soon': typeof ApiPublicComingSoonRoute
-  '/api/public/installation-quote': typeof ApiPublicInstallationQuoteRoute
   '/api/public/meta-ads-sync': typeof ApiPublicMetaAdsSyncRoute
-  '/api/public/pets-offer': typeof ApiPublicPetsOfferRoute
-  '/api/public/refill-request': typeof ApiPublicRefillRequestRoute
   '/api/public/resend-webhook': typeof ApiPublicResendWebhookRoute
   '/api/public/shopify-order': typeof ApiPublicShopifyOrderRoute
   '/api/public/track-visit': typeof ApiPublicTrackVisitRoute
@@ -937,7 +891,6 @@ export interface FileRouteTypes {
     | '/clarity'
     | '/competitive-exclusion'
     | '/contact'
-    | '/dev-tools'
     | '/dorm'
     | '/dust-mite-allergens'
     | '/ebiotic-pro-refill'
@@ -1007,11 +960,7 @@ export interface FileRouteTypes {
     | '/product/$slug'
     | '/solutions/room'
     | '/blog/'
-    | '/api/public/coming-soon'
-    | '/api/public/installation-quote'
     | '/api/public/meta-ads-sync'
-    | '/api/public/pets-offer'
-    | '/api/public/refill-request'
     | '/api/public/resend-webhook'
     | '/api/public/shopify-order'
     | '/api/public/track-visit'
@@ -1038,7 +987,6 @@ export interface FileRouteTypes {
     | '/clarity'
     | '/competitive-exclusion'
     | '/contact'
-    | '/dev-tools'
     | '/dorm'
     | '/dust-mite-allergens'
     | '/ebiotic-pro-refill'
@@ -1108,11 +1056,7 @@ export interface FileRouteTypes {
     | '/product/$slug'
     | '/solutions/room'
     | '/blog'
-    | '/api/public/coming-soon'
-    | '/api/public/installation-quote'
     | '/api/public/meta-ads-sync'
-    | '/api/public/pets-offer'
-    | '/api/public/refill-request'
     | '/api/public/resend-webhook'
     | '/api/public/shopify-order'
     | '/api/public/track-visit'
@@ -1139,7 +1083,6 @@ export interface FileRouteTypes {
     | '/clarity'
     | '/competitive-exclusion'
     | '/contact'
-    | '/dev-tools'
     | '/dorm'
     | '/dust-mite-allergens'
     | '/ebiotic-pro-refill'
@@ -1209,11 +1152,7 @@ export interface FileRouteTypes {
     | '/product/$slug'
     | '/solutions/room'
     | '/blog/'
-    | '/api/public/coming-soon'
-    | '/api/public/installation-quote'
     | '/api/public/meta-ads-sync'
-    | '/api/public/pets-offer'
-    | '/api/public/refill-request'
     | '/api/public/resend-webhook'
     | '/api/public/shopify-order'
     | '/api/public/track-visit'
@@ -1241,7 +1180,6 @@ export interface RootRouteChildren {
   ClarityRoute: typeof ClarityRoute
   CompetitiveExclusionRoute: typeof CompetitiveExclusionRoute
   ContactRoute: typeof ContactRoute
-  DevToolsRoute: typeof DevToolsRoute
   DormRoute: typeof DormRoute
   DustMiteAllergensRoute: typeof DustMiteAllergensRoute
   EbioticProRefillRoute: typeof EbioticProRefillRoute
@@ -1308,11 +1246,7 @@ export interface RootRouteChildren {
   LpP4Learn5j6wRoute: typeof LpP4Learn5j6wRoute
   ProductSlugRoute: typeof ProductSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
-  ApiPublicComingSoonRoute: typeof ApiPublicComingSoonRoute
-  ApiPublicInstallationQuoteRoute: typeof ApiPublicInstallationQuoteRoute
   ApiPublicMetaAdsSyncRoute: typeof ApiPublicMetaAdsSyncRoute
-  ApiPublicPetsOfferRoute: typeof ApiPublicPetsOfferRoute
-  ApiPublicRefillRequestRoute: typeof ApiPublicRefillRequestRoute
   ApiPublicResendWebhookRoute: typeof ApiPublicResendWebhookRoute
   ApiPublicShopifyOrderRoute: typeof ApiPublicShopifyOrderRoute
   ApiPublicTrackVisitRoute: typeof ApiPublicTrackVisitRoute
@@ -1458,13 +1392,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dev-tools': {
-      id: '/dev-tools'
-      path: '/dev-tools'
-      fullPath: '/dev-tools'
-      preLoaderRoute: typeof DevToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dorm': {
@@ -1950,39 +1877,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsRoomRouteImport
       parentRoute: typeof SolutionsRoute
     }
-    '/api/public/coming-soon': {
-      id: '/api/public/coming-soon'
-      path: '/api/public/coming-soon'
-      fullPath: '/api/public/coming-soon'
-      preLoaderRoute: typeof ApiPublicComingSoonRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/installation-quote': {
-      id: '/api/public/installation-quote'
-      path: '/api/public/installation-quote'
-      fullPath: '/api/public/installation-quote'
-      preLoaderRoute: typeof ApiPublicInstallationQuoteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/public/meta-ads-sync': {
       id: '/api/public/meta-ads-sync'
       path: '/api/public/meta-ads-sync'
       fullPath: '/api/public/meta-ads-sync'
       preLoaderRoute: typeof ApiPublicMetaAdsSyncRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/pets-offer': {
-      id: '/api/public/pets-offer'
-      path: '/api/public/pets-offer'
-      fullPath: '/api/public/pets-offer'
-      preLoaderRoute: typeof ApiPublicPetsOfferRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/refill-request': {
-      id: '/api/public/refill-request'
-      path: '/api/public/refill-request'
-      fullPath: '/api/public/refill-request'
-      preLoaderRoute: typeof ApiPublicRefillRequestRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/resend-webhook': {
@@ -2082,7 +1981,6 @@ const rootRouteChildren: RootRouteChildren = {
   ClarityRoute: ClarityRoute,
   CompetitiveExclusionRoute: CompetitiveExclusionRoute,
   ContactRoute: ContactRoute,
-  DevToolsRoute: DevToolsRoute,
   DormRoute: DormRoute,
   DustMiteAllergensRoute: DustMiteAllergensRoute,
   EbioticProRefillRoute: EbioticProRefillRoute,
@@ -2149,11 +2047,7 @@ const rootRouteChildren: RootRouteChildren = {
   LpP4Learn5j6wRoute: LpP4Learn5j6wRoute,
   ProductSlugRoute: ProductSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
-  ApiPublicComingSoonRoute: ApiPublicComingSoonRoute,
-  ApiPublicInstallationQuoteRoute: ApiPublicInstallationQuoteRoute,
   ApiPublicMetaAdsSyncRoute: ApiPublicMetaAdsSyncRoute,
-  ApiPublicPetsOfferRoute: ApiPublicPetsOfferRoute,
-  ApiPublicRefillRequestRoute: ApiPublicRefillRequestRoute,
   ApiPublicResendWebhookRoute: ApiPublicResendWebhookRoute,
   ApiPublicShopifyOrderRoute: ApiPublicShopifyOrderRoute,
   ApiPublicTrackVisitRoute: ApiPublicTrackVisitRoute,
