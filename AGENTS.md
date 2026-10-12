@@ -6,3 +6,5 @@
 - Business-only visual overrides live under the business-page scope; this preserves other pages when changing facility presentation.
 - Shared venue logos accept optional heading and closing-text controls with unchanged defaults; this allows reuse without redesigning the homepage.
 - Host-specific rules (CORS for /api/public/*, noindex on the app subdomain, per-host robots.txt) live in src/lib/hosts.ts and are applied in the src/server.ts wrapper; this keeps one app working on both the root domain and the app subdomain during the Shopify move.
+
+- This app is staff-only plus ad landing pages: src/lib/hosts.ts holds the kept-path list; every other page path is 301'd to the same path on the Shopify store (server.ts, root beforeLoad, catch-all) and in-app links resolve to the store via resolveShopifyUrl; this keeps all customer interaction on Shopify from one list.
