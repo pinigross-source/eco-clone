@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { META15_DISCOUNT_CODE, shopifyDiscountUrl } from "@/lib/shopify";
-import { ArrowRight, Check, Mail, Star, Wind, Home, Infinity as InfinityIcon, Sparkles, Waves, Microscope } from "lucide-react";
+import { ArrowRight, Check, Star, Wind, Home, Infinity as InfinityIcon, Sparkles, Waves, Microscope } from "lucide-react";
 import { Link } from "@/lib/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,7 +18,6 @@ import {
 } from "@/components/ui/accordion";
 import { SEOHead } from "@/components/SEOHead";
 import { trackEvent } from "@/lib/tracking";
-import { trackFBEvent } from "@/lib/fb-pixel";
 import { CompactTrustStrip, GUARANTEE_BODY, GUARANTEE_FAQ_QUESTION, GuaranteeBadge, MobileStickyShopCTA, OfferPrice, ProductDecisionBlock, TrackedShopLink, TrialGuaranteeSection } from "@/components/consumer/ConsumerCRO";
 import { OfferLanding, type LandingPageProps } from "@/components/landing/OfferLanding";
 import { formatPrice, useOffer } from "@/lib/offer";
