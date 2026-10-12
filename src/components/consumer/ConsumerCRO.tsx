@@ -172,7 +172,7 @@ export function TrialGuaranteeSection({
         ) : null}
         <p className="mt-4 text-base leading-relaxed text-foreground/75 sm:text-lg">{GUARANTEE_BODY}</p>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-          Cartridges are consumable and non-refundable. Return shipping is paid by the customer.
+          30-day money-back guarantee on the device. Return shipping is free for US orders. Cartridges are consumable and cannot be returned.
         </p>
         <a
           href={REFUND_POLICY_URL}
