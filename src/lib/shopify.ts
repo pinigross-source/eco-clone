@@ -5,7 +5,7 @@
 
 export const SHOPIFY_BASE =
   (import.meta.env.VITE_SHOPIFY_URL as string | undefined) ??
-  "https://shop.envirobiotics.com";
+  "https://envirobiotics.com";
 
 
 export type ShopOfferId = "guarantee" | "meta15";
@@ -13,8 +13,8 @@ export const META15_DISCOUNT_CODE = "META15";
 
 /**
  * The single source of truth for every outbound shop.envirobiotics.com URL.
- * guarantee -> https://shop.envirobiotics.com{productPath}
- * meta15    -> https://shop.envirobiotics.com/discount/META15?redirect={encoded productPath}
+ * guarantee -> https://envirobiotics.com{productPath}
+ * meta15    -> https://envirobiotics.com/discount/META15?redirect={encoded productPath}
  *
  * No hard-coded utm_source / utm_medium / utm_campaign here: the visitor's own
  * campaign params (saved in sessionStorage on the first page load of the
