@@ -1,0 +1,385 @@
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Link } from "@/lib/link";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { ShopAccountIcon, ShopCartIcon } from "@/components/ShopIcons";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/tracking";
+import { shopifyCart } from "@/lib/shopify";
+import { NavbarSearch } from "./NavbarSearch";
+import { buildShopUrl } from "@/lib/shopify";
+// Use public path to avoid bundling; preloaded in index.html
+const logo = "/assets/logo.avif";
+
+const ShopifyCartLink = () => (
+  <a
+    href={shopifyCart()}
+    aria-label="Open cart on Shopify"
+    title="Cart"
+    className="w-11 h-11 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95"
+  >
+    <ShopCartIcon className="w-[26px] h-[26px]" />
+  </a>
+);
+
+type NavItem = {
+  label: string;
+  href: string;
+  bold?: boolean;
+  dropdown?: { label: string; href: string }[];
+};
+
+const navLinks: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "How it works", href: "/how-it-works" },
+  {
+    label: "Products",
+    href: buildShopUrl("/"),
+    dropdown: [
+      { label: "BioLogic Mini", href: buildShopUrl("/products/biologic-mini") },
+      { label: "Biotica 800", href: buildShopUrl("/products/biotica-800") },
+      { label: "Subscribe & Save", href: "/subscribe" },
+    ],
+  },
+  {
+    label: "Resources",
+    href: "/education",
+    dropdown: [
+      { label: "Blog", href: "/blog" },
+      { label: "Videos", href: "/videos" },
+      { label: "Research & Case Studies", href: "/research" },
+      { label: "Help Center", href: "/support" },
+    ],
+  },
+  { label: "Shop", href: buildShopUrl("/") },
+];
+
+const businessLink: NavItem = { label: "Business", href: "/business", bold: true };
+
+const storeDropdown: NavItem = {
+  label: "Shop",
+  href: buildShopUrl("/"),
+};
+
+// Desktop dropdown component
+const NavDropdown = ({ item, scrolled, useLight }: { item: NavItem; scrolled: boolean; useLight: boolean }) => {
+  const [open, setOpen] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  const handleEnter = useCallback(() => {
+    clearTimeout(timeoutRef.current);
+    setOpen(true);
+  }, []);
+
+  const handleLeave = useCallback(() => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 150);
+  }, []);
+
+  if (!item.dropdown) {
+    const className = cn(
+      "relative px-3 py-2 text-[16px] font-bold transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap",
+      scrolled
+        ? "text-foreground hover:text-primary"
+        : useLight
+          ? "text-white hover:text-white/80"
+          : "text-foreground hover:text-primary"
+    );
+    if (/^https?:\/\//.test(item.href)) {
+      return (
+        <a href={item.href} target="_top" rel="noopener" className={className}>
+          {item.label}
+        </a>
+      );
+    }
+    return (
+      <Link to={item.href} className={className}>
+        {item.label}
+      </Link>
+    );
+  }
+
+  const isExternal = /^https?:\/\//.test(item.href);
+  const triggerClassName = cn(
+    "relative px-3 py-2 text-[16px] font-bold transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap",
+    scrolled
+      ? (open ? "text-primary" : "text-foreground hover:text-primary")
+      : useLight
+        ? (open ? "text-white" : "text-white hover:text-white/80")
+        : (open ? "text-primary" : "text-foreground hover:text-primary")
+  );
+
+  return (
+    <div className="relative group/dropdown" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+      {isExternal ? (
+        <a href={item.href} target="_top" rel="noopener" className={triggerClassName}>
+          {item.label}
+          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200 group-hover/dropdown:rotate-180 group-focus-within/dropdown:rotate-180", open && "rotate-180")} />
+        </a>
+      ) : (
+        <Link to={item.href} className={triggerClassName}>
+          {item.label}
+          <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200 group-hover/dropdown:rotate-180 group-focus-within/dropdown:rotate-180", open && "rotate-180")} />
+        </Link>
+      )}
+
+      <div
+        className={cn(
+          "absolute top-full left-0 pt-2 z-[10000] transition-all duration-200 group-hover/dropdown:opacity-100 group-hover/dropdown:translate-y-0 group-hover/dropdown:visible group-hover/dropdown:pointer-events-auto group-focus-within/dropdown:opacity-100 group-focus-within/dropdown:translate-y-0 group-focus-within/dropdown:visible group-focus-within/dropdown:pointer-events-auto",
+          open ? "opacity-100 translate-y-0 visible pointer-events-auto" : "opacity-0 -translate-y-1 invisible pointer-events-none"
+        )}
+      >
+      <div className="bg-background border border-border rounded-xl shadow-xl shadow-foreground/5 p-2 min-w-[280px]">
+        {item.dropdown.map(({ label, href }) => {
+          const itemExternal = /^https?:\/\//.test(href);
+          const itemClass = "block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-[16px] font-normal text-foreground";
+          return itemExternal ? (
+            <a key={label} href={href} target="_top" rel="noopener" className={itemClass} onClick={() => setOpen(false)}>
+              {label}
+            </a>
+          ) : (
+            <Link key={label} to={href} className={itemClass} onClick={() => setOpen(false)}>
+              {label}
+            </Link>
+          );
+        })}
+        <div className="border-t border-border mt-1 pt-1">
+          {isExternal ? (
+            <a
+              href={item.href}
+              target="_top"
+              rel="noopener"
+              className="block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-[16px] font-normal text-primary"
+              onClick={() => setOpen(false)}
+            >
+              View All {item.label}
+            </a>
+          ) : (
+            <Link
+              to={item.href}
+              className="block px-5 py-3 rounded-lg hover:bg-muted/60 transition-colors text-[16px] font-normal text-primary"
+              onClick={() => setOpen(false)}
+            >
+              View All {item.label}
+            </Link>
+          )}
+        </div>
+      </div>
+    </div>
+    </div>
+  );
+};
+
+export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [session, setSession] = useState<{ user: { email?: string } } | null>(null);
+  const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
+  const [isOverDark, setIsOverDark] = useState(false);
+
+  useEffect(() => {
+    let subscription: { unsubscribe: () => void } | null = null;
+    const timer = setTimeout(async () => {
+      const { supabase } = await import("@/integrations/supabase/client");
+      const { data } = supabase.auth.onAuthStateChange((_event, sess) => {
+        setSession(sess);
+      });
+      subscription = data.subscription;
+      supabase.auth.getSession().then(({ data: { session: sess } }) => {
+        setSession(sess);
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      subscription?.unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollHeight > 0 ? (window.scrollY / scrollHeight) * 100 : 0;
+      setScrollProgress(Math.min(progress, 100));
+
+      // Detect if navbar overlaps a dark hero section
+      const darkSection = document.querySelector('.hero-dark-section');
+      if (darkSection) {
+        const rect = darkSection.getBoundingClientRect();
+        setIsOverDark(rect.top < 80 && rect.bottom > 40);
+      } else {
+        setIsOverDark(false);
+      }
+    };
+    handleScroll(); // run once on mount
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Navbar is now always solid background, so always use dark text
+  const useLight = false;
+
+  return (
+    <>
+      <header
+        style={{ fontFamily: "'Montserrat', sans-serif", backgroundColor: "#F0F0F0" }}
+        className={cn(
+          "site-header fixed top-0 z-[9999] w-full transition-shadow duration-300",
+          scrolled ? "shadow-sm" : ""
+        )}
+      >
+        {/* Scroll Progress */}
+        <div
+          className={cn(
+            "absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary via-accent to-primary transition-opacity duration-300",
+            scrolled ? "opacity-100" : "opacity-0"
+          )}
+          style={{ width: `${scrollProgress}%` }}
+        />
+
+        <div className="site-header__inner site-container relative flex h-16 items-center lg:h-[124px]">
+          {/* Mobile: Hamburger + Search on left */}
+          <div className="lg:hidden absolute left-3 z-20 flex items-center gap-1">
+            <button
+              type="button"
+              className="flex h-11 w-11 touch-manipulation items-center justify-center text-foreground transition-transform active:scale-95"
+              onClick={() => setIsOpen((v) => !v)}
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+            >
+              <X className={cn("h-6 w-6 absolute transition-all duration-200", isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90")} />
+              <Menu className={cn("h-6 w-6 absolute transition-all duration-200", isOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0")} />
+            </button>
+            <div className="hidden sm:block"><NavbarSearch /></div>
+          </div>
+
+          {/* Logo */}
+          <Link to="/" className="flex items-center relative mx-auto lg:mx-0 lg:mr-4 flex-shrink-0">
+            <img
+              src={logo}
+              alt="EnviroBiotics - Environmental Probiotics"
+              className="h-9 sm:h-10 lg:h-16 w-auto"
+              width="210"
+              height="72"
+              fetchPriority="high"
+            />
+          </Link>
+
+          {/* Mobile: Cart on right */}
+          <div className="lg:hidden absolute right-3 z-20 flex items-center gap-1">
+            <ShopifyCartLink />
+          </div>
+
+          {/* Desktop Navigation - centered main tabs */}
+          <nav
+            aria-label="Main navigation"
+            className="hidden lg:flex flex-1 items-center justify-center gap-2 xl:gap-6"
+          >
+            {navLinks.map((link) => (
+              <NavDropdown key={link.label} item={link} scrolled={scrolled} useLight={useLight} />
+            ))}
+          </nav>
+
+          {/* Desktop: Business link separated from main tabs, near utility icons */}
+          <div className="hidden lg:flex items-center gap-1 flex-shrink-0">
+            <div className="h-6 w-px bg-border/60 mx-2 xl:mx-4" aria-hidden="true" />
+            <NavDropdown item={businessLink} scrolled={scrolled} useLight={useLight} />
+            <div className="h-6 w-px bg-border/60 mx-2 xl:mx-4" aria-hidden="true" />
+            <NavbarSearch />
+            <Link to="/account" title={session ? "My Account" : "Sign In"} aria-label={session ? "My Account on Shopify" : "Sign in on Shopify"}>
+              <div className="w-11 h-11 flex items-center justify-center text-foreground transition-transform hover:scale-110 active:scale-95">
+                <ShopAccountIcon className={cn("w-[26px] h-[26px]", session && "text-primary")} />
+              </div>
+            </Link>
+            <ShopifyCartLink />
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile menu */}
+      {isOpen && (
+        <div
+          className="lg:hidden fixed inset-0 z-[150] bg-foreground/20 backdrop-blur-sm"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+      <div
+        className={cn(
+          "site-mobile-menu lg:hidden fixed top-16 left-0 right-0 z-[200] border-b border-border shadow-xl transition-opacity duration-150 ease-out overflow-y-auto",
+          isOpen ? "max-h-[calc(100dvh-4rem)] opacity-100" : "max-h-0 opacity-0 pointer-events-none invisible"
+        )}
+        style={{ backgroundColor: "#F0F0F0", fontFamily: "'Montserrat', sans-serif" }}
+      >
+        <nav aria-label="Mobile navigation" className="container pt-4 pb-4 sm:pb-6 flex flex-col gap-0.5 sm:gap-1 px-4 sm:px-6">
+          {navLinks.map((link) => (
+            <div key={link.label}>
+              {link.dropdown ? (
+                <>
+                  <button
+                    type="button"
+                    aria-expanded={expandedMobile === link.label}
+                    className="w-full touch-manipulation text-[16px] font-bold text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
+                    onClick={() => setExpandedMobile((cur) => (cur === link.label ? null : link.label))}
+                  >
+                    <span>{link.label}</span>
+                    <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", expandedMobile === link.label && "rotate-180")} />
+                  </button>
+                  <div className={cn(
+                    "overflow-hidden transition-all duration-200",
+                    expandedMobile === link.label ? "max-h-[1200px] opacity-100" : "max-h-0 opacity-0 invisible"
+                  )}>
+                    <div className="pl-4 pr-2 pb-1 space-y-0.5">
+                      {link.dropdown.map(({ label, href }) => {
+                        const mExt = /^https?:\/\//.test(href);
+                        const mClass = "block px-3 py-3 transition-colors text-[15px] font-normal text-foreground hover:text-primary";
+                        return mExt ? (
+                          <a key={label} href={href} target="_top" rel="noopener" className={mClass} onClick={() => setIsOpen(false)}>{label}</a>
+                        ) : (
+                          <Link key={label} to={href} className={mClass} onClick={() => setIsOpen(false)}>{label}</Link>
+                        );
+                      })}
+                      <Link
+                        to={link.href}
+                        className="block px-3 py-3 text-[15px] font-normal text-primary"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        View All {link.label}
+                      </Link>
+                    </div>
+                  </div>
+                </>
+              ) : /^https?:\/\//.test(link.href) ? (
+                <a
+                  href={link.href}
+                  target="_top"
+                  rel="noopener"
+                  className="text-[16px] font-bold text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <span>{link.label}</span>
+                </a>
+              ) : (
+                <Link
+                  to={link.href}
+                  className="text-[16px] font-bold text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <span>{link.label}</span>
+                </Link>
+              )}
+            </div>
+          ))}
+          <div className="border-t border-border/60 my-2" />
+          <Link
+            to={businessLink.href}
+            className="text-[16px] font-bold text-foreground hover:text-primary px-3 sm:px-4 py-3 sm:py-4 transition-colors flex items-center justify-between"
+            onClick={() => setIsOpen(false)}
+          >
+            <span>{businessLink.label}</span>
+          </Link>
+        </nav>
+      </div>
+    </>
+  );
+};
