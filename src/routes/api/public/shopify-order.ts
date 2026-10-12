@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 /**
  * Shopify `orders/create` webhook.
  * Configure in Shopify Admin → Settings → Notifications → Webhooks:
- *   URL: https://envirobiotics.com/api/public/shopify-order
+ *   URL: https://app.envirobiotics.com/api/public/shopify-order
  *   Format: JSON
  * Then store the webhook signing secret as SHOPIFY_WEBHOOK_SECRET.
  */

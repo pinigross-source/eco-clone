@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { getRequest } from "@tanstack/react-start/server";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 type LinkResult = {
@@ -10,7 +11,6 @@ type LinkResult = {
 
 const MAX_PAGES = 80;
 const MAX_CONCURRENCY = 6;
-const ALLOWED_ORIGIN = "https://envirobiotics.com";
 
 function extractLinks(html: string): string[] {
   const out: string[] = [];
@@ -44,7 +44,8 @@ export const checkSiteLinks = createServerFn({ method: "POST" })
       throw new Response("Forbidden", { status: 403 });
     }
 
-    const origin = ALLOWED_ORIGIN;
+    // Crawl the host the admin is using (envirobiotics.com now, app.envirobiotics.com later).
+    const origin = new URL(getRequest().url).origin;
     const start = new URL("/", origin);
 
     const visited = new Map<string, LinkResult>();
