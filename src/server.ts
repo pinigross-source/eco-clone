@@ -2,7 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
-import { APP_ORIGIN, corsHeaders, injectNoindexMeta, isAppHost, isCorsAllowedOrigin } from "./lib/hosts";
+import { APP_ORIGIN, corsHeaders, customerRedirectTarget, injectNoindexMeta, isAppHost, isCorsAllowedOrigin } from "./lib/hosts";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -103,6 +103,13 @@ export default {
           status: 204,
           headers: isCorsAllowedOrigin(origin) ? corsHeaders(origin!) : { Vary: "Origin" },
         });
+      }
+      // Every customer-facing page now lives on the Shopify store.
+      if (request.method === "GET" || request.method === "HEAD") {
+        const target = customerRedirectTarget(url.pathname, url.search);
+        if (target) {
+          return new Response(null, { status: 301, headers: { Location: target, "X-Robots-Tag": "noindex, nofollow" } });
+        }
       }
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
