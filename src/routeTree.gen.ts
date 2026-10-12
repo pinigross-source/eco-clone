@@ -64,6 +64,7 @@ import { Route as ProductUseCasesRouteImport } from './routes/product-use-cases'
 import { Route as ProofAndTrustRouteImport } from './routes/proof-and-trust'
 import { Route as ProsubRouteImport } from './routes/prosub'
 import { Route as ResearchRouteImport } from './routes/research'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -384,6 +385,11 @@ const ResearchRoute = ResearchRouteImport.update({
   path: '/research',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SafetyRoute = SafetyRouteImport.update({
   id: '/safety',
   path: '/safety',
@@ -660,6 +666,7 @@ export interface FileRoutesByFullPath {
   '/proof-and-trust': typeof ProofAndTrustRoute
   '/prosub': typeof ProsubRouteWithChildren
   '/research': typeof ResearchRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -760,6 +767,7 @@ export interface FileRoutesByTo {
   '/proof-and-trust': typeof ProofAndTrustRoute
   '/prosub': typeof ProsubRouteWithChildren
   '/research': typeof ResearchRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -861,6 +869,7 @@ export interface FileRoutesById {
   '/proof-and-trust': typeof ProofAndTrustRoute
   '/prosub': typeof ProsubRouteWithChildren
   '/research': typeof ResearchRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/safety': typeof SafetyRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -963,6 +972,7 @@ export interface FileRouteTypes {
     | '/proof-and-trust'
     | '/prosub'
     | '/research'
+    | '/robots.txt'
     | '/safety'
     | '/shop'
     | '/sitemap.xml'
@@ -1063,6 +1073,7 @@ export interface FileRouteTypes {
     | '/proof-and-trust'
     | '/prosub'
     | '/research'
+    | '/robots.txt'
     | '/safety'
     | '/shop'
     | '/sitemap.xml'
@@ -1163,6 +1174,7 @@ export interface FileRouteTypes {
     | '/proof-and-trust'
     | '/prosub'
     | '/research'
+    | '/robots.txt'
     | '/safety'
     | '/shop'
     | '/sitemap.xml'
@@ -1264,6 +1276,7 @@ export interface RootRouteChildren {
   ProofAndTrustRoute: typeof ProofAndTrustRoute
   ProsubRoute: typeof ProsubRouteWithChildren
   ResearchRoute: typeof ResearchRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
   SafetyRoute: typeof SafetyRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -1692,6 +1705,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResearchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/safety': {
       id: '/safety'
       path: '/safety'
@@ -2097,6 +2117,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProofAndTrustRoute: ProofAndTrustRoute,
   ProsubRoute: ProsubRouteWithChildren,
   ResearchRoute: ResearchRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
   SafetyRoute: SafetyRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

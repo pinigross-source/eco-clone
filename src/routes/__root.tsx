@@ -151,7 +151,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `(function () {
-  var SHOP_HOSTS = ["shop.envirobiotics.com"];
+  var SHOP_HOSTS = ["shop.envirobiotics.com", "envirobiotics.com", "www.envirobiotics.com"];
   var KEYS = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content",
               "fbclid","gclid","gbraid","wbraid","ttclid","msclkid"];
   var STORE_KEY = "eb_attribution";
@@ -227,6 +227,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
     var url;
     try { url = new URL(href, window.location.href); } catch (e) { return href; }
     if (SHOP_HOSTS.indexOf(url.hostname) === -1) return href;
+    // While this app still runs on envirobiotics.com, its own internal links
+    // share that hostname: never decorate same-host navigation.
+    if (url.hostname === window.location.hostname) return href;
 
     var attr = load();
     if (attr) {

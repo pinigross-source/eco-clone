@@ -655,14 +655,14 @@ export function AffiliateManagementSection() {
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-1.5">
                         <code className="text-xs bg-muted px-2 py-1 rounded truncate max-w-[260px]">
-                          {`https://envirobiotics.com/aff/${a.affiliate_number ?? ""}/`}
+                          {`https://app.envirobiotics.com/aff/${a.affiliate_number ?? ""}/`}
                         </code>
                         <Button
                           size="sm"
                           variant="ghost"
                           className="h-7 w-7 p-0 shrink-0"
                           onClick={() => {
-                            navigator.clipboard.writeText(`https://envirobiotics.com/aff/${a.affiliate_number ?? ""}/`);
+                            navigator.clipboard.writeText(`https://app.envirobiotics.com/aff/${a.affiliate_number ?? ""}/`);
                             toast.success("Sharing URL copied!");
                           }}
                         >
@@ -744,13 +744,13 @@ export function AffiliateManagementSection() {
                 <Label className="text-xs text-muted-foreground mb-1 block">Sharing URL</Label>
                 <div className="flex items-center gap-2">
                   <code className="flex-1 text-sm bg-background px-3 py-2 rounded border border-border break-all">
-                    {`https://envirobiotics.com/aff/${selectedAffiliate.affiliate_number ?? ""}/`}
+                    {`https://app.envirobiotics.com/aff/${selectedAffiliate.affiliate_number ?? ""}/`}
                   </code>
                   <Button
                     size="sm"
                     variant="outline"
                     onClick={() => {
-                      navigator.clipboard.writeText(`https://envirobiotics.com/aff/${selectedAffiliate.affiliate_number ?? ""}/`);
+                      navigator.clipboard.writeText(`https://app.envirobiotics.com/aff/${selectedAffiliate.affiliate_number ?? ""}/`);
                       toast.success("Sharing URL copied!");
                     }}
                   >
