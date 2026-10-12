@@ -36,3 +36,15 @@
 
 - [x] Update all customer-facing shipping-rule wording and support hours without other changes.
 - [x] Add the requested first-screen conversion buttons, personalization, factual corrections, and observer-based mobile sticky bars.
+
+## Staff-only app conversion (Oct 12)
+- [ ] Shopify origin -> https://envirobiotics.com
+- [ ] Central 301 for old marketing/customer routes + catch-all
+- [ ] /staff-login, admin/link-check gate, dev-tools admin-only
+- [ ] Ad page links point to envirobiotics.com
+- [ ] /go/pets form -> discount button
+- [ ] Remove Tidio
+- [ ] Delete customer endpoints, revoke anon inserts
+- [ ] Remove unused customer account code
+- [ ] Disable sign-ups
+- [ ] sitemap 404 on app
