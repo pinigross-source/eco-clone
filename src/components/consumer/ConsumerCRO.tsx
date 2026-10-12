@@ -143,7 +143,7 @@ export function OfferPrice({
 
 /** Shared guarantee copy, also used as the answer of the FAQ item. */
 export const GUARANTEE_BODY =
-  "Probiotics need two to three weeks to settle into a room, so we give you a full 30 days from delivery. Run it, live with it, notice the difference. If you're not happy, send the device back for a full refund of the device price. No restocking fee.";
+  "Probiotics need two to three weeks to settle into a room, so we give you a full 30 days from delivery. Run it, live with it, notice the difference. If you're not happy, send the device back for a full refund of the device price. No restocking fee. Return shipping is free for US orders.";
 
 export const GUARANTEE_FAQ_QUESTION = "What if it doesn't work for me?";
 
@@ -172,7 +172,7 @@ export function TrialGuaranteeSection({
         ) : null}
         <p className="mt-4 text-base leading-relaxed text-foreground/75 sm:text-lg">{GUARANTEE_BODY}</p>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-          Cartridges are consumable and non-refundable. Return shipping is paid by the customer.
+          30-day money-back guarantee on the device. Return shipping is free for US orders. Cartridges are consumable and cannot be returned.
         </p>
         <a
           href={REFUND_POLICY_URL}
