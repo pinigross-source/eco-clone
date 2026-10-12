@@ -19,6 +19,7 @@ import { Route as LinkCheckRouteImport } from './routes/link-check'
 import { Route as ProsubRouteImport } from './routes/prosub'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as StaffLoginRouteImport } from './routes/staff-login'
 import { Route as AdminEmailsRouteImport } from './routes/admin.emails'
 import { Route as AffIdRouteImport } from './routes/aff.$id'
 import { Route as GoAllergyRouteImport } from './routes/go.allergy'
@@ -83,6 +84,11 @@ const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StaffLoginRoute = StaffLoginRouteImport.update({
+  id: '/staff-login',
+  path: '/staff-login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminEmailsRoute = AdminEmailsRouteImport.update({
@@ -172,6 +178,7 @@ export interface FileRoutesByFullPath {
   '/prosub': typeof ProsubRouteWithChildren
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/staff-login': typeof StaffLoginRoute
   '/admin/emails': typeof AdminEmailsRoute
   '/aff/$id': typeof AffIdRoute
   '/go/allergy': typeof GoAllergyRoute
@@ -199,6 +206,7 @@ export interface FileRoutesByTo {
   '/prosub': typeof ProsubRouteWithChildren
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/staff-login': typeof StaffLoginRoute
   '/admin/emails': typeof AdminEmailsRoute
   '/aff/$id': typeof AffIdRoute
   '/go/allergy': typeof GoAllergyRoute
@@ -227,6 +235,7 @@ export interface FileRoutesById {
   '/prosub': typeof ProsubRouteWithChildren
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/staff-login': typeof StaffLoginRoute
   '/admin/emails': typeof AdminEmailsRoute
   '/aff/$id': typeof AffIdRoute
   '/go/allergy': typeof GoAllergyRoute
@@ -256,6 +265,7 @@ export interface FileRouteTypes {
     | '/prosub'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/staff-login'
     | '/admin/emails'
     | '/aff/$id'
     | '/go/allergy'
@@ -283,6 +293,7 @@ export interface FileRouteTypes {
     | '/prosub'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/staff-login'
     | '/admin/emails'
     | '/aff/$id'
     | '/go/allergy'
@@ -310,6 +321,7 @@ export interface FileRouteTypes {
     | '/prosub'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/staff-login'
     | '/admin/emails'
     | '/aff/$id'
     | '/go/allergy'
@@ -338,6 +350,7 @@ export interface RootRouteChildren {
   ProsubRoute: typeof ProsubRouteWithChildren
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StaffLoginRoute: typeof StaffLoginRoute
   AffIdRoute: typeof AffIdRoute
   GoAllergyRoute: typeof GoAllergyRoute
   GoParentsRoute: typeof GoParentsRoute
@@ -423,6 +436,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/staff-login': {
+      id: '/staff-login'
+      path: '/staff-login'
+      fullPath: '/staff-login'
+      preLoaderRoute: typeof StaffLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/emails': {
@@ -565,6 +585,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProsubRoute: ProsubRouteWithChildren,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StaffLoginRoute: StaffLoginRoute,
   AffIdRoute: AffIdRoute,
   GoAllergyRoute: GoAllergyRoute,
   GoParentsRoute: GoParentsRoute,
